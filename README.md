@@ -11,7 +11,7 @@ In this challenge, you'll create a social media style post feed. There is no boi
 
 Fork and clone this repository to your machine.
 
-[Implement this design](./_assets/dashboard.png) using, as a minimum, these technologies:
+[Implement this design](./_assets/dashboard.png) using, as a minimum, the below listed technologies. Note: you may need to open the file directly on your machine to view it properly.
 
 - ReactJS
 - React Router DOM version 6.4 or above
