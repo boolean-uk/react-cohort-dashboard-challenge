@@ -27,13 +27,13 @@ You can use the command `npx create-react-app .` to create a new React applicati
 - Users should be able to create a new post. The new post should be displayed at the top of the post feed.
 - Users should be able to comment on existing posts.
 - Posts and comments should show the initials of the author in a coloured circle.
-- Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You **must** use a route for this, not an array filter.
 - You must use [this style guide](./STYLE_GUIDE.md) to implement the colour scheme.
 - The layout does not need to be mobile responsive, nor does it need to be pixel perfect. Get as close as you can, but your main focus should be on React - not CSS.
 
 ## Extension Requirements
 
+- Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
     - Use the user with an ID of 1 as the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
     - The fields should be automatically populated with the correct data when loading any user profile.
