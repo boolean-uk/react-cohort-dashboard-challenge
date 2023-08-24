@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { ReactComponent as HomeIcon } from './svg/home-icon.svg'
+import { ReactComponent as ProfileIcon } from './svg/profile-icon.svg'
+
 import MenuButton from "./MenuButton";
-import HomeIcon from "./svg/HomeIcon";
-import ProfileIcon from "./svg/ProfileIcon";
 
 export default function Menu() {
     const [tabs, setTabs] = useState([
