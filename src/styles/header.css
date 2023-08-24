@@ -1,6 +1,8 @@
 .app > .header {
     grid-area: header;
     background-color: #000046;
+    padding-left: 100px;
+    padding-right: 100px;
 
     display: flex;
     flex-direction: row;
@@ -9,6 +11,5 @@
 }
 
 .app > .header > .header-logo {
-    margin-left: 75px;
     width: 500px;
 }
