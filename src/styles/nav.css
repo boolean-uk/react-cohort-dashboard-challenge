@@ -1,0 +1,43 @@
+.app > .nav {
+    grid-area: nav;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.app > .nav > .menu {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+}
+
+.app > .nav > .menu .menu-item {
+    text-align: center;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.app > .nav > .menu .menu-item .menu-item-text {
+    margin:0;
+    color: #64648C;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.app > .nav > .menu .menu-item.active {
+    background-color: #e6ebf5;
+    font-weight: bold;
+}
+
+.app > .nav > .menu .menu-item.active .menu-item-text {
+    color: #000046;
+}

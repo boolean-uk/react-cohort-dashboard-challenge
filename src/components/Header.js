@@ -1,3 +1,5 @@
+import '../styles/header.css'
+
 import HeaderLogo from "./HeaderLogo"
 import UserIcon from "./UserIcon"
 
