@@ -10,13 +10,13 @@ const menuItems = {
 function MenuItem({ item, isActive }) {
   /** NOTE: using dynamic component name as explained here:
    * https://stackoverflow.com/questions/29875869/react-jsx-dynamic-component-name */
-  const ItemButton = menuItems[item]
+  const ItemIcon = menuItems[item]
   const activeClass = isActive ? 'active' : 'inactive'
   const capitalizedItem = item[0].toUpperCase() + item.slice(1)
 
   return (
     <li className={`menu-item ${activeClass}`}>
-      <ItemButton isActive={isActive} />
+      <ItemIcon isActive={isActive} />
       <p>{capitalizedItem}</p>
     </li>
   )

@@ -7,8 +7,7 @@
         * UserBanner
     * LeftMenu
       * MenuItem
-          * Icon
-          * Option
+        * ItemIcon
     * Main (Dashboard or Profile)
 
 
