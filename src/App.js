@@ -1,13 +1,12 @@
 import './app.css';
 import Header from './components/Header';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <div className='nav'>
-
-      </div>
+      <NavBar />
       <div className='main'>
         
       </div>

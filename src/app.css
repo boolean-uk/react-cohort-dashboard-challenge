@@ -7,8 +7,8 @@
     grid-template-areas: 
     "header header"
     "nav main";
-    grid-template-rows: 1fr 9fr;
-    grid-template-columns: 1fr 9fr;
+    grid-template-rows: 1fr 10fr;
+    grid-template-columns: 1fr 10fr;
 }
 
 .app > .header {
@@ -22,13 +22,13 @@
 }
 
 .app > .header > .header-logo {
-    padding-left: 100px;
+    margin-left: 75px;
     width: 500px;
 }
 
 .app > .nav {
     grid-area: nav;
-    background-color: #F0F5FA;
+    background-color: #ffffff;
 
     display: flex;
     flex-direction: column;
@@ -36,9 +36,43 @@
     align-items: center;
 }
 
+.app > .nav > .menu {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+}
+
+.app > .nav > .menu .menu-item {
+    text-align: center;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.app > .nav > .menu .menu-item .menu-item-text {
+    margin:0;
+    color: #64648C;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.app > .nav > .menu .menu-item.active {
+    background-color: #e6ebf5;
+    font-weight: bold;
+}
+
+.app > .nav > .menu .menu-item.active .menu-item-text {
+    color: #000046;
+}
+
 .app > .main {
     grid-area: main;
-    background-color: #e6ebf5;
+    background-color: #F0F5FA;
     overflow-y: scroll;
 
     display: flex;
@@ -50,7 +84,7 @@
 .user-icon {
     color: #000046;
     background-color: lightgreen;
-    margin-right: 100px;
+    margin-right: 75px;
 
     font-size: 22px;
     font-weight: bold;
