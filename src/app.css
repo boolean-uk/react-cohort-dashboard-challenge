@@ -21,6 +21,11 @@
     align-items: center;
 }
 
+.app > .header > .header-logo {
+    padding-left: 100px;
+    width: 500px;
+}
+
 .app > .nav {
     grid-area: nav;
     background-color: #F0F5FA;
@@ -42,4 +47,18 @@
     align-items: center;
 }
 
+.user-icon {
+    color: #000046;
+    background-color: lightgreen;
+    margin-right: 100px;
 
+    font-size: 22px;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    border-radius: 50%;
+}
