@@ -1,0 +1,18 @@
+.app > .left-menu {
+  grid-area: left-menu;
+}
+
+.app > .left-menu .menu-item {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.app > .left-menu .menu-item.active {
+  background-color: #E6EBF5;
+  color: #000046;
+}
+
+.app > .left-menu .menu-item.inactive {
+  color: #64648C;
+}

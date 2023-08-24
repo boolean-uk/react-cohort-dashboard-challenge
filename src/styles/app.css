@@ -20,11 +20,6 @@
   width: 350px;
 }
 
-.app > .left-menu {
-  grid-area: left-menu;
-  background-color: aquamarine;
-}
-
 .app > .main {
   grid-area: main;
   margin: 20px;
