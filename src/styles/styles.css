@@ -10,18 +10,6 @@ body {
   color: #000046;
 }
 
-header {
-  padding: 15px 50px;
-  background-color: #000046;
-  color: #F0F5FA;
-  display: grid;
-  grid-template-columns: 11fr auto;
-}
-
-header > img {
-  width: 350px;
-}
-
 button {
   background-color: #000046;
   color: #F0F5FA;

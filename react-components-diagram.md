@@ -3,7 +3,7 @@
 ## App View
 * App
     * Header
-        * Logo
+        * HeaderLogo
         * UserBanner
     * LeftMenu
       * MenuItem
