@@ -1,4 +1,3 @@
-
 import CommentList from "./CommentList";
 import CommentSectionAction from "./CommentSectionAction";
 

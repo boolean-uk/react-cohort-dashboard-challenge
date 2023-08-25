@@ -1,8 +1,8 @@
-export default function PostBodyInfo() {
+export default function PostBodyInfo(props) {
     return (
         <div className="post-body-info">
-            <p className="post-body-author">Wikipedia</p>
-            <p className="post-body-title">Rural Municipality of Canwood No. 494</p>
+            <p className="post-body-author">{props.author}</p>
+            <p className="post-body-title">{props.title}</p>
         </div>
     )
 }
