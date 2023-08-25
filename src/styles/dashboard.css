@@ -1,9 +1,11 @@
-.app > .dashboard > .new-post-form {
+.white-box {
   border: 1px solid #E6EBF5;
   border-radius: 10px;
   background-color: white;
-  padding: 20px 0px 20px 20px;
+  padding: 20px;
+}
 
+.app > .dashboard > .new-post-form {
   display: grid;
   grid-template-columns: 50px auto 200px;
 }
@@ -11,15 +13,52 @@
 .app > .dashboard > .new-post-form > .post-input {
   margin-left: 10px;
   padding: 15px;
-  border-radius: 7px;
-  border-style: none;
-  background-color: #E6EBF5;
 }
 
 .app > .dashboard > .new-post-form > .post-button {
   height: 50px;
-  margin: 0 15px;
+  margin-left: 15px;
   font-weight: bold;
   border-radius: 10px;
   border-style: none;
+}
+
+.app > .dashboard > .post-feed > .post {
+  margin-top: 10px;
+  padding-left: 30px;
+}
+
+.app > .dashboard > .post-feed > .post > .post-header {
+  display: grid;
+  grid-template: 
+    "banner author" auto
+    "banner title" 20px / 60px 1fr;
+}
+
+.app > .dashboard > .post-feed > .post > .post-header > .user-banner {
+  grid-area: banner;
+  margin-right: 10px;
+}
+
+.app > .dashboard > .post-feed > .post > .post-header > .author {
+  grid-area: author;
+  margin-top: 5px;
+}
+
+.app > .dashboard > .post-feed > .post > .post-header > .title {
+  grid-area: title;
+  color: #64648c;
+}
+
+.app > .dashboard > .post-feed > .post > .post-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.app > .dashboard > .post-feed > .post > .delimeter {
+  /* NOTE: changed hr style as explained here: https://stackoverflow.com/a/6382036 */
+  margin: 25px 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #E6EBF5;
 }

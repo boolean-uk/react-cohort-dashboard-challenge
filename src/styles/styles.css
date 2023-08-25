@@ -19,6 +19,20 @@ button:hover {
   background-color: #64dc78;
 }
 
+input {
+  border-radius: 7px;
+  border-style: none;
+  border: 1px solid #E6EBF5;
+  background-color: #E6EBF5;
+  /* -webkit-transition: 0.5s;
+  transition: 0.5s; */
+}
+
+input:focus {
+  /* TODO: make this style work */
+  border: 1px solid #827875;
+}
+
 .user-banner {
   border-radius: 50%;
   background-color: #64dc78;
