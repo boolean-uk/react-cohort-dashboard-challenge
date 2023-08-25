@@ -24,6 +24,8 @@ input {
   border-style: none;
   border: 1px solid #E6EBF5;
   background-color: #E6EBF5;
+  width: 100%;
+  height: 50px;
   /* -webkit-transition: 0.5s;
   transition: 0.5s; */
 }

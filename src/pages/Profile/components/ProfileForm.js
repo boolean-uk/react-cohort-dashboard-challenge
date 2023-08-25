@@ -7,7 +7,7 @@ function InputField({ label, type, name, defaultValue, isReqired }) {
 
   return (
     <label className='input-field'>
-      {label}
+      <p>{label}</p>
       <input
         type={type}
         name={name}
@@ -23,10 +23,9 @@ function AccountInfo({ firstName, lastName, username, email }) {
   return (
     <div className='account-info'>
       <Delimeter />
-      <h2>AccountInfo</h2>
-      
+      <h2>Account Info</h2>
 
-      {/* <InputField
+      <InputField
         label='First Name'
         type='text'
         name='firstName'
@@ -56,37 +55,109 @@ function AccountInfo({ firstName, lastName, username, email }) {
         name='email'
         defaultValue={email}
         isReqired={true}
-      /> */}
+      />
     </div>
   )
 }
 
-function Address() {
+function Address({ street, suite, city, zipcode }) {
 
   return (
     <div className='address'>
       <Delimeter />
       <h2>Address</h2>
+
+      <InputField
+        label='Street'
+        type='text'
+        name='street'
+        defaultValue={street}
+        isReqired={false}
+      />
+
+      <InputField
+        label='Suite'
+        type='text'
+        name='suite'
+        defaultValue={suite}
+        isReqired={false}
+      />
+
+      <InputField
+        label='City'
+        type='text'
+        name='city'
+        defaultValue={city}
+        isReqired={false}
+      />
+
+      <InputField
+        label='Zipcode'
+        type='text'
+        name='zipcode'
+        defaultValue={zipcode}
+        isReqired={false}
+      />
     </div>
   )
 }
 
-function ContactInfo() {
+function ContactInfo({ phone, website }) {
 
   return (
     <div className='contact-info'>
       <Delimeter />
       <h2>Contact Info</h2>
+
+      <InputField
+        label='Phone'
+        type='tel'
+        name='phone'
+        defaultValue={phone}
+        isReqired={true}
+      />
+
+      <InputField
+        label='Website'
+        type='url'
+        name='website'
+        defaultValue={website}
+        isReqired={false}
+      />
     </div>
   )
 }
 
-function CompanyInfo() {
+function CompanyInfo({ companyName, catchPhrase, bs }) {
 
   return (
     <div className='company-info'>
       <Delimeter />
       <h2>Company Info</h2>
+
+      <InputField
+        label='Name'
+        type='text'
+        name='companyName'
+        defaultValue={companyName}
+        isReqired={false}
+      />
+
+      <InputField
+        label='Catch Phrase'
+        type='text'
+        name='catchPhrase'
+        defaultValue={catchPhrase}
+        isReqired={false}
+      />
+
+      <InputField
+        label='Business Statement'
+        type='text'
+        name='bs'
+        defaultValue={bs}
+        isReqired={false}
+      />
     </div>
   )
 }
@@ -127,7 +198,7 @@ export default function ProfileForm({ user }) {
   /** TODO: fetch actual data from url:
    * https://jsonplaceholder.typicode.com/users/${id}
    */
-
+  const [firstName, lastName] = user.name.split(' ')
   const handleSubmit = (event) => {
     event.preventDefault()
   }
@@ -135,13 +206,30 @@ export default function ProfileForm({ user }) {
   return (
     <form onSubmit={handleSubmit} className='profile-form'>
       <div className='row'>
-        <AccountInfo />
-        <Address />
+        <AccountInfo
+          firstName={firstName}
+          lastName={lastName}
+          username={user.username}
+          email={user.email}
+        />
+        <Address
+          street={user.address.street}
+          suite={user.address.suite}
+          city={user.address.city}
+          zipcode={user.address.zipcode}
+        />
       </div>
 
       <div className='row'>
-        <ContactInfo />
-        <CompanyInfo />
+        <ContactInfo
+          phone={user.phone}
+          website={user.website}
+        />
+        <CompanyInfo
+          companyName={user.company.name}
+          catchPhrase={user.company.catchPhrase}
+          bs={user.company.bs}
+        />
       </div>
 
       <SaveButton />
