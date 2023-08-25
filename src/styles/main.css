@@ -155,13 +155,13 @@
 
     list-style-type: none;
     padding:0;
-    margin: 20px 15px 10px 15px;
+    margin: 20px 15px 5px 15px;
 }
 
 .app > .main > .post-section .comment-section .see-comments{
-    margin-bottom: 10px;
     color: gray;
     font-size: 18px;
+    margin: 0;
 }
 
 .app > .main > .post-section .comment-section .comment-list {
@@ -207,7 +207,7 @@
 }
 
 .app > .main > .post-section .comment-section .comment-action .new-comment {
-    height: 60%;
+    height: 70%;
     margin-right: 25px;
 
     display: flex;
@@ -235,7 +235,7 @@
 .app > .main > .post-section .comment-section .comment-action .new-comment .new-comment-button {
     background-color: #e6ebf5;
 
-    height: 72px;
+    height: 84px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
