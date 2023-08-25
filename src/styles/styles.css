@@ -50,6 +50,25 @@ input:focus {
   margin-bottom: 5px;
 }
 
-/* TODO:
-- Post title colour: #64648c
-*/
+.delimeter {
+  /* NOTE: changed hr style as explained here: https://stackoverflow.com/a/6382036 */
+  margin: 25px 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #E6EBF5;
+}
+
+.box-container {
+  border: 1px solid #E6EBF5;
+  border-radius: 10px;
+}
+
+.box-container-white {
+  background-color: white;
+  padding: 20px;
+}
+
+.box-container-colored {
+  background-color: #E6EBF5;
+  padding: 10px;
+}
