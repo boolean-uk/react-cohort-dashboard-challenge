@@ -6,11 +6,12 @@ function HeaderLogo() {
 }
 
 export default function Header() {
+  const name = 'Alex Walker'
   
   return (
     <header className='header'>
       <HeaderLogo />
-      <UserBanner />
+      <UserBanner name={name} />
     </header>
   )
 }

@@ -1,12 +1,12 @@
 import UserBanner from "../../../components/UserBanner"
 
 function ProfileHeader() {
-  const fullName = 'Alex Walker'
+  const name = 'Alex Walker'
 
   return (
     <div className='profile-header'>
-      <UserBanner />
-      <h2>{fullName}</h2>
+      <UserBanner name={name} />
+      <h2>{name}</h2>
     </div>
   )
 }

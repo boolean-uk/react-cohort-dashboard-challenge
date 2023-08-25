@@ -1,33 +1,33 @@
 import Post from "./Post"
 
+const postsFromAPI = [
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+  },
+  {
+    "userId": 2,
+    "id": 14,
+    "title": "voluptatem eligendi optio",
+    "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
+  },
+  {
+    "userId": 4,
+    "id": 33,
+    "title": "qui explicabo molestiae dolorem",
+    "body": "rerum ut et numquam laborum odit est sit\nid qui sint in\nquasi tenetur tempore aperiam et quaerat qui in\nrerum officiis sequi cumque quod"
+  }
+]
+
 export default function PostFeed() {
-  const posts = [
-    {
-      author: 'Sam Fletcher',
-      title: 'Mauris consequat porta urna, non aliquet leo.',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie turpis magna, vel placerat purus varius dapibus. Fusce consequat ligula lacus. Suspendisse convallis ultrices justo, et auctor urna placerat eleifend.'
-    },
-    {
-      author: 'Dolor Lobortis',
-      title: 'Nunc accumsan blandit metus a pulvinar',
-      content: 'Nullam sit amet sodales est, at mattis arcu. Maecenas ut mollis sapien. Vestibulum justo arcu.',
-      comments: [
-        {
-          author: 'Rutrum Augue',
-          content: 'Duis facilisis condimentum massa, ac venenatis enim malesuada interdum. Suspendisse.'
-        },
-        {
-          author: 'Dana Nunc',
-          content: 'Vivamus sed mollis est. Vestibulum ut augue magna.'
-        }
-      ]
-    }
-  ]
+  const posts = postsFromAPI
 
   return (
     <div className='post-feed'>
       {posts.map(post =>
-        <Post post={post} />
+        <Post post={post} key={post.id} />
       )}
     </div>
   )

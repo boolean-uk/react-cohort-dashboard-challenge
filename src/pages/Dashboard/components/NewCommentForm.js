@@ -10,13 +10,15 @@ function SubmitCommentButton() {
 }
 
 export default function NewCommentForm() {
+  const name = 'Alex Walker'  /** TODO: retrieve user's name */
+
   const handleSumbit = (event) => {
     event.preventDefault()
   }
 
   return (
     <form onSubmit={handleSumbit} className='new-comment-form'>
-      <UserBanner />
+      <UserBanner name={name} />
 
       <input type='text' className='comment-input' placeholder='Add a comment...' />
 

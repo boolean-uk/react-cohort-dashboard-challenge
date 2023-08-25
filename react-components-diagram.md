@@ -23,13 +23,13 @@
                 * UserBanner
                 * AuthorName
                 * PostTitle
-            * PostContent
+            * PostBody
             * CommentsList
                 * LoadMoreButton
                 * Comment
                     * UserBanner
                     * AuthorName
-                    * CommentContent
+                    * CommentBody
             * NewCommentForm
                 * UserBanner
                 * CommentInput
