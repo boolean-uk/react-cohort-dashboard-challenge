@@ -1,6 +1,6 @@
 import Post from "./Post"
 
-const postsFromAPI = [
+const demoPosts = [
   {
     "userId": 1,
     "id": 1,
@@ -22,7 +22,7 @@ const postsFromAPI = [
 ]
 
 export default function PostFeed() {
-  const posts = postsFromAPI
+  const posts = demoPosts
 
   return (
     <div className='post-feed'>

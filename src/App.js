@@ -12,8 +12,8 @@ function App() {
 
       {/* <TODO: use routing to choose between Dashboard and Profile Page below */}
       
-      <Dashboard />
-      {/* <Profile /> */}
+      {/* <Dashboard /> */}
+      <Profile />
 
     </div>
   );
