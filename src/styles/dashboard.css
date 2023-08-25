@@ -5,6 +5,7 @@
   padding: 20px;
 }
 
+/* NOTE: styles for new post form */
 .app > .dashboard > .new-post-form {
   display: grid;
   grid-template-columns: 50px auto 200px;
@@ -23,6 +24,7 @@
   border-style: none;
 }
 
+/* NOTE: styles for posts */
 .app > .dashboard > .post-feed > .post {
   margin-top: 10px;
   padding-left: 30px;
@@ -61,4 +63,22 @@
   height: 1px;
   border: 0;
   border-top: 1px solid #E6EBF5;
+}
+
+/* NOTE: styles for comments */
+.app > .dashboard > .post-feed > .post > .new-comment-form {
+  display: grid;
+  grid-template-columns: 60px auto 50px;
+}
+
+.app > .dashboard > .post-feed > .post > .new-comment-form > .user-banner {
+  margin-right: 10px;
+}
+
+.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-input {
+  padding: 15px;
+}
+
+.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button {
+  margin-top: 10px;
 }

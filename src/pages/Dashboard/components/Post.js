@@ -1,4 +1,6 @@
 import UserBanner from "../../../components/UserBanner"
+import CommentsList from "./CommentsList"
+import NewCommentForm from "./NewCommentForm"
 
 function PostHeader({ author, title }) {
   return (
@@ -27,7 +29,10 @@ export default function Post({ post }) {
       <PostHeader author={post.author} title={post.title} />
       <PostContent content={post.content} />
       <Delimeter/>
-
+      {post.comments &&
+        <CommentsList comments={post.comments} />
+      }
+      <NewCommentForm />
     </div>
   )
 }
