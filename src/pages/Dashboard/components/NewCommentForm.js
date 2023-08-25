@@ -3,20 +3,24 @@ import UserBanner from "../../../components/UserBanner";
 
 function SubmitCommentButton() {
   return (
-    <div className='comment-button'>
+    <button type='submit' className='comment-button'>
       <SendIcon/>
-    </div>
+    </button>
   )
 }
 
 export default function NewCommentForm() {
+  const handleSumbit = (event) => {
+    event.preventDefault()
+  }
+
   return (
-    <div className='new-comment-form'>
+    <form onSubmit={handleSumbit} className='new-comment-form'>
       <UserBanner />
 
       <input type='text' className='comment-input' placeholder='Add a comment...' />
 
       <SubmitCommentButton />
-    </div>
+    </form>
   )
 }

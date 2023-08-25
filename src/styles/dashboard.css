@@ -80,5 +80,16 @@
 }
 
 .app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button {
-  margin-top: 10px;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-left: 2px;
+  background-color: #64648c34;
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button:hover {
+  background-color: #E6EBF5;  /*TODO: choose between #64dc78 and #E6EBF5 */
 }
