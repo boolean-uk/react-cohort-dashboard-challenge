@@ -1,9 +1,13 @@
-import NewPostSection from "./NewPostSection";
+import "../../styles/main.css"
 
-export default function Main() {
+import NewPostSection from "./NewPostSection";
+import PostSection from "./PostSection";
+
+export default function NewsFeed() {
     return(
         <div className='main'>
             <NewPostSection />
+            <PostSection />
         </div>
     )
 }

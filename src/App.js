@@ -1,14 +1,14 @@
 import './styles/app.css';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
-import Main from './pages/NewsFeed/Main';
+import NewsFeed from './pages/NewsFeed/NewsFeed';
 
 function App() {
   return (
     <div className="app">
       <Header />
       <NavBar />
-      <Main />
+      <NewsFeed />
     </div>
   );
 }
