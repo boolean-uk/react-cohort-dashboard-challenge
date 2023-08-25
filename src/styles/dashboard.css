@@ -1,0 +1,25 @@
+.app > .dashboard > .new-post-form {
+  border: 1px solid #E6EBF5;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px 0px 20px 20px;
+
+  display: grid;
+  grid-template-columns: 50px auto 200px;
+}
+
+.app > .dashboard > .new-post-form > .post-input {
+  margin-left: 10px;
+  padding: 15px;
+  border-radius: 7px;
+  border-style: none;
+  background-color: #E6EBF5;
+}
+
+.app > .dashboard > .new-post-form > .post-button {
+  height: 50px;
+  margin: 0 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-style: none;
+}
