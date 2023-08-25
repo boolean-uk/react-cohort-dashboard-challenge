@@ -1,3 +1,4 @@
+import Author from "../../../components/Author"
 import UserBanner from "../../../components/UserBanner"
 import CommentsList from "./CommentsList"
 import NewCommentForm from "./NewCommentForm"
@@ -6,7 +7,7 @@ function PostHeader({ author, title }) {
   return (
     <div className='post-header'>
       <UserBanner />
-      <h4 className='author'>{author}</h4>
+      <Author author={author} />
       <p className='title'><strong>{title}</strong></p>
     </div>
   )
@@ -25,7 +26,7 @@ function Delimeter() {
 export default function Post({ post }) {
 
   return (
-    <div className='post white-box'>
+    <div className='post box-container box-container-white'>
       <PostHeader author={post.author} title={post.title} />
       <PostContent content={post.content} />
       <Delimeter/>

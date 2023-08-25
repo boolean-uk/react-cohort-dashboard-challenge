@@ -45,6 +45,11 @@ input:focus {
   justify-content: center;
 }
 
+.author {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 /* TODO:
 - Post title colour: #64648c
 */

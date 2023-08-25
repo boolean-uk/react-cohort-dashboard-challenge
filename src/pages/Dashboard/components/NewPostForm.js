@@ -16,7 +16,7 @@ export default function NewPostForm() {
   }
 
   return (
-    <form onSubmit={handleSumbit} className='new-post-form white-box'>
+    <form onSubmit={handleSumbit} className='new-post-form box-container box-container-white'>
       <UserBanner />
 
       {/* <InputField type='text' placeholder="What's on your mind?" className='post-input' /> */}

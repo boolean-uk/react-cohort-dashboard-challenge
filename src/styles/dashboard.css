@@ -1,8 +1,16 @@
-.white-box {
+.box-container {
   border: 1px solid #E6EBF5;
   border-radius: 10px;
+}
+
+.box-container-white {
   background-color: white;
   padding: 20px;
+}
+
+.box-container-colored {
+  background-color: #E6EBF5;
+  padding: 10px;
 }
 
 /* NOTE: styles for new post form */
@@ -44,7 +52,6 @@
 
 .app > .dashboard > .post-feed > .post > .post-header > .author {
   grid-area: author;
-  margin-top: 5px;
 }
 
 .app > .dashboard > .post-feed > .post > .post-header > .title {
@@ -65,7 +72,7 @@
   border-top: 1px solid #E6EBF5;
 }
 
-/* NOTE: styles for comments */
+/* NOTE: styles for new comment form */
 .app > .dashboard > .post-feed > .post > .new-comment-form {
   display: grid;
   grid-template-columns: 60px auto 50px;
@@ -92,4 +99,19 @@
 
 .app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button:hover {
   background-color: #E6EBF5;  /*TODO: choose between #64dc78 and #E6EBF5 */
+}
+
+/* NOTE: styles for comments */
+.app > .dashboard > .post-feed > .post > .comments-list > .load-more-button {
+  border: none;
+  background-color: white;
+  color: #64648c;
+  /* margin-bottom: 15px; */
+}
+
+.app > .dashboard > .post-feed > .post > .comments-list > .comment {
+  display: grid;
+  grid-template-columns: 60px auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

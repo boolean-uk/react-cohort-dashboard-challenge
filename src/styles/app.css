@@ -23,5 +23,4 @@
 .app > .main {
   grid-area: main;
   margin: 20px;
-  background-color: chocolate; /* TODO: delete this line*/
 }
