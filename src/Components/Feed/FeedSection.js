@@ -3,11 +3,15 @@ import DataContext from "../../DataContext";
 import PostItem from "./PostItem";
 import { findById, getInitials } from "../../Utils";
 import PostForm from "../../Forms/PostForm";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function FeedSection() {
-    const { posts, users, loggedUser } = useContext(DataContext);
+    const { posts, loggedUser, users, editingIndex, setEditingIndex } =
+        useContext(DataContext);
 
+    // const {
+    //     state: { users },
+    // } = useLocation();
     return (
         <main className="main-section">
             <section class="feed-section">

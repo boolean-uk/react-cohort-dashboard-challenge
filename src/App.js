@@ -10,14 +10,16 @@ import ProfileView from "./Components/Profile/ProfileView";
 import PostView from "./Components/Post/PostView";
 import { findById, shuffleArray } from "./Utils";
 import EditProfileForm from "./Components/Profile/EditProfileForm";
+import PostForm from "./Forms/PostForm";
 
 function App() {
-
     // DO THIS IN DATA CONTEXT
     // const API_BASE_URL = "";
     const [posts, setPosts] = useState([]);
     const [users, setUsers] = useState([]);
     const [comments, setComments] = useState({});
+    const [editingIndex, setEditingIndex] = useState(null);
+
     async function getData() {
         const response = await fetch(
             "https://jsonplaceholder.typicode.com/posts"
@@ -37,7 +39,7 @@ function App() {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [setUsers]);
 
     const loggedUser = findById(users, 1);
     if (!loggedUser) {
@@ -48,11 +50,14 @@ function App() {
             <DataContext.Provider
                 value={{
                     posts,
-                    users,
+                    setPosts,
                     loggedUser,
                     comments,
                     setComments,
-                    setPosts,
+                    users,
+                    setUsers,
+                    editingIndex,
+                    setEditingIndex
                 }}
             >
                 <Header />
@@ -61,8 +66,12 @@ function App() {
                 <Routes>
                     <Route path="/" element={<FeedSection />} />
                     <Route path="/view/profile/:id" element={<ProfileView />} />
-                    <Route path="/edit/profile/:id" element={<EditProfileForm />} />
+                    <Route
+                        path="/edit/profile/:id"
+                        element={<EditProfileForm />}
+                    />
                     <Route path="/view/post/:id" element={<PostView />} />
+                    <Route path="/edit/post/:id" element={<PostForm />} />
                 </Routes>
             </DataContext.Provider>
         </div>

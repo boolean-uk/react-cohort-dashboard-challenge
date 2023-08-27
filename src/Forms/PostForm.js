@@ -1,23 +1,64 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DataContext from "../DataContext";
+import { useNavigate } from "react-router-dom";
+import { findById } from "../Utils";
 
 function PostForm(props) {
-    const { posts, loggedUser, setPosts } = useContext(DataContext);
+    const { posts, loggedUser, setPosts, editingIndex, setEditingIndex } =
+        useContext(DataContext);
     const { name } = props;
-    const initialState = { userId: "", id: "", title: "", body: "" };
-    const [formData, setFormData] = useState(initialState);
+    if (editingIndex!==0) {
+        console.log("Post data; ", findById(posts, editingIndex));
+    }
+    // const initialState =
+    //     editingIndex >= 0
+    //         ? findById(posts, editingIndex)
+    //         : { userId: "", id: "", title: "", body: "" };
+
+    const initialFormState = {
+        userId: "",
+        id: "",
+        title: "",
+        body: "",
+    };
+    const [formData, setFormData] = useState(initialFormState);
+    useEffect(() => {
+        if (editingIndex !== null) {
+            setFormData( findById(posts, editingIndex));
+        } else {
+            setFormData(initialFormState); 
+        }
+    }, [editingIndex, posts]);
+    const navigate = useNavigate();
+ 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        createAnswer(formData);
-
-        setFormData(initialState);
+        if (editingIndex !== null) {
+            updateAnswer(editingIndex, formData);
+        } else {
+            createAnswer(formData);
+            setFormData(initialFormState); 
+        }
     };
-
+    const updateAnswer = (id, answerData) =>
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(answerData),
+        }).then(() => {
+            const updatedAnswers = posts.map((r) =>
+                r.id == Number(id) ? { ...r, ...answerData } : r
+            );
+            setPosts(updatedAnswers);
+            setEditingIndex(null);
+            navigate("/");
+        });
     const createAnswer = (answerData) => {
         const updatedAnswerData = {
             ...answerData,

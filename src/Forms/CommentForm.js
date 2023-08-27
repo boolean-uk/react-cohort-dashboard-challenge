@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { getInitials } from "../Utils";
 
 function CommentForm(props) {
-    const { loggedUser } = useContext(DataContext);
-    const { comments, setComments, post } = props;
+    const { loggedUser,setComments } = useContext(DataContext);
+    const { comments, post } = props; // !!!
     const initialState = {
         postId: "",
         userId: "",

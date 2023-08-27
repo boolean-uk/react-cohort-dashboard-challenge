@@ -11,7 +11,7 @@ export function getRandomUserId() {
 }
 
 export function findById(array, id) {
-    return array.find((user) => user.id === id);
+    return array.find((user) => user.id ===  Number(id));
 }
 
 // export function findPostById(postsArr, postID) {

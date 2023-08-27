@@ -1,25 +1,32 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import DataContext from "../../DataContext";
+import { findById } from "../../Utils";
 
 function ProfileView(props) {
-    const [userData, setUserData] = useState({});
+    // const [userData, setUserData] = useState({});
     const [userPosts, setUserPosts] = useState([]);
     const { id } = useParams();
+
+    // const {
+    //     state: { userData },
+    // } = useLocation();
     // const navigate = useNavigate();
     const { posts, users, loggedUser, setPosts } = useContext(DataContext);
-    async function getData() {
-        const response = await fetch(
-            `https://jsonplaceholder.typicode.com/users/${id}`
-        );
-        const jsonResponse = await response.json();
-        setUserData(jsonResponse);
-        const currentPosts = posts.filter((post) => post.userId === Number(id));
-        setUserPosts(currentPosts);
-    }
-    useEffect(() => {
-        getData();
-    }, []);
+    const userData = findById(users, id);
+
+    // async function getData() {
+    //     const response = await fetch(
+    //         `https://jsonplaceholder.typicode.com/users/${id}`
+    //     );
+    //     const jsonResponse = await response.json();
+    //     setUserData(jsonResponse);
+    //     const currentPosts = posts.filter((post) => post.userId === Number(id));
+    //     setUserPosts(currentPosts);
+    // }
+    // useEffect(() => {
+    //     getData();
+    // }, []);
 
     if (!userData) {
         return null;
@@ -36,7 +43,9 @@ function ProfileView(props) {
                         <p>Email: {userData.email}</p>
                         <p>Phone: {userData.phone}</p>
                         <p>Website: {userData.website}</p>
-                        <Link to={`/edit/profile/${id}`} state={{ userData }}>
+                        <Link to={`/edit/profile/${id}`}
+                        //  state={{ userData }}
+                         >
                             <button>EDIT PROFILE</button>
                         </Link>
                     </div>

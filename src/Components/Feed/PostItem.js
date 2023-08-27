@@ -8,13 +8,13 @@ import CommentsLists from "../Comment/CommentsList";
 function PostItem(props) {
     const { post, index, author } = props;
 
-    const { comments, posts, setPosts, setComments } = useContext(DataContext);
+    const { comments, posts, setPosts, setComments, users } = useContext(DataContext);
 
     async function getData(postId) {
         const response = await fetch(
             `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
         ).then((response) => response.json());
-        console.log(response);
+        // console.log(response);
         const commentsWithUserId = response.map((comment) => ({
             ...comment,
             userId: getRandomUserId(),
@@ -23,8 +23,8 @@ function PostItem(props) {
             ...prevComments,
             [postId]: commentsWithUserId,
         }));
-        console.log("Calling getData with post ID:", post.id);
-        console.log("Comments: ", comments);
+        // console.log("Calling getData with post ID:", post.id);
+        // console.log("Comments: ", comments);
     }
 
     useEffect(() => {
@@ -49,8 +49,7 @@ function PostItem(props) {
         <div class="post">
             <Link
                 to={`/view/profile/${author.id}`}
-                // state={{ author}}
-            >
+                state={{ userData:author }}            >
                 <div class="user-circle">{authorInitials}</div>
             </Link>
             <div class="post-content">
