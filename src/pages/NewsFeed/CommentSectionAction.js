@@ -4,14 +4,16 @@ import DataContext from "../../DataContext";
 
 export default function CommentSectionAction (props) {
     const [commentMsg, setCommentMsg] = useState('')
-    const {users, comments, setComments} = useContext(DataContext)
+    const {users, comments, setComments, thisCommentId, setThisCommentId} = useContext(DataContext)
     const {postId} = props
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        //Due to randomness of data I am ommiting id field since it is not used anyway. Name field (=title) is not used so also ommiting. Making a pseudoemail to properly display the initials avatar.
+        //Making a pseudoemail to properly display the initials avatar.
         const email = users[0].name + '@'
-        setComments([...comments, { postId , email, body: commentMsg }])
+        //Name field (=title) is not displayed therefore not set. Set it as NoTitle for now.
+        setComments([...comments, { postId , id: thisCommentId, name: 'NoTitle', email, body: commentMsg }])
+        setThisCommentId(thisCommentId+1)
         setCommentMsg('')
     }
 

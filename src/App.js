@@ -16,7 +16,10 @@ function App() {
   // All users, where user[0] is the active user
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
+  const [thisPostId, setThisPostId] = useState(null)
   const [comments, setComments] = useState([])
+  const [thisCommentId, setThisCommentId] = useState(null)
+  const [firstLoad, setFirstLoad] = useState(false)
 
   const shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -33,6 +36,9 @@ function App() {
     const response2 = await fetch(`https://jsonplaceholder.typicode.com/posts/?_limit=${10*userNum}`)
     const json2 = await response2.json()
     setPosts([...shuffle(json2).slice(0,postNum)])
+    setFirstLoad(true)
+    //Start setting ids for new posts from the current post max id + 1
+    setThisPostId(10*userNum+1)
   }
 
   async function getComments() {
@@ -40,6 +46,8 @@ function App() {
     const json = await response.json()
     //Get only comments relevant to the fetched posts
     setComments([...json.filter(comment => ((posts.find(post => post.id === comment.postId)) !== undefined))])
+    //Start setting ids for new comments from the current comment max id + 1
+    setThisCommentId(50*userNum+1)
   }
 
   useEffect(() => {
@@ -48,11 +56,11 @@ function App() {
 
   useEffect(() => {
     getComments()
-  },[posts])
+  },[firstLoad])
 
   return (
     <div className="app">
-      <DataContext.Provider value={{ users, posts, comments, setComments }}>
+      <DataContext.Provider value={{ users, posts, setPosts, comments, setComments, thisPostId, setThisPostId, thisCommentId, setThisCommentId }}>
         <Header />
         <NavBar />
 
