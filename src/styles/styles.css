@@ -10,6 +10,14 @@ body {
   color: #000046;
 }
 
+/** NOTE: remove any decoration from Link styles, as shown here:
+ * https://stackoverflow.com/a/60790577
+ */
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 button {
   background-color: #000046;
   color: #F0F5FA;
