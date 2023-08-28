@@ -182,6 +182,7 @@
     border-radius: 15px;
     padding: 0px 20px 0px 20px;
     width: auto;
+    max-width: 90%;
 }
 
 .app > .main > .post-section .comment-section .comment-list .comment-info .comment-author {

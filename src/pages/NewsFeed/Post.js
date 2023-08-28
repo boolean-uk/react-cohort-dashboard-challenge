@@ -6,7 +6,7 @@ export default function Post(props) {
     return (
         <li className="single-post">
             <PostBody post={post}/>
-            <CommentSection />
+            <CommentSection post={post}/>
         </li>
     )
 }
