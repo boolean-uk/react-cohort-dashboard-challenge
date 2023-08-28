@@ -119,7 +119,7 @@ function ContactInfo({ phone, website }) {
 
       <InputField
         label='Website'
-        type='url'
+        type='text'
         name='website'
         defaultValue={website}
         isReqired={false}
@@ -232,7 +232,10 @@ export default function ProfileForm({ user }) {
         />
       </div>
 
-      <SaveButton />
+      <div className='row'>
+        <p>* Required</p>
+        <SaveButton />
+      </div>
     </form>
   )
 }
