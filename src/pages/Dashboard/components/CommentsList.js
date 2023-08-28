@@ -26,11 +26,13 @@ const demoUser = {
   }
 }
 
-function LoadMoreButton() {
+function LoadMoreButton({ setShowAll }) {
   /** TODO: implement logic of loading all comments */
   const handleLoadMoreComments = (event) => {
     // event.preventDefault()
+    setShowAll(true)
   }
+
   return (
     <button onClick={handleLoadMoreComments} className='load-more-button'>
       See previous comments
@@ -75,13 +77,14 @@ function Comment({ comment }) {
 }
 
 export default function CommentsList({ comments, showAllComments }) {
-  const condition = !showAllComments && comments.length > 3
-  if (condition)
+  const [showAll, setShowAll] = useState(showAllComments || comments.length <= 3)
+  
+  if (!showAll)
     comments = comments.slice(0,3)
 
   return (
     <div className='comments-list'>
-      {condition && <LoadMoreButton />}
+      {!showAll && <LoadMoreButton setShowAll={setShowAll} />}
 
       {comments.map(comment =>
         <Comment comment={comment} key={comment.id} />

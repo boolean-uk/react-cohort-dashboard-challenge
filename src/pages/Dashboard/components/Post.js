@@ -39,7 +39,6 @@ export default function Post({ post, showAllComments }) {
   async function getComments() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
     const json = await response.json()
-    console.log(json)
     setComments(json)
   }
 
