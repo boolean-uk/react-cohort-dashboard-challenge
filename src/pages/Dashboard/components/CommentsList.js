@@ -26,16 +26,17 @@ const demoUser = {
   }
 }
 
-// function LoadMoreButton() {
-//   const handleLoadMoreComments = (event) => {
-//     // event.preventDefault()
-//   }
-//   return (
-//     <button onClick={handleLoadMoreComments} className='load-more-button'>
-//       See previous comments
-//     </button>
-//   )
-// }
+function LoadMoreButton() {
+  /** TODO: implement logic of loading all comments */
+  const handleLoadMoreComments = (event) => {
+    // event.preventDefault()
+  }
+  return (
+    <button onClick={handleLoadMoreComments} className='load-more-button'>
+      See previous comments
+    </button>
+  )
+}
 
 function CommentBody({ author, body }) {
   return (
@@ -73,11 +74,14 @@ function Comment({ comment }) {
   )
 }
 
-export default function CommentsList({ comments }) {
-  
+export default function CommentsList({ comments, showAllComments }) {
+  const condition = !showAllComments && comments.length > 3
+  if (condition)
+    comments = comments.slice(0,3)
+
   return (
     <div className='comments-list'>
-      {/* {comments.length > 3 && <LoadMoreButton />} */}
+      {condition && <LoadMoreButton />}
 
       {comments.map(comment =>
         <Comment comment={comment} key={comment.id} />

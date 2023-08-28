@@ -5,7 +5,7 @@ export default function PostFeed({ posts }) {
   return (
     <div className='post-feed'>
       {posts.map(post =>
-        <Post post={post} key={post.id} />
+        <Post post={post} showAllComments={false} key={post.id} />
       )}
     </div>
   )

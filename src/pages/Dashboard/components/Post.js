@@ -26,7 +26,7 @@ function PostBody({ body }) {
   )
 }
 
-export default function Post({ post }) {
+export default function Post({ post, showAllComments }) {
   const [authorName, setAuthorName] = useState(null)
   const [comments, setComments] = useState(null)
 
@@ -39,7 +39,8 @@ export default function Post({ post }) {
   async function getComments() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
     const json = await response.json()
-    setComments(json.splice(0,3))     // TODO: save all comments
+    console.log(json)
+    setComments(json)
   }
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function Post({ post }) {
       <PostBody body={post.body} />
       <Delimeter />
       {
-        comments && <CommentsList comments={comments} />
+        comments && <CommentsList comments={comments} showAllComments={showAllComments} />
       }
       <NewCommentForm />
     </div>

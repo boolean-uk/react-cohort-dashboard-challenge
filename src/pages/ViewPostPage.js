@@ -13,6 +13,6 @@ export default function ViewPostPage() {
   }, [])
 
   return (
-    post && <Post post={post} />
+    post && <Post post={post} showAllComments={true} />
   )
 }
