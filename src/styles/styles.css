@@ -27,7 +27,8 @@ button:hover {
   background-color: #64dc78;
 }
 
-input {
+input, textarea {
+  padding: 10px;
   border-radius: 7px;
   border-style: none;
   border: 1px solid #E6EBF5;
