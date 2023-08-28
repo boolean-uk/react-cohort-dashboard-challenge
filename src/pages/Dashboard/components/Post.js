@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Author from "../../../components/Author"
 import Delimeter from "../../../components/Delimeter"
 import UserBanner from "../../../components/UserBanner"
@@ -21,6 +22,7 @@ function PostBody({ body }) {
 }
 
 export default function Post({ post }) {
+  const [authorName, setAuthorName] = useState(null)
   // post = {
   //   "userId": 1,
   //   "id": 1,
@@ -28,8 +30,17 @@ export default function Post({ post }) {
   //   "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   // }
 
-  /** TODO: use post.userId to retieve the name of the user who posted */
-  const authorName = 'Sam Fletcher'
+  async function getAuthorName() {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+    const json = await response.json()
+    setAuthorName(json.name)
+    console.log(json.name)
+  }
+
+  useEffect(() => {
+    getAuthorName()
+  }, [])
+
 
   /** TODO:
    * fetch comments for this post, from this url:
@@ -54,7 +65,9 @@ export default function Post({ post }) {
 
   return (
     <div className='post box-container box-container-white'>
-      <PostHeader author={authorName} title={post.title} />
+      {
+        authorName && <PostHeader author={authorName} title={post.title} />
+      }
       <PostBody body={post.body} />
       <Delimeter />
       {comments &&
