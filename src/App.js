@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="app">
-      <DataContext.Provider value={{ users, posts, comments }}>
+      <DataContext.Provider value={{ users, posts, comments, setComments }}>
         <Header />
         <NavBar />
 

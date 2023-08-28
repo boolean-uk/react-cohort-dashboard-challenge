@@ -7,11 +7,10 @@ export default function CommentSection(props) {
     const {post} = props
     const {comments} = useContext(DataContext)
     const tmpArr = comments.filter(comment => comment.postId === post.id)
-    console.log(tmpArr)
     return (
         <ul className="comment-section">
             <CommentList comments={tmpArr} />
-            <CommentSectionAction />
+            <CommentSectionAction postId={post.id}/>
         </ul>
     )
 }
