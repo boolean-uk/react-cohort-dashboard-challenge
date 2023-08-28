@@ -30,6 +30,10 @@ export default function Post({ post, showAllComments }) {
   const [authorName, setAuthorName] = useState(null)
   const [comments, setComments] = useState(null)
 
+  const updateComments = (newComment) => {
+    setComments([newComment, ...comments])
+  }
+
   async function getAuthorName() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
     const json = await response.json()
@@ -44,7 +48,10 @@ export default function Post({ post, showAllComments }) {
 
   useEffect(() => {
     getAuthorName()
-    getComments()
+    if (!comments) {
+      getComments()
+      console.log('Post::useEffect')
+    }
   }, [])
 
   return (
@@ -57,7 +64,7 @@ export default function Post({ post, showAllComments }) {
       {
         comments && <CommentsList comments={comments} showAllComments={showAllComments} />
       }
-      <NewCommentForm />
+      <NewCommentForm postId={post.id} updateComments={updateComments} />
     </div>
   )
 }

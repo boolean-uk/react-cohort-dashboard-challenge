@@ -32,8 +32,6 @@ export default function NewPostForm({ updatePosts }) {
   const handleSumbit = (event) => {
     event.preventDefault()
     const [title, body] = formData.split('\n\n')
-    console.log('title:', title)
-    console.log('body:', body)
     setFormData('')
 
     fetch('https://jsonplaceholder.typicode.com/posts', {
