@@ -7,6 +7,7 @@ import LeftMenu from './components/LeftMenu';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import DataContext from './DataContext';
+import ViewPostPage from './pages/ViewPostPage';
 
 function App() {
   // TODO: user with id 1 as the logged in user
@@ -42,7 +43,8 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/profile' element={<Dashboard />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/posts/:id' element={<ViewPostPage />} />
         </Routes>
         
       </DataContext.Provider>

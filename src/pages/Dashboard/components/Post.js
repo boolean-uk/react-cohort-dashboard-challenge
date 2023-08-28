@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Author from "../../../components/Author"
 import Delimeter from "../../../components/Delimeter"
@@ -5,12 +6,16 @@ import UserBanner from "../../../components/UserBanner"
 import CommentsList from "./CommentsList"
 import NewCommentForm from "./NewCommentForm"
 
-function PostHeader({ author, title }) {
+function PostHeader({ author, post }) {
+  const { title, id } = post
   return (
     <div className='post-header'>
       <UserBanner name={author} />
       <Author author={author} />
-      <p className='title'><strong>{title}</strong></p>
+
+      <Link to={`/posts/${id}`} state={{ post }}>
+        <p className='title'><strong>{title}</strong></p>
+      </Link>
     </div>
   )
 }
@@ -45,7 +50,7 @@ export default function Post({ post }) {
   return (
     <div className='post box-container box-container-white'>
       {
-        authorName && <PostHeader author={authorName} title={post.title} />
+        authorName && <PostHeader author={authorName} post={post} />
       }
       <PostBody body={post.body} />
       <Delimeter />
