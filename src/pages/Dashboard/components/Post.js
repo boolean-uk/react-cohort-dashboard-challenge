@@ -14,7 +14,7 @@ function PostHeader({ author, post }) {
       <Author author={author} />
 
       <Link to={`/posts/${id}`} state={{ post }}>
-        <p className='title'><strong>{title}</strong></p>
+        <span className='title'>{title}</span>
       </Link>
     </div>
   )
@@ -48,10 +48,7 @@ export default function Post({ post, showAllComments }) {
 
   useEffect(() => {
     getAuthorName()
-    if (!comments) {
-      getComments()
-      console.log('Post::useEffect')
-    }
+    getComments()
   }, [])
 
   return (

@@ -8,6 +8,7 @@
 body {
   background-color: #F0F5FA;
   color: #000046;
+  font-family: monospace;
 }
 
 /** NOTE: remove any decoration from Link styles, as shown here:

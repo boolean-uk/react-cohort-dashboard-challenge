@@ -19,8 +19,6 @@ export default function NewCommentForm({ postId, updateComments }) {
 
   const handleSumbit = (event) => {
     event.preventDefault()
-    const value = event.target['newComment'].value
-    console.log(value)
     setFormData('')
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, {

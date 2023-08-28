@@ -1,21 +1,23 @@
 /* NOTE: styles for new post form */
 .app > .dashboard > .new-post-form {
   display: grid;
-  grid-template-columns: 50px auto 200px;
+  grid-template-columns: 50px auto 170px;
   height: 130px;
+  grid-gap: 5px;
 }
 
 .app > .dashboard > .new-post-form > .post-input {
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
   padding: 15px;
   height: 80px;
 }
 
 .app > .dashboard > .new-post-form > .post-button {
   height: 50px;
-  margin-left: 15px;
-  font-weight: bold;
+  /* margin-left: 15px; */
+  /* font-weight: bold; */
+  font-size: large;
   border-radius: 10px;
   border-style: none;
 }
@@ -42,9 +44,10 @@
   grid-area: author;
 }
 
-.app > .dashboard > .post-feed > .post > .post-header > .title {
+.app > .dashboard > .post-feed > .post > .post-header .title {
   grid-area: title;
   color: #64648c;
+  font-weight: bold;
 }
 
 .app > .dashboard > .post-feed > .post > .post-body {
