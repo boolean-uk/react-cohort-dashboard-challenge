@@ -12,6 +12,7 @@ function App() {
   // Define number of posts in the NewsFeed
   const postNum = 3
 
+  // All users, where user[0] is the active user
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
@@ -36,6 +37,7 @@ function App() {
   async function getComments() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/comments/?_limit=${50*userNum}`)
     const json = await response.json()
+    //Get only comments relevant to the fetched posts
     setComments([...json.filter(comment => ((posts.find(post => post.id === comment.postId)) !== undefined))])
   }
 

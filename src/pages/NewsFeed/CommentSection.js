@@ -6,6 +6,7 @@ import DataContext from "../../DataContext";
 export default function CommentSection(props) {
     const {post} = props
     const {comments} = useContext(DataContext)
+    //Find comments that match this post
     const tmpArr = comments.filter(comment => comment.postId === post.id)
     return (
         <ul className="comment-section">

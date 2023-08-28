@@ -9,6 +9,7 @@ export default function CommentSectionAction (props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        //Due to randomness of data I am ommiting id field since it is not used anyway. Name field (=title) is not used so also ommiting. Making a pseudoemail to properly display the initials avatar.
         const email = users[0].name + '@'
         setComments([...comments, { postId , email, body: commentMsg }])
         setCommentMsg('')
