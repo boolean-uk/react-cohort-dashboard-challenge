@@ -1,7 +1,7 @@
 import './styles/app.css'
 
-import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header.js';
 import LeftMenu from './components/LeftMenu';
 import Dashboard from './pages/Dashboard';
@@ -10,34 +10,24 @@ import DataContext from './DataContext';
 import ViewPostPage from './pages/ViewPostPage';
 
 function App() {
-  // TODO: user with id 1 as the logged in user
-  const [user, setUser] = useState({
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
-    },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-      "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
-      "bs": "harness real-time e-markets"
-    }
-  })
+  const [user, setUser] = useState(null)
+  const [posts, setPosts] = useState(null)
+
+  async function getUserData() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    const json = await response.json()
+    setUser(json)
+  }
+
+  useEffect(() => {
+    getUserData()
+    console.log('App::useEffect user', user)
+  }, [])
 
   return (
+    user &&
     <div className="app">
-      <DataContext.Provider value={{ user }}>
+      <DataContext.Provider value={{ user, posts, setPosts }}>
         <Header />
         <LeftMenu />
 

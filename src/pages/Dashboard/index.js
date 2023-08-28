@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import NewPostForm from "./components/NewPostForm";
 import PostFeed from "./components/PostFeed";
 import shuffle from "../../utilities/shuffle";
+import DataContext from "../../DataContext";
 
 export default function Dashboard() {
-  const [posts, setPosts] = useState(null)
+  const { posts, setPosts } = useContext(DataContext)
+
+  const updatePosts = (newPost) => {
+    setPosts([newPost, ...posts])
+  }
 
   async function getPostsData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -15,12 +20,15 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    getPostsData()
+    if (!posts) {
+      getPostsData()
+    }
+    console.log('Dashboard::useEffect posts', posts)
   }, [])
 
   return (
     <main className='main dashboard'>
-      <NewPostForm />
+      <NewPostForm updatePosts={updatePosts} />
       {
         posts && <PostFeed posts={posts} />
       }

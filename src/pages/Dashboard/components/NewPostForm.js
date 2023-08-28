@@ -23,7 +23,7 @@ function SubmitPostButton() {
   )
 }
 
-export default function NewPostForm() {
+export default function NewPostForm({ updatePosts }) {
   const [formData, setFormData] = useState('')
   const { user } = useContext(DataContext)
 
@@ -48,8 +48,7 @@ export default function NewPostForm() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json))
-      ;
+      .then((json) => updatePosts(json))
   }
 
   return (
