@@ -1,19 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import DataContext from "../DataContext";
 import { useNavigate } from "react-router-dom";
-import { findById } from "../Utils";
+import DataContext from "../DataContext";
+import { findById, generatePostId } from "../Utils";
 
 function PostForm(props) {
-    const { posts, loggedUser, setPosts, editingIndex, setEditingIndex } =
-        useContext(DataContext);
-    const { name } = props;
-    if (editingIndex!==0) {
-        console.log("Post data; ", findById(posts, editingIndex));
-    }
-    // const initialState =
-    //     editingIndex >= 0
-    //         ? findById(posts, editingIndex)
-    //         : { userId: "", id: "", title: "", body: "" };
+    const {
+        posts,
+        loggedUser,
+        setPosts,
+        editingIndex,
+        setEditingIndex,
+        requiredFieldError,
+        setRequiredFieldError,API_BASE_URL
+    } = useContext(DataContext);
 
     const initialFormState = {
         userId: "",
@@ -24,28 +23,37 @@ function PostForm(props) {
     const [formData, setFormData] = useState(initialFormState);
     useEffect(() => {
         if (editingIndex !== null) {
-            setFormData( findById(posts, editingIndex));
+            setFormData(findById(posts, editingIndex));
         } else {
-            setFormData(initialFormState); 
+            setFormData(initialFormState);
         }
     }, [editingIndex, posts]);
+
     const navigate = useNavigate();
- 
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (!formData.title || !formData.body) {
+            setRequiredFieldError(true);
+            return;
+        } else {
+            setRequiredFieldError(false);
+        }
         if (editingIndex !== null) {
             updateAnswer(editingIndex, formData);
         } else {
             createAnswer(formData);
-            setFormData(initialFormState); 
+            setFormData(initialFormState);
         }
     };
+
     const updateAnswer = (id, answerData) =>
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        fetch(`${API_BASE_URL}/posts/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -59,12 +67,14 @@ function PostForm(props) {
             setEditingIndex(null);
             navigate("/");
         });
+
     const createAnswer = (answerData) => {
         const updatedAnswerData = {
             ...answerData,
             userId: loggedUser.id,
+            id: generatePostId(),
         };
-        fetch("https://jsonplaceholder.typicode.com/posts", {
+        fetch(`${API_BASE_URL}/posts`, {
             method: "POST",
             body: JSON.stringify(updatedAnswerData),
             headers: {
@@ -74,28 +84,37 @@ function PostForm(props) {
             .then((response) => response.json())
             .then((newPost) => setPosts([newPost, ...posts]));
     };
+    
     return (
-        <form class="form" onSubmit={handleSubmit} noValidate>
-            <input
-                class="form-post-title"
-                type="text"
-                placeholder="Title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-            />
-            <input
-                class="form-post-input"
-                type="text"
-                placeholder="What's on your mind?"
-                name="body"
-                value={formData.body}
-                onChange={handleChange}
-            />
-            <button class="post-button" type="submit">
-                &rarr;
-            </button>
-        </form>
+        <section className="main__form">
+            <form class="post-form" onSubmit={handleSubmit} noValidate>
+                {requiredFieldError && <p class="error">Required field</p>}
+                <label htmlFor="title">Title</label>{" "}
+                <input
+                    class="form-post-title"
+                    type="text"
+                    placeholder="Title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                />
+                {requiredFieldError && <p class="error">Required field</p>}
+                <label htmlFor="body">Content</label>
+                <input
+                    class="form-post-input"
+                    type="text"
+                    placeholder="What's on your mind?"
+                    name="body"
+                    value={formData.body}
+                    onChange={handleChange}
+                />
+                <div className="button-container">
+                    <button class="post-button" type="submit">
+                        {editingIndex ? "Update" : "Post"}
+                    </button>
+                </div>
+            </form>
+        </section>
     );
 }
 

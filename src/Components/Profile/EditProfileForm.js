@@ -5,11 +5,8 @@ import { findById } from "../../Utils";
 
 function EditProfileForm() {
     const { id } = useParams();
-    const { users, setUsers } = useContext(DataContext);
+    const { users, setUsers,requiredFieldError, setRequiredFieldError, API_BASE_URL } = useContext(DataContext);
 
-    // const {
-    //     state: { userData },
-    // } = useLocation();
     const userData = findById(users, id);
 
     const initialState = {
@@ -18,6 +15,7 @@ function EditProfileForm() {
         phone: userData.phone,
         website: userData.website,
     };
+
     const [formData, setFormData] = useState(initialState);
     const navigate = useNavigate();
 
@@ -29,11 +27,10 @@ function EditProfileForm() {
         }));
     };
 
-
     const updateUserData = async (answerData) => {
         try {
             const response = await fetch(
-                `https://jsonplaceholder.typicode.com/users/${id}`,
+                `${API_BASE_URL}/users/${id}`,
                 {
                     method: "PUT",
                     headers: {
@@ -44,16 +41,13 @@ function EditProfileForm() {
             );
 
             if (response.ok) {
-                console.log("response: ", response);
                 const updatedUsers = users.map((user) => {
                     if (user.id === Number(id)) {
                         return { ...user, ...answerData };
                     }
                     return user;
                 });
-                console.log("updated users: ", updatedUsers);
                 setUsers(updatedUsers);
-                console.log("users", users);
             } else {
                 console.error("Failed to update user data");
             }
@@ -64,12 +58,14 @@ function EditProfileForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!formData.name|| !formData.email ) {
+            setRequiredFieldError(true);
+            return;
+        } else {
+            setRequiredFieldError(false);
+        }
         await updateUserData(formData);
-        console.log("FORMDATA: ", formData);
-        console.log("USERS: ", users);
-        navigate(`/view/profile/${id}`, {
-            // state: { userData: formData },
-        });
+        navigate(`/view/profile/${id}`, {});
         // navigate("/");
     };
     return (
@@ -78,10 +74,15 @@ function EditProfileForm() {
                 <form class="form" onSubmit={handleSubmit}>
                     <h2>EDIT PROFILE</h2>
                     <p class="warning">* Mandatory fields</p>
-                    <div class="form__group">
+                    <div class="edit-field">
                         <h3>
                             NAME <span class="warning small">*</span>
                         </h3>
+                        {requiredFieldError && (
+                            <p class="error">
+                               Required field
+                            </p>
+                        )}
                         <input
                             type="text"
                             name="name"
@@ -93,10 +94,15 @@ function EditProfileForm() {
                         <h3>USERNAME</h3>
                         INPUT
                     </div> */}
-                    <div class="form__group radio">
+                    <div class="edit-field">
                         <h3>
                             EMAIL <span class="warning small">*</span>
                         </h3>
+                        {requiredFieldError && (
+                            <p class="error">
+                               Required field
+                            </p>
+                        )}
                         <input
                             type="text"
                             name="email"
@@ -104,16 +110,12 @@ function EditProfileForm() {
                             onChange={handleChange}
                         />
                     </div>
-                    <div class="form__group radio">
+                    <div  class="edit-field">
                         <h3>
                             PHONE NUMBER
-                            <span class="warning small">*</span>
+                            
                         </h3>
-                        {/* {colorRatingError && (
-                            <p class="error">
-                                Please provide a rating for color.
-                            </p>
-                        )} */}
+
                         <input
                             type="text"
                             name="phone"
@@ -121,7 +123,7 @@ function EditProfileForm() {
                             onChange={handleChange}
                         />
                     </div>
-                    <div class="form__group radio">
+                    <div  class="edit-field">
                         <h3>WEBSITE</h3>
                         <input
                             type="text"
@@ -130,17 +132,11 @@ function EditProfileForm() {
                             onChange={handleChange}
                         />
                     </div>
-                    {/* <Link
-                        to={`/view/profile/${id}`}
-                        // to={"/"}
-                        state={{ userData: formData }}
-                    > */}
                     <input
                         class="form__submit"
                         type="submit"
-                        value="Submit !"
+                        value="Submit!"
                     />
-                    {/* </Link> */}
                 </form>
             </section>
         </main>

@@ -13,17 +13,19 @@ function Header(props) {
     return (
         <header class="main-header">
             <div>
-                <TitleHeader />
+                <Link to={"/"}>
+                    <TitleHeader />
+                </Link>
             </div>
             <div class="user-info">
-                <Link to={`/view/profile/${loggedUser.id}`}>
+                <Link to={`/view/profile/${loggedUser.id}`} style={{ textDecoration: 'none' }} >
                     <div class="user-circle-own">
                         {getInitials(loggedUser.name)}
                     </div>
                 </Link>
                 <div class="user-details">
                     <div class="user-full-name">{loggedUser.name}</div>
-                    <div class="post-title">Web Developer</div>
+                    <div class="user-occupation">Web Developer</div>
                 </div>
             </div>
         </header>

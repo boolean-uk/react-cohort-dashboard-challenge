@@ -14,9 +14,7 @@ export function findById(array, id) {
     return array.find((user) => user.id ===  Number(id));
 }
 
-// export function findPostById(postsArr, postID) {
-//     return usersArray.find((user) => user.id === userId);
-// }
+
 
 export function isObjectEmpty(obj) {
     return Object.keys(obj).length === 0;
@@ -28,3 +26,16 @@ export function getInitials(fullName) {
   const initials = names.map(name => name.charAt(0).toUpperCase()).join('');
   return initials;
 }
+
+// TODO: Delete these two functions
+let postIdCounter = 100;
+export const generatePostId = () => {
+  postIdCounter++;
+  return postIdCounter;
+};
+
+let commentIdCounter = 500; 
+export const generateCommentId = () => {
+  commentIdCounter++;
+  return commentIdCounter;
+};

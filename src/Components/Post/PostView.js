@@ -1,33 +1,56 @@
 import { useContext, useEffect, useState } from "react";
 import DataContext from "../../DataContext";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
 import CommentsLists from "../Comment/CommentsList";
-import CommentForm from "../../Forms/CommentForm";
 import { getInitials } from "../../Utils";
+import CommentForm from "../../Forms/CommentForm";
 
-function PostView(props) {
+function PostView() {
     const {
-        posts,
         setPosts,
         loggedUser,
         setComments,
         comments,
-        editingIndex,
         setEditingIndex,
+        updateComment,API_BASE_URL
     } = useContext(DataContext);
     const [post, setPost] = useState(null);
     const loggedUserInitials = getInitials(loggedUser.name);
+    const navigate = useNavigate();
 
     const location = useLocation();
 
     const { id } = useParams();
-    console.log(id);
     const {
         state: {
             data: { currentPost },
         },
     } = useLocation();
+    const deletePost = (postId) => {
+        fetch(`${API_BASE_URL}/posts/${postId}`, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setPosts((prevPosts) =>
+                        prevPosts.filter((post) => post.id !== postId)
+                    );
 
+                    setComments((prevComments) => {
+                        const newComments = { ...prevComments };
+                        delete newComments[postId];
+                        return newComments;
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Error deleting post:", error);
+            });
+    };
+    const handleDelete = () => {
+        deletePost(post.id);
+        navigate("/");
+    };
     useEffect(() => {
         if (location.state) {
             setPost(currentPost);
@@ -35,33 +58,44 @@ function PostView(props) {
     }, [location]);
 
     const handleEditClick = () => {
-        console.log("Edit button clicked with id ", id);
-        // console.log("Edit button clicked");
         setEditingIndex(id);
-        console.log("editing index: ", editingIndex);
-        // const editedAnswer = results.find((r) => r.id === id);
-        // setFormData(editedAnswer);
     };
-    console.log("editing index: ", editingIndex);
 
     if (!post || !comments) return <p>Loading...</p>;
 
     return (
         <main className="main-section">
-            <h1>{post.title}</h1>
-            <Link
-                to={`/edit/post/${id}`}
-                //  state={{ userData }}
-            >
-                <button onClick={handleEditClick}>EDIT POST</button>
-            </Link>
-            <h2>{post.body}</h2>
-            <CommentsLists comments={comments[post.id]} />
+            <div class="comment-buttons">
+                <Link
+                    to={`/edit/post/${id}`}
+                    style={{ textDecoration: "none" }}
+                >
+                    <button onClick={handleEditClick}>EDIT POST</button>
+                </Link>
+                <button onClick={handleDelete} className="delete-button">
+                    {" "}
+                    Delete Post
+                </button>
+            </div>
+           <div className="post-content">
+           <h1 class="post-title">{post.title}</h1>
+            <p>{post.body}</p>
+           <br />
+            {comments[post.id] ? (
+                <CommentsLists
+                    comments={comments[post.id] || []}
+                    post={post}
+                    update={updateComment}
+                />
+            ) : (
+                <p>No comments yet...</p>
+            )}
             <CommentForm
                 initials={loggedUserInitials}
                 comments={comments[post.id]}
                 post={post}
             />
+            </div>
         </main>
     );
 }

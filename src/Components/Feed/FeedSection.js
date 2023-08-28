@@ -1,26 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DataContext from "../../DataContext";
 import PostItem from "./PostItem";
-import { findById, getInitials } from "../../Utils";
-import PostForm from "../../Forms/PostForm";
+import { findById, getInitials, getRandomUserId } from "../../Utils";
 import { Link, useLocation } from "react-router-dom";
+import PostForm from "../../Forms/PostForm";
 
 function FeedSection() {
-    const { posts, loggedUser, users, editingIndex, setEditingIndex } =
-        useContext(DataContext);
+    const { posts, loggedUser, users } = useContext(DataContext);
 
-    // const {
-    //     state: { users },
-    // } = useLocation();
     return (
         <main className="main-section">
             <section class="feed-section">
                 <div class="section-header">
-                    <Link to={`/view/profile/${loggedUser.id}`}>
-                        <div class="user-circle-own">
+                    <div class="user-circle-own">
+                        <Link
+                            to={`/view/profile/${loggedUser.id}`}
+                            style={{ textDecoration: "none" }}
+                        >
                             {getInitials(loggedUser.name)}
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                     <div class="post-input">
                         <PostForm name="post" />
                     </div>

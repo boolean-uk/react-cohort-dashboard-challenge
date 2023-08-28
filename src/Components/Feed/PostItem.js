@@ -2,34 +2,14 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getInitials, getRandomUserId, isObjectEmpty } from "../../Utils";
 import DataContext from "../../DataContext";
-import CommentForm from "../../Forms/CommentForm";
 import CommentsLists from "../Comment/CommentsList";
+import CommentForm from "../../Forms/CommentForm";
 
 function PostItem(props) {
     const { post, index, author } = props;
 
-    const { comments, posts, setPosts, setComments, users } = useContext(DataContext);
-
-    async function getData(postId) {
-        const response = await fetch(
-            `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
-        ).then((response) => response.json());
-        // console.log(response);
-        const commentsWithUserId = response.map((comment) => ({
-            ...comment,
-            userId: getRandomUserId(),
-        }));
-        setComments((prevComments) => ({
-            ...prevComments,
-            [postId]: commentsWithUserId,
-        }));
-        // console.log("Calling getData with post ID:", post.id);
-        // console.log("Comments: ", comments);
-    }
-
-    useEffect(() => {
-        getData(post.id);
-    }, [post.id]);
+    const { comments, posts, setPosts, setComments, updateComment } =
+        useContext(DataContext);
 
     let authorInitials = "";
 
@@ -39,7 +19,7 @@ function PostItem(props) {
         setPosts(updatedPosts);
     };
 
-    if (!author || !post || comments[post.id] === undefined) {
+    if (!author || !post) {
         return <p>Loading.. .</p>;
     } else {
         authorInitials = getInitials(author.name);
@@ -47,42 +27,57 @@ function PostItem(props) {
 
     return (
         <div class="post">
-            <Link
-                to={`/view/profile/${author.id}`}
-                state={{ userData:author }}            >
-                <div class="user-circle">{authorInitials}</div>
-            </Link>
+            <div class="user-info">
+                <Link
+                    to={`/view/profile/${author.id}`}
+                    state={{ userData: author }}
+                    style={{ textDecoration: "none" }}
+                >
+                    <div class="user-circle">{authorInitials}</div>
+                </Link>
+                <div class="user-name">{author.name}</div>
+            </div>
             <div class="post-content">
-                <div class="user-info">
-                    <div class="user-name">{author.name}</div>
-                    <Link
-                        to={`/view/post/${post.id}`}
-                        state={{
-                            data: { currentPost: post, comments },
-                        }}
-                    >
-                        <div class="post-title">{post.title}</div>
-                    </Link>
-                </div>
+                <Link
+                    to={`/view/post/${post.id}`}
+                    state={{
+                        data: { currentPost: post, comments },
+                    }}
+                    style={{ textDecoration: "none" }}
+                >
+                    <div class="post-title">{post.title}</div>
+                </Link>
+
                 <div class="post-text">{post.body}</div>
-                <CommentsLists
-                    comments={
-                        post.expanded
-                            ? comments[post.id]
-                            : comments[post.id].slice(0, 3) || []
-                    }
-                />
-                {comments[post.id].length > 3 && (
-                    <button onClick={toggleExpanded}>
-                        {post.expanded
-                            ? "Collapse comments"
-                            : "See previous comments"}
-                    </button>
+                {comments[post.id] ? (
+                    <CommentsLists
+                        comments={
+                            post.expanded
+                                ? comments[post.id]
+                                : (comments[post.id].length > 3
+                                      ? comments[post.id].slice(0, 3)
+                                      : comments[post.id]) || []
+                        }
+                        post={post}
+                        update={updateComment}
+                    />
+                ) : (
+                    <p>No comments yet...</p>
                 )}
+                {comments[post.id]
+                    ? comments[post.id].length > 3 && (
+                          <button onClick={toggleExpanded}>
+                              {post.expanded
+                                  ? "Collapse comments"
+                                  : "See previous comments"}
+                          </button>
+                      )
+                    : null}
                 <CommentForm
                     comments={comments[post.id] || []}
                     setComments={setComments}
                     post={post}
+                    updateComment={updateComment}
                 />
             </div>
         </div>
