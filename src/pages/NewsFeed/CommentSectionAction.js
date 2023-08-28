@@ -9,8 +9,9 @@ export default function CommentSectionAction (props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        //Making a pseudoemail to properly display the initials avatar.
-        const email = users[0].name + '@'
+        //Make a pseudoemail to properly display the initials avatar.
+        const tmpArr = users[0].name.split(' ')
+        const email = tmpArr[0] + '@' + tmpArr[1] + ".com"
         //Name field (=title) is not displayed therefore not set. Set it as NoTitle for now.
         setComments([...comments, { postId , id: thisCommentId, name: 'NoTitle', email, body: commentMsg }])
         setThisCommentId(thisCommentId+1)
