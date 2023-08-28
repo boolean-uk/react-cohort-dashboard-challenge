@@ -1,5 +1,30 @@
+import { useState, useEffect } from "react"
 import Author from "../../../components/Author"
 import UserBanner from "../../../components/UserBanner"
+
+const demoUser = {
+  "id": 4,
+  "name": "Patricia Lebsack",
+  "username": "Karianne",
+  "email": "Julianne.OConner@kory.org",
+  "address": {
+    "street": "Hoeger Mall",
+    "suite": "Apt. 692",
+    "city": "South Elvis",
+    "zipcode": "53919-4257",
+    "geo": {
+      "lat": "29.4572",
+      "lng": "-164.2990"
+    }
+  },
+  "phone": "493-170-9623 x156",
+  "website": "kale.biz",
+  "company": {
+    "name": "Robel-Corkery",
+    "catchPhrase": "Multi-tiered zero tolerance productivity",
+    "bs": "transition cutting-edge web services"
+  }
+}
 
 // function LoadMoreButton() {
 //   const handleLoadMoreComments = (event) => {
@@ -22,51 +47,29 @@ function CommentBody({ author, body }) {
 }
 
 function Comment({ comment }) {
-  // comment = {
-  //   "postId": 1,
-  //   "id": 1,
-  //   "name": "id labore ex et quam laborum",
-  //   "email": "Eliseo@gardner.biz",
-  //   "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
-  // }
+  const [author, setAuthor] = useState(null)
 
-  /** TODO:
-   * find user who wrote this comment:
-   * fetch all users from url:
-   * https://jsonplaceholder.typicode.com/users
-   * find user whose email is comment.email
-   * 
-   */
-
-  const author = {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
-    },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-      "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
-      "bs": "harness real-time e-markets"
+  async function getAuthor() {
+    /** TODO: find user who wrote this comment */
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const json = await response.json()
+    let user = json.find(elem => elem.email === comment.email)
+    if (!user) {
+      user = demoUser
     }
+    setAuthor(user)
   }
 
+  useEffect(() => {
+    getAuthor()
+  }, [])
+
   return (
-    <div className='comment'>
-      <UserBanner name={author.name} />
-      <CommentBody author={author.name} body={comment.body} />
-    </div>
+    author &&
+      <div className='comment'>
+        <UserBanner name={author.name} />
+        <CommentBody author={author.name} body={comment.body} />
+      </div>
   )
 }
 
@@ -77,7 +80,7 @@ export default function CommentsList({ comments }) {
       {/* {comments.length > 3 && <LoadMoreButton />} */}
 
       {comments.map(comment =>
-        <Comment comment={comment} />
+        <Comment comment={comment} key={comment.id} />
       )}
       
     </div>

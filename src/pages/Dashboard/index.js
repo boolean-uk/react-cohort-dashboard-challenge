@@ -10,7 +10,7 @@ export default function Dashboard() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const json = await response.json()
     const randomPosts = shuffle(json).splice(0,5)
-    console.log(randomPosts)
+    // console.log(randomPosts)
     setPosts(randomPosts)
   }
 
