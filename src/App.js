@@ -5,6 +5,7 @@ import NewsFeed from './pages/NewsFeed/NewsFeed';
 import DataContext from './DataContext'
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import SinglePost from './pages/SinglePost/SinglePost';
 
 function App() {
   // Define number of users, including current active user
@@ -57,6 +58,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<NewsFeed/>} />
+          <Route path='/post/:postId' element={<SinglePost/>} />
         </Routes>
       </DataContext.Provider>
     </div>

@@ -10,20 +10,23 @@ export default function Menu() {
             id: 0,
             icon: <HomeIcon/>,
             label: 'Home',
-            active: true
+            active: true,
+            path: '/' 
         },
         {
             id: 1,
             icon: <ProfileIcon/>,
             label: 'Profile',
-            active: false
+            active: false,
+            //placeholder -> to change later
+            path: '/'
         }
     ])
 
     return (
         <ul className="menu">
             {tabs.map(tab => {
-                return <MenuButton key={tab.id} icon={tab.icon} label={tab.label} active={tab.active}/>
+                return <MenuButton key={tab.id} icon={tab.icon} label={tab.label} active={tab.active} path={tab.path}/>
             })}
         </ul>
     )
