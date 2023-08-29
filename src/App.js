@@ -12,9 +12,9 @@ import { ReactComponent as ProfileIcon } from './components/svg/profile-icon.svg
 
 function App() {
   // Define number of users, including current active user
-  const userNum = 5
+  const userNum = 6
   // Define number of posts in the NewsFeed
-  const postNum = 3
+  const postNum = 7
 
   // All users, where user[0] is the active user
   const [users, setUsers] = useState([])
@@ -82,7 +82,7 @@ function App() {
 
   return (
     <div className="app">
-      <DataContext.Provider value={{ users, posts, setPosts, comments, setComments, thisPostId, setThisPostId, thisCommentId, setThisCommentId, tabs }}>
+      <DataContext.Provider value={{ users, setUsers, posts, setPosts, comments, setComments, thisPostId, setThisPostId, thisCommentId, setThisCommentId, tabs }}>
         <Header />
         <NavBar />
 

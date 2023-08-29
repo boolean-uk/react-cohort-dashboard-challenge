@@ -15,21 +15,32 @@ export default function UserIcon(props) {
     }
 
     const handleClick = () => {
-        if(users.includes(user)){
-            tabs.map(t => {
-                if (t.label === 'Profile'){
-                    t.active = true
-                } else {
-                    t.active = false
-                }
-            })
-            navigate(`/user/${user.id}`)
-        }
+        tabs.map(t => {
+            if (t.label === 'Profile'){
+                t.active = true
+            } else {
+                t.active = false
+            }
+        })
+        navigate(`/user/${user.id}`)
     }
 
-    return (
-        <p className="user-icon" onClick={handleClick}>
-            {name}
-        </p>
-    )
+    const handleError = () => {
+        alert("This user is unknown and currently have no profile.")
+    }
+
+    if (users.includes(user)){
+        return (
+            <p className="user-icon" onClick={handleClick}>
+                {name}
+            </p>
+        )
+    } else {
+        return (
+            <p className="unknown-user-icon" onClick={handleError}>
+                {name}
+            </p>
+        )
+    }
+    
 }

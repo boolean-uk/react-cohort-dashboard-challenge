@@ -26,3 +26,19 @@
     line-height: 75px;
     border-radius: 50%;
 }
+
+.unknown-user-icon {
+    color: #000046;
+    background-color: lightskyblue;
+
+    font-size: 22px;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    place-self: center;
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    border-radius: 50%;
+}
