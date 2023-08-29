@@ -1,3 +1,12 @@
+.app > .profile {
+  margin-top: 30px;
+}
+
+.app > .profile > .profile-title {
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
+
 .app > .profile > .profile-content > .profile-header {
   display: grid;
   grid-template-columns: 70px auto;
@@ -5,6 +14,7 @@
 
 .app > .profile > .profile-content > .profile-header > .name {
   padding-top: 10px;
+  font-size: xx-large;
 }
 
 .app > .profile > .profile-content > .profile-form {
@@ -15,15 +25,13 @@
   display: grid;
   grid-template-columns: 45% 45%;
   grid-gap: 5%;
-  /* justify-content: center;
-  align-items: center; */
 }
 
-.app > .profile > .profile-content > .profile-form > .save-button {
-  /* margin-left: 950px;
-  height: 350px;
-  width: 150px; */
-  font-weight: bold;
+.app > .profile > .profile-content > .profile-form > .row > .save-button {
+  height: 50px;
+  width: 170px;
+  font-size: large;
   border-radius: 10px;
   border-style: none;
+  margin-left: 340px;
 }

@@ -8,7 +8,7 @@ export default function Profile() {
 
   return (
     <main className='main profile'>
-      <h1>Profile</h1>
+      <h1 className='profile-title'>Profile</h1>
       <ProfileContent />
     </main>
   )
