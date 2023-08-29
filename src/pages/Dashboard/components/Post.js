@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
-import Author from "../../../components/Author"
+import { useContext, useEffect, useState } from "react"
+import Actions from "../../../components/Actions"
 import Delimeter from "../../../components/Delimeter"
 import UserBanner from "../../../components/UserBanner"
 import CommentsList from "./CommentsList"
 import NewCommentForm from "./NewCommentForm"
+import DataContext from "../../../DataContext"
 
 function PostHeader({ author, post }) {
   const { title, id } = post
+  const { deletePost } = useContext(DataContext)
+
   return (
     <div className='post-header'>
       <UserBanner name={author.name} id={author.id} />
 
       <div className='post-header-div'>
-        <Author name={author.name} id={author.id} />
+        <Actions id={id} author={author} handleDelete={deletePost} />
         <Link to={`/posts/${id}`} state={{ post }}>
           <span className='title'>{title}</span>
         </Link>

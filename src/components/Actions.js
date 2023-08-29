@@ -4,20 +4,23 @@ import EditIcon from "./EditIcon";
 import DataContext from "../DataContext";
 import DeleteIcon from "./DeleteIcon";
 
-function ActionButtons() {
+function ActionButtons({ id, handleDelete }) {
   return (
     <div className='action-buttons'>
       <button className='action-button edit-button'>
         <EditIcon />
       </button>
-      <button className='action-button delete-button'>
+      <button
+        className='action-button delete-button'
+        onClick={() => handleDelete(id)}
+      >
         <DeleteIcon />
       </button>
     </div>
   )
 }
 
-export default function Actions({ author }) {
+export default function Actions({ id, author, handleDelete }) {
   const { user } = useContext(DataContext)
   const isAuthor = author.id === user.id
 
@@ -25,7 +28,7 @@ export default function Actions({ author }) {
     <div className='actions'>
       <Author name={author.name} id={author.id} />
       {isAuthor &&
-        <ActionButtons />
+        <ActionButtons id={id} handleDelete={handleDelete} />
       }
     </div>
   )

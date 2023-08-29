@@ -13,6 +13,13 @@ function App() {
   const [user, setUser] = useState(null)
   const [posts, setPosts] = useState(null)
 
+  const deletePost = (postId) => {
+    const index = posts.findIndex(post => post.id === postId)
+    const newPosts = [...posts]
+    newPosts.splice(index, 1)
+    setPosts(newPosts)
+  }
+
   async function getUserData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
     const json = await response.json()
@@ -27,7 +34,7 @@ function App() {
   return (
     user &&
     <div className="app">
-      <DataContext.Provider value={{ user, setUser, posts, setPosts }}>
+      <DataContext.Provider value={{ user, setUser, posts, setPosts, deletePost }}>
         <Header />
         <LeftMenu />
 
