@@ -1,6 +1,7 @@
+import { useState } from "react"
 import Delimeter from "../../../components/Delimeter"
 
-function InputField({ label, type, name, defaultValue, isReqired, disabled }) {
+function InputField({ label, type, name, formData, isReqired, disabled, handleChange }) {
   if (isReqired && !disabled) {
     label += '*'
   }
@@ -11,15 +12,16 @@ function InputField({ label, type, name, defaultValue, isReqired, disabled }) {
       <input
         type={type}
         name={name}
-        defaultValue={defaultValue}
+        value={formData[name]}
         required={isReqired}
         disabled={disabled}
+        onChange={handleChange}
       />
     </label>
   )
 }
 
-function AccountInfo({ firstName, lastName, username, email, disabled }) {
+function AccountInfo({ formData, disabled, handleChange }) {
   return (
     <div className='account-info'>
       <Delimeter />
@@ -29,42 +31,46 @@ function AccountInfo({ firstName, lastName, username, email, disabled }) {
         label='First Name'
         type='text'
         name='firstName'
-        defaultValue={firstName}
+        formData={formData}
         isReqired={true}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Last Name'
         type='text'
         name='lastName'
-        defaultValue={lastName}
+        formData={formData}
         isReqired={true}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Username'
         type='text'
         name='username'
-        defaultValue={username}
+        formData={formData}
         isReqired={true}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Email'
         type='email'
         name='email'
-        defaultValue={email}
+        formData={formData}
         isReqired={true}
         disabled={disabled}
+        handleChange={handleChange}
       />
     </div>
   )
 }
 
-function Address({ street, suite, city, zipcode, disabled }) {
+function Address({ formData, disabled, handleChange }) {
   return (
     <div className='address'>
       <Delimeter />
@@ -74,42 +80,46 @@ function Address({ street, suite, city, zipcode, disabled }) {
         label='Street'
         type='text'
         name='street'
-        defaultValue={street}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Suite'
         type='text'
         name='suite'
-        defaultValue={suite}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='City'
         type='text'
         name='city'
-        defaultValue={city}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Zipcode'
         type='text'
         name='zipcode'
-        defaultValue={zipcode}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
     </div>
   )
 }
 
-function ContactInfo({ phone, website, disabled }) {
+function ContactInfo({ formData, disabled, handleChange }) {
   return (
     <div className='contact-info'>
       <Delimeter />
@@ -119,24 +129,26 @@ function ContactInfo({ phone, website, disabled }) {
         label='Phone'
         type='tel'
         name='phone'
-        defaultValue={phone}
+        formData={formData}
         isReqired={true}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Website'
         type='text'
         name='website'
-        defaultValue={website}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
     </div>
   )
 }
 
-function CompanyInfo({ companyName, catchPhrase, bs, disabled }) {
+function CompanyInfo({ formData, disabled, handleChange }) {
   return (
     <div className='company-info'>
       <Delimeter />
@@ -146,27 +158,30 @@ function CompanyInfo({ companyName, catchPhrase, bs, disabled }) {
         label='Name'
         type='text'
         name='companyName'
-        defaultValue={companyName}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Catch Phrase'
         type='text'
         name='catchPhrase'
-        defaultValue={catchPhrase}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
 
       <InputField
         label='Business Statement'
         type='text'
         name='bs'
-        defaultValue={bs}
+        formData={formData}
         isReqired={false}
         disabled={disabled}
+        handleChange={handleChange}
       />
     </div>
   )
@@ -180,66 +195,64 @@ function SaveButton() {
   )
 }
 
-const demoUser = {
-  "id": 1,
-  "name": "Alex Walker",
-  "username": "AWalker",
-  "email": "Sincere@april.biz",
-  "address": {
-    "street": "Kulas Light",
-    "suite": "Apt. 556",
-    "city": "Gwenborough",
-    "zipcode": "92998-3874",
-    "geo": {
-      "lat": "-37.3159",
-      "lng": "81.1496"
-    }
-  },
-  "phone": "1-770-736-8031 x56442",
-  "website": "hildegard.org",
-  "company": {
-    "name": "Romaguera-Crona",
-    "catchPhrase": "Multi-layered client-server neural-net",
-    "bs": "harness real-time e-markets"
-  }
-}
-
 export default function ProfileForm({ user, readOnly }) {
   const [firstName, lastName] = user.name.split(' ')
-  const handleSubmit = (event) => {
+  const initialFormData = {
+    "firstName": firstName,
+    "lastName": lastName,
+    "username": user.username,
+    "email": user.email,
+    "street": user.address.street,
+    "suite": user.address.suite,
+    "city": user.address.city,
+    "zipcode": user.address.zipcode,
+    "phone": user.phone,
+    "website": user.website,
+    "companyName": user.company.name,
+    "catchPhrase": user.company.catchPhrase,
+    "bs": user.company.bs
+  }
+
+  const [formData, setFormData] = useState(initialFormData)
+
+  const handleChange = event => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+  const handleSubmit = event => {
     event.preventDefault()
+    console.log('handleSubmit -- formData:', formData)
   }
 
   return (
     <form onSubmit={handleSubmit} className='profile-form'>
       <div className='row'>
         <AccountInfo
-          firstName={firstName}
-          lastName={lastName}
-          username={user.username}
-          email={user.email}
+          formData={formData}
           disabled={readOnly}
+          handleChange={handleChange}
         />
         <Address
-          street={user.address.street}
-          suite={user.address.suite}
-          city={user.address.city}
-          zipcode={user.address.zipcode}
+          formData={formData}
           disabled={readOnly}
+          handleChange={handleChange}
         />
       </div>
 
       <div className='row'>
         <ContactInfo
-          phone={user.phone}
-          website={user.website}
+          formData={formData}
           disabled={readOnly}
+          handleChange={handleChange}
         />
         <CompanyInfo
-          companyName={user.company.name}
-          catchPhrase={user.company.catchPhrase}
-          bs={user.company.bs}
+          formData={formData}
           disabled={readOnly}
+          handleChange={handleChange}
         />
       </div>
 
