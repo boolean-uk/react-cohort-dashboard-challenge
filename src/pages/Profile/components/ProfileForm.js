@@ -9,7 +9,7 @@ function InputField({ label, type, name, formData, isReqired, disabled, handleCh
 
   return (
     <label className='input-field'>
-      <p>{label}</p>
+      <p className='label-name label-text'>{label}</p>
       <input
         type={type}
         name={name}
@@ -26,7 +26,7 @@ function AccountInfo({ formData, disabled, handleChange }) {
   return (
     <div className='account-info'>
       <Delimeter />
-      <h2>Account Info</h2>
+      <h2>Account info</h2>
 
       <InputField
         label='First Name'
@@ -124,7 +124,7 @@ function ContactInfo({ formData, disabled, handleChange }) {
   return (
     <div className='contact-info'>
       <Delimeter />
-      <h2>Contact Info</h2>
+      <h2>Contact info</h2>
 
       <InputField
         label='Phone'
@@ -153,7 +153,7 @@ function CompanyInfo({ formData, disabled, handleChange }) {
   return (
     <div className='company-info'>
       <Delimeter />
-      <h2>Company Info</h2>
+      <h2>Company info</h2>
 
       <InputField
         label='Name'
@@ -286,7 +286,7 @@ export default function ProfileForm({ user, readOnly }) {
       {
         !readOnly &&
           <div className='row'>
-            <p>* Required</p>
+            <p className='label-text'>* Required</p>
             <SaveButton />
           </div>
       }
