@@ -1,0 +1,266 @@
+body {
+  background-color: #e6eaee;
+  margin: 0;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App-header {
+  background-color: #000046;
+  padding: 10px 0;
+  height: 140px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.header-author-initials {
+  width: 60px;          /* Increased size from 40px to 60px */
+  height: 60px;         /* Increased size from 40px to 60px */
+  font-size: 24px;      /* Adjusted font size for bigger initials */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #000046;
+  font-weight: bold;
+  margin-right: 80px;   /* Shift to the left; adjust as needed */
+}
+.main-content {
+  flex-grow: 1;
+  display: flex;
+}
+
+.header-logo {
+  color: white;
+  width: 400px;
+  height: 150px;
+  margin-left: 50px;
+
+}
+
+.navigation-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+  border-right: 1px solid #acacac;
+  flex: 0 0 100px;
+  background-color: #f8f8f8
+}
+.content-area {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+.home-icon-container, .profile-icon-container {
+  color: #000046;
+  padding: 5px;
+}
+
+
+.profile-icon-button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000046; 
+  
+}
+.profile-icon-button:hover {
+  background-color: #64dc78;
+
+}
+.author-initials-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.author-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  background-color: #e6ebf5;
+}
+
+.comment-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: black;
+  border-radius: 8px;
+}
+
+.submit-btn {
+  border-radius: 50%;
+  background-color: #c8d2e6;
+  border: none;
+  padding: 6px;
+  margin: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-post-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #e6ebf5;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for a slightly lifted look */
+  border-radius: 8px;
+
+
+}
+
+.new-post-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 12px;
+}
+
+.post-submit-btn {
+  margin-left: 10px;
+  padding: 12px 40px;
+  background-color: #000046;
+  border-radius: 10%;
+  color: white;
+}
+
+.post-item {
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for a slightly lifted look */
+}
+
+.post-author-info {
+  display: flex;
+  align-items: left;
+  margin-bottom: 10px;
+  flex-direction: row-column; /* Reverses the direction so name appears to the right of initials */
+  justify-content: flex-start;
+}
+
+.author-name {
+  font-weight: bolder;
+  color: #181835;
+  align-self: flex-start;
+
+}
+.post-details {
+  margin-bottom: 10px;
+  font-weight: lighter;
+  color:#1b1b31
+
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.author-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.edit-btn {
+  margin-bottom: 20px;
+  background-color: #bfbfe4;
+}
+
+.info-sections {
+  display: flex;
+  flex-wrap: wrap; /* Allows content to wrap onto the next line */
+  gap: 20px;       /* Adds space between each section */
+}
+
+.account-info, 
+.contact-info {
+  flex-basis: calc(50% - 10px); /* This makes it occupy 50% width minus half the gap */
+  order: 1;    /* By default everything is order: 0, so this ensures these sections come first */
+}
+
+.address-info, 
+.company-info {
+  flex-basis: calc(50% - 10px);
+  order: 2;    /* This ensures these sections come second, appearing on the right side */
+}
+.initials-post {
+  margin-bottom: 10px; /* space between the initials and the name */
+}
+.post-title{
+  font-size: small;
+  color: #64648c;
+  margin-top: 5px
+}
+
+e6ebf5
+
+.comments-list {
+  list-style-type: none;    /* Remove bullet points */
+  padding: 15px;           /* Space inside the box */
+  border-radius: 10px;     /* Rounded borders */
+  background-color: #f8f8f8; /* Subtle background color */
+  border: 1px solid #e0e0e0; /* Light border */
+  max-width: 600px;        /* Limit the width */
+  margin: 20px 0;          /* Space above and below the list */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Slight shadow for a lifted appearance */
+}
+.comments-list li {
+  display: flex;           /* Arrange children (initials and comment) side by side */
+  align-items: center;     /* Align initials and comment vertically in the center */
+  padding: 8px 0;          /* Space between comments */
+  border-bottom: 1px solid #e0e0e0; /* Horizontal line between comments */
+}
+
+.comments-list li:last-child {
+  border-bottom: none;     /* Remove border for the last comment */
+}
+.comment-author {
+  margin-right: 18px;      /* Space between initials and comment text */
+}
+
+.comment-body {
+  flex: 1;                 /* Allow the comment to take the remaining space */
+  display: flex;           /* This will allow us to center the content vertically */
+  align-items: center;     /* Center content vertically */
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column; /* stacks the name and title vertically */
+  justify-content: center;
+  margin-left: 10px; /* space between the initials and the name/title block */
+}
