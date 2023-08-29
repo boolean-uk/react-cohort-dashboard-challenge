@@ -27,9 +27,7 @@ export default function NewCommentForm({ postId, updateComments }) {
         email: user.email,
         body: formData,
         postId: postId,
-        /** TODO: insert as well:
-         * "name": "id labore ex et quam laborum",
-         */
+        userId: user.id
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

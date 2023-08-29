@@ -25,18 +25,6 @@ function App() {
     setPosts(newPosts)
   }
 
-  // const deleteComment = (id) => {
-  //   // delete resource
-  //   fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
-  //     method: 'DELETE',
-  //   })
-  //   // TODO: update comments state as well
-  //   // const index = comments.findIndex(post => post.id === id)
-  //   // const newComments = [...comments]
-  //   // newComments.splice(index, 1)
-  //   // setComments(newComments)
-  // }
-
   async function getUserData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
     const json = await response.json()
@@ -45,7 +33,6 @@ function App() {
 
   useEffect(() => {
     getUserData()
-    console.log('App::useEffect user', user)
   }, [])
 
   return (

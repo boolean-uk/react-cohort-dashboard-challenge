@@ -6,6 +6,7 @@ import UserBanner from "../../../components/UserBanner"
 import CommentsList from "./CommentsList"
 import NewCommentForm from "./NewCommentForm"
 import DataContext from "../../../DataContext"
+import getRandomUserId from "../../../utilities/getRandomUserId"
 
 function PostHeader({ author, post }) {
   const { title, id } = post
@@ -45,7 +46,7 @@ export default function Post({ post, showAllComments }) {
     fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
       method: 'DELETE',
     })
-    // TODO: update comments state as well
+    // update comments state as well
     const index = comments.findIndex(post => post.id === id)
     const newComments = [...comments]
     newComments.splice(index, 1)
@@ -61,6 +62,8 @@ export default function Post({ post, showAllComments }) {
   async function getComments() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
     const json = await response.json()
+    // assign a random userId to each comment
+    json.forEach(comment => comment.userId = getRandomUserId())
     setComments(json)
   }
 

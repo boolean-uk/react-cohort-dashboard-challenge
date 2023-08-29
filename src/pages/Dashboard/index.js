@@ -31,7 +31,6 @@ export default function Dashboard() {
     if (!posts) {
       getPostsData()
     }
-    console.log('Dashboard::useEffect posts', posts)
   }, [])
 
   return (

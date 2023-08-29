@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react"
 import UserBanner from "../../../components/UserBanner"
-import getRandomUserId from "../../../utilities/getRandomUserId"
 import Actions from "../../../components/Actions"
 import DataContext from "../../../DataContext"
 
@@ -30,8 +29,7 @@ function Comment({ comment, handleDelete }) {
   const [author, setAuthor] = useState(null)
 
   async function getAuthor() {
-    const randomUserId = getRandomUserId()
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUserId}`)
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${comment.userId}`)
     const json = await response.json()
     setAuthor(json)
   }
