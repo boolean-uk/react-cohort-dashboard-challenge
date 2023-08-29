@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import UserBanner from "../../../components/UserBanner"
 import getRandomUserId from "../../../utilities/getRandomUserId"
 import Actions from "../../../components/Actions"
+import DataContext from "../../../DataContext"
 
 function LoadMoreButton({ setShowAll }) {
-  /** TODO: implement logic of loading all comments */
   const handleLoadMoreComments = (event) => {
     // event.preventDefault()
     setShowAll(true)
@@ -17,16 +17,16 @@ function LoadMoreButton({ setShowAll }) {
   )
 }
 
-function CommentBody({ author, body }) {
+function CommentBody({ id, author, body, handleDelete }) {
   return (
     <div className='comment-body box-container box-container-colored'>
-      <Actions author={author} />
+      <Actions id={id} author={author} handleDelete={handleDelete} />
       <p>{body}</p>
     </div>
   )
 }
 
-function Comment({ comment }) {
+function Comment({ comment, handleDelete }) {
   const [author, setAuthor] = useState(null)
 
   async function getAuthor() {
@@ -44,12 +44,12 @@ function Comment({ comment }) {
     author &&
       <div className='comment'>
         <UserBanner name={author.name} id={author.id} />
-        <CommentBody author={author} body={comment.body} />
+        <CommentBody id={comment.id} author={author} body={comment.body} handleDelete={handleDelete} />
       </div>
   )
 }
 
-export default function CommentsList({ comments, showAllComments }) {
+export default function CommentsList({ comments, showAllComments, handleDelete }) {
   const [showAll, setShowAll] = useState(showAllComments || comments.length <= 3)
   
   if (!showAll)
@@ -60,7 +60,7 @@ export default function CommentsList({ comments, showAllComments }) {
       {!showAll && <LoadMoreButton setShowAll={setShowAll} />}
 
       {comments.map(comment =>
-        <Comment comment={comment} key={comment.id} />
+        <Comment comment={comment} handleDelete={handleDelete} key={comment.id} />
       )}
       
     </div>

@@ -40,6 +40,18 @@ export default function Post({ post, showAllComments }) {
     setComments([newComment, ...comments])
   }
 
+  const deleteComment = (id) => {
+    // delete resource
+    fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+      method: 'DELETE',
+    })
+    // TODO: update comments state as well
+    const index = comments.findIndex(post => post.id === id)
+    const newComments = [...comments]
+    newComments.splice(index, 1)
+    setComments(newComments)
+  }
+
   async function getAuthorName() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
     const json = await response.json()
@@ -65,7 +77,7 @@ export default function Post({ post, showAllComments }) {
       <PostBody body={post.body} />
       <Delimeter />
       {
-        comments && <CommentsList comments={comments} showAllComments={showAllComments} />
+        comments && <CommentsList comments={comments} showAllComments={showAllComments} handleDelete={deleteComment} />
       }
       <NewCommentForm postId={post.id} updateComments={updateComments} />
     </div>
