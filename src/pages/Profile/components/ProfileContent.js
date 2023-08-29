@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
 import UserBanner from "../../../components/UserBanner";
 import ProfileForm from "./ProfileForm";
+import { useContext, useEffect, useState } from "react";
+import DataContext from "../../../DataContext";
 
 function ProfileHeader({ user }) {
   return (
@@ -10,12 +13,32 @@ function ProfileHeader({ user }) {
   )
 }
 
-export default function ProfileContent({ user }) {
+export default function ProfileContent() {
+  const [viewUser, setViewUser] = useState(null)
+  const params = useParams()
+  const { user } = useContext(DataContext)
+  // check if logged in user is viewing their profile, or somebody else's
+  const viewingOther = params.id && (user.id !== Number(params.id))
+
+  async function getUser() {
+    if (viewingOther) {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+      const json = await response.json()
+      setViewUser(json)
+    } else {
+      setViewUser(user)
+    }
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   return (
-    <div className='profile-content box-container box-container-white'>
-      <ProfileHeader user={user} />
-      <ProfileForm user={user} />
-    </div>
+    viewUser &&
+      <div className='profile-content box-container box-container-white'>
+        <ProfileHeader user={viewUser} />
+        <ProfileForm user={viewUser} />
+      </div>
   )
 }

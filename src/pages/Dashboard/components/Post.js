@@ -13,7 +13,7 @@ function PostHeader({ author, post }) {
       <UserBanner name={author.name} id={author.id} />
 
       <div className='post-header-div'>
-        <Author author={author} />
+        <Author name={author.name} id={author.id} />
         <Link to={`/posts/${id}`} state={{ post }}>
           <span className='title'>{title}</span>
         </Link>

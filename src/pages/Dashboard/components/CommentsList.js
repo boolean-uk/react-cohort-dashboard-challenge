@@ -43,7 +43,7 @@ function LoadMoreButton({ setShowAll }) {
 function CommentBody({ author, body }) {
   return (
     <div className='comment-body box-container box-container-colored'>
-      <Author author={author} />
+      <Author name={author.name} id={author.id} />
       <p>{body}</p>
     </div>
   )
@@ -71,7 +71,7 @@ function Comment({ comment }) {
     author &&
       <div className='comment'>
         <UserBanner name={author.name} id={author.id} />
-        <CommentBody author={author.name} body={comment.body} />
+        <CommentBody author={author} body={comment.body} />
       </div>
   )
 }

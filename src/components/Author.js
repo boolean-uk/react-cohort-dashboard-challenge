@@ -1,5 +1,9 @@
-export default function Author({ author }) {
+import { Link } from "react-router-dom";
+
+export default function Author({ name, id }) {
   return (
-    <h4 className='author'>{author.name}</h4>
+    <Link to={`/profile/${id}`}>
+      <h4 className='author'>{name}</h4>
+    </Link>
   )
 }

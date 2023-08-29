@@ -9,7 +9,7 @@ export default function Profile() {
   return (
     <main className='main profile'>
       <h1>Profile</h1>
-      <ProfileContent user={user} />
+      <ProfileContent />
     </main>
   )
 }
