@@ -14,7 +14,7 @@ function Header() {
     }
     
     return (
-        <header class="main-header">
+        <header class="main-header sticky-header">
             <div>
                 <Link to={"/"}>
                     <TitleHeader />

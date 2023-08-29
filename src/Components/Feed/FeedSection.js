@@ -11,7 +11,7 @@ function FeedSection() {
         <main className="main-section">
             <section class="feed-section">
                 <FeedSectionHeader />
-                {(posts.length < 100 || !users || !comments) && <Loader />}
+                {(!(posts && posts.length) || !users || !comments) && <Loader />}
                 <FeedSectionBody />
             </section>
         </main>

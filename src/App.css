@@ -36,6 +36,8 @@ li {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f5fa;
+    height: fit-content;
+    overflow: scroll;
 }
 
 /* Left Section Navigation */
@@ -593,4 +595,10 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
     height: 100vh; 
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
   }
