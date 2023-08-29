@@ -6,6 +6,9 @@ import DataContext from './DataContext'
 import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import SinglePost from './pages/SinglePost/SinglePost';
+import Profile from './pages/Profile/Profile';
+import { ReactComponent as HomeIcon } from './components/svg/home-icon.svg'
+import { ReactComponent as ProfileIcon } from './components/svg/profile-icon.svg'
 
 function App() {
   // Define number of users, including current active user
@@ -16,10 +19,29 @@ function App() {
   // All users, where user[0] is the active user
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
+  //Keeping track of what id a new post should have
   const [thisPostId, setThisPostId] = useState(null)
   const [comments, setComments] = useState([])
+  //Keeping track of what id a new comment should have
   const [thisCommentId, setThisCommentId] = useState(null)
   const [firstLoad, setFirstLoad] = useState(false)
+  //Set NavBar Buttons
+  const [tabs, setTabs] = useState([
+    {
+        id: 0,
+        icon: <HomeIcon/>,
+        label: 'Home',
+        active: true,
+        path: '/' 
+    },
+    {
+        id: 1,
+        icon: <ProfileIcon/>,
+        label: 'Profile',
+        active: false,
+        path: '/user/1'
+    }
+  ])
 
   const shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -60,13 +82,14 @@ function App() {
 
   return (
     <div className="app">
-      <DataContext.Provider value={{ users, posts, setPosts, comments, setComments, thisPostId, setThisPostId, thisCommentId, setThisCommentId }}>
+      <DataContext.Provider value={{ users, posts, setPosts, comments, setComments, thisPostId, setThisPostId, thisCommentId, setThisCommentId, tabs }}>
         <Header />
         <NavBar />
 
         <Routes>
           <Route path='/' element={<NewsFeed/>} />
           <Route path='/post/:postId' element={<SinglePost/>} />
+          <Route path='/user/:id' element={<Profile />} />
         </Routes>
       </DataContext.Provider>
     </div>

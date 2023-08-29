@@ -23,7 +23,7 @@ export default function CommentSectionAction (props) {
             <div className="comment-action">
                 <UserIcon user={users[0]} />
                 <form className="new-comment" onSubmit={handleSubmit}>
-                    <input className="new-comment-input" type='text' value={commentMsg} onChange={(event) => {setCommentMsg(event.target.value)}} placeholder="Add a comment..." />
+                    <input className="new-comment-input" type='text' name="commentMsg" value={commentMsg} onChange={(event) => {setCommentMsg(event.target.value)}} placeholder="Add a comment..." />
                     <input className="new-comment-button" type="image" src = "https://www.freeiconspng.com/thumbs/arrow-icon/arrow-icon--myiconfinder-23.png" alt = "new-comment-button" />
                 </form>
             </div>

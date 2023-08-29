@@ -33,8 +33,8 @@ export default function CommentList(props) {
             }
             <ul className="comment-list">
                 {
-                    displayComments.map((comment,index) => {
-                        return <Comment key={index} comment={comment}/>
+                    displayComments.map(comment => {
+                        return <Comment key={comment.id} comment={comment}/>
                     })
                 }
             </ul>

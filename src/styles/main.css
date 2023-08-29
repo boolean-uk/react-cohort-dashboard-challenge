@@ -2,6 +2,7 @@
     grid-area: main;
     background-color: #F0F5FA;
     overflow-y: scroll;
+    padding-bottom: 30px;
 
     display: flex;
     flex-direction: column;
@@ -239,4 +240,159 @@
     height: 84px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.app > .main > .profile-header {
+    color:#000046;
+    place-self: start;
+    margin-left: 100px;
+    margin-top: 30px;
+    font-size: 46px;
+}
+
+.app > .main > .profile-info {
+    background-color: white;
+    border-radius: 20px;
+    border: solid 1px lightgray;
+    width: 95%;
+    place-items: center;
+    margin-bottom: 75px;
+
+    display:grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.app > .main > .profile-info .profile-name {
+    width: 90%;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-left: 175px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+
+.app > .main > .profile-info .profile-name .profile-name-avatar {
+    transform: scale(1.35);
+}
+
+.app > .main > .profile-info .profile-name .profile-name-tag {
+    color: #000046;
+    font-size: 38px;
+}
+
+.app > .main > .profile-info .profile-name .profile-form-note {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    width: 65%;
+    color:#64648c;
+    margin: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.app > .main > .profile-info .profile-data-form {
+    place-self: start;
+    margin-left: 130px;
+    margin-top: 20px;
+    width: 90%;
+    height: 99%;
+
+    display: grid;
+    grid-template-areas: 
+    "account address"
+    "contact company"
+    "action action";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4fr 4fr 1fr;
+}
+
+.app > .main > .profile-info .account-info {
+    grid-area: account;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    width: 93%;
+}
+
+.app > .main > .profile-info .address-info {
+    grid-area: address;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    width: 93%;
+}
+
+.app > .main > .profile-info .contact-info {
+    grid-area: contact;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    width: 93%;
+}
+
+.app > .main > .profile-info .company-info {
+    grid-area: company;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    width: 93%;
+}
+
+.app > .main > .profile-info .profile-action {
+    grid-area: action;
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width: 93%;
+}
+
+.app > .main > .profile-info .segment-title {
+    color: #000046;
+    font-size: 38px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+
+.app > .main > .profile-info .profile-data-form .profile-data-form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.app > .main > .profile-info .profile-data-form .profile-data-form-field .profile-data-form-field-title {
+    margin: 0 0 5px 5px;
+    color: #64648c;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.app > .main > .profile-info .profile-data-form .profile-data-form-field .profile-data-form-field-input {
+    background-color:#e6ebf5;
+    width: 97%;
+    height: 75px;
+    padding-left: 20px;
+    border: 0;
+    border-radius: 15px;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.app > .main > .profile-info .profile-data-form .save-info-button {
+    background-color: #000046;
+    color: white;
+    margin: 0;  
+    
+    width: 20%;
+    height: 100px;
+    border: 0;
+    border-radius: 15px;
+
+    font-family: sans-serif;
+    font-size: 28px;
+}
+
+.app > .main > .profile-info .profile-data-form .save-info-button:hover {
+    background-color: #64dc78;
 }
