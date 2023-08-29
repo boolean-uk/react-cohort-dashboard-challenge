@@ -31,22 +31,14 @@
 
 .post > .post-header {
   display: grid;
-  grid-template: 
-    "banner author" auto
-    "banner title" 20px / 60px 1fr;
+  grid-template-columns: 60px 1fr;
 }
 
 .post > .post-header > .user-banner {
-  grid-area: banner;
   margin-right: 10px;
 }
 
-.post > .post-header > .author {
-  grid-area: author;
-}
-
 .post > .post-header .title {
-  grid-area: title;
   color: #64648c;
   font-weight: bold;
 }
