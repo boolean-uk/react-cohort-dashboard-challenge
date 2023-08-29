@@ -70,7 +70,7 @@ function Comment({ comment }) {
   return (
     author &&
       <div className='comment'>
-        <UserBanner name={author.name} />
+        <UserBanner name={author.name} id={author.id} />
         <CommentBody author={author.name} body={comment.body} />
       </div>
   )

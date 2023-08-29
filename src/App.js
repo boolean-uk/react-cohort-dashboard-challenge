@@ -33,7 +33,8 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile/' element={<Profile />} />
+          <Route path='/profile/:id' element={<Profile />} />
           <Route path='/posts/:id' element={<ViewPostPage />} />
         </Routes>
         

@@ -54,7 +54,7 @@ export default function NewPostForm({ updatePosts }) {
       onSubmit={handleSumbit}
       className='new-post-form box-container box-container-white'
     >
-      <UserBanner name={user.name} />
+      <UserBanner name={user.name} id={user.id} />
       <InputFields value={formData} handleChange={handleChange} />
       <SubmitPostButton />
     </form>

@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className='header'>
       <HeaderLogo />
-      <UserBanner name={user.name} />
+      <UserBanner name={user.name} id={user.id} />
     </header>
   )
 }

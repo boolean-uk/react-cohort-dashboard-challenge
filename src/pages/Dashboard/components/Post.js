@@ -10,12 +10,15 @@ function PostHeader({ author, post }) {
   const { title, id } = post
   return (
     <div className='post-header'>
-      <UserBanner name={author} />
-      <Author author={author} />
+      <UserBanner name={author.name} id={author.id} />
 
-      <Link to={`/posts/${id}`} state={{ post }}>
-        <span className='title'>{title}</span>
-      </Link>
+      <div className='post-header-div'>
+        <Author author={author} />
+        <Link to={`/posts/${id}`} state={{ post }}>
+          <span className='title'>{title}</span>
+        </Link>
+      </div>
+     
     </div>
   )
 }
@@ -27,7 +30,7 @@ function PostBody({ body }) {
 }
 
 export default function Post({ post, showAllComments }) {
-  const [authorName, setAuthorName] = useState(null)
+  const [author, setAuthor] = useState(null)
   const [comments, setComments] = useState(null)
 
   const updateComments = (newComment) => {
@@ -37,7 +40,7 @@ export default function Post({ post, showAllComments }) {
   async function getAuthorName() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
     const json = await response.json()
-    setAuthorName(json.name)
+    setAuthor(json)
   }
 
   async function getComments() {
@@ -54,7 +57,7 @@ export default function Post({ post, showAllComments }) {
   return (
     <div className='post box-container box-container-white'>
       {
-        authorName && <PostHeader author={authorName} post={post} />
+        author && <PostHeader author={author} post={post} />
       }
       <PostBody body={post.body} />
       <Delimeter />

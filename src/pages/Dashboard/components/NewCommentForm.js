@@ -44,7 +44,7 @@ export default function NewCommentForm({ postId, updateComments }) {
       onSubmit={handleSumbit}
       className='new-comment-form'
     >
-      <UserBanner name={user.name} />
+      <UserBanner name={user.name} id={user.id} />
 
       <div className='new-comment-form-content box-container box-container-colored'>
         <input
