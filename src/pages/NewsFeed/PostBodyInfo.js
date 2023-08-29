@@ -7,7 +7,7 @@ export default function PostBodyInfo(props) {
     const {users, tabs} = useContext(DataContext)
     const navigate = useNavigate()
 
-    const handleClickUser = () => {
+    const handleUserClick = () => {
         if(users.find(u => u.id === userId) !== undefined){
             tabs.map(t => {
                 if (t.label === 'Profile'){
@@ -20,14 +20,14 @@ export default function PostBodyInfo(props) {
         }
     }
 
-    const handleClickPost = () => {
+    const handlePostClick = () => {
         navigate(`/post/${id}`)
     }
 
     return (
         <div className="post-body-info">
-            <p className="post-body-author" onClick={handleClickUser}>{author}</p>
-            <p className="post-body-title" onClick={handleClickPost}>{title}</p>
+            <p className="post-body-author" onClick={handleUserClick}>{author}</p>
+            <p className="post-body-title" onClick={handlePostClick}>{title}</p>
         </div>
     )
 }

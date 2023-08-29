@@ -114,10 +114,10 @@
     
     display: grid;
     grid-template-areas: 
-    "icon info"
-    "msg msg";
+    "icon info actions"
+    "msg msg actions";
     grid-template-rows: 120px 1fr;
-    grid-template-columns: 1fr 14fr;
+    grid-template-columns: 1fr 14fr 1fr;
 }
 
 .app > .main > .post-section .post-body .post-body-info {
@@ -149,6 +149,22 @@
     font-size: 20px;
     overflow-wrap: break-word;
     border-bottom: solid 1px lightgray;
+}
+
+.app > .main > .post-section .post-body .post-body-actions {
+    grid-area: actions;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.app > .main > .post-section .post-body .post-action-icon {
+    width: 50px;
+}
+
+.app > .main > .post-section .post-body .post-action-icon:hover {
+    transform: scale(1.1);
 }
 
 .app > .main > .post-section .comment-section {
