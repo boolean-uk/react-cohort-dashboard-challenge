@@ -1,30 +1,7 @@
 import { useState, useEffect } from "react"
 import Author from "../../../components/Author"
 import UserBanner from "../../../components/UserBanner"
-
-const demoUser = {
-  "id": 4,
-  "name": "Patricia Lebsack",
-  "username": "Karianne",
-  "email": "Julianne.OConner@kory.org",
-  "address": {
-    "street": "Hoeger Mall",
-    "suite": "Apt. 692",
-    "city": "South Elvis",
-    "zipcode": "53919-4257",
-    "geo": {
-      "lat": "29.4572",
-      "lng": "-164.2990"
-    }
-  },
-  "phone": "493-170-9623 x156",
-  "website": "kale.biz",
-  "company": {
-    "name": "Robel-Corkery",
-    "catchPhrase": "Multi-tiered zero tolerance productivity",
-    "bs": "transition cutting-edge web services"
-  }
-}
+import getRandomUserId from "../../../utilities/getRandomUserId"
 
 function LoadMoreButton({ setShowAll }) {
   /** TODO: implement logic of loading all comments */
@@ -53,14 +30,10 @@ function Comment({ comment }) {
   const [author, setAuthor] = useState(null)
 
   async function getAuthor() {
-    /** TODO: find user who wrote this comment */
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const randomUserId = getRandomUserId()
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${randomUserId}`)
     const json = await response.json()
-    let user = json.find(elem => elem.email === comment.email)
-    if (!user) {
-      user = demoUser
-    }
-    setAuthor(user)
+    setAuthor(json)
   }
 
   useEffect(() => {
