@@ -40,19 +40,24 @@ export default function NewCommentForm({ postId, updateComments }) {
   }
 
   return (
-    <form onSubmit={handleSumbit} className='new-comment-form'>
+    <form
+      onSubmit={handleSumbit}
+      className='new-comment-form'
+    >
       <UserBanner name={user.name} />
 
-      <input
-        name='newComment'
-        type='text'
-        value={formData}
-        className='comment-input'
-        placeholder='Add a comment...'
-        onChange={handleChange}
-      />
+      <div className='new-comment-form-content box-container box-container-colored'>
+        <input
+          name='newComment'
+          type='text'
+          value={formData}
+          className='comment-input'
+          placeholder='Add a comment...'
+          onChange={handleChange}
+        />
 
-      <SubmitCommentButton />
+        <SubmitCommentButton />
+      </div>
     </form>
   )
 }

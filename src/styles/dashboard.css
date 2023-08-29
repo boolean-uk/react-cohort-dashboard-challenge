@@ -20,56 +20,62 @@
   font-size: large;
   border-radius: 10px;
   border-style: none;
+  margin-left: 10px;
 }
 
 /* NOTE: styles for posts */
-.app > .dashboard > .post-feed > .post {
+.post {
   margin-top: 10px;
   padding-left: 30px;
 }
 
-.app > .dashboard > .post-feed > .post > .post-header {
+.post > .post-header {
   display: grid;
   grid-template: 
     "banner author" auto
     "banner title" 20px / 60px 1fr;
 }
 
-.app > .dashboard > .post-feed > .post > .post-header > .user-banner {
+.post > .post-header > .user-banner {
   grid-area: banner;
   margin-right: 10px;
 }
 
-.app > .dashboard > .post-feed > .post > .post-header > .author {
+.post > .post-header > .author {
   grid-area: author;
 }
 
-.app > .dashboard > .post-feed > .post > .post-header .title {
+.post > .post-header .title {
   grid-area: title;
   color: #64648c;
   font-weight: bold;
 }
 
-.app > .dashboard > .post-feed > .post > .post-body {
+.post > .post-body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 /* NOTE: styles for new comment form */
-.app > .dashboard > .post-feed > .post > .new-comment-form {
+.post > .new-comment-form {
   display: grid;
-  grid-template-columns: 60px auto 50px;
+  grid-template-columns: 60px auto;
+  grid-gap: 5px;
 }
 
-.app > .dashboard > .post-feed > .post > .new-comment-form > .user-banner {
-  margin-right: 10px;
+.post > .new-comment-form > .new-comment-form-content {
+  margin-right: 15px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: auto 60px;
+  grid-gap: 5px;
 }
 
-.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-input {
-  padding: 15px;
+.post > .new-comment-form .comment-input {
+  padding: 0;
 }
 
-.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button {
+.post > .new-comment-form .comment-button {
   margin-top: 5px;
   padding-top: 5px;
   padding-left: 2px;
@@ -80,21 +86,23 @@
   height: 40px;
 }
 
-.app > .dashboard > .post-feed > .post > .new-comment-form > .comment-button:hover {
+.post > .new-comment-form .comment-button:hover {
   background-color: #E6EBF5;  /*TODO: choose between #64dc78 and #E6EBF5 */
 }
 
 /* NOTE: styles for comments */
-.app > .dashboard > .post-feed > .post > .comments-list > .load-more-button {
+.post > .comments-list > .load-more-button {
   border: none;
   background-color: white;
   color: #64648c;
   /* margin-bottom: 15px; */
 }
 
-.app > .dashboard > .post-feed > .post > .comments-list > .comment {
+.post > .comments-list > .comment {
   display: grid;
-  grid-template-columns: 60px auto;
+  grid-template-columns: 60px 1fr;
+  grid-gap: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
+  margin-right: 15px;
 }
