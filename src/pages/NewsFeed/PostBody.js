@@ -14,7 +14,7 @@ export default function PostBody(props) {
             <UserIcon user={user}/>
             <PostBodyInfo author={user.name} title={post.title} id={post.id} userId={post.userId}/>
             <PostBodyMsg msg={post.body}/>
-            <PostBodyActions postId={post.id}/>
+            <PostBodyActions postId={post.id} posterId={post.userId}/>
         </div>
     )
 }
