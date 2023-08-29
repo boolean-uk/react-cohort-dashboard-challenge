@@ -27,7 +27,7 @@ function App() {
   return (
     user &&
     <div className="app">
-      <DataContext.Provider value={{ user, posts, setPosts }}>
+      <DataContext.Provider value={{ user, setUser, posts, setPosts }}>
         <Header />
         <LeftMenu />
 

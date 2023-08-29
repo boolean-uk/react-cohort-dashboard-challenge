@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Delimeter from "../../../components/Delimeter"
+import DataContext from "../../../DataContext"
 
 function InputField({ label, type, name, formData, isReqired, disabled, handleChange }) {
   if (isReqired && !disabled) {
@@ -196,7 +197,10 @@ function SaveButton() {
 }
 
 export default function ProfileForm({ user, readOnly }) {
+  const { setUser } = useContext(DataContext)
+
   const [firstName, lastName] = user.name.split(' ')
+
   const initialFormData = {
     "firstName": firstName,
     "lastName": lastName,
@@ -225,7 +229,30 @@ export default function ProfileForm({ user, readOnly }) {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log('handleSubmit -- formData:', formData)
+    // update logged in user fields
+    user.name = `${formData.firstName} ${formData.lastName}`
+    user.username = formData.username
+    user.email = formData.email
+    user.address.street = formData.street
+    user.address.suite = formData.suite
+    user.address.city = formData.city
+    user.address.zipcode = formData.zipcode
+    user.phone = formData.phone
+    user.website = formData.website
+    user.company.name = formData.companyName
+    user.company.catchPhrase = formData.catchPhrase
+    user.company.bs = formData.bs
+
+    // update resource
+    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => setUser(json))
   }
 
   return (
