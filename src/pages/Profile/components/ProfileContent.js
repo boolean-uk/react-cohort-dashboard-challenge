@@ -38,7 +38,7 @@ export default function ProfileContent() {
     viewUser &&
       <div className='profile-content box-container box-container-white'>
         <ProfileHeader user={viewUser} />
-        <ProfileForm user={viewUser} />
+        <ProfileForm user={viewUser} readOnly={viewingOther} />
       </div>
   )
 }

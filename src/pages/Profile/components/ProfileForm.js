@@ -1,7 +1,7 @@
 import Delimeter from "../../../components/Delimeter"
 
-function InputField({ label, type, name, defaultValue, isReqired }) {
-  if (isReqired) {
+function InputField({ label, type, name, defaultValue, isReqired, disabled }) {
+  if (isReqired && !disabled) {
     label += '*'
   }
 
@@ -13,13 +13,13 @@ function InputField({ label, type, name, defaultValue, isReqired }) {
         name={name}
         defaultValue={defaultValue}
         required={isReqired}
+        disabled={disabled}
       />
     </label>
   )
 }
 
-function AccountInfo({ firstName, lastName, username, email }) {
-
+function AccountInfo({ firstName, lastName, username, email, disabled }) {
   return (
     <div className='account-info'>
       <Delimeter />
@@ -31,6 +31,7 @@ function AccountInfo({ firstName, lastName, username, email }) {
         name='firstName'
         defaultValue={firstName}
         isReqired={true}
+        disabled={disabled}
       />
 
       <InputField
@@ -39,6 +40,7 @@ function AccountInfo({ firstName, lastName, username, email }) {
         name='lastName'
         defaultValue={lastName}
         isReqired={true}
+        disabled={disabled}
       />
 
       <InputField
@@ -47,6 +49,7 @@ function AccountInfo({ firstName, lastName, username, email }) {
         name='username'
         defaultValue={username}
         isReqired={true}
+        disabled={disabled}
       />
 
       <InputField
@@ -55,13 +58,13 @@ function AccountInfo({ firstName, lastName, username, email }) {
         name='email'
         defaultValue={email}
         isReqired={true}
+        disabled={disabled}
       />
     </div>
   )
 }
 
-function Address({ street, suite, city, zipcode }) {
-
+function Address({ street, suite, city, zipcode, disabled }) {
   return (
     <div className='address'>
       <Delimeter />
@@ -73,6 +76,7 @@ function Address({ street, suite, city, zipcode }) {
         name='street'
         defaultValue={street}
         isReqired={false}
+        disabled={disabled}
       />
 
       <InputField
@@ -81,6 +85,7 @@ function Address({ street, suite, city, zipcode }) {
         name='suite'
         defaultValue={suite}
         isReqired={false}
+        disabled={disabled}
       />
 
       <InputField
@@ -89,6 +94,7 @@ function Address({ street, suite, city, zipcode }) {
         name='city'
         defaultValue={city}
         isReqired={false}
+        disabled={disabled}
       />
 
       <InputField
@@ -97,13 +103,13 @@ function Address({ street, suite, city, zipcode }) {
         name='zipcode'
         defaultValue={zipcode}
         isReqired={false}
+        disabled={disabled}
       />
     </div>
   )
 }
 
-function ContactInfo({ phone, website }) {
-
+function ContactInfo({ phone, website, disabled }) {
   return (
     <div className='contact-info'>
       <Delimeter />
@@ -115,6 +121,7 @@ function ContactInfo({ phone, website }) {
         name='phone'
         defaultValue={phone}
         isReqired={true}
+        disabled={disabled}
       />
 
       <InputField
@@ -123,13 +130,13 @@ function ContactInfo({ phone, website }) {
         name='website'
         defaultValue={website}
         isReqired={false}
+        disabled={disabled}
       />
     </div>
   )
 }
 
-function CompanyInfo({ companyName, catchPhrase, bs }) {
-
+function CompanyInfo({ companyName, catchPhrase, bs, disabled }) {
   return (
     <div className='company-info'>
       <Delimeter />
@@ -141,6 +148,7 @@ function CompanyInfo({ companyName, catchPhrase, bs }) {
         name='companyName'
         defaultValue={companyName}
         isReqired={false}
+        disabled={disabled}
       />
 
       <InputField
@@ -149,6 +157,7 @@ function CompanyInfo({ companyName, catchPhrase, bs }) {
         name='catchPhrase'
         defaultValue={catchPhrase}
         isReqired={false}
+        disabled={disabled}
       />
 
       <InputField
@@ -157,6 +166,7 @@ function CompanyInfo({ companyName, catchPhrase, bs }) {
         name='bs'
         defaultValue={bs}
         isReqired={false}
+        disabled={disabled}
       />
     </div>
   )
@@ -194,10 +204,7 @@ const demoUser = {
   }
 }
 
-export default function ProfileForm({ user }) {
-  /** TODO: fetch actual data from url:
-   * https://jsonplaceholder.typicode.com/users/${id}
-   */
+export default function ProfileForm({ user, readOnly }) {
   const [firstName, lastName] = user.name.split(' ')
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -211,12 +218,14 @@ export default function ProfileForm({ user }) {
           lastName={lastName}
           username={user.username}
           email={user.email}
+          disabled={readOnly}
         />
         <Address
           street={user.address.street}
           suite={user.address.suite}
           city={user.address.city}
           zipcode={user.address.zipcode}
+          disabled={readOnly}
         />
       </div>
 
@@ -224,18 +233,24 @@ export default function ProfileForm({ user }) {
         <ContactInfo
           phone={user.phone}
           website={user.website}
+          disabled={readOnly}
         />
         <CompanyInfo
           companyName={user.company.name}
           catchPhrase={user.company.catchPhrase}
           bs={user.company.bs}
+          disabled={readOnly}
         />
       </div>
 
-      <div className='row'>
-        <p>* Required</p>
-        <SaveButton />
-      </div>
+      {
+        !readOnly &&
+          <div className='row'>
+            <p>* Required</p>
+            <SaveButton />
+          </div>
+      }
+
     </form>
   )
 }
