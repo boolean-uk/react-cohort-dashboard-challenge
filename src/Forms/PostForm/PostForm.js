@@ -1,18 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DataContext from "../DataContext";
-import { findById, generatePostId } from "../Utils";
+import DataContext from "../../DataContext";
+import { findById } from "../../Utils";
+import RequiredPostFieldWarning from "./RequiredPostFieldWarning";
 
-function PostForm(props) {
+function PostForm() {
     const {
         posts,
         loggedUser,
         setPosts,
         editingIndex,
         setEditingIndex,
-        requiredFieldError,
-        setRequiredFieldError,API_BASE_URL
+        setRequiredFieldError,
+        API_BASE_URL,
     } = useContext(DataContext);
+
+    const navigate = useNavigate();
 
     const initialFormState = {
         userId: "",
@@ -20,7 +23,9 @@ function PostForm(props) {
         title: "",
         body: "",
     };
+
     const [formData, setFormData] = useState(initialFormState);
+
     useEffect(() => {
         if (editingIndex !== null) {
             setFormData(findById(posts, editingIndex));
@@ -29,7 +34,16 @@ function PostForm(props) {
         }
     }, [editingIndex, posts]);
 
-    const navigate = useNavigate();
+
+    // TODO: UNMOUNTING (WHEN USER NAVIGATES AWAY WITHOUT UPDATING THE POST) - DOESN'T WORK 
+    // useEffect(() => {
+    //     return () => {
+    //       if (editingIndex !== null) {
+    //         setEditingIndex(null); 
+    //       }
+    //       setFormData(initialFormState); 
+    //     };
+    //   }, [initialFormState]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -45,14 +59,14 @@ function PostForm(props) {
             setRequiredFieldError(false);
         }
         if (editingIndex !== null) {
-            updateAnswer(editingIndex, formData);
+            updateData(editingIndex, formData);
         } else {
-            createAnswer(formData);
+            createData(formData);
             setFormData(initialFormState);
         }
     };
 
-    const updateAnswer = (id, answerData) =>
+    const updateData = (id, answerData) =>
         fetch(`${API_BASE_URL}/posts/${id}`, {
             method: "PUT",
             headers: {
@@ -68,11 +82,10 @@ function PostForm(props) {
             navigate("/");
         });
 
-    const createAnswer = (answerData) => {
+    const createData = (answerData) => {
         const updatedAnswerData = {
             ...answerData,
             userId: loggedUser.id,
-            id: generatePostId(),
         };
         fetch(`${API_BASE_URL}/posts`, {
             method: "POST",
@@ -84,12 +97,12 @@ function PostForm(props) {
             .then((response) => response.json())
             .then((newPost) => setPosts([newPost, ...posts]));
     };
-    
+
     return (
         <section className="main__form">
             <form class="post-form" onSubmit={handleSubmit} noValidate>
-                {requiredFieldError && <p class="error">Required field</p>}
-                <label htmlFor="title">Title</label>{" "}
+                <RequiredPostFieldWarning />
+                <label htmlFor="title">Title</label>
                 <input
                     class="form-post-title"
                     type="text"
@@ -98,7 +111,7 @@ function PostForm(props) {
                     value={formData.title}
                     onChange={handleChange}
                 />
-                {requiredFieldError && <p class="error">Required field</p>}
+                <RequiredPostFieldWarning />
                 <label htmlFor="body">Content</label>
                 <input
                     class="form-post-input"

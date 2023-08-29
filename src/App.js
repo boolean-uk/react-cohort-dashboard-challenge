@@ -1,15 +1,16 @@
 import "./App.css";
 import FeedSection from "./Components/Feed/FeedSection";
-import LeftNavSection from "./Components/LeftNavSection";
-import Header from "./Components/Header";
+import LeftNavSection from "./Components/LeftNav/LeftNavSection";
+import Header from "./Components/Header/Header";
 import DataContext from "./DataContext";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProfileView from "./Components/Profile/ProfileView";
 import PostView from "./Components/Post/PostView";
 import { findById, getRandomUserId, shuffleArray } from "./Utils";
-import EditProfileForm from "./Components/Profile/EditProfileForm";
-import PostForm from "./Forms/PostForm";
+import EditProfileForm from "./Forms/EditProfileForm/EditProfileForm";
+import PostForm from "./Forms/PostForm/PostForm";
+import Loader from "./Components/Loader";
 
 function App() {
     const [posts, setPosts] = useState([]);
@@ -18,41 +19,7 @@ function App() {
     const [editingIndex, setEditingIndex] = useState(null);
     const [requiredFieldError, setRequiredFieldError] = useState(false);
     const API_BASE_URL = "https://jsonplaceholder.typicode.com";
-
   
-    const updateCommentsForPost = (postId, updatedComments) => {
-        setComments((prevComments) => ({
-            ...prevComments,
-            [postId]: updatedComments,
-        }));
-        console.log(comments[postId]);
-    };
-
-    const updateComment = (postId, updatedComment) => {
-        const updatedComments = comments[postId].map((comment) =>
-            comment.id === updatedComment.id ? updatedComment : comment
-        );
-        updateCommentsForPost(postId, updatedComments);
-    };
-    const deleteComment = (postId, commentId) => {
-        fetch(`${API_BASE_URL}/comments/${commentId}`, {
-            method: "DELETE",
-        })
-            .then((response) => {
-                if (response.ok) {
-                    setComments((prevComments) => ({
-                        ...prevComments,
-                        [postId]: prevComments[postId].filter(
-                            (comment) => comment.id !== commentId
-                        ),
-                    }));
-                }
-            })
-            .catch((error) => {
-                console.error("Error deleting comment:", error);
-            });
-    };
-
     async function fetchData() {
         try {
             const postsResponse = await fetch(
@@ -96,13 +63,50 @@ function App() {
             console.error("Error fetching data:", error);
         }
     }
+
+    const updateCommentsForPost = (postId, updatedComments) => {
+        setComments((prevComments) => ({
+            ...prevComments,
+            [postId]: updatedComments,
+        }));
+    };
+
+    const updateComment = (postId, updatedComment) => {
+        const updatedComments = comments[postId].map((comment) =>
+            comment.id === updatedComment.id ? updatedComment : comment
+        );
+        updateCommentsForPost(postId, updatedComments);
+    };
+    
+    const deleteComment = (postId, commentId) => {
+        fetch(`${API_BASE_URL}/comments/${commentId}`, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setComments((prevComments) => ({
+                        ...prevComments,
+                        [postId]: prevComments[postId].filter(
+                            (comment) => comment.id !== commentId
+                        ),
+                    }));
+                }
+            })
+            .catch((error) => {
+                console.error("Error deleting comment:", error);
+            });
+    };
+
     useEffect(() => {
         fetchData();
     }, []);
+
     const loggedUser = findById(users, 1);
+    
     if (!loggedUser) {
-        return null;
+        return <Loader />;
     }
+
     return (
         <div className="app">
             <DataContext.Provider
@@ -124,6 +128,7 @@ function App() {
                     API_BASE_URL
                 }}
             >
+                
                 <Header />
                 <LeftNavSection />
 

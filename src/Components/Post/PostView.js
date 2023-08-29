@@ -1,31 +1,41 @@
 import { useContext, useEffect, useState } from "react";
 import DataContext from "../../DataContext";
 import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
-import CommentsLists from "../Comment/CommentsList";
 import { getInitials } from "../../Utils";
-import CommentForm from "../../Forms/CommentForm";
+import PostTitle from "../Feed/PostTitle";
+import PostBody from "../Feed/PostBody";
+import PostViewComments from "./PostViewComments";
+import CommentForm from "../../Forms/CommentForm/CommentForm";
+import Loader from "../Loader";
 
 function PostView() {
+
     const {
         setPosts,
         loggedUser,
         setComments,
         comments,
         setEditingIndex,
-        updateComment,API_BASE_URL
+        API_BASE_URL,
     } = useContext(DataContext);
+
     const [post, setPost] = useState(null);
-    const loggedUserInitials = getInitials(loggedUser.name);
+    
+    
     const navigate = useNavigate();
 
     const location = useLocation();
 
     const { id } = useParams();
+
     const {
         state: {
             data: { currentPost },
         },
     } = useLocation();
+
+    const loggedUserInitials = getInitials(loggedUser.name);
+
     const deletePost = (postId) => {
         fetch(`${API_BASE_URL}/posts/${postId}`, {
             method: "DELETE",
@@ -47,10 +57,12 @@ function PostView() {
                 console.error("Error deleting post:", error);
             });
     };
+    
     const handleDelete = () => {
         deletePost(post.id);
         navigate("/");
     };
+
     useEffect(() => {
         if (location.state) {
             setPost(currentPost);
@@ -61,7 +73,7 @@ function PostView() {
         setEditingIndex(id);
     };
 
-    if (!post || !comments) return <p>Loading...</p>;
+    if (!post || !comments) return <Loader/>;
 
     return (
         <main className="main-section">
@@ -73,28 +85,20 @@ function PostView() {
                     <button onClick={handleEditClick}>EDIT POST</button>
                 </Link>
                 <button onClick={handleDelete} className="delete-button">
-                    {" "}
                     Delete Post
                 </button>
             </div>
-           <div className="post-content">
-           <h1 class="post-title">{post.title}</h1>
-            <p>{post.body}</p>
-           <br />
-            {comments[post.id] ? (
-                <CommentsLists
-                    comments={comments[post.id] || []}
+            <div className="post-content">
+                <PostTitle post={post} />
+                <PostBody post={post} />
+
+                <br />
+                <PostViewComments post={post} />
+                <CommentForm
+                    initials={loggedUserInitials}
+                    comments={comments[post.id]}
                     post={post}
-                    update={updateComment}
                 />
-            ) : (
-                <p>No comments yet...</p>
-            )}
-            <CommentForm
-                initials={loggedUserInitials}
-                comments={comments[post.id]}
-                post={post}
-            />
             </div>
         </main>
     );

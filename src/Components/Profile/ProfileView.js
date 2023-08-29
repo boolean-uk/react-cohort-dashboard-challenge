@@ -1,25 +1,47 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import DataContext from "../../DataContext";
-import { findById, getInitials } from "../../Utils";
+import { findById } from "../../Utils";
+import ProfileHeader from "./ProfileHeader";
+import UserInfoBox from "./UserInfoBox";
+import UserAddressBox from "./UserAddressBox";
+import UserContactInfo from "./UserContactInfo";
+import UserCompanyInfo from "./UserCompanyInfo";
+import UserPosts from "./UserPosts";
+import Loader from "../Loader";
 
 function ProfileView() {
     const [userPosts, setUserPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     const { id } = useParams();
 
-    const { posts, users, loggedUser, setPosts } = useContext(DataContext);
+    const { posts, users, API_BASE_URL } = useContext(DataContext);
     const userData = findById(users, id);
 
     async function getData() {
-        const currentPosts = posts.filter((post) => post.userId === Number(id));
-        setUserPosts(currentPosts);
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/${id}/posts`);
+            const jsonResponse = await response.json();
+
+            const currentPosts = posts.filter(
+                (post) => post.userId === Number(id) && post.id===101
+            );
+            const combinedPosts = [...jsonResponse, ...currentPosts];
+            setUserPosts(combinedPosts);
+            setIsLoading(false);
+        } catch (error) {
+            console.error("Error fetching user posts:", error);
+            setIsLoading(false);
+        }
     }
+
     useEffect(() => {
         getData();
     }, []);
 
-    if (!userData) {
-        return null;
+    if (!userData.address) {
+        return <Loader />;
     }
 
     return (
@@ -27,99 +49,18 @@ function ProfileView() {
             <div className="profile">
                 <div className="user-profile-info">
                     <h1 class="user-heading">Profile</h1>
-                    <div className="user-header">
-                        <div class="user-circle-own">
-                            {getInitials(loggedUser.name)}{" "}
-                        </div>
-                        <h2>{userData.name}</h2>
-                        <Link
-                            to={`/edit/profile/${id}`}
-                            style={{ textDecoration: "none" }}
-                        >
-                            <button className="edit-profile-button">
-                                EDIT PROFILE
-                            </button>
-                        </Link>
-                    </div>
+
+                    <ProfileHeader userData={userData} id={id} />
 
                     <div className="user-profile-details">
-                        <div className="user-info-box">
-                            <h2>Account info</h2>
-                            <div className="detail">
-                                <span>First Name:</span>{" "}
-                                {userData.name.split(" ")[0]}
-                            </div>
-                            <div className="detail">
-                                <span>Last Name:</span>{" "}
-                                {userData.name.split(" ")[1]}
-                            </div>
-                            <div className="detail">
-                                <span>Username:</span> {userData.username}
-                            </div>
-                            <div className="detail">
-                                <span>Email:</span> {userData.email}
-                            </div>
-                        </div>
-                        <div className="user-address-box">
-                            <h2>Address</h2>
-                            <div className="detail">
-                                <span>Street:</span> {userData.address.street}
-                            </div>
-                            <div className="detail">
-                                <span>Suite:</span> {userData.address.suite}
-                            </div>
-                            <div className="detail">
-                                <span>City:</span> {userData.address.city}
-                            </div>
-                            <div className="detail">
-                                <span>Zipcode:</span> {userData.address.zipcode}
-                            </div>
-                        </div>
-
-                        <div className="user-contact-info">
-                            <h2>Contact Info</h2>
-                            <div className="detail">
-                                <span>Phone:</span> {userData.phone}
-                            </div>
-                            <div className="detail">
-                                <span>Website:</span> {userData.website}
-                            </div>
-                        </div>
-                        <div className="user-company-info">
-                            <h2>Company Info</h2>
-                            <div className="detail">
-                                <span>Name:</span> {userData.company.name}
-                            </div>
-                            <div className="detail">
-                                <span>Catch Phrase:</span>
-                                {userData.company.catchPhrase}
-                            </div>
-                            <div className="detail">
-                                <span>Business Statement:</span>
-                                {userData.company.bs}
-                            </div>
-                        </div>
+                        <UserInfoBox userData={userData} />
+                        <UserAddressBox userData={userData} />
+                        <UserContactInfo userData={userData} />
+                        <UserCompanyInfo userData={userData} />
                     </div>
                 </div>
-                <div className="posts">
-                    <h2>Posts</h2>
-                    <ul className="post-list">
-                        {userPosts.map((post, index) => (
-                            <li key={index}>
-                                <Link
-                                    to={`/view/post/${post.id}`}
-                                    state={{
-                                        data: { currentPost: post },
-                                    }}
-                                    style={{ textDecoration: "none" }}
-                                >
-                                    <div class="post-title">{post.title}</div>
-                                </Link>
-                                <p>{post.body}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                {isLoading && <Loader />}
+                <UserPosts userPosts={userPosts} />
             </div>
         </main>
     );

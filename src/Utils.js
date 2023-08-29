@@ -26,16 +26,3 @@ export function getInitials(fullName) {
   const initials = names.map(name => name.charAt(0).toUpperCase()).join('');
   return initials;
 }
-
-// TODO: Delete these two functions
-let postIdCounter = 100;
-export const generatePostId = () => {
-  postIdCounter++;
-  return postIdCounter;
-};
-
-let commentIdCounter = 500; 
-export const generateCommentId = () => {
-  commentIdCounter++;
-  return commentIdCounter;
-};

@@ -1,17 +1,18 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getInitials, getRandomUserId, isObjectEmpty } from "../../Utils";
+import { useContext } from "react";
 import DataContext from "../../DataContext";
-import CommentsLists from "../Comment/CommentsList";
-import CommentForm from "../../Forms/CommentForm";
+import PostUserInfo from "./PostUserInfo";
+import PostTitle from "./PostTitle";
+import PostBody from "./PostBody";
+import PostItemComments from "./PostItemComments";
+import ToggleElement from "./ToggleElement";
+import CommentForm from "../../Forms/CommentForm/CommentForm";
+import Loader from "../Loader";
 
 function PostItem(props) {
     const { post, index, author } = props;
 
     const { comments, posts, setPosts, setComments, updateComment } =
         useContext(DataContext);
-
-    let authorInitials = "";
 
     const toggleExpanded = () => {
         const updatedPosts = [...posts];
@@ -20,59 +21,17 @@ function PostItem(props) {
     };
 
     if (!author || !post) {
-        return <p>Loading.. .</p>;
-    } else {
-        authorInitials = getInitials(author.name);
+        return <Loader />;
     }
 
     return (
         <div class="post">
-            <div class="user-info">
-                <Link
-                    to={`/view/profile/${author.id}`}
-                    state={{ userData: author }}
-                    style={{ textDecoration: "none" }}
-                >
-                    <div class="user-circle">{authorInitials}</div>
-                </Link>
-                <div class="user-name">{author.name}</div>
-            </div>
+            <PostUserInfo author={author} />
             <div class="post-content">
-                <Link
-                    to={`/view/post/${post.id}`}
-                    state={{
-                        data: { currentPost: post, comments },
-                    }}
-                    style={{ textDecoration: "none" }}
-                >
-                    <div class="post-title">{post.title}</div>
-                </Link>
-
-                <div class="post-text">{post.body}</div>
-                {comments[post.id] ? (
-                    <CommentsLists
-                        comments={
-                            post.expanded
-                                ? comments[post.id]
-                                : (comments[post.id].length > 3
-                                      ? comments[post.id].slice(0, 3)
-                                      : comments[post.id]) || []
-                        }
-                        post={post}
-                        update={updateComment}
-                    />
-                ) : (
-                    <p>No comments yet...</p>
-                )}
-                {comments[post.id]
-                    ? comments[post.id].length > 3 && (
-                          <button onClick={toggleExpanded}>
-                              {post.expanded
-                                  ? "Collapse comments"
-                                  : "See previous comments"}
-                          </button>
-                      )
-                    : null}
+                <PostTitle post={post} />
+                <PostBody post={post} />
+                <PostItemComments post={post} />
+                <ToggleElement post={post} toggleExpanded={toggleExpanded} />
                 <CommentForm
                     comments={comments[post.id] || []}
                     setComments={setComments}

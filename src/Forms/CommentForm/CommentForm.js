@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { generateCommentId, getInitials } from "../Utils";
-import DataContext from "../DataContext";
-
+import DataContext from "../../DataContext";
+import CommentCircleIcon from "./CommentCircleIcon";
+import RequiredFieldWarning from "./RequiredFieldWarning";
 
 function CommentForm(props) {
-    const { loggedUser, setComments, updateComment, requiredFieldError, setRequiredFieldError,API_BASE_URL } = useContext(DataContext);
-    const { comments, post, editingComment, setEditingComment } = props; 
+    const { loggedUser, setComments, updateComment, API_BASE_URL } =
+        useContext(DataContext);
+
+    const { post, editingComment, setEditingComment } = props;
+
     const initialState = {
         postId: post.id,
         userId: "",
@@ -16,7 +18,11 @@ function CommentForm(props) {
         body: "",
     };
 
+    const [requiredCommentFieldError, setRequiredCommentFieldError] =
+        useState(false);
+
     const [formData, setFormData] = useState(initialState);
+
     useEffect(() => {
         if (editingComment) {
             setFormData(editingComment);
@@ -32,34 +38,30 @@ function CommentForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if ( !formData.body ) {
-            setRequiredFieldError(true);
+        if (!formData.body) {
+            setRequiredCommentFieldError(true);
             return;
         } else {
-            setRequiredFieldError(false);
+            setRequiredCommentFieldError(false);
         }
         if (editingComment) {
-            updateAnswer(formData);
-            updateComment(post.id, formData); 
-            setEditingComment(null); 
+            updateData(formData);
+            updateComment(post.id, formData);
+            setEditingComment(null);
         } else {
-            createAnswer(formData);
+            createData(formData);
         }
         setFormData(initialState);
     };
 
-  
-    const updateAnswer = (answerData) => {
-        fetch(
-            `${API_BASE_URL}/comments/${editingComment.id}`,
-            {
-                method: "PUT",
-                body: JSON.stringify(answerData),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8",
-                },
-            }
-        )
+    const updateData = (answerData) => {
+        fetch(`${API_BASE_URL}/comments/${editingComment.id}`, {
+            method: "PUT",
+            body: JSON.stringify(answerData),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
             .then((response) => response.json())
             .then((updatedComment) => {
                 setComments((prevComments) => ({
@@ -69,7 +71,7 @@ function CommentForm(props) {
                             ? { ...comment, ...updatedComment }
                             : comment
                     ),
-                }));                
+                }));
                 setEditingComment(null);
                 setFormData(initialState);
             })
@@ -77,14 +79,12 @@ function CommentForm(props) {
                 console.error("Error updating comment:", error);
             });
     };
-    const createAnswer = (answerData) => {
+
+    const createData = (answerData) => {
         const updatedAnswerData = {
             ...answerData,
             userId: loggedUser.id,
-            id: generateCommentId()
-
         };
-
         fetch(`${API_BASE_URL}/comments`, {
             method: "POST",
             body: JSON.stringify(updatedAnswerData),
@@ -92,43 +92,29 @@ function CommentForm(props) {
                 "Content-type": "application/json; charset=UTF-8",
             },
         })
-            .then((response) => response.json())        
+            .then((response) => response.json())
             .then((newComment) => {
                 setComments((prevComments) => {
                     const updatedComments = {
                         ...prevComments,
                         [post.id]: [
-                            ...(prevComments[post.id] || []), 
+                            ...(prevComments[post.id] || []),
                             newComment,
                         ],
                     };
-                    console.log(
-                        `Comments list of post: ${post.id} with new comment:`,
-                        comments
-                    );
                     return updatedComments;
                 });
             });
-       
     };
+
     return (
         <div class="add-comment">
-            <div class="comment-circle-own">
-                <Link
-                    to={`/view/profile/${loggedUser.id}`}
-                    style={{ textDecoration: "none" }}
-                >
-                    {getInitials(loggedUser.name)}{" "}
-                </Link>
-            </div>
-
+            <CommentCircleIcon />
             <form className="comment-form" onSubmit={handleSubmit}>
                 <div className="comment-input-container">
-                {requiredFieldError && (
-                            <p class="error">
-                               Required field
-                            </p>
-                        )}
+                    <RequiredFieldWarning
+                        requiredCommentFieldError={requiredCommentFieldError}
+                    />
                     <input
                         type="text"
                         placeholder="Add your comment"
