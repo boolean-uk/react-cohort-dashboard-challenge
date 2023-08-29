@@ -79,7 +79,7 @@
 }
 
 .post > .new-comment-form .comment-button:hover {
-  background-color: #E6EBF5;  /*TODO: choose between #64dc78 and #E6EBF5 */
+  background-color: #64dc78;  
 }
 
 /* NOTE: styles for comments */
@@ -97,4 +97,24 @@
   margin-top: 15px;
   margin-bottom: 15px;
   margin-right: 15px;
+}
+
+/* NOTE: styles for actions */
+.actions {
+  display: grid;
+  grid-template-columns: 200px 80px;
+  grid-gap: 74%;
+}
+
+.actions > .action-buttons {
+  display: grid;
+  grid-template-columns: 25px 25px;
+  grid-gap: 10px;
+}
+
+.action-button {
+  border-radius: 50%;
+  padding: 1px;
+  border: none;
+  background-color: #64648c34;
 }

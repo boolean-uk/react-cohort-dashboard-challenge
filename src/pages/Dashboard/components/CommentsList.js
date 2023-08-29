@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import Author from "../../../components/Author"
 import UserBanner from "../../../components/UserBanner"
 import getRandomUserId from "../../../utilities/getRandomUserId"
+import Actions from "../../../components/Actions"
 
 function LoadMoreButton({ setShowAll }) {
   /** TODO: implement logic of loading all comments */
@@ -20,7 +20,7 @@ function LoadMoreButton({ setShowAll }) {
 function CommentBody({ author, body }) {
   return (
     <div className='comment-body box-container box-container-colored'>
-      <Author name={author.name} id={author.id} />
+      <Actions author={author} />
       <p>{body}</p>
     </div>
   )
