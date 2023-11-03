@@ -7,14 +7,21 @@
 
 In this challenge, you'll create a social media style post feed. There is no boilerplate code provided - you'll be building this from scratch using the designs and specifications provided.
 
-## Instructions
+## Setting up React with Vite
 
-Fork and clone this repository to your machine.
+- Fork and clone the repository
+- In the project root directory, run `npm create vite@latest . -- --template react`
+- Run `npm install`
+- `npm run dev` to run the application
+
+The steps above will create a fresh React app using Vite. From this point on, it's up to you to decide how you want to structure your code. Try to stay organised :)
+
+## Instructions
 
 [Implement this design](./_assets/dashboard.png) using, as a minimum, the below listed technologies. Note: you may need to open the file directly on your machine to view it properly.
 
 - ReactJS
-- React Router DOM version 6.4 or above
+- React Router DOM version 6.4 or above (Run `npm install react-router-dom` to install this)
 - A RESTful API
 
 [Use this REST API](https://jsonplaceholder.typicode.com/) as your data source. In particular, you'll need the `/posts`, `/comments` and `/users` routes provided. Each of these routes has GET, POST, PUT and DELETE methods available. Scroll down to the Resources and Routes sections to see example usage.
