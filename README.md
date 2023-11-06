@@ -26,8 +26,6 @@ The steps above will create a fresh React app using Vite. From this point on, it
 
 [Use this REST API](https://jsonplaceholder.typicode.com/) as your data source. In particular, you'll need the `/posts`, `/comments` and `/users` routes provided. Each of these routes has GET, POST, PUT and DELETE methods available. Scroll down to the Resources and Routes sections to see example usage.
 
-You can use the command `npx create-react-app .` to create a new React application in the root directory of this project.
-
 ## Core Requirements
 
 - Everything that *can* be its own component, *should* be its own component. You **must** provide evidence of planning what components you are going to create - this could be a component tree diagram, a bullet point list, a wireframe, whatever you like. Include your plan as a file in this repository.
