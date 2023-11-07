@@ -24,7 +24,7 @@ The steps above will create a fresh React app using Vite. From this point on, it
 - React Router DOM version 6.4 or above (Run `npm install react-router-dom` to install this)
 - A RESTful API
 
-[Use this REST API](https://jsonplaceholder.typicode.com/) as your data source. In particular, you'll need the `/posts`, `/comments` and `/users` routes provided. Each of these routes has GET, POST, PUT and DELETE methods available. Scroll down to the Resources and Routes sections to see example usage.
+[Use this REST API](https://boolean-api-server.fly.dev/api-docs/#/post) as your data source. Use the **post** endpoints, which contains routes for posts and comments. Each of these routes has GET, POST, PUT and DELETE methods available. Post and comment authors are linked to the contacts retrieved from the **contact** endpoints via a `contactId` property, which will allow you to retrieve information about post and comment authors.
 
 ## Core Requirements
 
@@ -40,8 +40,9 @@ The steps above will create a fresh React app using Vite. From this point on, it
 
 - Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
-    - Use the user with an ID of 1 as the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
+    - Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
     - The fields should be automatically populated with the correct data when loading any user profile.
+    - Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
 - You should be able to update all of the users information.
 - Posts and comments should be able to be updated and deleted.
 
