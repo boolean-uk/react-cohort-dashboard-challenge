@@ -60,25 +60,28 @@
 .left-menu{
   display: grid;
   grid-area: left-menu;
+  grid-template-rows: 200px;
 }
 
 .home-logo{
-  margin: 50px 0px 80px 40px;
+  margin: 50px 0px 0px 40px;
 }
 
 .home{
-  margin: -270px 0px 0px 40px ;
+  margin: 0px 0px 0px 40px;
   color: #000046;
+  text-decoration: none;
 }
 
+
 .profile-logo{
-  margin: -350px 0px 0px 40px;
+  margin: 10px 0px 0px 40px ;
 }
 
 .profile{
-  margin-left: 40px;
-  margin-top: -500px;
+  margin: 0px 0px 0px 40px;
   color: #000046;
+  text-decoration: none;
 }
 
 .main-content{
@@ -86,4 +89,15 @@
   grid-area: main-content;
   height: 100vh;
   background-color: #F0F5FA;
+}
+
+
+.whole-logo:hover{
+  margin: 0px 0px 40px -10px ;
+  background-color: #e2f0f9;
+}
+
+.whole-profile:hover{
+  margin: 0px 0px 650px -10px;
+  background-color: #e2f0f9;
 }
