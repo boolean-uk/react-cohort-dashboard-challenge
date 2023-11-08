@@ -1,16 +1,89 @@
 #root {
-  max-width: 1280px;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+  display: grid;
+  grid-template: 
+  
+  "header     header" 80px
+  "main-grid  main-grid" 1fr/
+     60px          1fr;
+}
+
+.main-grid{
+  display: grid;
+  grid-area: main-grid;
+  grid-template: 
+  
+  "left-menu  main-content" 1fr/
+    130px       1fr;
+  
 }
 
 .header {
   display: grid;
-  grid-template-columns: 50px 300px ;
-  margin-left: 50px;
+  grid-area: header;
+  grid-template-columns: 50px 300px 1fr;
+  background-color:#000046 ;
+  padding-left: 80px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.h1{
+  color: white;
 }
 
 .logo{
   margin-top: 16px;
 }
 
+.initials{
+  display: grid;
+  justify-content: center;
+  place-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgb(11, 129, 11);
+  margin-left: 1350px;
+  width: 60px; 
+  height: 60px;
+  border-radius: 50px;
+}
+
+.left-menu{
+  display: grid;
+  grid-area: left-menu;
+}
+
+.home-logo{
+  margin: 50px 0px 80px 40px;
+}
+
+.home{
+  margin: -270px 0px 0px 40px ;
+  color: #000046;
+}
+
+.profile-logo{
+  margin: -350px 0px 0px 40px;
+}
+
+.profile{
+  margin-left: 40px;
+  margin-top: -500px;
+  color: #000046;
+}
+
+.main-content{
+  display: grid;
+  grid-area: main-content;
+  height: 100vh;
+  background-color: #F0F5FA;
+}
