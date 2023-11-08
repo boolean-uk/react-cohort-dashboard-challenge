@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 50px 300px ;
+  margin-left: 50px;
+}
+
+.logo{
+  margin-top: 16px;
+}
+
