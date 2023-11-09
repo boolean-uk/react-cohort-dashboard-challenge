@@ -21,19 +21,19 @@
 				- [ ] `<NewPostForm />`
 					- [ ] `<TextInput />`
 					- [ ] `<SubmitButton />`
-			- [ ] `<PostFeed />`
-				- [ ] `feed.map()` => `<PostItem />`
-					- [ ] `<PostHeader />`
-						- [ ] `<UserIcon />`
-						- [ ] `<UserName />`
-						- [ ] `<PostTitle />`
-					- [ ] `<PostBody />`
-					- [ ] `<PostCommentFeed />`
+			- [x] `<PostFeed />`
+				- [x] `feed.map()` => `<PostItem />`
+					- [x] `<PostHeader />`
+						- [x] `<UserIcon />`
+						- [x] `<UserName />`
+						- [x] `<PostTitle />`
+					- [x] `<PostBody />`
+					- [x] `<PostCommentFeed />`
 						- [ ] `<PreviousComments />`
 						- [ ] `postCommentFeed.map()` => `<Comment />`
-							- [ ] `<UserIcon />`
+							- [x] `<UserIcon />`
 							- [ ] `<CommentBody />`
-								- [ ] `<UserName />`
+								- [x] `<UserName />`
 								- [ ] `<CommentContent />`
 						- [ ] `<NewComment />`
 							- [ ] `<UserIcon />`
