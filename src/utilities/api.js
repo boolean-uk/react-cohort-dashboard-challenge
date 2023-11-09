@@ -78,11 +78,16 @@ class Post {
     const url = pathBuild(this.#path, postId);
     return getTemplate(url);
   }
+
+  post(data) {
+    const url = pathBuild(this.#path);
+    return postTemplate(url, data);
+  }
 }
 
 class API {
   contact = new Contact();
-  post = new Post()
+  post = new Post();
 }
 
 const api = new API();
@@ -97,4 +102,4 @@ const data = {
   email: "test1",
 };
 
-console.log('api.', await api.post.get(9))
+console.log("api.", await api.post.get());
