@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProfileIcon from "../../../../components/ProfileIcon";
+import ProfileIcon from "./ProfileIcon";
 
 export default function PostListItem({ post }) {
   const [contact, setContact] = useState([]);

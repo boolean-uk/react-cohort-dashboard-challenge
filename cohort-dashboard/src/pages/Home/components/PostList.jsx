@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import PostListItem from "./PostListItem/PostListItem";
+import PostListItem from "./PostListItem";
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
 
-  const fetchData = () => {
+  const fetchPosts = () => {
     fetch("https://boolean-api-server.fly.dev/yee0802/post")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   };
 
-  useEffect(fetchData, []);
+  useEffect(fetchPosts, []);
 
   return (
     <div className="post-list-container">
