@@ -1,6 +1,6 @@
 
 
-export default function Comment() {
+export default function UserAbout() {
     return(
         <>
             <p></p>
