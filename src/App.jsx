@@ -105,15 +105,13 @@ function App() {
 
             <ul className="full-comment-ul">
               {comments.map((comment) => {
-                const contact = contacts.find(
-                  (c) => c.id === comment.contactId
-                );
+                const contact = contacts.find((c) => c.id === comment.contactId);
                 let initials = "";
                 if (contact) {
                   initials = `${contact.firstName[0]} ${contact.lastName[0]}`;
                 }
 
-                const relatedComments = postComments[contact.id] || [];
+                const relatedComments = contact ? postComments[contact.id] || [] : [];
 
                 return (
                   <li key={comment.id} className="full-comment-li">
