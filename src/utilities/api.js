@@ -83,6 +83,11 @@ class Post {
     const url = pathBuild(this.#path);
     return postTemplate(url, data);
   }
+
+  put(postId, data) {
+    const url = pathBuild(this.#path, postId);
+    return putTemplate(url, data);
+  }
 }
 
 class API {
@@ -95,11 +100,11 @@ const api = new API();
 // ===========================
 
 const data = {
-  firstName: "test1",
-  lastName: "test1",
-  street: "test1",
-  city: "test1",
-  email: "test1",
+  contactId: 8,
+  title: "Fresh new title 2",
+  content: "This content is incredible 2"
 };
+
+await api.post.put(11, data)
 
 console.log("api.", await api.post.get());
