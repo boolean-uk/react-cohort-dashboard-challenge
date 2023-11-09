@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        "cohort-backdrop": "#222222",
         "cohort-blue": "#000046",
+        "cohort-background": "#F0F5FA",
+        "cohort-bg-highlight": "#FFFFFF",
       },
     },
   },

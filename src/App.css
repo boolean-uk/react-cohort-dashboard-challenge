@@ -13,10 +13,8 @@
 
 .app-menu {
   grid-area: menu;
-  background-color: greenyellow;
 }
 
 .app-main {
   grid-area: main;
-  background-color: red;
 }

@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className="app-main"></div>
+  return <section className="app-main bg-cohort-background"></section>;
 }
