@@ -1,9 +1,16 @@
 import SinglePost from "./SinglePost"
 
-function Posts() {
+function Posts({ posts }) {
+
+    console.log(posts)
 
     return (
-        <SinglePost></SinglePost>
+        <ul className="all-posts">
+            {posts.map((post) => 
+                <SinglePost key={post.id} post={post} />
+            )}
+        </ul>
+        
     )
 }
 

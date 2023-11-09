@@ -25,14 +25,14 @@ function App() {
     shouldGetPosts && getPosts()
   }, [shouldGetPosts])
 
-  console.log(posts)
+  // console.log(posts)
 
   return (
     <>
       <Routes>
         <Route
           path='/'
-          element={<HomePage />}
+          element={<HomePage posts={posts} />}
           >
         </Route>
       </Routes>

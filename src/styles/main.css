@@ -7,11 +7,26 @@
     margin: 20px;
 }
 
+/* CREATE POST */
+
 .create-post {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
 }
+
+/* ALL POSTS */
+
+.all-posts {
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* SINGLE POSTS */
 
 .single-post {
     background-color: white;

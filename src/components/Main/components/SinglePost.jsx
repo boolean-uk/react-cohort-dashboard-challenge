@@ -1,8 +1,12 @@
-function SinglePost() {
+function SinglePost({ post }) {
 
     return (
         <section className="single-post">
-            <h2>Posts will live here</h2>
+            <li>
+                <h3>Name</h3>
+                <h4>{post.title}</h4>
+                <p>{post.content}</p>
+            </li>
         </section>
     )
 }
