@@ -6,7 +6,7 @@ function Header() {
 
     return (
         <header className="header">
-            <img className='header-title-icon' src={homeIcon} width={300} alt="home icon" />
+            <img className='header-title-icon' src={homeIcon} width={300} alt="title icon" />
             <div className='profile-circle'></div>
         </header>
     )
