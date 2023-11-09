@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}"
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "cohort-blue": "#000046",
+      },
+    },
   },
   plugins: [],
-}
-
+};
