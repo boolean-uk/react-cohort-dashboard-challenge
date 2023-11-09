@@ -89,6 +89,11 @@ background-color: #000046;
 
 .postForm input {
   background-color: #e6ebf5;
+  border: none;
+  border-radius: 10px;
+  width: 700px;
+  height: 35px;
+  margin: 10px;
 }
 
 .postForm button {
@@ -96,5 +101,6 @@ background-color: #000046;
   color: white;
   width: 150px;
   height: 35px;
+  border-radius: 10px;
 }
 
