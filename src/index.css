@@ -12,6 +12,42 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --nightblue: #000046; /* Header background, button & font colour */
+  --lightgrey: #e6ebf5; /* Form input background colour */
+  --green: #64dc78; /* Button hover colour */
+  --darkgrey: #64648c; /* Post title colour */
+  --lightestgrey: #F0F5FA; /* Body background colour */
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "header header"
+  "aside main";
+  height: 100vh;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 200px 1fr;
+}
+
+header {
+  grid-area: header;
+  background-color: var(--nightblue);
+}
+
+aside {
+  grid-area: aside;
+  background-color: var(--lightestgrey);
+  background: rgb(156,169,195);
+  background: linear-gradient(0deg, rgba(156,169,195,1) 0%, rgba(230,235,245,1) 100%);
+}
+
+main {
+  grid-area: main;
+  background-color: var(--lightestgrey);
+}
+
+body {
+  background-color: white;
 }
 
 a {
@@ -25,8 +61,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

@@ -4,33 +4,32 @@ import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
 
-import Home from "./components/Home"
-import Profile from "./components/Profile"
+import Home from "./components/Home/Home"
+import Profile from "./components/Profile/Profile"
 
 function App() {
-  const navigate = useNavigation()
 
   return (
-    <>
-    <header>
-      HEADER
-    </header>
-    <aside>
-      ASIDE
-    </aside>
-    <body>
-      <Routes>
-        <Route 
-          path="/"
-          element={<Home />}
-        />
-        <Route
-          path="/profile"
-          element={<Profile />}
-        />
-      </Routes>
-    </body>
-    </>
+    <div className="container">
+      <header>
+        HEADER
+      </header>
+      <aside>
+        ASIDE
+      </aside>
+      <main>
+        <Routes>
+          <Route 
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+        </Routes>
+      </main>
+    </div>
   )
 }
 
