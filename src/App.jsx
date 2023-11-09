@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Icons8 from "./assets/Icons8-logo.svg";
 import homeImg from "./assets/home.svg";
 import profileImg from "./assets/profile.svg";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
+import CommentingOnPost from "./components/CommentingOnPost";
 import Submit from "./assets/Submit.svg";
 import "./styles/App.css";
 
 function App() {
+
+const {contactId} = useParams()
+
   const [contacts, setContacts] = useState([]);
   const [comments, setComments] = useState([]);
   const [postComment, setPostComment] = useState([])
@@ -29,11 +34,11 @@ function App() {
 
 
   function fetchPostComment () {
-    fetch('https://boolean-api-server.fly.dev/Callumhayden99/post/{postId}/comment')
+    fetch(`https://boolean-api-server.fly.dev/Callumhayden99/post/${contactId}/comment`)
     .then((response) => response.json())
     .then((data) => setPostComment(data))
   }
-  useEffect(fetchPostComment, [])
+  useEffect(fetchPostComment, [contactId])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -69,12 +74,14 @@ function App() {
           <ul className="full-comment-ul">
             {comments.map((comment) => {
               const contact = contacts.find((c) => c.id === comment.contactId);
+          
               return (
                 <li key={comment.id} className="full-comment-li">
                   <div className="comment-title">{contact ? `${contact.firstName} ${contact.lastName}` : ""}</div>
-                  <div className="comment-link">{comment.title}</div>
+                  <Link to={"/comments"}><div className="comment-link">{comment.title}</div></Link>
                   <div className="main-comment">{comment.content}</div>
                   <hr className="hr"></hr>
+                  <div className="other-comments">{comment.postId}</div>
                   <div className="form">
                     <form onSubmit={handleSubmit} className="comment-form">
                       <label>
@@ -84,10 +91,10 @@ function App() {
                           name=""
                           placeholder="Add a comment..."
                         />
-                        <button className="post-button" type="submit">
+                      </label>
+                      <button className="post-button" type="submit">
                         <img src={Submit} width={20} alt="submit button"></img>
                       </button>
-                      </label>
                     </form>
                   </div>
                 </li>
@@ -99,6 +106,7 @@ function App() {
       </main>
 
       <Routes>
+        <Route path="/comments" element={<CommentingOnPost />}/>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
