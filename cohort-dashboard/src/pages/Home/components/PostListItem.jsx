@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileIcon from "./ProfileIcon";
+import PostCommentSection from "./PostComments/PostCommentSection";
 
 export default function PostListItem({ post }) {
   const [contact, setContact] = useState([]);
@@ -27,6 +28,8 @@ export default function PostListItem({ post }) {
       <div className="post-content">
         <p>{post.content}</p>
       </div>
+
+      <PostCommentSection post={post} />
     </li>
   );
 }
