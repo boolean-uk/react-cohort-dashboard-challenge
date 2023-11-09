@@ -30,17 +30,29 @@ export default function PostInputForm(props) {
       });
   };
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+
+    setNewPost({ ...newPost, [name]: value });
+  };
+
   return (
     <>
       <form id="post-form">
         <input
-          className="post-input"
+          className="post-input-title input-p"
           type="text"
+          name="title"
+          placeholder="Title"
+          onChange={(e) => handleChange(e)}
+        />
+        <input
+          className="post-input-content input-p"
+          type="text"
+          name="content"
           placeholder="What's on your mind?"
-          onChange={(e) => {
-            e.preventDefault();
-            setNewPost({ ...newPost, content: e.target.value });
-          }}
+          onChange={(e) => handleChange(e)}
         />
       </form>
       <button className="post-btn" onClick={createPost}>

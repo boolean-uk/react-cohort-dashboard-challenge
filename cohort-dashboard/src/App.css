@@ -103,7 +103,7 @@ aside {
 .post-list-container {
   display: grid;
   overflow-y: scroll;
-  height: calc(100vh - 221.78px);
+  height: calc(100vh - 264px);
 }
 
 .post-list {
@@ -123,10 +123,19 @@ aside {
   padding: 1.4rem;
 }
 
-.post-input {
-  border: none;
+.post-input-title {
   width: 100%;
-  height: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.post-input-content {
+  width: 100%;
+  height: 60px;
+}
+
+.input-p {
+  border: none;
   padding: 0.5rem;
   border-radius: 8px;
   background-color: #e6ebf5;
@@ -136,6 +145,7 @@ aside {
   background-color: #000046;
   border: none;
   border-radius: 10px;
+  font-size: 1.6rem;
   width: 200px;
   color: #fff;
   cursor: pointer;
@@ -176,7 +186,7 @@ aside {
 .post-content {
   display: grid;
   place-items: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding: 1.5rem 1.2rem;
   grid-area: 2 / 1 / 3 / 2;
 }
