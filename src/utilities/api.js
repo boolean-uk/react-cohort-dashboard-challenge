@@ -5,7 +5,9 @@ const instance = axios.create({
 });
 
 function pathBuild(...pathSegments) {
-  const pathFilter = pathSegments.filter(segment => segment !== undefined && segment !== null)
+  const pathFilter = pathSegments.filter(
+    (segment) => segment !== undefined && segment !== null,
+  );
   return pathFilter.join("/");
 }
 
@@ -36,26 +38,51 @@ async function putTemplate(url, data) {
   }
 }
 
+async function deleteTemplate(url) {
+  try {
+    const response = await instance.delete(url);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 class Contact {
-  #path = "contact"
-  get(id) {
-    const url = pathBuild(this.#path, id)
+  #path = "contact";
+
+  get(contactId) {
+    const url = pathBuild(this.#path, contactId);
     return getTemplate(url);
   }
 
   post(data) {
-    const url = pathBuild(this.#path)
-    return postTemplate(url, data)
+    const url = pathBuild(this.#path);
+    return postTemplate(url, data);
   }
 
-  put(id, data) {
-    const url = pathBuild(this.#path, id)
-    return putTemplate(url, data)
+  put(contactId, data) {
+    const url = pathBuild(this.#path, contactId);
+    return putTemplate(url, data);
+  }
+
+  delete(contactId) {
+    const url = pathBuild(this.#path, contactId);
+    return deleteTemplate(url);
+  }
+}
+
+class Post {
+  #path = "post";
+
+  get(postId) {
+    const url = pathBuild(this.#path, postId);
+    return getTemplate(url);
   }
 }
 
 class API {
   contact = new Contact();
+  post = new Post()
 }
 
 const api = new API();
@@ -67,9 +94,7 @@ const data = {
   lastName: "test1",
   street: "test1",
   city: "test1",
-  email: "test1"
-}
+  email: "test1",
+};
 
-await api.contact.put(16,data)
-
-console.log("api.contact.get()", await api.contact.get());
+console.log('api.', await api.post.get(9))
