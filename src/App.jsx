@@ -87,7 +87,22 @@ function App() {
         </div>
 
         <div className="main-content">
+
           <div className="each-post">
+            <div className="main-postbox">
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <input className="main-input"
+                  type="text"
+                  id=""
+                  name=""
+                  placeholder="What's on your mind?"
+                  ></input>
+                </label>
+                <button type="submit" className="main-postbutton">Post</button>
+              </form>
+            </div>
+
             <ul className="full-comment-ul">
               {comments.map((comment) => {
                 const contact = contacts.find(
@@ -116,10 +131,21 @@ function App() {
                     <div className="main-comment">{comment.content}</div>
                     <hr className="hr"></hr>
                     <div className="other-comments">
-                      {relatedComments.map((relatedComment) => (
-                        <p key={relatedComment.id}>{relatedComment.content}</p>
-                      ))}
+                      {relatedComments.map((relatedComment) => {
+                        const commenter = contacts.find((c) => c.id === relatedComment.contactId);
+                        const initials = commenter ? `${commenter.firstName[0]} ${commenter.lastName[0]}`: "";
+                        return (
+                          <div
+                            key={relatedComment.id}
+                            className="other-comment"
+                          >
+                            <div className="post-initials">{initials}</div>
+                            <p>{relatedComment.content}</p>
+                          </div>
+                        );
+                      })}
                     </div>
+
                     <div className="form">
                       <form onSubmit={handleSubmit} className="comment-form">
                         <label>

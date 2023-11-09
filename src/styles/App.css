@@ -5,6 +5,7 @@
   width: 100vw;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 .container {
@@ -100,6 +101,36 @@
 /* main content 
 */
 
+.main-postbox{
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 30px;
+  background-color: white;
+}
+
+.main-input{
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #e2f0f9;
+  padding: 15px 1300px 15px 10px;
+  margin: 20px 0px 20px 55px;
+}
+
+.main-postbutton{
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #000046;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 15px 50px 15px 50px;
+  cursor: pointer;
+}
+
 .full-comment-li {
   list-style: none;
   background-color: white;
@@ -140,11 +171,14 @@ a {
 }
 
 .input {
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
   border-radius: 5px;
   background-color: #e2f0f9;
-  padding: 10px 1400px 10px 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  padding: 15px 1300px 15px 10px;
+  margin-bottom: 20px;
+  margin-left: 80px;
 }
 
 .post-button {
@@ -152,8 +186,7 @@ a {
   background-color: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 10px;
-  margin-right: 120px;
+  margin: 0px 140px 20px 10px;
 }
 
 .post-initials {
@@ -170,7 +203,7 @@ a {
 .other-comments {
   border-radius: 10px;
   background-color: white;
-  margin: 10px 0 0 100px;
+  margin: 10px 0 0 20px;
   padding: 10px;
 }
 
@@ -179,5 +212,19 @@ a {
   padding: 20px 10px 20px 10px ;
   border-radius: 5px;
   background-color: #e2f0f9;
+  border: none;
+  overflow: hidden;
 }
+
+.post-initials {
+  float: left; 
+  background-color: #000046;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; 
+  
+}
+
 
