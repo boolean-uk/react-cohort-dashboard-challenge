@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Routes, Route} from 'react'
 import Profile from "./Profile";
 import PostButton from "./PostButton";
-import Posts from "./Posts";
+import PostsDisplay from "./PostsDisplay";
 import PostPage from "./PostPage";
 import Logo from "../assets/Logo.svg";
 import HomePic from "../assets/HomePic.svg";
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
         </div>
         <div className="main-content">
-          
+        <PostsDisplay />
         </div>
       </div>
     );
