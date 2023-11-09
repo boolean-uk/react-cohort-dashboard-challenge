@@ -27,6 +27,15 @@ async function postTemplate(url, data) {
   }
 }
 
+async function putTemplate(url, data) {
+  try {
+    const response = await instance.put(url, data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 class Contact {
   #path = "contact"
   get(id) {
@@ -37,6 +46,11 @@ class Contact {
   post(data) {
     const url = pathBuild(this.#path)
     return postTemplate(url, data)
+  }
+
+  put(id, data) {
+    const url = pathBuild(this.#path, id)
+    return putTemplate(url, data)
   }
 }
 
@@ -49,12 +63,13 @@ const api = new API();
 // ===========================
 
 const data = {
-  firstName: "test",
-  lastName: "test",
-  street: "test",
-  city: "test",
+  firstName: "test1",
+  lastName: "test1",
+  street: "test1",
+  city: "test1",
+  email: "test1"
 }
 
-await api.contact.post(data)
+await api.contact.put(16,data)
 
 console.log("api.contact.get()", await api.contact.get());
