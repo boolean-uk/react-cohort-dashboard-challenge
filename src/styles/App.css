@@ -7,45 +7,42 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
+.container {
   display: grid;
-  grid-template: 
-  
-  "header     header" 90px
-  "main-grid  main-grid" 1fr/
-     60px          1fr;
+  grid-template:
+    "header     header" 90px
+    "main-grid  main-grid" 1fr/
+    60px 1fr;
 }
 
-.main-grid{
+.main-grid {
   display: grid;
   grid-area: main-grid;
-  grid-template: 
-  
-  "left-menu  main-content" 1fr/
-    130px       1fr;
-  
+  grid-template:
+    "left-menu  main-content" 1fr/
+    130px 1fr;
 }
 
 .header {
   display: grid;
   grid-area: header;
   grid-template-columns: 50px 300px 1fr;
-  background-color:#000046 ;
+  background-color: #000046;
   padding-left: 80px;
   margin-left: -10px;
   margin-top: -10px;
 }
 
-.h1{
+.h1 {
   color: white;
   margin-top: 30px;
 }
 
-.logo{
+.logo {
   margin-top: 25px;
 }
 
-.initials{
+.initials {
   display: grid;
   justify-content: center;
   place-content: center;
@@ -53,12 +50,12 @@
   font-size: 20px;
   background-color: rgb(45, 158, 45);
   margin-left: 1350px;
-  width: 60px; 
+  width: 60px;
   height: 60px;
   border-radius: 50px;
 }
 
-.left-menu{
+.left-menu {
   display: grid;
   grid-area: left-menu;
   grid-template-rows: 150px;
@@ -67,92 +64,90 @@
 .home-logo,
 .profile-logo {
   margin: 40px 0px 0px 40px;
-  transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out;
 }
 
-.home{
+.home {
   margin: 0px 0px 0px 40px;
   color: #000046;
   text-decoration: none;
 }
 
-.profile{
+.profile {
   margin: 0px 0px 0px 40px;
   color: #000046;
   text-decoration: none;
 }
 
-.main-content{
+.main-content {
   display: grid;
   grid-area: main-content;
   height: 100vh;
-  background-color: #F0F5FA;
+  background-color: #f0f5fa;
   overflow: scroll;
 }
 
-
-.whole-logo:hover{
-  margin: 0px 0px 20px -10px ;
+.whole-logo:hover {
+  margin: 0px 0px 20px -10px;
   background-color: #e2f0f9;
 }
 
-.whole-profile:hover{
+.whole-profile:hover {
   margin: 0px 0px 690px -10px;
   background-color: #e2f0f9;
 }
 
-
-
-
 /* main content 
 */
 
-.full-comment-li{
+.full-comment-li {
   list-style: none;
   background-color: white;
   border-radius: 10px;
   margin: 10px 20px 10px -10px;
 }
 
-.comment-title{
+.comment-title {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  font-size: 20px;
   font-weight: bold;
   color: #000046;
-  padding: 20px 0px 10px 90px;
+  padding: 20px 0px 0px 40px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.comment-link{
+.comment-link {
   color: rgb(152, 148, 148);
   margin: 0px 0px 20px 90px;
 }
 
-.main-comment{
+.main-comment {
   color: #000046;
   margin: 0px 0px 20px 20px;
 }
 
-.hr{
+.hr {
   color: grey;
   margin: 0px 25px 30px 25px;
 }
-.comment-form{
+.comment-form {
   display: grid;
-  grid-template-columns: 1fr auto; 
-  
+  grid-template-columns: 1fr auto;
 }
 
-.input{
+.input {
   border-radius: 5px;
   background-color: #e2f0f9;
   padding: 10px 1400px 10px 10px;
-  margin-bottom: 10px ;
+  margin-bottom: 10px;
   margin-left: 20px;
 }
 
-.post-button{
+.post-button {
   border: none;
   background-color: none;
   border-radius: 5px;
@@ -160,3 +155,29 @@ a{
   margin-bottom: 10px;
   margin-right: 120px;
 }
+
+.post-initials {
+  background-color: #000046;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-right: 4px;
+}
+
+.other-comments {
+  border-radius: 10px;
+  background-color: white;
+  margin: 10px 0 0 100px;
+  padding: 10px;
+}
+
+.other-comments p {
+  width: fit-content;
+  padding: 20px 10px 20px 10px ;
+  border-radius: 5px;
+  background-color: #e2f0f9;
+}
+
