@@ -11,7 +11,7 @@
   display: grid;
   grid-template: 
   
-  "header     header" 80px
+  "header     header" 90px
   "main-grid  main-grid" 1fr/
      60px          1fr;
 }
@@ -38,10 +38,11 @@
 
 .h1{
   color: white;
+  margin-top: 30px;
 }
 
 .logo{
-  margin-top: 16px;
+  margin-top: 25px;
 }
 
 .initials{
@@ -50,7 +51,7 @@
   place-content: center;
   font-weight: bold;
   font-size: 20px;
-  background-color: rgb(11, 129, 11);
+  background-color: rgb(45, 158, 45);
   margin-left: 1350px;
   width: 60px; 
   height: 60px;
@@ -60,22 +61,19 @@
 .left-menu{
   display: grid;
   grid-area: left-menu;
-  grid-template-rows: 200px;
+  grid-template-rows: 150px;
 }
 
-.home-logo{
-  margin: 50px 0px 0px 40px;
+.home-logo,
+.profile-logo {
+  margin: 40px 0px 0px 40px;
+  transition: all 0.3s ease-in-out; 
 }
 
 .home{
   margin: 0px 0px 0px 40px;
   color: #000046;
   text-decoration: none;
-}
-
-
-.profile-logo{
-  margin: 10px 0px 0px 40px ;
 }
 
 .profile{
@@ -93,11 +91,21 @@
 
 
 .whole-logo:hover{
-  margin: 0px 0px 40px -10px ;
+  margin: 0px 0px 20px -10px ;
   background-color: #e2f0f9;
 }
 
 .whole-profile:hover{
-  margin: 0px 0px 650px -10px;
+  margin: 0px 0px 690px -10px;
   background-color: #e2f0f9;
+}
+
+
+
+
+/* main content 
+*/
+
+.full-comment-li{
+  list-style: none;
 }
