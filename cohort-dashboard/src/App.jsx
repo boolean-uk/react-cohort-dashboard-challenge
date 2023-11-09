@@ -6,19 +6,9 @@ import Nav from "./pages/Nav";
 import Home from "./pages/Home";
 
 function App() {
-  const [user, setUser] = useState("");
-
-  const fetchUser = () => {
-    fetch("https://boolean-api-server.fly.dev/yee0802/contact/1")
-      .then((res) => res.json())
-      .then((data) => setUser(data));
-  };
-
-  useEffect(fetchUser, []);
-
   return (
     <>
-      <Header user={user} />
+      <Header />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />}></Route>
