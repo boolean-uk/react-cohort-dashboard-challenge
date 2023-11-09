@@ -5,7 +5,8 @@ const instance = axios.create({
 });
 
 function pathBuild(...pathSegments) {
-  return pathSegments.join("/")
+  const pathFilter = pathSegments.filter(segment => segment !== undefined && segment !== null)
+  return pathFilter.join("/");
 }
 
 async function getTemplate(url) {
@@ -19,20 +20,24 @@ async function getTemplate(url) {
 
 async function postTemplate(url, data) {
   try {
-    const response = await instance.post(url, data)
+    const response = await instance.post(url, data);
     return response.data;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
 class Contact {
+  #path = "contact"
   get(id) {
-    const url = id ? `contact/${id}` : "contact";
+    const url = pathBuild(this.#path, id)
     return getTemplate(url);
   }
 
-  post(id, )
+  post(data) {
+    const url = pathBuild(this.#path)
+    return postTemplate(url, data)
+  }
 }
 
 class API {
@@ -41,8 +46,15 @@ class API {
 
 const api = new API();
 
-console.log("api.contact.get()", await api.contact.get(1));
+// ===========================
 
-const test = pathBuild(1, 2, 3)
+const data = {
+  firstName: "test",
+  lastName: "test",
+  street: "test",
+  city: "test",
+}
 
-console.log('test', test)
+await api.contact.post(data)
+
+console.log("api.contact.get()", await api.contact.get());
