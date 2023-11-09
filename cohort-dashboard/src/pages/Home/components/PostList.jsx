@@ -6,9 +6,9 @@ export default function PostList(props) {
   return (
     <div className="post-list-container">
       <ul className="post-list">
-        {posts.map((post, idx) => (
-          <PostListItem key={idx} post={post} />
-        ))}
+        {posts
+          .map((post, idx) => <PostListItem key={idx} post={post} />)
+          .reverse()}
       </ul>
     </div>
   );
