@@ -1,6 +1,6 @@
 import profileIcon from '../../../../_assets/profile-icon.svg'
 
-function Profile() {
+function ProfileIcon() {
 
     return (
         <div className='nav-icon-container'>
@@ -10,4 +10,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default ProfileIcon

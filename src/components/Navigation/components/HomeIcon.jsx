@@ -1,6 +1,6 @@
 import homeIcon from '../../../../_assets/home-icon.svg'
 
-function Home() {
+function HomeIcon() {
     
     return (
         <div className='nav-icon-container'>
@@ -10,4 +10,4 @@ function Home() {
     )
 }
 
-export default Home
+export default HomeIcon

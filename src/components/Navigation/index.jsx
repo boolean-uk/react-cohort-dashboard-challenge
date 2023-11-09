@@ -1,5 +1,5 @@
-import Home from './components/Home'
-import Profile from './components/Profile'
+import HomeIcon from './components/HomeIcon'
+import ProfileIcon from './components/ProfileIcon'
 
 import '../../styles/navigation.css'
 
@@ -7,8 +7,8 @@ function Navigation() {
 
     return (
         <nav className='navigation-menu'>
-            <Home></Home>
-            <Profile></Profile>
+            <HomeIcon></HomeIcon>
+            <ProfileIcon></ProfileIcon>
         </nav>
     )
 }
