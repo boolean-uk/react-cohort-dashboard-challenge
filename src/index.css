@@ -1,4 +1,58 @@
-:root {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  display: grid;
+  grid-template:
+    "header header" 95px
+    "sideBar main" 100vh/
+    170px auto;
+  border: black dashed 1px;
+  gap: 5px;
+  padding: 5px;
+}
+
+.header {
+  grid-area: header;
+  border: black dashed 1px;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+
+  display: grid;
+  grid-template: "logo titleHeading userInitals";
+  grid-template-columns: 90px auto 90px;
+}
+
+.logo {
+  grid-area: logo;
+  border: black dashed 1px;
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  margin-left: 60px;
+}
+
+.sideBar {
+  grid-area: sideBar;
+  border: black dashed 1px;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+}
+
+.main {
+  grid-area: main;
+  border: black dashed 1px;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -53,7 +107,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
