@@ -5,30 +5,44 @@ import homeImg from "./assets/home.svg";
 import profileImg from "./assets/profile.svg";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
+import Submit from "./assets/Submit.svg";
 import "./styles/App.css";
 
 function App() {
-  const [contact, setContact] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [comments, setComments] = useState([]);
+  const [postComment, setPostComment] = useState([])
 
   function fetchContact() {
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/contact")
-      .then((Response) => Response.json())
-      .then((data) => setContact(data));
+      .then((response) => response.json())
+      .then((data) => setContacts(data));
   }
   useEffect(fetchContact, []);
 
   function fetchComment() {
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/post")
-      .then((Response) => Response.json())
+      .then((response) => response.json())
       .then((data) => setComments(data));
   }
   useEffect(fetchComment, []);
 
+
+  function fetchPostComment () {
+    fetch('https://boolean-api-server.fly.dev/Callumhayden99/post/{postId}/comment')
+    .then((response) => response.json())
+    .then((data) => setPostComment(data))
+  }
+  useEffect(fetchPostComment, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div className="container">
       <header className="header">
-        <img className="logo" src={Icons8} width={40} alt="logo"></img>
+        <img className="logo" src={Icons8} width={40} alt="logo" />
         <h1 className="h1">Cohort Manager</h1>
         <p className="initials">CH</p>
       </header>
@@ -36,24 +50,14 @@ function App() {
       <main className="main-grid">
         <div className="left-menu">
           <div className="whole-logo">
-            <img
-              className="home-logo"
-              src={homeImg}
-              width={40}
-              alt="home logo"
-            ></img>
+            <img className="home-logo" src={homeImg} width={40} alt="home logo" />
             <Link to="/Home" className="home">
               Home
             </Link>
           </div>
 
           <div className="whole-profile">
-            <img
-              className="profile-logo"
-              src={profileImg}
-              width={40}
-              alt="profile logo"
-            ></img>
+            <img className="profile-logo" src={profileImg} width={40} alt="profile logo" />
             <Link to="/Profile" className="profile">
               Profile
             </Link>
@@ -61,42 +65,42 @@ function App() {
         </div>
 
         <div className="main-content">
+          <div className="each-post">
           <ul className="full-comment-ul">
-            {comments.map((comment) => (
-              <li key={comment.id} className="full-comment-li">
-                {comment.contactId} {comment.title} {comment.content}
-                <div className="whole-post-template">
-                  <div className="post-name">
-                    <div className="post-link">
-                      <div className="post-content">
-                        <div className="form">
-                          <form>
-                            <label>
-                              <input
-                                type="text"
-                                id=""
-                                name=""
-                                placeholder="Add a comment..."
-                              />
-                            </label>
-                            <button className="comment-post-button">
-                              Post
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+            {comments.map((comment) => {
+              const contact = contacts.find((c) => c.id === comment.contactId);
+              return (
+                <li key={comment.id} className="full-comment-li">
+                  <div className="comment-title">{contact ? `${contact.firstName} ${contact.lastName}` : ""}</div>
+                  <div className="comment-link">{comment.title}</div>
+                  <div className="main-comment">{comment.content}</div>
+                  <hr className="hr"></hr>
+                  <div className="form">
+                    <form onSubmit={handleSubmit} className="comment-form">
+                      <label>
+                        <input className="input"
+                          type="text"
+                          id=""
+                          name=""
+                          placeholder="Add a comment..."
+                        />
+                        <button className="post-button" type="submit">
+                        <img src={Submit} width={20} alt="submit button"></img>
+                      </button>
+                      </label>
+                    </form>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
+          </div>
         </div>
       </main>
 
       <Routes>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );

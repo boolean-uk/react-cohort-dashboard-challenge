@@ -87,6 +87,7 @@
   grid-area: main-content;
   height: 100vh;
   background-color: #F0F5FA;
+  overflow: scroll;
 }
 
 
@@ -108,4 +109,45 @@
 
 .full-comment-li{
   list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 20px 10px -10px;
+}
+
+.comment-title{
+  font-weight: bold;
+  color: #000046;
+  padding: 20px 0px 10px 90px;
+}
+
+.comment-link{
+  color: rgb(152, 148, 148);
+  margin: 0px 0px 20px 90px;
+}
+
+.main-comment{
+  color: #000046;
+  margin: 0px 0px 20px 20px;
+}
+
+.hr{
+  color: grey;
+  margin: 0px 25px 30px 25px;
+}
+
+
+.input{
+  border-radius: 5px;
+  background-color: #e2f0f9;
+  padding: 10px 1400px 10px 10px;
+  margin: 0px 20px 20px 50px;
+}
+
+
+.post-button{
+  border: none;
+  background-color: none;
+  overflow: auto;
+  margin: 0px 0px 0px 1520px;
+  cursor: pointer;
 }
