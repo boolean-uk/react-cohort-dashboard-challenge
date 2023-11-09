@@ -5,6 +5,7 @@
     grid-template-rows: repeat(2, 100px);
     padding: 10px;
     background-color: white;
+    /* height: 100vh; */
 }
 
 .nav-icon-container {
