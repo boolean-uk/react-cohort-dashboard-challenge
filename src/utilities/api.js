@@ -88,6 +88,48 @@ class Post {
     const url = pathBuild(this.#path, postId);
     return putTemplate(url, data);
   }
+
+  delete(postId) {
+    const url = pathBuild(this.#path, postId);
+    return deleteTemplate(url);
+  }
+
+  comment = new Comment();
+}
+
+class Comment {
+  #path = "post";
+
+  get(postId) {
+    if (!postId) {
+      console.error("postId parameter required");
+      return null;
+    }
+    const url = pathBuild(this.#path, postId, "comment");
+    return getTemplate(url);
+  }
+
+  post(postId, data) {
+    if (!postId) {
+      console.error("postId parameter required");
+      return null;
+    }
+    
+    const url = pathBuild(this.#path, postId, "comment");
+
+    data.postId = postId
+    return postTemplate(url, data);
+  }
+
+  put(postId, data) {
+    const url = pathBuild(this.#path, postId);
+    return putTemplate(url, data);
+  }
+
+  delete(postId) {
+    const url = pathBuild(this.#path, postId);
+    return deleteTemplate(url);
+  }
 }
 
 class API {
@@ -101,10 +143,9 @@ const api = new API();
 
 const data = {
   contactId: 8,
-  title: "Fresh new title 2",
-  content: "This content is incredible 2"
+  content: "This content is incredible 2",
 };
 
-await api.post.put(11, data)
+await api.post.comment.post(1, data)
 
-console.log("api.", await api.post.get());
+console.log("api.", await api.post.comment.get(1));
