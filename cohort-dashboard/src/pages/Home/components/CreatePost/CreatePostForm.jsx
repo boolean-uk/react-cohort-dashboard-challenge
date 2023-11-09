@@ -18,16 +18,18 @@ export default function CreatePostForm(props) {
       body: JSON.stringify(newPost),
     };
 
-    fetch("https://boolean-api-server.fly.dev/yee0802/post", opts)
-      .then((res) => res.json())
-      .then(() => {
-        const form = document.getElementById("post-form");
+    if (newPost.content) {
+      fetch("https://boolean-api-server.fly.dev/yee0802/post", opts)
+        .then((res) => res.json())
+        .then(() => {
+          const form = document.getElementById("post-form");
 
-        setNewPost(INITIAL_STATE);
-        setRefresh(true);
+          setNewPost(INITIAL_STATE);
+          setRefresh(true);
 
-        form.reset();
-      });
+          form.reset();
+        });
+    }
   };
 
   const handleChange = (e) => {
