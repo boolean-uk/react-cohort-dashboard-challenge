@@ -15,7 +15,7 @@ export default function ProfileLogo() {
 
     return (
         <div className="profileLogo">
-            {initials}
+           <strong>{initials}</strong> 
         </div>
     )
 }

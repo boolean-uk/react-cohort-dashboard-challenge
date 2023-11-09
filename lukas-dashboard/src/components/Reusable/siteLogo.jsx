@@ -3,6 +3,7 @@ export default function SiteLogo() {
 
     return (
         <svg
+    className="siteLogo"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 356 56"

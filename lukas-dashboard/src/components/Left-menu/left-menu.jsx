@@ -1,9 +1,11 @@
-
+import HomeNavLogo from "./homeNavLogo"
+import ProfileNavLogo from "./profileNavLogo"
 export default function LeftMenu() {
 
     return (
             <div className="left-menu">
-                LeftMenu
+                <HomeNavLogo/>
+                <ProfileNavLogo/>
             </div>
     )
 }

@@ -4,7 +4,7 @@ export default function Main () {
     return (
     
         <div className="main">
-            Main
+            <p>Main</p>
         </div>
     
     )
