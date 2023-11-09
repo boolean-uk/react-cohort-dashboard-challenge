@@ -5,10 +5,14 @@ body {
 }
 
 .container {
-    display: grid;
     grid-template-areas: 
         "Header Header"
         "Navigation Main";
     grid-template-rows: 80px 1fr;
     grid-template-columns: 150px 1fr;
+}
+
+
+.grid {
+    display: grid;
 }

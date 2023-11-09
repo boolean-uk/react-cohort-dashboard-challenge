@@ -6,7 +6,7 @@ import '../../styles/navigation.css'
 function Navigation() {
 
     return (
-        <nav className='navigation-menu'>
+        <nav className='navigation-menu grid'>
             <HomeIcon></HomeIcon>
             <ProfileIcon></ProfileIcon>
         </nav>

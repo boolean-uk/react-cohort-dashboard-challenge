@@ -1,7 +1,6 @@
 /* MAIN */
 
 .main {
-    display: grid;
     grid-template-rows: 100px 1fr;
     gap: 20px;
     margin: 20px;
@@ -18,7 +17,6 @@
 /* ALL POSTS */
 
 .all-posts {
-    display: grid;
     grid-auto-rows: auto;
     gap: 20px;
     list-style: none;
@@ -28,8 +26,16 @@
 
 /* SINGLE POSTS */
 
-.single-post {
+.single-post-container {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
+}
+
+.single-post {
+    grid-template-rows: auto 100px;
+}
+
+.post-content {
+    border-bottom: solid 1px rgba(128, 128, 128, 0.355);
 }

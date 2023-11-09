@@ -6,7 +6,7 @@ import '../../styles/main.css'
 function Main({ posts, URL }) {
 
     return (
-        <main className="main">
+        <main className="main grid">
             <CreatePost></CreatePost>
             <Posts posts={posts} URL={URL}></Posts>
         </main>

@@ -5,7 +5,7 @@ import '../../styles/header.css'
 function Header() {
 
     return (
-        <header className="header">
+        <header className="header grid">
             <img className='header-title-icon' src={homeIcon} width={300} alt="title icon" />
             <div className='profile-circle'></div>
         </header>

@@ -1,7 +1,6 @@
 /* HEADER */
 
 .header {
-    display: grid;
     grid-area: Header;
     grid-template-columns: 1fr 45px;
 

@@ -5,7 +5,7 @@ import Main from "../Main"
 function HomePage({ posts, URL }) {
 
     return(
-        <div className="container">
+        <div className="container grid">
             <Header></Header>
             <Navigation></Navigation>
             <Main posts={posts} URL={URL}></Main>

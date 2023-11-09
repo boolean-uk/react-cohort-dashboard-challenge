@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 
+import PostContent from "./PostContent"
+import Comments from "./Comments"
+
 function SinglePost({ post, URL }) {
 
     const [author, setAuthor] = useState(null)
@@ -12,17 +15,15 @@ function SinglePost({ post, URL }) {
             .then(data => setAuthor(data))
     }, [URL, id])
 
-    console.log(post)
+    // console.log(post)
 
     if (!author) return <p>Unknown Author</p>
-    const initials = author.firstName.slice(0, 1) + author.lastName.slice(0, 1)
 
     return (
-        <section className="single-post">
-            <li>
-                <div>{initials}</div>
-                <h4>{post.title}</h4>
-                <p>{post.content}</p>
+        <section className="single-post-container">
+            <li className="single-post grid">
+                <PostContent post={post} author={author}></PostContent>
+                <Comments></Comments>
             </li>
         </section>
     )
