@@ -8,6 +8,8 @@ export default {
         "cohort-blue": "#000046",
         "cohort-background": "#F0F5FA",
         "cohort-bg-highlight": "#FFFFFF",
+        "cohort-title": "#64648C",
+        "cohort-shade": "#E6EBF5"
       },
     },
   },
