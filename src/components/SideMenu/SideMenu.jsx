@@ -1,3 +1,3 @@
 export default function SideMenu() {
-  return <div className="app-menu bg-cohort-bg-highlight"></div>;
+  return <nav className="app-menu bg-cohort-bg-highlight"></nav>;
 }

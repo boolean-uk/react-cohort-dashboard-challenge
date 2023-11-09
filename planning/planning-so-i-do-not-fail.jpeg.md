@@ -12,10 +12,10 @@
 	- [x] `<Header />`
 		- [x] `<WebsiteTitle />`
 		- [x] `<UserIcon />`
-	- [ ] `<SideMenu />`
+	- [x] `<SideMenu />`
 		- [ ] `SIDE_MENU_ITEMS.map()` => `<SideMenuItem />`
 	- [ ] `<Routes />`
-		- [ ] `<Route />` => `<Home />`
+		- [x] `<Route />` => `<Home />`
 			- [ ] `<NewPost />`
 				- [ ] `<UserIcon />`
 				- [ ] `<NewPostForm />`
@@ -57,28 +57,28 @@
 					- [ ] `<SubmitButton />`
 ## State
 
-- `<App />`
-	- `const loggedInUser: number = 1`
-	- `const activePage: string = "Home"`
-- `<NewPostForm />`
-	- `const text: string = "blah blah blah"`
-- `<PostFeed />`
-	- `const feed: array = [{}, {}, ...]`
-- `<PostItem />`
-	- `const postId: number = 1`
-	- `const edited: boolean = false`
-	- `const belongsToLoggedUser: boolean = true`
-	- `const commentFeed: array = []`
-	- `const bigCommentFeed: boolean = false`
-	- `const showAllComments: boolean = true`
-- `<Comment />` 
-	- `const commentId: number = 1`
-	- `const belongsToLoggedUser: boolean = true`
-	- `const deleted: boolean = false`
-	- `const edited: boolean = false`
-- `<NewCommentForm />`
-	- `const text: string = "blah blah blah"`
-- `<Profile />`
-	- `const userId: number = 1`
-	- `const isLoggedInUser: boolean = true`
-	- 
+- [ ] `<App />`
+	- [ ] `const loggedInUser: number = 1`
+	- [ ] `const activePage: string = "Home"`
+- [ ] `<NewPostForm />`
+	- [ ] `const text: string = "blah blah blah"`
+- [ ] `<PostFeed />`
+	- [ ] `const feed: array = [{}, {}, ...]`
+- [ ] `<PostItem />`
+	- [ ] `const postId: number = 1`
+	- [ ] `const edited: boolean = false`
+	- [ ] `const belongsToLoggedUser: boolean = true`
+	- [ ] `const commentFeed: array = []`
+	- [ ] `const bigCommentFeed: boolean = false`
+	- [ ] `const showAllComments: boolean = true`
+- [ ] `<Comment />` 
+	- [ ] `const commentId: number = 1`
+	- [ ] `const belongsToLoggedUser: boolean = true`
+	- [ ] `const deleted: boolean = false`
+	- [ ] `const edited: boolean = false`
+- [ ] `<NewCommentForm />`
+	- [ ] `const text: string = "blah blah blah"`
+- [ ] `<Profile />`
+	- [ ] `const userId: number = 1`
+	- [ ] `const isLoggedInUser: boolean = true`
+	- [ ] 
