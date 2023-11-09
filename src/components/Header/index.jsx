@@ -1,5 +1,7 @@
 import homeIcon from '../../../_assets/title-header.svg'
 
+import '../../styles/header.css'
+
 function Header() {
 
     return (

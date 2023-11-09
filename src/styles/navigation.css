@@ -1,0 +1,23 @@
+/* NAVIGATION */
+
+.navigation-menu {
+    display: grid;
+    grid-template-rows: repeat(2, 100px);
+    padding: 10px;
+    background-color: white;
+}
+
+.nav-icon-container {
+    display: grid;
+    gap: 5px;
+    place-content: center;
+}
+
+.nav-icon-img {
+    justify-self: center;
+}
+
+.nav-icon-text {
+    margin: 0;
+    color: rgb(76, 75, 75);
+}
