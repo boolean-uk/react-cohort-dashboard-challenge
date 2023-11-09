@@ -6,11 +6,12 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      <Header/>
-      <LeftMenu/>
-      <Main/>
-    </>
+    <section className='main_grid'>
+      <Header />
+      <LeftMenu />
+      <Main />
+    </section>
+
   )
 }
 

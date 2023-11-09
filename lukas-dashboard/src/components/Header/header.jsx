@@ -1,8 +1,13 @@
 import ProfileLogo from "../Reusable/profileLogo";
+import SiteLogo from "../Reusable/siteLogo";
 
 export default function Header() {
 
     return (
-        <ProfileLogo />
+        <div className="header">
+            <SiteLogo />
+            <ProfileLogo />
+        </div>
+
     )
 }
