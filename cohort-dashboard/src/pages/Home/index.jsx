@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PostInput from "./components/PostInput/PostInput";
+import CreatePost from "./components/CreatePost/CreatePost";
 import PostList from "./components/PostList";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <PostInput setRefresh={setRefresh} />
+      <CreatePost setRefresh={setRefresh} />
       <PostList posts={posts} />
     </div>
   );

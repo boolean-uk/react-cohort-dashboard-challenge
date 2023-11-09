@@ -1,13 +1,13 @@
 import UserProfileIcon from "../../../UserProfileIcon";
-import PostInputForm from "./PostInputForm";
+import CreatePostForm from "./CreatePostForm";
 
-export default function PostInput(props) {
+export default function CreatePost(props) {
   const { setRefresh } = props;
 
   return (
     <div className="post-input-container">
       <UserProfileIcon />
-      <PostInputForm setRefresh={setRefresh} />
+      <CreatePostForm setRefresh={setRefresh} />
     </div>
   );
 }

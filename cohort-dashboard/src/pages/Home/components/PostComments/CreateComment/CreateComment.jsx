@@ -1,7 +1,7 @@
 import { useState } from "react";
-import UserProfileIcon from "../../../UserProfileIcon";
+import UserProfileIcon from "../../../../UserProfileIcon";
 
-export default function PostCommentInput({ postId, setRefreshComments }) {
+export default function CreateComment({ postId, setRefreshComments }) {
   const INITAL_STATE = {
     postId: postId,
     content: "",

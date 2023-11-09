@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PostCommentItem from "./PostCommentItem";
-import PostCommentInput from "./PostCommentInput";
+import CreateComment from "./CreateComment/CreateComment";
 
 export default function PostComments(props) {
   const [comments, setComments] = useState([]);
@@ -26,10 +26,7 @@ export default function PostComments(props) {
           <PostCommentItem key={idx} comment={comment} />
         ))}
       </ul>
-      <PostCommentInput
-        postId={post.id}
-        setRefreshComments={setRefreshComments}
-      />
+      <CreateComment postId={post.id} setRefreshComments={setRefreshComments} />
     </div>
   );
 }

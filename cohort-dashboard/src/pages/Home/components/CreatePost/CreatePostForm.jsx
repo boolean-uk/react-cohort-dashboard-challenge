@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   contactId: 1,
 };
 
-export default function PostInputForm(props) {
+export default function CreatePostForm(props) {
   const [newPost, setNewPost] = useState(INITIAL_STATE);
 
   const { setRefresh } = props;
