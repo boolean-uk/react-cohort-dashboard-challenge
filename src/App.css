@@ -1,0 +1,115 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 120px auto; 
+  grid-template-rows: 100px auto; 
+  grid-template-areas: 
+    "header header"       
+    "left-menu main-content";
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  background-color: #000046;
+  padding: 0 10px;
+  color: white;
+}
+
+.main-content {
+  grid-area: main-content;
+  background-color: silver
+}
+
+
+.logo {
+  justify-self: start;
+  height: 50px;
+  padding-left: 25px;
+}
+
+h1 {
+  margin: 0; 
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 90px;
+}
+
+.user-badge {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-badge:hover {
+  background-color: white;
+  color: green;
+  cursor: pointer;
+}
+
+
+.left-menu {
+  grid-area: left-menu;
+  display: grid;
+  grid-template-rows: repeat(2, 120px);
+  gap: 10px;
+  padding-top: 15px; 
+  width: 100%; 
+}
+
+.menu-item {
+  display: grid;
+  grid-template-rows: auto 1fr auto; 
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  transition: background-color 0.3s;
+  padding: 10px;
+}
+
+
+.menu-item:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.menu-item img {
+  width: 65%;
+  height: auto;
+}
+
+.menu-item p {
+  width: 65%;
+  text-align: center;
+  margin: 0;
+}
