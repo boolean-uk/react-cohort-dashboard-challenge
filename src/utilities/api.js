@@ -114,20 +114,26 @@ class Comment {
       console.error("postId parameter required");
       return null;
     }
-    
+
     const url = pathBuild(this.#path, postId, "comment");
 
-    data.postId = postId
+    data.postId = postId;
     return postTemplate(url, data);
   }
 
-  put(postId, data) {
-    const url = pathBuild(this.#path, postId);
+  put(postId, commentId, data) {
+    if (!postId) {
+      console.error("postId parameter required");
+      return null;
+    }
+
+    const url = pathBuild(this.#path, postId, "comment", commentId);
+    
     return putTemplate(url, data);
   }
 
-  delete(postId) {
-    const url = pathBuild(this.#path, postId);
+  delete(postId, commentId) {
+    const url = pathBuild(this.#path, postId, "comment", commentId);
     return deleteTemplate(url);
   }
 }
@@ -143,9 +149,8 @@ const api = new API();
 
 const data = {
   contactId: 8,
-  content: "This content is incredible 2",
+  postId: 1,
+  content: "This content is incredible 7",
 };
-
-await api.post.comment.post(1, data)
 
 console.log("api.", await api.post.comment.get(1));
