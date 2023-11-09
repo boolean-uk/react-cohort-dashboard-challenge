@@ -12,12 +12,16 @@ function App() {
       <div className="container">
         {/* Header */}
         <header className="header">
-          <div className="logo">logo</div>
-          <div className="titleHeading"></div>
-          <div className="userInitals"></div>
+          <div className="titleHeading">
+            <img src="src/assets/title-header.svg " width="400px" alt="" />
+          </div>
+          <div className="userInitials"></div>
         </header>
         {/* SideBar */}
-        <nav className="sideBar">side</nav>
+        <nav className="sideBar">
+          <div className="homeIconCon"></div>
+          <div className="profileIconCon"></div>
+        </nav>
         {/* Main */}
         <main className="main">main</main>
       </div>

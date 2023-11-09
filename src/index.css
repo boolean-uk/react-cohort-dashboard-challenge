@@ -11,45 +11,75 @@
     "sideBar main" 100vh/
     170px auto;
   border: black dashed 1px;
-  gap: 5px;
-  padding: 5px;
+  gap: 3px;
+  padding: 3px;
 }
 
 .header {
   grid-area: header;
-  border: black dashed 1px;
+  /* border: black dashed 1px; */
   display: grid;
-  gap: 5px;
-  padding: 5px;
+  gap: 3px;
+  padding: 3px;
 
-  display: grid;
-  grid-template: "logo titleHeading userInitals";
-  grid-template-columns: 90px auto 90px;
+  grid-template: "titleHeading userInitials";
+  grid-template-columns: 1fr 200px;
+  background-color: grey;
 }
 
-.logo {
-  grid-area: logo;
+.titleHeading {
+  grid-area: titleHeading;
   border: black dashed 1px;
-  height: 20px;
-  width: 20px;
+  margin-left: 40px;
   align-self: center;
-  margin-left: 60px;
+  height: 70px;
+}
+
+.titleHeading > img {
+  margin-right: 560px;
+  margin-top: 7px;
+  /* fill: white; */
+}
+
+.userInitials {
+  grid-area: userInitials;
+  border: black dashed 1px;
+  height: 70px;
+  align-self: center;
 }
 
 .sideBar {
   grid-area: sideBar;
   border: black dashed 1px;
+  gap: 3px;
+  padding: 3px;
+
   display: grid;
-  gap: 5px;
-  padding: 5px;
+  grid-template:
+    "homeIconCon"
+    "profileIconCon";
+  grid-template-rows: 30px 30px;
+}
+
+.homeIconCon {
+  grid-area: homeIconCon;
+  border: black dashed 1px;
+  height: 100px;
+}
+
+.profileIconCon {
+  grid-area: profileIconCon;
+  border: black dashed 1px;
+  height: 100px;
+  margin-top: 75px;
 }
 
 .main {
   grid-area: main;
   border: black dashed 1px;
   display: grid;
-  gap: 5px;
-  padding: 5px;
+  gap: 3px;
+  padding: 3px;
 }
 
 /* :root {
