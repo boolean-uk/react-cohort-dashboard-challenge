@@ -36,13 +36,10 @@
 								- [x] `<UserName />`
 								- [ ] `<CommentContent />`
 						- [ ] `<NewComment />`
-							- [ ] `<UserIcon />`
+							- [x] `<UserIcon />`
 							- [ ] `<NewCommentForm />`
 								- [ ] `<TextInput />`
 									- [ ] `<NewCommentButton />`
-			- [ ] `<PostSingle />`
-				- [ ] `<PostItem />`
-					- [ ] ... All components in `<PostItem />`
 		- [ ] `<Route />` =>  `<Profile />`
 			- [ ] `<h2 />`
 			- [ ] `<ProfileForm />`
@@ -55,15 +52,18 @@
 						- [ ] `<ProfileFormFieldTitle />`
 						- [ ] `<TextInput />`
 					- [ ] `<SubmitButton />`
+		- [ ] `<Route />` => `<PostSingle />`
+			- [x] `<PostItem />`
+			- [x] ... All components in `<PostItem />`
 ## State
 
 - [ ] `<App />`
-	- [ ] `const loggedInUser: number = 1`
+	- [x] `const loggedInUser: number = 1`
 	- [ ] `const activePage: string = "Home"`
 - [ ] `<NewPostForm />`
 	- [ ] `const text: string = "blah blah blah"`
-- [ ] `<PostFeed />`
-	- [ ] `const feed: array = [{}, {}, ...]`
+- [x] `<PostFeed />`
+	- [x] `const feed: array = [{}, {}, ...]`
 - [ ] `<PostItem />`
 	- [ ] `const postId: number = 1`
 	- [ ] `const edited: boolean = false`
