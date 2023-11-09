@@ -1,0 +1,23 @@
+header {
+    background-color: #000046;
+    padding: 10px;
+}
+
+.header-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.header-logo {
+    margin-left: 40px;
+}
+
+.header-profile-icon {
+    margin-right: 60px;
+    color: black;
+    background-color: green;
+    padding: 20px;
+    border-radius: 50px;
+}
