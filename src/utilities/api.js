@@ -1,15 +1,9 @@
 import axios from "axios";
+import { pathBuild } from "./string";
 
 const instance = axios.create({
   baseURL: "https://boolean-api-server.fly.dev/uprising5034",
 });
-
-function pathBuild(...pathSegments) {
-  const pathFilter = pathSegments.filter(
-    (segment) => segment !== undefined && segment !== null,
-  );
-  return pathFilter.join("/");
-}
 
 async function getTemplate(url) {
   try {
