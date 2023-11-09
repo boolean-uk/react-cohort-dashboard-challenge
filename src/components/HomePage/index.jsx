@@ -2,13 +2,13 @@ import Header from "../Header"
 import Navigation from "../Navigation"
 import Main from "../Main"
 
-function HomePage({ posts }) {
+function HomePage({ posts, URL }) {
 
     return(
         <div className="container">
             <Header></Header>
             <Navigation></Navigation>
-            <Main posts={posts}></Main>
+            <Main posts={posts} URL={URL}></Main>
         </div>
         
     )

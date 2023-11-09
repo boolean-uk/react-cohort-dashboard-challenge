@@ -3,12 +3,12 @@ import Posts from "./components/Posts"
 
 import '../../styles/main.css'
 
-function Main({ posts }) {
+function Main({ posts, URL }) {
 
     return (
         <main className="main">
             <CreatePost></CreatePost>
-            <Posts posts={posts}></Posts>
+            <Posts posts={posts} URL={URL}></Posts>
         </main>
     )
 }

@@ -7,13 +7,13 @@ import './App.css'
 
 function App() {
 
-  const URL = 'https://boolean-api-server.fly.dev/satokii/post'
+  const URL = 'https://boolean-api-server.fly.dev/satokii'
 
   const [posts, setPosts] = useState([])
   const [shouldGetPosts, setShouldGetPosts] = useState(true)
  
   function getPosts() {
-    fetch(URL)
+    fetch(`${URL}/post`)
       .then(res => res.json())
       .then(data => {
         setPosts(data)
@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<HomePage posts={posts} />}
+          element={<HomePage posts={posts} URL={URL} />}
           >
         </Route>
       </Routes>
