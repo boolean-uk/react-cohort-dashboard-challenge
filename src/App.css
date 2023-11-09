@@ -1,0 +1,22 @@
+.app-container {
+  grid-template-areas:
+    "header header"
+    "menu main";
+
+  grid-template-columns: 9.5rem 1fr;
+  grid-template-rows: 6rem 1fr;
+}
+
+.app-header {
+  grid-area: header;
+}
+
+.app-menu {
+  grid-area: menu;
+  background-color: greenyellow;
+}
+
+.app-main {
+  grid-area: main;
+  background-color: red;
+}

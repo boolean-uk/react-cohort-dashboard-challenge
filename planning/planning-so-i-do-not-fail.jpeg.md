@@ -9,9 +9,9 @@
 ## Components
 
 - [ ] `<App />`
-	- [ ] `<Header />`
-		- [ ] `<WebsiteTitle />`
-		- [ ] `<UserIcon />`
+	- [x] `<Header />`
+		- [x] `<WebsiteTitle />`
+		- [x] `<UserIcon />`
 	- [ ] `<SideMenu />`
 		- [ ] `SIDE_MENU_ITEMS.map()` => `<SideMenuItem />`
 	- [ ] `<Routes />`
@@ -43,18 +43,18 @@
 			- [ ] `<PostSingle />`
 				- [ ] `<PostItem />`
 					- [ ] ... All components in `<PostItem />`
-	- [ ] `<Route />` =>  `<Profile />`
-		- [ ] `<h2 />`
-		- [ ] `<ProfileForm />`
-			- [ ] `<ProfileTitle />`
-				- [ ] `<UserIcon />`
-				- [ ] `<UserName />`
-			- [ ] `PROFILE_FORM_TEMPLATE.map()` => `<ProfileFormSection />`
-				- [ ] `<ProfileFormSectionTitle />`
-				- [ ] `PROFILE_FORM_TEMPLATE.section.fields.map()` => `<ProfileFormField />`
-					- [ ] `<ProfileFormFieldTitle />`
-					- [ ] `<TextInput />`
-				- [ ] `<SubmitButton />`
+		- [ ] `<Route />` =>  `<Profile />`
+			- [ ] `<h2 />`
+			- [ ] `<ProfileForm />`
+				- [ ] `<ProfileTitle />`
+					- [ ] `<UserIcon />`
+					- [ ] `<UserName />`
+				- [ ] `PROFILE_FORM_TEMPLATE.map()` => `<ProfileFormSection />`
+					- [ ] `<ProfileFormSectionTitle />`
+					- [ ] `PROFILE_FORM_TEMPLATE.section.fields.map()` => `<ProfileFormField />`
+						- [ ] `<ProfileFormFieldTitle />`
+						- [ ] `<TextInput />`
+					- [ ] `<SubmitButton />`
 ## State
 
 - `<App />`
