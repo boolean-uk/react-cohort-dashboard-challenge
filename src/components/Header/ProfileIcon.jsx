@@ -20,18 +20,17 @@ function ProfileIcon () {
 
     console.log(admin)
 
-    if(!contact) {
+    if(!admin) {
         return <div>
                 <h3>LOADING</h3>
                 </div>
     }
-    // const initials = admin.firstName.charAt(0) + admin.lastName.charAt(0)
     
-    // return (
-    //     <div className="profile-icon">
-    //         <h3>{admin.firstName.charAt(0) + admin.lastName.charAt(0)}</h3>
-    //     </div>
-    // )
+    return (
+        <div className="profile-icon">
+            <h3>{admin.firstName.charAt(0) + admin.lastName.charAt(0)}</h3>
+        </div>
+    )
 }
 
 export default ProfileIcon
