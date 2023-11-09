@@ -1,6 +1,6 @@
-import Header from './components/header'
-import Main from './components/main'
-import LeftMenu from './components/left-menu'
+import Header from './components/Header/header'
+import Main from './components/Main/main'
+import LeftMenu from './components/Left-menu/left-menu'
 import './App.css'
 
 function App() {
