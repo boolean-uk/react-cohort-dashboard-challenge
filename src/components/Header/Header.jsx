@@ -11,7 +11,6 @@ function Header () {
                     <Title />
                 </div>
                 <div className = "header-profile-icon">
-                    {/* <h3>TE</h3> */}
                     <ProfileIcon />
                 </div>
             </div>

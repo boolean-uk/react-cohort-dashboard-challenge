@@ -4,8 +4,6 @@ function ProfileIcon () {
     
   const [contact, setContact] = useState({})
 
-  console.log(contact)
-
   const userName = "TomEastwood"
   const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
   const endpointForContacts = `/contact`
@@ -17,8 +15,6 @@ function ProfileIcon () {
   } , [])
 
   let admin = contact[0]
-
-    console.log(admin)
 
     if(!admin) {
         return <div>

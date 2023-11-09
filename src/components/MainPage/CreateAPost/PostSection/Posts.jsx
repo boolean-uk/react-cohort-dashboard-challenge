@@ -5,8 +5,6 @@ function Posts (props) {
 
     const { contact } = props
 
-    console.log(contact)
-
     const [posts, setPosts] = useState([])
 
     const userName = "TomEastwood"

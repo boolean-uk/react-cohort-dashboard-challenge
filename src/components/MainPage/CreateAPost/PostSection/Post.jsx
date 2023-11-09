@@ -4,8 +4,6 @@ function Post (props) {
 
     const { post } = props
 
-    console.log(post)
-
     const [contact, setContact] = useState({})
 
     const contactId = post.contactId
