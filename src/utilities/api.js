@@ -145,12 +145,4 @@ class API {
 
 const api = new API();
 
-// ===========================
-
-const data = {
-  contactId: 8,
-  postId: 1,
-  content: "This content is incredible 7",
-};
-
-console.log("api.", await api.post.comment.get(1));
+export default api
