@@ -1,4 +1,4 @@
-[
+const userArr = [
   {
     "contactId": 0,
     "firstName": "Olivia",
@@ -503,5 +503,7 @@
     "contactId": 100,
     "firstName": "Archie",
     "lastName": "Matthews"
-  },
+  }
 ]
+
+export default userArr;
