@@ -1,5 +1,4 @@
-import UserIcon from "components/UserIcon"
-import UserName from "components/UserName";
+import UserIcon from "@components/UserIcon"
 
 export default function NewPost() {
   return <section>
