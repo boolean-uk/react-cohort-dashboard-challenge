@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
 import ProfileLogo from "../Reusable/profileLogo"
+import CommentForm from "./commentForm";
 
 export default function PostInfo({ users, posts }) {
 
@@ -9,8 +10,7 @@ export default function PostInfo({ users, posts }) {
             {
                 posts.map((post) => {
                     const name = users.find((user) => user.id === post.contactId);
-                    console.log(name);
-                    return (<div key={post.contactId + post.title}>
+                    return (<div className="post" key={post.contactId + post.title}>
                         <div className="postInfo">
                             <ProfileLogo />
                             <section>
@@ -20,6 +20,8 @@ export default function PostInfo({ users, posts }) {
                         </div>
                         <p className="postContent">{post.content}</p>
                         <hr />
+                        <br />
+                        <CommentForm />
                     </div>)
                 })
             }

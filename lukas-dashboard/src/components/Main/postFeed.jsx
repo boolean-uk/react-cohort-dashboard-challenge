@@ -21,10 +21,9 @@ export default function PostFeed() {
     }, [])
 
     return (
-        <div className="post">
+        <>
             <PostInfo users={users} posts={posts} />
             <CommentContent />
-            <CommentForm />
-        </div>
+        </>
     )
 }
