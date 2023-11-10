@@ -24,7 +24,7 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
 
     fetch("https://boolean-api-server.fly.dev/Chloe070196/post", options)
     .then(r => r.json())
-    .then(data => console.log(data))
+    .catch(error => console.log(error))
     setForm(initialForm)
   }
 
@@ -37,7 +37,6 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
   const handleChange = (e) => { 
     setForm({...form, ["contactId"]: 1})
     form.contactId && setForm({...form, [e.target.name]: e.target.value})
-    console.log(form)
   }
 
   return (
