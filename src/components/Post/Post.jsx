@@ -20,13 +20,10 @@ export default function Post({post}) {
   const findUser = () => {
     const foundUser = users.find(user => user.contactId === post.contactId)
     setUser(foundUser)
-    console.log(user)
   }
 
-  setUser(initUser)
   useEffect(findUser, [])
 
-  console.log(user.firstName)
   return (
     <div className="card" >
       <div className="post-container">
