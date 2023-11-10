@@ -20,7 +20,11 @@ const commentProps = PropTypes.shape({
   content: PropTypes.string.isRequired,
 });
 
+const funcProp = PropTypes.func;
+
 const numberProp = PropTypes.number;
+
+const objectProp = PropTypes.object;
 
 const postProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
@@ -31,4 +35,12 @@ const postProps = PropTypes.shape({
 
 const stringProp = PropTypes.string;
 
-export { contactProps, commentProps, numberProp, postProps, stringProp };
+export {
+  contactProps,
+  commentProps,
+  funcProp,
+  numberProp,
+  objectProp,
+  postProps,
+  stringProp,
+};

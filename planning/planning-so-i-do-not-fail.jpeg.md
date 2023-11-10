@@ -16,8 +16,8 @@
 		- [ ] `SIDE_MENU_ITEMS.map()` => `<SideMenuItem />`
 	- [ ] `<Routes />`
 		- [x] `<Route />` => `<Home />`
-			- [ ] `<NewPost />`
-				- [ ] `<UserIcon />`
+			- [x] `<NewPost />`
+				- [x] `<UserIcon />`
 				- [ ] `<NewPostForm />`
 					- [ ] `<TextInput />`
 					- [ ] `<SubmitButton />`
