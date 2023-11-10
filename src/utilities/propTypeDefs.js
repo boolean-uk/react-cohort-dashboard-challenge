@@ -9,7 +9,7 @@ const postProps = {
   }),
 };
 
-const contactProps = {
+const contactProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
@@ -18,8 +18,8 @@ const contactProps = {
   email: PropTypes.string,
   street: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  latitude: PropTypes.string,
-  longitude: PropTypes.string,
-}
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
+});
 
-export {contactProps, postProps}
+export { contactProps, postProps };

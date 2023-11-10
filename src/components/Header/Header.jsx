@@ -13,4 +13,4 @@ export default function Header({ user }) {
   );
 }
 
-Header.propTypes = contactProps;
+Header.propTypes = {user: contactProps}
