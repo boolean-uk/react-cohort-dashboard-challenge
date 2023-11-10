@@ -5,6 +5,17 @@ import {
   stringProp,
 } from "@utilities/propTypeDefs";
 
+function getColorClass(colorShade) {
+  const colorClasses = {
+    300: "text-red-300",
+    400: "text-red-400",
+    500: "text-red-500",
+    600: "text-red-600",
+  };
+
+  return colorClasses[colorShade] || "";
+}
+
 export default function TextInput({
   charLimit,
   formData,
@@ -14,28 +25,13 @@ export default function TextInput({
 }) {
   const value = formData[inputName];
 
-  function getColorClass(colorShade) {
-    const colorClasses = {
-      300: "text-red-300",
-      400: "text-red-400",
-      500: "text-red-500",
-      600: "text-red-600",
-    };
-
-    return colorClasses[colorShade] || "";
-  }
-
   const colorShade =
     900 - Math.floor(((charLimit * 400) / value.length - 100) / 100) * 100;
-
-  if (inputName === "content") console.log("colorShade", colorShade);
 
   function handleChange(e) {
     if (e.target.value.length <= charLimit)
       setFormData({ ...formData, [inputName]: e.target.value });
   }
-
-  console.log("value.length, charLimit / 2", value.length, charLimit / 2);
 
   return (
     <div id={`new-post-${inputName}`} className="relative flex ">
