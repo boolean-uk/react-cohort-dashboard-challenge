@@ -27,10 +27,16 @@ function Post (props) {
     
     return (
         <li>
-            <h3>{initials}</h3>
-            <h4>{contact.firstName + " " + contact.lastName}</h4>
-            <p>{post.title}</p>
-            <p>{post.content}</p>
+            <div className="post-header">
+                <div className="poster-name">
+                    <h3>{initials}</h3>
+                </div>
+                <h4>{contact.firstName + " " + contact.lastName}</h4>
+                <h5>{post.title}</h5>
+            </div>
+            <div className="post-content">
+                <p>{post.content}</p>
+            </div>
         </li>
     )
 }

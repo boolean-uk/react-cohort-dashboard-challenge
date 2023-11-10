@@ -2,4 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 150px 1fr;
+    background-color: rgb(213, 213, 241); 
+}
+
+.create-a-post {
+    display: grid;
+    grid-area: 1 / 1 / 2 / 3;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.posts-container {
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    width: 75%;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
 }

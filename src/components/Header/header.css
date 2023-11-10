@@ -1,6 +1,7 @@
 header {
     background-color: #000046;
     padding: 10px;
+    z-index: 1;
 }
 
 .header-elements {

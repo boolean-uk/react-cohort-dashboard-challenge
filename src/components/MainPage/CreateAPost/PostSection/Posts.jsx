@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Post from './Post'
+import './Posts.css'
+import './Post.css'
 
 function Posts (props) {
 
@@ -17,6 +19,8 @@ function Posts (props) {
             .then(data => setPosts(data))
     }
     , [])
+
+    console.log("POSTSSSSS", posts);
 
     return (
         <div className="posts">
