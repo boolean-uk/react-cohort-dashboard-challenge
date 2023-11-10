@@ -7,8 +7,8 @@ function Navigation() {
 
     return (
         <nav className='navigation-menu grid'>
-            <HomeIcon></HomeIcon>
-            <ProfileIcon></ProfileIcon>
+            <HomeIcon />
+            <ProfileIcon />
         </nav>
     )
 }
