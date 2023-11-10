@@ -15,6 +15,62 @@
 
 /* COLOUR FOR LOGGED IN USER */
 .logged-in-user {
-    background-color: rgb(13, 164, 13);
+    background-color: rgb(106, 238, 106);
 }
 
+/* OTHER USER COLOURS */
+.user-z {
+    background-color: red;
+}
+
+.user-y {
+    background-color: aqua;
+}
+
+.user-x {
+    background-color: darkorchid;
+}
+
+.user-w {
+    background-color: darkolivegreen;
+}
+
+.user-v {
+    background-color: chocolate;
+}
+
+.user-u {
+    background-color: dodgerblue;
+}
+
+.user-t {
+    background-color: mediumslateblue;
+}
+
+.user-s {
+    background-color: gray;
+}
+
+.user-r {
+    background-color: goldenrod;
+}
+
+.user-q {
+    background-color: deeppink;
+}
+
+.user-p {
+    background-color: saddlebrown;
+}
+
+.user-o {
+background-color: khaki;
+}
+
+.user-n {
+    background-color: greenyellow;
+}
+
+.user-m {
+    background-color: magenta;
+}
