@@ -7,7 +7,7 @@ function Main({ posts, URL, loggedInUserInitials, userBgColour }) {
 
     return (
         <main className="main grid">
-            <CreatePost />
+            <CreatePost loggedInUserInitials={loggedInUserInitials} />
             <Posts posts={posts} URL={URL} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} />
         </main>
     )

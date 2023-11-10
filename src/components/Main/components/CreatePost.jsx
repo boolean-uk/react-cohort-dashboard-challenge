@@ -1,8 +1,12 @@
-function CreatePost() {
+import LoggedInProfileCircle from "../../Shared/LoggedInProfileCircle"
+import AddPostForm from "./AddPostForm"
+
+function CreatePost({ loggedInUserInitials }) {
 
     return (
-        <section className="create-post">
-            <h2>This is a new post</h2>
+        <section className="create-post grid">
+            <LoggedInProfileCircle loggedInUserInitials={loggedInUserInitials} />
+            <AddPostForm />
         </section>
     )
 }
