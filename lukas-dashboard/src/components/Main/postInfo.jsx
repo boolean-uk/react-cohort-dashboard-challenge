@@ -7,19 +7,21 @@ export default function PostInfo({ users, posts }) {
     return (
         <>
             {
-                posts.map((post) => (
-                    <div key={post.contactId + post.title}>
+                posts.map((post) => {
+                    const name = users.find((user) => user.id === post.contactId);
+                    console.log(name);
+                    return (<div key={post.contactId + post.title}>
                         <div className="postInfo">
-                            <ProfileLogo/>
+                            <ProfileLogo />
                             <section>
-                                <h2>{post.contactId}</h2>
+                                <h2>{name.firstName} {name.lastName}</h2>
                                 <p>{post.title}</p>
                             </section>
                         </div>
                         <p className="postContent">{post.content}</p>
                         <hr />
-                    </div>
-               ))
+                    </div>)
+                })
             }
         </>
     )
