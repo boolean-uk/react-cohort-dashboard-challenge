@@ -4,7 +4,7 @@ import Main from "../Main"
 
 import '../../styles/initials.css'
 
-function HomePage({ posts, URL, loggedInUser }) {
+function HomePage({ posts, URL, loggedInUser, setShouldGetPosts }) {
 
     if (!loggedInUser) return <p>???</p>
     const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
@@ -32,7 +32,7 @@ function HomePage({ posts, URL, loggedInUser }) {
         <div className="container grid">
             <Header loggedInUserInitials={loggedInUserInitials} />
             <Navigation />
-            <Main posts={posts} URL={URL} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} />
+            <Main posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} setShouldGetPosts={setShouldGetPosts} />
         </div>
         
     )

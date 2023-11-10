@@ -1,12 +1,12 @@
 import LoggedInProfileCircle from "../../Shared/LoggedInProfileCircle"
 import AddPostForm from "./AddPostForm"
 
-function CreatePost({ loggedInUserInitials }) {
+function CreatePost({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts }) {
 
     return (
         <section className="create-post grid">
             <LoggedInProfileCircle loggedInUserInitials={loggedInUserInitials} />
-            <AddPostForm />
+            <AddPostForm posts={posts} URL={URL} loggedInUser={loggedInUser} setShouldGetPosts={setShouldGetPosts} />
         </section>
     )
 }

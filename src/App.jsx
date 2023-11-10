@@ -46,7 +46,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} />}
+          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} setShouldGetPosts={setShouldGetPosts} />}
           >
         </Route>
       </Routes>
