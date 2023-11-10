@@ -24,7 +24,7 @@ export default function Comments ({postId}) {
     <>
     {comments.length > visibleComments ? (
       <p className="expandComments" onClick={() => loadMoreComments()}>
-        Load more comments
+        See previous comments
       </p>
     ) : (
       <p className="expandComments" onClick={() => setVisibleComments(parseInt(comments.length / 3))}>

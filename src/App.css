@@ -85,6 +85,21 @@
   justify-self: end;
 }
 
+form {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+}
+
+input {
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: var(--lightgrey);
+  margin: 1em;
+}
+
 .read-the-docs {
   color: #888;
 }

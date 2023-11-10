@@ -11,6 +11,8 @@ import Comments from "../Comments/Comments";
 
 export default function Post({post}) {
   
+  if (!post.contactId) return (<div></div>)
+
   const [user, setUser] = useState(null)
   const loadUser = () => {
     const baseURL = "https://boolean-api-server.fly.dev"
@@ -28,7 +30,7 @@ export default function Post({post}) {
   return (
     <div className="card" >
       <div className="post-container">
-        <ProfileImg initials={user.firstName[0] + user.lastName[0]}/>
+        <ProfileImg contactId={post.contactId} initials={user.firstName[0] + user.lastName[0]}/>
         <div>
           <p className="post-author">{user.firstName + " " + user.lastName}</p>
           <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
