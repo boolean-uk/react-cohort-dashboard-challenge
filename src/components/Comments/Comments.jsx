@@ -18,6 +18,8 @@ export default function Comments ({postId}) {
   useEffect(getComments, [])
 
   return (
-    comments.map((comment, index) => <Comment key={index} comment={comment}/>)
-  )
+    <div>
+      {comments.map((comment, index) => <Comment key={index} comment={comment}/>)}
+    </div>
+    )
 }

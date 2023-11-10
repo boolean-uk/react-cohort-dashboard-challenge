@@ -51,20 +51,23 @@ export default function Post({post}) {
     'Cole', 'Marshall', 'Fox', 'Owen', 'Booth', 'Dixon', 'Grant', 'Mason', 'Knight', 'Rose'
   ];
   
-  const firstName = commonFirstNames[parseInt(Math.random()*99)]
-  const lastName = commonLastNames[parseInt(Math.random()*99)]
+  // const firstName = commonFirstNames[parseInt(Math.random()*99)]
+  // const lastName = commonLastNames[parseInt(Math.random()*99)]
+
+  const firstName = "Taylor"
+  const lastName = "Swift"
 
   return (
     <div className="card" >
-      <ProfileImg firstName={firstName} lastName={lastName}/>
-      <div>
-        <p className="post-author">{firstName + " " + lastName}</p>
-        <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
-        <p className="post-body">{post.content}</p>
+      <div className="post-container">
+        <ProfileImg firstName={firstName} lastName={lastName}/>
+        <div>
+          <p className="post-author">{firstName + " " + lastName}</p>
+          <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
+          <p className="post-body">{post.content}</p>
+        </div>
       </div>
-      <div className="comment-container">
-        <Comments postId={post.id}/>
-      </div>
+      <Comments postId={post.id}/>
     </div>
   )
 }
