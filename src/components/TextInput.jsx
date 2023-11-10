@@ -2,9 +2,9 @@ import { funcProp, objectProp, stringProp } from "@utilities/propTypeDefs";
 
 export default function TextInput({
   formData,
-  setFormData,
   inputName,
   placeholderText,
+  setFormData,
 }) {
   const value = formData[inputName];
 
@@ -19,13 +19,15 @@ export default function TextInput({
       placeholder={placeholderText}
       onChange={handleChange}
       value={value}
+      className="rounded-lg bg-cohort-shade p-4"
+      id={`new-post-${inputName}`}
     />
   );
 }
 
 TextInput.propTypes = {
   formData: objectProp,
-  setFormData: funcProp,
   inputName: stringProp,
   placeholderText: stringProp,
+  setFormData: funcProp,
 };

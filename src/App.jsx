@@ -27,7 +27,7 @@ function App() {
     <div className="app-container container mx-auto grid min-h-screen w-screen text-cohort-blue">
       <Header user={user} />
       <SideMenu user={user} />
-      <Home user={user}/>
+      <Home user={user} />
     </div>
   );
 }
