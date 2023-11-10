@@ -7,7 +7,7 @@ import './App.css'
 import Home from "./components/Home/Home"
 import Profile from "./components/Profile/Profile"
 import SinglePostPage from './components/Post/SinglePostPage'
-import Users from './components/Profile/userArr'
+import Users from './components/Profile/Users'
 
 function App() {
 
