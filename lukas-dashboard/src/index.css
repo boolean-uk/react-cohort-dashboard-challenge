@@ -1,5 +1,7 @@
 *{
   font-family:sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 body, html {
@@ -78,7 +80,7 @@ background-color: #000046;
 
 .postForm {
   display: grid;
-  grid-template-columns: .1fr 1fr .3fr;
+  grid-template-columns: 50px 1000px 200px;
   height: 70px;
 
   background-color: white;
@@ -91,7 +93,7 @@ background-color: #000046;
   background-color: #e6ebf5;
   border: none;
   border-radius: 10px;
-  width: 700px;
+  width: 1000px;
   height: 35px;
   margin: 10px;
 }
@@ -104,3 +106,78 @@ background-color: #000046;
   border-radius: 10px;
 }
 
+ /* POSTS */
+.post {
+  display: grid;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+
+}
+
+.postInfo {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin: 20px;
+}
+
+.postContent {
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.commentGrid {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  margin: 20px;
+}
+
+.comment {
+  background-color: #e6ebf5;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.commentForm {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    height: 70px;
+    place-content: start;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 20px;
+    place-items: center;
+}
+
+.inputAndButton input {
+  position: relative;
+  right: 80px;
+  background-color: #e6ebf5;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 35px;
+}
+
+.inputAndButton {
+ width: 1000px;
+ max-width: 100%;
+ position: relative;
+}
+
+.inputAndButton button {
+  position: absolute;
+  width: 25px;
+  border-radius: 50px;
+  border-color: none;
+  aspect-ratio: 1;
+  right: 85px;
+  top: 5px;
+}
+
+.inputAndButton button:hover {
+  cursor: pointer;
+
+}
