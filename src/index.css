@@ -174,9 +174,14 @@
   color: grey;
 }
 
+.postButton {
+  grid-area: postButton;
+  border: black dashed 1px;
+}
+
 .postBtn {
-  width: 140px;
-  height: 40px;
+  width: 150px;
+  height: 43px;
   margin-top: 45px;
   background-color: #000046;
   border-radius: 5px;
@@ -184,15 +189,29 @@
 
 .postBtn > p {
   color: white;
+  font-size: 16px;
 }
 
 .commentContainer {
   grid-area: commentContainer;
   border: black dashed 1px;
+
+  display: grid;
+  grid-template:
+    "commentSection"
+    "addAComment";
+  grid-template-rows: 150px 150px;
+  gap: 3px;
+  padding: 3px;
 }
 
-.postButton {
-  grid-area: postButton;
+.commentSection {
+  grid-area: commentSection;
+  border: black dashed 1px;
+}
+
+.addAComment {
+  grid-area: addAComment;
   border: black dashed 1px;
 }
 

@@ -53,7 +53,13 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="commentContainer"></div>
+          <div className="commentContainer">
+            <div className="commentSection">
+              <div className="userInfoCon"></div>
+              <div className="comment"></div>
+            </div>
+            <div className="addAComment"></div>
+          </div>
         </main>
       </div>
     </>
