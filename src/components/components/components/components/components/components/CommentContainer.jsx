@@ -1,13 +1,13 @@
-import AuthorContainer from "./components/AuthorContainer"
+import UserInitials from "./components/UserInitials"
 import Comment from "./components/Comment"
 
 export default function CommentContainer() {
     return(
         <>
-            <div>
-                <AuthorContainer />
+            <li>
+                <UserInitials />
                 <Comment />
-            </div>
+            </li>
         </>
     )
 }

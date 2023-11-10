@@ -3,12 +3,11 @@ import PostListItem from "./components/PostListItem"
 export default function PostList() {
     return(
         <>
-            <main>
+            <section>
                 <ul>
                     <PostListItem />
                 </ul>
-            </main>
-
+            </section>
         </>
     )
 }

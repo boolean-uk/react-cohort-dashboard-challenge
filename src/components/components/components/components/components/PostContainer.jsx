@@ -1,7 +1,14 @@
+import AuthorContainer from "./components/AuthorContainer"
+import PostText from "./components/PostText"
+
+
 export default function PostContainer() {
     return(
         <>
-            <div></div>
+            <section>
+                <AuthorContainer />
+                <PostText />
+            </section>
         </>
     )
 }

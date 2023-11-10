@@ -10,8 +10,10 @@ function App() {
   return (
     <>
       <Header />
-      <Aside />
-      <Dashboard />
+      <main>
+        <Aside />
+        <Dashboard />
+      </main>
     </>
   )
 }
