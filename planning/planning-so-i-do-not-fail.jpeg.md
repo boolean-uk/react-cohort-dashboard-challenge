@@ -30,7 +30,7 @@
 					- [x] `<PostBody />`
 					- [x] `<PostCommentFeed />`
 						- [ ] `<PreviousComments />`
-						- [ ] `postCommentFeed.map()` => `<Comment />`
+						- [x] `postCommentFeed.map()` => `<Comment />`
 							- [x] `<UserIcon />`
 							- [ ] `<CommentBody />`
 								- [x] `<UserName />`
@@ -81,4 +81,6 @@
 - [ ] `<Profile />`
 	- [ ] `const userId: number = 1`
 	- [ ] `const isLoggedInUser: boolean = true`
-	- [ ] 
+
+## Other Goals
+- [ ] Fancy Loader

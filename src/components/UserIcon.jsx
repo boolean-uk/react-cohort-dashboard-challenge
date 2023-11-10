@@ -1,10 +1,12 @@
 import { initialiser } from "../utilities/string";
 import PulseLoader from "./Loader/PulseLoader";
 
-export default function UserIcon({ firstName, lastName, contact }) {
+export default function UserIcon({ contact }) {
   if (!contact) {
     return <PulseLoader />;
   }
+
+  const {firstName, lastName} = contact
 
   const initials = initialiser(firstName, lastName);
   return (

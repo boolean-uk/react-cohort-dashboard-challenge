@@ -27,12 +27,10 @@ export default function PostHeader({ post }) {
     return <PulseLoader />;
   }
 
-  const { firstName, lastName } = contact;
-
   return (
     <div className="post-header grid gap-x-4 items-center">
-      <UserIcon firstName={firstName} lastName={lastName} contact={contact} />
-      <UserName firstName={firstName} lastName={lastName} contact={contact}/>
+      <UserIcon contact={contact} />
+      <UserName contact={contact}/>
       <PostTitle title={title} />
     </div>
   );
