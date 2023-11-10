@@ -18,7 +18,11 @@ export default function PostCommentItem({ comment }) {
     <li className="comment">
       <ProfileIcon contact={commentContact} />
       <div className="comment-content">
-        <h4>{`${commentContact.firstName} ${commentContact.lastName}`}</h4>
+        <h4>
+          {commentContact.id
+            ? `${commentContact.firstName} ${commentContact.lastName}`
+            : "Loading..."}
+        </h4>
         <p>{comment.content}</p>
       </div>
     </li>

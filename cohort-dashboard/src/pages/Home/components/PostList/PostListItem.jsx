@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProfileIcon from "../ProfileIcon";
 import PostCommentSection from "../PostComments/PostCommentSection";
 
 export default function PostListItem({ post }) {
-  const [contact, setContact] = useState([]);
+  const [contact, setContact] = useState({});
 
   const fetchContact = () => {
     fetch(
@@ -20,8 +21,14 @@ export default function PostListItem({ post }) {
       <div className="post-header">
         <ProfileIcon contact={contact} />
         <div className="post-header__author-title">
-          <h3>{`${contact.firstName} ${contact.lastName}`}</h3>
-          <span>{post.title}</span>
+          <h3>
+            {contact.id
+              ? `${contact.firstName} ${contact.lastName}`
+              : "Loading..."}
+          </h3>
+          <Link to={`/${post.id}/post`} className="post-link">
+            {post.title}
+          </Link>
         </div>
       </div>
 
