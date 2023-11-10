@@ -8,7 +8,7 @@ import UserName from "../../../../../UserName";
 import api from "../../../../../../utilities/api";
 import { postProps } from "../../../../../../utilities/propTypeDefs";
 
-import "./PostHeader.css"
+import "./PostHeader.css";
 
 export default function PostHeader({ post }) {
   const [contact, setContact] = useState(null);
@@ -21,19 +21,19 @@ export default function PostHeader({ post }) {
       setContact(await fetch);
     }
     getPerson();
-  }, []);
+  }, [post.id]);
 
   if (!contact) {
     return <PulseLoader />;
   }
 
   return (
-    <div className="post-header grid gap-x-4 items-center">
+    <div className="post-header grid items-center gap-x-4">
       <UserIcon contact={contact} />
-      <UserName contact={contact}/>
+      <UserName contact={contact} />
       <PostTitle title={title} />
     </div>
   );
 }
 
-PostHeader.propTypes = postProps;
+PostHeader.propTypes = { post: postProps };

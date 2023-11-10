@@ -2,6 +2,11 @@ import CommentContent from "./CommentContent";
 import PulseLoader from "../../../../../../../../Loader/PulseLoader";
 import UserName from "../../../../../../../../UserName";
 
+import {
+  commentProps,
+  contactProps,
+} from "../../../../../../../../../utilities/propTypeDefs";
+
 export default function CommentBody({ contact, comment }) {
   if (!contact) {
     return <PulseLoader />;
@@ -16,3 +21,8 @@ export default function CommentBody({ contact, comment }) {
     </div>
   );
 }
+
+CommentBody.propTypes = {
+  contact: contactProps,
+  comment: commentProps,
+};

@@ -1,5 +1,7 @@
-import { initialiser } from "../utilities/string";
 import PulseLoader from "./Loader/PulseLoader";
+
+import { contactProps } from "../utilities/propTypeDefs";
+import { initialiser } from "../utilities/string";
 
 export default function UserIcon({ contact }) {
   if (!contact) {
@@ -15,3 +17,5 @@ export default function UserIcon({ contact }) {
     </div>
   );
 }
+
+UserIcon.propTypes = { contact: contactProps };

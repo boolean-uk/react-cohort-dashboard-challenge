@@ -1,14 +1,5 @@
 import PropTypes from "prop-types";
 
-const postProps = {
-  post: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    contactId: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }),
-};
-
 const contactProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   firstName: PropTypes.string.isRequired,
@@ -22,4 +13,22 @@ const contactProps = PropTypes.shape({
   longitude: PropTypes.number,
 });
 
-export { contactProps, postProps };
+const commentProps = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  postId: PropTypes.number.isRequired,
+  contactId: PropTypes.number.isRequired,
+  content: PropTypes.string.isRequired
+})
+
+const numberProp = PropTypes.number;
+
+const postProps = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  contactId: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+});
+
+const stringProp = PropTypes.string;
+
+export { contactProps, commentProps, numberProp, postProps, stringProp };

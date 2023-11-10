@@ -4,6 +4,7 @@ import CommentBody from "./components/CommentBody";
 import UserIcon from "../../../../../../../UserIcon";
 
 import api from "../../../../../../../../utilities/api";
+import { commentProps } from "../../../../../../../../utilities/propTypeDefs";
 
 import "./Comment.css";
 
@@ -26,3 +27,5 @@ export default function Comment({ comment }) {
     </div>
   );
 }
+
+Comment.propTypes = { comment: commentProps };

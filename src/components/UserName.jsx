@@ -1,3 +1,5 @@
+import { contactProps } from "../utilities/propTypeDefs";
+
 export default function UserName({ contact }) {
   const { firstName, lastName } = contact;
 
@@ -7,3 +9,5 @@ export default function UserName({ contact }) {
     </h2>
   );
 }
+
+UserName.propTypes = { contact: contactProps };
