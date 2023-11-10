@@ -37,12 +37,27 @@
   padding: 2em;
   background-color: white;
   margin: 2em;
+  text-align: left;
   border-radius: 5px;
   display: grid;
+  gap: 1em;
   grid-template-columns: 50px 1fr;
 }
 
-.profileImg {
+.post-title {
+  font-weight: bold;
+  color: var(--darkgrey)
+}
+
+.post-author, .post-title, .post-body {
+  margin: 0
+}
+
+.post-body {
+  margin-top: 1em;
+}
+
+.profile-img {
   display: grid;
   place-content: center;
   width: 50px;

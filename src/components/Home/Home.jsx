@@ -21,7 +21,6 @@ export default function Home() {
 
   return (
     <>
-    Test
     {posts.map((post, index) => <Post key={index} post={post}/>)}
     </>
   )
