@@ -11,7 +11,7 @@ import "./styles/App.css";
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [posts, setPosts] = useState([]); // Renamed 'post' to 'posts'
   const [postComments, setPostComments] = useState([]);
 
   useEffect(() => {
@@ -22,14 +22,15 @@ function App() {
 
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/post")
       .then((response) => response.json())
-      .then((data) => setComments(data))
-      .catch((error) => console.error("Error fetching comments:", error));
+      .then((data) => setPosts(data)) // Renamed 'setComments' to 'setPosts'
+      .catch((error) => console.error("Error fetching posts:", error));
   }, []);
 
   useEffect(() => {
     contacts.forEach((contact) => {
       // Check if post comments already exist
       if (!postComments[contact.id]) {
+        // Updated the guard clause
         fetch(
           `https://boolean-api-server.fly.dev/Callumhayden99/post/${contact.id}/comment`
         )
@@ -47,8 +48,13 @@ function App() {
     });
   }, [contacts, postComments]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const mainPostSubmit = (event) => {
+    event.preventDefault()
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission logic here
   };
 
   return (
@@ -87,34 +93,34 @@ function App() {
         </div>
 
         <div className="main-content">
-
           <div className="each-post">
             <div className="main-postbox">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={mainPostSubmit}>
                 <label>
-                  <input className="main-input"
-                  type="text"
-                  id=""
-                  name=""
-                  placeholder="What's on your mind?"
+                  <input
+                    className="main-input"
+                    type="text"
+                    id=""
+                    name=""
+                    placeholder="What's on your mind?"
                   ></input>
                 </label>
-                <button type="submit" className="main-postbutton">Post</button>
+                <button type="submit" className="main-postbutton">
+                  Post
+                </button>
               </form>
             </div>
 
             <ul className="full-comment-ul">
-              {comments.map((comment) => {
-                const contact = contacts.find((c) => c.id === comment.contactId);
+              {posts.map((post) => {
+                const contact = contacts.find((c) => c.id === post.contactId);
                 let initials = "";
                 if (contact) {
                   initials = `${contact.firstName[0]} ${contact.lastName[0]}`;
                 }
 
-                const relatedComments = contact ? postComments[contact.id] || [] : [];
-
                 return (
-                  <li key={comment.id} className="full-comment-li">
+                  <li key={post.id} className="full-comment-li">
                     <div className="comment-title">
                       <div className="post-initials">{initials}</div>
                       {contact
@@ -123,22 +129,33 @@ function App() {
                     </div>
 
                     <Link to={"/comments"}>
-                      <div className="comment-link">{comment.title}</div>
+                      <div className="comment-link">{post.title}</div>
                     </Link>
 
-                    <div className="main-comment">{comment.content}</div>
+                    <div className="main-comment">{post.content}</div>
                     <hr className="hr"></hr>
                     <div className="other-comments">
-                      {relatedComments.map((relatedComment) => {
-                        const commenter = contacts.find((c) => c.id === relatedComment.contactId);
-                        const initials = commenter ? `${commenter.firstName[0]} ${commenter.lastName[0]}`: "";
+                      {postComments[post.id]?.map((relatedComment) => {
+                        const commenter = contacts.find(
+                          (c) => c.id === relatedComment.contactId
+                        );
+                        const initials = commenter
+                          ? `${commenter.firstName[0]} ${commenter.lastName[0]}`
+                          : "";
                         return (
                           <div
                             key={relatedComment.id}
                             className="other-comment"
                           >
                             <div className="post-initials">{initials}</div>
-                            <p>{relatedComment.content}</p>
+                            <div className="other-comments-post">
+                              <div className="comment-post-name">
+                                {commenter ? `${commenter.firstName} ${commenter.lastName}`: ""}
+                              </div>
+                              <div className="comment-content-post">
+                                {relatedComment.content}
+                              </div>
+                            </div>
                           </div>
                         );
                       })}

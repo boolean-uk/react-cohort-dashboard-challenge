@@ -190,6 +190,11 @@ a {
   margin: 0px 140px 20px 10px;
 }
 
+.comment-post-name{
+  color: #000046;
+  font-weight: bold;
+}
+
 .post-initials {
   background-color: #000046;
   color: white;
@@ -208,10 +213,11 @@ a {
   padding: 10px;
 }
 
-.other-comments p {
+.other-comments-post{
   width: fit-content;
-  padding: 20px 10px 20px 10px ;
+  padding: 10px 10px 20px 10px ;
   border-radius: 5px;
+  margin: 10px;
   background-color: #e2f0f9;
   border: none;
   overflow: hidden;
