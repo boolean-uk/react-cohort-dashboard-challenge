@@ -22,7 +22,7 @@ function App() {
       <main>
         <Routes>
           <Route 
-            path=""
+            path="/"
             element={<Home />}
           />
           <Route

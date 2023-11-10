@@ -11,17 +11,23 @@ export default function Home() {
     const directory = "/AllyDouillette"
     const endpoint = "/post"
 
+    console.log(baseURL + directory + endpoint)
+
     fetch(baseURL + directory + endpoint)
       .then(res => res.json())
       .then(data => setPosts(data))
-      .then((data) => console.log("loaded posts in Home!", posts))
   }
 
-  useEffect(getPosts, [])
-
+  
+  useEffect(getPosts, []);
+  
+  if (posts.length === 0) {
+    return <p>Loading…</p>
+  } else {
   return (
     <>
     {posts.map((post, index) => <Post key={index} post={post}/>)}
     </>
   )
+  }
 }

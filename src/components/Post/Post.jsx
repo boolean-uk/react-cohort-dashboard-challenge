@@ -11,39 +11,28 @@ import userArr from "../Profile/userArr";
 import Comments from "../Comments/Comments";
 
 export default function Post({post}) {
-
-  // console.log("inside Post.jsx, postID:", post.id)
-
-  // const [post, setPost] = useState([])
-
-  // const getPost = () => {
-  //   const baseURL = "https://boolean-api-server.fly.dev/"
-  //   const directory = "AllyDouillette"
-  //   const endpoint = `/post/${postId}`
-
-  //   fetch(baseURL + directory + endpoint)
-  //     .then(res => res.json())
-  //     .then(data => setPost(data))
-  //     .then(() => console.log("loaded single post!", post.id, post.contactId))
-  // }
-
-  // useEffect(getPost, [])
-
+  const initUser = {
+    firstName: "Fuck",
+    lastName: "React",
+  }
   const users = userArr
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(initUser)
   const findUser = () => {
     const foundUser = users.find(user => user.contactId === post.contactId)
     setUser(foundUser)
+    console.log(user)
   }
 
+  setUser(initUser)
   useEffect(findUser, [])
-  
+
+  console.log(user.firstName)
   return (
     <div className="card" >
       <div className="post-container">
-        <ProfileImg initials={user.firstName[0].toUpperCase() + user.lastName[0].toUpperCase()}/>
+        <ProfileImg initials={"NN"}/>
         <div>
-          <p className="post-author">{user.firstName + " " + user.lastName}</p>
+          <p className="post-author">{"NoName"}</p>
           <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
           <p className="post-body">{post.content}</p>
         </div>

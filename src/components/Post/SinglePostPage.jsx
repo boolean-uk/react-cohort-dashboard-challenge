@@ -5,7 +5,7 @@ import Post from "./Post"
 export default function SinglePostPage () {
   const {id} = useParams()
 
-  const [post, setPost] = useState([])
+  const [post, setPost] = useState({})
 
   const getPost = () => {
     const baseURL = "https://boolean-api-server.fly.dev/"
@@ -18,7 +18,8 @@ export default function SinglePostPage () {
   }
 
   useEffect(getPost, [])
-
+  if (Object.keys(post) === 0) return <div>Loading…</div>
+  
   return (
     <>
       <Post post={post}/>
