@@ -1,9 +1,9 @@
-
+import { Link } from "react-router-dom"
 
 export default function PostTitle({post}) {
     return(
         <>
-            <p>{post.title}</p>
+            <Link to={`/post/${post.id}`}>{post.title}</Link>
         </>
     )
 }

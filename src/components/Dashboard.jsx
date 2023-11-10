@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 
 
 export default function Dashboard() {
-
     const [postList, setPostList] = useState(null)
 
     const getPosts = () => {
@@ -12,9 +11,8 @@ export default function Dashboard() {
         .then(r => r.json())
         .then (data => setPostList(data))
     }
-
+  
     useEffect(getPosts, [])
-
     
    return(  
         <>  

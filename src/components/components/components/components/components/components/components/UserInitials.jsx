@@ -16,7 +16,7 @@ export default function UserInitials() {
       .then((data) => setContact(data));
   };
 
-//   useEffect(getContactName, [])
+  // useEffect(getContactName, [])
 
 
     return(

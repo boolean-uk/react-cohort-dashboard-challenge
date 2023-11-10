@@ -3,8 +3,11 @@ import Aside from './components/Aside'
 import Dashboard from './components/Dashboard'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import SelectedPostPage from './components/components/SelectedPostPage'
 
 function App() {
+
+
 
 
   return (
@@ -12,7 +15,11 @@ function App() {
       <Header />
       <main>
         <Aside />
-        <Dashboard />
+        <Routes>
+          <Route path="/" element={<Dashboard />}/>
+          <Route path="/post/:id" element={<SelectedPostPage />}/>
+        </Routes>
+        
       </main>
     </>
   )
