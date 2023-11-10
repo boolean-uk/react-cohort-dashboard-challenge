@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
 import Icons8 from "./assets/Icons8-logo.svg";
 import homeImg from "./assets/home.svg";
 import profileImg from "./assets/profile.svg";
-import Profile from "./components/Profile";
+import Header from "./components/Header";
 import Home from "./components/Home";
-import CommentingOnPost from "./components/CommentingOnPost";
+import LeftMenu from "./components/LeftMenu";
 import Submit from "./assets/Submit.svg";
 import "./styles/App.css";
+import EachPost from "./components/EachPost";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -15,6 +17,7 @@ function App() {
   const [postComments, setPostComments] = useState([]);
   const [newPost, setNewPost] = useState("");
   const [newComment, setNewComment] = useState("");
+  const { postId } = useParams();
   const reversedPostData = [...posts].reverse();
 
   useEffect(() => {
@@ -174,7 +177,7 @@ function App() {
                         : ""}
                     </div>
 
-                    <Link to={"/comments"}>
+                    <Link to={`/comments/${post.id}`}>
                       <div className="comment-link">{post.title}</div>
                     </Link>
 
@@ -186,7 +189,8 @@ function App() {
                           (c) => c.id === comment.contactId
                         );
                         const initials = commenter
-                          ? `${commenter.firstName[0]} ${commenter.lastName[0]}`: "";
+                          ? `${commenter.firstName[0]} ${commenter.lastName[0]}`
+                          : "";
                         return (
                           <div
                             key={`${post.id} ${comment.id}`}
@@ -195,7 +199,9 @@ function App() {
                             <div className="post-initials">{initials}</div>
                             <div className="other-comments-post">
                               <div className="comment-post-name">
-                                {commenter ? `${commenter.firstName} ${commenter.lastName}`: ""}
+                                {commenter
+                                  ? `${commenter.firstName} ${commenter.lastName}`
+                                  : ""}
                               </div>
                               <div className="comment-content-post">
                                 {comment.content}
@@ -209,7 +215,8 @@ function App() {
                     <div className="form">
                       <form
                         onSubmit={(e) => handleSubmit(e, post.id)}
-                        className="comment-form">
+                        className="comment-form"
+                      >
                         <label>
                           <div className="user-comment-logo">
                             {mainUserInitials}
@@ -222,7 +229,7 @@ function App() {
                             placeholder="Add a comment..."
                             value={newComment}
                             onChange={(e) => {
-                            console.log(
+                              console.log(
                                 "Comment input value:",
                                 e.target.value
                               );
@@ -248,9 +255,10 @@ function App() {
       </main>
 
       <Routes>
-        <Route path="/comments" element={<CommentingOnPost />} />
+        <Route path="/Header" element={<Header />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/LeftMenu" element={<LeftMenu />} />
+        <Route path="/comments/:id" element={<EachPost />} />
       </Routes>
     </div>
   );
