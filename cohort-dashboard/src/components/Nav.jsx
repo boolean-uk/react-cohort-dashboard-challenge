@@ -1,23 +1,38 @@
+import { useState } from "react";
 import homeLogo from "../assets/home-icon-svg.svg";
 import profileLogo from "../assets/profile-icon-svg.svg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
+  const navigate = useNavigate();
+  const [homeClass, setHomeClass] = useState("active");
+  const [profileClass, setProfileClass] = useState("");
+
   return (
     <aside>
-      <div className="home nav-btn active">
+      <button
+        className={`home nav-btn ${homeClass}`}
+        onClick={() => {
+          setHomeClass("active");
+          setProfileClass("");
+          navigate("/");
+        }}
+      >
         <img src={homeLogo} alt="home-logo" width={30} />
-        <Link className="page-link" to="/">
-          Home
-        </Link>
-      </div>
+        <span>Home</span>
+      </button>
 
-      <div className="profile nav-btn">
-        <img src={profileLogo} alt="profile-logo" width={30} />
-        <Link className="page-link" to="/1/profile">
-          Profile
-        </Link>
-      </div>
+      <button
+        className={`profile nav-btn ${profileClass}`}
+        onClick={() => {
+          setProfileClass("active");
+          setHomeClass("");
+          navigate("/1/profile");
+        }}
+      >
+        <img src={profileLogo} alt="home-logo" width={30} />
+        <span>Profile</span>
+      </button>
     </aside>
   );
 }
