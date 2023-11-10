@@ -19,8 +19,22 @@ function App() {
         </header>
         {/* SideBar */}
         <nav className="sideBar">
-          <div className="homeIconCon"></div>
-          <div className="profileIconCon"></div>
+          <div className="homeIconCon">
+            <div className="homeIcon">
+              <img src="src/assets/home.svg" alt="" />
+            </div>
+            <div className="homeText">
+              <p>Home</p>
+            </div>
+          </div>
+          <div className="profileIconCon">
+            <div className="profileIcon">
+              <img src="src/assets/profile.svg" alt="" />
+            </div>
+            <div className="profileText">
+              <p>Profile</p>
+            </div>
+          </div>
         </nav>
         {/* Main */}
         <main className="main">main</main>
