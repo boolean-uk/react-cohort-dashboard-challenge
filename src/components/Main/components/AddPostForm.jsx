@@ -3,8 +3,6 @@ import { useState } from "react"
 function AddPostForm({ posts, URL, loggedInUser, setShouldGetPosts }) {
 
     const [newPostText, setNewPostText] = useState('')
-    // console.log(newPostText.slice(0, 15))
-    // console.log(loggedInUser.id)
 
     const newPost = {
         id: posts.length + 1,

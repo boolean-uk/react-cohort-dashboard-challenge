@@ -17,7 +17,7 @@ function App() {
     fetch(`${URL}/post`)
       .then(res => res.json())
       .then(data => {
-        setPosts(data)
+        setPosts(data.reverse())
         setShouldGetPosts(false)
       })
   }
@@ -36,10 +36,6 @@ function App() {
   useEffect(() => {
     getLoggedInUser()
   }, [])
-
-  // console.log(posts)
-  // console.log(loggedInUser)
-
 
   return (
     <>
