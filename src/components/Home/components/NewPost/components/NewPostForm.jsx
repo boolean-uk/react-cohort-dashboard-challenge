@@ -6,19 +6,18 @@ import TextInput from "@components/TextInput";
 import api from "@utilities/api";
 import { contactProps, funcProp } from "@utilities/propTypeDefs";
 
-import "./NewPostForm.css"
+import "./NewPostForm.css";
 
 const FORM_SETUP = [
   {
     inputName: "content",
     placeholderText: "What's on your mind?",
-    charLimit: null,
+    charLimit: 240,
   },
   {
     inputName: "title",
     placeholderText: "Give your post a title!",
     charLimit: 80,
-    basis: "1/5",
   },
 ];
 
@@ -46,7 +45,10 @@ export default function NewPostForm({ setLoadPosts, user }) {
   }
 
   return (
-    <form className="new-post-form grid grow gap-2" onSubmit={handleSubmit}>
+    <form
+      className={`new-post-form grid grow gap-x-2 ${formHasInput && "gap-y-2"}`}
+      onSubmit={handleSubmit}
+    >
       {FORM_SETUP.map((field, index) => {
         if (field.inputName === "content" || formHasInput)
           return (
@@ -56,11 +58,11 @@ export default function NewPostForm({ setLoadPosts, user }) {
               setFormData={setFormData}
               inputName={field.inputName}
               placeholderText={field.placeholderText}
-              basis={field.basis}
+              charLimit={field.charLimit}
             />
           );
       })}
-      <SubmitButton innerText={"Post"} htmlId="new-post-submit"/>
+      <SubmitButton innerText={"Post"} htmlId="new-post-submit" />
     </form>
   );
 }
