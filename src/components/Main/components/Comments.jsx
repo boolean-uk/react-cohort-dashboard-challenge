@@ -1,12 +1,11 @@
+import LoggedInProfileCircle from '../../Shared/LoggedInProfileCircle'
 import submitCommentArrow from '../../../../_assets/submit-comment-arrow.svg'
 
 function Comments({ loggedInUserInitials }) {
 
     return (
         <section className="comment grid">
-            <div className="logged-in-user profile-circle grid">
-                <p className="initials-text">{loggedInUserInitials}</p>
-            </div>
+            <LoggedInProfileCircle loggedInUserInitials={loggedInUserInitials}></LoggedInProfileCircle>
             <form className="new-comment grid">
                 <label className="new-comment-label" htmlFor="new-comment">
                     <input className="new-comment-input"

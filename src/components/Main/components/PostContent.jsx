@@ -1,7 +1,5 @@
 function PostContent({ post, initials, author, loggedInUserColour }) {
 
-    // const initials = author.firstName.slice(0, 1) + author.lastName.slice(0, 1)
-
     return (
         <section className="post-content grid">
             <div className="post-content-details grid">
