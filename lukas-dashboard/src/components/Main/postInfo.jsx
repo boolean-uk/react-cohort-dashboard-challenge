@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { Link } from "react-router-dom"
 import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm";
 
@@ -15,7 +15,7 @@ export default function PostInfo({ users, posts }) {
                             <ProfileLogo />
                             <section>
                                 <h2>{name.firstName} {name.lastName}</h2>
-                                <p>{post.title}</p>
+                                <Link to={`/post/${post.id}`}>{post.title}</Link>
                             </section>
                         </div>
                         <p className="postContent">{post.content}</p>

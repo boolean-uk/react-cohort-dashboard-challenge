@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { get, contactURL, postURL } from "../client.jsx"
 import PostInfo from "./postInfo.jsx";
 import CommentContent from "./commentContent.jsx";
-import CommentForm from "./commentForm.jsx";
 
 
 
