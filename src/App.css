@@ -39,13 +39,21 @@
   margin: 2em;
   text-align: left;
   border-radius: 5px;
- 
 }
 
 .post-container, .comment-container {
   display: grid;
   gap: 1em;
   grid-template-columns: 50px 1fr;
+}
+
+.expandComments {
+  color: var(--darkgrey);
+}
+
+.comments-container {
+  display: grid;
+  gap: 0.5em;
 }
 
 .post-title {
@@ -74,7 +82,7 @@
   width: 30px;
   height: 30px;
   font-size: 0.6em;
-  place-self: end;
+  justify-self: end;
 }
 
 .read-the-docs {

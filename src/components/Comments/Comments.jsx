@@ -4,6 +4,7 @@ import Comment from "./Comment"
 export default function Comments ({postId}) {
   
   const [comments, setComments] = useState([])
+  const [visibleComments, setVisibleComments] = useState(3)
 
   const getComments = () => {
     const baseURL = "https://boolean-api-server.fly.dev/"
@@ -17,9 +18,20 @@ export default function Comments ({postId}) {
 
   useEffect(getComments, [])
 
+  const loadMoreComments = () => setVisibleComments(Math.min(visibleComments + 3, comments.length))
+
   return (
-    <div>
-      {comments.map((comment, index) => <Comment key={index} comment={comment}/>)}
-    </div>
+    <>
+    {comments.length > visibleComments ? (
+      <p className="expandComments" onClick={() => loadMoreComments()}>
+        Load more comments
+      </p>
+    ) : (
+      <p className="expandComments" onClick={() => setVisibleComments(3)}>
+        Hide older comments
+      </p>
+    )}
+    {comments.slice(-visibleComments).map((comment, index) => <Comment key={index} comment={comment}/>)}
+    </>
     )
 }

@@ -67,7 +67,9 @@ export default function Post({post}) {
           <p className="post-body">{post.content}</p>
         </div>
       </div>
-      <Comments postId={post.id}/>
+      <div className="comments-container">
+        <Comments postId={post.id}/>
+      </div>
     </div>
   )
 }
