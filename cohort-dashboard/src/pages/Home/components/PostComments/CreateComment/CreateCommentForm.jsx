@@ -24,8 +24,12 @@ export default function CreateCommentForm({ postId, setRefreshComments }) {
       )
         .then((res) => res.json())
         .then(() => {
+          const form = document.querySelector("#comment-form");
+
           setNewComment(INITAL_STATE);
           setRefreshComments(true);
+
+          form.reset();
         });
     }
   };
