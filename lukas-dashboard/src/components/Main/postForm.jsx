@@ -7,7 +7,7 @@ export default function PostForm() {
             <form action="">
                 <input
                     type="text"
-                    placeholder="Whats on your mind?">
+                    placeholder="   Whats on your mind?">
                 </input>
             </form>
             <button>Post</button>

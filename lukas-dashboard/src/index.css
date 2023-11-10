@@ -82,7 +82,7 @@ background-color: #000046;
   display: grid;
   grid-template-columns: 50px 1000px 200px;
   height: 70px;
-
+  padding-left: 10px;
   background-color: white;
   border-radius: 10px;
   margin: 20px;
