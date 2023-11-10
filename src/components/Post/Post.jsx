@@ -9,22 +9,22 @@ import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
 import Comments from "../Comments/Comments";
 
-export default function Post({post}) {
+export default function Post({postId}) {
 
-  // const [user, setUser] = useState(null)
-  // useEffect(getUser, [])
+  const [post, setPost] = useState([])
 
-  // const getUser = () => {
-  //   const baseURL = "https://boolean-api-server.fly.dev/"
-  //   const directory = "AllyDouillette" + "/contact"
-  //   const endpoint = `/${post.contactId}`
+  const getPost = () => {
+    const baseURL = "https://boolean-api-server.fly.dev/"
+    const directory = "AllyDouillette" + "/post"
+    const endpoint = `/${postId}`
 
-  //   fetch(baseURL + directory + endpoint)
-  //     .then(res => res.json())
-  //     .then(data => setUser(data))
-  //     .then(() => console.log("loaded user"))
-  //     // .catch(() => setUser({firstName: "N", lastName: "A"}))
-  // }
+    fetch(baseURL + directory + endpoint)
+      .then(res => res.json())
+      .then(data => setPost(data))
+      .then(() => console.log("loaded single post!"))
+  }
+
+  useEffect(getPost, [])
 
   const commonFirstNames = [
     'Oliver', 'Olivia', 'George', 'Amelia', 'Harry', 'Isla', 'Jack', 'Ava', 'Arthur', 'Mia',
@@ -51,11 +51,8 @@ export default function Post({post}) {
     'Cole', 'Marshall', 'Fox', 'Owen', 'Booth', 'Dixon', 'Grant', 'Mason', 'Knight', 'Rose'
   ];
   
-  // const firstName = commonFirstNames[parseInt(Math.random()*99)]
-  // const lastName = commonLastNames[parseInt(Math.random()*99)]
-
-  const firstName = "Taylor"
-  const lastName = "Swift"
+  const firstName = commonFirstNames[parseInt(Math.random()*commonLastNames.length-1)]
+  const lastName = commonLastNames[parseInt(Math.random()*commonLastNames.length-1)]
 
   return (
     <div className="card" >
@@ -63,12 +60,12 @@ export default function Post({post}) {
         <ProfileImg firstName={firstName} lastName={lastName}/>
         <div>
           <p className="post-author">{firstName + " " + lastName}</p>
-          <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
+          <p className="post-title"><a href={"/post/"+postId}>{post.title}</a></p>
           <p className="post-body">{post.content}</p>
         </div>
       </div>
       <div className="comments-container">
-        <Comments postId={post.id}/>
+        <Comments postId={postId}/>
       </div>
     </div>
   )
