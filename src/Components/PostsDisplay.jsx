@@ -39,7 +39,7 @@ export default function PostsDisplay() {
     <div className="main-content">
       <div className="post-box">
         <div className="user-avatar">
-          <span className="user-initials">AW</span>
+          <span className="user-initials">JM</span>
         </div>
         <input
           type="text"
@@ -102,6 +102,10 @@ export default function PostsDisplay() {
                         );
                       })}
                     </div>
+                    <div className="comment-input-container">
+                    <div className="user-avatar">
+                      <span className="user-initials">JM</span>
+                    </div>
                     <input
                       className="input"
                       type="text"
@@ -110,6 +114,7 @@ export default function PostsDisplay() {
                     <button className="post-button" type="submit">
                       Post
                     </button>
+                    </div>
                   </form>
                 </div>
               </li>
