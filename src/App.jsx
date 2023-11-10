@@ -7,6 +7,7 @@ import './App.css'
 import Home from "./components/Home/Home"
 import Profile from "./components/Profile/Profile"
 import SinglePostPage from './components/Post/SinglePostPage'
+import Users from './components/Profile/userArr'
 
 function App() {
 
@@ -31,6 +32,10 @@ function App() {
           <Route
             path="/profile"
             element={<Profile />}
+          />
+          <Route
+            path="/users"
+            element={<Users />}
           />
         </Routes>
       </main>

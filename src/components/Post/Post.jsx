@@ -25,19 +25,19 @@ export default function Post({postId}) {
   }
 
   useEffect(getPost, [])
-
+  
   return (
     <div className="card" >
       <div className="post-container">
         <ProfileImg userId={post.contactId}/>
         <div>
-          <p className="post-author">{"nan"}</p>
+          <p className="post-author">{"Load"}</p>
           <p className="post-title"><a href={"/post/"+postId}>{post.title}</a></p>
           <p className="post-body">{post.content}</p>
         </div>
       </div>
       <div className="comments-container">
-        <Comments postId={postId}/>
+        <Comments postId={postId} />
       </div>
     </div>
   )

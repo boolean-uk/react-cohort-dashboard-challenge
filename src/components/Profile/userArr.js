@@ -506,4 +506,6 @@ const userArr = [
   }
 ]
 
+const getUser = (contactId) => userArr.find(user => user.contactId === contactId);
+
 export default userArr;
