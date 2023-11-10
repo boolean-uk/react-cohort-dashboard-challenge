@@ -4,10 +4,18 @@ function PostContent({ post, author }) {
 
     return (
         <section className="post-content grid">
-            <div>{initials}</div>
-            <h3>{author.firstName} {author.lastName}</h3>
-            <h4>{post.title}</h4>
-            <p>{post.content}</p>  
+            <div className="post-content-details grid">
+                <div className="initials-container grid">
+                    <p className="initials-text">{initials}</p>
+                </div>
+                <div className="name-title-container grid">
+                    <h3 className="author-name">{author.firstName} {author.lastName}</h3>
+                    <h4 className="post-title">{post.title}</h4>
+                </div>
+            </div>
+            <div className="post-content-text">
+                <p>{post.content}</p>  
+            </div>
         </section>
     )
 }
