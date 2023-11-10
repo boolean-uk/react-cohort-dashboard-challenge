@@ -11,8 +11,11 @@ import "./styles/App.css";
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [posts, setPosts] = useState([]); // Renamed 'post' to 'posts'
+  const [posts, setPosts] = useState([]);
   const [postComments, setPostComments] = useState([]);
+  const [newPost, setNewPost] = useState("");
+  const [newComment, setNewComment] = useState("");
+  const reversedPostData = [...posts].reverse();
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/contact")
@@ -22,15 +25,13 @@ function App() {
 
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/post")
       .then((response) => response.json())
-      .then((data) => setPosts(data)) // Renamed 'setComments' to 'setPosts'
+      .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching posts:", error));
   }, []);
 
   useEffect(() => {
     contacts.forEach((contact) => {
-      // Check if post comments already exist
       if (!postComments[contact.id]) {
-        // Updated the guard clause
         fetch(
           `https://boolean-api-server.fly.dev/Callumhayden99/post/${contact.id}/comment`
         )
@@ -48,17 +49,54 @@ function App() {
     });
   }, [contacts, postComments]);
 
-
-  const mainUserInitials = "CH"
-
+  const mainUserInitials = "CH";
 
   const mainPostSubmit = (event) => {
-    event.preventDefault()
-  }
-
-  const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
+
+    fetch("https://boolean-api-server.fly.dev/Callumhayden99/post", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        title: "",
+        contactId: 16,
+        content: newPost,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts((prevPosts) => [...prevPosts, data]);
+        setNewPost("");
+      })
+      .catch((error) => console.error("Error submitting main post:", error));
+  };
+  const handleSubmit = (event, postId) => {
+    event.preventDefault();
+    console.log("submitting comment", newComment);
+
+    fetch(
+      `https://boolean-api-server.fly.dev/Callumhayden99/post/${postId}/comment`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          title: "",
+          postId: 1,
+          contactId: 16,
+          content: newComment,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the specific postComments array with the new comment
+        setPostComments((prevComments) => ({
+          ...prevComments,
+          [postId]: [...(prevComments[postId] || []), data],
+        }));
+        setNewComment("");
+      })
+      .catch((error) => console.error("Error commenting on post:", error));
   };
 
   return (
@@ -100,13 +138,17 @@ function App() {
           <div className="each-post">
             <div className="main-postbox">
               <form onSubmit={mainPostSubmit}>
-                <label>  <div className="user-post-logo">{mainUserInitials}</div>
+                <label>
+                  {" "}
+                  <div className="user-post-logo">{mainUserInitials}</div>
                   <input
                     className="main-input"
                     type="text"
                     id=""
                     name=""
+                    value={newPost}
                     placeholder="What's on your mind?"
+                    onChange={(e) => setNewPost(e.target.value)}
                   ></input>
                 </label>
                 <button type="submit" className="main-postbutton">
@@ -116,7 +158,7 @@ function App() {
             </div>
 
             <ul className="full-comment-ul">
-              {posts.map((post) => {
+              {reversedPostData.map((post) => {
                 const contact = contacts.find((c) => c.id === post.contactId);
                 let initials = "";
                 if (contact) {
@@ -139,16 +181,15 @@ function App() {
                     <div className="main-comment">{post.content}</div>
                     <hr className="hr"></hr>
                     <div className="other-comments">
-                      {postComments[post.id]?.map((relatedComment) => {
+                      {postComments[post.id]?.map((comment) => {
                         const commenter = contacts.find(
-                          (c) => c.id === relatedComment.contactId
+                          (c) => c.id === comment.contactId
                         );
                         const initials = commenter
-                          ? `${commenter.firstName[0]} ${commenter.lastName[0]}`
-                          : "";
+                          ? `${commenter.firstName[0]} ${commenter.lastName[0]}`: "";
                         return (
                           <div
-                            key={relatedComment.id}
+                            key={`${post.id} ${comment.id}`}
                             className="other-comment"
                           >
                             <div className="post-initials">{initials}</div>
@@ -157,7 +198,7 @@ function App() {
                                 {commenter ? `${commenter.firstName} ${commenter.lastName}`: ""}
                               </div>
                               <div className="comment-content-post">
-                                {relatedComment.content}
+                                {comment.content}
                               </div>
                             </div>
                           </div>
@@ -166,14 +207,27 @@ function App() {
                     </div>
 
                     <div className="form">
-                      <form onSubmit={handleSubmit} className="comment-form">
-                        <label>  <div className="user-comment-logo">{mainUserInitials}</div>
+                      <form
+                        onSubmit={(e) => handleSubmit(e, post.id)}
+                        className="comment-form">
+                        <label>
+                          <div className="user-comment-logo">
+                            {mainUserInitials}
+                          </div>
                           <input
                             className="input"
                             type="text"
                             id=""
                             name=""
                             placeholder="Add a comment..."
+                            value={newComment}
+                            onChange={(e) => {
+                            console.log(
+                                "Comment input value:",
+                                e.target.value
+                              );
+                              setNewComment(e.target.value);
+                            }}
                           />
                         </label>
                         <button className="post-button" type="submit">
