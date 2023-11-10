@@ -1,7 +1,7 @@
 function arraySortByObjIdDesc(array) {
   return array.sort((a, b) => {
-    return b.id - a.id
-  })
+    return b.id - a.id;
+  });
 }
 
-export {arraySortByObjIdDesc}
+export { arraySortByObjIdDesc };

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const boolProps = PropTypes.bool
+const boolProps = PropTypes.bool;
 
 const contactProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
