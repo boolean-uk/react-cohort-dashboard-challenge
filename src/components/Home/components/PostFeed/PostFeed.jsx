@@ -5,17 +5,22 @@ import PostItem from "./PostItem/PostItem";
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
+import { arraySortByObjIdDesc } from "@utilities/array";
+import { boolProps, funcProp } from "@utilities/propTypeDefs";
 
-export default function PostFeed() {
+export default function PostFeed({ loadPosts, setLoadPosts }) {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
     async function getPosts() {
       const fetch = await api.post.get();
-      setPosts(await fetch);
+      arraySortByObjIdDesc(fetch);
+      setPosts(fetch);
+      setLoadPosts(false);
     }
-    getPosts();
-  }, []);
+
+    loadPosts && getPosts();
+  }, [loadPosts]);
 
   if (!posts) {
     return <PulseLoader />;
@@ -29,3 +34,8 @@ export default function PostFeed() {
     </ul>
   );
 }
+
+PostFeed.propTypes = {
+  loadPosts: boolProps,
+  setLoadPosts: funcProp,
+};

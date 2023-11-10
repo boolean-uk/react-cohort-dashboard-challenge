@@ -18,7 +18,7 @@ export default function PostHeader({ post }) {
 
   useEffect(() => {
     async function getPerson() {
-      const fetch = await api.contact.get(post.id);
+      const fetch = await api.contact.get(post.contactId);
       setContact(await fetch);
     }
     getPerson();

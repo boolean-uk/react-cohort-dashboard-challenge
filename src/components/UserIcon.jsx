@@ -13,7 +13,7 @@ export default function UserIcon({ contact }) {
   const initials = initialiser(firstName, lastName);
   return (
     <div className="user-icon grid h-14 w-14 shrink-0 content-center justify-center rounded-full bg-red-400">
-      {initials}
+      {initials} {contact.id}
     </div>
   );
 }

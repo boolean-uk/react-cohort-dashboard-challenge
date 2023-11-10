@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+const boolProps = PropTypes.bool
+
 const contactProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   firstName: PropTypes.string.isRequired,
@@ -36,6 +38,7 @@ const postProps = PropTypes.shape({
 const stringProp = PropTypes.string;
 
 export {
+  boolProps,
   contactProps,
   commentProps,
   funcProp,
