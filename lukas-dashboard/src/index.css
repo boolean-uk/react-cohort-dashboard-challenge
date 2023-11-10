@@ -1,5 +1,6 @@
 *{
   font-family:sans-serif;
+  color: #000046;
   margin: 0px;
   padding: 0px;
 }
@@ -120,6 +121,11 @@ background-color: #000046;
   display: grid;
   grid-template-columns: 50px 1fr;
   margin: 20px;
+}
+
+.title {
+  text-decoration: none;
+  color: #000046;
 }
 
 .postContent {

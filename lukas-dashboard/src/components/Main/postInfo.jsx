@@ -15,7 +15,7 @@ export default function PostInfo({ users, posts }) {
                             <ProfileLogo />
                             <section>
                                 <h2>{name.firstName} {name.lastName}</h2>
-                                <Link to={`/post/${post.id}`}>{post.title}</Link>
+                                <Link  className="title" to={`/post/${post.id}`}>{post.title}</Link>
                             </section>
                         </div>
                         <p className="postContent">{post.content}</p>
