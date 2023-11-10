@@ -3,17 +3,17 @@ import { useEffect, useState } from "react"
 import PostContent from "./PostContent"
 import Comments from "./Comments"
 
-function SinglePost({ post, URL }) {
+function SinglePost({ post, URL, loggedInUserColour }) {
 
     const [author, setAuthor] = useState(null)
 
-    const id = post.contactId
+    const postId = post.contactId
 
     useEffect(() => {
-            fetch(`${URL}/contact/${id}`)
+            fetch(`${URL}/contact/${postId}`)
             .then(res => res.json())
             .then(data => setAuthor(data))
-    }, [URL, id])
+    }, [URL, postId])
 
     // console.log(post)
 
@@ -22,8 +22,8 @@ function SinglePost({ post, URL }) {
     return (
         <section className="single-post-container">
             <li className="single-post grid">
-                <PostContent post={post} author={author}></PostContent>
-                <Comments></Comments>
+                <PostContent post={post} author={author} loggedInUserColour={loggedInUserColour} />
+                <Comments />
             </li>
         </section>
     )

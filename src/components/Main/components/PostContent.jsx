@@ -1,11 +1,11 @@
-function PostContent({ post, author }) {
+function PostContent({ post, author, loggedInUserColour }) {
 
     const initials = author.firstName.slice(0, 1) + author.lastName.slice(0, 1)
 
     return (
         <section className="post-content grid">
             <div className="post-content-details grid">
-                <div className="initials-container grid">
+                <div className={`${loggedInUserColour(author)} profile-circle grid`}>
                     <p className="initials-text">{initials}</p>
                 </div>
                 <div className="name-title-container grid">

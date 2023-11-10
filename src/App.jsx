@@ -11,6 +11,7 @@ function App() {
 
   const [posts, setPosts] = useState([])
   const [shouldGetPosts, setShouldGetPosts] = useState(true)
+  const [loggedInUser, setLoggedInUser] = useState(null)
  
   function getPosts() {
     fetch(`${URL}/post`)
@@ -25,14 +26,27 @@ function App() {
     shouldGetPosts && getPosts()
   }, [shouldGetPosts])
 
+
+  function getLoggedInUser() {
+    fetch(`${URL}/contact/1`)
+      .then(res => res.json())
+      .then(data =>  setLoggedInUser(data))
+  }
+
+  useEffect(() => {
+    getLoggedInUser()
+  }, [])
+
   // console.log(posts)
+  // console.log(loggedInUser)
+
 
   return (
     <>
       <Routes>
         <Route
           path='/'
-          element={<HomePage posts={posts} URL={URL} />}
+          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} />}
           >
         </Route>
       </Routes>

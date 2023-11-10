@@ -3,12 +3,12 @@ import Posts from "./components/Posts"
 
 import '../../styles/main.css'
 
-function Main({ posts, URL }) {
+function Main({ posts, URL, loggedInUserColour }) {
 
     return (
         <main className="main grid">
-            <CreatePost></CreatePost>
-            <Posts posts={posts} URL={URL}></Posts>
+            <CreatePost />
+            <Posts posts={posts} URL={URL} loggedInUserColour={loggedInUserColour} />
         </main>
     )
 }
