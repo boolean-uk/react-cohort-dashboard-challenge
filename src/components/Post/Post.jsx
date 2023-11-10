@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
+import Comments from "../Comments/Comments";
 
 export default function Post({post}) {
 
@@ -60,6 +61,9 @@ export default function Post({post}) {
         <p className="post-author">{firstName + " " + lastName}</p>
         <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
         <p className="post-body">{post.content}</p>
+      </div>
+      <div className="comment-container">
+        <Comments postId={post.id}/>
       </div>
     </div>
   )
