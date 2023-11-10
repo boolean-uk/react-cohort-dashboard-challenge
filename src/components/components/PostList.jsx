@@ -1,6 +1,8 @@
 import PostListItem from "./components/PostListItem";
 
 export default function PostList({ postList }) {
+
+  
   return (
     <>
       <section>

@@ -7,9 +7,6 @@ import SelectedPostPage from './components/components/SelectedPostPage'
 
 function App() {
 
-
-
-
   return (
     <>
       <Header />

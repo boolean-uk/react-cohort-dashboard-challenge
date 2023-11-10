@@ -5,20 +5,24 @@ import { useState, useEffect } from "react"
 
 export default function Dashboard() {
     const [postList, setPostList] = useState(null)
-
+    const [reloadPostList, setReloadPostList] = useState(true)
     const getPosts = () => {
         fetch("https://boolean-api-server.fly.dev/Chloe070196/post")
         .then(r => r.json())
         .then (data => setPostList(data))
+        .then(setReloadPostList(false))
     }
   
-    useEffect(getPosts, [])
+    useEffect(getPosts, [reloadPostList])
     
    return(  
         <>  
-            {postList ? 
+            {!reloadPostList && postList ? 
             <section>
-                <PostFeedHeader />
+                <PostFeedHeader 
+                    setPostList={setPostList}
+                    setReloadPostList={setReloadPostList}
+                    reloadPostList={reloadPostList}/>
                 <PostList postList={postList}/>
             </section> :
             <p>loading...</p>
