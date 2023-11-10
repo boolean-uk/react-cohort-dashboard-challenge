@@ -28,11 +28,11 @@ export default function PostHeader({ post }) {
   }
 
   return (
-    <div className="post-header grid items-center gap-x-4">
+    <header className="post-header grid items-center gap-x-4">
       <UserIcon contact={contact} />
       <UserName contact={contact} />
       <PostTitle title={title} />
-    </div>
+    </header>
   );
 }
 
