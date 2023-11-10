@@ -1,18 +1,26 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react"
 import ProfileLogo from "../Reusable/profileLogo"
 
-export default function PostInfo() {
+export default function PostInfo({ users, posts }) {
+
     return (
         <>
-            <div className="postInfo">
-                <ProfileLogo></ProfileLogo>
-                <section>
-                    <h2>Lukas Dembicki</h2>
-                    <p>This is a Title</p>
-                </section>
-            </div>
-            <p className="postContent">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, rem nemo quidem animi id quos possimus ipsam maxime magni aspernatur fugit cumque delectus voluptate doloribus natus voluptatibus unde deserunt sed.
-            </p>
-            <hr />
+            {
+                posts.map((post) => (
+                    <div key={post.contactId + post.title}>
+                        <div className="postInfo">
+                            <ProfileLogo/>
+                            <section>
+                                <h2>{post.contactId}</h2>
+                                <p>{post.title}</p>
+                            </section>
+                        </div>
+                        <p className="postContent">{post.content}</p>
+                        <hr />
+                    </div>
+               ))
+            }
         </>
     )
 }

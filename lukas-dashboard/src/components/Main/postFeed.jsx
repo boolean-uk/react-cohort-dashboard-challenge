@@ -19,14 +19,12 @@ export default function PostFeed() {
             .then(data => setPosts(data))
 
     }, [])
-    console.log(users)
-    console.log(posts)
 
     return (
         <div className="post">
-            <PostInfo />
+            <PostInfo users={users} posts={posts} />
             <CommentContent />
             <CommentForm />
         </div>
     )
-} C
+}
