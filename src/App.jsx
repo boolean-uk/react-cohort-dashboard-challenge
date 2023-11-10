@@ -6,6 +6,7 @@ import './App.css'
 
 import Home from "./components/Home/Home"
 import Profile from "./components/Profile/Profile"
+import SinglePostPage from './components/Post/SinglePostPage'
 
 function App() {
 
@@ -20,8 +21,12 @@ function App() {
       <main>
         <Routes>
           <Route 
-            path="/"
+            path=""
             element={<Home />}
+          />
+          <Route
+            path="/post/:id"
+            element={<SinglePostPage />}
           />
           <Route
             path="/profile"

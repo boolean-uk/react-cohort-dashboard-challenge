@@ -53,14 +53,12 @@ export default function Post({post}) {
   const firstName = commonFirstNames[parseInt(Math.random()*99)]
   const lastName = commonLastNames[parseInt(Math.random()*99)]
 
-  console.log(firstName)
-
   return (
     <div className="card" >
       <ProfileImg firstName={firstName} lastName={lastName}/>
       <div>
         <p className="post-author">{firstName + " " + lastName}</p>
-        <p className="post-title">{post.title}</p>
+        <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
         <p className="post-body">{post.content}</p>
       </div>
     </div>
