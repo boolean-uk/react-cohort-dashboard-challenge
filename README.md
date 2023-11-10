@@ -17,7 +17,10 @@ MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS!!!!
 \-------------------------------------------------------------------------------------------------------
 
 - In the project root directory, run `npm create vite@latest . -- --template react`
-- When it asks you: `? Current directory is not empty. Remove existing files and continue? » (y/N)` - type the letter `y` and press `Enter`
+  - Be 100% sure that your current directory is this repo project root directory, as the command will HARD DELETE all existing files and folders in the current directory. This cannot be undone or restored easily.
+- When it asks you: `? Current directory is not empty. Remove existing files and continue? » (y/N)`
+  - re-read the warning above to check you are in the correct directory
+  - type the letter `y` and press `Enter`
   - This will completely replace this existing repo on your machine with the Vite React project scaffold - this is expected
   - To reference the original documentation/images provided in this repo, just go to the original online repo on the Boolean UK GitHub account
 - Run `npm install`
