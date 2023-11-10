@@ -11,8 +11,6 @@ export default function Comment({ comment }) {
   const [contact, setContact] = useState(null);
   const { contactId } = comment;
 
-  console.log("comment", comment);
-
   useEffect(() => {
     async function getContact() {
       const fetch = await api.contact.get(contactId);
