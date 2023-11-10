@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./pages/Header";
-import Nav from "./pages/Nav";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
 import Home from "./pages/Home";
 
 function App() {

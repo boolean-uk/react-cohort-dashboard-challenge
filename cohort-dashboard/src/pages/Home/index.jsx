@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CreatePost from "./components/CreatePost/CreatePost";
-import PostList from "./components/PostList";
+import PostList from "./components/PostList/PostList";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);

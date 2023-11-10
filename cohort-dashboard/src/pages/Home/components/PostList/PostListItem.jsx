@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ProfileIcon from "./ProfileIcon";
-import PostCommentSection from "./PostComments/PostCommentSection";
+import ProfileIcon from "../ProfileIcon";
+import PostCommentSection from "../PostComments/PostCommentSection";
 
 export default function PostListItem({ post }) {
   const [contact, setContact] = useState([]);

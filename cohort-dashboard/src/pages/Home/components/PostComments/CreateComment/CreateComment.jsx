@@ -1,4 +1,4 @@
-import UserProfileIcon from "../../../../UserProfileIcon";
+import UserProfileIcon from "../../UserProfileIcon";
 import CreateCommentForm from "./CreateCommentForm";
 
 export default function CreateComment({ postId, setRefreshComments }) {

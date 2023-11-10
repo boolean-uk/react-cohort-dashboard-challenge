@@ -13,7 +13,7 @@ export default function UserProfileIcon() {
 
   return (
     <div className="profile-icon">
-      {!user.id ? "..." : user.firstName.charAt(0) + user.lastName?.charAt(0)}
+      {!user.id ? "..." : user.firstName.charAt(0) + user.lastName.charAt(0)}
     </div>
   );
 }

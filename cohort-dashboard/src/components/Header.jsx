@@ -1,5 +1,5 @@
 import titleHeaderLogo from "../assets/title-header-svg.svg";
-import UserProfileIcon from "./UserProfileIcon";
+import UserProfileIcon from "../pages/Home/components/UserProfileIcon";
 
 export default function Header() {
   return (

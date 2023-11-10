@@ -1,4 +1,4 @@
-import UserProfileIcon from "../../../UserProfileIcon";
+import UserProfileIcon from "../UserProfileIcon";
 import CreatePostForm from "./CreatePostForm";
 
 export default function CreatePost(props) {
