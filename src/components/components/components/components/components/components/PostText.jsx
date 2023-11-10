@@ -1,8 +1,8 @@
-export default function PostText() {
+export default function PostText({post}) {
     return(
         <>
             <div>
-                <p></p>
+                <p>{post.content}</p>
             </div>
         </>
     )

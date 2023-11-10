@@ -2,7 +2,7 @@ export default function AddPostForm() {
   return (
     <>
       <form>
-        <input type="text"></input>
+        <input type="text"/>
         <button>Post</button>
       </form>
     </>

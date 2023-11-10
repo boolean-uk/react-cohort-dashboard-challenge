@@ -2,11 +2,11 @@ import PostContainer from "./components/components/PostContainer"
 import CommentListContainer from "./components/components/CommentListContainer"
 import AddCommentContainer from "./components/components/AddCommentContainer"
 
-export default function PostListItem() {
+export default function PostListItem({post}) {
     return(
         <>
             <li>
-                <PostContainer />
+                <PostContainer post={post}/>
                 <CommentListContainer />
                 <AddCommentContainer />   
             </li>

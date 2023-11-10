@@ -14,6 +14,10 @@ main {
     padding: 60px 0px 0 90px ;
 }
 
+main ul {
+    width: calc( 100vw - 220px)
+}
+
 
 aside {
     position: fixed;
@@ -30,6 +34,7 @@ aside {
 
 .main-header {
     position: fixed; 
+    z-index: 1;
     top: 0; 
     width: 100vw;
     background-color: #000046;
