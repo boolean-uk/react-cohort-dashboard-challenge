@@ -30,4 +30,4 @@ export default function PostCommentFeed({ postId }) {
   );
 }
 
-PostCommentFeed.propTypes = {postId: numberProp}
+PostCommentFeed.propTypes = { postId: numberProp };

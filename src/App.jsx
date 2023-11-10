@@ -9,24 +9,24 @@ import api from "./utilities/api";
 import PulseLoader from "./components/Loader/PulseLoader";
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     async function getUser() {
       const fetch = await api.contact.get(1);
       setUser(await fetch);
     }
-    getUser()
+    getUser();
   }, []);
 
   if (!user) {
-    return <PulseLoader />
+    return <PulseLoader />;
   }
 
   return (
     <div className="app-container container mx-auto grid min-h-screen w-screen text-cohort-blue">
-      <Header user={user}/>
-      <SideMenu user={user}/>
+      <Header user={user} />
+      <SideMenu user={user} />
       <Home />
     </div>
   );

@@ -15,5 +15,5 @@
 }
 
 .post-header .post-title {
-  grid-area: title
+  grid-area: title;
 }

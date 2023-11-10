@@ -6,5 +6,5 @@ export function pathBuild(...pathSegments) {
 }
 
 export function initialiser(firstName, lastName) {
-  return `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`
+  return `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
 }

@@ -17,8 +17,8 @@ const commentProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   postId: PropTypes.number.isRequired,
   contactId: PropTypes.number.isRequired,
-  content: PropTypes.string.isRequired
-})
+  content: PropTypes.string.isRequired,
+});
 
 const numberProp = PropTypes.number;
 

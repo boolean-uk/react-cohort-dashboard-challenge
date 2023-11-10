@@ -122,7 +122,7 @@ class Comment {
     }
 
     const url = pathBuild(this.#path, postId, "comment", commentId);
-    
+
     return putTemplate(url, data);
   }
 
@@ -139,4 +139,4 @@ class API {
 
 const api = new API();
 
-export default api
+export default api;

@@ -9,7 +9,7 @@ export default {
         "cohort-background": "#F0F5FA",
         "cohort-bg-highlight": "#FFFFFF",
         "cohort-title": "#64648C",
-        "cohort-shade": "#E6EBF5"
+        "cohort-shade": "#E6EBF5",
       },
     },
   },
