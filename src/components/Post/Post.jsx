@@ -7,29 +7,30 @@
 
 import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
-import userArr from "../Profile/userArr";
 import Comments from "../Comments/Comments";
 
 export default function Post({post}) {
-  const initUser = {
-    firstName: "Fuck",
-    lastName: "React",
-  }
-  const users = userArr
-  const [user, setUser] = useState(initUser)
-  const findUser = () => {
-    const foundUser = users.find(user => user.contactId === post.contactId)
-    setUser(foundUser)
+  
+  const [user, setUser] = useState(null)
+  const loadUser = () => {
+    const baseURL = "https://boolean-api-server.fly.dev"
+    const endpoint = `/AllyDouillette/contact/${post.contactId}`
+    
+    fetch(baseURL+endpoint)
+      .then(response => response.json())
+      .then(data => setUser(data))
   }
 
-  useEffect(findUser, [])
+  useEffect(loadUser, [])
+
+  if (!user) return <p>Loading…</p>
 
   return (
     <div className="card" >
       <div className="post-container">
-        <ProfileImg initials={"NN"}/>
+        <ProfileImg initials={user.firstName[0] + user.lastName[0]}/>
         <div>
-          <p className="post-author">{"NoName"}</p>
+          <p className="post-author">{user.firstName + " " + user.lastName}</p>
           <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
           <p className="post-body">{post.content}</p>
         </div>
