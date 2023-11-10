@@ -55,8 +55,8 @@ function App() {
           </div>
           <div className="commentContainer">
             <div className="commentSection">
-              <div className="userInfoCon"></div>
-              <div className="comment"></div>
+              <div className="userInfoCon">user intials, name and title</div>
+              <div className="comment">comment</div>
             </div>
             <div className="addAComment"></div>
           </div>
