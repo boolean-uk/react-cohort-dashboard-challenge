@@ -131,6 +131,28 @@
   cursor: pointer;
 }
 
+.user-post-logo{
+  background-color: rgb(45, 158, 45);
+  color: #000046;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin:10px 20px -65px 0px;
+}
+
+.user-comment-logo{
+  background-color: rgb(45, 158, 45);
+  color: #000046;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin: 0px 20px -44px 20px;
+}
+
 .full-comment-li {
   list-style: none;
   background-color: white;

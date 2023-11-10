@@ -48,6 +48,10 @@ function App() {
     });
   }, [contacts, postComments]);
 
+
+  const mainUserInitials = "CH"
+
+
   const mainPostSubmit = (event) => {
     event.preventDefault()
   }
@@ -96,7 +100,7 @@ function App() {
           <div className="each-post">
             <div className="main-postbox">
               <form onSubmit={mainPostSubmit}>
-                <label>
+                <label>  <div className="user-post-logo">{mainUserInitials}</div>
                   <input
                     className="main-input"
                     type="text"
@@ -163,7 +167,7 @@ function App() {
 
                     <div className="form">
                       <form onSubmit={handleSubmit} className="comment-form">
-                        <label>
+                        <label>  <div className="user-comment-logo">{mainUserInitials}</div>
                           <input
                             className="input"
                             type="text"
