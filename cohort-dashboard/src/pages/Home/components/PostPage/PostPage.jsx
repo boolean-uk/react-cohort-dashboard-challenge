@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostListItem from "../PostList/PostListItem";
 
 export default function PostPage() {
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState(null);
 
   const param = useParams();
   const { postid } = param;
@@ -18,7 +18,7 @@ export default function PostPage() {
 
   useEffect(fetchPost, []);
 
-  if (post.content) {
+  if (post) {
     return (
       <div className="post-page">
         <button onClick={() => navigate(-1)}>Go Back</button>

@@ -4,7 +4,7 @@ import ProfileIcon from "../ProfileIcon";
 import PostCommentSection from "../PostComments/PostCommentSection";
 
 export default function PostListItem({ post }) {
-  const [contact, setContact] = useState({});
+  const [contact, setContact] = useState(null);
 
   const fetchContact = () => {
     fetch(
@@ -16,27 +16,29 @@ export default function PostListItem({ post }) {
 
   useEffect(fetchContact, []);
 
-  return (
-    <li id="post">
-      <div className="post-header">
-        <ProfileIcon contact={contact} />
-        <div className="post-header__author-title">
-          <h3>
-            {contact.id
-              ? `${contact.firstName} ${contact.lastName}`
-              : "Loading..."}
-          </h3>
-          <Link to={`/${post.id}/post`} className="post-link">
-            {post.title}
-          </Link>
+  if (contact) {
+    return (
+      <li id="post">
+        <div className="post-header">
+          <ProfileIcon contact={contact} />
+          <div className="post-header__author-title">
+            <h3>
+              {contact
+                ? `${contact.firstName} ${contact.lastName}`
+                : "Loading..."}
+            </h3>
+            <Link to={`/${post.id}/post`} className="post-link">
+              {post.title}
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <div className="post-content">
-        <p>{post.content}</p>
-      </div>
+        <div className="post-content">
+          <p>{post.content}</p>
+        </div>
 
-      <PostCommentSection post={post} />
-    </li>
-  );
+        <PostCommentSection post={post} />
+      </li>
+    );
+  }
 }

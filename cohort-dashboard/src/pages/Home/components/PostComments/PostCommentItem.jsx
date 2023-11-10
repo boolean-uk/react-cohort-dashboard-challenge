@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ProfileIcon from "../ProfileIcon";
 
 export default function PostCommentItem({ comment }) {
-  const [commentContact, setCommmentContact] = useState([]);
+  const [commentContact, setCommmentContact] = useState(null);
 
   const fetchCommentContact = () => {
     fetch(
@@ -19,7 +19,7 @@ export default function PostCommentItem({ comment }) {
       <ProfileIcon contact={commentContact} />
       <div className="comment-content">
         <h4>
-          {commentContact.id
+          {commentContact
             ? `${commentContact.firstName} ${commentContact.lastName}`
             : "Loading..."}
         </h4>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function UserProfileIcon() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
   const fetchUser = () => {
     fetch("https://boolean-api-server.fly.dev/yee0802/contact/1")
@@ -13,7 +13,7 @@ export default function UserProfileIcon() {
 
   return (
     <div className="profile-icon">
-      {!user.id ? "..." : user.firstName.charAt(0) + user.lastName.charAt(0)}
+      {!user ? "..." : user.firstName.charAt(0) + user.lastName.charAt(0)}
     </div>
   );
 }
