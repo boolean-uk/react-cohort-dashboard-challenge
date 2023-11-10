@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Comment from "./Comment"
 
 function Post (props) {
 
@@ -6,15 +7,24 @@ function Post (props) {
 
     const [contact, setContact] = useState({})
 
+    const [comments, setComments] = useState([])
+
     const contactId = post.contactId
     const userName = "TomEastwood"
     const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
     const endpointForContacts = `/contact/${contactId}`
+    const endpointForComments = `/post/${post.id}/comment`
 
     useEffect(() => {
         fetch(baseUrl + endpointForContacts)
             .then(res => res.json())
             .then(data => setContact(data))
+    } , [])
+
+    useEffect(() => {
+        fetch(baseUrl + endpointForComments)
+            .then(res => res.json())
+            .then(data => setComments(data))
     } , [])
 
     if(!contact) {
@@ -36,6 +46,17 @@ function Post (props) {
             </div>
             <div className="post-content">
                 <p>{post.content}</p>
+            </div>
+            <div className="comments">
+                <ul>
+                    {comments.map(comment => 
+                    <Comment
+                        key={comment.id}
+                        post={post}
+                        comment={comment} 
+                        contact={contact}
+                    />)}
+                </ul>
             </div>
         </li>
     )

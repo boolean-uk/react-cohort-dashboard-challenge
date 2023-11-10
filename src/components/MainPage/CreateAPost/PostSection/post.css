@@ -38,3 +38,8 @@ h5 {
     padding-left: 30px;
     padding-right: 30px;
 }
+
+.comments {
+    display: grid;
+    border-top: solid 1px rgb(190, 190, 190);
+}
