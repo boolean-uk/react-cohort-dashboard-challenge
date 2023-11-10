@@ -1,6 +1,7 @@
 import CommentContent from "./CommentContent";
-import PulseLoader from "../../../../../../../../Loader/PulseLoader";
-import UserName from "../../../../../../../../UserName";
+
+import PulseLoader from "@components/Loader/PulseLoader";
+import UserName from "@components/UserName";
 
 import {
   commentProps,

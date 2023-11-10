@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import Comment from "./components/Comment/Comment";
 
-import api from "../../../../../../utilities/api";
-import PulseLoader from "../../../../../Loader/PulseLoader";
-import { numberProp } from "../../../../../../utilities/propTypeDefs";
+import PulseLoader from "@components/Loader/PulseLoader";
+
+import api from "@utilities/api";
+import { numberProp } from "@utilities/propTypeDefs";
 
 export default function PostCommentFeed({ postId }) {
   const [comments, setComments] = useState(null);

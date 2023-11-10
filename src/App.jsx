@@ -5,8 +5,8 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import SideMenu from "./components/SideMenu/SideMenu";
 
-import api from "./utilities/api";
-import PulseLoader from "./components/Loader/PulseLoader";
+import api from "@utilities/api";
+import PulseLoader from "@components/Loader/PulseLoader";
 
 function App() {
   const [user, setUser] = useState(null);

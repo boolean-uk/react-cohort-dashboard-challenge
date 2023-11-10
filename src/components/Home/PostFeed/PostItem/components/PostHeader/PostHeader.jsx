@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
 import PostTitle from "./PostTitle";
-import PulseLoader from "../../../../../Loader/PulseLoader";
-import UserIcon from "../../../../../UserIcon";
-import UserName from "../../../../../UserName";
 
-import api from "../../../../../../utilities/api";
-import { postProps } from "../../../../../../utilities/propTypeDefs";
+import PulseLoader from "@components/Loader/PulseLoader";
+import UserIcon from "@components/UserIcon";
+import UserName from "@components/UserName";
+
+import api from "@utilities/api";
+import { postProps } from "@utilities/propTypeDefs";
 
 import "./PostHeader.css";
 

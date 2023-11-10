@@ -2,7 +2,7 @@ import PostHeader from "./components/PostHeader/PostHeader";
 import PostBody from "./components/PostBody";
 import PostCommentFeed from "./components/PostCommentFeed/PostCommentFeed";
 
-import { postProps } from "../../../../utilities/propTypeDefs";
+import { postProps } from "@utilities/propTypeDefs";
 
 export default function PostItem({ post }) {
   const { content, id } = post;

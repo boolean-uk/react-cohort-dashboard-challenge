@@ -1,7 +1,7 @@
-import PulseLoader from "./Loader/PulseLoader";
+import PulseLoader from "@components/Loader/PulseLoader";
 
-import { contactProps } from "../utilities/propTypeDefs";
-import { initialiser } from "../utilities/string";
+import { contactProps } from "@utilities/propTypeDefs";
+import { initialiser } from "@utilities/string";
 
 export default function UserIcon({ contact }) {
   if (!contact) {

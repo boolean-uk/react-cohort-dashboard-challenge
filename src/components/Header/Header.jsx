@@ -1,7 +1,8 @@
-import UserIcon from "../UserIcon";
 import WebsiteTitle from "./components/WebsiteTitle";
 
-import { contactProps } from "../../utilities/propTypeDefs";
+import UserIcon from "@components/UserIcon";
+
+import { contactProps } from "@utilities/propTypeDefs";
 
 export default function Header({ user }) {
   const { firstName, lastName } = user;

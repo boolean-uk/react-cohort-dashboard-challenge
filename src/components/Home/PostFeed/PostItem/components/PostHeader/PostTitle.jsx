@@ -1,4 +1,4 @@
-import { stringProp } from "../../../../../../utilities/propTypeDefs";
+import { stringProp } from "@utilities/propTypeDefs";
 
 export default function PostTitle({ title }) {
   return (

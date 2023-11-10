@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-import api from "../../../utilities/api";
-
 import PostItem from "./PostItem/PostItem";
-import PulseLoader from "../../Loader/PulseLoader";
+
+import PulseLoader from "@components/Loader/PulseLoader";
+
+import api from "@utilities/api";
 
 export default function PostFeed() {
   const [posts, setPosts] = useState(null);

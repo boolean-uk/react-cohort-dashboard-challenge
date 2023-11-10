@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 import CommentBody from "./components/CommentBody";
-import UserIcon from "../../../../../../../UserIcon";
 
-import api from "../../../../../../../../utilities/api";
-import { commentProps } from "../../../../../../../../utilities/propTypeDefs";
+import UserIcon from "@components/UserIcon";
+
+import api from "@utilities/api";
+import { commentProps } from "@utilities/propTypeDefs";
 
 import "./Comment.css";
 

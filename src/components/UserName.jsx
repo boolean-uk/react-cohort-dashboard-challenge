@@ -1,4 +1,4 @@
-import { contactProps } from "../utilities/propTypeDefs";
+import { contactProps } from "@utilities/propTypeDefs";
 
 export default function UserName({ contact }) {
   const { firstName, lastName } = contact;
