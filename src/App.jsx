@@ -13,7 +13,11 @@ function App() {
         {/* Header */}
         <header className="header">
           <div className="titleHeading">
-            <img src="src/assets/title-header.svg " width="400px" alt="" />
+            <img
+              src="src/assets/title-header.svg "
+              width="400px"
+              alt="header"
+            />
           </div>
           <div className="userInitials"></div>
         </header>
@@ -21,7 +25,7 @@ function App() {
         <nav className="sideBar">
           <div className="homeIconCon">
             <div className="homeIcon">
-              <img src="src/assets/home.svg" alt="" />
+              <img src="src/assets/home.svg" alt="home" />
             </div>
             <div className="homeText">
               <p>Home</p>
@@ -29,7 +33,7 @@ function App() {
           </div>
           <div className="profileIconCon">
             <div className="profileIcon">
-              <img src="src/assets/profile.svg" alt="" />
+              <img src="src/assets/profile.svg" alt="profile" />
             </div>
             <div className="profileText">
               <p>Profile</p>
@@ -37,7 +41,20 @@ function App() {
           </div>
         </nav>
         {/* Main */}
-        <main className="main">main</main>
+        <main className="main">
+          <div className="postContainer">
+            <div className="userInitialsPost"></div>
+            <div className="whatsOnMind">
+              <p>What's on your mind?</p>
+            </div>
+            <div className="postButton">
+              <button className="postBtn">
+                <p>Post</p>
+              </button>
+            </div>
+          </div>
+          <div className="commentContainer"></div>
+        </main>
       </div>
     </>
   );

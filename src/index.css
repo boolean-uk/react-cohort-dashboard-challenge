@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  /* background-color: #f0f5fa; */
 }
 
 /* Container */
@@ -30,7 +31,7 @@
 
 .titleHeading {
   grid-area: titleHeading;
-  border: black dashed 1px;
+  /* border: black dashed 1px; */
   margin-left: 40px;
   align-self: center;
   height: 70px;
@@ -132,9 +133,67 @@
 .main {
   grid-area: main;
   border: black dashed 1px;
+
   display: grid;
+  grid-template:
+    "postContainer"
+    "commentContainer";
+  grid-template-rows: 140px 1fr;
   gap: 3px;
   padding: 3px;
+}
+
+.postContainer {
+  grid-area: postContainer;
+  border: black dashed 1px;
+
+  display: grid;
+  grid-template: "userInitialsPost whatsOnMind postButton";
+  grid-template-columns: 90px 1fr 200px;
+  gap: 3px;
+  padding: 3px;
+}
+
+.userInitialsPost {
+  grid-area: userInitialsPost;
+  border: black dashed 1px;
+  /* height: 90px; */
+  /* align-self: center; */
+}
+
+.whatsOnMind {
+  grid-area: whatsOnMind;
+  border: black dashed 1px;
+  height: 80px;
+  align-self: center;
+}
+
+.whatsOnMind > p {
+  margin-right: 600px;
+  margin-top: 30px;
+  color: grey;
+}
+
+.postBtn {
+  width: 140px;
+  height: 40px;
+  margin-top: 45px;
+  background-color: #000046;
+  border-radius: 5px;
+}
+
+.postBtn > p {
+  color: white;
+}
+
+.commentContainer {
+  grid-area: commentContainer;
+  border: black dashed 1px;
+}
+
+.postButton {
+  grid-area: postButton;
+  border: black dashed 1px;
 }
 
 @media (prefers-color-scheme: light) {
