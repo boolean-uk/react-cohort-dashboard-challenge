@@ -7,14 +7,16 @@ import SelectedPostPage from './components/components/SelectedPostPage'
 
 function App() {
 
+  const mockLoggedInUserId = 1
+
   return (
     <>
-      <Header />
+      <Header mockLoggedInUserId={mockLoggedInUserId}/>
       <main>
         <Aside />
         <Routes>
-          <Route path="/" element={<Dashboard />}/>
-          <Route path="/post/:id" element={<SelectedPostPage />}/>
+          <Route path="/" element={<Dashboard mockLoggedInUserId={mockLoggedInUserId}/>}/>
+          <Route path="/post/:id" element={<SelectedPostPage mockLoggedInUserId={mockLoggedInUserId} />}/>
         </Routes>
         
       </main>

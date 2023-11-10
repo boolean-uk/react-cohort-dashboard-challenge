@@ -5,7 +5,7 @@ export default function CommentContainer({comment}) {
     return(
         <>
             <li>
-                <UserInitials />
+                <UserInitials contactId={comment.contactId}/>
                 <Comment comment={comment}/>
             </li>
         </>

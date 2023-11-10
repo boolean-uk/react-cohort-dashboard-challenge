@@ -1,7 +1,8 @@
 import UserInitials from "./components/components/components/components/components/components/UserInitials"
  
 
-export default function Header() {
+export default function Header({mockLoggedInUserId}) {
+    
     return(
         <>
             <header className="main-header">
@@ -10,7 +11,7 @@ export default function Header() {
                 </div>
                 <div>
                     <div className="justify-right">
-                        <UserInitials />
+                        <UserInitials contactId={mockLoggedInUserId}/>
                     </div>
                 </div>
             </header>

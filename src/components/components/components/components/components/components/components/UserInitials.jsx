@@ -1,30 +1,22 @@
 import { useState, useEffect} from "react";
 
-const initialContact = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-};
+export default function UserInitials({contactId}) {
+  const [contact, setContact] = useState(null)
 
-export default function UserInitials() {
-  const [contact, setContact] = useState(initialContact);
-
-  const getContactName = () => {
+  const getContact = () => {
     fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`)
       .then((r) => r.json())
-      .then((data) => setContact(data));
+      .then((data) => setContact(data))
   };
 
-  // useEffect(getContactName, [])
-
+    useEffect(getContact, [])
 
     return(
-        <>
-            <div className="round-container">
-                <p></p>
-                <p></p>
-            </div>
-        </>
+        contact? <>
+                <div className="round-container">
+                    <p>{contact.firstName[0] + contact.lastName[0]}</p>
+                </div>
+            </> :
+            <div></div>
     )
 }

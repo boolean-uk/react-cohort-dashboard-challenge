@@ -1,6 +1,6 @@
 import PostListItem from "./components/PostListItem";
 
-export default function PostList({ postList, reloadPostList, setReloadPostList}) {
+export default function PostList({ postList, reloadPostList, setReloadPostList, mockLoggedInUserId}) {
   const postListNewToOld = postList.toReversed()
 
   return (
@@ -13,6 +13,7 @@ export default function PostList({ postList, reloadPostList, setReloadPostList})
               post={post} 
               setReloadPostList={setReloadPostList} 
               reloadPostList={reloadPostList} 
+              mockLoggedInUserId={mockLoggedInUserId}
             />
           ))}
         </ul>

@@ -8,7 +8,7 @@ export default function AuthorContainer({post}) {
     return(
         <>
             <div>
-                <UserInitials />
+                <UserInitials contactId={post.contactId}/>
                 <UserName contactId={post.contactId}/>
                 <PostTitle post={post}/>
             </div>

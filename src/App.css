@@ -49,6 +49,7 @@ aside {
     width: 30px;
     height: 30px;
     border-radius: 100%;
+    text-align: center;
 }
 
 .justify-right {
@@ -66,4 +67,11 @@ img {
 
 form {
     position: relative;
+}
+
+.post-list-element {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 5px;
+    min-width: 500px;
 }

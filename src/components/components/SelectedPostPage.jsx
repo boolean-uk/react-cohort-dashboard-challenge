@@ -2,7 +2,7 @@ import PostListItem from "./components/PostListItem";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export default function SelectedPostPage() {
+export default function SelectedPostPage({mockLoggedInUserId}) {
   const [post, setPost] = useState(null);
 
   const { id } = useParams();
@@ -19,7 +19,10 @@ export default function SelectedPostPage() {
 
   return post ? (
     <>
-      <PostListItem post={post} />
+      <PostListItem 
+        post={post}
+        mockLoggedInUserId={mockLoggedInUserId}
+        />
     </>
   ) : (
     <>
