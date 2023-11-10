@@ -18,7 +18,7 @@ function HomePage({ posts, URL, loggedInUser }) {
         <div className="container grid">
             <Header loggedInUserInitials={loggedInUserInitials} />
             <Navigation />
-            <Main posts={posts} URL={URL} loggedInUserColour={loggedInUserColour} />
+            <Main posts={posts} URL={URL} loggedInUserInitials={loggedInUserInitials} loggedInUserColour={loggedInUserColour} />
         </div>
         
     )
