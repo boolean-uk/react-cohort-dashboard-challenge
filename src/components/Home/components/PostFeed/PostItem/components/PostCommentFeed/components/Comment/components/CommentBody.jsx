@@ -6,7 +6,7 @@ import UserName from "@components/UserName";
 import {
   commentProps,
   contactProps,
-} from "../../../../../../../../../utilities/propTypeDefs";
+} from "@utilities/propTypeDefs";
 
 export default function CommentBody({ contact, comment }) {
   if (!contact) {

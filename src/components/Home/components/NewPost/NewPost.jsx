@@ -1,3 +1,5 @@
 export default function NewPost() {
-  return <section></section>
+  return <section></section>;
 }
+
+NewPost.propTypes = null

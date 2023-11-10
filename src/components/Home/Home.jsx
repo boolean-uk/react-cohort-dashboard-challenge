@@ -1,4 +1,4 @@
-import PostFeed from "./PostFeed/PostFeed";
+import PostFeed from "./components/PostFeed/PostFeed";
 
 export default function Home() {
   return (
