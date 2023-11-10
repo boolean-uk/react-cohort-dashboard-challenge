@@ -7,8 +7,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      // eslint-disable-next-line no-undef
       "@components": path.resolve(__dirname, "src/components"),
-      "@utilities": path.resolve(__dirname, "src/utilities")
+      // eslint-disable-next-line no-undef
+      "@utilities": path.resolve(__dirname, "src/utilities"),
     },
   },
 });
