@@ -1,12 +1,12 @@
 import UserName from "./UserName";
 
 
-export default function Comment() {
+export default function Comment({comment}) {
     return(
         <>
             <div>
-                <UserName />
-                <p></p>
+                <UserName contactId={comment.contactId}/>
+                <p>{comment.content}</p>
             </div>
         </>
     )

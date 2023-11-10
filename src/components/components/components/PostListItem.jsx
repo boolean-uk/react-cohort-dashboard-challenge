@@ -7,7 +7,7 @@ export default function PostListItem({post}) {
         <>
             <li>
                 <PostContainer post={post}/>
-                <CommentListContainer />
+                <CommentListContainer postId={post.id}/>
                 <AddCommentContainer />   
             </li>
         </>

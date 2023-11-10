@@ -1,12 +1,12 @@
 import UserInitials from "./components/UserInitials"
 import Comment from "./components/Comment"
 
-export default function CommentContainer() {
+export default function CommentContainer({comment}) {
     return(
         <>
             <li>
                 <UserInitials />
-                <Comment />
+                <Comment comment={comment}/>
             </li>
         </>
     )
