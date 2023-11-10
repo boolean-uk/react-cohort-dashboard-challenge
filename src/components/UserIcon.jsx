@@ -6,11 +6,11 @@ export default function UserIcon({ contact }) {
     return <PulseLoader />;
   }
 
-  const {firstName, lastName} = contact
+  const { firstName, lastName } = contact;
 
   const initials = initialiser(firstName, lastName);
   return (
-    <div className="user-icon grid h-14 w-14 content-center justify-center rounded-full bg-red-400">
+    <div className="user-icon grid h-14 w-14 shrink-0 content-center justify-center rounded-full bg-red-400">
       {initials}
     </div>
   );

@@ -32,9 +32,9 @@
 						- [ ] `<PreviousComments />`
 						- [x] `postCommentFeed.map()` => `<Comment />`
 							- [x] `<UserIcon />`
-							- [ ] `<CommentBody />`
+							- [x] `<CommentBody />`
 								- [x] `<UserName />`
-								- [ ] `<CommentContent />`
+								- [x] `<CommentContent />`
 						- [ ] `<NewComment />`
 							- [x] `<UserIcon />`
 							- [ ] `<NewCommentForm />`

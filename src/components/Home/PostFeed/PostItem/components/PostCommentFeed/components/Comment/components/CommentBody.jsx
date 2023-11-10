@@ -1,4 +1,4 @@
-import CommentContent from "./CommentContent"
+import CommentContent from "./CommentContent";
 import PulseLoader from "../../../../../../../../Loader/PulseLoader";
 import UserName from "../../../../../../../../UserName";
 
@@ -7,10 +7,10 @@ export default function CommentBody({ contact, comment }) {
     return <PulseLoader />;
   }
 
-  const {content} = comment
+  const { content } = comment;
 
   return (
-    <div className="post-comment-body">
+    <div className="post-comment-body rounded-lg bg-cohort-shade p-3">
       <UserName contact={contact} />
       <CommentContent content={content} />
     </div>
