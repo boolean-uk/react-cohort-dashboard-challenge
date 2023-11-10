@@ -8,8 +8,11 @@
 import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
 import Comments from "../Comments/Comments";
+import { useNavigate } from "react-router-dom";
 
 export default function Post({post}) {
+
+  const navigate = useNavigate()
   
   if (!post.contactId) return (<div></div>)
 
@@ -27,13 +30,15 @@ export default function Post({post}) {
 
   if (!user) return <p>Loading…</p>
 
+  const openSinglePost = () => navigate("/post/"+post.id)
+
   return (
     <div className="card" >
       <div className="post-container">
         <ProfileImg contactId={post.contactId} initials={user.firstName[0] + user.lastName[0]}/>
         <div>
           <p className="post-author">{user.firstName + " " + user.lastName}</p>
-          <p className="post-title"><a href={"/post/"+post.id}>{post.title}</a></p>
+          <p className="post-title" onClick={() => openSinglePost()}>{post.title}</p>
           <p className="post-body">{post.content}</p>
         </div>
       </div>
