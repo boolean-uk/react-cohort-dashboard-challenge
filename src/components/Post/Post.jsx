@@ -11,26 +11,26 @@ import Comments from "../Comments/Comments";
 import { useNavigate } from "react-router-dom";
 
 export default function Post({post}) {
-
+  
   const navigate = useNavigate()
   
-  if (!post.contactId) return (<div></div>)
-
   const [user, setUser] = useState(null)
   const loadUser = () => {
+    console.log("testlog", post)
+    console.log("contact ID inside fetch", post.contactId)
     const baseURL = "https://boolean-api-server.fly.dev"
     const endpoint = `/AllyDouillette/contact/${post.contactId}`
-    
+
     fetch(baseURL+endpoint)
-      .then(response => response.json())
-      .then(data => setUser(data))
+    .then(response => response.json())
+    .then(data => setUser(data))
+    .catch((error) => console.log(error))
   }
-
   useEffect(loadUser, [])
-
-  if (!user) return <p>Loading…</p>
-
+  
   const openSinglePost = () => navigate("/post/"+post.id)
+  
+  if (!user) return <p>Loading…</p>
 
   return (
     <div className="card" >

@@ -22,7 +22,7 @@ export default function SinglePostPage () {
   
   return (
     <>
-      <Post post={post}/>
+      <Post post={post} contactId={post.contactId}/>
     </>
   )
 }

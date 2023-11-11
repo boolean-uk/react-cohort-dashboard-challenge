@@ -17,7 +17,6 @@ export default function Home() {
   useEffect(getPosts, []);
   
   if (posts.length === 0) return <p>Loading…</p>
-
   return (
     <>
     {posts.map((post, index) => <Post key={index} post={post}/>)}
