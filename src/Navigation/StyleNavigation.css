@@ -1,0 +1,31 @@
+.navigation {
+    background-color: rgb(181, 193, 193);
+    
+    
+}
+
+.app {
+    display: grid;
+    grid-template: 
+    "header   header   header "
+    "navigation make-post make-post"
+    "navigation   post  post"
+    "navigation  post   post";
+}
+
+.header {
+    grid-area: header;
+}
+
+.navigation {
+    grid-area: navigation;
+}
+
+.post {
+    grid-area: post;
+}
+
+.make-post {
+    grid-area: make-post;
+    background-color: pink;
+}
