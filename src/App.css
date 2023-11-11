@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: grid;
+  grid-template: 75px 1fr / 110px 1fr;
+
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #f0f5fa;
+}
