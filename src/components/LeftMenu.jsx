@@ -1,8 +1,9 @@
-function LeftMenu(){
-    return(
-        <>
-        
-        </>
-    )
+// LeftMenu.js
+
+function LeftMenu() {
+  return (
+    <></>
+  )
 }
-export default LeftMenu
+
+export default LeftMenu;

@@ -1,9 +1,8 @@
 
-function  MainContent(){
-    return(
-        <>
 
-        </>
-    )
-}
-export default MainContent
+function MainContent() {
+  return(
+    <></>
+  )
+  }
+export default MainContent;

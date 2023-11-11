@@ -1,12 +1,10 @@
 
 
-function Header() {
 
-    
-    return(
-        <>
-        </>
-    )
+function Header() {
+  return (
+    <></>
+  )
 }
 
-export default Header
+export default Header;

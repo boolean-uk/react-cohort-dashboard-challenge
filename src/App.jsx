@@ -16,7 +16,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [postComments, setPostComments] = useState([]);
   const [newPost, setNewPost] = useState("");
-  const [newComment, setNewComment] = useState("");
+  const [commentInputs, setCommentInputs] = useState({});
   const { postId } = useParams();
   const reversedPostData = [...posts].reverse();
 
@@ -73,9 +73,17 @@ function App() {
       })
       .catch((error) => console.error("Error submitting main post:", error));
   };
+
+  const handleCommentChange = (postId, value) => {
+    setCommentInputs((prevInputs) => ({
+      ...prevInputs,
+      [postId]: value,
+    }));
+  };
+
   const handleSubmit = (event, postId) => {
     event.preventDefault();
-    console.log("submitting comment", newComment);
+    const newCommentValue = commentInputs[postId];
 
     fetch(
       `https://boolean-api-server.fly.dev/Callumhayden99/post/${postId}/comment`,
@@ -86,18 +94,20 @@ function App() {
           title: "",
           postId: 1,
           contactId: 16,
-          content: newComment,
+          content: newCommentValue,
         }),
       }
     )
       .then((response) => response.json())
       .then((data) => {
-        // Update the specific postComments array with the new comment
         setPostComments((prevComments) => ({
           ...prevComments,
           [postId]: [...(prevComments[postId] || []), data],
         }));
-        setNewComment("");
+        setCommentInputs((prevInputs) => ({
+          ...prevInputs,
+          [postId]: "", // Clear the input after submission
+        }));
       })
       .catch((error) => console.error("Error commenting on post:", error));
   };
@@ -227,14 +237,8 @@ function App() {
                             id=""
                             name=""
                             placeholder="Add a comment..."
-                            value={newComment}
-                            onChange={(e) => {
-                              console.log(
-                                "Comment input value:",
-                                e.target.value
-                              );
-                              setNewComment(e.target.value);
-                            }}
+                            value={commentInputs[post.id] || ""}
+                            onChange={(e) => handleCommentChange(post.id, e.target.value)}
                           />
                         </label>
                         <button className="post-button" type="submit">

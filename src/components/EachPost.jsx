@@ -1,7 +1,7 @@
-function EachPost () {
+function EachPost(){
+
     return(
         <></>
     )
 }
-
 export default EachPost
