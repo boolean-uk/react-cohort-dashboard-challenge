@@ -149,7 +149,7 @@
 
   display: grid;
   grid-template: "userInitialsPost whatsOnMind postButton";
-  grid-template-columns: 90px 1fr 200px;
+  grid-template-columns: 90px 780px 200px;
   gap: 3px;
   padding: 3px;
 }
@@ -168,10 +168,13 @@
   align-self: center;
 }
 
-.whatsOnMind > p {
-  margin-right: 600px;
-  margin-top: 30px;
-  color: grey;
+.whatsOn {
+  width: 770px;
+  margin-right: 180px;
+  margin-top: 20px;
+  height: 40px;
+  background-color: rgb(219, 219, 219);
+  border-radius: 5px;
 }
 
 .postButton {

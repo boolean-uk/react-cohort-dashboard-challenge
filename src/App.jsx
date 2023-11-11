@@ -45,7 +45,13 @@ function App() {
           <div className="postContainer">
             <div className="userInitialsPost"></div>
             <div className="whatsOnMind">
-              <p>What's on your mind?</p>
+              <form>
+                <input
+                  className="whatsOn"
+                  placeholder="What's on your mind?"
+                  type="text"
+                />
+              </form>
             </div>
             <div className="postButton">
               <button className="postBtn">
