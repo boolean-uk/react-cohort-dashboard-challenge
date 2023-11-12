@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
-import EachPost from "./components/EachPost";
-
-import "./styles/App.css";
 import MainContent from "./components/MainContent";
-
+import PostDetails from "./components/PostDetails";
+import "./styles/App.css";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -112,30 +110,28 @@ function App() {
 
   return (
     <div className="container">
-     <Header/>
-
-      <main className="main-grid">
+    <Header/>
+    <main className="main-grid">
       <LeftMenu/>
-      
+
       <Routes>
-        <Route path="/comments/:id" element={<EachPost />} />
+        <Route path="/" element={<MainContent
+          newPost={newPost}
+          setNewPost={setNewPost}
+          mainPostSubmit={mainPostSubmit}
+          reversedPostData={reversedPostData}
+          contacts={contacts}
+          postComments={postComments}
+          handleSubmit={handleSubmit}
+          commentInputs={commentInputs}
+          handleCommentChange={handleCommentChange}
+          mainUserInitials={mainUserInitials}
+        />}/>
+        <Route path="/comments/:postId" element={<PostDetails />} />
       </Routes>
-
-      <MainContent
-       newPost={newPost}
-       setNewPost={setNewPost}
-       mainPostSubmit={mainPostSubmit}
-       reversedPostData={reversedPostData}
-       contacts={contacts}
-       postComments={postComments}
-       handleSubmit={handleSubmit}
-       commentInputs={commentInputs}
-       handleCommentChange={handleCommentChange}
-       mainUserInitials={mainUserInitials}/>
-      </main>
-
+    </main>
+  </div>
       
-    </div>
   );
 }
 

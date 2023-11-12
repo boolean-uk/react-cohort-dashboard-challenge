@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import Submit from "../assets/Submit.svg";
 
@@ -37,10 +36,7 @@ function EachPost({
             ? `${commenter.firstName[0]} ${commenter.lastName[0]}`
             : "";
           return (
-            <div
-              key={`${post.id} ${comment.id}`}
-              className="other-comment"
-            >
+            <div key={`${post.id} ${comment.id}`} className="other-comment">
               <div className="post-initials">{initials}</div>
               <div className="other-comments-post">
                 <div className="comment-post-name">
@@ -48,9 +44,7 @@ function EachPost({
                     ? `${commenter.firstName} ${commenter.lastName}`
                     : ""}
                 </div>
-                <div className="comment-content-post">
-                  {comment.content}
-                </div>
+                <div className="comment-content-post">{comment.content}</div>
               </div>
             </div>
           );

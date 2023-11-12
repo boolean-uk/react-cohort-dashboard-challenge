@@ -13,7 +13,7 @@ function LeftMenu() {
               width={40}
               alt="home logo"
             />
-            <Link to="/Home" className="home">
+            <Link to="/" className="home">
               Home
             </Link>
           </div>
