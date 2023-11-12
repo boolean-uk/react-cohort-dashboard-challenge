@@ -127,7 +127,7 @@ function App() {
           handleCommentChange={handleCommentChange}
           mainUserInitials={mainUserInitials}
         />}/>
-        <Route path="/comments/:postId" element={<PostDetails />} />
+        <Route path="/comments/:postId" element={<PostDetails { ...{contacts, handleSubmit, mainUserInitials, commentInputs, postComments} }/>} />
       </Routes>
     </main>
   </div>
