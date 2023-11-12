@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import UserProfileCircle from "../../../Shared/UserProfileCircle"
 import CommentNameText from "./CommentNameText"
 
-function PostComments({ showComments, comment, URL, userBgColour }) {
+function PostComments({ comment, URL, userBgColour }) {
 
     const [commentAuthor, setCommentAuthor] = useState(null)
 

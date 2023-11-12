@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import PostContent from "./PostContent"
 import CommentContent from "../Comment/CommentContent"
 
-function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
+function SinglePost({ post, URL, loggedInUser, loggedInUserInitials, userBgColour }) {
 
     const [author, setAuthor] = useState(null)
 
@@ -16,14 +16,14 @@ function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
     }, [URL, postId])
 
     if (!author) return <p>Loading post...</p>
-    
+
     const initials = author.firstName.slice(0, 1) + author.lastName.slice(0, 1)
 
     return (
         <section className="single-post-container">
             <li className="single-post grid">
                 <PostContent post={post} author={author} initials={initials} userBgColour={userBgColour} />
-                <CommentContent post={post} loggedInUserInitials={loggedInUserInitials} URL={URL} userBgColour={userBgColour} />
+                <CommentContent post={post} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials}  userBgColour={userBgColour} />
             </li>
         </section>
     )

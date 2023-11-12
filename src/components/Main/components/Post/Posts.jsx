@@ -1,12 +1,12 @@
 import SinglePost from "./SinglePost"
 
-function Posts({ posts, URL, loggedInUserInitials, userBgColour }) {
+function Posts({ posts, URL, loggedInUser, loggedInUserInitials, userBgColour }) {
 
 
     return (
         <ul className="all-posts grid">
             {posts.map((post) => 
-                <SinglePost key={post.id} post={post} URL={URL} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} />
+                <SinglePost key={post.id} post={post} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} />
             )}
         </ul>
         

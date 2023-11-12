@@ -2,7 +2,7 @@ import PostComments from './PostComments'
 import AddNewComment from './AddNewComment'
 import { useEffect, useState } from 'react'
 
-function CommentContent({ post, loggedInUserInitials, URL, userBgColour }) {
+function CommentContent({ post, loggedInUser, loggedInUserInitials, URL, userBgColour }) {
 
     const [showComments, setShowComments] = useState(null)
 
@@ -21,7 +21,7 @@ function CommentContent({ post, loggedInUserInitials, URL, userBgColour }) {
                     <PostComments key={comment.id} comment={comment} URL={URL} userBgColour={userBgColour} />
                 )}
             </ul>
-            <AddNewComment loggedInUserInitials={loggedInUserInitials} />
+            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setShowComments={setShowComments} />
         </section>
     )
 }
