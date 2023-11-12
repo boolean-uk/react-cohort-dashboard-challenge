@@ -127,18 +127,13 @@
 }
 
 /* SINGLE COMMENT */
-/* COMMENT CONTENT */
-.comment-content-container {
-
-}
-
 .single-comment {
     grid-template-columns: 60px 1fr;
     gap: 10px;
     align-items: center;
 }
 
-.comment-content {
+.comment-name-text {
     background-color: #e6ebf5;
     border-radius: 10px;
     padding: 10px 10px 30px 10px;
