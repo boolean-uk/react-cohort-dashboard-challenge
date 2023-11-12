@@ -23,7 +23,7 @@ function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
         <section className="single-post-container">
             <li className="single-post grid">
                 <PostContent post={post} author={author} initials={initials} userBgColour={userBgColour} />
-                <CommentContent loggedInUserInitials={loggedInUserInitials} />
+                <CommentContent loggedInUserInitials={loggedInUserInitials} URL={URL} userBgColour={userBgColour} />
             </li>
         </section>
     )

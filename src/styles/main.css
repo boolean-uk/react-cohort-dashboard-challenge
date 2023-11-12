@@ -111,7 +111,52 @@
 
 /* COMMENTS */
 
-.comment {
+/* All COMMENTS CONTAINER */
+.comment-container {
+    grid-template-rows: auto 80px;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+/* COMMENT LIST */
+.post-comments-list {
+    grid-template-rows: repeat(auto-fit, auto);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+/* SINGLE COMMENT */
+/* COMMENT CONTENT */
+.comment-content-container {
+
+}
+
+.single-comment {
+    grid-template-columns: 60px 1fr;
+    /* border: solid 1px black; */
+}
+
+.comment-content {
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.comment-author-name {
+    margin: 0;
+    color: #000046;
+}
+
+.comment-content-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000046;
+}
+
+
+/* ADD NEW COMMENT */
+.add-new-comment-container {
     grid-template-columns: 60px 1fr;
     gap: 10px;
     margin: 20px 0 10px 0;
