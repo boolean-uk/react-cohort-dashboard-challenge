@@ -2,18 +2,17 @@ import PostComments from './PostComments'
 import AddNewComment from './AddNewComment'
 import { useEffect, useState } from 'react'
 
-function CommentContent({ loggedInUserInitials, URL, userBgColour }) {
+function CommentContent({ post, loggedInUserInitials, URL, userBgColour }) {
 
     const [showComments, setShowComments] = useState(null)
 
     useEffect(() => {
-        fetch(`${URL}/post/1/comment`)
+        fetch(`${URL}/post/${post.id}/comment`)
             .then(res => res.json())
             .then(data => setShowComments(data))
-    }, [URL])
+    }, [URL, post])
     
-    // console.log(showComments)
-    if (!showComments) return <p>Comment removed</p>
+    if (!showComments) return <p>Comment not available</p>
 
     return (
         <section className="comment-container grid">
