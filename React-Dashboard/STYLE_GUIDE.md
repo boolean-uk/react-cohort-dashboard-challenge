@@ -1,0 +1,9 @@
+- Header background, button & font colour: #000046
+- Form input background colour: #e6ebf5
+- Button hover colour: #64dc78
+- Post title colour: #64648c
+- Body background colour: #F0F5FA
+- [Header logo SVG](./_assets/title-header-svg.md)
+- [Home icon SVG](./_assets/home-icon-svg.md)
+- [Profile icon SVG](./_assets/profile-icon-svg.md)
+- /Users/admin/Desktop/Boolean/Reach-Dashboard-Challenge/React-Dashboard/assets/home-icon-svg.md

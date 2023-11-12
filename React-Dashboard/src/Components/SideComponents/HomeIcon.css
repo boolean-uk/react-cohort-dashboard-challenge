@@ -1,0 +1,52 @@
+
+aside{
+    display:grid;
+    grid-template-rows: 80px 1fr;
+   
+    
+}
+
+
+aside>figure:first-of-type{
+    background-color: #e6ebf5;
+    text-align: center;
+    padding: 20px;
+    
+}
+aside>figure:last-of-type{
+    margin-top: 20px;
+    text-align: center;
+}
+
+aside>figure:first-of-type >i{
+    font-size:25px;
+    color: #000046;
+ 
+}
+aside>figure:first-of-type >p{
+    font-family: sans-serif;
+    padding-top: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000046;
+
+}
+aside>figure:last-of-type > i{
+    font-size:25px;
+    color: #64648c;
+   
+
+}
+
+aside>figure:last-of-type > p{
+    font-family: sans-serif;
+    padding-top: 5px;
+    font-weight: bold;
+    color: #64648c;
+   
+
+}
+
+aside>figure:hover{
+    cursor: pointer;
+}

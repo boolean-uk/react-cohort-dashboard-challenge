@@ -1,0 +1,29 @@
+
+.comment-input-box{
+    position: relative;
+
+}
+
+.comment-input-box > input{
+    width: 100%;
+    height: 100%;
+    background-color: #e6ebf5;
+    outline: none;
+    padding: 10px;
+    border: none;
+
+}
+
+.comment-input-box > i{
+    font-size: 1.2rem;
+    color: #000046;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    padding-right: 10px;
+}
+
+.comment-input-box > i:hover{
+    cursor: pointer;
+}
