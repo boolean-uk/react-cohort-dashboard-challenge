@@ -121,7 +121,7 @@
 /* COMMENT LIST */
 .post-comments-list {
     grid-template-rows: repeat(auto-fit, auto);
-    gap: 10px;
+    gap: 15px;
     list-style: none;
     padding: 0;
 }
@@ -134,13 +134,15 @@
 
 .single-comment {
     grid-template-columns: 60px 1fr;
-    /* border: solid 1px black; */
+    gap: 10px;
+    align-items: center;
 }
 
 .comment-content {
     background-color: #e6ebf5;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 10px 30px 10px;
+    margin-left: 10px;
 }
 
 .comment-author-name {
@@ -152,6 +154,7 @@
     font-size: 14px;
     font-weight: 500;
     color: #000046;
+    margin: 0;
 }
 
 
