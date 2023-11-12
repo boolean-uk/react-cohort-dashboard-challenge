@@ -1,13 +1,21 @@
-import { useEffect } from "react";
-function Main(props) {
-  const { showComments, setShowComments } = props;
-  useEffect(()=>console.log('this is home',showComments ), [showComments]);
+
+function Home() {
   return (
-    <main>
-      {showComments.map((data, index) => (
-        <p key={index}>{data.content}</p>
-      ))}
-    </main>
+    <>
+      <main>
+        <label>
+          <input
+            type="text"
+            name="user"
+            placeholder="what's on your mind?"
+          ></input>
+          
+        </label>
+        <input className="form__submit" type="submit" value="Post" />
+    
+
+      </main>
+    </>
   );
 }
-export default Main;
+export default Home;

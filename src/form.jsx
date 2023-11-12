@@ -1,47 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-const initialState = {
-  firstname: "",
-  lastname: "",
-  street: "",
-  city: "",
-};
 function Form() {
-  const [form, setForm] = useState(initialState);
-  const { getComments, URL } = props;
-  const navigate = useNavigate();
 
-  const submitForm = (event) => {
-    event.preventDefault();
-    console.log(form);
-    setForm(initialState);
-    createNewcomments();
-    navigate("/");
-  };
-  const createNewcomments = () => {
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          firstName: form.firstname,
-          lastName: form.lastname,
-          street: form.street,
-          city: form.city,
-        })
-    }
-    fetch(URL, options)
-    .then(res => res.json())
-    .then(() => getComments())
-}
-  const handleChange = (event) => {
-    const { name, type, value } = event.target;
-    if (type === 'text') {
-      setForm({ ...form, [name]: value })
-    } 
-    console.log(event.target)
-  }
   return (
     <div className="form">
       <h1>Profile</h1>
