@@ -1,4 +1,4 @@
-import SubmitCommentArrow from '../../../../_assets/submit-comment-arrow.svg'
+import SubmitCommentArrow from '../../../../../_assets/submit-comment-arrow.svg'
 
 function AddCommentForm() {
 

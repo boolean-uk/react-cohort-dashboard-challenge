@@ -1,4 +1,4 @@
-import LoggedInProfileCircle from "../../Shared/LoggedInProfileCircle"
+import LoggedInProfileCircle from "../../../Shared/LoggedInProfileCircle"
 import AddPostForm from "./AddPostForm"
 
 function CreatePost({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts }) {

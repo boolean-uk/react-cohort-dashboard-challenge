@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import PostContent from "./PostContent"
-import Comments from "./Comments"
+import CommentContent from "../Comment/CommentContent"
 
 function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
 
@@ -15,7 +15,7 @@ function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
             .then(data => setAuthor(data))
     }, [URL, postId])
 
-    if (!author) return <p>Unknown Author</p>
+    if (!author) return <p>Loading post...</p>
 
     const initials = author.firstName.slice(0, 1) + author.lastName.slice(0, 1)
 
@@ -23,7 +23,7 @@ function SinglePost({ post, URL, loggedInUserInitials, userBgColour }) {
         <section className="single-post-container">
             <li className="single-post grid">
                 <PostContent post={post} author={author} initials={initials} userBgColour={userBgColour} />
-                <Comments loggedInUserInitials={loggedInUserInitials} />
+                <CommentContent loggedInUserInitials={loggedInUserInitials} />
             </li>
         </section>
     )

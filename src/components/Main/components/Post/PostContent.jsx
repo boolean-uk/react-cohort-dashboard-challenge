@@ -1,4 +1,4 @@
-import UserProfileCircle from "../../Shared/UserProfileCircle"
+import UserProfileCircle from "../../../Shared/UserProfileCircle"
 import NameTitleContainer from "./NameTitleContainer"
 
 function PostContent({ post, initials, author, userBgColour }) {

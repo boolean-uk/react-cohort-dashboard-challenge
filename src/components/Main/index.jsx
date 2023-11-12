@@ -1,5 +1,5 @@
-import CreatePost from "./components/CreatePost"
-import Posts from "./components/Posts"
+import CreatePost from "./components/NewPost/CreatePost"
+import Posts from "./components/Post/Posts"
 
 import '../../styles/main.css'
 

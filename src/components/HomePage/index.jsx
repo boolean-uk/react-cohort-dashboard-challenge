@@ -6,7 +6,7 @@ import '../../styles/initials.css'
 
 function HomePage({ posts, URL, loggedInUser, setShouldGetPosts }) {
 
-    if (!loggedInUser) return <p>???</p>
+    if (!loggedInUser) return <p>Loading...</p>
     const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
 
     function userBgColour(user) {

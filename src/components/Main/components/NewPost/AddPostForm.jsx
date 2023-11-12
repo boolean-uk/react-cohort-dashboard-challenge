@@ -7,7 +7,7 @@ function AddPostForm({ posts, URL, loggedInUser, setShouldGetPosts }) {
     const newPost = {
         id: posts.length + 1,
         contactId: loggedInUser.id,
-        title: `${newPostText.slice(0, 15)}...`,
+        title: `${newPostText.slice(0, 30)}...`,
         content: newPostText
     }
 
