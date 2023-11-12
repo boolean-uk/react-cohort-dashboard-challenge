@@ -150,22 +150,25 @@
   display: grid;
   grid-template: "userInitialsPost whatsOnMind postButton";
   grid-template-columns: 90px 780px 200px;
-  gap: 3px;
+  /* gap: 3px; */
   padding: 3px;
+  background-color: rgba(219, 219, 219, 0.946);
 }
 
 .userInitialsPost {
   grid-area: userInitialsPost;
   border: black dashed 1px;
-  /* height: 90px; */
-  /* align-self: center; */
+  height: 80px;
+  align-self: center;
+  background-color: #f0f5fa;
 }
 
 .whatsOnMind {
   grid-area: whatsOnMind;
-  border: black dashed 1px;
+  /* border: black dashed 1px; */
   height: 80px;
   align-self: center;
+  background-color: #f0f5fa;
 }
 
 .whatsOn {
@@ -179,13 +182,16 @@
 
 .postButton {
   grid-area: postButton;
-  border: black dashed 1px;
+  /* border: black dashed 1px; */
+  height: 80px;
+  align-self: center;
+  background-color: #f0f5fa;
 }
 
 .postBtn {
   width: 150px;
   height: 43px;
-  margin-top: 45px;
+  margin-top: 20px;
   background-color: #000046;
   border-radius: 5px;
 }
@@ -203,7 +209,7 @@
   grid-template:
     "commentSection"
     "addAComment";
-  grid-template-rows: 150px 150px;
+  grid-template-rows: 200px 150px;
   gap: 3px;
   padding: 3px;
 }
@@ -216,7 +222,7 @@
   grid-template:
     "userInfoCon"
     "comment";
-  grid-template-rows: auto auto;
+  grid-template-rows: auto 1fr;
   gap: 3px;
   padding: 3px;
 }
@@ -224,16 +230,100 @@
 .userInfoCon {
   grid-area: userInfoCon;
   border: black dashed 1px;
+
+  display: grid;
+  grid-template: "intialsInCommentCon nameTitleCon";
+  grid-template-columns: 60px 1000px;
+
+  gap: 3px;
+  padding: 3px;
+}
+
+.intialsInCommentCon {
+  grid-area: intialsInCommentCon;
+  border: black dashed 1px;
+  height: 80px;
+  align-self: center;
+}
+
+.nameTitleCon {
+  grid-area: nameTitleCon;
+  border: black dashed 1px;
+
+  display: grid;
+  grid-template:
+    "name"
+    "title";
+  grid-template-rows: 50px 50px;
+  gap: 3px;
+  padding: 3px;
+}
+
+.name {
+  grid-area: name;
+  border: black dashed 1px;
+}
+
+.name > p {
+  margin-right: 900px;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.title {
+  grid-area: title;
+  border: black dashed 1px;
+}
+
+.title > p {
+  margin-right: 640px;
+  font-size: 14px;
+  margin-top: 16px;
+  color: rgb(67, 66, 66);
 }
 
 .comment {
   grid-area: comment;
   border: black dashed 1px;
+  font-size: 14px;
+}
+
+.comment > p {
+  text-align: left;
+  padding: 10px;
 }
 
 .addAComment {
   grid-area: addAComment;
   border: black dashed 1px;
+  display: grid;
+  grid-template: "userInitialsComment commentInput";
+  grid-template-columns: 70px 1fr;
+  gap: 3px;
+  padding: 3px;
+}
+
+.userInitialsComment {
+  grid-area: userInitialsComment;
+  border: black dashed 1px;
+  height: 80px;
+  align-self: center;
+}
+
+.commentInput {
+  grid-area: commentInput;
+  border: black dashed 1px;
+  height: 80px;
+  align-self: center;
+}
+
+.inputAComment {
+  width: 800px;
+  margin-right: 180px;
+  margin-top: 20px;
+  height: 40px;
+  background-color: rgb(219, 219, 219);
+  border-radius: 5px;
 }
 
 @media (prefers-color-scheme: light) {

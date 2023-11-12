@@ -19,7 +19,7 @@ function App() {
               alt="header"
             />
           </div>
-          <div className="userInitials"></div>
+          <div className="userInitials">Initials</div>
         </header>
         {/* SideBar */}
         <nav className="sideBar">
@@ -61,10 +61,42 @@ function App() {
           </div>
           <div className="commentContainer">
             <div className="commentSection">
-              <div className="userInfoCon">user intials, name and title</div>
-              <div className="comment">comment</div>
+              <div className="userInfoCon">
+                <div className="intialsInCommentCon">Another person</div>
+                <div className="nameTitleCon">
+                  <div className="name">
+                    <p>
+                      <strong>Sam Fletcher</strong>
+                    </p>
+                  </div>
+                  <div className="title">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="comment">
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Rerum ab molestiae, excepturi repellendus possimus, aspernatur
+                  officiis eos porro aperiam suscipit aut fugiat? Voluptas
+                  recusandae quia sint, qui reiciendis placeat magnam!
+                </p>
+              </div>
             </div>
-            <div className="addAComment"></div>
+            <div className="addAComment">
+              <div className="userInitialsComment"></div>
+              <div className="commentInput">
+                <form>
+                  <input
+                    className="inputAComment"
+                    placeholder="Add a comment"
+                    type="text"
+                  />
+                </form>
+              </div>
+            </div>
           </div>
         </main>
       </div>
