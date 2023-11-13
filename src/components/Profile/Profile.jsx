@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import FormField from "./FormField"
+import { useNavigate } from "react-router-dom"
 
 export default function Profile ({ contactId }) {
 
+  const navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [changes, setChanges] = useState(false)
   
@@ -41,6 +43,7 @@ export default function Profile ({ contactId }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     submitUser()
+    navigate("/")
   }
 
   if (!user) return
@@ -75,9 +78,7 @@ export default function Profile ({ contactId }) {
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       {formFields.map((field, index) => <FormField key={index} description={field.description} value={field.value} type={field.type} name={field.name} handleChange={handleChange}/>)}
-      { contactId === 1 &&
-        <button>Submit</button>
-      }
+      <button>Submit</button>
     </form>
   )
 }

@@ -18,16 +18,14 @@ export default function Comments ({postId}) {
 
   useEffect(getComments, [])
 
-  const loadMoreComments = () => setVisibleComments(Math.min(visibleComments + parseInt(comments.length / 3), comments.length))
-
   return (
     <>
     {comments.length > visibleComments ? (
-      <p className="expandComments" onClick={() => loadMoreComments()}>
+      <p className="expandComments" onClick={() => setVisibleComments(comments.length)}>
         See previous comments
       </p>
     ) : (
-      <p className="expandComments" onClick={() => setVisibleComments(parseInt(comments.length / 3))}>
+      <p className="expandComments" onClick={() => setVisibleComments(3)}>
         Hide older comments
       </p>
     )}
