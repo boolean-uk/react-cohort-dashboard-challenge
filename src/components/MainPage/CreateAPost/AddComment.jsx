@@ -8,23 +8,34 @@ const initial_state = {
     content: ""
 }
 
+let contactId = 1
+
 function AddComment (props) {
 
     const { post } = props
 
-    const [newComment, setNewComment] = useState(initial_state)
+    const [comments, setComments] = useState(initial_state)
+
+    console.log("comments", comments);
+
+    const postId = post.id
+
+    function resetForm() {
+        setComments(initial_state)
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
 
         const data = {
-            contactId: 1,
+            contactId: contactId,
+            postId: postId,
             content: e.target[0].value
         }
 
         const userName = "TomEastwood"
             const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
-            const endpointForComments = `/post/${post.id}/comment`
+            const endpointForComments = `/post/${postId}/comment`
     
             const options = {
                 method: "POST",
@@ -35,8 +46,11 @@ function AddComment (props) {
             }
             fetch(baseUrl + endpointForComments, options)
                 .then(res => res.json())
-                .then(data => setNewComment(data))
+                .then(data => setComments(data))
+                .then(resetForm())
     }
+
+    console.log("new comment added", comments);
 
     return (
         <div className="add-comment">
@@ -49,14 +63,12 @@ function AddComment (props) {
                         type="text"
                         name = "content"
                         placeholder="Add a comment..."
-                        value={newComment.content}
-                        onChange={(e) => setNewComment({...newComment, [e.target.name]: e.target.value})}
+                        value={comments.content}
+                        onChange={(e) => setComments({...comments, [e.target.name]: e.target.value})}
                     />
+                        <button type="submit">Post</button> 
                 </form>
             </div>
-            <div className = "comment-button">
-                <button type="submit">Post</button>
-            </div>  
         </div>
     )
 }

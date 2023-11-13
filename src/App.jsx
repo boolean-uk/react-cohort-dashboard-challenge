@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header/Header'
 import Posts from './components/MainPage/CreateAPost/PostSection/Posts'
 import CreatePost from './components/MainPage/CreateAPost/CreateAPost'
+import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import { useEffect, useState } from 'react'
 
@@ -27,6 +28,10 @@ function App() {
         />
       </div>
       <div className = "main-section">
+        <aside className = "side-bar">
+          <Navbar 
+          />
+        </aside>
         <div className = "create-a-post">
           <CreatePost 
             contact={contact}

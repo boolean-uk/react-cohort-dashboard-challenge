@@ -61,7 +61,9 @@ function Post (props) {
             </div>
             <div className="add-comment">
                 <AddComment 
+                    key={post.id}
                     post={post}
+                    contact={contact}
                 />
             </div>
         </li>
