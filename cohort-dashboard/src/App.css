@@ -186,6 +186,11 @@ aside {
   margin-left: 20px;
 }
 
+.profile-link {
+  text-decoration: none;
+  color: #000;
+}
+
 .post-link {
   font-weight: 500;
   text-decoration: none;
@@ -288,3 +293,5 @@ aside {
   background-color: #000046;
   cursor: pointer;
 }
+
+/* Profile page */

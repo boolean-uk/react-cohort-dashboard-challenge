@@ -23,9 +23,16 @@ export default function PostListItem({ post }) {
           <ProfileIcon contact={contact} />
           <div className="post-header__author-title">
             <h3>
-              {contact
-                ? `${contact.firstName} ${contact.lastName}`
-                : "Loading..."}
+              {contact ? (
+                <Link
+                  className="profile-link"
+                  to={`/${post.contactId}/profile`}
+                >
+                  {`${contact.firstName} ${contact.lastName}`}
+                </Link>
+              ) : (
+                "Loading..."
+              )}
             </h3>
             <Link to={`/${post.id}/post`} className="post-link">
               {post.title}
