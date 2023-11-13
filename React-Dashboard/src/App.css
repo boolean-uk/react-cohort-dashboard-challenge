@@ -42,9 +42,9 @@ main > section:first-of-type{
   align-items: center;
 
 }
-main > section:first-of-type > div{
+main > section:first-of-type > form{
   display: grid;
-  grid-template-columns:1fr 120px;
+  grid-template-columns:120px 1fr 120px;
   column-gap: 10px;
 ;
 }
@@ -56,10 +56,11 @@ main > section:first-of-type input, button{
   padding: 10px
 
 }
-main > section:first-of-type input{
+main > section:first-of-type input > ::placeholder{
   background-color: #e6ebf5;
-
+  text-align: center;
 }
+
 
 main > section:first-of-type  button{
    background-color:#000046 ;

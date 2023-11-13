@@ -8,7 +8,7 @@ function FirstContact(props) {
   const navigate = useNavigate();
 
   const fetchContactIdone = () => {
-    fetch("https://boolean-api-server.fly.dev/vherus/contact/1")
+    fetch("https://boolean-api-server.fly.dev/tayokanch/contact/1")
       .then((response) => response.json())
       .then((data) => setContactIdOne(data));
   };

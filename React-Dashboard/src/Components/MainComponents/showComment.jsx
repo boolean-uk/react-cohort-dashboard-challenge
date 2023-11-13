@@ -7,9 +7,11 @@ import "./showComment.css";
 function showComment(props) {
   const [comment, setComment] = useState([]);
   const { content, setContent } = props;
+  const { anotherComment, setAnotherComment } = props;
   const [allContact, setAllContact] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const { contactIdOne, setContactIdOne } = props;
+  const { rerenderpost, setRerenderPost } = props;
 
   const INITIAL_COMMENTS = {
     postId: "",
@@ -22,7 +24,7 @@ function showComment(props) {
   const navigate = useNavigate();
 
   const fetchPost = () => {
-    fetch("https://boolean-api-server.fly.dev/vherus/post")
+    fetch("https://boolean-api-server.fly.dev/tayokanch/post")
       .then((response) => response.json())
       .then((data) => {
         //console.log("this is the post", data);
@@ -31,7 +33,7 @@ function showComment(props) {
   };
 
   const fetchAllContact = () => {
-    fetch("https://boolean-api-server.fly.dev/vherus/contact")
+    fetch("https://boolean-api-server.fly.dev/tayokanch/contact")
       .then((response) => response.json())
       .then((data) => {
         setAllContact(data);
@@ -74,7 +76,7 @@ function showComment(props) {
   }, [allContact, content]);
 
   useEffect(() => {
-    console.log("This is combinedData", combinedData);
+    //console.log("This is combinedData", combinedData);
   }, [combinedData]);
 
   const getRandomColor = () => {
@@ -85,14 +87,22 @@ function showComment(props) {
   const handleChange = (e, index, postId, contactId) => {
     const updateNewComment = { ...newComment };
     if (!updateNewComment.comments[index]) {
-      updateNewComment.comments[index] = [];
+      updateNewComment.comments[index] = {};
     }
-    updateNewComment.comments[index].push(e.target.value);
+    updateNewComment.comments[index] = { comment: e.target.value };
     updateNewComment.postId = postId;
     updateNewComment.contactId = contactId;
 
     setNewcomment(updateNewComment);
   };
+
+  useEffect(() => {
+    if (rerenderpost) {
+      fetchPost();
+      console.log(content);
+      setRerenderPost(false);
+    }
+  }, [rerenderpost]);
 
   return (
     <>
@@ -121,7 +131,6 @@ function showComment(props) {
               setContactIdOne={setContactIdOne}
             />
             <AddCommentInput
-              content={content}
               setContent={setContent}
               newComment={newComment}
               setNewcomment={setNewcomment}
