@@ -5,10 +5,10 @@ function Main(props) {
   const {
     contactIdOne,
     setContactIdOne,
-    comment,
-    setComment,
     allContact,
     setAllContact,
+    content,
+    setContent,
   } = props;
 
   return (
@@ -22,12 +22,12 @@ function Main(props) {
       </section>
       <section className="displayed-post">
         <PostComment
-          comment={comment}
-          setComment={setComment}
-          allContact={allContact}
-          setAllContact={setAllContact}
           contactIdOne={contactIdOne}
           setContactIdOne={setContactIdOne}
+          content={content}
+          setContent={setContent}
+          allContact={allContact}
+          setAllContact={setAllContact}
         />
       </section>
     </main>

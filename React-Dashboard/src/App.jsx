@@ -9,7 +9,8 @@ import "./App.css";
 
 function App() {
   const [contactIdOne, setContactIdOne] = useState("");
-  const [comment, setComment] = useState([]);
+  const [content, setContent] = useState([]);
+
   const [allContact, setAllContact] = useState([]);
   return (
     <div className="main-app-template">
@@ -21,8 +22,8 @@ function App() {
             <Main
               contactIdOne={contactIdOne}
               setContactIdOne={setContactIdOne}
-              comment={comment}
-              setComment={setComment}
+              content={content}
+              setContent={setContent}
               allContact={allContact}
               setAllContact={setAllContact}
             />

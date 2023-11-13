@@ -5,19 +5,29 @@ import { useNavigate } from "react-router-dom";
 import "./showComment.css";
 
 function showComment(props) {
-  const { setComment, setAllContact } = props;
-  const [comment, setCommentState] = useState([]);
-  const [allContact, setAllContactState] = useState([]);
+  const [comment, setComment] = useState([]);
+  const { content, setContent } = props;
+
+  const [allContact, setAllContact] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const { contactIdOne, setContactIdOne } = props;
+
+  const INITIAL_COMMENTS = {
+    postId: "",
+    comments: [],
+    contactId: "",
+  };
+
+  const [newComment, setNewcomment] = useState(INITIAL_COMMENTS);
+
   const navigate = useNavigate();
 
   const fetchPost = () => {
     fetch("https://boolean-api-server.fly.dev/vherus/post")
       .then((response) => response.json())
       .then((data) => {
-        console.log("this is the post", data);
-        setCommentState(data);
+        //console.log("this is the post", data);
+        setContent(data);
       });
   };
 
@@ -25,7 +35,7 @@ function showComment(props) {
     fetch("https://boolean-api-server.fly.dev/vherus/contact")
       .then((response) => response.json())
       .then((data) => {
-        setAllContactState(data);
+        setAllContact(data);
       });
   };
 
@@ -35,24 +45,26 @@ function showComment(props) {
   }, []);
 
   useEffect(() => {
-    console.log(allContact, comment);
-  }, [allContact, comment]);
+    console.log(allContact, content);
+  }, [allContact, content]);
 
   useEffect(() => {
-    if (allContact.length > 0 && comment.length > 0) {
+    if (allContact.length > 0 && content.length > 0) {
       const combined = allContact
         .map((contact, index) => {
           if (
-            comment[index] &&
-            comment[index].title &&
-            comment[index].content
+            content[index] &&
+            content[index].title &&
+            content[index].content
           ) {
             return {
               initial: contact.firstName.charAt(0) + contact.lastName.charAt(0),
               firstName: contact.firstName,
               lastName: contact.lastName,
-              title: comment[index].title,
-              content: comment[index].content,
+              title: content[index].title,
+              content: content[index].content,
+              contactId: content[index].contactId,
+              postId: content[index].postId,
               color: getRandomColor(),
             };
           }
@@ -60,7 +72,11 @@ function showComment(props) {
         .filter(Boolean);
       setCombinedData(combined);
     }
-  }, [allContact, comment]);
+  }, [allContact, content]);
+
+  useEffect(() => {
+    console.log("This is combinedData", combinedData);
+  }, [combinedData]);
 
   const getRandomColor = () => {
     // Function to generate a random hex color
@@ -94,8 +110,12 @@ function showComment(props) {
               setContactIdOne={setContactIdOne}
             />
             <AddCommentInput
-              comment={comment}
-              setCommentState={setCommentState}
+              content={content}
+              setContent={setContent}
+              newComment={newComment}
+              setNewcomment={setNewcomment}
+              combinedData={combinedData}
+              setCombinedData={setCombinedData}
             />
           </section>
         </section>

@@ -3,17 +3,10 @@ import { useState, useEffect } from "react";
 import "./AddCommentInput.css";
 
 function AddCommentInput(props) {
-  /*   const INITIAL_COMMENTS = {
-    postId: postId,
-    content: "",
-    contactId: contactId,
-  };
+  const { combinedData, setCombinedData } = props;
+  const { newComment, setNewcomment } = props;
 
-  const { comment, setCommentState } = props;
-  //const [newCommentData, setNewCommentData] = useState(INITIAL_COMMENTS);
-  const [newComment, setNewcomment] = useState(INITIAL_COMMENTS);
-
-  const postComment = () => {
+  /*   const postNewComment = () => {
     const options = {
       METHOD: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,14 +14,28 @@ function AddCommentInput(props) {
     };
   }; */
 
+  const submitcomment = (e) => {
+    e.preventDefault();
+    console.log(newComment);
+  };
+
+  const handleChange = (e) => {
+    setNewcomment({
+      ...combinedData,
+      Comment: e.target.value,
+    });
+  };
+
   return (
-    <form className="comment-input-box">
+    <form className="comment-input-box" onSubmit={(e) => submitcomment(e)}>
       <input
         type="text"
         placeholder="Add a comment..."
-        /*  onChange={(e) => setNewcomment({...newComment, })} */
+        onChange={handleChange}
       ></input>
-      <i class="fa-regular fa-paper-plane"></i>
+      <button type="submit">
+        <i class="fa-regular fa-paper-plane"></i>
+      </button>
     </form>
   );
 }

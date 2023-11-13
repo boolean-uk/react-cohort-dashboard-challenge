@@ -9,12 +9,12 @@
     height: 100%;
     background-color: #e6ebf5;
     outline: none;
-    padding: 10px;
+    padding: 20px;
     border: none;
 
 }
 
-.comment-input-box > i{
+.comment-input-box > button{
     font-size: 1.2rem;
     color: #000046;
     position: absolute;
@@ -22,8 +22,9 @@
     top: 50%;
     right: 0;
     padding-right: 10px;
+    border-radius: 50%;
 }
 
-.comment-input-box > i:hover{
+.comment-input-box > button:hover{
     cursor: pointer;
 }
