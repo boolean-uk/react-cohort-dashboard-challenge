@@ -5,7 +5,7 @@ export default function ViewPost({posts}) {
     const [viewPost, setViewPost] = useState(undefined)
     const [postUser, setPostUser] = useState({})
     const [postComments, setPostComments] = useState([])
-    const [postCommentAuthors, setPostCommentAuthors] =  useState({})
+    const [postCommentAuthors, setPostCommentAuthors] =  useState([])
 
     const navigate = useNavigate()
 
