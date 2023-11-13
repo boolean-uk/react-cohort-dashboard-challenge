@@ -5,7 +5,6 @@ function LoggedInProfileCircle({ loggedInUserInitials }) {
             <p className='initials-text'>{loggedInUserInitials}</p>
         </div>
     )
-    
 }
 
 export default LoggedInProfileCircle

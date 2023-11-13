@@ -5,6 +5,7 @@
     grid-template-rows: 100px 1fr;
     gap: 20px;
     padding: 20px 40px 20px 20px;
+    height: 100%;
 }
 
 /* CREATE POST */

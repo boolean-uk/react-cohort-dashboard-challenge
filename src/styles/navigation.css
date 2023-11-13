@@ -4,6 +4,7 @@
     grid-area: Navigation;
     grid-template-rows: repeat(2, 130px);
     background-color: white;
+    height: 100%;
 }
 
 .nav-icon-container {
