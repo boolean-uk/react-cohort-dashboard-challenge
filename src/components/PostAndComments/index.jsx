@@ -1,5 +1,4 @@
 import SinglePost from "../Main/components/Post/SinglePost"
-import userBgColour from "../Shared/UserBgColour"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
@@ -18,8 +17,7 @@ import { useParams } from "react-router-dom"
     if (!showPost) return <p>No post to display</p>
     return (
         <section>
-
-            <SinglePost post={showPost} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour}></SinglePost>
+            <SinglePost post={showPost} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
         </section>
     )
 }

@@ -93,9 +93,16 @@
     grid-template-rows: 30px 20px;
 }
 
+
+/* POST AUTHOR */
 .author-name {
     margin: 0;
     color: #000046;
+}
+
+/* POST TITLE */
+.post-title-link {
+    text-decoration: none;
 }
 
 .post-title {
@@ -104,6 +111,18 @@
     color: #64648c;
 }
 
+.post-title:hover {
+    color: #64dc78;
+}
+
+.current-selected-post {
+    margin: 0;
+    font-size: 14px;
+    color: blueviolet;
+    text-decoration: none;
+}
+
+/* POST TEXT */
 .post-content-text {
     color: #000046;
 }
