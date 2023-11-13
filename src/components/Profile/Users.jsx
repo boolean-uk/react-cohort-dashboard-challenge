@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import userArr from "./users";
 import { useParams } from "react-router-dom";
 import Profile from "./Profile";
 

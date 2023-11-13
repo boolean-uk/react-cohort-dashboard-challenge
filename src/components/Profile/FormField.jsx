@@ -1,10 +1,11 @@
-export default function FormField({description, name, value, type}) {
+export default function FormField({description, name, value, type, handleChange}) {
   return (
     <label>{description}
-      <input 
+      <input
         name={name}
-        value={value}
+        defaultValue={value}
         type={type}
+        onChange={(event) => handleChange(event)}
       />
     </label>
   )

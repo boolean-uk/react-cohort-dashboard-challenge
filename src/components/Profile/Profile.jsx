@@ -4,16 +4,44 @@ import FormField from "./FormField"
 export default function Profile ({ contactId }) {
 
   const [user, setUser] = useState(null)
+  const [changes, setChanges] = useState(false)
+  
+  const baseURL = "https://boolean-api-server.fly.dev"
+  const endpoint = `/AllyDouillette/contact/${contactId}`
+  
   const loadUser = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const endpoint = `/AllyDouillette/contact/${contactId}`
     
     fetch(baseURL+endpoint)
       .then(response => response.json())
       .then(data => setUser(data))
   }
 
+  const submitUser = () => {
+    const myHeaders = {
+      "content-type": "application/json"
+    }
+
+    const options = {
+      method: "PUT",
+      headers: myHeaders,
+      body: JSON.stringify(user)
+    }
+
+    fetch(baseURL+endpoint, options)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
   useEffect(loadUser, [])
+
+  const handleChange = (event) => {
+    setUser({...user, [event.target.name]: event.target.value})
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    submitUser()
+  }
 
   if (!user) return
 
@@ -43,9 +71,13 @@ export default function Profile ({ contactId }) {
       type: "text"
     }
   ]
+
   return (
-    <form>
-      {formFields.map((field, index) => <FormField key={index} description={field.description} value={field.value} type={field.type} name={field.name}/>)}
+    <form onSubmit={(event) => handleSubmit(event)}>
+      {formFields.map((field, index) => <FormField key={index} description={field.description} value={field.value} type={field.type} name={field.name} handleChange={handleChange}/>)}
+      { contactId === 1 &&
+        <button>Submit</button>
+      }
     </form>
   )
 }
