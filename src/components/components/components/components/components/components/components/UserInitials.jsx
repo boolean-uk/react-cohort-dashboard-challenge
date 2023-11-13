@@ -1,4 +1,5 @@
 import { useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 export default function UserInitials({contactId}) {
   const [contact, setContact] = useState(null)
@@ -13,9 +14,12 @@ export default function UserInitials({contactId}) {
 
     return(
         contact? <>
-                <div className="round-container">
-                    <p className="user-initials">{contact.firstName[0] + contact.lastName[0]}</p>
-                </div>
+        <Link to={`/profile/${contactId}`}>
+              <div className="round-container">
+                <p>{contact.firstName[0] + contact.lastName[0]}</p>
+              </div>
+        </Link>
+
             </> :
             <div></div>
     )

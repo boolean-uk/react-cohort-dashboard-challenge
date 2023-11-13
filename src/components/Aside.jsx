@@ -13,7 +13,7 @@ export default function Aside() {
                     </Link>
                 </div>
                 <div>
-                    <Link to="/profile">
+                    <Link to="/profile/1">
                         <div className="svg-wrapper">
                             <img src="../../assets/profile-icon-svg.svg"></img>
                         </div>

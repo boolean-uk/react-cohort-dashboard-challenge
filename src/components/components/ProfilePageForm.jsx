@@ -1,64 +1,117 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import FormSection from "./components/FormSection";
 
 const formSections = [
   {
     title: "Account info",
     inputFields: [
-        {name: "First Name",
+        {label: "First Name",
+        name: "firstName",
         required: true},
-        {name: "Last Name",
+        {label: "Last Name",
+        name: "lastName",
         required: true},
-        {name: "User Name",
+        {label: "User Name",
+        name: "userName",
         required: true},
-        {name: "Email",
+        {label: "Email",
+        name: "email",
         required: true}
     ],
   },
   {
     title: "Address",
     inputFields:  [
-        {name: "Street",
+        {label: "Street",
+        name: "street",
         required: false},
-        {name: "Street Number",
+        {label: "Street Number",
+        name: "streetNumber",
         required: false},
-        {name: "City",
+        {label: "City",
+        name: "city",
         required: false},
-        {name: "Zip code",
+        {label: "Zip Code",
+        name: "zipCode",
         required: false}
     ],
   },
   {
     title: "Contact info",
      inputFields: [
-        {name: "Phone",
+        {label: "Phone",
+        name: "phone",
         required: true},
-        {name: "Website",
+        {label: "Website",
+        name: "website",
         required: false},
-        {name: "User Name",
+        {label: "User Name",
+        name: "userName",
         required: false},
-        {name: "Email",
+        {label: "Email",
+        name: "email",
         required: false}
     ],
   },
   {
     title: "Company info",
     inputFields: [
-        {name: "Name",
+        {label: "Name",
+        name: "companyName",
         required: false},
-        {name: "Catch Phrase",
-        required: false},
-        {name: "Business Statement",
+        {label: "Catch Phrase",
+        name: "catchPhrase",
+        required: false}, 
+        {label: "Job Title", 
+          name: "jobTitle", 
+          required: false},
+        {label: "Business Statement",
+        name: "businessStatement",
         required: false}
     ],
   },
-];
+]
+
+const initialForm = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        jobTitle: "",
+        street: "",
+        city: "",
+        id: "",
+        streetNumber: "",
+        userName: "",
+        zipCode: "",
+        phone: "",
+        website: "",
+        companyName: "",
+        catchPhrase: "",
+        businesStatement: ""
+}
+
 
 export default function ProfilePageForm() {
+  const [form, setForm] = useState(initialForm)
+
+ 
+  const contactId = useParams().id
+  console.log(contactId)
+
+  const getContact = () => {
+    fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`)
+      .then((r) => r.json())
+      .then((data) => setForm(data))
+  };
+
+    useEffect(getContact, [])
+
   return (
     <>
       <form className="profile-form">{
         formSections.map((section, index) => (
-            <FormSection key={index} section ={section}/>
+            <FormSection key={index} section ={section} form={form} setForm={setForm}/>
         ))
       }
       </form>

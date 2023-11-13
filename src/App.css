@@ -149,12 +149,16 @@ button:hover {
 }
 .display-comments {
     border-radius: 10px;
+    background-color: white;
+    color: grey;
     width:fit-content;
     padding: 2px 5px;
     margin: 2px;
 }
 
-.display-comments:hover {
-    background-color: #e6ebf5;
+.display-comments:hover, 
+.display-comments:active{
+    background-color: #000046;
     font-weight: bold;
+    color: white;
 }

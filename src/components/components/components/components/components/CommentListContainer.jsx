@@ -22,10 +22,13 @@ export default function CommentListContainer({postId, reloadComments, setReloadC
   
 
   useEffect(getCommentList, [reloadComments])
-  return (
+return (
+  
     <>
+      {commentList && 
       <section className="left-margin">
-        <p onClick={handleClick} className="display-comments">See previous comments</p>
+        {commentList && commentList[3] && <button onClick={handleClick} className="display-comments">See previous comments</button>}
+        {console.log(commentList)}
         <ul>
           {displayAllComments && commentList || commentList && !commentList[3] ? commentList.map((comment, index) => (
             <CommentContainer key={index} comment={comment} />
@@ -36,6 +39,7 @@ export default function CommentListContainer({postId, reloadComments, setReloadC
               </>)}
         </ul>
       </section>
+  }
     </>
   );
 }
