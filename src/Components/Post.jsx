@@ -3,7 +3,9 @@ function Post() {
     <div className="commentContainer">
       <div className="commentSection">
         <div className="userInfoCon">
-          <div className="intialsInCommentCon">Another person</div>
+          <div className="intialsInCommentCon">
+            <p>SF</p>
+          </div>
           <div className="nameTitleCon">
             <div className="name">
               <p>
@@ -26,7 +28,9 @@ function Post() {
       </div>
 
       <div className="addAComment">
-        <div className="userInitialsComment"></div>
+        <div className="userInitialsComment">
+          <p>AW</p>
+        </div>
         <div className="commentInput">
           <form>
             <input

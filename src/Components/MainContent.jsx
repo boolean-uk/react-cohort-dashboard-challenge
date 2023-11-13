@@ -5,7 +5,9 @@ function MainContent({ posts }) {
     <main className="mainContent">
       {/* First box in Main */}
       <div className="postContainer">
-        <div className="userInitialsPost"></div>
+        <div className="userInitialsPost">
+          <p>AW</p>
+        </div>
         <div className="whatsOnMind">
           <form>
             <input

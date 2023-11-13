@@ -24,36 +24,28 @@
 
 .userInitials {
   grid-area: userInitials;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   border-radius: 70px;
-  background-color: green;
+  background-color: rgb(3, 185, 3);
   color: #000046;
   display: grid;
   font-size: 25px;
   font-size: bold;
   align-items: center;
   justify-content: center;
+  margin-left: 100px;
 }
 
-/* SideBar */
+.userInitials > p {
+  font-size: 17px;
+}
 
 /* Container */
 .containerTwo {
   display: grid;
   grid-template: "sideBar mainContent";
   grid-template-columns: 150px 1fr;
-}
-
-.sideBar {
-  grid-area: sideBar;
-  background-color: white;
-}
-
-.mainContent {
-  grid-area: mainContent;
-  background-color: #f0f5fa;
-  padding: 30px;
 }
 
 .sideBar {
@@ -66,6 +58,7 @@
     "homeIconCon"
     "profileIconCon";
   grid-template-rows: 80px 80px;
+  background-color: white;
 }
 
 .homeIconCon {
@@ -85,6 +78,7 @@
 
 .homeIcon > img {
   margin-top: 20px;
+  margin-left: 5px;
 }
 
 .homeText {
@@ -115,6 +109,7 @@
 
 .profileIcon > img {
   margin-top: 20px;
+  margin-left: 2px;
 }
 
 .profileText {
@@ -128,6 +123,12 @@
 }
 
 /* Main */
+
+.mainContent {
+  grid-area: mainContent;
+  background-color: #f0f5fa;
+  padding: 30px;
+}
 .main {
   grid-area: main;
   display: grid;
@@ -146,21 +147,33 @@
   grid-template: "userInitialsPost whatsOnMind postButton";
   grid-template-columns: 90px 780px 200px;
   padding: 3px;
-  background-color: rgba(219, 219, 219, 0.946);
+  background-color: white;
 }
 
 .userInitialsPost {
   grid-area: userInitialsPost;
   height: 80px;
   align-self: center;
-  background-color: #f0f5fa;
+  background-color: white;
+  background-color: lightgreen;
+  height: 50px;
+  width: 50px;
+  border-radius: 70px;
+  margin-left: 15px;
+}
+
+.userInitialsPost > p {
+  display: grid;
+  place-content: center;
+  margin-top: 15px;
+  font-size: 17px;
 }
 
 .whatsOnMind {
   grid-area: whatsOnMind;
   height: 80px;
   align-self: center;
-  background-color: #f0f5fa;
+  background-color: white;
 }
 
 .whatsOn {
@@ -168,7 +181,7 @@
   margin-right: 180px;
   margin-top: 20px;
   height: 40px;
-  background-color: rgb(219, 219, 219);
+  background-color: rgba(237, 237, 237, 0.332);
   border-radius: 5px;
 }
 
@@ -176,13 +189,14 @@
   grid-area: postButton;
   height: 80px;
   align-self: center;
-  background-color: #f0f5fa;
+  background-color: white;
 }
 
 .postBtn {
   width: 150px;
   height: 43px;
   margin-top: 20px;
+
   background-color: #000046;
   border-radius: 5px;
   cursor: pointer;
@@ -204,6 +218,7 @@
   padding: 10px;
   background-color: white;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 .commentSection {
@@ -222,20 +237,27 @@
 
 .userInfoCon {
   grid-area: userInfoCon;
-
   display: grid;
   grid-template: "intialsInCommentCon nameTitleCon";
   grid-template-columns: 60px 1000px;
-
   gap: 3px;
   padding: 3px;
 }
 
 .intialsInCommentCon {
   grid-area: intialsInCommentCon;
+  background-color: lightskyblue;
+  height: 50px;
+  width: 50px;
+  border-radius: 70px;
+  margin-left: 2px;
+  margin-top: 40px;
+}
 
-  height: 80px;
-  align-self: center;
+.intialsInCommentCon > p {
+  font-size: 17px;
+  margin-top: 15px;
+  margin-left: 14px;
 }
 
 .nameTitleCon {
@@ -258,6 +280,8 @@
   margin-right: 900px;
   font-size: 14px;
   margin-top: 16px;
+  color: #000046;
+  margin-top: 45px;
 }
 
 .title {
@@ -273,13 +297,13 @@
 
 .comment {
   grid-area: comment;
-
   font-size: 14px;
 }
 
 .comment > p {
   text-align: left;
   padding: 10px;
+  color: #000046;
 }
 
 .addAComment {
@@ -297,18 +321,27 @@
 
 .userInitialsComment {
   grid-area: userInitialsComment;
-
   height: 80px;
   align-self: center;
-  background-color: #f0f5fa;
+  background-color: lightgreen;
+  height: 50px;
+  width: 50px;
+  border-radius: 70px;
+  margin-left: 4px;
+}
+
+.userInitialsComment > p {
+  display: grid;
+  place-content: center;
+  margin-top: 15px;
+  font-size: 17px;
 }
 
 .commentInput {
   grid-area: commentInput;
-
   height: 80px;
   align-self: center;
-  background-color: #f0f5fa;
+  background-color: white;
 }
 
 .inputAComment {
@@ -316,7 +349,7 @@
   margin-right: 180px;
   margin-top: 20px;
   height: 40px;
-  background-color: rgb(219, 219, 219);
+  background-color: rgba(237, 237, 237, 0.332);
   border-radius: 5px;
 }
 
@@ -325,8 +358,8 @@
 
   height: 80px;
   align-self: center;
-  margin-left: 60px;
-  background-color: #f0f5fa;
+  background-color: white;
+  margin-top: 10px;
 }
 
 .commentButton > button {
