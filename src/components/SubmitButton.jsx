@@ -3,12 +3,12 @@ import { boolProps, stringProp } from "@utilities/propTypeDefs";
 export default function SubmitButton({ innerText, submitted }) {
   return (
     <button
-      className={`rounded-lg bg-cohort-blue p-4 px-16 text-cohort-bg-highlight ${
-        (submitted === true && "bg-green-400") ||
+      className={`rounded-lg bg-cohort-blue p-4 px-16 text-cohort-bg-highlight hover:bg-cohort-green hover:drop-shadow ${
+        (submitted === true && "bg-cohort-green") ||
         (submitted === false && "bg-red-400")
       }`}
     >
-      {innerText}
+      {(submitted === true && "✓") || (submitted === false && "✗") || innerText}
     </button>
   );
 }
