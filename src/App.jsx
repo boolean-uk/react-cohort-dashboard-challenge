@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import Posts from './components/MainPage/CreateAPost/PostSection/Posts'
+import Post from './components/MainPage/CreateAPost/PostSection/Post'
 import CreatePost from './components/MainPage/CreateAPost/CreateAPost'
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -40,19 +42,31 @@ function App() {
           <Navbar 
           />
         </aside>
-        <div className = "create-a-post">
-          <CreatePost 
-            contact={contact}
-            posts={posts}
-            setPosts={setPosts}
+        <Routes>
+        <Route path="/home"
+          element={
+            <>
+            <div className="create-a-post">
+              <CreatePost
+                contact={contact}
+                posts={posts}
+                setPosts={setPosts}
+              />
+            </div>
+            <div className = "posts-container">
+              <Posts 
+                contact={contact}
+                posts={posts}
+              />
+            </div>
+            </>
+          }/>
+        </Routes>
+        <Routes>
+          <Route path="/post/:id"
+            element={<Post />}
           />
-        </div>
-        <div className = "posts-container">
-          <Posts 
-            contact={contact}
-            posts={posts}
-          />
-        </div>
+        </Routes>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import ProfileIcon from "../../Header/ProfileIcon"
 
 function CreatePost (props) {

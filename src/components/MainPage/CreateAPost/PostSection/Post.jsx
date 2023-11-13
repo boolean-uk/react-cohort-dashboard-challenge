@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Comment from "./Comment"
 import AddComment from "../AddComment"
+import { Link } from "react-router-dom"
 
 function Post (props) {
 
@@ -27,7 +28,7 @@ function Post (props) {
             .then(res => res.json())
             .then(data => setComments(data))
     } , [])
-
+    
     if(!contact) {
         return <div>
                 <h3>LOADING</h3>
@@ -43,7 +44,9 @@ function Post (props) {
                     <h3>{initials}</h3>
                 </div>
                 <h4>{contact.firstName + " " + contact.lastName}</h4>
-                <h5>{post.title}</h5>
+                <Link to={`/post/${post.id}`}>
+                    <h5>{post.title}</h5>
+                </Link>
             </div>
             <div className="post-content">
                 <p>{post.content}</p>
