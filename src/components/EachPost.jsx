@@ -1,3 +1,6 @@
+// This file contains all the information on each individual post and comments.
+// Also contains the link to each individual post, which will take you to a new page.
+
 import { Link } from "react-router-dom";
 import Submit from "../assets/Submit.svg";
 

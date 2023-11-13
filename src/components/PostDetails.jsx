@@ -8,8 +8,8 @@ function PostDetails({ contacts, handleSubmit, mainUserInitials, commentInputs, 
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
-  useEffect(() => {
     // Fetch the post data using postId
+  useEffect(() => {
     fetch(`https://boolean-api-server.fly.dev/Callumhayden99/post/${postId}`)
       .then(response => response.json())
       .then(data => setPost(data))

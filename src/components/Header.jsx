@@ -1,3 +1,4 @@
+// Contains all the header html and images
 import Icons8 from "../assets/Icons8-logo.svg";
 
 

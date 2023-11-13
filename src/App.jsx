@@ -16,6 +16,8 @@ function App() {
   const { postId } = useParams();
   const reversedPostData = [...posts].reverse();
 
+
+  // fetch requests for contacts, post and each individual post comment and comments
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/contact")
       .then(response => response.json())
@@ -40,8 +42,10 @@ function App() {
     });
   }, [posts]);
 
+// My initials for each post
   const mainUserInitials = "CH";
 
+  // POST fetch request for each post 
   const mainPostSubmit = event => {
     event.preventDefault();
 
@@ -69,6 +73,7 @@ function App() {
     }));
   };
 
+  // POST request for adding a new comment
   const handleSubmit = (event, postId) => {
     event.preventDefault();
     const newCommentValue = commentInputs[postId];

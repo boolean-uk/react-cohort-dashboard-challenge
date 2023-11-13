@@ -1,3 +1,4 @@
+//contains all the leftmenu information and images
 import homeImg from "../assets/home.svg";
 import profileImg from "../assets/profile.svg";
 import { Link } from "react-router-dom";
@@ -11,8 +12,8 @@ function LeftMenu() {
               className="home-logo"
               src={homeImg}
               width={40}
-              alt="home logo"
-            />
+              alt="home logo"/>
+
             <Link to="/" className="home">
               Home
             </Link>

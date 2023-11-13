@@ -1,3 +1,4 @@
+// contains all the main content of the page that includes posts and comments. 
 import EachPost from "./EachPost";
 
 function MainContent({
@@ -12,7 +13,7 @@ function MainContent({
   mainUserInitials,
   handleCommentChange,
 }) {
-  
+
   return (
     <div className="main-content">
       <div className="each-post">
