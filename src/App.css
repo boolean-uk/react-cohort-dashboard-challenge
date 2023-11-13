@@ -1,0 +1,63 @@
+.container {
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'aside main';
+    grid-template-columns: 125px auto;
+  }
+
+
+aside {
+  grid-area: aside;
+  padding: 15px;
+  width: 50px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.profile-form {
+  grid-area: main;
+  padding: 15px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #000460;
+}
+
+form > * {
+  display: grid;
+  border-top: 1px solid grey;
+  padding: 15px;  
+} 
+
+input {
+  padding: 7px;
+  margin-bottom: 25px;
+  background-color: #e6ebf5 ;
+  border: none;
+}
+
+::placeholder {
+  opacity: 0.29;
+  color: #000460;
+}
+
+.btn {
+  background-color: #000460;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 45px;
+  text-align: left;
+  font-size: 16px;
+  margin: 4px 15px;
+  cursor: pointer;
+  justify-self: end;
+  grid-column: 2/3;
+
+}
