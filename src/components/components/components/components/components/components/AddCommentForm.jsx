@@ -32,8 +32,7 @@ export default function AddCommentForm({setReloadPostList, reloadPostList, post}
   }
 
   const handleChange = (e) => { 
-    setForm({...form, ["contactId"]: 1, ["postId"]: post.id})
-    form.contactId && setForm({...form, [e.target.name]: e.target.value})
+    setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
   }
 
   return (

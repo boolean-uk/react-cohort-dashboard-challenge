@@ -30,13 +30,16 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (!form.title) {
+      form.title = form.content.slice(0, 20) + "..."
+    }
     postNewPost()
     setReloadPostList(true)
   }
 
   const handleChange = (e) => { 
-    setForm({...form, ["contactId"]: 1})
-    form.contactId && setForm({...form, [e.target.name]: e.target.value})
+    setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
+    console.log(form)
   }
 
   return (
@@ -44,9 +47,16 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
       <form>
         <input 
           onChange={e => handleChange(e)} 
+          value={form.title} 
+          name="title"
+          type="text"
+          placeholder="What is it about?"/>
+        <textarea 
+          onChange={e => handleChange(e)} 
           value={form.content} 
           name="content"
-          type="text"/>
+          type="text"
+          placeholder="Share your thoughts!"/>
         <button onClick={e => handleSubmit(e)}>Post</button>
       </form>
     </>
