@@ -4,26 +4,11 @@ import "./AddCommentInput.css";
 
 function AddCommentInput(props) {
   const { combinedData, setCombinedData } = props;
-  const { newComment, setNewcomment } = props;
-
-  /*   const postNewComment = () => {
-    const options = {
-      METHOD: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(),
-    };
-  }; */
+  const { newComment, setNewcomment, handleChange } = props;
 
   const submitcomment = (e) => {
     e.preventDefault();
     console.log(newComment);
-  };
-
-  const handleChange = (e) => {
-    setNewcomment({
-      ...combinedData,
-      Comment: e.target.value,
-    });
   };
 
   return (

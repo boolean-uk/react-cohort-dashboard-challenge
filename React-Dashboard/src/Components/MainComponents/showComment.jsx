@@ -7,7 +7,6 @@ import "./showComment.css";
 function showComment(props) {
   const [comment, setComment] = useState([]);
   const { content, setContent } = props;
-
   const [allContact, setAllContact] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const { contactIdOne, setContactIdOne } = props;
@@ -45,7 +44,7 @@ function showComment(props) {
   }, []);
 
   useEffect(() => {
-    console.log(allContact, content);
+    console.log(content);
   }, [allContact, content]);
 
   useEffect(() => {
@@ -64,7 +63,7 @@ function showComment(props) {
               title: content[index].title,
               content: content[index].content,
               contactId: content[index].contactId,
-              postId: content[index].postId,
+              postId: content[index].id,
               color: getRandomColor(),
             };
           }
@@ -81,6 +80,18 @@ function showComment(props) {
   const getRandomColor = () => {
     // Function to generate a random hex color
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  };
+
+  const handleChange = (e, index, postId, contactId) => {
+    const updateNewComment = { ...newComment };
+    if (!updateNewComment.comments[index]) {
+      updateNewComment.comments[index] = [];
+    }
+    updateNewComment.comments[index].push(e.target.value);
+    updateNewComment.postId = postId;
+    updateNewComment.contactId = contactId;
+
+    setNewcomment(updateNewComment);
   };
 
   return (
@@ -116,6 +127,11 @@ function showComment(props) {
               setNewcomment={setNewcomment}
               combinedData={combinedData}
               setCombinedData={setCombinedData}
+              key={index}
+              index={index}
+              handleChange={(e) =>
+                handleChange(e, index, data.contactId, data.postId)
+              }
             />
           </section>
         </section>
