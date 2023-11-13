@@ -81,6 +81,7 @@ background-color: #000046;
 
 .postForm {
   display: grid;
+  position: relative;
   grid-template-columns: 50px 1000px 200px;
   height: 70px;
   padding-left: 10px;
@@ -100,12 +101,16 @@ background-color: #000046;
 }
 
 .postForm button {
+  position: absolute;
+  top: 17px;
   background-color: #000046;
   color: white;
   width: 150px;
   height: 35px;
   border-radius: 10px;
+  cursor: pointer;
 }
+
 
  /* POSTS */
 .post {

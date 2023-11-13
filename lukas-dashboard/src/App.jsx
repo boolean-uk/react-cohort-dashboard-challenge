@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import Header from './components/Header/header'
 import Main from './components/Main/main'
 import LeftMenu from './components/Left-menu/left-menu'
-import SinglePost from "./components/Main/singlePost"
+import SinglePostPage from "./components/Main/singlePost"
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route
           path='./components/post/:id'
-          element={<SinglePost />}
+          element={<SinglePostPage />}
         />
       </Routes>
     </>
