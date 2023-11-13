@@ -12,6 +12,11 @@
     padding: 20px;
 }
 
+.nav-icon-container:hover {
+    background-color: #64dc78;
+    cursor: pointer;
+}
+
 .nav-icon-img {
     justify-self: center;
 }
