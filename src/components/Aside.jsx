@@ -8,6 +8,7 @@ function Tab({label, icon, path, classSelectors}) {
       <img 
       src={icon}
       />
+      <br/>
       {label}
     </li>
   )
@@ -29,8 +30,10 @@ export default function Aside({activeTab}) {
   ]
 
   return (
-    <>
-      {tabs.map((tab, index) => <Tab key={index} label={tab.label} path={tab.path} icon={tab.icon} classSelectors={activeTab === tab.label ? "navigation active" : "navigation"}/>)}
-    </>
+    <nav>
+      <ul>
+        {tabs.map((tab, index) => <Tab key={index} label={tab.label} path={tab.path} icon={tab.icon} classSelectors={activeTab === tab.label ? "tab active" : "tab"}/>)}
+      </ul>
+    </nav>
   )
 }

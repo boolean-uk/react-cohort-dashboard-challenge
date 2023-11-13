@@ -9,19 +9,24 @@ import Profile from "./components/Profile/Profile"
 import SinglePostPage from './components/Post/SinglePostPage'
 import Users from './components/Profile/Users'
 import Aside from './components/Aside'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <div className="container">
       <header>
-        HEADER
+        <Header />
       </header>
       <aside>
         <Routes>
           <Route 
             path="/"
             element={<Aside activeTab={"Home"}/>}
+          />
+          <Route 
+            path="/post/:id"
+            element={<Aside activeTab={"SinglePost"}/>}
           />
           <Route 
             path="/profile"

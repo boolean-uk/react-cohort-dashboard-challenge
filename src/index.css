@@ -18,27 +18,34 @@
   --green: #64dc78; /* Button hover colour */
   --darkgrey: #64648c; /* Post title colour */
   --lightestgrey: #F0F5FA; /* Body background colour */
+
+}
+
+#root {
+  background-color: var(--darkgrey);
 }
 
 .container {
   display: grid;
   grid-template-areas: "header header"
   "aside main";
-  height: 100vh;
-  grid-template-rows: 60px 1fr;
+  height: calc(100vh);
+  overflow: scroll;
+  border-radius: 5px;
+  grid-template-rows: 80px 1fr;
   grid-template-columns: 200px 1fr;
 }
 
 header {
   grid-area: header;
   background-color: var(--nightblue);
+  position: sticky;
+  top: 0;
 }
 
 aside {
   grid-area: aside;
-  background-color: var(--lightestgrey);
-  background: rgb(156,169,195);
-  background: linear-gradient(0deg, rgba(156,169,195,1) 0%, rgba(230,235,245,1) 100%);
+  background-color: var(--lightgrey);
 }
 
 main {
@@ -61,8 +68,6 @@ a:hover {
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
