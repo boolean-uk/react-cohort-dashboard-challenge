@@ -11,22 +11,18 @@
 
 - [x] set up basic structure
 
-- [] display h1, profile picture and logo
+- [x] add link to home (route)
 
-- [] add link to home (route)
-
-- [] add link to profile
+- [x] add link to profile
 
 
 ## nav
 
-- [] set up basic structure
+- [x] set up basic structure
 
-- [] display home and profile picture icons
+- [x] add link to home (route)
 
-- [] add link to home (route)
-
-- [] add link to profile
+- [x] add link to profile
 
 ## post feed
 
