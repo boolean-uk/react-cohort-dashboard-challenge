@@ -1,0 +1,9 @@
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: auto 1fr;
+    background-color: #f0f5fa;
+}
