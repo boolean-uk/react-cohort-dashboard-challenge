@@ -16,8 +16,6 @@ export default function Post({post}) {
   
   const [user, setUser] = useState(null)
   const loadUser = () => {
-    console.log("testlog", post)
-    console.log("contact ID inside fetch", post.contactId)
     const baseURL = "https://boolean-api-server.fly.dev"
     const endpoint = `/AllyDouillette/contact/${post.contactId}`
 

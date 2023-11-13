@@ -10,7 +10,6 @@ export default function Users() {
     fetch(baseURL+endpoint)
       .then(response => response.json())
       .then(data => setUsers(data))
-      .then(() => console.log(users))
   }
   
   useEffect(loadUsers, [])
