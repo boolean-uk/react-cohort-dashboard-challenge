@@ -14,7 +14,7 @@ import "./PostHeader.css";
 export default function PostHeader({ post }) {
   const [contact, setContact] = useState(null);
 
-  const { title } = post;
+  const { id, title } = post;
 
   useEffect(() => {
     async function getPerson() {
@@ -22,7 +22,7 @@ export default function PostHeader({ post }) {
       setContact(await fetch);
     }
     getPerson();
-  }, [post.id]);
+  }, [post.contactId, post.id]);
 
   if (!contact) {
     return <PulseLoader />;
@@ -32,7 +32,7 @@ export default function PostHeader({ post }) {
     <header className="post-header grid items-center gap-x-4">
       <UserIcon contact={contact} />
       <UserName contact={contact} />
-      <PostTitle title={title} />
+      <PostTitle postId={id} title={title} />
     </header>
   );
 }

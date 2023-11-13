@@ -1,9 +1,17 @@
-import { stringProp } from "@utilities/propTypeDefs";
+import { numberProp, stringProp } from "@utilities/propTypeDefs";
+import { Link } from "react-router-dom";
 
-export default function PostTitle({ title }) {
+export default function PostTitle({ postId, title }) {
   return (
-    <h3 className="post-title text-sm font-bold text-cohort-title">{title}</h3>
+    <Link to={`/post/${postId}`}>
+      <h3 className="post-title text-sm font-bold text-cohort-title">
+        {title}
+      </h3>
+    </Link>
   );
 }
 
-PostTitle.propTypes = { title: stringProp };
+PostTitle.propTypes = {
+  postId: numberProp,
+  title: stringProp,
+};

@@ -29,7 +29,7 @@ export default function PostFeed({ loadPosts, setLoadPosts, user }) {
   return (
     <ul className="post-feed flex flex-col gap-4">
       {posts.map((post) => (
-        <PostItem key={`post-item-${post.id}`} post={post} user={user}/>
+        <PostItem key={`post-item-${post.id}`} postProp={post} user={user}/>
       ))}
     </ul>
   );
