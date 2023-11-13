@@ -2,7 +2,7 @@ export default function ProfileIcon({ contact }) {
   return (
     <div
       className={`profile-icon  ${
-        contact ? (contact.id % 2 === 0 ? `color-one` : `color-two`) : `...`
+        contact ? (contact.id % 2 === 0 ? `color-one` : `color-two`) : ``
       }`}
     >
       {!contact

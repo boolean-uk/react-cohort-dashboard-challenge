@@ -168,7 +168,7 @@ aside {
 
 #post {
   display: grid;
-  grid-template: 80px 150px 1fr / 1fr;
+  grid-template: 80px 220px 1fr / 1fr;
   padding: 1rem;
   background-color: #fff;
   border-radius: 10px;
@@ -229,6 +229,26 @@ aside {
   gap: 10px;
 
   list-style: none;
+}
+
+.comment-filter-btn {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  left: 78px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comment-filter-btn:hover {
+  background-color: #c6cbd4;
+  transition: all 120ms linear;
 }
 
 .comment {
