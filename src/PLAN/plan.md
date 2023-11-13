@@ -26,10 +26,10 @@
 
 ## post feed
 
-- [] set up basic structure
+- [x] set up basic structure
 
-- [] add logic to fetch data from API (useState and useEffect)
+- [x] add logic to fetch data from API (useState and useEffect)
 
-- [] map through list of posts and render individual components
+- [x] map through list of posts and render individual components
 
 - [] add button for a new post and link

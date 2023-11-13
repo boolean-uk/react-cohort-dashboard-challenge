@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import Header from './components/header'
 import Nav from './components/nav'
-import './App.css'
+// import './App.css'
 
 function App() {
 
