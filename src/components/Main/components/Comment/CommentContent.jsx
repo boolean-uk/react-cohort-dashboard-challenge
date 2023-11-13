@@ -2,7 +2,7 @@ import PostComments from './PostComments'
 import AddNewComment from './AddNewComment'
 import { useEffect, useState } from 'react'
 
-function CommentContent({ post, loggedInUser, loggedInUserInitials, URL, userBgColour }) {
+function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
 
     const [showComments, setShowComments] = useState(null)
 
@@ -18,7 +18,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL, userBgC
         <section className="comment-container grid">
             <ul className='post-comments-list grid'>
                 {showComments.map((comment) => 
-                    <PostComments key={comment.id} comment={comment} URL={URL} userBgColour={userBgColour} />
+                    <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
             </ul>
             <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setShowComments={setShowComments} />

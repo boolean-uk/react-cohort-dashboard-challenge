@@ -5,6 +5,7 @@ import HomePage from './components/Homepage'
 import Profile from './components/Profile'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
+import PostAndComments from './components/PostAndComments'
 
 import './App.css'
 
@@ -61,6 +62,7 @@ function App() {
             />
             <Route
               path='/post/:postId'
+              element={<PostAndComments posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />}
             />
         </Routes>
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import UserProfileCircle from "../../../Shared/UserProfileCircle"
 import CommentNameText from "./CommentNameText"
 
-function PostComments({ comment, URL, userBgColour }) {
+function PostComments({ comment, URL }) {
 
     const [commentAuthor, setCommentAuthor] = useState(null)
 
@@ -18,7 +18,7 @@ function PostComments({ comment, URL, userBgColour }) {
 
     return (
             <li className="single-comment grid">
-                <UserProfileCircle userBgColour={userBgColour} author={commentAuthor} initials={commentInitials} />
+                <UserProfileCircle author={commentAuthor} initials={commentInitials} />
                 <CommentNameText comment={comment} commentAuthor={commentAuthor} />
             </li>
     )

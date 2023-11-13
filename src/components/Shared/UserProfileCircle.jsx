@@ -1,4 +1,6 @@
-function UserProfileCircle({ initials, author, userBgColour }) {
+import userBgColour from "./UserBgColour"
+
+function UserProfileCircle({ initials, author }) {
 
     return (
         <div className={`${userBgColour(author)} profile-circle grid`}>
