@@ -4,12 +4,10 @@ import Pfp from "./subcomponents/profilepicture";
 function Header() {
     return (
         <>
-        <div className="header">
-            <header>
-                <img src={logo} height="100px" alt="header"/>
-                <Pfp/>
-            </header>
-        </div>
+        <header className="header">
+            <img className="logo" src={logo} height="100px" alt="log"/>
+            <Pfp/>
+        </header>
         
         </>
     )
