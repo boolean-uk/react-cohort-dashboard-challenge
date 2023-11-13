@@ -159,7 +159,9 @@ aside {
 }
 
 .post-btn:hover,
-.comment-btn:hover {
+.comment-btn:hover,
+.update-profile-btn:hover,
+.go-back-btn:hover {
   background-color: #64dc78;
   transition: all 120ms linear;
 }
@@ -320,7 +322,21 @@ aside {
   display: flex;
   margin-bottom: 1rem;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-header__name {
+  display: flex;
   gap: 20px;
+}
+
+.go-back-btn {
+  border: none;
+  border-radius: 10px;
+  background-color: #000046;
+  color: #fff;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .profile-form-container {
@@ -353,9 +369,4 @@ aside {
   color: #fff;
   cursor: pointer;
   font-size: 1.2rem;
-}
-
-.update-profile-btn:hover {
-  background-color: #64dc78;
-  transition: all 120ms linear;
 }
