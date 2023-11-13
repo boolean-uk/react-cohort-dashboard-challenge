@@ -10,16 +10,24 @@ function App() {
 
   const [contact , setContact] = useState({})
 
+  const [posts, setPosts] = useState([])
+
   const userName = "TomEastwood"
   const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
   const endpointForContacts = "/contact"
+  const endpointForPosts = "/post"
 
   useEffect(() => {
     fetch(baseUrl + endpointForContacts)
         .then(res => res.json())
         .then(data => setContact(data))
-  }
-  , [])
+  } , [])
+
+  useEffect(() => {
+    fetch(baseUrl + endpointForPosts)
+        .then(res => res.json())
+        .then(data => setPosts(data))
+  } , [])
 
   return (
     <section className = "app">
@@ -35,10 +43,14 @@ function App() {
         <div className = "create-a-post">
           <CreatePost 
             contact={contact}
+            posts={posts}
+            setPosts={setPosts}
           />
         </div>
         <div className = "posts-container">
           <Posts 
+            contact={contact}
+            posts={posts}
           />
         </div>
       </div>

@@ -64,6 +64,8 @@ function Post (props) {
                     key={post.id}
                     post={post}
                     contact={contact}
+                    comments={comments}
+                    setComments={setComments}
                 />
             </div>
         </li>

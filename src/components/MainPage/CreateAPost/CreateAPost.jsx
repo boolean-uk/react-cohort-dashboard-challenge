@@ -1,17 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ProfileIcon from "../../Header/ProfileIcon"
 
-const initial_state = {
-    contactId: 1,
-    title: "",
-    content: ""
-}
+function CreatePost (props) {
 
-function CreatePost () {
+    const { posts, setPosts } = props
 
-    const [posts, setPosts] = useState(initial_state)
+    const [newPost, setNewPost] = useState({contactId: 1, title: "", content: ""})
 
-    console.log("posts", posts);
+    function resetForm() {
+        setNewPost({contactId: 1, title: "", content: ""})
+    }
 
     function handleSubmit (e) {
         e.preventDefault()
@@ -21,11 +19,11 @@ function CreatePost () {
             title: e.target[0].value,
             content: e.target[1].value
         }
-    
+
         const userName = "TomEastwood"
         const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
         const endpointForPosts = "/post"
-    
+
         const options = {
             method: "POST",
             headers: {
@@ -33,12 +31,12 @@ function CreatePost () {
             },
             body: JSON.stringify(data)
         }
+        
         fetch(baseUrl + endpointForPosts, options)
             .then(res => res.json())
-            .then(data => setPosts(data))
+            .then(data => setPosts([data, ...posts]))
+            .then(resetForm())
     }
-
-    console.log("new post added", posts);
 
     return (
         <div className="create-post">
@@ -50,15 +48,15 @@ function CreatePost () {
                     type="text"
                     name = "title"
                     placeholder="Title"
-                    value={posts.title}
-                    onChange={(e) => setPosts({...posts, [e.target.name]: e.target.value})}
+                    value={newPost.title}
+                    onChange={(e) => setNewPost({...posts, [e.target.name]: e.target.value})}
                 />
                 <input 
                     type="text"
                     name = "content"
                     placeholder="Whats on your mind?..."
-                    value={posts.content}
-                    onChange={(e) => setPosts({...posts, [e.target.name]: e.target.value})}
+                    value={newPost.content}
+                    onChange={(e) => setNewPost({...posts, [e.target.name]: e.target.value})}
                 />
                 <button>Post</button>
             </form>

@@ -3,7 +3,7 @@ import './Comment.css'
 
 function Comment (props) {
     
-    const { comment, post } = props
+    const { comment } = props
 
     const contactId = comment.contactId
 

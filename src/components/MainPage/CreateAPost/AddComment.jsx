@@ -1,56 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileIcon from "../../Header/ProfileIcon"
 import './AddComment.css'
 
-const initial_state = {
-    contactId: 1,
-    title: "",
-    content: ""
-}
-
-let contactId = 1
-
 function AddComment (props) {
 
-    const { post } = props
+    const { post, comments, setComments } = props
 
-    const [comments, setComments] = useState(initial_state)
-
-    console.log("comments", comments);
-
-    const postId = post.id
+    const [newComment, setNewComment] = useState({contactId: 1, postId: post.id, content: ""})
 
     function resetForm() {
-        setComments(initial_state)
+        setNewComment(initial_state)
     }
 
     function handleSubmit(e) {
         e.preventDefault()
 
         const data = {
-            contactId: contactId,
-            postId: postId,
+            contactId: 1,
+            postId: post.id,
             content: e.target[0].value
         }
 
         const userName = "TomEastwood"
-            const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
-            const endpointForComments = `/post/${postId}/comment`
+        const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
+        const endpointForComments = `/post/${post.id}/comment`
     
-            const options = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+
             fetch(baseUrl + endpointForComments, options)
                 .then(res => res.json())
-                .then(data => setComments(data))
+                .then(data => setComments([...comments, data]))
                 .then(resetForm())
     }
-
-    console.log("new comment added", comments);
 
     return (
         <div className="add-comment">
@@ -63,8 +50,8 @@ function AddComment (props) {
                         type="text"
                         name = "content"
                         placeholder="Add a comment..."
-                        value={comments.content}
-                        onChange={(e) => setComments({...comments, [e.target.name]: e.target.value})}
+                        value={newComment.content}
+                        onChange={(e) => setNewComment({...comments, [e.target.name]: e.target.value})}
                     />
                         <button type="submit">Post</button> 
                 </form>
