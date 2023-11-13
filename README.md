@@ -12,7 +12,7 @@ In this challenge, you'll create a social media style post feed. There is no boi
 
 \-------------------------------------------------------------------------------------------------------
 
-MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS!!!!
+MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS
 
 \-------------------------------------------------------------------------------------------------------
 
