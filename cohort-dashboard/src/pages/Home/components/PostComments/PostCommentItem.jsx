@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileIcon from "../ProfileIcon";
+import { Link } from "react-router-dom";
 
 export default function PostCommentItem({ comment }) {
   const [commentContact, setCommmentContact] = useState(null);
@@ -19,9 +20,14 @@ export default function PostCommentItem({ comment }) {
       <ProfileIcon contact={commentContact} />
       <div className="comment-content">
         <h4>
-          {commentContact
-            ? `${commentContact.firstName} ${commentContact.lastName}`
-            : "Loading..."}
+          {commentContact ? (
+            <Link
+              className="profile-link"
+              to={`/${commentContact.id}/profile`}
+            >{`${commentContact.firstName} ${commentContact.lastName}`}</Link>
+          ) : (
+            "Loading..."
+          )}
         </h4>
         <p>{comment.content}</p>
       </div>
