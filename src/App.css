@@ -61,3 +61,7 @@ input {
   grid-column: 2/3;
 
 }
+
+li {
+  list-style-type: none;
+}

@@ -5,7 +5,7 @@ import ProfileImage from "../../assets/profile-icon-svg.svg";
 export default function Aside() {
   return (
     <aside>
-      <Link to={"/"}>
+      <Link to={"/post/:id"}>
         <img src={HomeIcon} alt="home-icon" />
         <h3>Home</h3>
       </Link>
