@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const Header = () =>{
   return(
+    <>
+    TODO: Format this like the dahsboard on github
     <header>
       <div className="logo">
         <Link to="/">
@@ -17,6 +19,7 @@ const Header = () =>{
         </Link>
       </div>
     </header>
+    </>
   )
 }
 

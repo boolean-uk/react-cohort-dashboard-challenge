@@ -43,19 +43,22 @@ const PostFeed = () => {
   // Render posts
   return (
     <>
-    <div className="new-post">
-        <Link to="/new-post"><button>create post</button></Link>
-    </div>
-    
-    <div className="posts">
-      {posts.map((post) => (
-        <div key={post.id}>
-          <p>{post.title}</p>
-          <p>{post.body}</p>
-        </div>
-      ))}
-    </div>
-    
+      TODO: Create new bost box instead of just button
+      <div className="new-post">
+        <Link to="/new-post"><button>post</button></Link>
+      </div>
+
+
+      TODO: Add comments to this via comments component
+      <div className="posts">
+        {posts.map((post) => (
+          <div key={post.id}>
+            <p>{post.title}</p>
+            <p>{post.body}</p>
+          </div>
+        ))}
+      </div>
+
     </>
   );
 };
