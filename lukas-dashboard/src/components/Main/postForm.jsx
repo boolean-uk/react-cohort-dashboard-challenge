@@ -6,7 +6,7 @@ import { postURL, post, get } from "../client";
 export default function PostForm() {
 
     const userId = "1"
-    
+
     const [newPost, setNewPost] = useState(
         {
             title: "",
@@ -29,7 +29,7 @@ export default function PostForm() {
     const handleSubmit = () => {
         post(`${postURL}`, newPost)
         .then(res => res.json())   
-        .then (get(`${postURL}`)) 
+        .then (() => get(`${postURL}`)) 
     }
 
     return (

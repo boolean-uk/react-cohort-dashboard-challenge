@@ -14,10 +14,13 @@ export default function PostInfo({ users, posts }) {
                     return (
                         <div className="post" key={post.contactId + post.title}>
                             <div className="postInfo">
-                                <ProfileLogo id={id}/>
+                                <ProfileLogo id={id} />
                                 <section>
                                     <h2>{name.firstName} {name.lastName}</h2>
-                                    <Link className="title" to={`/post/${post.id}`}>{post.title}</Link>
+                                    <Link
+                                        className="title"
+                                        to={`/post/${post.id}`}>{post.title}
+                                    </Link>
                                 </section>
                             </div>
                             <p className="postContent">{post.content}</p>

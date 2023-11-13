@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react"
-import { get, contactURL, postURL } from "../client.jsx"
+/* eslint-disable react/prop-types */
 import PostInfo from "./postInfo.jsx";
 import CommentContent from "./commentContent.jsx";
 
 
 
-export default function PostFeed() {
-
-    const [users, setUsers] = useState([])
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        get(contactURL)
-            .then(data => setUsers(data))
-
-        get(postURL)
-            .then(data => setPosts(data))
-
-    }, [])
+export default function PostFeed({users, posts}) {
 
     return (
         <>

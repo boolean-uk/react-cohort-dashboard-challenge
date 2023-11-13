@@ -1,23 +1,38 @@
 import { Route, Routes } from "react-router-dom"
 
-import Header from './components/Header/header'
-import Main from './components/Main/main'
-import LeftMenu from './components/Left-menu/left-menu'
+
 import SinglePostPage from "./components/Main/singlePost"
+import { postURL, contactURL, get } from "./components/client"
+import { useState, useEffect } from "react"
+import Home from "./Pages/home"
 
 function App() {
 
+  const [users, setUsers] = useState([])
+  const [posts, setPosts] = useState([])
+  
+  useEffect(() => {
+    get(contactURL)
+    .then(data => setUsers(data))
+    
+    get(postURL)
+    .then(data => setPosts(data))
+  
+  }, [])
+  
   return (
+
     <>
-      <div className='main-app-grid'>
-        <Header />
-        <LeftMenu />
-        <Main />
-      </div>
+      
+      <Home users={users} posts={posts} />
       <Routes>
         <Route
-          path='./components/post/:id'
-          element={<SinglePostPage />}
+          path='/'
+          element={<Home />}
+        />
+        <Route
+          path='/post/:id'
+          element={<SinglePostPage users={users} posts={posts} />}
         />
       </Routes>
     </>
