@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import ProfileLogo from "../Reusable/profileLogo";
 import { useState } from "react";
 import { postURL, post, get } from "../client";
 
 
-export default function PostForm() {
+export default function PostForm({setPosts}) {
 
     const userId = "1"
 
@@ -15,7 +16,6 @@ export default function PostForm() {
         })
 
     const handleChange = (event) => {
-        event.preventDefault()
 
         const value = event.target.value
 
@@ -26,10 +26,14 @@ export default function PostForm() {
         })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        event.target.reset()
+
         post(`${postURL}`, newPost)
         .then(res => res.json())   
         .then (() => get(`${postURL}`)) 
+        .then(setPosts)
     }
 
     return (

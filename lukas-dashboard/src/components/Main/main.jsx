@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import PostForm from "./postForm"
 import PostFeed from "./postFeed"
-export default function Main ({users, posts}) {
+export default function Main ({users, posts, setPosts}) {
     
     return (
         <div className="main">
-            <PostForm/>
+            <PostForm  setPosts={setPosts}/>
             <PostFeed users={users} posts={posts}/>
         </div>
     )

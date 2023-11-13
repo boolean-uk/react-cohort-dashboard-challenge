@@ -8,18 +8,19 @@ export default function PostInfo({ users, posts }) {
     return (
         <>
             {
-                posts.map((post) => {
+                posts.toReversed().map((post) => {
                     const name = users.find((user) => user.id === post.contactId);
                     const id = post.contactId
                     return (
-                        <div className="post" key={post.contactId + post.title}>
+                        <div className="post" key={post.id}>
                             <div className="postInfo">
                                 <ProfileLogo id={id} />
                                 <section>
                                     <h2>{name.firstName} {name.lastName}</h2>
                                     <Link
                                         className="title"
-                                        to={`/post/${post.id}`}>{post.title}
+                                        to={`/post/${post.id}`}
+                                        >{post.title}
                                     </Link>
                                 </section>
                             </div>
