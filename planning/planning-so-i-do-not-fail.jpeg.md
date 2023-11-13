@@ -18,9 +18,9 @@
 		- [x] `<Route />` => `<Home />`
 			- [x] `<NewPost />`
 				- [x] `<UserIcon />`
-				- [ ] `<NewPostForm />`
-					- [ ] `<TextInput />`
-					- [ ] `<SubmitButton />`
+				- [x] `<NewPostForm />`
+					- [x] `<TextInput />`
+					- [x] `<SubmitButton />`
 			- [x] `<PostFeed />`
 				- [x] `feed.map()` => `<PostItem />`
 					- [x] `<PostHeader />`
@@ -35,11 +35,11 @@
 							- [x] `<CommentBody />`
 								- [x] `<UserName />`
 								- [x] `<CommentContent />`
-						- [ ] `<NewComment />`
+						- [x] `<NewComment />`
 							- [x] `<UserIcon />`
-							- [ ] `<NewCommentForm />`
-								- [ ] `<TextInput />`
-									- [ ] `<NewCommentButton />`
+							- [x] `<NewCommentForm />`
+								- [x] `<TextInput />`
+									- [x] `<NewCommentButton />`
 		- [ ] `<Route />` =>  `<Profile />`
 			- [ ] `<h2 />`
 			- [ ] `<ProfileForm />`
