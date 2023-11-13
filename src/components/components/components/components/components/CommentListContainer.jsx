@@ -1,7 +1,7 @@
 import CommentContainer from "./components/CommentContainer";
 import { useState, useEffect } from "react";
 
-export default function CommentListContainer({postId, reloadComments, setReloadComments}) {
+export default function CommentListContainer({postId, reloadComments, setReloadComments, reloadContacts}) {
   const [displayAllComments, setDisplayAllComments] = useState(false)
   const [commentList, setCommentList] = useState(null);
   
@@ -28,14 +28,13 @@ return (
       {commentList && 
       <section className="left-margin">
         {commentList && commentList[3] && <button onClick={handleClick} className="display-comments">See previous comments</button>}
-        {console.log(commentList)}
         <ul>
           {displayAllComments && commentList || commentList && !commentList[3] ? commentList.map((comment, index) => (
-            <CommentContainer key={index} comment={comment} />
+            <CommentContainer key={index} comment={comment} reloadContacts={reloadContacts}/>
           )): commentList && (<>
-                <CommentContainer key={2} comment={commentList.toReversed()[2]} /> 
-                <CommentContainer key={1} comment={commentList.toReversed()[1]} /> 
-                <CommentContainer key={0} comment={commentList.toReversed()[0]} />
+                <CommentContainer key={2} comment={commentList.toReversed()[2]} reloadContacts={reloadContacts}/> 
+                <CommentContainer key={1} comment={commentList.toReversed()[1]} reloadContacts={reloadContacts}/> 
+                <CommentContainer key={0} comment={commentList.toReversed()[0]} reloadContacts={reloadContacts}/>
               </>)}
         </ul>
       </section>

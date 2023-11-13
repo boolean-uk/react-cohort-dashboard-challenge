@@ -30,9 +30,9 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // if (!form.title) {
-    //   form.title = form.content.slice(0, 20) + "..."
-    // }
+    if (!form.title) {
+      form.title = form.content.slice(0, 20) + "..."
+    }
     postNewPost()
     setReloadPostList(true)
   }

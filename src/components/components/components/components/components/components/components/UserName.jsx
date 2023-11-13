@@ -8,7 +8,7 @@ const initialContact = {
   city: "",
 };
 
-export default function UserName({ contactId }) {
+export default function UserName({ contactId, reloadContacts }) {
   const [contact, setContact] = useState(initialContact);
 
   const getContactName = () => {
@@ -17,7 +17,7 @@ export default function UserName({ contactId }) {
       .then((data) => setContact(data));
   };
 
-  useEffect(() => contactId && getContactName(), []);
+  useEffect(() => contactId && getContactName(), [reloadContacts]);
 
   return (
     <>

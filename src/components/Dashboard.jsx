@@ -2,7 +2,7 @@ import PostFeedHeader from "./components/PostFeedHeader";
 import PostList from "./components/PostList";
 import { useState, useEffect } from "react";
 
-export default function Dashboard({mockLoggedInUserId, setReloadPostList, reloadPostList, reloadComments, setReloadComments}) {
+export default function Dashboard({mockLoggedInUserId, setReloadPostList, reloadPostList, reloadComments, setReloadComments, reloadContacts}) {
   const [postList, setPostList] = useState(null);
   // const [reloadPostList, setReloadPostList] = useState(true);
   const getPosts = () => {
@@ -23,6 +23,7 @@ export default function Dashboard({mockLoggedInUserId, setReloadPostList, reload
             setReloadPostList={setReloadPostList}
             reloadPostList={reloadPostList}
             mockLoggedInUserId={mockLoggedInUserId}
+            reloadContacts={reloadContacts}
           />
           <PostList
             postList={postList}
@@ -31,6 +32,7 @@ export default function Dashboard({mockLoggedInUserId, setReloadPostList, reload
             mockLoggedInUserId={mockLoggedInUserId}
             setReloadComments={setReloadComments}
             reloadComments={reloadComments}
+            reloadContacts={reloadContacts}
           />
         </main>
       ) : (

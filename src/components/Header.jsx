@@ -1,8 +1,10 @@
 import UserInitials from "./components/components/components/components/components/components/UserInitials"
+import { useState, useEffect} from "react"
  
 
-export default function Header({mockLoggedInUserId}) {
-    
+export default function Header({mockLoggedInUserId, reloadContacts}) {
+    reloadContacts
+    console.log(reloadContacts)
     return(
         <>
             <header className="main-header">
@@ -11,7 +13,7 @@ export default function Header({mockLoggedInUserId}) {
                 </div>
                 <div>
                     <div className="justify-right">
-                        <UserInitials contactId={mockLoggedInUserId}/>
+                        <UserInitials contactId={mockLoggedInUserId} />
                     </div>
                 </div>
             </header>

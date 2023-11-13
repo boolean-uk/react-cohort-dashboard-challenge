@@ -92,12 +92,30 @@ const initialForm = {
 }
 
 
-export default function ProfilePageForm() {
+export default function ProfilePageForm( {setReloadContacts, reloadContacts} ) {
   const [form, setForm] = useState(initialForm)
 
- 
   const contactId = useParams().id
-  console.log(contactId)
+
+  const editContact = () => {
+    const options = {
+      method: "PUT",
+      headers: {"content-type":"application/json"},
+      body: JSON.stringify(form)
+    }
+
+    fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`, options)
+    .then(r => r.json())
+    .catch(error => console.log(error))
+    .then(() => setReloadContacts(!reloadContacts))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    editContact()
+  }
+
+  console.log('in form',reloadContacts)  
 
   const getContact = () => {
     fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`)
@@ -115,7 +133,7 @@ export default function ProfilePageForm() {
         ))
       }
       </form>
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </>
   );
 }
