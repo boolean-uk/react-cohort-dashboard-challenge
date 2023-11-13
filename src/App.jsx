@@ -30,8 +30,9 @@ function App() {
     <div className="app-container container mx-auto grid min-h-screen w-screen text-cohort-blue">
       <Header user={user} />
       <SideMenu user={user} />
-      <section className="app-home flex flex-col gap-4 bg-cohort-background p-6">
+      <section className="app-main flex flex-col gap-4 bg-cohort-background p-6">
         <Routes>
+          <Route path="/profile/:contactIdParam" />
           <Route path="/post/:postIdParam" element={<PostItem user={user} />} />
           <Route path="/" element={<Home user={user} />} />
         </Routes>

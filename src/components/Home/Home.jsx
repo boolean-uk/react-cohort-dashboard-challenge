@@ -5,8 +5,6 @@ import PostFeed from "./components/PostFeed/PostFeed";
 
 import { contactProps } from "@utilities/propTypeDefs";
 
-import "./Home.css";
-
 export default function Home({ user }) {
   const [loadPosts, setLoadPosts] = useState(true);
 

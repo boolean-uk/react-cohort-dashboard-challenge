@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-main .app-card {
+  @apply rounded-lg border-2 border-cohort-shade bg-cohort-bg-highlight px-8 py-4;
+}
