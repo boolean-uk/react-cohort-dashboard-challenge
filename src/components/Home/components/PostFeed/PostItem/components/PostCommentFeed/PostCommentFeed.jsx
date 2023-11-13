@@ -28,11 +28,14 @@ export default function PostCommentFeed({
   }
 
   return (
-    <div className="post-comment-feed flex flex-col gap-4">
-      {comments.map((comment) => (
-        <Comment key={`comment-${comment.id}`} comment={comment} />
-      ))}
-    </div>
+    <>
+      {comments.length > 0 ? <hr /> : null}
+      <div className="post-comment-feed flex flex-col gap-4">
+        {comments.map((comment) => (
+          <Comment key={`comment-${comment.id}`} comment={comment} />
+        ))}
+      </div>
+    </>
   );
 }
 

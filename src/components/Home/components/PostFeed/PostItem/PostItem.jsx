@@ -14,7 +14,6 @@ export default function PostItem({ post, user }) {
     <li className="post-item app-card flex flex-col gap-4">
       <PostHeader post={post} />
       <PostBody content={content} />
-      <hr />
       <PostCommentFeed loadComments={loadComments} postId={id} setLoadComments={setLoadComments} />
       <NewComment user={user} postId={id} setLoadComments={setLoadComments} />
     </li>
