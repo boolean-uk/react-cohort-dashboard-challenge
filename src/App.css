@@ -127,9 +127,34 @@ button:hover {
 }
 
 .profile-form {
-    padding-top: 20px;
+    padding-top: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+}
+
+.left-margin {
+    margin-left: 30px;
+}
+
+.comment {
+    background-color: #e6ebf5;
+    border-radius: 5px;
+    padding: 10px;
+}
+.comment-container {
+    margin: 10px;
+    align-items: center;
+}
+.display-comments {
+    border-radius: 10px;
+    width:fit-content;
+    padding: 2px 5px;
+    margin: 2px;
+}
+
+.display-comments:hover {
+    background-color: #e6ebf5;
+    font-weight: bold;
 }

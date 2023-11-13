@@ -4,7 +4,7 @@ import AddCommentForm from "./components/AddCommentForm";
 export default function AddCommentContainer({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments}) {
   return (
     <>
-      <section className="form-container">
+      <section className="form-container left-margin">
         <UserInitials 
             post={post}
             contactId={mockLoggedInUserId} />
