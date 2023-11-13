@@ -43,6 +43,10 @@ const PostFeed = () => {
   // Render posts
   return (
     <>
+    <div className="new-post">
+        <Link to="/new-post"><button>create post</button></Link>
+    </div>
+    
     <div className="posts">
       {posts.map((post) => (
         <div key={post.id}>
@@ -51,9 +55,7 @@ const PostFeed = () => {
         </div>
       ))}
     </div>
-    <div className="new-post">
-        <Link to="/new-post"><button>create post</button></Link>
-    </div>
+    
     </>
   );
 };
