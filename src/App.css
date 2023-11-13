@@ -19,11 +19,21 @@
     background-color: #000046;
 }
 
-.header .profile-picture {
-    margin-left: auto-fit;
-    margin-right: 50px;
-    place-self: center;
+.header .logo, .profile-picture {
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
+.header .logo {
+    padding-left: 50px;
+}
+
+.header .profile-picture {
+    /* padding-left: 50px; */
+}
+
+
+
 
 .menu {
     grid-area: menu;

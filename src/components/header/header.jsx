@@ -1,11 +1,11 @@
-import logo from "../../assets/images/header.svg"
-import Pfp from "./subcomponents/profilepicture";
+import Pfp from "./subcomponents/profilePicture";
+import Logo from "./subcomponents/logo";
 
 function Header() {
     return (
         <>
         <header className="header">
-            <img className="logo" src={logo} height="100px" alt="log"/>
+            <Logo/>
             <Pfp/>
         </header>
         
