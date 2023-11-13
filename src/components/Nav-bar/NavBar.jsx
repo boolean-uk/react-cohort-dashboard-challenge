@@ -1,11 +1,11 @@
-import Home from "./components/Home";
+import HomeIcon from "./components/HomeIcon";
 
 import "../../Styles/nav-bar.css";
 import Profile from "./components/Profile";
 function NavBar() {
   return (
     <nav className="nav-bar">
-      <Home></Home>
+      <HomeIcon></HomeIcon>
       <Profile></Profile>
     </nav>
   );
