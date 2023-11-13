@@ -1,0 +1,38 @@
+.main{
+    display: grid;
+    grid-template-rows: 110px 1fr;
+}
+.create-post{
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px;
+    border: solid #e6ebf5 0.5px;
+    display: grid;
+    grid-template-columns: 70px 1fr 140px;
+    padding: 15px;
+}
+.single-post{
+    background-color: white;
+    margin: 0 15px 15px 15px;
+    border: solid #e6ebf5 0.5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.input-post{
+    border: none;
+    outline: none;
+    background-color: #e6ebf5;
+    height: 45px;
+    width: 97%;
+    border-radius: 10px;
+    padding: 10px;
+}
+.post-button{
+    display: grid;
+}
+.post-button button{
+    background-color: #000046;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}

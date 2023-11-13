@@ -3,6 +3,8 @@
     grid-template-rows: 60px 60px ;
     gap: 10px;
     padding: 20px;
+    background-color: white;
+    border-right: solid #e6ebf5 0.05px;
 }
 .nav-icon{
     display: grid;

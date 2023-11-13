@@ -1,7 +1,10 @@
+import SinglePost from "./SinglePost"; 
 
  function Posts() {
   return (
-    <div>Posts</div>
+    <div className="posts">
+      <SinglePost></SinglePost>
+    </div>
   )
 }
 export default Posts;
