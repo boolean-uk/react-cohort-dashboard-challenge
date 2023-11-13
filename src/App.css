@@ -1,0 +1,238 @@
+/* Header background, button & font colour: #000046
+Form input background colour: #e6ebf5
+Button hover colour: #64dc78
+Post title colour: #64648c
+Body background colour: #F0F5FA */
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F0F5FA;
+    color: #000046;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    margin: 0;
+}
+
+a, Link {
+    text-decoration: none;
+    color: #000046;
+}
+
+/* -------------- HEADER -------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+    background-color: #000046;
+    color: white;
+}
+
+/* ------------- CONTAINER ---------------- */
+.container {
+    display: grid;
+    grid-template: 
+    "side-bar       main" 1fr/
+    20fr            80fr;
+}
+
+/* --------------------- SIDE-BAR ------------- */
+.side-bar {
+    background-color: white;
+    text-align: center;
+}
+
+.home-icon-container {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: #e6ebf5;
+}
+
+.profile-icon-container {
+    padding: 2rem;
+}
+
+
+/* ------------------------- MAIN ------------------- */
+
+/* ------------------------- POST ------------------- */
+.post {
+    margin: 0 1rem 2rem;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    height: 500px;
+    overflow-y: scroll;
+    margin-top: 1rem;
+}
+
+.post-header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-name {
+    font-weight: 700;
+}
+
+.title {
+    color: #64648c;
+    text-decoration: none;
+}
+
+.content-container {
+    margin-top: .7rem;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 2rem;
+}
+
+.user-img-container {
+    background-color: aquamarine;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+/* --------------- COMMENTS ------------------ */
+.comment-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.comments p {
+    opacity: .7;
+    margin-top: .5rem;
+}
+
+.comment-user-content {
+    background-color: #F0F5FA;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* ----------------------- POST FORM ------------------ */
+.post-form-container{
+    display: grid;
+    grid-auto-flow: column;
+    /* justify-content: start; */
+    grid-template: 
+    "user-img     form" 1fr/
+    50px          1fr;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.post-form {
+    display: grid;
+    grid-template: 
+    "inputs     button" 1fr/
+    1fr         150px;
+    gap: 1rem;
+    align-items: center;
+}
+
+.post-form input {
+    background-color: #F0F5FA;
+    padding: .5rem;
+    border: none;
+    /* padding: 1rem; */
+    /* border-radius: 10px; */
+    /* margin-right: 1rem; */
+    width: 100%;
+    outline: none;
+}
+
+.inputs input:first-of-type {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 1rem;
+    font-weight: 700;
+}
+
+.inputs input:last-of-type {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 1rem;
+}
+
+.post-form button {
+    width: 150px;
+    background-color: #000046;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    height: 60px;
+}
+
+/* --------------- COMMENT FORM ---------------- */
+.comment-form-container {
+    display: grid;
+    grid-template: 
+    "user-img     comment-form" 1fr/
+    50px          1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.comment-form {
+    background-color: #F0F5FA;
+    margin: 1rem 0;
+    align-items: center;
+    padding: .5rem;
+    border-radius: 10px;
+
+}
+
+.comment-form form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-form form input {
+    background-color: #F0F5FA;
+    padding: .5rem;
+    border: none;
+    padding: 1rem;
+    margin-right: 1rem;
+    width: 100%;
+    outline: none;
+}
+
+.comment-form button {
+    width: 40px;
+    height: 40px;
+    background-color: #cbddee;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+}
+
+.send-icon {
+    width: 20px;
+}
