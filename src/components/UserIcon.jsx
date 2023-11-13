@@ -3,6 +3,8 @@ import PulseLoader from "@components/Loader/PulseLoader";
 import { contactProps } from "@utilities/propTypeDefs";
 import { initialiser } from "@utilities/string";
 
+//TODO: I want to add different colours per contactId
+
 export default function UserIcon({ contact }) {
   if (!contact) {
     return <PulseLoader />;

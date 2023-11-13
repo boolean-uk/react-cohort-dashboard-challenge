@@ -1,6 +1,6 @@
 - [x] Header background, button & font colour: #000046
 - [x] Form input background colour: #e6ebf5
-- [ ] Button hover colour: #64dc78
+- [x] Button hover colour: #64dc78
 - [x] Post title colour: #64648c
 - [x] Body background colour: #F0F5FA
 - [ ] [Header logo SVG](./_assets/title-header-svg.md)
