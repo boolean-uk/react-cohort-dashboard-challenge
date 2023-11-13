@@ -1,85 +1,86 @@
 * {
   margin: 0;
   padding: 0;
+
   font-family: "Franklin Gothic Medium", Arial, sans-serif;
   /* background-color: #f0f5fa; */
 }
 
-/* Container */
-.container {
-  display: grid;
-  grid-template:
-    "header header" 95px
-    "sideBar main" 100vh/
-    170px auto;
-  border: black dashed 1px;
-  gap: 3px;
-  padding: 3px;
-}
-
+/* Header */
 .header {
   grid-area: header;
-  /* border: black dashed 1px; */
   display: grid;
-  gap: 3px;
-  padding: 3px;
-
+  padding: 10px 20px;
   grid-template: "titleHeading userInitials";
   grid-template-columns: 1fr 200px;
-  background-color: grey;
+  background-color: #000046;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.titleHeading {
-  grid-area: titleHeading;
-  /* border: black dashed 1px; */
-  margin-left: 40px;
-  align-self: center;
-  height: 70px;
-}
-
-.titleHeading > img {
-  margin-right: 560px;
-  margin-top: 7px;
-  /* fill: white; */
+.header > img {
+  width: 350px;
 }
 
 .userInitials {
   grid-area: userInitials;
-  border: black dashed 1px;
   height: 70px;
-  align-self: center;
+  width: 70px;
+  border-radius: 70px;
+  background-color: green;
+  color: #000046;
+  display: grid;
+  font-size: 25px;
+  font-size: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SideBar */
+
+/* Container */
+.containerTwo {
+  display: grid;
+  grid-template: "sideBar mainContent";
+  grid-template-columns: 150px 1fr;
 }
 
 .sideBar {
   grid-area: sideBar;
-  border: black dashed 1px;
-  gap: 3px;
-  padding: 3px;
+  background-color: white;
+}
+
+.mainContent {
+  grid-area: mainContent;
+  background-color: #f0f5fa;
+  padding: 30px;
+}
+
+.sideBar {
+  grid-area: sideBar;
+  gap: 10px;
+  padding: 10px;
 
   display: grid;
   grid-template:
     "homeIconCon"
     "profileIconCon";
-  grid-template-rows: 30px 30px;
+  grid-template-rows: 80px 80px;
 }
 
 .homeIconCon {
   grid-area: homeIconCon;
-  border: black dashed 1px;
-  height: 100px;
-
   display: grid;
   grid-template:
     "homeIcon"
     "homeText";
-  gap: 3px;
-  padding: 3px;
-  grid-template-rows: 70px 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .homeIcon {
   grid-area: homeIcon;
-  border: black dashed 1px;
 }
 
 .homeIcon > img {
@@ -88,7 +89,6 @@
 
 .homeText {
   grid-area: homeText;
-  border: black dashed 1px;
 }
 
 .homeText > p {
@@ -98,22 +98,19 @@
 
 .profileIconCon {
   grid-area: profileIconCon;
-  border: black dashed 1px;
-  height: 100px;
-  margin-top: 78px;
-
   display: grid;
   grid-template:
     "profileIcon"
     "profileText";
-  gap: 3px;
   padding: 3px;
   grid-template-rows: 70px 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .profileIcon {
   grid-area: profileIcon;
-  border: black dashed 1px;
 }
 
 .profileIcon > img {
@@ -122,7 +119,7 @@
 
 .profileText {
   grid-area: profileText;
-  border: black dashed 1px;
+
   color: #000046;
 }
 
@@ -130,10 +127,9 @@
   margin-top: 4px;
 }
 
+/* Main */
 .main {
   grid-area: main;
-  border: black dashed 1px;
-
   display: grid;
   grid-template:
     "postContainer"
@@ -145,19 +141,16 @@
 
 .postContainer {
   grid-area: postContainer;
-  border: black dashed 1px;
-
+  border-radius: 5px;
   display: grid;
   grid-template: "userInitialsPost whatsOnMind postButton";
   grid-template-columns: 90px 780px 200px;
-  /* gap: 3px; */
   padding: 3px;
   background-color: rgba(219, 219, 219, 0.946);
 }
 
 .userInitialsPost {
   grid-area: userInitialsPost;
-  border: black dashed 1px;
   height: 80px;
   align-self: center;
   background-color: #f0f5fa;
@@ -165,7 +158,6 @@
 
 .whatsOnMind {
   grid-area: whatsOnMind;
-  /* border: black dashed 1px; */
   height: 80px;
   align-self: center;
   background-color: #f0f5fa;
@@ -182,7 +174,6 @@
 
 .postButton {
   grid-area: postButton;
-  /* border: black dashed 1px; */
   height: 80px;
   align-self: center;
   background-color: #f0f5fa;
@@ -194,6 +185,7 @@
   margin-top: 20px;
   background-color: #000046;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .postBtn > p {
@@ -203,20 +195,20 @@
 
 .commentContainer {
   grid-area: commentContainer;
-  border: black dashed 1px;
-
   display: grid;
   grid-template:
     "commentSection"
     "addAComment";
   grid-template-rows: 200px 150px;
   gap: 3px;
-  padding: 3px;
+  padding: 10px;
+  background-color: white;
+  margin-top: 20px;
 }
 
 .commentSection {
   grid-area: commentSection;
-  border: black dashed 1px;
+  border-radius: 5px;
 
   display: grid;
   grid-template:
@@ -225,11 +217,11 @@
   grid-template-rows: auto 1fr;
   gap: 3px;
   padding: 3px;
+  background-color: white;
 }
 
 .userInfoCon {
   grid-area: userInfoCon;
-  border: black dashed 1px;
 
   display: grid;
   grid-template: "intialsInCommentCon nameTitleCon";
@@ -241,14 +233,13 @@
 
 .intialsInCommentCon {
   grid-area: intialsInCommentCon;
-  border: black dashed 1px;
+
   height: 80px;
   align-self: center;
 }
 
 .nameTitleCon {
   grid-area: nameTitleCon;
-  border: black dashed 1px;
 
   display: grid;
   grid-template:
@@ -261,7 +252,6 @@
 
 .name {
   grid-area: name;
-  border: black dashed 1px;
 }
 
 .name > p {
@@ -272,7 +262,6 @@
 
 .title {
   grid-area: title;
-  border: black dashed 1px;
 }
 
 .title > p {
@@ -284,7 +273,7 @@
 
 .comment {
   grid-area: comment;
-  border: black dashed 1px;
+
   font-size: 14px;
 }
 
@@ -295,26 +284,31 @@
 
 .addAComment {
   grid-area: addAComment;
-  border: black dashed 1px;
+
+  border-radius: 5px;
+
   display: grid;
   grid-template: "userInitialsComment commentInput commentButton";
   grid-template-columns: 70px 820px 160px;
   gap: 3px;
   padding: 3px;
+  background-color: white;
 }
 
 .userInitialsComment {
   grid-area: userInitialsComment;
-  border: black dashed 1px;
+
   height: 80px;
   align-self: center;
+  background-color: #f0f5fa;
 }
 
 .commentInput {
   grid-area: commentInput;
-  border: black dashed 1px;
+
   height: 80px;
   align-self: center;
+  background-color: #f0f5fa;
 }
 
 .inputAComment {
@@ -328,15 +322,17 @@
 
 .commentButton {
   grid-area: commentButton;
-  border: black dashed 1px;
+
   height: 80px;
   align-self: center;
   margin-left: 60px;
+  background-color: #f0f5fa;
 }
 
 .commentButton > button {
   border-radius: 50%;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .commentButton > button > img {
