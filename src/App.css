@@ -1,27 +1,24 @@
-* {
+body {
     margin: 0;
-    border: solid 1px black;
 }
-  
+
 .container {
+    min-height: 100vh;
+    max-height: 100%;
+    background-color: beige;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 100px 100%;
     grid-template-areas:
     "header header"
-    "menu content";
+    "menu home";
 }
 
 .header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr 50px;
+    grid-template-columns: auto 1fr auto;
     background-color: #000046;
-}
-
-.header .logo, .profile-picture {
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 .header .logo {
@@ -29,16 +26,34 @@
 }
 
 .header .profile-picture {
-    /* padding-left: 50px; */
+    padding-right: 50px;
 }
 
-
-
+.header .logo, .profile-picture {
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
 .menu {
     grid-area: menu;
 }
 
-.content {
-    grid-area: content;
+.menu ul {
+    text-align: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: aqua;
+}
+
+.menu li {
+    background-color: pink;
+}
+
+.menu .wrapper {
+    border: solid 1px rgba(0,0,0,0);
+}
+
+.home {
+    grid-area: home;
 }

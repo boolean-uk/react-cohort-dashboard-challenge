@@ -1,11 +1,13 @@
-import NavButton from './subcomponents/navButton'
+import HomeButton from './subcomponents/homeButton'
+import ProfileButton from './subcomponents/profileButton'
 
 function Menu() {
     return (
         <>
         <nav className="menu">
             <ul>
-                <NavButton/>
+                <HomeButton/>
+                <ProfileButton/>
             </ul>
         </nav>
         </>

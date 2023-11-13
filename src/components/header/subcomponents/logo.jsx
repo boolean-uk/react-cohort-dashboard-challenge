@@ -1,4 +1,4 @@
-import header from "../../../assets/images/header.svg"
+import header from "../assets/header.svg"
 
 function Logo() {
     return (

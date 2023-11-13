@@ -6,6 +6,7 @@ function Header() {
         <>
         <header className="header">
             <Logo/>
+            <div className="bandaid-solution"></div>
             <Pfp/>
         </header>
         

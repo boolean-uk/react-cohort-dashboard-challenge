@@ -1,4 +1,4 @@
-import icon from '../../../assets/images/profile-icon.svg'
+import icon from '../../menu/assets/profile-icon.svg' // temporary
 
 function Pfp() {
     return (
