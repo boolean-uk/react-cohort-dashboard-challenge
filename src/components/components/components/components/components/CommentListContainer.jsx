@@ -1,7 +1,7 @@
 import CommentContainer from "./components/CommentContainer";
 import { useState, useEffect } from "react";
 
-export default function CommentListContainer({postId}) {
+export default function CommentListContainer({postId, reloadComments, setReloadComments}) {
   const [commentList, setCommentList] = useState(null);
   
   const getCommentList = () => {
@@ -10,11 +10,11 @@ export default function CommentListContainer({postId}) {
     )
       .then((r) => r.json())
       .then((data) =>
-        setCommentList(data)
-    );
+        setCommentList(data))
+      .then(setReloadComments(false));
   };
 
-  useEffect(getCommentList, [])
+  useEffect(getCommentList, [reloadComments])
   return (
     <>
       <section>

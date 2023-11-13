@@ -1,11 +1,11 @@
 import PostListItem from "./components/PostListItem";
 
-export default function PostList({ postList, reloadPostList, setReloadPostList, mockLoggedInUserId}) {
+export default function PostList({ postList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadComments, setReloadComments}) {
   const postListNewToOld = postList.toReversed()
 
   return (
     <>
-      <section>
+      <section className="feed-container">
         <ul>
           {postListNewToOld.map((post, index) => (
             <PostListItem 
@@ -14,6 +14,8 @@ export default function PostList({ postList, reloadPostList, setReloadPostList, 
               setReloadPostList={setReloadPostList} 
               reloadPostList={reloadPostList} 
               mockLoggedInUserId={mockLoggedInUserId}
+              setReloadComments={setReloadComments}
+              reloadComments={reloadComments}
             />
           ))}
         </ul>

@@ -6,7 +6,7 @@ const initialForm = {
   content: ""
 }
 
-export default function AddCommentForm({setReloadPostList, reloadPostList, post}) {
+export default function AddCommentForm({setReloadComments, post}) {
   const [form, setForm] = useState(initialForm)
 
   // simulating a logged in user
@@ -28,22 +28,22 @@ export default function AddCommentForm({setReloadPostList, reloadPostList, post}
   const handleSubmit = (e) => {
     e.preventDefault()
     postNewComment()
-    setReloadPostList(true)
+    setReloadComments(true)
   }
 
   const handleChange = (e) => { 
-    setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
+    setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1, ["postId"]: post.id})
   }
 
   return (
     <>
-      <form>
+      <form className="add-comment-form">
         <input 
           onChange={e => handleChange(e)} 
           value={form.content} 
           name="content"
           type="text"/>
-        <button className="round-container justify-right" onClick={e => handleSubmit(e)}>Post</button>
+        <button className="round-container justify-right comment-button" onClick={e => handleSubmit(e)}>Post</button>
       </form>
     </>
   );

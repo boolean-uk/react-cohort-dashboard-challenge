@@ -2,9 +2,9 @@ import PostFeedHeader from "./components/PostFeedHeader";
 import PostList from "./components/PostList";
 import { useState, useEffect } from "react";
 
-export default function Dashboard({mockLoggedInUserId}) {
+export default function Dashboard({mockLoggedInUserId, setReloadPostList, reloadPostList, reloadComments, setReloadComments}) {
   const [postList, setPostList] = useState(null);
-  const [reloadPostList, setReloadPostList] = useState(true);
+  // const [reloadPostList, setReloadPostList] = useState(true);
   const getPosts = () => {
     fetch("https://boolean-api-server.fly.dev/Chloe070196/post")
       .then((r) => r.json())
@@ -17,7 +17,7 @@ export default function Dashboard({mockLoggedInUserId}) {
   return (
     <>
       {!reloadPostList && postList ? (
-        <section>
+        <main>
           <PostFeedHeader
             setPostList={setPostList}
             setReloadPostList={setReloadPostList}
@@ -29,8 +29,10 @@ export default function Dashboard({mockLoggedInUserId}) {
             setReloadPostList={setReloadPostList}
             reloadPostList={reloadPostList}
             mockLoggedInUserId={mockLoggedInUserId}
+            setReloadComments={setReloadComments}
+            reloadComments={reloadComments}
           />
-        </section>
+        </main>
       ) : (
         <p>loading...</p>
       )}

@@ -14,7 +14,7 @@ export default function UserInitials({contactId}) {
     return(
         contact? <>
                 <div className="round-container">
-                    <p>{contact.firstName[0] + contact.lastName[0]}</p>
+                    <p className="user-initials">{contact.firstName[0] + contact.lastName[0]}</p>
                 </div>
             </> :
             <div></div>
