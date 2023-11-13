@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import HomePage from './components/Homepage'
 import Profile from './components/Profile'
+import Header from './components/Header'
+import Navigation from './components/Navigation'
 
 import './App.css'
 
@@ -44,19 +46,24 @@ function App() {
   const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
 
   return (
-    <>
-      <Routes>
-        <Route
-          path='/'
-          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
-          >
-        </Route>
-        <Route
-          path='/profile'
-          element={<Profile loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
-        />
-      </Routes>
-    </>
+    <div className="container grid">
+        <Header loggedInUserInitials={loggedInUserInitials} />
+        <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />      
+        <Routes>
+            <Route
+              path='/'
+              element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
+              >
+            </Route>
+            <Route
+              path='/profile'
+              element={<Profile loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
+            />
+            <Route
+              path='/post/:postId'
+            />
+        </Routes>
+    </div>
   )
 }
 

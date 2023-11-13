@@ -1,10 +1,8 @@
-import Header from "../Header"
-import Navigation from "../Navigation"
 import Main from "../Main"
 
 import '../../styles/initials.css'
 
-function HomePage({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts, currentSelect, setCurrentSelect }) {
+function HomePage({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts }) {
 
     function userBgColour(user) {
         if (user.id === 1) return 'logged-in-user'
@@ -26,9 +24,7 @@ function HomePage({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGet
     }
 
     return(
-        <div className="container grid">
-            <Header loggedInUserInitials={loggedInUserInitials} />
-            <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />
+        <div>
             <Main posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} setShouldGetPosts={setShouldGetPosts} />
         </div>
     )

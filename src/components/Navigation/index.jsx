@@ -2,7 +2,6 @@ import HomeIcon from './components/HomeIcon'
 import ProfileIcon from './components/ProfileIcon'
 
 import '../../styles/navigation.css'
-import { useState } from 'react'
 
 function Navigation({ currentSelect, setCurrentSelect}) {
 
