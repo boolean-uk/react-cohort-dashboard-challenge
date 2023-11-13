@@ -1,8 +1,9 @@
+import { contactProps } from "@utilities/propTypeDefs";
 import { Link } from "react-router-dom";
 
-//TODO: Would like to map over these them svg...
+//TODO: Would like to map over these them svg like my plan said I would...
 
-export default function SideMenu() {
+export default function SideMenu({ user }) {
   return (
     <nav className="app-menu bg-cohort-bg-highlight">
       <ul className="flex flex-col place-content-center place-items-center">
@@ -28,7 +29,7 @@ export default function SideMenu() {
         </li>
         <li className="w-full">
           <Link
-            to="/profile/1"
+            to={`/profile/${user.id}`}
             className="flex flex-col items-center gap-2 p-4 hover:bg-cohort-green"
           >
             <svg
@@ -50,3 +51,7 @@ export default function SideMenu() {
     </nav>
   );
 }
+
+SideMenu.propTypes = {
+  user: contactProps,
+};
