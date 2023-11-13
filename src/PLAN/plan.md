@@ -7,6 +7,8 @@
 - API LINK = `https://boolean-api-server.fly.dev/api-docs/#/post`
 
 
+- {BASIC START} -
+
 ## header
 
 - [x] set up basic structure
@@ -32,4 +34,13 @@
 
 - [x] map through list of posts and render individual components
 
-- [] add button for a new post and link
+- [x] add button for a new post and link
+
+## comments
+
+
+## new post
+
+
+## profile 
+
