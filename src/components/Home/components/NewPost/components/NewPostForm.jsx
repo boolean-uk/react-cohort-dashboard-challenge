@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
@@ -13,11 +13,13 @@ const FORM_SETUP = [
     inputName: "content",
     placeholderText: "What's on your mind?",
     charLimit: 240,
+    required: true,
   },
   {
     inputName: "title",
     placeholderText: "Give your post a title!",
     charLimit: 80,
+    required: true,
   },
 ];
 
@@ -28,20 +30,36 @@ const INITIAL_FORM = FORM_SETUP.reduce(
 
 export default function NewPostForm({ setLoadPosts, user }) {
   const [formData, setFormData] = useState(INITIAL_FORM);
+  const [validInput, setValidInput] = useState(true);
+  const [submitted, setSubmitted] = useState(null);
 
   const formHasInput = Object.values(formData).some(
     (input) => input.length > 0,
   );
 
+  useEffect(() => {
+    const formValid = FORM_SETUP.every((entry) => {
+      const { inputName, required } = entry;
+      if (formData[inputName].length > 0 || !required) return true;
+    });
+
+    setValidInput(formValid);
+  }, [formData]);
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    const payload = { ...formData };
-    payload.contactId = user.id;
+    if (validInput) {
+      const payload = { ...formData };
+      payload.contactId = user.id;
 
-    api.post.post(payload).then(() => setLoadPosts(true));
+      api.post.post(payload).then(() => setLoadPosts(true));
 
-    setFormData(INITIAL_FORM);
+      setFormData(INITIAL_FORM);
+      setSubmitted(true);
+    } else {
+      setSubmitted(false);
+    }
   }
 
   return (
@@ -59,10 +77,15 @@ export default function NewPostForm({ setLoadPosts, user }) {
               inputName={field.inputName}
               placeholderText={field.placeholderText}
               charLimit={field.charLimit}
+              submitted={submitted}
             />
           );
       })}
-      <SubmitButton innerText={"Post"} htmlId="new-post-submit" />
+      <SubmitButton
+        innerText={"Post"}
+        htmlId="new-post-submit"
+        submitted={submitted}
+      />
     </form>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  boolProps,
   funcProp,
   numberProp,
   objectProp,
@@ -22,6 +23,7 @@ export default function TextInput({
   inputName,
   placeholderText,
   setFormData,
+  submitted,
 }) {
   const value = formData[inputName];
 
@@ -34,14 +36,16 @@ export default function TextInput({
   }
 
   return (
-    <div id={`new-post-${inputName}`} className="relative flex ">
+    <div id={`new-post-${inputName}`} className="relative flex">
       <input
         name={inputName}
         type="text"
         placeholder={placeholderText}
         onChange={handleChange}
         value={value}
-        className="grow rounded-lg bg-cohort-shade p-4"
+        className={`grow rounded-lg bg-cohort-shade p-4 ${
+          submitted === false && value.length === 0 && "border border-red-400"
+        }`}
       />
       <div
         className={`absolute bottom-0 right-1 text-xs ${getColorClass(
@@ -61,4 +65,5 @@ TextInput.propTypes = {
   inputName: stringProp,
   placeholderText: stringProp,
   setFormData: funcProp,
+  submitted: boolProps,
 };
