@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-
 import Main from '../components/Main/main'
-
-
 
 function Home({users, posts, setPosts}) {
   

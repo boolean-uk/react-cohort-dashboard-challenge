@@ -32,7 +32,7 @@ function App() {
             element={<Home users={users} posts={posts} setPosts={setPosts} />}
           />
           <Route
-            path='/post/:id'
+            path='/post/:postId'
             element={<SinglePostPage users={users} posts={posts} />}
           />
         </Routes>
