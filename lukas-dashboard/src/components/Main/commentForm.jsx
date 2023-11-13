@@ -1,9 +1,10 @@
 import ProfileLogo from "../Reusable/profileLogo"
 
 export default function CommentForm () {
+    const userId = "1"
     return (
     <div className="commentForm">
-                <ProfileLogo />
+                <ProfileLogo id={userId}/>
                 <div className="inputAndButton">
                     <form action="">
                         <input type="text" placeholder="    Add a comment..." />

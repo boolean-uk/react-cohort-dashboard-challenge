@@ -5,11 +5,13 @@ import { postURL, post, get } from "../client";
 
 export default function PostForm() {
 
+    const userId = "1"
+    
     const [newPost, setNewPost] = useState(
         {
-            contactId: 1,
             title: "",
             content: "",
+            contactId: 1,
         })
 
     const handleChange = (event) => {
@@ -32,7 +34,7 @@ export default function PostForm() {
 
     return (
         <div className="postForm">
-            <ProfileLogo />
+            <ProfileLogo id={userId} />
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
