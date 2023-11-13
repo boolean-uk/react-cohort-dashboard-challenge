@@ -1,9 +1,9 @@
 /* NAVIGATION */
 
 .navigation-menu {
+    grid-area: Navigation;
     grid-template-rows: repeat(2, 130px);
     background-color: white;
-    /* height: 100vh; */
 }
 
 .nav-icon-container {
@@ -25,4 +25,8 @@
 
 .current-select {
     background-color: #e6ebf5;
+}
+
+.not-current {
+    background-color: white;
 }

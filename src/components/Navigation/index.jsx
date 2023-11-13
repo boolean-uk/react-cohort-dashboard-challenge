@@ -4,9 +4,7 @@ import ProfileIcon from './components/ProfileIcon'
 import '../../styles/navigation.css'
 import { useState } from 'react'
 
-function Navigation() {
-
-    const [currentSelect, setCurrentSelect] = useState('home')
+function Navigation({ currentSelect, setCurrentSelect}) {
 
     return (
         <nav className='navigation-menu grid'>

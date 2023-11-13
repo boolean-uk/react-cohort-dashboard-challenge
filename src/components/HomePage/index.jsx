@@ -4,10 +4,7 @@ import Main from "../Main"
 
 import '../../styles/initials.css'
 
-function HomePage({ posts, URL, loggedInUser, setShouldGetPosts }) {
-
-    if (!loggedInUser) return <p>Loading...</p>
-    const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
+function HomePage({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts, currentSelect, setCurrentSelect }) {
 
     function userBgColour(user) {
         if (user.id === 1) return 'logged-in-user'
@@ -31,10 +28,9 @@ function HomePage({ posts, URL, loggedInUser, setShouldGetPosts }) {
     return(
         <div className="container grid">
             <Header loggedInUserInitials={loggedInUserInitials} />
-            <Navigation />
+            <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />
             <Main posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} userBgColour={userBgColour} setShouldGetPosts={setShouldGetPosts} />
         </div>
-        
     )
 }
 

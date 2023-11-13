@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import profileIcon from '../../../../_assets/profile-icon.svg'
 
 function ProfileIcon({ currentSelect, setCurrentSelect }) {
+
+    const navigate = useNavigate()
 
     function profileHighlight(currentSelect) {
         if (currentSelect === 'profile') {
@@ -10,7 +13,10 @@ function ProfileIcon({ currentSelect, setCurrentSelect }) {
     }
 
     return (
-        <div className={`nav-icon-container grid ${profileHighlight(currentSelect)}`} onClick={() => setCurrentSelect('profile')}>
+        <div className={`nav-icon-container grid ${profileHighlight(currentSelect)}`} onClick={() => {
+            setCurrentSelect('profile')
+            navigate('/profile')
+        } }>
             <img className='nav-icon-img' src={profileIcon} alt="profile icon" />
             <p className='nav-icon-text'>Profile</p>
         </div>   

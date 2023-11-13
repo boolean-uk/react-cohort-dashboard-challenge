@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import HomePage from './components/Homepage'
+import Profile from './components/Profile'
 
 import './App.css'
 
@@ -13,6 +14,8 @@ function App() {
   const [shouldGetPosts, setShouldGetPosts] = useState(true)
   const [loggedInUser, setLoggedInUser] = useState(null)
  
+  const [currentSelect, setCurrentSelect] = useState('home')
+
   function getPosts() {
     fetch(`${URL}/post`)
       .then(res => res.json())
@@ -37,14 +40,21 @@ function App() {
     getLoggedInUser()
   }, [])
 
+  if (!loggedInUser) return <p>Loading...</p>
+  const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
+
   return (
     <>
       <Routes>
         <Route
           path='/'
-          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} setShouldGetPosts={setShouldGetPosts} />}
+          element={<HomePage posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
           >
         </Route>
+        <Route
+          path='/profile'
+          element={<Profile loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
+        />
       </Routes>
     </>
   )

@@ -1,6 +1,7 @@
 /* MAIN */
 
 .main {
+    grid-area: Main;
     grid-template-rows: 100px 1fr;
     gap: 20px;
     padding: 20px 40px 20px 20px;
@@ -25,7 +26,6 @@
     background-color: #e6ebf5;
     height: 50px;
     border-radius: 10px;
-    /* border: solid 1px blue; */
 }
 
 .new-post-input {
@@ -34,7 +34,6 @@
     height: 100%;
     padding: 0 10px;
     border: none;
-    /* border: solid 1px red; */
     border-radius: 10px;
     font-size: 15px;
 }
