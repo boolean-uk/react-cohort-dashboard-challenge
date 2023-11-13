@@ -5,18 +5,23 @@ import Comment from "./components/Comment/Comment";
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
-import { numberProp } from "@utilities/propTypeDefs";
+import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
-export default function PostCommentFeed({ postId }) {
+export default function PostCommentFeed({
+  loadComments,
+  postId,
+  setLoadComments,
+}) {
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
     async function getComments() {
       const fetch = await api.post.comment.get(postId);
       setComments(await fetch);
+      setLoadComments(false);
     }
-    getComments();
-  }, [postId]);
+    loadComments && getComments();
+  }, [loadComments, postId, setLoadComments]);
 
   if (!comments) {
     return <PulseLoader />;
@@ -31,4 +36,8 @@ export default function PostCommentFeed({ postId }) {
   );
 }
 
-PostCommentFeed.propTypes = { postId: numberProp };
+PostCommentFeed.propTypes = {
+  loadComments: boolProps,
+  postId: numberProp,
+  setLoadComments: funcProp,
+};

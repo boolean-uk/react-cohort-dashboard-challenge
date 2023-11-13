@@ -72,11 +72,11 @@ export default function NewPostForm({ setLoadPosts, user }) {
           return (
             <TextInput
               key={`new-post-${index}`}
+              charLimit={field.charLimit}
               formData={formData}
-              setFormData={setFormData}
               inputName={field.inputName}
               placeholderText={field.placeholderText}
-              charLimit={field.charLimit}
+              setFormData={setFormData}
               submitted={submitted}
             />
           );

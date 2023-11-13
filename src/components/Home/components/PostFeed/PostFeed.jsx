@@ -6,9 +6,9 @@ import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
 import { arraySortByObjIdDesc } from "@utilities/array";
-import { boolProps, funcProp } from "@utilities/propTypeDefs";
+import { boolProps, contactProps, funcProp } from "@utilities/propTypeDefs";
 
-export default function PostFeed({ loadPosts, setLoadPosts }) {
+export default function PostFeed({ loadPosts, setLoadPosts, user }) {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function PostFeed({ loadPosts, setLoadPosts }) {
     }
 
     loadPosts && getPosts();
-  }, [loadPosts]);
+  }, [loadPosts, setLoadPosts]);
 
   if (!posts) {
     return <PulseLoader />;
@@ -29,7 +29,7 @@ export default function PostFeed({ loadPosts, setLoadPosts }) {
   return (
     <ul className="post-feed flex flex-col gap-4">
       {posts.map((post) => (
-        <PostItem key={`post-item-${post.id}`} post={post} />
+        <PostItem key={`post-item-${post.id}`} post={post} user={user}/>
       ))}
     </ul>
   );
@@ -38,4 +38,5 @@ export default function PostFeed({ loadPosts, setLoadPosts }) {
 PostFeed.propTypes = {
   loadPosts: boolProps,
   setLoadPosts: funcProp,
+  user: contactProps,
 };
