@@ -1,0 +1,17 @@
+.nav-bar{
+    display: grid;
+    grid-template-rows: 60px 60px ;
+    gap: 10px;
+    padding: 20px;
+}
+.nav-icon{
+    display: grid;
+    gap: 5px;
+    place-content: center;
+}
+.nav-icon--text{
+    color: #64648C;
+}
+.nav-icon--img{
+    justify-self: center;
+}
