@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
 
-function Tab({label, icon, active}) {
+function Tab({label, icon, path, classSelectors}) {
   const navigate = useNavigate()
+  
   return (
-    <li>
+    <li onClick={() => navigate(path)} className={classSelectors}>
       <img 
       src={icon}
       />
@@ -17,18 +18,19 @@ export default function Aside({activeTab}) {
   const tabs = [
     {
       label: "Home",
-      icon: "_assets/home-icon-svg.md"
+      path: "/",
+      icon: "../_assets/home-icon.svg"
     },
     {
       label: "Profile",
-      icon: "_assets/profile-icon-svg.md"
+      path: "/profile",
+      icon: "../_assets/profile-icon.svg"
     }
   ]
 
-
   return (
     <>
-      {tabs.map((tab, index) => <Tab key={index} label={tab.label} icon={tab.icon} activeTab={activeTab === tab.label ? true : false}/>)}
+      {tabs.map((tab, index) => <Tab key={index} label={tab.label} path={tab.path} icon={tab.icon} classSelectors={activeTab === tab.label ? "navigation active" : "navigation"}/>)}
     </>
   )
 }
