@@ -25,8 +25,7 @@ export default function Post({post}) {
     .catch((error) => console.log(error))
   }
   useEffect(loadUser, [])
-  
-  const openSinglePost = () => navigate("/post/"+post.id)
+
   
   if (!user) return
 
@@ -36,7 +35,7 @@ export default function Post({post}) {
         <ProfileImg contactId={post.contactId} initials={user.firstName[0] + user.lastName[0]}/>
         <div>
           <p className="post-author">{user.firstName + " " + user.lastName}</p>
-          <p className="post-title" onClick={() => openSinglePost()}>{post.title}</p>
+          <p className="post-title" onClick={() => navigate("/post/"+post.id)}>{post.title}</p>
           <p className="post-body">{post.content}</p>
         </div>
       </div>

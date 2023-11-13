@@ -18,22 +18,17 @@ export default function Header () {
 
   useEffect(loadUser, [])
 
-  const handleClick = () => {
-    console.log("clicked")
-    navigate("/profile")
-  }
-
   if (!user) return
 
   return (
     <header>
       <span id="logo">
-        <img
+        <img onClick={() => navigate("/")}
         src="../_assets/title-header.svg"
         className="logo"
         />
       </span>
-      <span id="profile" onClick={() => handleClick()} >
+      <span id="profile" onClick={() => navigate("/profile")} >
         <ProfileImg contactId={1} initials={user.firstName[0]+user.lastName[0]} size={"normal"}/>
       </span>
     </header>
