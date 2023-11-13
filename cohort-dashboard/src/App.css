@@ -189,10 +189,10 @@ aside {
   flex-direction: row;
 }
 
-.delete-post-btn {
+.delete-btn {
   padding: 0.5rem 0.7rem;
   border: 1px solid #000;
-  background-color: #d11a2a;
+  background-color: rgb(228, 18, 25);
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
@@ -276,7 +276,12 @@ aside {
 .comment {
   display: grid;
   align-items: center;
-  grid-template-columns: 75px 1fr;
+  grid-template-columns: 75px 1fr 33px;
+}
+
+.comment-del {
+  background-color: #e6ebf5;
+  box-shadow: 5px 2.5px 2.5px #00000030;
 }
 
 .comment-content {

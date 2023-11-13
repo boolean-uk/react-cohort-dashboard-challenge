@@ -48,7 +48,12 @@ export default function PostComments(props) {
           {comments
             .slice(hiddenComments, comments.length)
             .map((comment, idx) => (
-              <PostCommentItem key={idx} comment={comment} />
+              <PostCommentItem
+                key={idx}
+                comment={comment}
+                postid={post.id}
+                setRefreshComments={setRefreshComments}
+              />
             ))}
         </ul>
         <CreateComment

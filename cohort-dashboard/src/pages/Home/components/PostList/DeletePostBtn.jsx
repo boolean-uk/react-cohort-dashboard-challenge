@@ -9,7 +9,7 @@ export default function DeletePostBtn(props) {
       .then(() => setRefresh(true));
   };
   return (
-    <button title="DELETE" className="delete-post-btn" onClick={deletePost}>
+    <button title="DELETE" className="delete-btn" onClick={deletePost}>
       X
     </button>
   );

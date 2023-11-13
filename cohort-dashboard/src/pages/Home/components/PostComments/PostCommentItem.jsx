@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import ProfileIcon from "../ProfileIcon";
 import { Link } from "react-router-dom";
+import DeleteCommentBtn from "./DeleteCommentBtn";
 
-export default function PostCommentItem({ comment }) {
+export default function PostCommentItem(props) {
   const [commentContact, setCommmentContact] = useState(null);
+
+  const { comment, postid, setRefreshComments } = props;
 
   const fetchCommentContact = () => {
     fetch(
@@ -31,6 +34,11 @@ export default function PostCommentItem({ comment }) {
         </h4>
         <p>{comment.content}</p>
       </div>
+      <DeleteCommentBtn
+        postid={postid}
+        commentid={comment.id}
+        setRefreshComments={setRefreshComments}
+      />
     </li>
   );
 }
