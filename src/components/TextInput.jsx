@@ -36,15 +36,15 @@ export default function TextInput({
   }
 
   return (
-    <div id={`new-post-${inputName}`} className="relative flex">
+    <div id={`new-post-${inputName}`} className="relative flex grow">
       <input
         name={inputName}
         type="text"
         placeholder={placeholderText}
         onChange={handleChange}
         value={value}
-        className={`grow rounded-lg bg-cohort-shade p-4 ${
-          submitted === false && value.length === 0 && "border border-red-400"
+        className={`grow rounded-lg border border-cohort-shade bg-cohort-shade p-4 ${
+          submitted === false && value.length === 0 && "border-red-400"
         }`}
       />
       <div

@@ -11,6 +11,7 @@ export default {
         "cohort-green": "#64DC78",
         "cohort-shade": "#E6EBF5",
         "cohort-title": "#64648C",
+        "cohort-title-dark": "#C8D2E6",
       },
     },
   },

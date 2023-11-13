@@ -45,8 +45,6 @@ export default function NewCommentForm({ postId, setLoadComments, user }) {
       payload.postId = postId;
       payload.contactId = user.id;
 
-      console.log("payload", payload);
-
       api.post.comment.post(postId, payload).then(() => setLoadComments(true));
 
       setFormData(INITIAL_FORM);
@@ -59,7 +57,7 @@ export default function NewCommentForm({ postId, setLoadComments, user }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="new-comment-form flex bg-cohort-shade"
+      className="new-comment-form flex grow items-center gap-x-2 rounded-lg bg-cohort-shade pr-2 "
     >
       {FORM_SETUP.map((field, index) => {
         return (

@@ -5,7 +5,7 @@ import { contactProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
 export default function NewComment({ postId, setLoadComments, user }) {
   return (
-    <div className="new-comment-container flex items-center">
+    <div className="new-comment-container flex items-center gap-4">
       <UserIcon contact={user} />
       <NewCommentForm
         postId={postId}
