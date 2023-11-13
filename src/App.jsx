@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import SideMenu from "./components/SideMenu/SideMenu";
+import Profile from "./components/Profile/Profile";
 
 import api from "@utilities/api";
 import PulseLoader from "@components/Loader/PulseLoader";
@@ -32,7 +33,7 @@ function App() {
       <SideMenu user={user} />
       <section className="app-main flex flex-col gap-4 bg-cohort-background p-6">
         <Routes>
-          <Route path="/profile/:contactIdParam" />
+          <Route path="/profile/:contactIdParam" element={<Profile />} />
           <Route path="/post/:postIdParam" element={<PostItem user={user} />} />
           <Route path="/" element={<Home user={user} />} />
         </Routes>

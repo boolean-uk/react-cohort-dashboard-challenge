@@ -4,6 +4,7 @@ import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
 import api from "@utilities/api";
+import { reduceForm } from "@utilities/object";
 import { contactProps, funcProp } from "@utilities/propTypeDefs";
 
 import "./NewPostForm.css";
@@ -23,10 +24,7 @@ const FORM_SETUP = [
   },
 ];
 
-const INITIAL_FORM = FORM_SETUP.reduce(
-  (obj, entry) => ((obj[entry.inputName] = ""), obj),
-  {},
-);
+const INITIAL_FORM = reduceForm(FORM_SETUP);
 
 export default function NewPostForm({ setLoadPosts, user }) {
   const [formData, setFormData] = useState(INITIAL_FORM);

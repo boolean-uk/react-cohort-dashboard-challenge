@@ -40,8 +40,8 @@
 							- [x] `<NewCommentForm />`
 								- [x] `<TextInput />`
 									- [x] `<NewCommentButton />`
-		- [ ] `<Route />` =>  `<Profile />`
-			- [ ] `<h2 />`
+		- [x] `<Route />` =>  `<Profile />`
+			- [x] `<h2 />`
 			- [ ] `<ProfileForm />`
 				- [ ] `<ProfileTitle />`
 					- [ ] `<UserIcon />`

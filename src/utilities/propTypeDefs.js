@@ -35,6 +35,12 @@ const postProps = PropTypes.shape({
   content: PropTypes.string.isRequired,
 });
 
+//TODO: expand once we look at fields
+const sectionProp = PropTypes.shape({
+  fields: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string,
+});
+
 const stringProp = PropTypes.string;
 
 export {
@@ -45,5 +51,6 @@ export {
   numberProp,
   objectProp,
   postProps,
+  sectionProp,
   stringProp,
 };
