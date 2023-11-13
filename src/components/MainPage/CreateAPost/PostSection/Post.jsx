@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Comment from "./Comment"
+import AddComment from "../AddComment"
 
 function Post (props) {
 
@@ -57,6 +58,11 @@ function Post (props) {
                         contact={contact}
                     />)}
                 </ul>
+            </div>
+            <div className="add-comment">
+                <AddComment 
+                    post={post}
+                />
             </div>
         </li>
     )
