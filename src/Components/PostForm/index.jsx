@@ -5,18 +5,16 @@ const INPUT_DATA = {
     content: ''
 }
 
-export default function PostForm({getPosts, currentUserId}) {
+export default function PostForm({getPosts}) {
     const [form, setForm] = useState(INPUT_DATA)
 
     // const isDisabled = form.length === 0
-
-    const currentUser = Number(currentUserId)
 
     const handleChange = (event) => {
 
         const {name, value} = event.target
 
-        setForm({...form, [name]: value, contactId: currentUser})
+        setForm({...form, [name]: value, contactId: 1})
 
     }
 

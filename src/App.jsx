@@ -52,7 +52,7 @@ function App() {
       <div className="container">
          <SideBar />
       <Routes>
-        <Route path='/' element={<Posts posts={posts} setPosts={setPosts} currentUserId="1" getPosts={getPosts}/>}/>
+        <Route path='/' element={<Posts posts={posts} setPosts={setPosts} getPosts={getPosts}/>}/>
         <Route path='/:id' element={<ViewPost posts={posts} />}/>
       </Routes>
       </div>

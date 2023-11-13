@@ -2,14 +2,15 @@ import { useEffect, useState } from "react"
 import {Link} from 'react-router-dom'
 import Comments from "../Comments"
 import CommentForm from "../CommentForm"
+import ViewPost from "../ViewPost";
 
-export default function Post({post, currentUserId}) {
+export default function Post({post}) {
     const [user, setUser] = useState(null)
     
     const [comments, setComments] = useState([])
 
     const userId = post.contactId
-
+    
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${userId}`)
         .then(res => res.json())
@@ -49,7 +50,7 @@ export default function Post({post, currentUserId}) {
                 {post.content}
             </div>
             <Comments post={post} user={user} getComments={getComments} comments={comments}/>
-            <CommentForm post={post} getComments={getComments} currentUserId={currentUserId} user={user}/>
+            <CommentForm post={post} getComments={getComments} user={user}/>
         </li>
     )
 }

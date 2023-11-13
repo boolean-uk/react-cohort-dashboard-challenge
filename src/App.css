@@ -71,7 +71,6 @@ a, Link {
     background-color: white;
     padding: 1rem 2rem;
     border-radius: 10px;
-    height: 500px;
     overflow-y: scroll;
     margin-top: 1rem;
 }

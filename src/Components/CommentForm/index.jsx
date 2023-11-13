@@ -7,10 +7,10 @@ const INPUT_DATA = {
     content: ''
 }
 
-export default function CommentForm({post, currentUserId, getComments}) {
+export default function CommentForm({post, user, getComments}) {
     const [form, setForm] = useState(INPUT_DATA)
 
-    const currentUser = Number(currentUserId)
+    // const currentUser = Number(currentUserId)
     
     const commentPostURL = `https://boolean-api-server.fly.dev/ilham-saleh/post/${post.id}/comment`
     
@@ -20,11 +20,11 @@ export default function CommentForm({post, currentUserId, getComments}) {
         setForm({
             ...form,
              [name]: value, 
-             contactId: currentUser, 
+             contactId: user.id, 
              postId: post.id
             })
     }
-
+    
     const handleSubmit= (e) => {
         e.preventDefault();
 
