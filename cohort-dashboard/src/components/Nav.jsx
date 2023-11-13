@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   const navigate = useNavigate();
-  const [homeClass, setHomeClass] = useState("active");
+  const [homeClass, setHomeClass] = useState("");
   const [profileClass, setProfileClass] = useState("");
 
   return (
