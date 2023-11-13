@@ -1,9 +1,10 @@
 import Header from "./components/Header";
 import Aside from "./components/Aside";
+import UserProfilePage from "./components/UserProfilePage";
 import Dashboard from "./components/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import SelectedPostPage from "./components/components/SelectedPostPage";
+import SelectedPostPage from "./components/SelectedPostPage";
 import { useState } from "react";
 
 function App() {
@@ -42,7 +43,11 @@ function App() {
             />
           }
         />
-      </Routes>
+        <Route
+          path="/profile"
+          element={<UserProfilePage />}
+        />
+      </Routes>  
     </>
   );
 }

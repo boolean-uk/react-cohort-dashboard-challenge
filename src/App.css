@@ -125,3 +125,11 @@ button:hover {
     left: 100px;
     z-index: 1;
 }
+
+.profile-form {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}

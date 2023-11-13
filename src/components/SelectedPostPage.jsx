@@ -1,4 +1,4 @@
-import PostListItem from "./components/PostListItem";
+import PostListItem from "./components/components/PostListItem";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
