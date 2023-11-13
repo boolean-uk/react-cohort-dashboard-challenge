@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function Comment({comment, currentUserId}) {
+export default function Comment({comment}) {
     const [commentAuthor, setCommentAuthor] = useState(null)
 
     useEffect(() =>{

@@ -19,7 +19,7 @@ export default function Comments({getComments, comments}) {
         <div className="comments">
             <p>See previous comments</p>
             {comments.slice(-3).map((comment, index) => (
-               <ul>
+               <ul key={index}>
                  <Comment comment={comment} key={index} getComments={getComments}/> 
                </ul>
             ))}

@@ -26,6 +26,7 @@ function App() {
       getPosts()
   }, [])
 
+  
   // RECENT CHANGE OCCURED HERE 
 //   useEffect(() => {
 //     fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${posts.contactId}`)

@@ -4,7 +4,8 @@ import PostForm from "../PostForm"
 import {Link} from 'react-router-dom'
 
 export default function Posts(props) {
-    const {posts, getPosts, getComments, user, post} = props
+    const {posts, getPosts, getComments, user, post, comments} = props
+
 
     // const limitedPosts = posts.slice(0, 3)
 
@@ -13,8 +14,8 @@ export default function Posts(props) {
              <PostForm getPosts={getPosts} user={user} post={post}/>
             <div className="posts-container">
                 {posts.map((post, index) => (
-                        <ul>
-                            <Post post={post} key={index} getComments={getComments} user={user}/>
+                        <ul key={index}>
+                            <Post post={post} getComments={getComments} user={user} comments={comments}/>
                         </ul>
                 ))}
             </div>
