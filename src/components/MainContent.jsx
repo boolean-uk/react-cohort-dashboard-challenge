@@ -12,6 +12,7 @@ function MainContent({
   mainUserInitials,
   handleCommentChange,
 }) {
+  
   return (
     <div className="main-content">
       <div className="each-post">

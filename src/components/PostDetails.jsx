@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
+import Submit from "../assets/Submit.svg";
 
 function PostDetails({ contacts, handleSubmit, mainUserInitials, commentInputs, postComments }) {
   const navigate = useNavigate();
@@ -29,11 +30,13 @@ function PostDetails({ contacts, handleSubmit, mainUserInitials, commentInputs, 
   const contact = contacts.find(c => c.id === post.contactId);
   const initials = contact ? `${contact.firstName[0]}${contact.lastName[0]}` : "";
 
-  const handleCommentChange = (postID, value) => {
+  const handleCommentChange = (postId, value) => {
     // Logic for handling comment change
   }
 
   return (
+
+  <div className="individual-background">
     <div className="Individual-post">
     <div className="post-details">
       <div className="comment-title">
@@ -77,7 +80,9 @@ function PostDetails({ contacts, handleSubmit, mainUserInitials, commentInputs, 
               onChange={(e) => handleCommentChange(post.id, e.target.value)}
             />
           </label>
-          <button type="submit">Submit Comment</button>
+          <button className="post-button-post-details" type="submit">
+            <img src={Submit} width={20} alt="submit button" />
+          </button>
         </form>
       </div>
 
@@ -85,6 +90,7 @@ function PostDetails({ contacts, handleSubmit, mainUserInitials, commentInputs, 
       <Link to="/">
         <button className="back-to-home-button">Back to Home</button>
       </Link>
+    </div>
     </div>
     </div>
   );
