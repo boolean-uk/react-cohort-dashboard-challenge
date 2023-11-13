@@ -9,7 +9,7 @@
 
 ## header
 
-- [] set up basic structure
+- [x] set up basic structure
 
 - [] display h1, profile picture and logo
 
