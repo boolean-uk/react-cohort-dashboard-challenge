@@ -4,17 +4,16 @@ import ProfileFormSection from "./components/ProfileFormSection";
 
 import { reduceForm } from "@utilities/object";
 import {
-  flatProfileTemplate,
-  profileTemplate,
-} from "@utilities/profileTemplate";
-
-const INITIAL_FORM = reduceForm(flatProfileTemplate);
+  profileInitialForm,
+  profileSections,
+  profileSectionsFlat,
+} from "@utilities/formTemplates";
 
 export default function ProfileForm() {
-  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [formData, setFormData] = useState(profileInitialForm);
   return (
     <form className="profile-form">
-      {profileTemplate.map((section, index) => (
+      {profileSections.map((section, index) => (
         <ProfileFormSection
           formData={formData}
           section={section}

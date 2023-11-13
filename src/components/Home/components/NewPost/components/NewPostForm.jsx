@@ -4,30 +4,14 @@ import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
 import api from "@utilities/api";
-import { reduceForm } from "@utilities/object";
+
 import { contactProps, funcProp } from "@utilities/propTypeDefs";
 
 import "./NewPostForm.css";
-
-const FORM_SETUP = [
-  {
-    inputName: "content",
-    placeholderText: "What's on your mind?",
-    charLimit: 240,
-    required: true,
-  },
-  {
-    inputName: "title",
-    placeholderText: "Give your post a title!",
-    charLimit: 80,
-    required: true,
-  },
-];
-
-const INITIAL_FORM = reduceForm(FORM_SETUP);
+import { newPostFormSetup, newPostInitialForm } from "@utilities/formTemplates";
 
 export default function NewPostForm({ setLoadPosts, user }) {
-  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [formData, setFormData] = useState(newPostInitialForm);
   const [validInput, setValidInput] = useState(true);
   const [submitted, setSubmitted] = useState(null);
 
@@ -36,7 +20,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
   );
 
   useEffect(() => {
-    const formValid = FORM_SETUP.every((entry) => {
+    const formValid = newPostFormSetup.every((entry) => {
       const { inputName, required } = entry;
       if (formData[inputName].length > 0 || !required) return true;
     });
@@ -53,7 +37,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
 
       api.post.post(payload).then(() => setLoadPosts(true));
 
-      setFormData(INITIAL_FORM);
+      setFormData(newPostInitialForm);
       setSubmitted(true);
     } else {
       setSubmitted(false);
@@ -65,7 +49,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
       className={`new-post-form grid grow gap-x-2 ${formHasInput && "gap-y-2"}`}
       onSubmit={handleSubmit}
     >
-      {FORM_SETUP.map((field, index) => {
+      {newPostFormSetup.map((field, index) => {
         if (field.inputName === "content" || formHasInput)
           return (
             <TextInput

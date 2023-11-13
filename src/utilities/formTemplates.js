@@ -1,4 +1,6 @@
-const profileTemplate = [
+import { reduceForm } from "./object";
+
+const profileSections = [
   {
     title: "Account info",
     fields: [
@@ -112,8 +114,46 @@ const profileTemplate = [
   },
 ];
 
-const flatProfileTemplate = profileTemplate.flatMap((section) => {
-  return section.fields;
-});
+const profileSectionsFlat = profileSections.flatMap(
+  (section) => section.fields,
+);
 
-export { flatProfileTemplate, profileTemplate };
+const profileInitialForm = reduceForm(profileSectionsFlat);
+
+const newCommentFormSetup = [
+  {
+    inputName: "content",
+    placeholderText: "Add a comment...",
+    charLimit: 180,
+    required: true,
+  },
+];
+
+const newCommentInitialForm = reduceForm(newCommentFormSetup);
+
+const newPostFormSetup = [
+  {
+    inputName: "content",
+    placeholderText: "What's on your mind?",
+    charLimit: 240,
+    required: true,
+  },
+  {
+    inputName: "title",
+    placeholderText: "Give your post a title!",
+    charLimit: 80,
+    required: true,
+  },
+];
+
+const newPostInitialForm = reduceForm(newPostFormSetup);
+
+export {
+  newCommentFormSetup,
+  newCommentInitialForm,
+  newPostFormSetup,
+  newPostInitialForm,
+  profileInitialForm,
+  profileSections,
+  profileSectionsFlat,
+};

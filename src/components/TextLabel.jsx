@@ -4,7 +4,8 @@ export default function TextLabel({ field, formData, setFormData }) {
   const { charLimit, inputName, placeholderText, required, title } = field;
   return (
     <label>
-      {title}{required && "*"}
+      {title}
+      {required && "*"}
       <TextInput
         charLimit={charLimit}
         formData={formData}

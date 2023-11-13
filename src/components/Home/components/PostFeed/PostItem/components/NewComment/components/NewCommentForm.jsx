@@ -6,30 +6,20 @@ import TextInput from "@components/TextInput";
 
 import api from "@utilities/api";
 import { contactProps, funcProp, numberProp } from "@utilities/propTypeDefs";
+import {
+  newCommentFormSetup,
+  newCommentInitialForm,
+} from "@utilities/formTemplates";
 
 //TODO: kinda repeating myself here... I expect you to handle this future Edd...
 
-const FORM_SETUP = [
-  {
-    inputName: "content",
-    placeholderText: "Add a comment...",
-    charLimit: 180,
-    required: true,
-  },
-];
-
-const INITIAL_FORM = FORM_SETUP.reduce(
-  (obj, entry) => ((obj[entry.inputName] = ""), obj),
-  {},
-);
-
 export default function NewCommentForm({ postId, setLoadComments, user }) {
-  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [formData, setFormData] = useState(newCommentInitialForm);
   const [validInput, setValidInput] = useState(true);
   const [submitted, setSubmitted] = useState(null);
 
   useEffect(() => {
-    const formValid = FORM_SETUP.every((entry) => {
+    const formValid = newCommentFormSetup.every((entry) => {
       const { inputName, required } = entry;
       if (formData[inputName].length > 0 || !required) return true;
     });
@@ -47,7 +37,7 @@ export default function NewCommentForm({ postId, setLoadComments, user }) {
 
       api.post.comment.post(postId, payload).then(() => setLoadComments(true));
 
-      setFormData(INITIAL_FORM);
+      setFormData(newCommentInitialForm);
       setSubmitted(true);
     } else {
       setSubmitted(false);
@@ -59,7 +49,7 @@ export default function NewCommentForm({ postId, setLoadComments, user }) {
       onSubmit={handleSubmit}
       className="new-comment-form flex grow items-center gap-x-2 rounded-lg bg-cohort-shade pr-2 "
     >
-      {FORM_SETUP.map((field, index) => {
+      {newCommentFormSetup.map((field, index) => {
         return (
           <TextInput
             key={`post-${postId}-new-comment-${index}`}
