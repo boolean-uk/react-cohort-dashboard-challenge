@@ -56,18 +56,14 @@ const Post = () => {
                 },
                 body: JSON.stringify({
                     content: newCommentContent,
-                    contactId: 15, // Replace with the actual contactId for the current user
-                    postId: postId, // Pass the actual postId here
+                    contactId: 1,
+                    postId: postId,
                 }),
             });
-
-            // Assuming the server responds with the created comment
             const newComment = await response.json();
 
-            // Update the state to include the new comment
             setComments((prevData) => [...prevData, newComment]);
 
-            // Clear the input field
             setNewCommentContent('');
         } catch (error) {
             console.error('Error submitting comment:', error);

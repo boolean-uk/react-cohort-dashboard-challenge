@@ -84,8 +84,6 @@ export default function Feed() {
       isMounted = false;
     };
   }, [postData]);
-  
-
 
   const handlePostSubmit = async () => {
     try {
@@ -97,19 +95,15 @@ export default function Feed() {
         body: JSON.stringify({
           title: 'New post',
           content: newPostContent,
-          contactId: 15,
-          // Add any other required fields for creating a new post
+          contactId: 1,
         }),
       });
 
       console.log('POST Request Response:', response);
-      // Assuming the server responds with the created post
       const newPost = await response.json();
 
-      // Update the state to include the new post without reversing
       setPostData((prevData) => [newPost, ...prevData]);
 
-      // Clear the input field
       setNewPostContent('');
     } catch (error) {
       console.error('Error submitting post:', error);
@@ -130,24 +124,20 @@ export default function Feed() {
         },
         body: JSON.stringify({
           content: newCommentContent,
-          contactId: 15, // Replace with the actual contactId for the current user
-          postId: postId, // Pass the actual postId here
+          contactId: 1, 
+          postId: postId
         }),
       });
 
-      // Assuming the server responds with the created comment
       const newComment = await response.json();
 
-      // Update the state to include the new comment
       setCommentData((prevData) => [...prevData, newComment]);
 
-      // Clear the input field
       setNewCommentContent('');
     } catch (error) {
       console.error('Error submitting comment:', error);
     }
   };
-
 
   return (
     <ul className="feed-ul">
@@ -164,7 +154,7 @@ export default function Feed() {
         const contact = contactData.find((contact) => contact.id === post.contactId);
         if (!contact) {
           console.error(`Contact not found for post with id ${post.id}`);
-          return null; // or handle this case appropriately
+          return null;
         }
 
         let initials = `${contact.firstName[0]}${contact.lastName[0]}`;
