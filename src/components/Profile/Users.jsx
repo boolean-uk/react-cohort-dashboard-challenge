@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
 import userArr from "./users";
+import { useParams } from "react-router-dom";
+import Profile from "./Profile";
 
 export default function Users() {
-  const [users, setUsers] = useState({})
-  const loadUsers = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const endpoint = "/AllyDouillette/contact"
-    
-    fetch(baseURL+endpoint)
-      .then(response => response.json())
-      .then(data => setUsers(data))
-  }
-  
-  useEffect(loadUsers, [])
-
+  const { id } = useParams()
   return (
-    <p>USERS</p>
+    <Profile contactId={id}/>
   )
 }

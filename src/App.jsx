@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { useNavigation, useParams } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -27,6 +25,10 @@ function App() {
             element={<Aside activeTab={"SinglePost"}/>}
           />
           <Route 
+            path="/user/:id"
+            element={<Aside activeTab={"User"}/>}
+          />
+          <Route 
             path="/profile"
             element={<Aside activeTab={"Profile"}/>}
           />
@@ -44,10 +46,10 @@ function App() {
           />
           <Route
             path="/profile"
-            element={<Profile />}
+            element={<Profile contactId={1}/>}
           />
           <Route
-            path="/users"
+            path="/user/:id"
             element={<Users />}
           />
         </Routes>

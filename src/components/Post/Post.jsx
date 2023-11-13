@@ -26,6 +26,9 @@ export default function Post({post}) {
   }
   useEffect(loadUser, [])
 
+  const handleClickUsername = () => {
+    post.contactId === 1 ? navigate("/profile") : navigate("/user/"+post.contactId)
+  }
   
   if (!user) return
 
@@ -34,7 +37,7 @@ export default function Post({post}) {
       <div className="post-container">
         <ProfileImg contactId={post.contactId} initials={user.firstName[0] + user.lastName[0]}/>
         <div>
-          <p className="post-author">{user.firstName + " " + user.lastName}</p>
+          <p className="post-author" onClick={() => handleClickUsername()}>{user.firstName + " " + user.lastName}</p>
           <p className="post-title" onClick={() => navigate("/post/"+post.id)}>{post.title}</p>
           <p className="post-body">{post.content}</p>
         </div>

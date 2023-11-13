@@ -116,7 +116,9 @@ nav li.active {
 form {
   margin: 20px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-template-columns: repeat(2, minmax(min-content, 40%));
+  place-items: end;
+  place-content: center;
 }
 
 input {

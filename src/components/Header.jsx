@@ -28,7 +28,7 @@ export default function Header () {
         className="logo"
         />
       </span>
-      <span id="profile" onClick={() => navigate("/profile")} >
+      <span id="profile">
         <ProfileImg contactId={1} initials={user.firstName[0]+user.lastName[0]} size={"normal"}/>
       </span>
     </header>
