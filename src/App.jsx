@@ -96,6 +96,11 @@ function App() {
                   />
                 </form>
               </div>
+              <div className="commentButton">
+                <button>
+                  <img src="src/assets/send-svgrepo-com.svg" alt="" />
+                </button>
+              </div>
             </div>
           </div>
         </main>
