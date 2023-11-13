@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react"
 import Comment from "./Comment"
+import { useParams } from "react-router-dom"
 
 export default function Comments ({postId}) {
   
+  const {id} = useParams()
+  console.log(!id)
+  
   const [comments, setComments] = useState([])
-  const [visibleComments, setVisibleComments] = useState(3)
+  const [visibleComments, setVisibleComments] = useState(null)
 
   const getComments = () => {
     const baseURL = "https://boolean-api-server.fly.dev/"
@@ -13,7 +17,10 @@ export default function Comments ({postId}) {
 
     fetch(baseURL + directory + endpoint)
       .then(res => res.json())
-      .then(data => setComments(data))
+      .then(data => {
+        setComments(data)
+        !id ? setVisibleComments(3) : setVisibleComments(data.length)
+      })
   }
 
   useEffect(getComments, [])
