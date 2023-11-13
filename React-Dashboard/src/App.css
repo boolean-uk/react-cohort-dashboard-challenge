@@ -56,6 +56,10 @@ main > section:first-of-type input, button{
   padding: 10px
 
 }
+main > section:first-of-type  button:hover{
+  background-color: #64dc78;
+  cursor: pointer;
+}
 main > section:first-of-type input > ::placeholder{
   background-color: #e6ebf5;
   text-align: center;

@@ -7,7 +7,10 @@ function Main(props) {
     contactId: 1,
   };
   const [anotherComment, setAnotherComment] = useState(commentData);
-  const { rerenderpost, setRerenderPost } = useState(false);
+  const [rerenderpost, setRerenderPost] = useState(false);
+  const [comment, setComment] = useState([]);
+
+  //console.log("this is renderPost in Main.jsx:", rerenderpost);
 
   const {
     contactIdOne,
@@ -26,6 +29,8 @@ function Main(props) {
           setContactIdOne={setContactIdOne}
         />
         <PostInput
+          content={content}
+          setContent={setContent}
           anotherComment={anotherComment}
           setAnotherComment={setAnotherComment}
           rerenderpost={rerenderpost}
@@ -34,6 +39,8 @@ function Main(props) {
       </section>
       <section className="displayed-post">
         <PostComment
+          comment={comment}
+          setComment={setComment}
           rerenderpost={rerenderpost}
           setRerenderPost={setRerenderPost}
           anotherComment={anotherComment}

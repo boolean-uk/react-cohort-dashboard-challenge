@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./showComment.css";
 
 function showComment(props) {
-  const [comment, setComment] = useState([]);
+  const { comment, setComment } = props;
   const { content, setContent } = props;
   const { anotherComment, setAnotherComment } = props;
   const [allContact, setAllContact] = useState([]);
@@ -99,7 +99,7 @@ function showComment(props) {
   useEffect(() => {
     if (rerenderpost) {
       fetchPost();
-      console.log(content);
+      console.log("this is content after post", content);
       setRerenderPost(false);
     }
   }, [rerenderpost]);
