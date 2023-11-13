@@ -180,7 +180,22 @@ aside {
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   grid-area: 1 / 1 / 2 / 2;
+}
+
+.icon-title-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-post-btn {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #000;
+  background-color: #d11a2a;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .post-header__author-title {

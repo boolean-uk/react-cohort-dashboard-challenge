@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <CreatePost setRefresh={setRefresh} />
-      <PostList posts={posts} />
+      <PostList posts={posts} setRefresh={setRefresh} />
     </div>
   );
 }
