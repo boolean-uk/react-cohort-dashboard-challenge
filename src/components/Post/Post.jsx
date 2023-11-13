@@ -28,7 +28,7 @@ export default function Post({post}) {
   
   const openSinglePost = () => navigate("/post/"+post.id)
   
-  if (!user) return <p>Loading…</p>
+  if (!user) return
 
   return (
     <div className="card" >

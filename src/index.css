@@ -41,6 +41,7 @@ header {
   background-color: var(--nightblue);
   position: sticky;
   top: 0;
+  display: grid;
 }
 
 aside {

@@ -18,7 +18,7 @@ export default function SinglePostPage () {
   }
 
   useEffect(getPost, [])
-  if (!post === true) return (<div>Loading…</div>)
+  if (!post === true) return
   
   return (
     <>

@@ -15,9 +15,7 @@ function App() {
 
   return (
     <div className="container">
-      <header>
-        <Header />
-      </header>
+      <Header />
       <aside>
         <Routes>
           <Route 
