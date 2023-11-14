@@ -10,9 +10,9 @@ import PostItemOptions from "./components/PostItemOptions/PostItemOptions";
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
-import { contactProps, postProps } from "@utilities/propTypeDefs";
+import { contactProps, funcProp, postProps } from "@utilities/propTypeDefs";
 
-export default function PostItem({ postProp, user }) {
+export default function PostItem({ postProp, setLoadPosts, user }) {
   const [post, setPost] = useState(null);
 
   const [loadPost, setLoadPost] = useState(false);
@@ -72,11 +72,17 @@ export default function PostItem({ postProp, user }) {
       />
       <PostItemOptions
         itemHover={itemHover}
+        postId={post.id}
         showItemMenu={showItemMenu}
+        setLoadPosts={setLoadPosts}
         setShowItemMenu={setShowItemMenu}
       />
     </li>
   );
 }
 
-PostItem.propTypes = { postProp: postProps, user: contactProps };
+PostItem.propTypes = {
+  postProp: postProps,
+  setLoadPosts: funcProp,
+  user: contactProps,
+};
