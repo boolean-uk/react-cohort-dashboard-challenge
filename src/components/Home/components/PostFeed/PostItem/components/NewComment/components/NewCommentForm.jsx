@@ -5,6 +5,7 @@ import NewCommentSubmit from "./NewCommentSubmit";
 import TextInput from "@components/TextInput";
 
 import api from "@utilities/api";
+import { checkFormValidity } from "@utilities/object";
 import { contactProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 import {
   newCommentFormSetup,
@@ -19,10 +20,7 @@ export default function NewCommentForm({ postId, setLoadComments, user }) {
   const [submitted, setSubmitted] = useState(null);
 
   useEffect(() => {
-    const formValid = newCommentFormSetup.every((entry) => {
-      const { inputName, required } = entry;
-      if (formData[inputName].length > 0 || !required) return true;
-    });
+    const formValid = checkFormValidity(formData, newCommentFormSetup);
 
     setValidInput(formValid);
   }, [formData]);

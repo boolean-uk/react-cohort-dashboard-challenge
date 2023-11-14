@@ -4,11 +4,11 @@ import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
 import api from "@utilities/api";
-
+import { newPostFormSetup, newPostInitialForm } from "@utilities/formTemplates";
+import { checkFormValidity } from "@utilities/object";
 import { contactProps, funcProp } from "@utilities/propTypeDefs";
 
 import "./NewPostForm.css";
-import { newPostFormSetup, newPostInitialForm } from "@utilities/formTemplates";
 
 export default function NewPostForm({ setLoadPosts, user }) {
   const [formData, setFormData] = useState(newPostInitialForm);
@@ -20,10 +20,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
   );
 
   useEffect(() => {
-    const formValid = newPostFormSetup.every((entry) => {
-      const { inputName, required } = entry;
-      if (formData[inputName].length > 0 || !required) return true;
-    });
+    const formValid = checkFormValidity(formData, newPostFormSetup)
 
     setValidInput(formValid);
   }, [formData]);
