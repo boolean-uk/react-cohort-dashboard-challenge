@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import Home from './pages/home/Home'
 import Topbar from './components/topbar/Topbar'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ProfileInitialsBadge from './components/topbar/ProfileInitialsBadge';
 import './App.css'
 
 function App() {
@@ -8,14 +11,11 @@ function App() {
 
   return (
     <>
-      <div className="App">
+    <div className="App">
     <Home />
-
-
-
-      </div>
+     
+    </div>
     </>
   )
 }
-
 export default App;
