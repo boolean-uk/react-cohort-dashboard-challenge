@@ -38,6 +38,11 @@
 
 ## comments
 
+- [x] basic structure
+
+- [x] add logic for fetching comment data
+
+- [x] map through list of comments
 
 ## new post
 
