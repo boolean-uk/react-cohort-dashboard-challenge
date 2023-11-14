@@ -28,8 +28,8 @@ export default function PostInfo({ users, posts, setPosts }) {
                             <p className="postContent">{post.content}</p>
                             <hr />
                             <br />
-                            <CommentContent users={users} posts={posts} postInfo={post}/>
-                            <CommentForm users={users} posts={posts} postInfo={post} setPosts={setPosts}/>
+                            <CommentContent users={users} postInfo={post}/>
+                            <CommentForm postInfo={post} setPosts={setPosts}/>
                         </div>)
                 })
             }

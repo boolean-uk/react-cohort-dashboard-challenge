@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import CommentContent from "./commentContent"
 
-export default function SinglePostPage({ users, posts }) {
+export default function SinglePostPage({ users, posts, setPosts }) {
 
     const { postId } = useParams()
 
@@ -39,8 +39,8 @@ export default function SinglePostPage({ users, posts }) {
             <p className="postContent">{singlePersonPost.content}</p>
             <hr />
             <br />
-            <CommentContent/>
-            <CommentForm />
+            <CommentContent users={users} postInfo={singlePersonPost}/>
+            <CommentForm postInfo={singlePersonPost} setPosts={setPosts}/>
         </div>
     ))
 }
