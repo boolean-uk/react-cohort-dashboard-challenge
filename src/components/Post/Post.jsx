@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
 import Comments from "../Comments/Comments";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../../App";
 
 export default function Post({post}) {
   
@@ -16,8 +17,8 @@ export default function Post({post}) {
   
   const [user, setUser] = useState(null)
   const loadUser = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const endpoint = `/AllyDouillette/contact/${post.contactId}`
+    
+    const endpoint = `/contact/${post.contactId}`
 
     fetch(baseURL+endpoint)
     .then(response => response.json())

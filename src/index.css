@@ -30,7 +30,7 @@
   grid-template-areas: "header header"
   "aside main";
   height: calc(100vh);
-  overflow: scroll;
+  overflow: hidden;
   border-radius: 5px;
   grid-template-rows: 80px 1fr;
   grid-template-columns: 200px 1fr;
@@ -52,6 +52,7 @@ aside {
 main {
   grid-area: main;
   background-color: var(--lightestgrey);
+  overflow: scroll;
 }
 
 body {

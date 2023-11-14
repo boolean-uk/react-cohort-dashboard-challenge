@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
 import FormField from "./FormField"
 import { useNavigate } from "react-router-dom"
+import { baseURL } from "../../App"
 
 export default function Profile ({ contactId }) {
 
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-  const [changes, setChanges] = useState(false)
   
-  const baseURL = "https://boolean-api-server.fly.dev"
-  const endpoint = `/AllyDouillette/contact/${contactId}`
+  const endpoint = `/contact/${contactId}`
   
   const loadUser = () => {
     

@@ -9,6 +9,9 @@ import Users from './components/Profile/Users'
 import Aside from './components/Aside'
 import Header from './components/Header'
 
+export const baseURL = "https://boolean-api-server.fly.dev/AllyDouillette"
+
+
 function App() {
 
   return (

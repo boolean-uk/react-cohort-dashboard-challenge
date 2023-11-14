@@ -1,13 +1,13 @@
 import ProfileImg from "../Profile/ProfileImg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../../App";
 
 export default function Comment({comment}) {
 
   const [user, setUser] = useState(null)
   const loadUser = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const endpoint = `/AllyDouillette/contact/${comment.contactId}`
+    const endpoint = `/contact/${comment.contactId}`
     
     fetch(baseURL+endpoint)
       .then(response => response.json())

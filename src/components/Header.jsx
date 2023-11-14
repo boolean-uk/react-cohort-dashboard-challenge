@@ -2,13 +2,14 @@ import { useNavigate } from "react-router-dom";
 import ProfileImg from "./Profile/ProfileImg";
 import { useState, useEffect } from "react";
 
+import { baseURL } from "../App";
+
 export default function Header () {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
   const loadUser = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const endpoint = `/AllyDouillette/contact/1`
+    const endpoint = `/contact/1`
 
     fetch(baseURL+endpoint)
     .then(response => response.json())

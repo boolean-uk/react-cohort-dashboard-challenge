@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 import Post from "../Post/Post"
+import { baseURL } from "../../App"
 
 export default function Home() {
   const [posts, setPosts] = useState([])
 
   const getPosts = () => {
-    const baseURL = "https://boolean-api-server.fly.dev"
-    const directory = "/AllyDouillette"
+    
     const endpoint = "/post"
 
-    fetch(baseURL + directory + endpoint)
+    fetch(baseURL + endpoint)
       .then(res => res.json())
       .then(data => setPosts(data))
   }
