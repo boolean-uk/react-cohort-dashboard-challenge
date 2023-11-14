@@ -1,0 +1,75 @@
+.main-app-template {
+  width: 100%;
+  height: 100vh;
+  background-color: #cdc9c9;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  grid-template-rows:  90px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"; 
+  column-gap: 15px;
+
+}
+
+header {
+   grid-area: header; 
+  background-color:#7b7bce;
+  color: white;
+
+}
+
+aside {
+   grid-area: sidebar; 
+  background-color: #ddd;
+}
+
+main {
+   grid-area: main; 
+   display: grid;
+   grid-template-rows: 70px 1fr;
+   row-gap: 10px;
+   overflow-y: scroll;
+ 
+  
+}
+
+main > section:first-of-type{
+  background-color:#ffffffca;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  padding: 0 20px 0 20px;
+  align-items: center;
+
+}
+main > section:first-of-type > form{
+  display: grid;
+  grid-template-columns:120px 1fr 120px;
+  column-gap: 10px;
+;
+}
+
+main > section:first-of-type input, button{
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px
+
+}
+main > section:first-of-type  button:hover{
+  background-color: #64dc78;
+  cursor: pointer;
+}
+main > section:first-of-type input > ::placeholder{
+  background-color: #e6ebf5;
+  text-align: center;
+}
+
+
+main > section:first-of-type  button{
+   background-color:#000046 ;
+   font-family: sans-serif;
+   font-weight: bold;
+   color: #ffff;
+}
+
