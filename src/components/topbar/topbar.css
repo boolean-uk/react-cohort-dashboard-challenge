@@ -1,0 +1,28 @@
+.topbarContainer {
+  background-color: #000046; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; 
+}
+
+.topbarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.headerlogo {
+  width: 300px; 
+  height: auto; 
+  font:white;
+
+}
+
+.tobarRight{
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+
+

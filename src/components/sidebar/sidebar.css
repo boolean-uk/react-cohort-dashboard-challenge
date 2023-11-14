@@ -1,0 +1,31 @@
+.sidebar{
+
+  height: calc(100vh - 80px);
+  padding :10px;
+  align-items: center;
+  width: 80px;
+  background-color: white
+
+
+
+}
+
+.homeIcon{
+ padding: 10px;
+ justify-content: center;
+ background-color:rgb(199, 216, 223);
+ display: flex;
+ cursor: pointer;
+
+ 
+
+}
+.profileIcon{
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+
+  
+
+ 
+ }
