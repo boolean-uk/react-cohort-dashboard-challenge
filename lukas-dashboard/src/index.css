@@ -53,7 +53,6 @@ background-color: #000046;
   grid-area: left-menu;
   display: grid;
   grid-template-rows: repeat(auto-fit, 100px);
-  height: 100vh;
   background-color: white;
   place-items: center;
 }
@@ -114,12 +113,10 @@ background-color: #000046;
 
  /* POSTS */
 .post {
-  display: grid;
   background-color: white;
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
-
 }
 
 .postInfo {

@@ -6,7 +6,7 @@ import LeftMenu from './components/Left-menu/left-menu'
 import Header from './components/Header/header'
 import Home from "./Pages/home"
 
-function App() {
+export default function App() {
 
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
@@ -41,5 +41,3 @@ function App() {
     </>
   )
 }
-
-export default App

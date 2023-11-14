@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom"
 import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm";
+import CommentContent from "./commentContent";
 
 export default function PostInfo({ users, posts }) {
 
@@ -27,6 +28,8 @@ export default function PostInfo({ users, posts }) {
                             <p className="postContent">{post.content}</p>
                             <hr />
                             <br />
+                            {console.log(post)}
+                            <CommentContent users={users} posts={posts} postInfo={post}/>
                             <CommentForm />
                         </div>)
                 })

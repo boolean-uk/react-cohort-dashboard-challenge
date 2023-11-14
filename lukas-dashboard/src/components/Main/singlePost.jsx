@@ -4,7 +4,7 @@ import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
-// import { contactURL, get, postURL } from "../client"
+import CommentContent from "./commentContent"
 
 export default function SinglePostPage({ users, posts }) {
 
@@ -39,6 +39,7 @@ export default function SinglePostPage({ users, posts }) {
             <p className="postContent">{singlePersonPost.content}</p>
             <hr />
             <br />
+            <CommentContent/>
             <CommentForm />
         </div>
     ))
