@@ -7,7 +7,7 @@ import SideBar from "./Components/SideBar";
 
 function App() {
   //  1. Create a state
-  const [posts, setPosts] = useState("");
+  const [posts, setPosts] = useState([]);
 
   // 3. useEffect
   useEffect(() => {
