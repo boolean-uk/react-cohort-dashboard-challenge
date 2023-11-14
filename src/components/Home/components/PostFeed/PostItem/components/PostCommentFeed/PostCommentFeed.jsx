@@ -13,6 +13,21 @@ export default function PostCommentFeed({
   setLoadComments,
 }) {
   const [comments, setComments] = useState(null);
+  const [renderComments, setRenderComments] = useState(null);
+  const [commentRenderAmount] = useState(3);
+  const [showMoreComments, setShowMoreComments] = useState(false);
+
+  useEffect(() => {
+    if (comments) {
+      if (showMoreComments) {
+        setRenderComments(comments);
+      } else {
+        setRenderComments(
+          comments.slice(comments.length - commentRenderAmount),
+        );
+      }
+    }
+  }, [comments, commentRenderAmount, showMoreComments]);
 
   useEffect(() => {
     async function getComments() {
@@ -23,15 +38,24 @@ export default function PostCommentFeed({
     loadComments && getComments();
   }, [loadComments, postId, setLoadComments]);
 
-  if (!comments) {
+  function handleClick() {
+    setShowMoreComments(!showMoreComments);
+  }
+
+  if (!renderComments) {
     return <PulseLoader />;
   }
 
   return (
     <>
       {comments.length > 0 ? <hr /> : null}
+      {comments.length > commentRenderAmount && (
+        <div onClick={handleClick} className="toggleComments cursor-pointer">
+          {showMoreComments ? "Hide" : "Show"} previous comments
+        </div>
+      )}
       <div className="post-comment-feed flex flex-col gap-4">
-        {comments.map((comment) => (
+        {renderComments.map((comment) => (
           <Comment key={`comment-${comment.id}`} comment={comment} />
         ))}
       </div>
