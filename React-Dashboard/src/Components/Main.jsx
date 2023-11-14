@@ -1,6 +1,6 @@
 import PostInput from "./MainComponents/PostInput";
 import FirstContact from "./HeaderComponents/FirstContact";
-import PostComment from "./MainComponents/showComment";
+import PostComment from "./MainComponents/showContent";
 import { useState, useEffect } from "react";
 function Main(props) {
   const commentData = {

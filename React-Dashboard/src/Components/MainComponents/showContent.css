@@ -57,6 +57,10 @@
 .poster-content > p:last-of-type{
     color: #64648c;
     font-size: 0.9rem;
+    cursor: pointer;
+}
+.poster-content > p:last-of-type:hover{
+    cursor: pointer;
 }
 
 .post-container >p{

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import AddCommentInput from "./AddCommentInput";
 import FirstContact from "../HeaderComponents/FirstContact";
 import { useNavigate } from "react-router-dom";
-import "./showComment.css";
+import "./showContent.css";
 
-function showComment(props) {
+function showContent(props) {
   const { comment, setComment } = props;
   const { content, setContent } = props;
   const { anotherComment, setAnotherComment } = props;
@@ -76,7 +76,7 @@ function showComment(props) {
   }, [allContact, content]);
 
   useEffect(() => {
-    //console.log("This is combinedData", combinedData);
+    console.log("This is combinedData", combinedData);
   }, [combinedData]);
 
   const getRandomColor = () => {
@@ -99,7 +99,7 @@ function showComment(props) {
   useEffect(() => {
     if (rerenderpost) {
       fetchPost();
-      console.log("this is content after post", content);
+      //console.log("this is content after post", content);
       setRerenderPost(false);
     }
   }, [rerenderpost]);
@@ -119,7 +119,15 @@ function showComment(props) {
               </p>
               <div className="poster-content">
                 <p>{`${data.firstName} ${data.lastName}`}</p>
-                <p>{data.title}</p>
+                <p
+                  onClick={() =>
+                    navigate(`/myPost/${data.contactId}`, {
+                      state: { result: data },
+                    })
+                  }
+                >
+                  {data.title}
+                </p>
               </div>
             </div>
             <p>{data.content}</p>
@@ -149,4 +157,4 @@ function showComment(props) {
   );
 }
 
-export default showComment;
+export default showContent;

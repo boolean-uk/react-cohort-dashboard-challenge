@@ -3,6 +3,8 @@ import Header from "./Components/Header";
 import Main from "./Components/Main";
 import SideBar from "./Components/Sidebar";
 import Profile from "./Components/Profile";
+import MyPost from "./Components/MainComponents/MyPost.jsx";
+
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -31,6 +33,7 @@ function App() {
         />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/myPost/:id" element={<MyPost />} />
       </Routes>
 
       <SideBar />
