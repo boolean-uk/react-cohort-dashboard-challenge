@@ -19,11 +19,12 @@ export default function CommentContent({ users, posts, postInfo }) {
         <>
             {
                 Comments.map((comment) => {
+                    const name = users.find((user) => user.id === comment.contactId);
                     return (
                     < div key={comment.id} className="commentGrid">
                         <ProfileLogo id={comment.contactId} />
                         <section className="comment">
-                            <h3>{comment.contactId}</h3>
+                            <h3>{name.firstName} {name.lastName}</h3>
                             <p>{comment.content}</p>
                         </section>
                     </div >)
