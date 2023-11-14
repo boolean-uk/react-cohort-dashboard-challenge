@@ -3,8 +3,8 @@ import Post from "./Post";
 function Posts({ posts }) {
   return (
     <div>
-      {posts.map((onePost) => (
-        <Post key={onePost.id} onePost={onePost} />
+      {posts.map((p) => (
+        <Post key={p.id} onePost={p} />
       ))}
     </div>
   );

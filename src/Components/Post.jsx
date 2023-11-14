@@ -1,51 +1,75 @@
-function Post() {
+import { useState, useEffect } from "react";
+import AddComment from "./AddComment";
+import Comments from "./Comments";
+
+function Post({ onePost }) {
+  // GET the contact info
+
+  const [contact, setContact] = useState({});
+  const [comments, setComments] = useState([]);
+
+  // 3. useEffect
+  useEffect(() => {
+    fetchData();
+    fetchComments();
+  }, []);
+
+  // 2. Fetch post
+
+  const fetchData = () => {
+    fetch(
+      `https://boolean-api-server.fly.dev/ps975076/contact/${onePost.contactId}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data, "data");
+        setContact(data);
+      });
+  };
+
+  const fetchComments = () => {
+    fetch(
+      `https://boolean-api-server.fly.dev/ps975076/post/${onePost.id}/comment`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data, "data");
+        setComments(data);
+      });
+  };
+
   return (
     <div className="commentContainer">
       <div className="commentSection">
         <div className="userInfoCon">
           <div className="intialsInCommentCon">
-            <p>SF</p>
+            <p>
+              {contact?.firstName?.charAt(0) || "F"}
+              {contact?.lastName?.charAt(0) || "L"}
+            </p>
           </div>
           <div className="nameTitleCon">
             <div className="name">
               <p>
-                <strong>Sam Fletcher</strong>
+                <strong>
+                  {contact?.firstName || "First"} {contact?.lastName || "Last"}
+                </strong>
               </p>
             </div>
             <div className="title">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>{onePost.title}</p>
             </div>
           </div>
         </div>
         <div className="comment">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum ab
-            molestiae, excepturi repellendus possimus, aspernatur officiis eos
-            porro aperiam suscipit aut fugiat? Voluptas recusandae quia sint,
-            qui reiciendis placeat magnam!
-          </p>
+          <p>{onePost.content}</p>
         </div>
       </div>
 
-      <div className="addAComment">
-        <div className="userInitialsComment">
-          <p>AW</p>
-        </div>
-        <div className="commentInput">
-          <form>
-            <input
-              className="inputAComment"
-              placeholder="Add a comment..."
-              type="text"
-            />
-          </form>
-        </div>
-        <div className="commentButton">
-          <button>
-            <img src="src/assets/send-svgrepo-com.svg" alt="" />
-          </button>
-        </div>
-      </div>
+      <hr />
+      <Comments comments={comments} />
+
+      <AddComment postId={onePost.id} />
     </div>
   );
 }

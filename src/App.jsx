@@ -20,7 +20,7 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/ps975076/post")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "data");
+        // console.log(data, "data");
         setPosts(data);
       });
   };

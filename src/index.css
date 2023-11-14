@@ -267,7 +267,7 @@
   grid-template:
     "name"
     "title";
-  grid-template-rows: 50px 50px;
+  grid-template-rows: 70px 50px;
   gap: 3px;
   padding: 3px;
 }
@@ -374,6 +374,13 @@
   position: relative;
   top: 2px;
   right: 1px;
+}
+
+.some-comment {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f5fa;
+  margin: 10px 0px;
 }
 
 @media (prefers-color-scheme: light) {
