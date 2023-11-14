@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import Comments from "./comments";
-
-
+import Post from "./post";
 
 const PostFeed = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const postURL = "https://boolean-api-server.fly.dev/api/post"
+  const postURL = "https://boolean-api-server.fly.dev/api/post";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
         const response = await fetch(postURL);
 
         if (!response.ok) {
@@ -23,7 +21,6 @@ const PostFeed = () => {
         }
 
         const data = await response.json();
-
         setPosts(data);
       } catch (error) {
         setError(error);
@@ -43,27 +40,23 @@ const PostFeed = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  // Render posts
   return (
     <>
-      TODO: Create new bost box instead of just button
+      {/* TODO: Create new post box instead of just a button */}
       <div className="new-post">
-        <Link to="/new-post"><button>post</button></Link>
+        <Link to="/new-post"><button>Post</button></Link>
       </div>
 
-
-     
-      {posts.map((post) => (
-        <div key={post.id}>
-          <p>{post.title}</p>
-          <p>{post.body}</p>
-          <div className="comments">
-            <Comments postId={post.id} /> 
+      <div className="posts">
+        {posts.map((post) => (
+          <div key={post.id}>
+            <Post posts={post} /> {/* Pass each post data to the Post component */}
+            <div className="comments">
+              <Comments postId={post.id} /> {/* Pass postId to the Comments component */}
+            </div>
           </div>
-        </div>
-      ))}
-
-
+        ))}
+      </div>
     </>
   );
 };

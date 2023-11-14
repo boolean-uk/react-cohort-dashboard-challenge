@@ -46,10 +46,17 @@
 
 - [x] work through the api
 
-## posts
+## post
+
+- [x] basic structure
+
+- [x] use map to look through posts
+
+- [x] put into post feed component
 
 ## new post
 
 
 ## profile 
+
 
