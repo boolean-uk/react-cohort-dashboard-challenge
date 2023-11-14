@@ -7,10 +7,10 @@ import SideMenu from "./components/SideMenu/SideMenu";
 import Profile from "./components/Profile/Profile";
 
 import api from "@utilities/api";
+import PostItem from "@components/Home/components/PostFeed/PostItem/PostItem";
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import "./App.css";
-import PostItem from "@components/Home/components/PostFeed/PostItem/PostItem";
 
 function App() {
   const [user, setUser] = useState(null);
