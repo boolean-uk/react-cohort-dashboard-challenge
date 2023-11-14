@@ -5,6 +5,7 @@ import NewPost from "../Post/NewPost"
 
 export default function Home() {
   const [posts, setPosts] = useState([])
+  const [reload, setReload] = useState(true)
 
   const getPosts = () => {
     
@@ -15,13 +16,13 @@ export default function Home() {
       .then(data => setPosts(data.toReversed()))
   }
 
-  useEffect(getPosts, []);
+  useEffect(() => reload ? getPosts : console.log("all up to date"));
   
   if (posts.length === 0) return <p>Loading…</p>
   return (
     <>
-    <NewPost />
-    {posts.map((post, index) => <Post key={index} post={post}/>)}
+    <NewPost setReload={setReload}/>
+    {posts.map((post, index) => <Post key={index} post={post} setReload={setReload}/>)}
     </>
   )
 }

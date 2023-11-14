@@ -1,5 +1,5 @@
 import ProfileImg from "../Profile/ProfileImg";
-import SendArrow from "../../assets/SVGs";
+import { SendArrow } from "../../assets/SVGs";
 import { useState } from "react";
 import { baseURL } from "../../App";
 
@@ -9,7 +9,7 @@ function SendButton () {
   )
 }
 
-export default function NewPost() {
+export default function NewPost({setReload}) {
   
   const initialPost = {
     contactId: 1,
@@ -21,7 +21,6 @@ export default function NewPost() {
   const handleInput = (event) => {
     const {name, value} = event.target
     setNewPost({...newPost, [name]: value})
-    console.log(newPost)
   } 
 
   const handleSubmit = () => {
@@ -35,6 +34,7 @@ export default function NewPost() {
     fetch(baseURL+endpoint, options)
       .then(response => response.json())
       .then(data => console.log(data))
+      .then(() => setReload(true))
 
   }
 

@@ -1,17 +1,11 @@
-// {
-// 	"id": 1,
-// 	"contactId": 4,
-// 	"title": "Tabgo atrocitas et acidus theatrum bene ducimus.",
-// 	"content": "Sequi laborum anser. Aedificium vitiosus quae fugit tergiversatio. Assumenda bene viriliter vinco blandior corrupti circumvenio amissio."
-// }
-
 import { useEffect, useState } from "react";
 import ProfileImg from "../Profile/ProfileImg";
 import Comments from "../Comments/Comments";
 import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../App";
+import { EditPencil, DeleteBin } from "../../assets/SVGs";
 
-export default function Post({post}) {
+export default function Post({post, setReload}) {
   
   const navigate = useNavigate()
   
@@ -31,6 +25,18 @@ export default function Post({post}) {
     post.contactId === 1 ? navigate("/profile") : navigate("/user/"+post.contactId)
   }
   
+  const deletePost = (postId) => {
+    const endpoint = `/post/${postId}`
+
+    const options = {
+      method: "DELETE"
+    }
+
+    fetch(baseURL+endpoint, options)
+      .then(() => setReload(true))
+      .catch((error) => console.log("error deleting:", error))
+  }
+
   if (!user) return
 
   return (
@@ -41,6 +47,14 @@ export default function Post({post}) {
           <p className="post-author" onClick={() => handleClickUsername()}>{user.firstName + " " + user.lastName}</p>
           <p className="post-title" onClick={() => navigate("/post/"+post.id)}>{post.title}</p>
           <p className="post-body">{post.content}</p>
+        </div>
+        <div className="buttons">
+          <button onClick={() => handleEdit()}>
+            <EditPencil color={"#000000"} height={"20px"}/>
+          </button>
+          <button onClick={() => deletePost(post.id)}>
+            <DeleteBin color={"#000000"} height={"20px"}/>
+          </button>
         </div>
       </div>
       <div className="comments-container">

@@ -75,6 +75,10 @@ nav li.active {
   grid-template-columns: 50px 1fr 50px;
 }
 
+.post-container .buttons {
+  justify-self: end;
+}
+
 .newPost-container button {
   margin: 0;
   padding: 0;
