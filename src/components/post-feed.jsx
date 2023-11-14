@@ -33,7 +33,7 @@ const PostFeed = () => {
     };
 
     fetchData();
-  }, []);
+  }, [postURL]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -52,7 +52,7 @@ const PostFeed = () => {
       </div>
 
 
-      TODO: Add comments to this via comments component
+     
       {posts.map((post) => (
         <div key={post.id}>
           <p>{post.title}</p>
