@@ -1,0 +1,349 @@
+ html {
+  background-color: lightgray;
+ }
+
+ * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+
+.container-layout {
+  display: grid;
+
+
+  grid-template:
+  'header header  header' 80px
+  'leftMenu-bar            main                         main' minmax(680px, 1fr) /
+  120px    1fr;  
+
+  gap: 12px;
+}
+
+header {
+   grid-area: header;
+   background-color: #000046;
+
+   display: grid;
+   color: white;
+
+   grid-template: 
+   'leftmenu         mainmenu       rightmenu      ' 1fr/
+   35px    1fr     35px;
+}
+
+
+.leftheader {
+  grid-area: leftmenu;
+}
+
+.rightmenu {
+  grid-area: rightmenu;
+
+  
+}
+
+.mainheader {
+  grid-area: mainmenu;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.logoheader {
+  margin: 25px 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.profile-circle {
+  margin: 15px ;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.navigation {
+  grid-area: leftMenu-bar;
+  background-color: white;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-rows: 100px;
+  gap: 10px;
+ 
+
+}
+
+/* .navigation img {
+  margin: 10px 25px;
+} */
+
+.navigation li {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.list:hover {
+  background-color: lightgray;
+}
+
+
+  
+
+main {
+  grid-area: main;
+  background-color: white;
+ 
+}
+
+
+
+
+.whatonmind {
+  margin-right: 5px;
+
+} 
+
+.firstform {
+  margin: 10px;
+  display: grid;
+
+  grid-template: 
+  'leftside main  rightside' 40px /
+   50px 1fr  80px;
+   
+}
+
+.comment {
+  margin: 10px;
+  display: grid;
+
+  grid-template: 
+  'leftside main  rightside' 40px /
+   80px 1fr  80px;
+   color: red;
+   margin-bottom: 25px;
+}
+
+
+.commentcircle {
+  grid-area: leftside;
+  text-align: center;
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.viewcommentcircle {
+  grid-area: leftside;
+  text-align: center;
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.coms {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+
+.post {
+  background-color: #000046;
+  border: none;
+  color: white;
+}
+
+input {
+  background-color: lightgrey;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000046;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+
+/* .Main-menu {
+  display: grid;
+  gap: 20px;
+
+
+} */
+
+.main-each-li {
+  margin-bottom: 20px;
+  /* border-bottom: solid 15px lightgrey; */
+  border-top:  solid 15px lightgrey;;
+  width: 100%;
+}
+
+.Main-menu ul li {
+  list-style: none;
+  /* border-bottom: solid 15px lightgrey; */
+
+}
+
+
+.lines {
+  margin: 25px 35px;
+  color: #000046;
+}
+
+.EachMain-content {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  margin: 20px;
+
+}
+
+.contentP {
+  margin: 5px 40px;
+
+}
+
+.viewcommentP {
+  cursor: pointer;
+}
+
+/* for the comment  */
+.commentbody {
+
+}
+
+.commentbody > .none {
+
+}
+
+.usersprofileContainer { 
+  display: grid;
+} 
+
+
+.Aboutmee {
+  margin: 20px 0;
+  
+}
+
+
+
+/* owners profile */
+.ownersProfile {
+  display: grid;
+
+
+
+  grid-template:
+  'profileheader      profileheader       profileheader' 50px
+
+   'formProfile       formProfile           formProfile'  1fr /
+   100% ;
+}
+
+
+
+.profilehead {
+  grid-area: profileheader;
+}
+
+.profilehead h1 {
+   margin: 10px 0px 0px 35px;
+}
+
+.profileownername {
+  margin-top: 10px;
+}
+
+
+.ownerProfileform {
+  grid-area: formProfile;
+  background-color: white;
+
+ display: grid;
+
+ grid-template:
+ 'formheader              formheader             formheader            formheader' 100px
+ 'formAccountinfo       formAccountinfo          formAddress           formAddress' 1fr /
+ 250px 350px;
+}
+
+.profilename {
+  grid-area: formheader;
+  border-bottom: solid 1px black;
+}
+
+.formaccount {
+  grid-area: formAccountinfo;
+  margin-left: 35px;
+
+
+
+}
+
+.formaccount input {
+  width: 500px;
+  
+
+
+}
+
+
+.formaddress {
+  grid-area: formAddress;
+  margin-left: 35px;
+
+
+
+}
+
+.formaddress input {
+  width: 500px;
+
+}
+
+
+.ownersProfile input {
+  /* margin: 30px; */
+  margin-bottom: 20px;
+  height: 35px;
+}
