@@ -11,7 +11,6 @@ export default function Post({post, setReload}) {
   
   const [user, setUser] = useState(null)
   const loadUser = () => {
-    
     const endpoint = `/contact/${post.contactId}`
 
     fetch(baseURL+endpoint)
@@ -50,10 +49,10 @@ export default function Post({post, setReload}) {
         </div>
         <div className="buttons">
           <button onClick={() => handleEdit()}>
-            <EditPencil color={"#000000"} height={"20px"}/>
+            <EditPencil color={"#0099bb"} height={"20px"}/>
           </button>
           <button onClick={() => deletePost(post.id)}>
-            <DeleteBin color={"#000000"} height={"20px"}/>
+            <DeleteBin color={"#bb0000"} height={"20px"}/>
           </button>
         </div>
       </div>
