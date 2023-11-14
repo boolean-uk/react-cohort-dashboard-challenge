@@ -4,15 +4,15 @@ import home from '../assets/home.svg'
 function HomeButton() {
     return (
         <>
+        <Link to="/">
             <li className="button">
-                <Link to="/">
                     <div className="wrapper">
                         <img src={home} alt="home"/>
                         <p>Home</p>
                     </div>
                     
-                </Link>
             </li>
+        </Link>
         </>
     )
 }

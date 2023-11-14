@@ -4,14 +4,14 @@ import profileIcon from '../assets/profile-icon.svg'
 function ProfileButton() {
     return (
         <>
+        <Link to="/">
             <li className="button">
-                <Link to="/">
                     <div className="wrapper">
                         <img src={profileIcon} alt="profile"/>
                         <p>Profile</p>
                     </div>
-                </Link>
             </li>
+        </Link>
         </>
     )
 }

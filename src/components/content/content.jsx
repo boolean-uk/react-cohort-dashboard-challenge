@@ -1,8 +1,13 @@
+import CreatePost from "./subcomponents/createPost";
+
 function Content() {
     return (
         <>
         <main className="content">
-            <h1>Content wooo</h1>
+            <CreatePost/>
+            <div className="post-container">
+                
+            </div>
         </main>
         </>
     )

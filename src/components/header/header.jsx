@@ -1,4 +1,4 @@
-import Pfp from "./subcomponents/profilePicture";
+import Pfp from "../shared-components/Pfp/profilePicture";
 import Logo from "./subcomponents/logo";
 
 function Header() {
@@ -6,7 +6,7 @@ function Header() {
         <>
         <header className="header">
             <Logo/>
-            <div className="bandaid-solution"></div>
+            <div/>
             <Pfp/>
         </header>
         
