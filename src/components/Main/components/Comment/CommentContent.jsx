@@ -30,7 +30,15 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
             })
     }, [URL, post])
 
+    const [showCommentTitle, setShowCommentTitle] = useState('Show previous comments')
+
     function handleToggle() {
+        if (!showAll) {
+            setShowCommentTitle('Collapse comments')
+        }
+        else {
+            setShowCommentTitle('Show previous comments')
+        }
         setShowAll(!showAll)
     }
 
@@ -48,7 +56,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
         return (
             <section className="comment-container grid">
             <ul className='post-comments-list grid'>
-                <h5 id='x' onClick={() => handleToggle()}>Show previous comments</h5>
+                <h5 className='toggle-comments' onClick={() => handleToggle()}>{showCommentTitle}</h5>
                 {displayComments.map((comment) =>
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
