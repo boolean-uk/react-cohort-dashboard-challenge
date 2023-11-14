@@ -1,4 +1,5 @@
 import { useState } from "react"
+import postData from "../../js_functions/post"
 const initialForm = {
   title: "",
   postId: undefined,
@@ -9,25 +10,10 @@ const initialForm = {
 export default function AddCommentForm({setReloadComments, post}) {
   const [form, setForm] = useState(initialForm)
 
-  // simulating a logged in user
-  // const loggedInUserId = 1
-
-  const postNewComment = () => {
-    const options = {
-      method: "POST",
-      headers: {"content-type":"application/json"},
-      body: JSON.stringify(form)
-    }
-
-    fetch(`https://boolean-api-server.fly.dev/Chloe070196/post/${post.id}/comment/`, options)
-    .then(r => r.json())
-    .catch(error => console.log(error))
-    setForm(initialForm)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    postNewComment()
+    postData(`post/${post.id}/comment/`, form)
+    setForm(initialForm)
     setReloadComments(true)
   }
 

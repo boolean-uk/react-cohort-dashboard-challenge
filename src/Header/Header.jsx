@@ -1,10 +1,9 @@
-import UserInitials from "./components/components/components/components/components/components/UserInitials"
-import { useState, useEffect} from "react"
+import UserInitials from "../Low-level_components/UserInitials"
+// import { useState, useEffect} from "react"
  
 
 export default function Header({mockLoggedInUserId, reloadContacts}) {
     reloadContacts
-    console.log(reloadContacts)
     return(
         <>
             <header className="main-header">

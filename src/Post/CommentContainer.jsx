@@ -1,5 +1,5 @@
-import UserInitials from "./components/UserInitials"
-import Comment from "./components/Comment"
+import UserInitials from "../Low-level_components/UserInitials"
+import Comment from "../Low-level_components/Comment"
 
 export default function CommentContainer({comment, reloadContacts}) {
     return(

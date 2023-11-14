@@ -1,4 +1,4 @@
-import PostListItem from "./components/PostListItem";
+import PostListItem from "../../Post/PostListItem"
 
 export default function PostList({ postList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadComments, setReloadComments}) {
   const postListNewToOld = postList.toReversed()

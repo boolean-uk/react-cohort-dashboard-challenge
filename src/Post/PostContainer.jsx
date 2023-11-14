@@ -1,5 +1,5 @@
-import AuthorContainer from "./components/AuthorContainer"
-import PostText from "./components/PostText"
+import AuthorContainer from "./AuthorContainer"
+import PostText from "./PostText"
 
 
 export default function PostContainer({post, reloadContacts}) {

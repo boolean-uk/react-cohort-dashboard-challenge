@@ -1,5 +1,5 @@
-import UserInitials from "./components/components/UserInitials";
-import AddCommentForm from "./components/AddCommentForm";
+import UserInitials from "../Low-level_components/UserInitials"
+import AddCommentForm from "./AddCommentForm";
 
 export default function AddCommentContainer({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
   return (

@@ -1,6 +1,6 @@
-import PostContainer from "./components/components/PostContainer"
-import CommentListContainer from "./components/components/CommentListContainer"
-import AddCommentContainer from "./components/components/AddCommentContainer"
+import PostContainer from "./PostContainer"
+import CommentListContainer from "./CommentListContainer"
+import AddCommentContainer from "./AddCommentContainer"
 
 export default function PostListItem({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
     return(

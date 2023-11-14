@@ -1,4 +1,4 @@
-import InputField from "./components/components/components/InputField"
+import InputField from "./InputField"
 
 export default function FormSection({section, form, setForm}) {
     return(

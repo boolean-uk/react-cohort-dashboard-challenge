@@ -1,5 +1,5 @@
-import ProfilePageHeader from "./components/ProfilePageHeader"
-import ProfilePageForm from "./components/ProfilePageForm"
+import ProfilePageHeader from "./UserProfileForm_components/ProfilePageHeader"
+import ProfilePageForm from "./UserProfileForm_components/ProfilePageForm"
 
 export default function UserProfilePage( {setReloadContacts, reloadContacts} ) {
     return(

@@ -1,6 +1,6 @@
 import { useState} from "react";
 import { useEffect } from "react";
-import getData from "../../../../../../../../js_functions/get";
+import getData from "../../js_functions/get";
 
 const initialContact = {
   firstName: "",

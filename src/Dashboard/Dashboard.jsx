@@ -1,5 +1,5 @@
-import PostFeedHeader from "./components/PostFeedHeader";
-import PostList from "./components/PostList";
+import PostFeedHeader from "./Dashboard_components/PostFeedHeader";
+import PostList from "./Dashboard_components/PostList";
 import { useState, useEffect } from "react";
 import getData from "../../js_functions/get";
 

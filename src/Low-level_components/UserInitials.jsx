@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import getData from "../../../../../../../../js_functions/get";
+import getData from "../../js_functions/get";
 
 export default function UserInitials({contactId}) {
   const [contact, setContact] = useState(null)

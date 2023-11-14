@@ -1,7 +1,8 @@
-import AddPostForm from "./components/components/components/components/AddPostForm"
-import UserInitials from  "./components/components/components/components/components/UserInitials"
-
+import AddPostForm from "./PostListHeader_Components/AddPostForm"
+import UserInitials from "../../Low-level_components/UserInitials"
 export default function PostFeedHeader({setPostList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadContacts}) {
+
+
     return(
         <>
             <header className="post-feed-header">

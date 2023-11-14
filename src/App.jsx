@@ -1,10 +1,10 @@
-import Header from "./components/Header";
-import Aside from "./components/Aside";
-import UserProfilePage from "./components/UserProfilePage";
-import Dashboard from "./components/Dashboard";
+import Header from "./Header/Header";
+import Aside from "./Aside/Aside";
+import UserProfilePage from "./UserProfileForm/UserProfilePage";
+import Dashboard from "./Dashboard/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import SelectedPostPage from "./components/SelectedPostPage";
+import SelectedPostPage from "./Dashboard/Dashboard_components/SelectedPostPage";
 import { useState,  useEffect } from "react";
 
 

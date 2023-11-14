@@ -1,7 +1,7 @@
 
-import UserName from "./components/UserName"
-import UserInitials from "./components/UserInitials"
-import PostTitle from "./components/PostTitle.jsx"
+import UserName from "../Low-level_components/UserName.jsx"
+import UserInitials from "../Low-level_components/UserInitials.jsx"
+import PostTitle from "./PostTitle.jsx"
 
 
 export default function AuthorContainer({post, reloadContacts}) {
