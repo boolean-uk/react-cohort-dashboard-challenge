@@ -9,8 +9,12 @@
   display: grid;
   grid-template-columns: 120px 1fr;
   height: 100%;
-  background: rgb(162,231,232);
-background: linear-gradient(0deg, rgba(162,231,232,1) 0%, rgba(255,245,223,1) 100%);
+  background: rgb(162, 231, 232);
+  background: linear-gradient(
+    0deg,
+    rgba(162, 231, 232, 1) 0%,
+    rgba(255, 245, 223, 1) 100%
+  );
 }
 
 .nav-menu {
@@ -24,7 +28,7 @@ background: linear-gradient(0deg, rgba(162,231,232,1) 0%, rgba(255,245,223,1) 10
 }
 
 a {
-  text-decoration: none
+  text-decoration: none;
 }
 
 header {
@@ -40,14 +44,14 @@ header h1 {
 }
 
 header p {
-  position:absolute;
-margin-top: 20px;
+  position: absolute;
+  margin-top: 20px;
   right: 40px;
   border: 2px white solid;
   padding: 10px;
   border-radius: 50px;
   background-color: #63ff82;
-  color: white
+  color: white;
 }
 
 .nav-menu ul {
@@ -94,7 +98,7 @@ input {
 
 .post-header {
   display: grid;
-  grid-template-columns: 60px 1fr
+  grid-template-columns: 60px 1fr;
 }
 
 .initials {
@@ -110,7 +114,7 @@ input {
   background-color: rgb(148, 255, 253);
   border-radius: 50px;
   text-align: center;
-  margin-top:6px;
+  margin-top: 6px;
   margin-bottom: 7px;
   margin-left: 5px;
   margin-right: 6px;
@@ -134,7 +138,7 @@ input {
 }
 
 .commenter-name {
-  color:#565656;
+  color: #565656;
   padding-bottom: 5px;
 }
 
@@ -142,4 +146,30 @@ input {
   background-color: white;
   margin: 5px;
   border-radius: 5px;
+}
+
+.submit-button {
+  padding: 10px;
+
+  background-image: linear-gradient(
+    to right,
+    #1d976c 0%,
+    #93f9b9 51%,
+    #1d976c 100%
+  );
+  
+  text-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.65);
+  border: 0px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.submit-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }

@@ -147,8 +147,8 @@ export default function Feed() {
         value={newPostContent}
         onChange={(e) => setNewPostContent(e.target.value)}
       ></input>
-      <button type="button" onClick={handlePostSubmit}>
-        Submit post
+      <button type="button" className='submit-button' onClick={handlePostSubmit}>
+      <i className="fa-solid fa-paper-plane"></i>
       </button>
       {postData.map((post) => {
         const contact = contactData.find((contact) => contact.id === post.contactId);
@@ -158,9 +158,7 @@ export default function Feed() {
         }
 
         let initials = `${contact.firstName[0]}${contact.lastName[0]}`;
-        if (contact.firstName && contact.lastName) {
 
-        }
         const filteredComments = commentData
         .filter((comment) => comment.postId === post.id)
         .filter((comment) => !commentIdSet.has(comment.id));
@@ -197,7 +195,7 @@ export default function Feed() {
 
             <hr></hr>
             <input type="text" placeholder="Add comment" value={newCommentContent} onChange={(e) => setNewCommentContent(e.target.value)}></input>
-            <button type="button" onClick={() => handleCommentSubmit(post.id)}>Submit</button>
+            <button type="button" className='submit-button' onClick={() => handleCommentSubmit(post.id)}><i className="fa-solid fa-comment-dots"></i></button>
           </li>
         );
       })}

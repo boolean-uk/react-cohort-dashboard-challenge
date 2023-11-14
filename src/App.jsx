@@ -9,7 +9,7 @@ function App() {
     <>
       <header>
         <Link to="/"><h1><i className="fa-solid fa-pen-nib"></i> Cohort Manager</h1></Link>
-        <p>JW</p>
+        <p>LC</p>
       </header>
       <main>
         <section className="main">
