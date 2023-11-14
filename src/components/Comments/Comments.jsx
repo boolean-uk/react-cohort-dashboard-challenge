@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
+import AddComment from "./AddComment"
 import Comment from "./Comment"
 import { useParams } from "react-router-dom"
 import { baseURL } from "../../App"
 
-export default function Comments ({postId}) {
+
+export default function Comments ({postId, setReload}) {
   
   const {id} = useParams()
   
@@ -24,9 +26,12 @@ export default function Comments ({postId}) {
 
   useEffect(getComments, [])
   if (comments.length === 0) return (
-    <p>No commments yet</p>
+    <>
+      <p>No commments yet</p>
+      <AddComment />
+    </>
   )
-
+  
   return (
     <>
     {comments.length > visibleComments ? (
@@ -38,6 +43,7 @@ export default function Comments ({postId}) {
         Hide older comments
       </p>
     )}
+    <AddComment postId={postId} setReload={setReload}/>
     {comments.slice(-visibleComments).map((comment, index) => <Comment key={index} comment={comment}/>)}
     </>
     )

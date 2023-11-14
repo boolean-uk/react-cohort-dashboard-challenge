@@ -57,7 +57,7 @@ export default function Post({post, setReload}) {
         </div>
       </div>
       <div className="comments-container">
-        <Comments postId={post.id} />
+        <Comments postId={post.id} setReload={setReload} />
       </div>
     </div>
   )

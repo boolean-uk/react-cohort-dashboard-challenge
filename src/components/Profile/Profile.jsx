@@ -75,7 +75,7 @@ export default function Profile ({ contactId }) {
   ]
 
   return (
-    <form onSubmit={(event) => handleSubmit(event)}>
+    <form className="profile" onSubmit={(event) => handleSubmit(event)}>
       {formFields.map((field, index) => <FormField key={index} description={field.description} value={field.value} type={field.type} name={field.name} handleChange={handleChange}/>)}
       <button>Submit</button>
     </form>
