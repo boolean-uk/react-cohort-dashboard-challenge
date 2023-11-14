@@ -47,21 +47,21 @@ export default function SinglePostPage({ users, posts }) {
 
 
     return (
-        <div><p>hi</p></div>
+        // <div><p>hi</p></div>
         
-        // <div className="post" key={singlePersonPost.id}>
-        //     <div className="postInfo">
-        //         <ProfileLogo id={"1"} />
-        //         <section>
-        //             <h2>{singleUser.firstName} {singleUser.lastName}</h2>
-        //             <title className="title">{singlePersonPost.title}</title>
-        //         </section>
-        //     </div>
-        //     <p className="postContent">{singlePersonPost.content}</p>
-        //     <hr />
-        //     <br />
-        //     <CommentForm />
-        // </div>
+        <div className="post" key={singlePersonPost.id}>
+            <div className="postInfo">
+                <ProfileLogo id={"1"} />
+                <section>
+                    <h2>{singleUser.firstName} {singleUser.lastName}</h2>
+                    <title className="title">{singlePersonPost.title}</title>
+                </section>
+            </div>
+            <p className="postContent">{singlePersonPost.content}</p>
+            <hr />
+            <br />
+            <CommentForm />
+        </div>
     )
 }
 
