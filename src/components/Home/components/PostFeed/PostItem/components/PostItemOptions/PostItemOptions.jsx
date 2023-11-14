@@ -13,8 +13,8 @@ export default function PostItemOptions({
   }
 
   function handleDeleteClick() {
-    api.post.delete(postId);
-    setLoadPosts(true);
+    //TODO: if on single page, need to redirect back to home page
+    api.post.delete(postId).then(() => setLoadPosts(true));
   }
 
   return (
@@ -37,7 +37,7 @@ export default function PostItemOptions({
           onClick={handleOptionClick}
           className={`post-item-more-options absolute right-4 top-4 flex cursor-pointer justify-center rounded-full p-4 ${
             showItemMenu
-              ? "hover:bg-cohort-bg-highlight"
+              ? "rounded-none rounded-bl-xl hover:bg-cohort-bg-highlight"
               : "hover:bg-cohort-shade"
           }`}
         >
