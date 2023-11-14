@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import PostHeader from "./components/PostHeader/PostHeader";
+import NewComment from "./components/NewComment/NewComment";
 import PostBody from "./components/PostBody";
 import PostCommentFeed from "./components/PostCommentFeed/PostCommentFeed";
-import NewComment from "./components/NewComment/NewComment";
+import PostHeader from "./components/PostHeader/PostHeader";
+import PostItemOptions from "./components/PostItemOptions/PostItemOptions";
 
 import PulseLoader from "@components/Loader/PulseLoader";
 
@@ -16,6 +17,9 @@ export default function PostItem({ postProp, user }) {
 
   const [loadPost, setLoadPost] = useState(false);
   const [loadComments, setLoadComments] = useState(true);
+
+  const [itemHover, setItemHover] = useState(false);
+  const [showItemMenu, setShowItemMenu] = useState(false);
 
   const { postIdParam } = useParams();
 
@@ -36,12 +40,24 @@ export default function PostItem({ postProp, user }) {
     }
   }, [postIdParam, postProp]);
 
+  function handleHoverEnter() {
+    setItemHover(true);
+  }
+
+  function handleHoverLeave() {
+    setItemHover(false);
+  }
+
   if (!post) {
     return <PulseLoader />;
   }
 
   return (
-    <li className="post-item app-card flex flex-col gap-4">
+    <li
+      onMouseEnter={handleHoverEnter}
+      onMouseLeave={handleHoverLeave}
+      className="post-item app-card relative flex flex-col gap-4"
+    >
       <PostHeader post={post} />
       <PostBody content={post.content} />
       <PostCommentFeed
@@ -53,6 +69,11 @@ export default function PostItem({ postProp, user }) {
         user={user}
         postId={post.id}
         setLoadComments={setLoadComments}
+      />
+      <PostItemOptions
+        itemHover={itemHover}
+        showItemMenu={showItemMenu}
+        setShowItemMenu={setShowItemMenu}
       />
     </li>
   );
