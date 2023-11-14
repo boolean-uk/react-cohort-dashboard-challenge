@@ -1,0 +1,13 @@
+.posts {
+    display: grid;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+    display: grid;
+    grid-gap: 10px;
+}
