@@ -23,6 +23,9 @@ export default function Comments ({postId}) {
   }
 
   useEffect(getComments, [])
+  if (comments.length === 0) return (
+    <p>No commments yet</p>
+  )
 
   return (
     <>
