@@ -4,19 +4,6 @@ const PostsList = () => {
     return (
         <div className="postsList">
             <PostItem />
-            <PostItem />
-
-            <PostItem />
-
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
         </div>
     );
 };

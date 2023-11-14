@@ -10,6 +10,7 @@ const CreatePostInput = () => {
     const submitInput = (e) => {
         e.preventDefault();
         console.log(inputValue);
+        setInputValue("");
     };
 
     return (

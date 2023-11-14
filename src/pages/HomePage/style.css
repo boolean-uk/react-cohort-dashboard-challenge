@@ -92,7 +92,13 @@
 
 /* commentsBlock */
 .commentsBlock {
-    margin-top: 35px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentsBlock__form {
+    margin-top: 15px;
     width: 100%;
     height: auto;
     display: grid;
@@ -120,4 +126,38 @@
 
 .commentsBlock_button img {
     width: 100%;
+}
+
+/* commentsList */
+.commentsList {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentItem {
+    width: 100%;
+    display: flex;
+}
+
+.commentItem:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.commentItem__content {
+    margin-left: 15px;
+    padding: 15px;
+    background-color: #e6ebf5;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.commentItem__content-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #000046;
+}
+
+.commentItem__content-text {
+    color: #000046;
+    font-size: 16px;
 }
