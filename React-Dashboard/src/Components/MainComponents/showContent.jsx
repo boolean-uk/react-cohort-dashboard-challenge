@@ -11,7 +11,7 @@ function showContent(props) {
   const [allContact, setAllContact] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const { contactIdOne, setContactIdOne } = props;
-  const { rerenderpost, setRerenderPost } = props;
+  const { rerenderPost, setRerenderPost } = props;
 
   const INITIAL_COMMENTS = {
     postId: "",
@@ -31,7 +31,10 @@ function showContent(props) {
         setContent(data);
       });
   };
+  /*  content.map((data) =>{
+  fetch(`https://boolean-api-server.fly.dev/tayokanch/contact/${data.contactId}`)
 
+ }) */
   const fetchAllContact = () => {
     fetch("https://boolean-api-server.fly.dev/tayokanch/contact")
       .then((response) => response.json())
@@ -72,6 +75,8 @@ function showContent(props) {
         })
         .filter(Boolean);
       setCombinedData(combined);
+
+      console.log("this is combined on line 78", combined);
     }
   }, [allContact, content]);
 
@@ -97,12 +102,12 @@ function showContent(props) {
   };
 
   useEffect(() => {
-    if (rerenderpost) {
+    if (rerenderPost) {
       fetchPost();
       //console.log("this is content after post", content);
       setRerenderPost(false);
     }
-  }, [rerenderpost]);
+  }, [rerenderPost]);
 
   return (
     <>

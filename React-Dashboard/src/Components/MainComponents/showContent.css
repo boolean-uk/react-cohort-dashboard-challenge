@@ -17,6 +17,7 @@
 }
 
 
+
 .post-header{
     display: grid;
     grid-template-columns: 50px 1fr;
@@ -25,6 +26,7 @@
 
     
 }
+
 
 .post-initial{
     background-color: aqua;

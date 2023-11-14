@@ -6,3 +6,4 @@
 - [Header logo SVG](./_assets/title-header-svg.md)
 - [Home icon SVG](./_assets/home-icon-svg.md)
 - [Profile icon SVG](./_assets/profile-icon-svg.md)
+- /Users/admin/Desktop/Boolean/Reach-Dashboard-Challenge/React-Dashboard/assets/home-icon-svg.md

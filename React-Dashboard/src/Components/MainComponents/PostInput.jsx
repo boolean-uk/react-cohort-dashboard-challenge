@@ -4,10 +4,10 @@ import React from "react";
 function PostInput(props) {
   const {
     setContent,
-    content, // Add setContent to receive the function to update content state
+    content,
     anotherComment,
     setAnotherComment,
-    rerenderpost,
+    rerenderPost,
     setRerenderPost,
   } = props;
 
@@ -21,7 +21,6 @@ function PostInput(props) {
     fetch("https://boolean-api-server.fly.dev/tayokanch/post", options)
       .then((response) => response.json())
       .then((newContentData) => {
-        setContent(...content, newContentData);
         setRerenderPost(true);
       });
   };
@@ -29,7 +28,7 @@ function PostInput(props) {
   const submitForm = (e) => {
     e.preventDefault();
     postNewComment();
-    console.log("this is the latest content", content);
+    console.log("this is the content data after post has been made", content);
   };
 
   return (
