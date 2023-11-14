@@ -4,24 +4,36 @@ import { useEffect, useState } from 'react'
 
 function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
 
-    const [showComments, setShowComments] = useState(null)
+    const [allComments, setAllComments] = useState(null)
+    const [showThreeComments, setShowThreeComments] = useState(null)
 
+    // FETCH ALL COMMENTS
+    useEffect(() => {
+        fetch(`${URL}/post/${post.id}/comment`)
+        // fetch(`${URL}/post/${1}/comment`)
+            .then(res => res.json())
+            .then(data => setAllComments(data))
+    }, [URL, post])
+
+    // FETCH THREE COMMENTS PER POST
     useEffect(() => {
         fetch(`${URL}/post/${post.id}/comment`)
             .then(res => res.json())
-            .then(data => setShowComments(data))
+            .then(data => setShowThreeComments(data.splice(0, 3)))
     }, [URL, post])
+
+    console.log(showThreeComments)
     
-    if (!showComments) return <p>Comment not available</p>
+    if (!allComments) return <p>Comment not available</p>
 
     return (
         <section className="comment-container grid">
             <ul className='post-comments-list grid'>
-                {showComments.map((comment) => 
+                {showThreeComments.map((comment) => 
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
             </ul>
-            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setShowComments={setShowComments} />
+            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setAllComments={setAllComments} />
         </section>
     )
 }
