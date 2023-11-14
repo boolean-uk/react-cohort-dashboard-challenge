@@ -23,16 +23,16 @@ aside {
   cursor: pointer;
 }
 
-.navbar__btn > span {
+.navbar__button > span {
   color: #000046;
 }
 
-.navbar__btn:hover {
+.navbar__button:hover {
   background-color: #e6ebf5;
   transition: all 50ms ease-in;
 }
 
-.navbar__btn > img {
+.navbar__button > img {
   padding-top: 0.7rem;
   padding-bottom: 0.2rem;
   position: relative;

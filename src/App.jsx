@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Home from "./views/Home";
 import NavBar from "./components/NavBar/NavBar";
-import Home from "./pages/Home";
+import PostPageSection from "./views/Home/components/PostPageSection/PostPageSection";
 
 import "./App.css";
 
@@ -12,7 +13,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/:id/profile"></Route>
+
+        <Route path="/:postid/post" element={<PostPageSection />}></Route>
       </Routes>
     </>
   );
