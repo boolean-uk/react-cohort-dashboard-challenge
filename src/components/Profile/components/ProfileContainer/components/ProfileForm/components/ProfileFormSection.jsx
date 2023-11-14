@@ -1,7 +1,7 @@
 import TextLabel from "@components/TextLabel";
-import { funcProp, objectProp, sectionProp } from "@utilities/propTypeDefs";
+import { boolProps, funcProp, objectProp, sectionProp } from "@utilities/propTypeDefs";
 
-export default function ProfileFormSection({ formData, section, setFormData }) {
+export default function ProfileFormSection({ formData, section, setFormData, submitted }) {
   const { title, fields } = section;
   return (
     <section className="form-section">
@@ -13,6 +13,7 @@ export default function ProfileFormSection({ formData, section, setFormData }) {
           field={field}
           formData={formData}
           setFormData={setFormData}
+          submitted={submitted}
         />
       ))}
     </section>
@@ -20,7 +21,8 @@ export default function ProfileFormSection({ formData, section, setFormData }) {
 }
 
 ProfileFormSection.propTypes = {
+  formData: objectProp,
   section: sectionProp,
   setFormData: funcProp,
-  formData: objectProp,
+  submitted: boolProps,
 };

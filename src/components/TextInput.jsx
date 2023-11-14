@@ -22,6 +22,7 @@ export default function TextInput({
   formData,
   inputName,
   placeholderText,
+  required,
   setFormData,
   submitted,
 }) {
@@ -44,7 +45,7 @@ export default function TextInput({
         onChange={handleChange}
         value={value}
         className={`grow rounded-lg border border-cohort-shade bg-cohort-shade p-4 ${
-          submitted === false && value.length === 0 && "border-red-400"
+          submitted === false && value.length === 0 && required && "border-red-400"
         }`}
       />
       <div
@@ -64,6 +65,7 @@ TextInput.propTypes = {
   formData: objectProp,
   inputName: stringProp,
   placeholderText: stringProp,
+  required: boolProps,
   setFormData: funcProp,
   submitted: boolProps,
 };

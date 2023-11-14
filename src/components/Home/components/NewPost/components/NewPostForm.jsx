@@ -62,7 +62,6 @@ export default function NewPostForm({ setLoadPosts, user }) {
       })}
       <SubmitButton
         innerText={"Post"}
-        htmlId="new-post-submit"
         submitted={submitted}
       />
     </form>
