@@ -1,48 +1,56 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react"
 import ProfileLogo from "../Reusable/profileLogo"
 import SendArrow from "../Reusable/sendArrow"
+import { get, post, postURL } from "../client"
 
-export default function CommentForm () {
+export default function CommentForm({ postInfo, setPosts }) {
 
     const userId = "1"
 
-    // const [postComment, setPostComment] = useState(
-    //     {
-    //         commenterId: 0,
-    //         comment: "",
-    //     })
+    const [postComment, setPostComment] = useState(
+        {
+            postId: undefined,
+            contactId: undefined,
+            content: ""
+        })
 
-    // const handleChange = (event) => {
+    const handleChange = (event) => {
+        const value = event.target.value
 
-    //     const value = event.target.value
+        setPostComment(
+            {
+                postId: postInfo.id,
+                contactId: postInfo.contactId,
+                content: value
+            }
+        )
+    }
 
-    //     setPostComment(
-    //         {
-    //             postId: posts.id,
-    //             contactId: userId,
-    //             content: value
-    //         }
-    //     )
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        event.target.reset()
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     event.target.reset()
-
-    //     post(`${postURL}/${posts.id}`, postComment)
-    //     .then(res => res.json())   
-    //     .then (() => get(`${postURL}`)) 
-    //     .then(setComments)
-    // }
+        post(`${postURL}/${postInfo.id}/comment`, postComment)
+            .then(res => res.json())
+            .then(() => get(`${postURL}`))
+            .then(setPosts)
+    }
 
     return (
-    <div className="commentForm">
-                <ProfileLogo id={userId}/>
-                <div className="inputAndButton">
-                    <form action="">
-                        <input type="text" placeholder="    Add a comment..." />
-                    </form>
+        <div className="commentForm">
+            <ProfileLogo id={userId} />
+            <div className="inputAndButton">
+                <form
+                    onSubmit={handleSubmit}
+                    action="">
+                    <input
+                        onChange={(event) => { handleChange(event,) }}
+                        type="text"
+                        placeholder="    Add a comment..." />
                     <SendArrow />
-                    </div>
+                </form>
             </div>
+        </div>
     )
-};
+}

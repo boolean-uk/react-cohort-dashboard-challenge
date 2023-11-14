@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import ProfileLogo from "../Reusable/profileLogo"
 import { get, postURL } from "../client"
 
-export default function CommentContent({ users, posts, postInfo }) {
+export default function CommentContent({ users, postInfo }) {
 
     const [Comments, setComments] = useState(null)
     console.log(Comments)

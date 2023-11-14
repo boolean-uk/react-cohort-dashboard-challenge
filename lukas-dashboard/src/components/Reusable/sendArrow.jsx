@@ -1,7 +1,7 @@
 export default function SendArrow() {
     return (
 
-        <button>
+        <button type="submit">
             <svg className="sendSvg" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#a6a6a6">
 
                 <g id="SVGRepo_bgCarrier" strokeWidth="0" />

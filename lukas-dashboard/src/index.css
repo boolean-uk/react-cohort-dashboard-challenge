@@ -30,6 +30,7 @@ body, html {
   width: 24px;
   border-radius: 100px;
   padding: 10px;
+  margin-right: 6px;
   align-items: center;
   text-align: center;
 }

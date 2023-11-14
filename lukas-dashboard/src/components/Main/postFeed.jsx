@@ -3,11 +3,11 @@ import PostInfo from "./postInfo.jsx";
 
 
 
-export default function PostFeed({users, posts}) {
+export default function PostFeed({users, posts, setPosts}) {
 
     return (
         <>
-            <PostInfo users={users} posts={posts} />
+            <PostInfo users={users} posts={posts} setPosts={setPosts} />
         </>
     )
 }

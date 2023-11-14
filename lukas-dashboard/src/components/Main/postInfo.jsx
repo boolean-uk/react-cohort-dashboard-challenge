@@ -4,7 +4,7 @@ import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm";
 import CommentContent from "./commentContent";
 
-export default function PostInfo({ users, posts }) {
+export default function PostInfo({ users, posts, setPosts }) {
 
     return (
         <>
@@ -29,7 +29,7 @@ export default function PostInfo({ users, posts }) {
                             <hr />
                             <br />
                             <CommentContent users={users} posts={posts} postInfo={post}/>
-                            <CommentForm />
+                            <CommentForm users={users} posts={posts} postInfo={post} setPosts={setPosts}/>
                         </div>)
                 })
             }

@@ -6,7 +6,7 @@ export default function Main ({users, posts, setPosts}) {
     return (
         <div className="main">
             <PostForm  setPosts={setPosts}/>
-            <PostFeed users={users} posts={posts}/>
+            <PostFeed users={users} posts={posts} setPosts={setPosts}/>
         </div>
     )
 }
