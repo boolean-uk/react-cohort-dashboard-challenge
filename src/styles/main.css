@@ -80,14 +80,34 @@
 
 /* POST CONTENT */
 
-.post-content {
-    grid-template-rows: 60px auto;
+.post-content-container {
+    grid-template-columns: 1fr 100px;
+    gap: 10px;
     border-bottom: solid 1px rgba(128, 128, 128, 0.355);
     align-items: center;
 }
 
+.post-content {
+    grid-template-rows: 60px auto;
+
+}
+
 .post-content-details {
     grid-template-columns: 60px 1fr;
+}
+
+.post-content-delete-btn {
+    align-self: self-start;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+.post-content-delete-btn:hover {
+    background-color: gold;
 }
 
 .name-title-container {
@@ -104,6 +124,7 @@
 /* POST TITLE */
 .post-title-link {
     text-decoration: none;
+    width: fit-content;
 }
 
 .post-title {

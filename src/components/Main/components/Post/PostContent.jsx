@@ -13,15 +13,17 @@ function PostContent({ post, URL, initials, author, setShouldGetPosts }) {
     }
 
     return (
-        <section className="post-content grid">
-            <div className="post-content-details grid">
-                <UserProfileCircle initials={initials} author={author} />
-                <NameTitleContainer author={author} post={post} />
+        <section className="post-content-container grid">
+            <div className="post-content grid">
+                <div className="post-content-details grid">
+                    <UserProfileCircle initials={initials} author={author} />
+                    <NameTitleContainer author={author} post={post} />
+                </div>
+                <div className="post-content-text">
+                    <p>{post.content}</p>  
+                </div>
             </div>
-            <div className="post-content-text">
-                <p>{post.content}</p>  
-            </div>
-            <button onClick={() => handleDelete()}>Delete Post</button>
+            <button className="post-content-delete-btn" onClick={() => handleDelete()}>Delete Post</button>
         </section>
     )
 }
