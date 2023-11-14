@@ -36,3 +36,20 @@
     background-color: white;
 
 }
+
+.create-a-post {
+    grid-area: 1 / 1 / 2 / 3;
+    width: 75%;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.single-post {
+    display: grid;
+    grid-area: 1 / 2 / 3 / 3;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}

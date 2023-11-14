@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ProfileIcon from "../../Header/ProfileIcon"
+import './CreateAPost.css'
 
 function CreatePost (props) {
 
@@ -58,7 +59,7 @@ function CreatePost (props) {
                     value={newPost.content}
                     onChange={(e) => setNewPost({...posts, [e.target.name]: e.target.value})}
                 />
-                <button>Post</button>
+                <button className="submit-post" type="submit">Post</button>
             </form>
         </div>
     )

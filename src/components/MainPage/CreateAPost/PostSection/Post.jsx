@@ -34,10 +34,10 @@ function Post (props) {
                 <h3>LOADING</h3>
                 </div>
     } 
-
+    
     const initials = contact.firstName?.charAt(0) + contact.lastName?.charAt(0)
     
-    return (
+    return  (
         <li>
             <div className="post-header">
                 <div className="poster-name">
@@ -72,7 +72,6 @@ function Post (props) {
                 />
             </div>
         </li>
-    )
-}
+)}
 
 export default Post

@@ -1,23 +1,10 @@
 import Post from './Post'
-import { useParams } from 'react-router-dom'
 import './Posts.css'
 import './Post.css'
-import { useState, useEffect } from 'react'
 
 function Posts (props) {
 
-    const { contact, posts } = props
-
-    const [post, setPost] = useState({})
-
-    const { id } = useParams()
-
-    useEffect(() => {
-        if (posts && id) {
-            const postToView = posts.find((post) => Number(post.id) === Number(id))
-            setPost(postToView)
-        }
-    }, [posts, id])
+    const { contact, posts, contactId } = props
 
     return (
         <div className="posts">
@@ -26,7 +13,9 @@ function Posts (props) {
                 <Post 
                     key={post.id}
                     post={post} 
+                    posts={posts}
                     contact={contact}
+                    contactId={contactId}
                 />)}
             </ul>
         </div>

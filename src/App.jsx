@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import Posts from './components/MainPage/CreateAPost/PostSection/Posts'
-import Post from './components/MainPage/CreateAPost/PostSection/Post'
+import RenderSinglePost from './components/MainPage/CreateAPost/PostSection/RenderSinglePost'
 import CreatePost from './components/MainPage/CreateAPost/CreateAPost'
 import Navbar from './components/Navbar/Navbar'
 import './App.css'
@@ -13,6 +13,8 @@ function App() {
   const [contact , setContact] = useState({})
 
   const [posts, setPosts] = useState([])
+
+  const contactId = posts.contactId
 
   const userName = "TomEastwood"
   const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
@@ -57,15 +59,20 @@ function App() {
               <Posts 
                 contact={contact}
                 posts={posts}
+                contactId={contactId}
               />
             </div>
             </>
           }/>
-        </Routes>
-        <Routes>
           <Route path="/post/:id"
-            element={<Post />}
-          />
+            element={
+            <div className = "single-post">
+              <RenderSinglePost 
+                contact={contact}
+                posts={posts}
+              />
+            </div>
+            }/>
         </Routes>
       </div>
     </section>
