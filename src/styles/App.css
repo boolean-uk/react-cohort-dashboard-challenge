@@ -64,9 +64,29 @@
 
 .home-logo,
 .profile-logo {
-  margin: 40px 0px 0px 40px;
+  margin: 40px 0px 0px 2px;
   transition: all 0.3s ease-in-out;
 }
+
+.home-link {
+  display: grid;
+  margin-left: 40px;
+  align-items: center; 
+  gap: 10px; 
+  text-decoration: none; 
+  color: inherit; 
+ 
+}
+
+.profile-link{
+  display: grid;
+  margin-left: 40px;
+  align-items: center; 
+  gap: 10px; 
+  text-decoration: none; 
+  color: inherit; 
+}
+
 
 .home {
   margin: 0px 0px 0px 40px;
@@ -271,10 +291,6 @@ a {
   color: white;
   border-radius: 5px;
   margin-left: 20px;
-}
-
-.individual-background{
-  background-color: white;
 }
 
 .post-button-post-details{
