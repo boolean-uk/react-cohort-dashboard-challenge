@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function HomeNavLogo() {
     return (
         <div className="homeNavLogo">
-            <svg
+            <Link to="/"><svg
                 width="33"
                 height="36"
                 viewBox="0 0 33 36"
@@ -10,7 +12,7 @@ export default function HomeNavLogo() {
                 <path
                     d="M0.5 36V12L16.6 0L32.5 12V36H20.8V21.75H12.15V36H0.5Z"
                     fill="#64648C" />
-            </svg>
+            </svg></Link>
             <p>Home</p>
         </div>
     )
