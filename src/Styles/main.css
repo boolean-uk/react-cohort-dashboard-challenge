@@ -18,7 +18,7 @@
     padding: 15px;
     border-radius: 10px;
     display: grid;
-    grid-template-rows: 1fr  70px;
+    grid-template-rows: 1fr  minmax(70px 1fr);
 }
 .input-post{
     border: none;
@@ -69,6 +69,10 @@
     border-radius: 50%;
 
 }
+.titles{
+    padding-left: 10px;
+    padding-top: 5px;
+}
 .comment{
     display: grid;
     grid-template-columns: 70px 1fr;
@@ -97,4 +101,12 @@
     background-color:#dce1ec;
     border-radius: 50%;
 
+}
+.logged-in-user{
+    background-color: black;
+}
+.comments{
+    padding-top: 15px;
+    border-top: #c7c7c9 solid 0.05px;
+    margin-top:15px ;
 }

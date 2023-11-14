@@ -1,18 +1,16 @@
-function PostContent({ authur, post }) {
-  // console.log(authur)
+function PostContent({ author, post,user ,loggedInUserColor}) {
   return (
     <div className="post-content">
       <section className="details">
-        <div className="profile-circle--user">
+        <div className={` profile-circle--user`}>
           <h3>
-            {/* {authur.firstName.slice(0, 1)}
-            {authur.lastName.slice(0, 1)} */}
+            {user}
           </h3>
         </div>
         <div className="titles">
           <div className="authur-name">
             <h4>
-              {authur.firstName} {authur.lastName}
+              {author.firstName} {author.lastName}
             </h4>
           </div>
           <div className="post-title">

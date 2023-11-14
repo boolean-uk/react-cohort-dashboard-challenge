@@ -12,3 +12,9 @@
     display: grid;
     justify-items: center;
 }
+.profile-circle p{
+    display: grid;
+    justify-items: center;
+    padding-top: 14px ;
+    color: #000046;
+}

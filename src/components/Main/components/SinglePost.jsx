@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 import PostContent from "./PostContent";
 import Comments from "./Comments";
 
-export default function SinglePost({ post, root }) {
-  const [authur, setAuthur] = useState("");
+function SinglePost({ post, root ,loggedInUserColor,loggedInUserInitials}) {
+  const [author, setAuthor] = useState(null);
 
-  const id = post.contactId;
+  const postId = post.contactId;
+
+  
   useEffect(() => {
-    fetch(`${root}/contact/${id}`)
+    fetch(`${root}/contact/${postId}`)
       .then((response) => response.json())
-      .then((data) => setAuthur(data));
-  }, [id, root]);
+      .then((data) => setAuthor(data));
+  }, [postId,root]);
 
-  // console.log(authur);
-  return (
+
+  // console.log(author);
+  if(!author) return <p>Loading...</p>
+  const user = author.firstName[0]+
+author.lastName[0]
+  return ( 
     <div className="single-post">
-      <PostContent authur={authur} post={post}></PostContent>
-      <Comments></Comments>
+      <PostContent author={author} post={post}user={user} loggedInUserColor={loggedInUserColor}></PostContent>
+      <Comments loggedInUserInitials={loggedInUserInitials}></Comments>
     </div>
-  );
+  )
 }
+export default SinglePost;

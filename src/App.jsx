@@ -7,23 +7,40 @@ import { useEffect, useState } from "react";
 import "./App.css";
 function App() {
   const [posts,setPosts] = useState([])
+  const [loggedInUser,setLoggedInUser ] = useState(null)
+  const [shouldGetPost,setShoulGetPost] = useState(true)
 
   const root = 'https://boolean-api-server.fly.dev/aayushlama4008'
 
-  const  fetchPost  = () =>{
+  function  fetchPost(){
       fetch(`${root}/post`)
       .then((response)=>response.json())
-      .then((data)=> 
-      setPosts(data)
+      .then((data)=> {
+        setPosts(data.reverse())
+          setShoulGetPost(false)
+      }
       )
   }
 
-  useEffect(fetchPost,[])
+  useEffect(()=>{
+    shouldGetPost && fetchPost()
+  },[shouldGetPost])
   // console.log(posts)
+
+  const fetchLoggedInUser = () =>{
+    fetch(`${root}/contact/9`)
+    .then((response)=>response.json())
+    .then((data)=> setLoggedInUser(data))
+  }
+
+  useEffect(() => {fetchLoggedInUser()} ,[])
+  console.log(loggedInUser)
+  
+  // console.log(loggedInUser)
 
   return (
    <Routes>
-    <Route path="/" element={<Home posts={posts} root={root}/>}>
+    <Route path="/" element={<Home posts={posts} root={root} loggedInUser={loggedInUser} shouldGetPost={shouldGetPost}/>}>
     </Route>
    </Routes>
   );
