@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import { contactProps } from "@utilities/propTypeDefs";
 
 export default function UserName({ contact }) {
-  const { firstName, lastName } = contact;
+  const { firstName, lastName, id } = contact;
 
   return (
     <h2 className="user-name text-lg font-bold">
-      {firstName} {lastName}
+      <Link to={`/profile/${id}`}>
+        {firstName} {lastName}
+      </Link>
     </h2>
   );
 }
