@@ -2,11 +2,11 @@ import CreatePost from "../Main/components/CreatePost"
 import Posts from "../Main/components/Posts"
 
 import '../../Styles/main.css'
-function Main() {
+function Main({posts,root}) {
 return (
   <div className="main">
   <CreatePost></CreatePost>
-  <Posts></Posts>
+  <Posts posts={posts} root={root}></Posts>
   </div>
   )
 }

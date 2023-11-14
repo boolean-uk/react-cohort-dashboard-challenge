@@ -1,10 +1,13 @@
-import SinglePost from "./SinglePost"; 
+import SinglePost from "./SinglePost";
 
- function Posts() {
+function Posts({ posts ,root}) {
+  // console.log(posts);
   return (
-    <div className="posts">
-      <SinglePost></SinglePost>
-    </div>
-  )
+    <ul className="posts">
+       {posts.map((post) => 
+                <SinglePost key={post.id} post={post} root={root}/>
+            )}
+    </ul>
+  );
 }
 export default Posts;

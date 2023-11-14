@@ -17,6 +17,8 @@
     border: solid #e6ebf5 0.5px;
     padding: 15px;
     border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr  70px;
 }
 .input-post{
     border: none;
@@ -35,4 +37,64 @@
     color: white;
     border: none;
     border-radius: 10px;
+}
+.posts{
+    list-style: none;
+}
+.post-content{
+    display: grid;
+    grid-template-rows: 50px 1fr;
+
+}
+.post-content--text{
+  color:#000046;
+  
+}
+.authur-name{
+    color: #000046;
+    margin: 0;
+}
+.post-title{
+    color:#64648c;
+    margin: 0;
+}
+.details{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+.profile-circle--user{
+    display: grid;
+    place-content: center;
+    background-color: red;
+    border-radius: 50%;
+
+}
+.comment{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    padding-top: 20px;
+}
+.new-comment--input{
+    background-color: #e6ebf5;
+    height: 40px;
+    outline: none;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+.new-comment--label{
+    display: grid;
+    grid-template-columns: 95% 40px;
+    padding-top: 5px;
+}
+.comment-submit--button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.comment-submit--button:hover{
+    background-color:#dce1ec;
+    border-radius: 50%;
+
 }

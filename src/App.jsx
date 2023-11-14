@@ -6,21 +6,24 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 function App() {
-  const [posts,setPosts] = useState('')
-  const root = 'https://boolean-api-server.fly.dev/aayushlama4008/post'
+  const [posts,setPosts] = useState([])
+
+  const root = 'https://boolean-api-server.fly.dev/aayushlama4008'
 
   const  fetchPost  = () =>{
-      fetch(root)
+      fetch(`${root}/post`)
       .then((response)=>response.json())
-      .then((data)=> setPosts(data))
+      .then((data)=> 
+      setPosts(data)
+      )
   }
 
-  useEffect((fetchPost),[])
-  console.log(posts)
+  useEffect(fetchPost,[])
+  // console.log(posts)
 
   return (
    <Routes>
-    <Route path="/" element={<Home/>}>
+    <Route path="/" element={<Home posts={posts} root={root}/>}>
     </Route>
    </Routes>
   );
