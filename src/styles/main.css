@@ -137,6 +137,18 @@
     padding: 10px 0;
 }
 
+.comment-title{
+    width: fit-content;
+    margin: 0;
+    padding: 10px 30px;
+    color: gray;
+}
+
+.toggle-comments:hover {
+    color: red;
+    cursor: pointer;
+}
+
 /* COMMENT LIST */
 .post-comments-list {
     grid-template-rows: repeat(auto-fit, auto);

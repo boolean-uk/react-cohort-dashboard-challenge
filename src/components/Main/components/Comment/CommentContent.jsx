@@ -56,7 +56,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
         return (
             <section className="comment-container grid">
             <ul className='post-comments-list grid'>
-                <h5 className='toggle-comments' onClick={() => handleToggle()}>{showCommentTitle}</h5>
+                <h4 className='toggle-comments comment-title' onClick={() => handleToggle()}>{showCommentTitle}</h4>
                 {displayComments.map((comment) =>
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
@@ -69,6 +69,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
     return (
         <section className="comment-container grid">
             <ul className='post-comments-list grid'>
+                <h4 className='comment-title'>No more comments to display</h4>
                 {showThreeComments.map((comment) =>
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
