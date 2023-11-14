@@ -1,6 +1,12 @@
-.post-and-comments {
+.post-and-comments-main {
     padding: 100px;
     background-color: rgba(99, 60, 255, 0.19);
     height: 100%;
 }
 
+.post-and-comments-container {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: -1px -1px 10px 2px green, -1px -1px 12px 5px blue;
+}

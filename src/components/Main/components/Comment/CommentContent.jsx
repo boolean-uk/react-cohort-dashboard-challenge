@@ -12,7 +12,6 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
     // FETCH ALL COMMENTS
     useEffect(() => {
         fetch(`${URL}/post/${post.id}/comment`)
-        // fetch(`${URL}/post/${1}/comment`)
             .then(res => res.json())
             .then(data => {
                 setAllComments(data)
@@ -50,7 +49,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
     }, [allComments, showAll, showThreeComments])
 
 
-    if (!allComments || !showThreeComments || !displayComments) return <p>Comment not available</p>
+    if (!allComments || !showThreeComments || !displayComments) return <p>Comments not available</p>
 
     if (allComments.length > 3) {
         return (
@@ -61,7 +60,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
             </ul>
-            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setAllComments={setAllComments} />
+            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL} setAllComments={setAllComments} />
         </section>
         )
     }
@@ -74,7 +73,7 @@ function CommentContent({ post, loggedInUser, loggedInUserInitials, URL }) {
                     <PostComments key={comment.id} comment={comment} URL={URL} />
                 )}
             </ul>
-            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL}setAllComments={setAllComments} />
+            <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL} setAllComments={setAllComments} />
         </section>
     )
 }
