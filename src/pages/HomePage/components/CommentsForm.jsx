@@ -7,7 +7,7 @@ import UserCycle from "../../../components/UserCycle";
 // images
 import plane from "../../../assets/img/paper-plane.svg";
 
-const CommentsForm = () => {
+const CommentsForm = ({ user }) => {
     const [comment, setComment] = useState("");
 
     const submitComment = (e) => {
@@ -18,7 +18,15 @@ const CommentsForm = () => {
 
     return (
         <form onSubmit={submitComment} className="commentsBlock__form">
-            <UserCycle name={{ firstName: "Nazar", lastName: "Tymiv" }} />
+            {Object.keys(user).length && (
+                <UserCycle
+                    name={{
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                    }}
+                />
+            )}
+
             <div className="commentsBlock__input">
                 <InputElement
                     placeholder="Add a comment..."

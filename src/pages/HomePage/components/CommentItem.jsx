@@ -1,17 +1,39 @@
+import { useEffect, useState } from "react";
+
+// components
 import UserCycle from "../../../components/UserCycle";
 
-const CommentItem = () => {
+// api
+import { getContact } from "../../../utilities/api";
+
+const CommentItem = ({ comment }) => {
+    const [commentUser, setCommentUser] = useState({});
+
+    useEffect(() => {
+        getContact(comment.contactId).then((data) => setCommentUser(data));
+    }, []);
+
     return (
         <div className="commentItem">
-            <UserCycle name={{ firstName: "Rutru", lastName: "Augue" }} />
-            <div className="commentItem__content">
-                <h3 className="commentItem__content-name">Rutru Augue</h3>
-                <p className="commentItem__content-text">
-                    Curabitur vel dolor risus. Phasellus ornare nulla dolor,
-                    amit ultricies augue faucibus vel. Duis eu sapien sit amet
-                    es elit laoreet laoreet.
-                </p>
-            </div>
+            {Object.keys(commentUser).length && (
+                <>
+                    <UserCycle
+                        name={{
+                            firstName: commentUser.firstName,
+                            lastName: commentUser.lastName,
+                        }}
+                    />
+
+                    <div className="commentItem__content">
+                        <h3 className="commentItem__content-name">
+                            {commentUser.firstName} {commentUser.lastName}
+                        </h3>
+                        <p className="commentItem__content-text">
+                            {comment.content}
+                        </p>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

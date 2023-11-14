@@ -1,9 +1,12 @@
+import { useState } from "react";
 import PostItem from "./PostItem";
 
-const PostsList = () => {
+const PostsList = ({ user, posts }) => {
     return (
         <div className="postsList">
-            <PostItem />
+            {posts.map((post, index) => (
+                <PostItem key={index} post={post} user={user} />
+            ))}
         </div>
     );
 };

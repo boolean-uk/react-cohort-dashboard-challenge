@@ -4,12 +4,19 @@ import "./style.css";
 // components
 import UserCycle from "./UserCycle";
 
-const Header = () => {
+const Header = ({ user }) => {
     return (
         <header className="header">
             <img src={logo} className="header__logo" />
 
-            <UserCycle name={{ firstName: "Nazar", lastName: "Tymiv" }} />
+            {Object.keys(user).length && (
+                <UserCycle
+                    name={{
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                    }}
+                />
+            )}
         </header>
     );
 };

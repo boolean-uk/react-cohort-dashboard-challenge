@@ -1,10 +1,12 @@
 // components
 import CommentItem from "./CommentItem";
 
-const CommentsList = () => {
+const CommentsList = ({ comments }) => {
     return (
         <div className="commentsList">
-            <CommentItem />
+            {comments.map((comment, index) => (
+                <CommentItem key={index} comment={comment} />
+            ))}
         </div>
     );
 };

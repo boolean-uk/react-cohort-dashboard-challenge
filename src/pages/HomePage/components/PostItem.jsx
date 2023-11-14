@@ -1,31 +1,45 @@
+import { useEffect, useState } from "react";
+
 // components
 import UserCycle from "../../../components/UserCycle";
 import CommentsBlock from "./CommentsBlock";
 
-const PostItem = () => {
+// api
+import { getContact } from "../../../utilities/api";
+
+const PostItem = ({ user, post }) => {
+    const [postUser, setPostUser] = useState({});
+
+    useEffect(() => {
+        getContact(post.contactId).then((data) => setPostUser(data));
+    }, []);
+
     return (
         <div className="postItem">
-            <div className="postItem__user">
-                <UserCycle name={{ firstName: "Sam", lastName: "Fletcher" }} />
-                <div className="postItem__userName">
-                    <span className="postItem__userName-title">
-                        Sam Fletcher
-                    </span>
-                    <span className="postItem__userName-subtitle">
-                        Ea molestias quasi exercitationem repellat qui ipsa sit
-                        aut
-                    </span>
+            {Object.keys(postUser).length && (
+                <div className="postItem__user">
+                    <UserCycle
+                        name={{
+                            firstName: postUser.firstName,
+                            lastName: postUser.lastName,
+                        }}
+                    />
+                    <div className="postItem__userName">
+                        <span className="postItem__userName-title">
+                            {postUser.firstName} {postUser.lastName}
+                        </span>
+                        <span className="postItem__userName-subtitle">
+                            {post.title}
+                        </span>
+                    </div>
                 </div>
-            </div>
+            )}
+
             <div className="postItem__body">
-                <p className="postItem__body-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Earum, totam? Architecto voluptas dolor error consectetur
-                    voluptatibus at qui sint aliquid dignissimos aliquam est id
-                    doloremque ipsa, excepturi temporibus unde recusandae?
-                </p>
+                <p className="postItem__body-text">{post.content}</p>
             </div>
-            <CommentsBlock />
+
+            <CommentsBlock user={user} postId={post.id} />
         </div>
     );
 };

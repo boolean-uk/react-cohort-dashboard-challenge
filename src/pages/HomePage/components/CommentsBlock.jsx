@@ -1,13 +1,24 @@
 // components
+import { useEffect, useState } from "react";
 import CommentsForm from "./CommentsForm";
 import CommentsList from "./commentsList";
+import { getComments } from "../../../utilities/api";
 
-const CommentsBlock = () => {
+const CommentsBlock = ({ user, postId }) => {
+    const [comments, setComments] = useState([]);
+
+    const getAllComments = () =>
+        getComments(postId).then((data) => setComments(data));
+
+    useEffect(() => {
+        getAllComments();
+    }, []);
+
     return (
         <div className="commentsBlock">
-            <CommentsList />
+            {comments.length && <CommentsList comments={comments} />}
 
-            <CommentsForm />
+            <CommentsForm user={user} />
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { useState } from "react";
 import InputElement from "../../../components/InputElement";
 import UserCycle from "../../../components/UserCycle";
 
-const CreatePostInput = () => {
+const CreatePostInput = ({ user }) => {
     const [inputValue, setInputValue] = useState("");
 
     const submitInput = (e) => {
@@ -15,7 +15,14 @@ const CreatePostInput = () => {
 
     return (
         <form onSubmit={submitInput} className="createPostInput">
-            <UserCycle name={{ firstName: "Nazar", lastName: "Tymiv" }} />
+            {Object.keys(user).length && (
+                <UserCycle
+                    name={{
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                    }}
+                />
+            )}
 
             <InputElement
                 placeholder="What's on your mind?"

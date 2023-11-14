@@ -9,16 +9,27 @@ import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 
+// api
+import { getContact } from "./utilities/api";
+
 function App() {
     const [page, setPage] = useState("home");
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        getContact(1).then((data) => setUser(data));
+    }, []);
 
     return (
         <div className="container">
-            <Header />
+            <Header user={user} />
             <Navigation page={page} />
 
             <Routes>
-                <Route path="/" element={<HomePage setPage={setPage} />} />
+                <Route
+                    path="/"
+                    element={<HomePage setPage={setPage} user={user} />}
+                />
                 <Route
                     path="/profile"
                     element={<ProfilePage setPage={setPage} />}
