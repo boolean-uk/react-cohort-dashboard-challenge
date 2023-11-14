@@ -1,0 +1,48 @@
+.eachPostContainer {
+  display: grid;
+  background-color: white;
+  margin-right: 50px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-family: sans-serif;
+  grid-template-areas:
+    "otherInitials postName"
+    "otherInitials postTitle"
+    "postContent postContent"
+    "addComment addComment";
+  grid-template-columns: 1fr 10fr;
+  grid-template-rows: min-content;
+}
+
+.otherInitials {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  background-color: lightgreen;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.otherInitials p {
+  color: #000046;
+  font-weight: bold;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+.postName {
+  margin-top: 20px;
+  grid-area: postName;
+  font-weight: bold;
+}
+.postTitle {
+  grid-area: postTitle;
+  margin-bottom: 25px;
+  color: #64648c;
+  font-weight: bold;
+}
+.postContent {
+  padding: 15px;
+  grid-area: postContent;
+}

@@ -1,0 +1,19 @@
+.app {
+  display: grid;
+
+  grid-template-areas: "header header" "navBar main";
+  height: 1fr;
+  grid-template-columns: 1fr 20fr;
+  background-color: #f0f5fa;
+}
+
+.mainPage {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+}
+.peoplePostContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 1fr;
+}
