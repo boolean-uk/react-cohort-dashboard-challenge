@@ -21,6 +21,7 @@ function Comment({ comment }) {
 
   return (
     <div className="some-comment">
+      <div className="initialsForLotsComments"></div>
       <p>
         <strong>
           {contact?.firstName || "First"} {contact?.lastName || "Last"}

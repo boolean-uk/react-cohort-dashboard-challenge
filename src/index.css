@@ -212,6 +212,7 @@
   display: grid;
   grid-template:
     "commentSection"
+    /* "some-comment" */
     "addAComment";
   grid-template-rows: 200px 150px;
   gap: 3px;
