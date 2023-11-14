@@ -17,6 +17,8 @@ export default function ProfileContainer() {
       const fetch = await api.contact.get(contactIdParam);
       setProfile(await fetch);
     }
+
+    setProfile(null);
     getProfile();
   }, [contactIdParam]);
 
@@ -27,7 +29,7 @@ export default function ProfileContainer() {
   return (
     <div className="profile-container app-card">
       <ProfileHeader profile={profile} />
-      <ProfileForm />
+      <ProfileForm profile={profile} />
     </div>
   );
 }
