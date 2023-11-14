@@ -45,10 +45,11 @@ export default function CommentForm({post, user, getComments}) {
 
     }
 
+    const postUserInitials = user.firstName.charAt(0).toUpperCase() + user.lastName.charAt(0).toUpperCase()
 
     return (
         <div className="comment-form-container">
-            <div className="user-img-container">IS</div>
+            <div className="user-img-container">{postUserInitials}</div>
             <div className="comment-form">
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='Reply...' name='content' value={form.content} onChange={(event) => handleChange(event)}/>

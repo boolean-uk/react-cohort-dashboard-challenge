@@ -11,7 +11,7 @@ export default function ViewPost({posts}) {
 
     const {id} = useParams()
 
-    console.log(postComments)
+    // console.log(postComments)
 
     // useEffect(() => {      
     // }, [id, posts])
@@ -19,36 +19,64 @@ export default function ViewPost({posts}) {
         const findPost = posts.find(post => Number(post.id) === Number(id))
         setViewPost(findPost)
     }
-
-    // const commentContactIdLoop = (commentContactId) => {
-    //     for (let i = 0; i < commentContactId.length; i++){
-    //         return commentContactId[i].contactId
-    //     }
-        
-    // }
-
+    
     useEffect(() => {
         const postUserId = Number(viewPost.contactId)
-        console.log("PostUserId", postUserId)
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postUserId}`)
         .then(res => res.json())
         .then(data => {
             setPostUser(data)
-        }),
+        })
+       }, [])
 
+
+    //     fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}/comment`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         const returnedData = data.map(eachCommentData => {
+    //             fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${eachCommentData.contactId}`)
+    //             .then(res => res.json())
+    //             .then(postCommentAuthorsData => {
+    //                 setPostComments([{
+    //                     ...eachCommentData,
+    //                     firstName: postCommentAuthorsData.firstName,
+    //                     lastName: postCommentAuthorsData.lastName
+    //                 }])
+    //             })
+    //         })
+    //     })
+
+    // }, [])
+
+
+    useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}/comment`)
         .then(res => res.json())
-        .then(data => setPostComments(data))
-
-        fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postComments.map(postComment => postComment.contactId)}`)
-        .then(res => res.json())
-        .then(data => {
-            setPostCommentAuthors(data)
+        .then(postCommentsData => {
+            setPostComments(postCommentsData)
         })
     }, [])
 
-    console.log("PostCommentAuthor", postCommentAuthors)
-
+    useEffect(() => {
+        if (postComments) {
+            const promises = postComments.map(postComment => {
+                return fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postComment.contactId}`)
+                .then(res => res.json())
+                .then(postCommentAuthorData => {
+                    const commentAndAuthors = {
+                        ...postComment,
+                        firstName: postCommentAuthorData.firstName,
+                        lastName: postCommentAuthorData.lastName
+                    }
+                    setPostCommentAuthors((authors) => [...authors, commentAndAuthors])
+                
+                })
+            })
+            Promise.all(promises)
+        }
+    }, [postComments])
+    
+    // console.log("post user", postUser.firstName[0])
     // const initials = postUser?.firstName.charAt(0) + postUser?.lastName.charAt(0)
 
     return (
@@ -68,25 +96,21 @@ export default function ViewPost({posts}) {
                         <div className="content-container">
                             {viewPost?.content}
                         </div>
-                    {postComments.map((postComment, index) => (
+                    {postCommentAuthors.map((postCommentAuthor, index) => (
                         <div className="comments" key={index}> 
-                        {postCommentAuthors.map((postCommentAuthor) => (
                          <ul>
                              <li>
                                 <div className="comment-container">
                                  <div className="user-img-container">
-
+                                    {postCommentAuthor?.firstName[0]}{postCommentAuthor.lastName[0]}
                                 </div>
-                                <div className="comment-user-content">
-                            
-                                    <h5>{postCommentAuthor?.firstName}</h5> 
-                                    <p>{postComment?.content}</p>
+                                <div className="comment-user-content">                           
+                                    <h5>{postCommentAuthor?.firstName} {postCommentAuthor.lastName}</h5> 
+                                    <p>{postCommentAuthor?.content}</p>
                                 </div>
-                                     {/* <h5>{postCommentAuthors?.firstName}</h5> */}
                               </div>
                             </li>
                         </ul>
-                        ))}
                     </div>
                     ))}
                     </li>
