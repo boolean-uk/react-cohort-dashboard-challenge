@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import { contactProps } from "@utilities/propTypeDefs";
@@ -10,13 +12,15 @@ export default function UserIcon({ contact }) {
     return <PulseLoader />;
   }
 
-  const { firstName, lastName } = contact;
+  const { firstName, lastName, id } = contact;
 
   const initials = initialiser(firstName, lastName);
   return (
-    <div className="user-icon grid h-14 w-14 shrink-0 content-center justify-center rounded-full bg-red-400">
-      {initials}
-    </div>
+    <Link to={`/profile/${id}`} className="user-icon">
+      <div className="grid h-14 w-14 shrink-0 content-center justify-center rounded-full bg-red-400">
+        {initials}
+      </div>
+    </Link>
   );
 }
 
