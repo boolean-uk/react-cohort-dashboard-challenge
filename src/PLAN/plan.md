@@ -44,6 +44,10 @@
 
 - [x] map through list of comments
 
+- [x] work through the api
+
+## posts
+
 ## new post
 
 
