@@ -33,7 +33,7 @@ function App() {
           />
           <Route
             path='/post/:postId'
-            element={<SinglePostPage users={users} posts={posts} />}
+            element={<SinglePostPage users={users} posts={posts} setPosts={setPosts} setUsers={setUsers} />}
           />
         </Routes>
       </div>

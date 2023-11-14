@@ -4,51 +4,30 @@ import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
+// import { contactURL, get, postURL } from "../client"
 
 export default function SinglePostPage({ users, posts }) {
 
     const { postId } = useParams()
-    console.log(postId)
 
-    const [singlePersonPost, setSinglePersonPost] = useState(
-        {
-            id: 0,
-            contactId: 0,
-            title: "",
-            content: "",
-        }
-    )
-
-    const [singleUser, setSingleUser] = useState(
-        {
-            firstName: "",
-            lastName: "",
-            id: 1,
-        }
-    )
+    const [singlePersonPost, setSinglePersonPost] = useState()
+    const [singleUser, setSingleUser] = useState()
 
     useEffect(() => {
-        if (postId) {
+        if (postId && posts) {
             setSinglePersonPost(posts.find((post) => Number(post.id) === Number(postId)))
         }
     }, [postId, posts])
 
 
-    console.log(singlePersonPost)
-
     useEffect(() => {
-        if (singlePersonPost) {
+        if (singlePersonPost && users) {
             setSingleUser(users.find((user) => user.id === singlePersonPost.contactId))
         }
     }, [singlePersonPost, users])
-    console.log(singleUser)
+    
 
-
-
-
-    return (
-        // <div><p>hi</p></div>
-        
+    return ( singlePersonPost && singleUser && (
         <div className="post" key={singlePersonPost.id}>
             <div className="postInfo">
                 <ProfileLogo id={"1"} />
@@ -62,6 +41,6 @@ export default function SinglePostPage({ users, posts }) {
             <br />
             <CommentForm />
         </div>
-    )
+    ))
 }
 
