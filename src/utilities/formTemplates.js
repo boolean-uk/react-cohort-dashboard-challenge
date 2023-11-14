@@ -1,5 +1,7 @@
 import { reduceForm } from "./object";
 
+// TODO: add input types to forms
+
 const profileSections = [
   {
     title: "Account info",
