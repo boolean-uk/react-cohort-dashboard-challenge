@@ -27,7 +27,7 @@ export default function ProfileContainer() {
   }
 
   return (
-    <div className="profile-container app-card">
+    <div className="profile-container app-card flex flex-col gap-4">
       <ProfileHeader profile={profile} />
       <ProfileForm profile={profile} />
     </div>

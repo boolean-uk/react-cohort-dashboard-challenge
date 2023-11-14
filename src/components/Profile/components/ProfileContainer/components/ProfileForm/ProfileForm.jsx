@@ -37,7 +37,7 @@ export default function ProfileForm({ profile }) {
         }
       }
 
-      api.contact.put(profile.id, payload)
+      api.contact.put(profile.id, payload);
 
       setSubmitted(true);
     } else {
@@ -46,17 +46,21 @@ export default function ProfileForm({ profile }) {
   }
 
   return (
-    <form className="profile-form" onSubmit={handleSubmit}>
-      {profileSections.map((section) => (
-        <ProfileFormSection
-          key={`section-${section.title}`}
-          formData={formData}
-          section={section}
-          setFormData={setFormData}
-          submitted={submitted}
-        />
-      ))}
-      <SubmitButton submitted={submitted} innerText={"Save"}/>
+    <form className="profile-form flex flex-col gap-8" onSubmit={handleSubmit}>
+      <div className="section-container grid grid-cols-2 gap-8">
+        {profileSections.map((section) => (
+          <ProfileFormSection
+            key={`section-${section.title}`}
+            formData={formData}
+            section={section}
+            setFormData={setFormData}
+            submitted={submitted}
+          />
+        ))}
+      </div>
+      <div className="button-container flex place-content-end">
+        <SubmitButton submitted={submitted} innerText={"Save"} />
+      </div>
     </form>
   );
 }

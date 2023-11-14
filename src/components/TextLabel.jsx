@@ -5,8 +5,10 @@ export default function TextLabel({ field, formData, setFormData, submitted }) {
   const { charLimit, inputName, placeholderText, required, title } = field;
   return (
     <label>
-      {title}
-      {required && "*"}
+      <div className="pl-4 text-cohort-title text-sm">
+        {title}
+        {required && "*"}
+      </div>
       <TextInput
         charLimit={charLimit}
         formData={formData}
