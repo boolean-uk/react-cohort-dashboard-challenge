@@ -2,6 +2,7 @@ import { contactProps } from "@utilities/propTypeDefs";
 import { Link } from "react-router-dom";
 
 //TODO: Would like to map over these them svg like my plan said I would...
+//TODO: Indicate which page is currently visited
 
 export default function SideMenu({ user }) {
   return (
