@@ -9,7 +9,7 @@ function SendButton () {
   )
 }
 
-export default function NewPost({setReload}) {
+export default function NewPost({getPosts}) {
   
   const initialPost = {
     contactId: 1,
@@ -34,7 +34,8 @@ export default function NewPost({setReload}) {
     fetch(baseURL+endpoint, options)
       .then(response => response.json())
       .then(data => console.log(data))
-      .then(() => setReload(true))
+      .then(() => getPosts())
+      .catch((error) => console.log("error fetching posts", error))
 
   }
 

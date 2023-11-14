@@ -21,7 +21,7 @@ export default function Home() {
   if (posts.length === 0) return <p>Loading…</p>
   return (
     <>
-    <NewPost setReload={setReload}/>
+    <NewPost getPosts={getPosts}/>
     {posts.map((post, index) => <Post key={index} post={post} setReload={setReload}/>)}
     </>
   )

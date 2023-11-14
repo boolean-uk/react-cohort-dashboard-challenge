@@ -19,7 +19,7 @@ export default function Comments ({postId, setReload}) {
     fetch(baseURL + endpoint)
       .then(res => res.json())
       .then(data => {
-        setComments(data)
+        setComments(data.toReversed())
         !id ? setVisibleComments(3) : setVisibleComments(data.length)
       })
   }
@@ -43,8 +43,8 @@ export default function Comments ({postId, setReload}) {
         Hide older comments
       </p>
     )}
-    <AddComment postId={postId} setReload={setReload}/>
-    {comments.slice(-visibleComments).map((comment, index) => <Comment key={index} comment={comment}/>)}
+    <AddComment postId={postId} getComments={getComments}/>
+    {comments.slice(0, visibleComments).map((comment, index) => <Comment key={index} comment={comment} getComments={getComments}/>)}
     </>
     )
 }
