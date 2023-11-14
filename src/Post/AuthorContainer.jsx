@@ -4,7 +4,8 @@ import UserInitials from "../Low-level_components/UserInitials.jsx"
 import PostTitle from "./PostTitle.jsx"
 
 
-export default function AuthorContainer({post, reloadContacts}) {
+export default function AuthorContainer({post, reloadContacts, reloadPostList}) {
+    reloadPostList
     return(
         <>
             <div>

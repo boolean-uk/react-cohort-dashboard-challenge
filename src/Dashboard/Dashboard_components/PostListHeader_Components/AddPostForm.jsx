@@ -8,9 +8,9 @@ const initialForm = {
   contactId: undefined
 }
 
-export default function AddPostForm({setReloadPostList, reloadPostList}) {
+export default function AddPostForm({setReloadPostList, reloadPostList, reloadComments, setReloadComments}) {
   const [form, setForm] = useState(initialForm)
-
+  reloadPostList
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.title) {
@@ -18,12 +18,12 @@ export default function AddPostForm({setReloadPostList, reloadPostList}) {
     }
     postData("post", form)
     setForm(initialForm)
-    setReloadPostList(true)
+    setReloadPostList(!reloadPostList)
+    setReloadComments(true)
   }
 
   const handleChange = (e) => { 
     setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
-    console.log(form)
   }
 
   return (

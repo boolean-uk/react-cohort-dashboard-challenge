@@ -1,13 +1,12 @@
 import PostListItem from "../../Post/PostListItem"
 
 export default function PostList({ postList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadComments, setReloadComments}) {
-  const postListNewToOld = postList.toReversed()
 
   return (
     <>
       <section className="feed-container">
         <ul>
-          {postListNewToOld.map((post, index) => (
+          {postList.toReversed().map((post, index) => (
             <PostListItem 
               key={index} 
               post={post} 

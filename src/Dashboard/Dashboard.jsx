@@ -5,12 +5,12 @@ import getData from "../../js_functions/get";
 
 export default function Dashboard({mockLoggedInUserId, setReloadPostList, reloadPostList, reloadComments, setReloadComments, reloadContacts}) {
   const [postList, setPostList] = useState(null);
-
+ 
   useEffect(() => {
     getData("post", setPostList, setReloadPostList )
     setReloadPostList(false)
   }, [reloadPostList]);
-
+  console.log("upon Submit", postList)
   return (
     <>
       {!reloadPostList && postList ? (
@@ -21,6 +21,8 @@ export default function Dashboard({mockLoggedInUserId, setReloadPostList, reload
             reloadPostList={reloadPostList}
             mockLoggedInUserId={mockLoggedInUserId}
             reloadContacts={reloadContacts}
+            setReloadComments={setReloadComments}
+            reloadComments={reloadComments}
           />
           <PostList
             postList={postList}

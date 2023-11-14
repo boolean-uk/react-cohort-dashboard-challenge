@@ -1,6 +1,6 @@
 import AddPostForm from "./PostListHeader_Components/AddPostForm"
 import UserInitials from "../../Low-level_components/UserInitials"
-export default function PostFeedHeader({setPostList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadContacts}) {
+export default function PostFeedHeader({setPostList, reloadPostList, setReloadPostList, mockLoggedInUserId, reloadContacts, reloadComments, setReloadComments}) {
 
 
     return(
@@ -9,6 +9,8 @@ export default function PostFeedHeader({setPostList, reloadPostList, setReloadPo
                 <div className="form-container post-list-element">
                 <UserInitials reloadContacts={reloadContacts} contactId={mockLoggedInUserId}/>
                 <AddPostForm 
+                    setReloadComments={setReloadComments}
+                    reloadComments={reloadComments}
                     reloadContacts={reloadContacts}
                     setPostList={setPostList}
                     reloadPostList={reloadPostList}

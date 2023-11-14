@@ -2,6 +2,7 @@ import UserInitials from "../Low-level_components/UserInitials"
 import AddCommentForm from "./AddCommentForm";
 
 export default function AddCommentContainer({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
+  reloadPostList
   return (
     <>
       <section className="form-container left-margin">
