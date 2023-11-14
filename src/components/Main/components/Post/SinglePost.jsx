@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import PostContent from "./PostContent"
 import CommentContent from "../Comment/CommentContent"
 
-function SinglePost({ post, URL, loggedInUser, loggedInUserInitials }) {
+function SinglePost({ post, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts }) {
 
     const [author, setAuthor] = useState(null)
 
@@ -22,7 +22,7 @@ function SinglePost({ post, URL, loggedInUser, loggedInUserInitials }) {
     return (
         <section className="single-post-container">
             <li className="single-post grid">
-                <PostContent post={post} author={author} initials={initials} />
+            <PostContent post={post} URL={URL} author={author} initials={initials} setShouldGetPosts={setShouldGetPosts} />
                 <CommentContent post={post} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
             </li>
         </section>

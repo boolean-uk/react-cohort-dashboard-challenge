@@ -7,7 +7,6 @@ function SinglePostCommentContent({ post, URL, loggedInUser, loggedInUserInitial
 
     const [allComments, setAllComments] = useState(null)
 
-
     useEffect(() => {
         fetch(`${URL}/post/${post.id}/comment`)
             .then(res => res.json())

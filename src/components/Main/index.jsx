@@ -8,7 +8,7 @@ function Main({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPost
     return (
         <main className="main grid">
             <CreatePost posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} />
-            <Posts posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
+            <Posts posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} />
         </main>
     )
 }
