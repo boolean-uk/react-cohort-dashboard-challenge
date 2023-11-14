@@ -76,7 +76,16 @@ export default function Profile ({ contactId }) {
 
   return (
     <form className="profile" onSubmit={(event) => handleSubmit(event)}>
-      {formFields.map((field, index) => <FormField key={index} description={field.description} value={field.value} type={field.type} name={field.name} handleChange={handleChange}/>)}
+      {Object.keys(user).map((field, index) => {
+        const humanFieldNames = {
+          firstName: "First Name",
+          lastName: "Last Name",
+          jobTitle: "Job Title"
+        }
+        const capitalize = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase()
+        const nonRenderFields = ["id", "latitude", "longitude"]
+        if (nonRenderFields.includes(field.toLowerCase()) === false) return <FormField key={index} description={(humanFieldNames[field]||capitalize(field))} value={user[field]} type={field.type} name={field} handleChange={handleChange}/>
+    })}
       <button>Submit</button>
     </form>
   )
