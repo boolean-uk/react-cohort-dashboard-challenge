@@ -302,6 +302,7 @@ body {
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 85vw;
 }
 
 .user-avatar {
@@ -346,7 +347,8 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   width: 5vw;
-  margin-left: 63vw;
+  margin-left: 55vw;
+  margin-right: 5vw;
 }
 
 .main-post-button:hover {
