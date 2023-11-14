@@ -1,3 +1,4 @@
+import { funcProp, objectProp } from "@utilities/propTypeDefs";
 import TextInput from "./TextInput";
 
 export default function TextLabel({ field, formData, setFormData }) {
@@ -16,3 +17,9 @@ export default function TextLabel({ field, formData, setFormData }) {
     </label>
   );
 }
+
+TextLabel.propTypes = {
+  field: objectProp,
+  formData: objectProp,
+  setFormData: funcProp,
+};

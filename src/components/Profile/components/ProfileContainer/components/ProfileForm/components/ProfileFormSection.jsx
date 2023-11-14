@@ -1,5 +1,5 @@
 import TextLabel from "@components/TextLabel";
-import { sectionProp } from "@utilities/propTypeDefs";
+import { funcProp, objectProp, sectionProp } from "@utilities/propTypeDefs";
 
 export default function ProfileFormSection({ formData, section, setFormData }) {
   const { title, fields } = section;
@@ -9,6 +9,7 @@ export default function ProfileFormSection({ formData, section, setFormData }) {
       <hr />
       {fields.map((field) => (
         <TextLabel
+          key={`field-${field.inputName}`}
           field={field}
           formData={formData}
           setFormData={setFormData}
@@ -20,4 +21,6 @@ export default function ProfileFormSection({ formData, section, setFormData }) {
 
 ProfileFormSection.propTypes = {
   section: sectionProp,
+  setFormData: funcProp,
+  formData: objectProp,
 };
