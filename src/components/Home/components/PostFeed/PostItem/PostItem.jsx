@@ -21,6 +21,8 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   const [itemHover, setItemHover] = useState(false);
   const [showItemMenu, setShowItemMenu] = useState(false);
 
+  const [editablePost, setEditablePost] = useState(false)
+
   const { postIdParam } = useParams();
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       onMouseLeave={handleHoverLeave}
       className="post-item app-card relative flex flex-col gap-4"
     >
-      <PostHeader post={post} />
+      <PostHeader post={post} editablePost={editablePost}/>
       <PostBody content={post.content} />
       <PostCommentFeed
         loadComments={loadComments}
@@ -71,9 +73,11 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
         setLoadComments={setLoadComments}
       />
       <PostItemOptions
+        editablePost={editablePost}
         itemHover={itemHover}
         postId={post.id}
         showItemMenu={showItemMenu}
+        setEditablePost={setEditablePost}
         setLoadPosts={setLoadPosts}
         setShowItemMenu={setShowItemMenu}
       />

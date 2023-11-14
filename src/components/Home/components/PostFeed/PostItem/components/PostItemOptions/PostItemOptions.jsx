@@ -2,14 +2,20 @@ import api from "@utilities/api";
 import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
 export default function PostItemOptions({
+  editablePost,
   itemHover,
   postId,
   showItemMenu,
+  setEditablePost,
   setLoadPosts,
   setShowItemMenu,
 }) {
   function handleOptionClick() {
     setShowItemMenu(!showItemMenu);
+  }
+
+  function handleEditClick() {
+    setEditablePost(!editablePost)
   }
 
   function handleDeleteClick() {
@@ -21,7 +27,10 @@ export default function PostItemOptions({
     <>
       {showItemMenu && (
         <ul className="absolute right-4 top-4 flex flex-col gap-1 rounded-3xl bg-cohort-shade py-4 pr-12">
-          <li className="cursor-pointer rounded-r-xl p-2 hover:bg-cohort-bg-highlight">
+          <li
+            onClick={handleEditClick}
+            className="cursor-pointer rounded-r-xl p-2 hover:bg-cohort-bg-highlight"
+          >
             Edit
           </li>
           <li
@@ -53,9 +62,11 @@ export default function PostItemOptions({
 }
 
 PostItemOptions.propTypes = {
+  editablePost: boolProps,
   itemHover: boolProps,
   postId: numberProp,
   showItemMenu: boolProps,
+  setEditablePost: funcProp,
   setLoadPosts: funcProp,
   setShowItemMenu: funcProp,
 };
