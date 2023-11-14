@@ -5,6 +5,8 @@ import Post from "./Posts/Post";
 import Header from "./Header/Header";
 import React from "react";
 import Navigation from "./Navigation/Navigation";
+import ContactId from "./Header/ContactId";
+import InputAndButton from "./MakePost/InputAndButton";
 
 function App() {
   return (
@@ -18,12 +20,14 @@ function App() {
       </div>
 
       <div className="make-post">
-         <h1>HELLO WORLD</h1>
+         <InputAndButton/>
       </div>
 
       <div className="post">
         <Post />
       </div>
+      
+     
     </div>
   );
 }
