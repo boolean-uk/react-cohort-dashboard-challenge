@@ -1,26 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import ProfileImg from "./Profile/ProfileImg";
-import { useState, useEffect } from "react";
-
-import { baseURL } from "../App";
 
 export default function Header () {
   const navigate = useNavigate()
-  const [user, setUser] = useState(null)
-
-  const loadUser = () => {
-    const endpoint = `/contact/1`
-
-    fetch(baseURL+endpoint)
-    .then(response => response.json())
-    .then(data => setUser(data))
-    .catch((error) => console.log(error))
-  }
-
-  useEffect(loadUser, [])
-
-  if (!user) return
-
+  
   return (
     <header>
       <span id="logo">
@@ -30,7 +13,7 @@ export default function Header () {
         />
       </span>
       <span id="profile">
-        <ProfileImg contactId={1} initials={user.firstName[0]+user.lastName[0]} size={"normal"}/>
+        <ProfileImg contactId={1} size={"normal"}/>
       </span>
     </header>
   )

@@ -6,7 +6,6 @@ import { baseURL } from "../../App"
 export default function Comments ({postId}) {
   
   const {id} = useParams()
-  console.log(!id)
   
   const [comments, setComments] = useState([])
   const [visibleComments, setVisibleComments] = useState(null)

@@ -16,12 +16,9 @@ export default function Comment({comment}) {
 
   useEffect(loadUser, [])
   
-  let initials = "…"
-  if (!!user) initials = user.firstName[0] + user.lastName[0]
-
   return (
     <div className="comment-container">
-      <ProfileImg contactId={comment.contactId} size={"small"} initials={initials}/>
+      <ProfileImg contactId={comment.contactId} size={"small"}/>
       {comment.content}
     </div>
   )
