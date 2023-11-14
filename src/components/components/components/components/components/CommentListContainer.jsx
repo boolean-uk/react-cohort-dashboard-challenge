@@ -1,27 +1,19 @@
 import CommentContainer from "./components/CommentContainer";
 import { useState, useEffect } from "react";
+import getData from "../../../../../../js_functions/get";
 
 export default function CommentListContainer({postId, reloadComments, setReloadComments, reloadContacts}) {
   const [displayAllComments, setDisplayAllComments] = useState(false)
   const [commentList, setCommentList] = useState(null);
-  
-  const getCommentList = () => {
-    fetch(
-      `https://boolean-api-server.fly.dev/Chloe070196/post/${postId}/comment`
-    )
-      .then((r) => r.json())
-      .then((data) =>
-        setCommentList(data))
-      .then(setReloadComments(false));
-  };
 
   const handleClick = () => {
     setDisplayAllComments(!displayAllComments)
   }
 
-  
-
-  useEffect(getCommentList, [reloadComments])
+  useEffect(() => {
+    getData(`post/${postId}/comment`, setCommentList)
+    setReloadComments(false);
+  }, [reloadComments])
 return (
   
     <>

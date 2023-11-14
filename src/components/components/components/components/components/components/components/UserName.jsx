@@ -1,5 +1,6 @@
 import { useState} from "react";
 import { useEffect } from "react";
+import getData from "../../../../../../../../js_functions/get";
 
 const initialContact = {
   firstName: "",
@@ -11,13 +12,7 @@ const initialContact = {
 export default function UserName({ contactId, reloadContacts }) {
   const [contact, setContact] = useState(initialContact);
 
-  const getContactName = () => {
-    fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`)
-      .then((r) => r.json())
-      .then((data) => setContact(data));
-  };
-
-  useEffect(() => contactId && getContactName(), [reloadContacts]);
+  useEffect(() => contactId && getData(`contact/${contactId}`, setContact), [reloadContacts]);
 
   return (
     <>

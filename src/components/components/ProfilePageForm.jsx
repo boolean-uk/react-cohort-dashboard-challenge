@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import FormSection from "./components/FormSection";
+import getData from "../../../js_functions/get";
 
 const formSections = [
   {
@@ -115,15 +116,7 @@ export default function ProfilePageForm( {setReloadContacts, reloadContacts} ) {
     editContact()
   }
 
-  console.log('in form',reloadContacts)  
-
-  const getContact = () => {
-    fetch(`https://boolean-api-server.fly.dev/Chloe070196/contact/${contactId}`)
-      .then((r) => r.json())
-      .then((data) => setForm(data))
-  };
-
-    useEffect(getContact, [])
+  useEffect(() => getData(`contact/${contactId}`,setForm), [])
 
   return (
     <>
