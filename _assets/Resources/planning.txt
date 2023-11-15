@@ -1,4 +1,5 @@
 My initial planning was done on a Miro board creating a drop down flow chart that described the possible components I thought I would need.
+I kept it the same from when I first planned it. It is missing some changes like the home page and come components.
 
 Here is the link:
 https://miro.com/app/board/uXjVNQnEdsg=/
