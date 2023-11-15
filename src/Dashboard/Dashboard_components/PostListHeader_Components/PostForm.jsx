@@ -1,5 +1,7 @@
 import { useState } from "react";
 import postData from "../../../../js_functions/post"
+import { useEffect } from "react";
+import putData from "../../../../js_functions/put";
 
 const initialForm = {
   title: "",
@@ -7,22 +9,27 @@ const initialForm = {
   contactId: undefined
 }
 
-export default function AddPostForm({setReloadPostList, reloadPostList, reloadComments, setReloadComments}) {
+export default function PostForm({setReloadPostList, reloadPostList, reloadComments, setReloadComments, post, edit }) {
   const [form, setForm] = useState(initialForm)
+
+
+  
+  //allows the form to be set to the value of the comment we want to edit
+  useEffect(() => post && setForm(post), [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.title) {
       form.title = form.content.slice(0, 20) + "..."
     }
-    postData("post", form)
+    edit ? putData(`post/${post.id}`, form) : postData("post", form) 
     setForm(initialForm)
     setReloadPostList(!reloadPostList)
     setReloadComments(!reloadComments)
   }
 
   const handleChange = (e) => { 
-    setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
+    edit ? setForm({...form, [e.target.name]: e.target.value}) : setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1})
   }
 
   return (
@@ -40,7 +47,7 @@ export default function AddPostForm({setReloadPostList, reloadPostList, reloadCo
           name="content"
           type="text"
           placeholder="Share your thoughts!"/>
-        <button onClick={e => handleSubmit(e)}>Post</button>
+        <button onClick={e => handleSubmit(e)}>{edit? "Edit":"Post"}</button>
       </form>
     </>
   );

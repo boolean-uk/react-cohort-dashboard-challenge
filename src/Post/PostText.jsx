@@ -1,8 +1,11 @@
-export default function PostText({post}) {
+import PostForm from "../Dashboard/Dashboard_components/PostListHeader_Components/PostForm"
+
+export default function PostText({post, edit, setEdit, reloadPostList, setReloadPostList}) {
+
     return(
         <>
             <div>
-                <p>{post.content}</p>
+               {edit? <PostForm  edit={edit} setEdit={setEdit} post={post} reloadPostList={reloadPostList} setReloadPostList={setReloadPostList}/>: <p>{post.content}</p>}
             </div>
         </>
     )

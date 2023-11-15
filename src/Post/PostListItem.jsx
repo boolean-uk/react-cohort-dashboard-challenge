@@ -1,19 +1,26 @@
 import PostContainer from "./PostContainer"
+import { useState } from "react"
 import CommentListContainer from "./CommentListContainer"
 import AddCommentContainer from "./AddCommentContainer"
 import deleteData from "../../js_functions/delete"
 
 export default function PostListItem({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
     reloadPostList
+    const [edit, setEdit] = useState(false)
 
     const deletePost = () => {
         deleteData(`post/${post.id}`)
         setReloadPostList(!reloadPostList)  
     }
+   
+
+    const toggledEditPost = () => {
+        setEdit(!edit)
+    }
     return(
         <>
             <li className="post-list-element">
-                <PostContainer post={post} reloadContacts={reloadContacts} reloadPostList={reloadPostList}/>
+                <PostContainer edit={edit} setEdit={setEdit} post={post} reloadContacts={reloadContacts} reloadPostList={reloadPostList} setReloadPostList={setReloadPostList} />
                 <CommentListContainer postId={post.id} reloadComments={reloadComments} reloadPostList={reloadPostList} setReloadComments={setReloadComments}/>
                 <AddCommentContainer 
                     post={post}
@@ -23,7 +30,7 @@ export default function PostListItem({post, setReloadPostList, reloadPostList, m
                     setReloadComments={setReloadComments}
                     reloadComments={reloadComments}/>   
                 <button onClick={deletePost}>Delete</button>
-    
+                <button onClick={toggledEditPost}>Edit</button>
             </li>
         </>
     )
