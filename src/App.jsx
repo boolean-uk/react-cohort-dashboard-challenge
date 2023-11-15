@@ -1,12 +1,14 @@
 import Header from './components/header'
 import Nav from './components/nav'
 import PostFeed from './components/post-feed'
-// import './App.css'
+import './App.css'
 
 function App() {
 
   return (
     <>
+
+    <div className="grid-container">
    <div className='header-section'>
     <Header/>
    </div>
@@ -17,6 +19,7 @@ function App() {
 
 <div className='main-section'>
   <PostFeed/>
+</div>
 </div>
 
    </>

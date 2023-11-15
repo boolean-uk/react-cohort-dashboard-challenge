@@ -1,7 +1,21 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#F0F5FA;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+  "Header Header"
+  "Nav Main";
+grid-template-rows: 67px 1fr;
+grid-template-columns: 137px 1fr;
+height: 100%;
+}
+
+.header-section{
+background-color:#000046;
+}
