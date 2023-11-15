@@ -1,5 +1,5 @@
 import UserInitials from "../Low-level_components/UserInitials"
-import AddCommentForm from "./AddCommentForm";
+import CommentForm from "./CommentForm";
 
 export default function AddCommentContainer({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
   reloadPostList
@@ -10,7 +10,7 @@ export default function AddCommentContainer({post, setReloadPostList, reloadPost
             reloadContacts={reloadContacts}
             post={post}
             contactId={mockLoggedInUserId} />
-        <AddCommentForm
+        <CommentForm
           post={post}
           setReloadComments={setReloadComments}
           reloadComments={reloadComments}

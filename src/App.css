@@ -163,3 +163,7 @@ button:hover {
     font-weight: bold;
     color: white;
 }
+
+.edit-form{
+    margin-top: 10px;
+}

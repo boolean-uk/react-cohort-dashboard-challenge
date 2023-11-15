@@ -15,8 +15,6 @@ export default function CommentListContainer({
     setDisplayAllComments(!displayAllComments);
   };
 
-  console.log(commentList)
-
   useEffect(() => {
     getData(`post/${postId}/comment`, setCommentList);
     setReloadComments(false);

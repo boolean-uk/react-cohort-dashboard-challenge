@@ -6,7 +6,7 @@ export default function PostList({ postList, reloadPostList, setReloadPostList, 
     <>
       <section className="feed-container">
         <ul>
-          {postList.toReversed().map((post, index) => (
+          {postList.toReversed().map((post) => (
             <PostListItem 
               key={post.id} 
               post={post} 

@@ -1,13 +1,15 @@
 import UserInitials from "../Low-level_components/UserInitials";
-import Comment from "../Low-level_components/Comment";
-
+import Comment from "./Comment";
+import { useState } from "react";
 export default function CommentContainer({
   comment,
   reloadContacts,
   setReloadComments,
   reloadComments,
-  postId
+  postId,
 }) {
+  const [edit, setEdit] = useState(false);
+
   return (
     <>
       {comment && (
@@ -17,6 +19,8 @@ export default function CommentContainer({
             reloadContacts={reloadContacts}
           />
           <Comment
+            edit={edit}
+            setEdit={setEdit}
             comment={comment}
             postId={postId}
             reloadContacts={reloadContacts}

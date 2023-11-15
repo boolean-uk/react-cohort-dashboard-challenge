@@ -1,6 +1,6 @@
 import { useState } from "react"
 import postData from "../../js_functions/post"
-
+import { useEffect } from "react"
 const initialForm = {
   title: "",
   postId: undefined,
@@ -8,8 +8,12 @@ const initialForm = {
   content: ""
 }
 
-export default function AddCommentForm({setReloadComments, post}) {
+export default function CommentForm({setReloadComments, comment}) {
   const [form, setForm] = useState(initialForm)
+
+
+  //allows the form to be set to the value of the comment we want to edit
+  useEffect(() => comment && setForm(comment), [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,6 +31,7 @@ export default function AddCommentForm({setReloadComments, post}) {
     <>
       <form className="add-comment-form">
         <input 
+          className="comment-form"
           onChange={e => handleChange(e)} 
           value={form.content} 
           name="content"
