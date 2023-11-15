@@ -16,12 +16,21 @@ export default function CommentForm({setReloadComments, reloadComments, edit, se
   //allows the form to be set to the value of the comment we want to edit
   useEffect(() => comment && setForm(comment), [])
 
+  const handleEdit = () => {
+    putData(`post/${postId}/comment/${comment.id}`, form) 
+    setEdit(!edit)
+  }
+
+  const handlePost = () => {
+    postData(`post/${post.id}/comment/`, form)
+    setReloadComments(!reloadComments)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    edit ? putData(`post/${postId}/comment/${comment.id}`, form): postData(`post/${post.id}/comment/`, form)
-    setForm(initialForm)
-    setEdit(!edit)
-    setReloadComments(!reloadComments)
+    edit ? handleEdit() : handlePost()
+    setForm(initialForm) 
+    console.log(setReloadComments)
   }
 
   const handleChange = (e) => { 

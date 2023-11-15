@@ -8,7 +8,7 @@ export default function SelectedPostPage({mockLoggedInUserId, setReloadPostList,
   const { id } = useParams();
 
   const getPost = () => {
-    fetch(`https://boolean-api-server.fly.dev/Chloe070196/post/${id}`)
+    fetch(`https://boolean-api-server.fly.dev/Chloe0701962/post/${id}`)
       .then((r) => r.json())
       .then((data) => setPost(data));
   };
