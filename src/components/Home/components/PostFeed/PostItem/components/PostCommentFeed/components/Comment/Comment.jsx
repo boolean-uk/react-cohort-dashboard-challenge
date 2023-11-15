@@ -36,11 +36,17 @@ export default function Comment({ comment, setLoadComments }) {
   }
 
   function handleDeleteClick() {
-    api.post.comment.delete(comment.postId, comment.id).then(() => setLoadComments(true))
+    api.post.comment
+      .delete(comment.postId, comment.id)
+      .then(() => setLoadComments(true));
   }
 
   return (
-    <div className="post-comment-item relative flex gap-4">
+    <div
+      className={`post-comment-item relative flex gap-4 ${
+        showItemMenu && "z-10"
+      }`}
+    >
       <UserIcon contact={contact} />
       <CommentBody
         contact={contact}
@@ -48,7 +54,6 @@ export default function Comment({ comment, setLoadComments }) {
         handleHoverEnter={handleHoverEnter}
         handleHoverLeave={handleHoverLeave}
         handleDeleteClick={handleDeleteClick}
-
         editableItem={editableItem}
         itemHover={itemHover}
         itemId={comment.id}

@@ -22,7 +22,7 @@ export default function ItemOptions({
   return (
     <>
       {showItemMenu && (
-        <ul className="absolute right-4 top-4 flex flex-col gap-1 rounded-3xl bg-cohort-shade py-4 pr-12">
+        <ul className="absolute right-4 top-4 flex flex-col gap-1 rounded-3xl border border-cohort-bg-highlight bg-cohort-shade py-4 pr-12">
           <li
             onClick={handleEditClick}
             className="cursor-pointer rounded-r-xl p-2 hover:bg-cohort-bg-highlight"
