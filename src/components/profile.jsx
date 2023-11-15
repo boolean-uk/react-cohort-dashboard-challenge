@@ -1,126 +1,159 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import InputField from './InputField';
+
 
 const Profile = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [street, setStreet] = useState('');
-  const [suite, setSuite] = useState('');
-  const [city, setCity] = useState('');
-  const [zipcode, setZipcode] = useState('');
-  const [phone, setPhone] = useState('');
-  const [website, setWebsite] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [catchPhrase, setCatchPhrase] = useState('');
-  const [businessStatement, setBusinessStatement] = useState('');
-
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
+  const initialState = {
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    street: '',
+    suite: '',
+    city: '',
+    zipcode: '',
+    phone: '',
+    website: '',
+    companyName: '',
+    catchPhrase: '',
+    businessStatement: '',
   };
 
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
+  const [formData, setFormData] = useState(initialState);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleStreetChange = (event) => {
-    setStreet(event.target.value);
-  };
-
-  const handleSuiteChange = (event) => {
-    setSuite(event.target.value);
-  };
-
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
-  };
-
-  const handleZipcodeChange = (event) => {
-    setZipcode(event.target.value);
-  };
-  
-
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
-
-  const handleWebsiteChange = (event) => {
-    setWebsite(event.target.value);
-  };
-
-  const handleCompanyNameChange = (event) => {
-    setCompanyName(event.target.value);
-  };
-
-  const handleCatchPhraseChange = (event) => {
-    setCatchPhrase(event.target.value);
-  };
-
-  const handleBusinessStatementChange = (event) => {
-    setBusinessStatement(event.target.value);
-  };
-
-  
-  // Other change handler functions for inputs
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted Data:', {
-      firstName,
-      lastName,
-      username,
-      email,
-      street,
-      suite,
-      city,
-      zipcode,
-      phone,
-      website,
-      companyName,
-      catchPhrase,
-      businessStatement,
-    });
+
+    console.log('Submitted Data:', formData);
   };
 
   return (
     <div>
       <h2>User Profile</h2>
       <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Account Info</legend>
-          <label>
-            First Name:
-            <input type="text" value={firstName} onChange={handleFirstNameChange} />
-          </label>
-          <label>
-            Last Name:
-            <input type="text" value={lastName} onChange={handleLastNameChange} />
-          </label>
-          {/* Other account info inputs */}
-        </fieldset>
+        {/* Account Info */}
+        <h2>Account Info</h2>
+        <InputField
+          label="First Name"
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Last Name"
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Username"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
 
-        <fieldset>
-          <legend>Address</legend>
-          {/* Address-related inputs */}
-        </fieldset>
+        {/* Address */}
+<h2>Address</h2>
+        <InputField
+          label="Street"
+          type="text"
+          name="street"
+          value={formData.street}
+          onChange={handleChange}
+        />
 
-        <fieldset>
-          <legend>Contact Info</legend>
-          {/* Contact-related inputs */}
-        </fieldset>
+        <InputField
+          label="Suite"
+          type="text"
+          name="suite"
+          value={formData.suite}
+          onChange={handleChange}
+        />
+        <InputField
+          label="City"
+          type="text"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+        />
 
-        <fieldset>
-          <legend>Company Info</legend>
-          {/* Company-related inputs */}
-        </fieldset>
+        <InputField
+          label="Zipcode"
+          type="text"
+          name="zipcode"
+          value={formData.zipcode}
+          onChange={handleChange}
+        />
+
+
+
+        {/* Contact Info */}
+        <h2>Contact Info</h2>
+
+        <InputField
+          label="Phone"
+          type="text"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+
+        <InputField
+          label="Website"
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+        />
+
+
+
+        {/* Company Info */}
+      <h2>Company Info</h2>
+
+        <InputField
+          label="Name"
+          type="text"
+          name="companyName"
+          value={formData.companyName}
+          onChange={handleChange}
+        />
+
+<InputField
+          label="Catch Phrase"
+          type="text"
+          name="catchPhrase"
+          value={formData.catchPhrase}
+          onChange={handleChange}
+        />
+
+<InputField
+          label="Business Statement"
+          type="text"
+          name="businessStatement"
+          value={formData.businessStatement}
+          onChange={handleChange}
+        />
+
+      
 
         <button type="submit">Save</button>
       </form>
