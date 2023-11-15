@@ -18,6 +18,31 @@ function ProfileForm() {
         businessStatement: ""
     })
 
+    const accountInfo = [
+        {desc: "firstName", title: "First Name*"},
+        {desc: "lastName", title: "Last Name*"},
+        {desc: "username", title: "Username*"},
+        {desc: "email", title: "Email*"}
+    ]
+
+    const addressInfo = [
+        {desc: "street", title: "Street"},
+        {desc: "suite", title: "Suite"},
+        {desc: "city", title: "City"},
+        {desc: "zipcode", title: "Zipcode"}
+    ]
+
+    const contactInfo = [
+        {desc: "phone", title: "Phone*"},
+        {desc: "website", title: "Website"}
+    ]
+
+    const companyInfo = [
+        {desc: "companyName", title: "Name"},
+        {desc: "catchPhrase", title: "Catch Phrase"},
+        {desc: "businessStatement", title: "Business Statement"}
+    ]
+
     function handleChange(e) {
         const { name, value} = e.target
         setUserData({ ...userData, [name]: value})
@@ -27,125 +52,69 @@ function ProfileForm() {
     
 
     return (
-        <form className="profile-form">
-            <div className="account-info">
-                <h2>Account Info</h2>
-                <br />
-                <label className="profile-label" htmlFor="firstName">First Name*</label>
-                <input 
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={userData.firstName}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="lastName"> Last Name*</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={userData.lastName}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="username">UserName*</label>
-                <input 
-                    type="text"
-                    id="username"
-                    name="username"
-                    value={userData.username}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="email">Email*</label>
-                <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={userData.email}
-                    onChange={e => handleChange(e)}
-                />
+        <form className="profile-form grid">
+            <div className="account-info profile-group">
+                <h2 className="profile-group-title">Account Info</h2>
+                {accountInfo.map((option) =>
+                    <label className="profile-label" htmlFor={option.desc} key={option.desc}>
+                        {option.title}
+                        <input className="profile-input grid"
+                            type="text"
+                            id={option.desc}
+                            name={option.desc}
+                            value={userData.input}
+                            onChange={e => handleChange(e)}
+                        />
+                    </label>
+                )}  
             </div>
-            <div className="address">
+            <div className="address profile-group">
                 <h2>Address</h2>
-                <label className="profile-label" htmlFor="street">Street</label>
-                <input 
-                    type="text"
-                    id="street"
-                    name="street"
-                    value={userData.street}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="suite">Suite</label>
-                <input 
-                    type="text"
-                    id="suite"
-                    name="suite"
-                    value={userData.suite}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="city">City</label>
-                <input 
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={userData.city}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="zipcode">Zipcode</label>
-                <input 
-                    type="text"
-                    id="zipcode"
-                    name="zipcode"
-                    value={userData.zipcode}
-                    onChange={e => handleChange(e)}
-                />
+                {addressInfo.map((option) =>
+                    <label className="profile-label" htmlFor={option.desc} key={option.desc}>
+                        {option.title}
+                        <input className="profile-input grid"
+                            type="text"
+                            id={option.desc}
+                            name={option.desc}
+                            value={userData.input}
+                            onChange={e => handleChange(e)}
+                        />
+                    </label>
+                )}  
             </div>
-            <div className="contact-info">
+            <div className="contact-info profile-group">
                 <h2>Contact info</h2>
-                <label className="profile-label" htmlFor="phone">Phone*</label>
-                <input 
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    value={userData.phone}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="website">Website</label>
-                <input 
-                    type="text"
-                    id="website"
-                    name="website"
-                    value={userData.website}
-                    onChange={e => handleChange(e)}
-                />
+                {contactInfo.map((option) =>
+                    <label className="profile-label" htmlFor={option.desc} key={option.desc}>
+                        {option.title}
+                        <input className="profile-input grid"
+                            type="text"
+                            id={option.desc}
+                            name={option.desc}
+                            value={userData.input}
+                            onChange={e => handleChange(e)}
+                        />
+                    </label>
+                )}
             </div>
-            <div className="company-info">
+            <div className="contact-info profile-group">
                 <h2>Company info</h2>
-                <label className="profile-label" htmlFor="companyName">Name</label>
-                <input 
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value={userData.companyName}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="catchPhrase">Catch Phrase</label>
-                <input 
-                    type="text"
-                    id="catchPhrase"
-                    name="catchPhrase"
-                    value={userData.catchPhrase}
-                    onChange={e => handleChange(e)}
-                />
-                <label className="profile-label" htmlFor="businessStatement">Business Statement</label>
-                <input 
-                    type="text"
-                    id="businessStatement"
-                    name="businessStatement"
-                    value={userData.businessStatement}
-                    onChange={e => handleChange(e)}
-                />
+                {companyInfo.map((option) =>
+                    <label className="profile-label" htmlFor={option.desc} key={option.desc}>
+                        {option.title}
+                        <input className="profile-input grid"
+                            type="text"
+                            id={option.desc}
+                            name={option.desc}
+                            value={userData.input}
+                            onChange={e => handleChange(e)}
+                        />
+                    </label>
+                )}
             </div>
-            <button type="submit">Save</button>
+            <p className="required-hint">*Required</p>
+            <button className="form-button" type="submit">Save</button>
         </form>
     )
 }

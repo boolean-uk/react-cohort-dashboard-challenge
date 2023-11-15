@@ -1,4 +1,61 @@
 .profile {
-    background-color: red;
-    height: 100vh;
+    height: 100%;
+}
+
+.profile-title {
+    padding-left: 50px;
+    font-size: 30px;
+    color: #000046;
+}
+
+.profile-form {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    background-color: white;
+    padding: 10px 30px;
+    margin: 30px 40px 30px 30px;
+    border-radius: 10px;
+}
+
+.profile-label {
+    display: block;
+    margin-bottom: 30px;
+    color: rgb(84, 84, 84);
+}
+
+.profile-input {
+    display: block;
+    place-self: center;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    background-color: #e6ebf5;
+    padding: 10px 5px;
+}
+
+.profile-group {
+    padding: 10px 10px 20px 0;
+}
+
+.profile-group-title {
+    color: #000046;
+}
+
+.account-info, .address {
+    border-bottom: solid 1px rgba(128, 128, 128, 0.292);
+}
+
+.required-hint {
+    color: red;
+    padding-left: 20px;
+}
+
+.form-button {
+    justify-self: end;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: #000046;
+    color: white;
+    font-size: 16px;
 }
