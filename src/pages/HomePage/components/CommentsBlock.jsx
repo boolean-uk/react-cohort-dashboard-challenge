@@ -14,7 +14,7 @@ const CommentsBlock = ({ user, postId }) => {
 
     useEffect(() => {
         getAllComments();
-    }, []);
+    }, [postId]);
 
     return (
         <div className="commentsBlock">
@@ -27,7 +27,7 @@ const CommentsBlock = ({ user, postId }) => {
                 </button>
             )}
 
-            {comments.length && (
+            {comments.length > 0 && (
                 <CommentsList
                     comments={
                         !showAllComments && comments.length > 3

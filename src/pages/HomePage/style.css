@@ -19,6 +19,20 @@
     margin-bottom: 20px;
 }
 
+.createPostInput__inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.createPostInput__inputs input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.createPostInput__inputs input:not(:last-child) {
+    margin-bottom: 10px;
+}
+
 .createPostInput__button {
     border: none;
     background-color: #000046;

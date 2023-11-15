@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PostItem from "./PostItem";
 
 const PostsList = ({ user, posts }) => {

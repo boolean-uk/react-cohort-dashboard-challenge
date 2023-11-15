@@ -13,7 +13,7 @@ const HomePage = ({ setPage, user }) => {
     const [posts, setPosts] = useState([]);
 
     const getPosts = () => {
-        getAllPosts().then((data) => setPosts(data));
+        getAllPosts().then((data) => setPosts(data.reverse()));
     };
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const HomePage = ({ setPage, user }) => {
 
     return (
         <div className="homePage">
-            <CreatePostInput user={user} />
+            <CreatePostInput user={user} getPosts={getPosts} />
 
             <PostsList user={user} posts={posts} />
         </div>

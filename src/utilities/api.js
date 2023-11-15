@@ -24,6 +24,15 @@ export async function getAllPosts() {
     }
 }
 
+export async function createNewPost(postData) {
+    try {
+        const response = await INSTANCE.post("/post", postData);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function getComments(postId) {
     const url = `/post/${postId}/comment`;
 

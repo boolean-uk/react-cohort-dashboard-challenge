@@ -12,7 +12,7 @@ const PostItem = ({ user, post }) => {
 
     useEffect(() => {
         getContact(post.contactId).then((data) => setPostUser(data));
-    }, []);
+    }, [post]);
 
     return (
         <div className="postItem">
