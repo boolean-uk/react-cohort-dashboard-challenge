@@ -1,17 +1,21 @@
 import UserProfileCircle from "../../Shared/UserProfileCircle"
 import NameTitleContainer from "../../Main/components/Post/NameTitleContainer"
+import DeletePostButton from "../../Shared/DeletePostButton"
 
-function SinglePostContent({ post, initials, author}) {
+function SinglePostContent({ post, URL, initials, author, setShouldGetPosts }) {
 
     return (
-        <section>
-            <div className="post-content-details grid">
-                <UserProfileCircle initials={initials} author={author} />
-                <NameTitleContainer author={author} post={post} />
+        <section className="post-content-container grid">
+            <div className="post-content grid">
+                <div className="post-content-details grid">
+                    <UserProfileCircle initials={initials} author={author} />
+                    <NameTitleContainer author={author} post={post} />
+                </div>
+                <div className="post-content-text">
+                    <p>{post.content}</p>  
+                </div>
             </div>
-            <div className="post-content-text">
-                <p>{post.content}</p>  
-            </div>
+            <DeletePostButton post={post} URL={URL} setShouldGetPosts={setShouldGetPosts} />
         </section>
     )
 }

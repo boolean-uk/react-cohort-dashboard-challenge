@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 
 import '../../styles/post-and-comments.css'
 
-    function PostAndComments({ posts, URL, loggedInUser, loggedInUserInitials }) {
+    function PostAndComments({ posts, URL, loggedInUser, loggedInUserInitials, setShouldGetPosts }) {
 
     const [showPost, setShowPost] = useState(null)
     const [author, setAuthor] = useState(null)
@@ -34,7 +34,7 @@ import '../../styles/post-and-comments.css'
     return (
         <section className="post-and-comments-main">
             <div className="post-and-comments-container">
-                <SinglePostContent post={showPost} initials={initials} author={author} />
+                <SinglePostContent post={showPost} URL={URL} initials={initials} author={author} setShouldGetPosts={setShouldGetPosts} />
                 <SinglePostCommentContent post={showPost} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
                 </div>
         </section>

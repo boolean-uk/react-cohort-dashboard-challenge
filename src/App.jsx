@@ -62,7 +62,7 @@ function App() {
             />
             <Route
               path='/post/:postId'
-              element={<PostAndComments posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />}
+              element={<PostAndComments posts={posts} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} setShouldGetPosts={setShouldGetPosts} />}
             />
         </Routes>
     </div>
