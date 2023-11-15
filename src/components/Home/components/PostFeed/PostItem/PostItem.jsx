@@ -65,7 +65,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   }
 
   function putRequest(payload) {
-    return api.post.put(payload.id, payload); // doesn't work in single post view oops
+    return api.post.put(payload.id, payload); // TODO: doesn't work in single post view oops
   }
 
   function handleDeleteClick() {
