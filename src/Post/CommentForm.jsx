@@ -19,6 +19,7 @@ export default function CommentForm({setReloadComments, reloadComments, edit, se
   const handleEdit = () => {
     putData(`post/${postId}/comment/${comment.id}`, form) 
     setEdit(!edit)
+    setReloadComments(!reloadComments)
   }
 
   const handlePost = () => {
@@ -30,7 +31,6 @@ export default function CommentForm({setReloadComments, reloadComments, edit, se
     e.preventDefault()
     edit ? handleEdit() : handlePost()
     setForm(initialForm) 
-    console.log(setReloadComments)
   }
 
   const handleChange = (e) => { 

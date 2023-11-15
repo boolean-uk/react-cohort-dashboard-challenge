@@ -21,6 +21,8 @@ export default function PostListItem({post, setReloadPostList, reloadPostList, m
         <>
             <li className="post-list-element">
                 <PostContainer edit={edit} setEdit={setEdit} post={post} reloadContacts={reloadContacts} reloadPostList={reloadPostList} setReloadPostList={setReloadPostList} />
+                <button onClick={deletePost}>Delete</button>
+                <button onClick={toggledEditPost}>Edit</button>
                 <CommentListContainer postId={post.id} reloadComments={reloadComments} reloadPostList={reloadPostList} setReloadComments={setReloadComments}/>
                 <AddCommentContainer 
                     post={post}
@@ -29,8 +31,6 @@ export default function PostListItem({post, setReloadPostList, reloadPostList, m
                     mockLoggedInUserId={mockLoggedInUserId} 
                     setReloadComments={setReloadComments}
                     reloadComments={reloadComments}/>   
-                <button onClick={deletePost}>Delete</button>
-                <button onClick={toggledEditPost}>Edit</button>
             </li>
         </>
     )

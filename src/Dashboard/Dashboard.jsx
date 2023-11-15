@@ -5,6 +5,7 @@ import getData from "../../js_functions/get";
 
 export default function Dashboard({mockLoggedInUserId, setReloadPostList, reloadPostList, reloadComments, setReloadComments, reloadContacts}) {
   const [postList, setPostList] = useState(null);
+  console.log(reloadPostList)
  
   useEffect(() => {
     getData("post", setPostList, setReloadPostList )
