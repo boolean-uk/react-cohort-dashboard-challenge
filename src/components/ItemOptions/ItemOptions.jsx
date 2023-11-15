@@ -1,8 +1,7 @@
-import api from "@utilities/api";
 import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
 export default function ItemOptions({
-  editablePost,
+  editableItem,
   handleDeleteClick,
   itemHover,
   itemId,
@@ -16,13 +15,13 @@ export default function ItemOptions({
   }
 
   function handleEditClick() {
-    setEditableItem(!editablePost);
+    setEditableItem(!editableItem);
   }
 
   return (
     <>
       {showItemMenu && (
-        <ul className="absolute right-4 top-4 flex flex-col gap-1 rounded-3xl border border-cohort-bg-highlight bg-cohort-shade py-4 pr-12">
+        <ul className="absolute right-4 top-4 flex flex-col gap-1 rounded-3xl border border-cohort-green bg-cohort-shade py-4 pr-12">
           <li
             onClick={handleEditClick}
             className="cursor-pointer rounded-r-xl p-2 hover:bg-cohort-bg-highlight"
@@ -40,10 +39,8 @@ export default function ItemOptions({
       {(itemHover || showItemMenu) && (
         <div
           onClick={handleOptionClick}
-          className={`post-item-more-options absolute right-4 top-4 flex cursor-pointer justify-center rounded-full p-4 ${
-            showItemMenu
-              ? "rounded-none rounded-bl-xl rounded-tr-xl hover:bg-cohort-bg-highlight"
-              : "hover:bg-cohort-shade"
+          className={`post-item-more-options absolute right-4 top-4 flex cursor-pointer justify-center rounded-full p-4 hover:bg-cohort-green ${
+            showItemMenu && "rounded-none rounded-bl-3xl rounded-tr-3xl"
           }`}
         >
           <img

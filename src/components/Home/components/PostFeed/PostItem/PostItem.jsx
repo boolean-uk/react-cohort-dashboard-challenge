@@ -11,6 +11,11 @@ import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
 import { contactProps, funcProp, postProps } from "@utilities/propTypeDefs";
+import {
+  editPostFormSetup,
+  editPostInitialForm,
+} from "@utilities/formTemplates";
+import EditItemForm from "@components/ItemOptions/EditItemForm";
 
 export default function PostItem({ postProp, setLoadPosts, user }) {
   const [post, setPost] = useState(null);
@@ -21,7 +26,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   const [itemHover, setItemHover] = useState(false);
   const [showItemMenu, setShowItemMenu] = useState(false);
 
-  const [editableItem, setEditableItem] = useState(false)
+  const [editableItem, setEditableItem] = useState(false);
+
+  const [formData, setFormData] = useState(editPostInitialForm);
+  const [submitted, setSubmitted] = useState(null);
 
   const { postIdParam } = useParams();
 
@@ -41,6 +49,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       setPost(postProp);
     }
   }, [postIdParam, postProp]);
+
+  useEffect(() => {
+    setFormData({ ...formData, ...post });
+  }, [post]);
 
   function handleHoverEnter() {
     setItemHover(true);
@@ -65,8 +77,24 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       onMouseLeave={handleHoverLeave}
       className="post-item app-card relative flex flex-col gap-4"
     >
-      <PostHeader post={post} editableItem={editableItem}/>
-      <PostBody content={post.content} />
+      {editableItem ? (
+        <EditItemForm
+          formSetup={editPostFormSetup}
+          formData={formData}
+          setEditableItem={setEditableItem}
+          setFormData={setFormData}
+          setLoadItem={setLoadPosts}
+          setShowItemMenu={setShowItemMenu}
+          setSubmitted={setSubmitted}
+          submitted={submitted}
+        />
+      ) : (
+        <>
+          <PostHeader post={post} editableItem={editableItem} />
+          <PostBody content={post.content} />{" "}
+        </>
+      )}
+
       <PostCommentFeed
         loadComments={loadComments}
         postId={post.id}
