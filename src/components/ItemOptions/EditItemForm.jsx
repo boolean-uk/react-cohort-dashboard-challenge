@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
-import api from "@utilities/api";
+import { checkFormValidity } from "@utilities/object";
+import {
+  arrayProp,
+  boolProps,
+  funcProp,
+  objectProp,
+} from "@utilities/propTypeDefs";
 
 export default function EditItemForm({
   formSetup,
@@ -17,6 +23,12 @@ export default function EditItemForm({
   submitted,
 }) {
   const [validInput, setValidInput] = useState(true);
+
+  useEffect(() => {
+    const formValid = checkFormValidity(formData, formSetup);
+
+    setValidInput(formValid);
+  }, [formData]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -48,3 +60,15 @@ export default function EditItemForm({
     </form>
   );
 }
+
+EditItemForm.propTypes = {
+  formSetup: arrayProp,
+  formData: objectProp,
+  putRequest: funcProp,
+  setEditableItem: funcProp,
+  setFormData: funcProp,
+  setLoadItem: funcProp,
+  setShowItemMenu: funcProp,
+  setSubmitted: funcProp,
+  submitted: boolProps,
+};

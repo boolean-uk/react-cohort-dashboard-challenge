@@ -5,8 +5,11 @@ import CommentBody from "./components/CommentBody";
 import UserIcon from "@components/UserIcon";
 
 import api from "@utilities/api";
-import { commentProps } from "@utilities/propTypeDefs";
-import { editCommentInitialForm, editCommentFormSetup } from "@utilities/formTemplates";
+import { commentProps, funcProp } from "@utilities/propTypeDefs";
+import {
+  editCommentInitialForm,
+  editCommentFormSetup,
+} from "@utilities/formTemplates";
 
 import "./Comment.css";
 import EditItemForm from "@components/ItemOptions/EditItemForm";
@@ -33,8 +36,8 @@ export default function Comment({ comment, setLoadComments }) {
   }, [contactId]);
 
   useEffect(() => {
-    setFormData({...formData, ...comment})
-  },[comment])
+    setFormData({ ...formData, ...comment });
+  }, [comment]);
 
   function handleHoverEnter() {
     setItemHover(true);
@@ -95,4 +98,7 @@ export default function Comment({ comment, setLoadComments }) {
   );
 }
 
-Comment.propTypes = { comment: commentProps };
+Comment.propTypes = {
+  setLoadComments: funcProp,
+  comment: commentProps,
+};

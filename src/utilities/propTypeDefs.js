@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+const arrayProp = PropTypes.array;
+
 const boolProps = PropTypes.bool;
 
 const contactProps = PropTypes.shape({
@@ -44,6 +46,7 @@ const sectionProp = PropTypes.shape({
 const stringProp = PropTypes.string;
 
 export {
+  arrayProp,
   boolProps,
   contactProps,
   commentProps,

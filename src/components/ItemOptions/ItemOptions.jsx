@@ -4,10 +4,8 @@ export default function ItemOptions({
   editableItem,
   handleDeleteClick,
   itemHover,
-  itemId,
   showItemMenu,
   setEditableItem,
-  setLoadItems,
   setShowItemMenu,
 }) {
   function handleOptionClick() {
@@ -55,7 +53,8 @@ export default function ItemOptions({
 }
 
 ItemOptions.propTypes = {
-  editablePost: boolProps,
+  editableItem: boolProps,
+  handleDeleteClick: funcProp,
   itemHover: boolProps,
   itemId: numberProp,
   showItemMenu: boolProps,

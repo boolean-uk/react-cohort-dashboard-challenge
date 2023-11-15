@@ -4,7 +4,12 @@ import ItemOptions from "@components/ItemOptions/ItemOptions";
 import PulseLoader from "@components/Loader/PulseLoader";
 import UserName from "@components/UserName";
 
-import { commentProps, contactProps } from "@utilities/propTypeDefs";
+import {
+  boolProps,
+  commentProps,
+  contactProps,
+  funcProp,
+} from "@utilities/propTypeDefs";
 
 export default function CommentBody({
   contact,
@@ -50,4 +55,13 @@ export default function CommentBody({
 CommentBody.propTypes = {
   contact: contactProps,
   comment: commentProps,
+  handleHoverEnter: funcProp,
+  handleHoverLeave: funcProp,
+  handleDeleteClick: funcProp,
+  editableItem: boolProps,
+  itemHover: boolProps,
+  showItemMenu: boolProps,
+  setEditableItem: funcProp,
+  setLoadComments: funcProp,
+  setShowItemMenu: funcProp,
 };
