@@ -11,10 +11,8 @@ import { postProps } from "@utilities/propTypeDefs";
 
 import "./PostHeader.css";
 
-export default function PostHeader({ post }) {
+export default function PostHeader({ editablePost, field, formData, post, setFormData, submitted }) {
   const [contact, setContact] = useState(null);
-
-  const { id, title } = post;
 
   useEffect(() => {
     async function getPerson() {
@@ -32,7 +30,15 @@ export default function PostHeader({ post }) {
     <header className="post-header grid items-center gap-x-4">
       <UserIcon contact={contact} />
       <UserName contact={contact} />
-      <PostTitle postId={id} title={title} />
+      <PostTitle
+        postId={post.id}
+        title={post.title}
+        editablePost={editablePost}
+        field={field}
+        formData={formData}
+        setFormData={setFormData}
+        submitted={submitted}
+      />
     </header>
   );
 }

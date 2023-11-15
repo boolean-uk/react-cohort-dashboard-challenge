@@ -150,7 +150,16 @@ const newPostFormSetup = [
 
 const newPostInitialForm = reduceForm(newPostFormSetup);
 
+const editPostFormSetup = structuredClone(newPostFormSetup)
+
+editPostFormSetup[0].placeholderText = "Edit Post"
+editPostFormSetup[1].placeholderText = "Edit Title"
+
+const editPostInitialForm = reduceForm(editPostFormSetup)
+
 export {
+  editPostFormSetup,
+  editPostInitialForm,
   newCommentFormSetup,
   newCommentInitialForm,
   newPostFormSetup,

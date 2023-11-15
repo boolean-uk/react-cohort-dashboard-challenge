@@ -12,6 +12,11 @@ import PulseLoader from "@components/Loader/PulseLoader";
 import api from "@utilities/api";
 import { contactProps, funcProp, postProps } from "@utilities/propTypeDefs";
 
+import {
+  editPostFormSetup,
+  editPostInitialForm,
+} from "@utilities/formTemplates";
+
 export default function PostItem({ postProp, setLoadPosts, user }) {
   const [post, setPost] = useState(null);
 
@@ -21,9 +26,15 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   const [itemHover, setItemHover] = useState(false);
   const [showItemMenu, setShowItemMenu] = useState(false);
 
-  const [editablePost, setEditablePost] = useState(false)
+  const [editablePost, setEditablePost] = useState(false);
+
+  const [formData, setFormData] = useState(editPostInitialForm);
+  const [submitted, setSubmitted] = useState(null);
 
   const { postIdParam } = useParams();
+
+  const contentField = editPostFormSetup[0];
+  const titleField = editPostFormSetup[1];
 
   useEffect(() => {
     async function getPost() {
@@ -41,6 +52,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       setPost(postProp);
     }
   }, [postIdParam, postProp]);
+
+  useEffect(() => {
+    setFormData({...formData, ...post})
+  }, [post])
 
   function handleHoverEnter() {
     setItemHover(true);
@@ -60,17 +75,25 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       onMouseLeave={handleHoverLeave}
       className="post-item app-card relative flex flex-col gap-4"
     >
-      <PostHeader post={post} editablePost={editablePost}/>
-      <PostBody content={post.content} />
-      <PostCommentFeed
-        loadComments={loadComments}
-        postId={post.id}
-        setLoadComments={setLoadComments}
+      <PostHeader
+        post={post}
+        editablePost={editablePost}
+        field={titleField}
+        formData={formData}
+        setFormData={setFormData}
+        submitted={submitted}
       />
-      <NewComment
-        user={user}
-        postId={post.id}
-        setLoadComments={setLoadComments}
+      <PostBody
+        post={post}
+        editablePost={editablePost}
+        field={contentField}
+        formData={formData}
+        setEditablePost={setEditablePost}
+        setFormData={setFormData}
+        setLoadPosts={setLoadPosts}
+        setShowItemMenu={setShowItemMenu}
+        setSubmitted={setSubmitted}
+        submitted={submitted}
       />
       <PostItemOptions
         editablePost={editablePost}
@@ -80,6 +103,16 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
         setEditablePost={setEditablePost}
         setLoadPosts={setLoadPosts}
         setShowItemMenu={setShowItemMenu}
+      />
+      <PostCommentFeed
+        loadComments={loadComments}
+        postId={post.id}
+        setLoadComments={setLoadComments}
+      />
+      <NewComment
+        user={user}
+        postId={post.id}
+        setLoadComments={setLoadComments}
       />
     </li>
   );
