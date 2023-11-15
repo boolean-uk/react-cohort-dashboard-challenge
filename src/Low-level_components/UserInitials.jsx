@@ -5,7 +5,7 @@ import getData from "../../js_functions/get";
 export default function UserInitials({contactId}) {
   const [contact, setContact] = useState(null)
 
-    useEffect(() => getData(`contact/${contactId}`, setContact), [])
+    useEffect(() => getData(`contact/${contactId}`, setContact), [contactId])
 
     return(
         contact? <>

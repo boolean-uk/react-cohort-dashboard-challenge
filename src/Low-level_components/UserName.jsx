@@ -12,7 +12,7 @@ const initialContact = {
 export default function UserName({ contactId, reloadContacts }) {
   const [contact, setContact] = useState(initialContact);
 
-  useEffect(() => contactId && getData(`contact/${contactId}`, setContact), [reloadContacts]);
+  useEffect(() => contactId && getData(`contact/${contactId}`, setContact), [reloadContacts, contactId]);
 
   return (
     <>

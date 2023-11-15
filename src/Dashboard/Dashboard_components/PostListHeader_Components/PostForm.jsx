@@ -15,7 +15,7 @@ export default function PostForm({setReloadPostList, reloadPostList, reloadComme
 
   
   //allows the form to be set to the value of the comment we want to edit
-  useEffect(() => post && setForm(post), [])
+  useEffect(() => post && setForm(post), [post])
 
   const handleSubmit = (e) => {
     e.preventDefault()

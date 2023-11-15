@@ -13,7 +13,7 @@ export default function SelectedPostPage({mockLoggedInUserId, setReloadPostList,
       .then((data) => setPost(data));
   };
 
-  useEffect(getPost, []);
+  useEffect(getPost, [id]);
 
   return post ? (
     <>

@@ -16,9 +16,9 @@ export default function CommentListContainer({
   };
 
   useEffect(() => {
-    getData(`post/${postId}/comment`, setCommentList);
+    getData(`post/${postId}/comment`, setCommentList)
     setReloadComments(false);
-  }, [reloadComments]);
+  }, [reloadComments, postId]);
   return (
     <>
       {commentList && (

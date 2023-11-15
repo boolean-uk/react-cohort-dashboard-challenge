@@ -105,7 +105,7 @@ export default function ProfilePageForm( {setReloadContacts, reloadContacts} ) {
     setReloadContacts(!reloadContacts)
   }
 
-  useEffect(() => getData(`contact/${contactId}`,setForm), [])
+  useEffect(() => getData(`contact/${contactId}`,setForm), [contactId])
 
   return (
     <>
