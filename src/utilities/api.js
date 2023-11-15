@@ -46,6 +46,15 @@ export async function createNewPost(postData) {
     }
 }
 
+export async function changePostData(postId, postData) {
+    try {
+        const response = await INSTANCE.put(`/post/${postId}`, postData);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function deletePost(postId) {
     try {
         const response = await INSTANCE.delete(`/post/${postId}`);

@@ -12,13 +12,21 @@ import PostPage from "./pages/PostPage";
 
 // api
 import { getContact } from "./utilities/api";
+import { getAllPosts } from "./utilities/api";
 
 function App() {
     const [page, setPage] = useState("home");
     const [user, setUser] = useState({});
 
+    const [posts, setPosts] = useState([]);
+
+    const getPosts = () => {
+        getAllPosts().then((data) => setPosts(data.reverse()));
+    };
+
     useEffect(() => {
         getContact(1).then((data) => setUser(data));
+        getPosts();
     }, []);
 
     return (
@@ -29,7 +37,14 @@ function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={<HomePage setPage={setPage} user={user} />}
+                    element={
+                        <HomePage
+                            setPage={setPage}
+                            user={user}
+                            posts={posts}
+                            getPosts={getPosts}
+                        />
+                    }
                 />
                 <Route
                     path="/profile"
@@ -37,7 +52,14 @@ function App() {
                 />
                 <Route
                     path="/post/:id"
-                    element={<PostPage user={user} setPage={setPage} />}
+                    element={
+                        <PostPage
+                            user={user}
+                            setPage={setPage}
+                            getPosts={getPosts}
+                            posts={posts}
+                        />
+                    }
                 />
             </Routes>
         </div>

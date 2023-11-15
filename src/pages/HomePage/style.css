@@ -73,9 +73,15 @@
     margin-bottom: 25px;
 }
 
-.postItem__user-delete {
+.postItem__buttons {
     position: absolute;
     right: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.postItem__user-button {
     border: 1px solid #000046;
     border-radius: 5px;
     padding: 7.5px 20px;
@@ -86,7 +92,7 @@
     transition: all .1s ease-in;
 }
 
-.postItem__user-delete:hover {
+.postItem__user-button:hover {
     background-color: #000046;
     color: #fff;
 }
@@ -95,6 +101,13 @@
     margin-left: 15px;
     display: flex;
     flex-direction: column;
+}
+
+.postItem__userName input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    font-size: 16px;
 }
 
 .postItem__userName-title {
@@ -116,6 +129,13 @@
     height: auto;
     padding-bottom: 25px;
     border-bottom: 1px solid rgba(0, 0, 70, 0.1);
+}
+
+.postItem__body input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    width: 100%;
 }
 
 .postItem__body-text {

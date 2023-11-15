@@ -6,16 +6,7 @@ import "./style.css";
 import CreatePostInput from "./components/CreatePostInput";
 import PostsList from "./components/PostsList";
 
-// api
-import { getAllPosts } from "../../utilities/api";
-
-const HomePage = ({ setPage, user }) => {
-    const [posts, setPosts] = useState([]);
-
-    const getPosts = () => {
-        getAllPosts().then((data) => setPosts(data.reverse()));
-    };
-
+const HomePage = ({ setPage, user, posts, getPosts }) => {
     useEffect(() => {
         setPage("home");
         getPosts();
