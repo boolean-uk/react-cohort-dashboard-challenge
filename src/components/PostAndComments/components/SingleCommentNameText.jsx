@@ -1,13 +1,6 @@
-function SingleCommentNameText({ comment, commentAuthor, URL, post, setShouldGetComments }) {
+import DeleteCommentButton from "../../Shared/DeleteCommentButton"
 
-    function handleDeleteComment() {
-        const options = {
-            method: 'DELETE'
-        }
-        fetch(`${URL}/post/${post.id}/comment/${comment.id}`, options)
-            .then(res => res.json())
-            .then(() => setShouldGetComments(true))
-    }
+function SingleCommentNameText({ comment, commentAuthor, URL, post, setShouldGetComments }) {
 
     return (
         <div className="comment-name-text-container grid">
@@ -15,7 +8,7 @@ function SingleCommentNameText({ comment, commentAuthor, URL, post, setShouldGet
                 <h5 className="comment-author-name">{commentAuthor.firstName} {commentAuthor.lastName}</h5>
                 <p className="comment-content-text">{comment.content}</p>
             </div>
-            <button onClick={() => handleDeleteComment()} className="delete-comment-btn">Delete comment</button>
+            <DeleteCommentButton comment={comment} URL={URL} post={post} setShouldGetComments={setShouldGetComments} />
         </div>
     )
 }
