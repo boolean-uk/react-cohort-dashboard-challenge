@@ -35,8 +35,6 @@ export default function PostBody({
     if (validInput) {
       const payload = {...formData}
       payload.contactId = post.contactId
-      console.log('payload', payload)
-      api.post.put(post.id,payload).then(() => setLoadPosts(true))
       setSubmitted(true)
       setEditablePost(false)
       setShowItemMenu(false)
