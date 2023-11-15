@@ -1,15 +1,20 @@
-import Pfp from "../../shared-components/profilePicture";
+import Pfp from "../../shared-components/Pfp/profilePicture";
 import CreateComment from "./createComment";
 
-function Post() {
+function Post({name, UID, desc, postContent}) {
     return (
         <>
         <div className="post">
-            <Pfp/>
-            <div className="user-info">
-
+            <div className="user">
+                <Pfp/>
+                <div className="user-info">
+                    <h3>{name}</h3>
+                    <p>{desc}</p>
+                </div>
             </div>
-            <p className="comment-content">content</p>
+            <div className="post-content">
+                <p>{postContent}</p>
+            </div>
             <CreateComment/>
         </div>
         </>

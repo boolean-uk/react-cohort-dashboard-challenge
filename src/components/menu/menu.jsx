@@ -1,13 +1,23 @@
-import HomeButton from './subcomponents/homeButton'
-import ProfileButton from './subcomponents/profileButton'
+import NavButton from "./subcomponents/navButton";
+
+import homeIcon from "./assets/home.svg"
+import profileIcon from "./assets/profile-icon.svg"
 
 function Menu() {
     return (
         <>
         <nav className="menu">
             <ul>
-                <HomeButton/>
-                <ProfileButton/>
+                <NavButton
+                name="Home"
+                link="/"
+                icon={homeIcon}
+                />
+                <NavButton
+                name="Profile"
+                link="/profile"
+                icon={profileIcon}
+                />
             </ul>
         </nav>
         </>

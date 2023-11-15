@@ -1,4 +1,4 @@
-* {
+body {
     margin: 0;
 }
 
@@ -61,25 +61,39 @@
     padding: 20px;
     gap: 20px;
     display: grid;
-    grid-template-rows: 100px;
+    grid-template-rows: 75px 1fr;
     grid-template-areas: 
     "create-post"
-    "post-container"
+    "post-container";
 }
 
-.content > * {
-    padding: 20px
-}
 
 .content .create-post {
     display: grid;
+    padding: 15px;
     grid-template-columns: auto 1fr 150px;
     gap: 10px;
+    border-radius: 5px;
     background-color: white;
 }
 
 .content .post-container {
+
+}
+
+.content .post {    
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 5px;
     background-color: white;
+}
+
+.content .post .user {
+    
+}
+
+.content .create-comment {
+    border: solid 1px blue;
 }
 
 

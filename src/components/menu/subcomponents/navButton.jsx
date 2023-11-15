@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import home from '../assets/home.svg'
 
-function HomeButton() {
+function NavButton({name, link, icon}) {
     return (
         <>
-        <Link to="/">
+        <Link to={link}>
             <li className="button">
                     <div className="wrapper">
-                        <img src={home} alt="home"/>
-                        <p>Home</p>
+                        <img src={icon} alt={name}/>
+                        <p>{name}</p>
                     </div>
                     
             </li>
@@ -17,4 +16,4 @@ function HomeButton() {
     )
 }
 
-export default HomeButton;
+export default NavButton;

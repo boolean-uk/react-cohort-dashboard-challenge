@@ -1,4 +1,4 @@
-import Pfp from '../../shared-components/Pfp/profilePicture'
+import Pfp from '../../shared-components/Pfp/profilePicture';
 
 
 function CreateComment() {
@@ -6,7 +6,7 @@ function CreateComment() {
         <>
         <div className="create-comment">
             <Pfp/>
-            <input type="text" placeholder="What's on your mind?"></input>
+            <input type="text" placeholder="What's on your mind?"/>
         </div>
         </>
     )
