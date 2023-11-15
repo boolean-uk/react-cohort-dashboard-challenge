@@ -13,6 +13,8 @@ function App() {
     <Header/>
    </div>
 
+
+<div className="main-grid">
    <div className='nav-bar'>
     <Nav/>
    </div>
@@ -21,7 +23,7 @@ function App() {
   <PostFeed/>
 </div>
 </div>
-
+</div>
    </>
   )
 }

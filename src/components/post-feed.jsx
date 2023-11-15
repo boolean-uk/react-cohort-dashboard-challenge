@@ -63,6 +63,7 @@ const PostFeed = () => {
 
   return (
     <>
+    <div className="posts-container">
       <div className="new-post">
         <NewPost onNewPost={handleNewPost} />
       </div>
@@ -76,6 +77,7 @@ const PostFeed = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </>
   );

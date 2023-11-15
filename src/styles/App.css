@@ -1,39 +1,42 @@
 /* Global Styles */
 body {
   background-color: #f0f5fa;
-  font-family: Arial, sans-serif; /* Adjust font-family as needed */
-  color: #000046;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header Styles */
 header {
-  background-color: #000046;
-  color: #ffffff; 
-  display: grid;
-  grid-template-columns: 300px 400px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
-
 .logo {
-  grid-column: 1;
+  width: 300px; 
 }
-
-.title{
-  grid-column: 2;
-}
-
 .profile {
-  grid-column: 3; 
+  order: 3; 
+}
+
+.profile,
+.logo{
+  margin: 50px;
 }
 
 /* Nav Styles */
 nav {
   display: flex;
-  justify-content: center;
-  margin-top: 20px; /* Adjust spacing as needed */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-left: 50px;
 }
 
-nav a {
-  margin: 0 10px; /* Adjust spacing as needed */
+.nav-home,
+.nav-profile{
+  padding: 50px 0px 50px 50px;
 }
 
 /* Form Styles */
@@ -41,8 +44,9 @@ input[type="text"],
 input[type="email"] {
   background-color: #e6ebf5;
   border: 1px solid #000046;
-  padding: 8px; /* Adjust padding as needed */
-  margin-bottom: 10px; /* Adjust spacing as needed */
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 input[type="text"]:focus,
@@ -54,9 +58,9 @@ button {
   background-color: #000046;
   color: #ffffff;
   border: none;
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Button hover transition */
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -64,12 +68,67 @@ button:hover {
 }
 
 /* Post Styles */
+.posts-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px; 
+  grid-column: 2; 
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
 .posts div {
   background-color: #e6ebf5;
-  margin-bottom: 20px; /* Adjust spacing as needed */
-  padding: 10px; /* Adjust padding as needed */
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .posts div p {
   color: #64648c;
+}
+
+.new-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.new-post button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #000046;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-post button:hover {
+  background-color: #64dc78;
+}
+
+/* Main */
+.main-grid {
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px; 
+}
+
+.main-section {
+margin: auto;
+width: 800px;
 }

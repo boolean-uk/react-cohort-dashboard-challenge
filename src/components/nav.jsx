@@ -5,10 +5,10 @@ const Nav = () => {
 <>
     <nav>
       <Link to="/">
-        <img src="src/assets/home.svg" alt="home" />
+        <img className="nav-home" src="src/assets/home.svg" alt="home" />
       </Link>
       <Link to="/profile">
-        <img src="src/assets/profile.svg" alt="profile" />
+        <img className="nav-profile" src="src/assets/profile.svg" alt="profile" />
       </Link>
     </nav>
     </>
