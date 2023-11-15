@@ -1,6 +1,8 @@
-
-
 const Post = ({ posts }) => {
+  if (!posts || posts.length === 0) {
+    return <p>No posts available</p>;
+  }
+
   return (
     <>
       {posts.map((post) => (

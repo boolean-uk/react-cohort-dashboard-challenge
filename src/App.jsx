@@ -1,7 +1,7 @@
 import Header from './components/header'
 import Nav from './components/nav'
 import PostFeed from './components/post-feed'
-import './App.css'
+import './styles/App.css'
 
 function App() {
 

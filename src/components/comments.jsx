@@ -11,6 +11,10 @@ const Comments = ({ postURL, post }) => { // Accept postURL as a prop
 
   useEffect(() => {
     const fetchComments = async () => {
+      if (!post || !post.id) {
+        return; // Handle undefined or missing post or post.id
+      }
+      
       try {
         const response = await fetch(`${postURL}${post.id}/comments`);
         if (!response.ok) {
@@ -24,7 +28,7 @@ const Comments = ({ postURL, post }) => { // Accept postURL as a prop
     };
   
     fetchComments();
-  }, [postURL, post.id]); 
+  }, [postURL, post]); // Adjust dependencies
   
   return (
     <>
@@ -39,5 +43,3 @@ const Comments = ({ postURL, post }) => { // Accept postURL as a prop
 };
 
 export default Comments;
-
-
