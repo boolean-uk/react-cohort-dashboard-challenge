@@ -1,0 +1,21 @@
+.single-comment{
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    padding-bottom: 10px;
+}
+.single-comment--details{
+    background-color:   #e6ebf5;
+    border-radius: 10px;
+    padding: 5px;
+    align-items: center;
+}
+.single-comment--details h5{
+    color: #000046;
+    
+}
+.comment-text{
+    font-size: 13px;
+}
+.comment-circle{
+    padding-top: 15px;
+}

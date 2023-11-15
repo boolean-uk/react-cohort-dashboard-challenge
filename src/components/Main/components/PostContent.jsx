@@ -1,11 +1,9 @@
-function PostContent({ author, post,user ,loggedInUserColor}) {
+function PostContent({ author, post, user, loggedInUserColor }) {
   return (
     <div className="post-content">
       <section className="details">
         <div className={` profile-circle--user`}>
-          <h3>
-            {user}
-          </h3>
+          <h3>{user}</h3>
         </div>
         <div className="titles">
           <div className="authur-name">

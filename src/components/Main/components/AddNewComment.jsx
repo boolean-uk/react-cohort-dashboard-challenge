@@ -1,13 +1,24 @@
-import CommentForm from './CommentForm'
-import CommentIcon from './CommentIcon'
+import CommentForm from "./CommentForm";
+import CommentIcon from "./CommentIcon";
 
-function AddNewComment({loggedInUserInitials}) {
+function AddNewComment({
+  loggedInUserInitials,
+  root,
+  post,
+  setComments,
+  loggedInUser,
+}) {
   return (
-    <div className='comment'>
+    <div className="comment">
       <CommentIcon loggedInUserInitials={loggedInUserInitials}></CommentIcon>
-      <CommentForm></CommentForm>
+      <CommentForm
+        root={root}
+        post={post}
+        setComments={setComments}
+        loggedInUser={loggedInUser}
+      ></CommentForm>
     </div>
-  )
+  );
 }
 
-export default AddNewComment
+export default AddNewComment;

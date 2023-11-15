@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-function CreatePost({ loggedInUserInitials, shouldGetPost ,loggedInUser,posts}) {
+function CreatePost({
+  loggedInUserInitials,
+  shouldGetPost,
+  loggedInUser,
+  posts,
+}) {
   const [newPost, setNewPost] = useState("");
 
   const createPost = {
@@ -20,10 +25,10 @@ function CreatePost({ loggedInUserInitials, shouldGetPost ,loggedInUser,posts}) 
       .then((data) => shouldGetPost(true));
   }
 
-  function submitHandle (e){
-    e.preventDefault()
-    CreateNewPost()
-    setNewPost('')
+  function submitHandle(e) {
+    e.preventDefault();
+    CreateNewPost();
+    setNewPost("");
   }
   return (
     <form className="create-post" onClick={submitHandle}>
@@ -35,7 +40,7 @@ function CreatePost({ loggedInUserInitials, shouldGetPost ,loggedInUser,posts}) 
           className="input-post"
           type="text"
           placeholder="What's on your mind?"
-          onChange={(e)=>setNewPost(e.target.value)}
+          onChange={(e) => setNewPost(e.target.value)}
           value={newPost}
           required
         />
