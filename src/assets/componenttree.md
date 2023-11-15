@@ -1,0 +1,67 @@
+- App
+  - Navigation
+    - NavLink (Home)
+    - NavLink (Profile)
+  - Routes
+    - Route (Home)
+      - PostFeed
+        - NewPostForm
+        - Post
+          - PostHeader
+            - Avatar (colored circle with initials)
+            - AuthorInfo
+              - AuthorName
+              - PostDate
+          - PostContent
+            - PostTitle
+            - PostBody
+          - CommentList
+            - Comment
+              - Avatar (colored circle with initials)
+              - CommentContent
+                - CommentAuthor
+                - CommentText
+            - SeePreviousCommentsLink
+        - CommentForm
+    - Route (PostDetail)
+      - PostDetailPage
+        - Post
+          - PostHeader
+            - Avatar (colored circle with initials)
+            - AuthorInfo
+              - AuthorName
+              - PostDate
+          - PostContent
+            - PostTitle
+            - PostBody
+          - CommentList
+            - Comment
+              - Avatar (colored circle with initials)
+              - CommentContent
+                - CommentAuthor
+                - CommentText
+            - SeePreviousCommentsLink
+        - CommentForm
+    - Route (Profile)
+      - ProfilePage
+        - UserProfile
+          - Avatar (colored circle with initials)
+          - UserInfoForm
+            - FormField (Name)
+            - FormField (Email)
+            - FormField (Phone)
+        - UserPosts
+          - Post
+            - PostHeader
+              - AuthorInfo
+                - AuthorName
+                - PostDate
+            - PostContent
+              - PostTitle
+              - PostBody
+            - CommentList
+              - Comment
+                - CommentContent
+                  - CommentAuthor
+                  - CommentText
+            - CommentForm
