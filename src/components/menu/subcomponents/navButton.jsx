@@ -5,11 +5,10 @@ function NavButton({name, link, icon}) {
         <>
         <Link to={link}>
             <li className="button">
-                    <div className="wrapper">
-                        <img src={icon} alt={name}/>
-                        <p>{name}</p>
-                    </div>
-                    
+                <div className="wrapper">
+                    <img src={icon} alt={name}/>
+                    <p>{name}</p>
+                </div>
             </li>
         </Link>
         </>

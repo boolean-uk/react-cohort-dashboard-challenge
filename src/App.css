@@ -1,4 +1,4 @@
-body {
+* {
     margin: 0;
 }
 
@@ -53,8 +53,6 @@ body {
 .menu li:hover {
     background-color: #cccfd3;
 }
-
-
 
 .content {
     grid-area: content;

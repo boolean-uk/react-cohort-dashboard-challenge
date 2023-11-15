@@ -5,6 +5,8 @@ import './App.css'
 import Header from './components/header/header'
 import Menu from './components/menu/menu'
 import Content from './components/content/content'
+import Post from './components/content/subcomponents/post'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,8 +18,16 @@ function App() {
       <Menu/>
       <Routes>
         <Route
-        path='/'
+        path="/"
         element={<Content/>}
+        />
+        <Route
+        path="/profile"
+        element={<p>profile goes here</p>}
+        />
+        <Route
+        path={"/post/:UID"}
+        element={<Post/>}
         />
       </Routes>
     </div>
