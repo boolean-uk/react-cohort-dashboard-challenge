@@ -47,7 +47,7 @@ export default function CommentForm({setReloadComments, reloadComments, edit, se
           value={form.content} 
           name="content"
           type="text"/>
-        <button className="round-container justify-right comment-button" onClick={e => handleSubmit(e)}>Post</button>
+        <button className="round-container justify-right comment-button" onClick={e => handleSubmit(e)}>{edit ? "Edit":"Post"}</button>
       </form>
     </>
   );
