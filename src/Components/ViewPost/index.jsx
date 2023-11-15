@@ -1,7 +1,7 @@
 import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-export default function ViewPost({posts}) {
+export default function ViewPost({posts, getPosts}) {
     const [viewPost, setViewPost] = useState(undefined)
     const [postUser, setPostUser] = useState(undefined)
     const [postComments, setPostComments] = useState([])
@@ -15,26 +15,33 @@ export default function ViewPost({posts}) {
 
     // useEffect(() => {      
     // }, [id, posts])
-    if (posts && id && !viewPost) {
+    if (posts && id && !viewPost && posts.length !== 0) {
         const findPost = posts.find(post => Number(post.id) === Number(id))
         setViewPost(findPost)
+        // console.log("findPost", findPost)
     }
+
+
     
     useEffect(() => {
-        const postUserId = Number(viewPost.contactId)
-        fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postUserId}`)
-        .then(res => res.json())
-        .then(data => {
-            setPostUser(data)
-        })
+        if (viewPost) {
+            const postUserId = Number(viewPost?.contactId)
+            fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postUserId}`)
+            .then(res => res.json())
+            .then(data => {
+                setPostUser(data)
+                // console.log("postUser", data)
+            })
+        }
        }, [])
 
-
+       
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}/comment`)
         .then(res => res.json())
         .then(postCommentsData => {
             setPostComments(postCommentsData)
+            // console.log("poscomment data", postCommentsData)
         })
     }, [])
 
@@ -49,13 +56,24 @@ export default function ViewPost({posts}) {
                         firstName: postCommentAuthorData.firstName,
                         lastName: postCommentAuthorData.lastName
                     }
-                    setPostCommentAuthors((authors) => [...authors, commentAndAuthors])              
+                    setPostCommentAuthors((authors) => [...authors, commentAndAuthors])   
+                    // console.log("comment and authors", commentAndAuthors)        
                 })
             })
             Promise.all(promises)
         }
     }, [postComments])
     
+    
+    const removePost = () => {
+        const option = {method: 'DELETE'}
+
+        fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}`, option)
+        .then(res => res.json())
+        .then((data) => getPosts(data))
+
+        navigate('/')
+    }
 
     return (
         <div className="main">
@@ -65,13 +83,16 @@ export default function ViewPost({posts}) {
                         <div className="post-header">
                             <div className="user-img-container">
                                 {postUser ? (
-                                    <p>{postUser?.firstName[0]}{postUser.lastName[0]}</p>
+                                    <p>{postUser?.firstName[0]}{postUser?.lastName[0]}</p>
                                 ) : <p>User</p>}
                             </div>
                             <div className="name-and-title">
-                                <p className="user-name">{postUser?.firstName} {postUser?.lastName}</p>
+                                {postUser ? (
+                                    <p className="user-name">{postUser?.firstName} {postUser?.lastName}</p>
+                                ) : <h4>User</h4>}
                                 <p>{viewPost?.title}</p>
                             </div>
+                            <button className="delete" onClick={removePost}>Delete the post</button>
                         </div>
                         <div className="content-container">
                             {viewPost?.content}

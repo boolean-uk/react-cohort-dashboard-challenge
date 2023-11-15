@@ -38,6 +38,15 @@ a, Link {
     color: white;
 }
 
+.header .user-img-container {
+    color: #000046;
+    
+}
+
+.header-logo {
+    width: 200px;
+}
+
 /* ------------- CONTAINER ---------------- */
 .container {
     display: grid;
@@ -107,6 +116,15 @@ a, Link {
     align-items: center;
     border-radius: 50%;
     font-weight: 700;
+}
+
+.delete {
+    padding: .5rem;
+    border-radius: 15px;
+    background-color: #000046;
+    color: white;
+    font-weight: 600;
+    outline: none;
 }
 
 /* --------------- COMMENTS ------------------ */
@@ -235,3 +253,52 @@ a, Link {
 .send-icon {
     width: 20px;
 }
+
+/* --------------- PROFILE ------------------*/
+.profile {
+    margin: 1rem;
+    background-color: white;
+    padding: .5rem;
+}
+
+.profile > h1, h2 {
+    margin-bottom: 1rem;
+}
+
+.profile-form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-form-container {
+    display: grid;
+    grid-template: 
+    "left-side   right-side"1fr/
+    1fr          1fr;
+    gap: 1rem;
+}
+
+.profile .form{
+    display: grid;
+}
+
+.profile .form input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #e6ebf5;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.profile .form label {
+    opacity: .8;
+}
+
+.profile-btn {
+    padding: 1rem;
+    
+}
+

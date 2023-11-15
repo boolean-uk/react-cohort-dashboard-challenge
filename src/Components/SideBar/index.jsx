@@ -4,6 +4,7 @@ import ProfileIcon from '/src/assets/icons/profile-icon.svg'
 import { Link } from 'react-router-dom';
 
 export default function SideBar() {
+
     return (
         <div className="side-bar">
             <Link to="/">
@@ -12,10 +13,12 @@ export default function SideBar() {
                     <p>Home</p>
                 </div>
             </Link>
+            <Link to="/profile">         
             <div className="profile-icon-container">
                 <img src={ProfileIcon} alt="Profile-icon" />
                 <p>Profile</p>
             </div>
+            </Link>
         </div>
     )
 }

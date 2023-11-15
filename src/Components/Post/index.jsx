@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-import {Link} from 'react-router-dom'
+import {Link, Route, Routes} from 'react-router-dom'
 import Comments from "../Comments"
 import CommentForm from "../CommentForm"
-import ViewPost from "../ViewPost";
 
 export default function Post({post}) {
     const [user, setUser] = useState(null)
@@ -13,8 +12,16 @@ export default function Post({post}) {
     
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${userId}`)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res)
+            }
+            return res.json()
+        })
         .then(data => setUser(data))
+        .catch(error => {
+            console.log(error)
+        })
     }, [])
     
 
@@ -43,7 +50,7 @@ export default function Post({post}) {
                 </div>
                 <div className="name-and-title">
                     <p className="user-name">{user.firstName} {user.lastName}</p>
-                    <Link className="title" to={`/${post.id}`}>{post.title}</Link>
+                    <Link className="title" to={`/post/${post.id}`}>{post.title}</Link>
                 </div> 
             </div>
             <div className="content-container">

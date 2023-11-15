@@ -5,6 +5,7 @@ import SideBar from './Components/SideBar'
 import Posts from './Components/Posts'
 import { Route, Routes, Link } from 'react-router-dom';
 import ViewPost from './Components/ViewPost'
+import Profile from './Components/Profile'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -28,12 +29,13 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header posts={posts}/>
       <div className="container">
          <SideBar />
       <Routes>
         <Route path='/' element={<Posts posts={posts} setPosts={setPosts} getPosts={getPosts}/>}/>
-        <Route path='/:id' element={<ViewPost posts={posts} />}/>
+        <Route path='/post/:id' element={<ViewPost posts={posts} getPosts={getPosts}/>}/>
+        <Route path="/profile" element={<Profile posts={posts}/>}/>
       </Routes>
       </div>
     </>
