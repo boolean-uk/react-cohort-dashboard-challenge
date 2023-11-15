@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
+import api from "@utilities/api";
 import { editPostFormSetup } from "@utilities/formTemplates";
 import { checkFormValidity } from "@utilities/object";
 import { stringProp } from "@utilities/propTypeDefs";
@@ -32,14 +33,14 @@ export default function PostBody({
     e.preventDefault();
 
     if (validInput) {
-      const payload = {...formData}
-      payload.contactId = post.contactId
-      setSubmitted(true)
-      setEditablePost(false)
-      setShowItemMenu(false)
+      const payload = { ...formData };
+      payload.contactId = post.contactId;
+      api.post.put(post.id, payload).then(() => setLoadPosts(true));
+      setSubmitted(true);
+      setEditablePost(false);
+      setShowItemMenu(false);
     } else {
-      console.log("no")
-      setSubmitted(false)
+      setSubmitted(false);
     }
   }
 
@@ -56,7 +57,7 @@ export default function PostBody({
             setFormData={setFormData}
             submitted={submitted}
           />
-          <SubmitButton innerText={"Edit"} submitted={submitted}/>
+          <SubmitButton innerText={"Edit"} submitted={submitted} />
         </form>
       ) : (
         <div className="post-body">{post.content}</div>
