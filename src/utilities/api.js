@@ -43,3 +43,15 @@ export async function getComments(postId) {
         console.error(error);
     }
 }
+
+export async function createNewComment(postId, commentData) {
+    try {
+        const response = await INSTANCE.post(
+            `/post/${postId}/comment`,
+            commentData
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}

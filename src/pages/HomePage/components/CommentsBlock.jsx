@@ -40,7 +40,11 @@ const CommentsBlock = ({ user, postId }) => {
                 />
             )}
 
-            <CommentsForm user={user} />
+            <CommentsForm
+                user={user}
+                getAllComments={getAllComments}
+                postId={postId}
+            />
         </div>
     );
 };

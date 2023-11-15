@@ -15,7 +15,7 @@ const CommentItem = ({ comment }) => {
 
     return (
         <div className="commentItem">
-            {Object.keys(commentUser).length && (
+            {Object.keys(commentUser).length > 0 && (
                 <>
                     <UserCycle
                         name={{

@@ -16,7 +16,7 @@ const PostItem = ({ user, post }) => {
 
     return (
         <div className="postItem">
-            {Object.keys(postUser).length && (
+            {Object.keys(postUser).length > 0 && (
                 <div className="postItem__user">
                     <UserCycle
                         name={{

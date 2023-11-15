@@ -7,18 +7,27 @@ import UserCycle from "../../../components/UserCycle";
 // images
 import plane from "../../../assets/img/paper-plane.svg";
 
-const CommentsForm = ({ user }) => {
+// api
+import { createNewComment } from "../../../utilities/api";
+
+const CommentsForm = ({ user, getAllComments, postId }) => {
     const [comment, setComment] = useState("");
 
     const submitComment = (e) => {
         e.preventDefault();
-        console.log(comment);
+
+        createNewComment(postId, {
+            postId: postId,
+            content: comment,
+            contactId: user.id,
+        }).then(() => getAllComments());
+
         setComment("");
     };
 
     return (
         <form onSubmit={submitComment} className="commentsBlock__form">
-            {Object.keys(user).length && (
+            {Object.keys(user).length > 0 && (
                 <UserCycle
                     name={{
                         firstName: user.firstName,
