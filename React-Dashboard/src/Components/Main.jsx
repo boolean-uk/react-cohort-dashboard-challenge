@@ -17,8 +17,8 @@ function Main(props) {
     setContactIdOne,
     allContact,
     setAllContact,
-    content,
-    setContent,
+    contents,
+    setContents,
   } = props;
 
   return (
@@ -29,8 +29,8 @@ function Main(props) {
           setContactIdOne={setContactIdOne}
         />
         <PostInput
-          content={content}
-          setContent={setContent}
+          contents={contents}
+          setContents={setContents}
           anotherComment={anotherComment}
           setAnotherComment={setAnotherComment}
           rerenderPost={rerenderPost}
@@ -47,8 +47,8 @@ function Main(props) {
           setAnotherComment={setAnotherComment}
           contactIdOne={contactIdOne}
           setContactIdOne={setContactIdOne}
-          content={content}
-          setContent={setContent}
+          contents={contents}
+          setContents={setContents}
           allContact={allContact}
           setAllContact={setAllContact}
         />

@@ -2,92 +2,109 @@ import React, { useState, useEffect } from "react";
 import AddCommentInput from "./AddCommentInput";
 import FirstContact from "../HeaderComponents/FirstContact";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./showContent.css";
 
-function showContent(props) {
-  const { comment, setComment } = props;
-  const { content, setContent } = props;
-  const { anotherComment, setAnotherComment } = props;
+function ShowContent(props) {
+  const { contents, setContents, rerenderPost, setRerenderPost } = props;
   const [allContact, setAllContact] = useState([]);
-  const [combinedData, setCombinedData] = useState([]);
   const { contactIdOne, setContactIdOne } = props;
-  const { rerenderPost, setRerenderPost } = props;
-
-  const INITIAL_COMMENTS = {
+  const { comment, setComment } = props;
+  const { anotherComment, setAnotherComment } = props;
+  const [newComment, setNewcomment] = useState({
     postId: "",
     comments: [],
     contactId: "",
-  };
-
-  const [newComment, setNewcomment] = useState(INITIAL_COMMENTS);
+  });
 
   const navigate = useNavigate();
 
-  const fetchPost = () => {
-    fetch("https://boolean-api-server.fly.dev/tayokanch/post")
-      .then((response) => response.json())
-      .then((data) => {
-        //console.log("this is the post", data);
-        setContent(data);
-      });
-  };
-  /*  content.map((data) =>{
-  fetch(`https://boolean-api-server.fly.dev/tayokanch/contact/${data.contactId}`)
+  const fetchData = () => {
+    const postApi = "https://boolean-api-server.fly.dev/tayokanch/post";
+    const contactApi = "https://boolean-api-server.fly.dev/tayokanch/contact";
 
- }) */
-  const fetchAllContact = () => {
-    fetch("https://boolean-api-server.fly.dev/tayokanch/contact")
-      .then((response) => response.json())
-      .then((data) => {
-        setAllContact(data);
-      });
-  };
+    axios
+      .all([axios.get(postApi), axios.get(contactApi)])
+      .then(
+        axios.spread((postResponse, contactResponse) => {
+          const postContents = postResponse.data;
+          const allContact = contactResponse.data;
 
-  useEffect(() => {
-    fetchPost();
-    fetchAllContact();
-  }, []);
+          const combinedData = postContents.map((post) => {
+            const contact = allContact.find((c) => c.id === post.contactId);
 
-  useEffect(() => {
-    console.log(content);
-  }, [allContact, content]);
-
-  useEffect(() => {
-    if (allContact.length > 0 && content.length > 0) {
-      const combined = allContact
-        .map((contact, index) => {
-          if (
-            content[index] &&
-            content[index].title &&
-            content[index].content
-          ) {
             return {
-              initial: contact.firstName.charAt(0) + contact.lastName.charAt(0),
-              firstName: contact.firstName,
-              lastName: contact.lastName,
-              title: content[index].title,
-              content: content[index].content,
-              contactId: content[index].contactId,
-              postId: content[index].id,
-              color: getRandomColor(),
+              postContent: post,
+              contactData: contact || null,
             };
-          }
-        })
-        .filter(Boolean);
-      setCombinedData(combined);
+          });
 
-      console.log("this is combined on line 78", combined);
-    }
-  }, [allContact, content]);
+          setContents(combinedData);
+        })
+      )
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   useEffect(() => {
-    console.log("This is combinedData", combinedData);
-  }, [combinedData]);
-
+    fetchData();
+  }, []);
   const getRandomColor = () => {
     // Function to generate a random hex color
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
   };
+
+  useEffect(() => {
+    if (rerenderPost) {
+      fetchData();
+      //console.log("this is content after post", content);
+      setRerenderPost(false);
+    }
+  }, [rerenderPost]);
+
+  return (
+    <section>
+      {contents.map((content) => (
+        <div className="post-box-container" key={content.postContent.id}>
+          <section className="post-box">
+            <div className="post-header">
+              <p
+                className="post-initial"
+                style={{ background: getRandomColor() }}
+                onClick={() => navigate(`/profile/${content.postContent.id}`)}
+              >
+                {content.postContent.title}
+              </p>
+              <div className="poster-content">
+                <p>
+                  {content.contactData
+                    ? `${content.contactData.firstName} ${content.contactData.lastName}`
+                    : "Contact Data Not Available"}
+                </p>
+                <p
+                  onClick={() =>
+                    navigate(`/myPost/${content.postContent.id}`, {
+                      state: { result: content.postContent },
+                    })
+                  }
+                >
+                  {content.postContent.title}
+                </p>
+              </div>
+            </div>
+            <p>{content.postContent.content}</p>
+          </section>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+export default ShowContent;
+
+/* 
+
 
   const handleChange = (e, index, postId, contactId) => {
     const updateNewComment = { ...newComment };
@@ -101,65 +118,7 @@ function showContent(props) {
     setNewcomment(updateNewComment);
   };
 
-  useEffect(() => {
-    if (rerenderPost) {
-      fetchPost();
-      //console.log("this is content after post", content);
-      setRerenderPost(false);
-    }
-  }, [rerenderPost]);
 
-  return (
-    <>
-      {combinedData.map((data, index) => (
-        <section className="post-box-container" key={index}>
-          <section className="post-box">
-            <div className="post-header">
-              <p
-                className="post-initial"
-                style={{ background: data.color }}
-                onClick={() => navigate("/profile")}
-              >
-                {data.initial}
-              </p>
-              <div className="poster-content">
-                <p>{`${data.firstName} ${data.lastName}`}</p>
-                <p
-                  onClick={() =>
-                    navigate(`/myPost/${data.contactId}`, {
-                      state: { result: data },
-                    })
-                  }
-                >
-                  {data.title}
-                </p>
-              </div>
-            </div>
-            <p>{data.content}</p>
-          </section>
 
-          <section className="add-comment">
-            <FirstContact
-              contactIdOne={contactIdOne}
-              setContactIdOne={setContactIdOne}
-            />
-            <AddCommentInput
-              setContent={setContent}
-              newComment={newComment}
-              setNewcomment={setNewcomment}
-              combinedData={combinedData}
-              setCombinedData={setCombinedData}
-              key={index}
-              index={index}
-              handleChange={(e) =>
-                handleChange(e, index, data.contactId, data.postId)
-              }
-            />
-          </section>
-        </section>
-      ))}
-    </>
-  );
-}
 
-export default showContent;
+*/

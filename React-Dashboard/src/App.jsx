@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
   const [contactIdOne, setContactIdOne] = useState("");
-  const [content, setContent] = useState([]);
+  const [contents, setContents] = useState([]);
 
   const [allContact, setAllContact] = useState([]);
   return (
@@ -24,8 +24,8 @@ function App() {
             <Main
               contactIdOne={contactIdOne}
               setContactIdOne={setContactIdOne}
-              content={content}
-              setContent={setContent}
+              contents={contents}
+              setContents={setContents}
               allContact={allContact}
               setAllContact={setAllContact}
             />
