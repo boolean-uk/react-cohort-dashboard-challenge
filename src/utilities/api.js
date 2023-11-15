@@ -4,6 +4,8 @@ const INSTANCE = axios.create({
     baseURL: "https://boolean-api-server.fly.dev/nazartymiv/",
 });
 
+// CONTACTS
+
 export async function getContact(contactId) {
     const url = `/contact/${contactId}`;
 
@@ -14,6 +16,8 @@ export async function getContact(contactId) {
         console.error(error);
     }
 }
+
+// POSTS
 
 export async function getAllPosts() {
     try {
@@ -42,6 +46,17 @@ export async function createNewPost(postData) {
     }
 }
 
+export async function deletePost(postId) {
+    try {
+        const response = await INSTANCE.delete(`/post/${postId}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// COMMENTS
+
 export async function getComments(postId) {
     const url = `/post/${postId}/comment`;
 
@@ -58,6 +73,17 @@ export async function createNewComment(postId, commentData) {
         const response = await INSTANCE.post(
             `/post/${postId}/comment`,
             commentData
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function deleteComment(postId, commentId) {
+    try {
+        const response = await INSTANCE.delete(
+            `/post/${postId}/comment/${commentId}`
         );
         return response.data;
     } catch (error) {

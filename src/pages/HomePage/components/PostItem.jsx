@@ -6,19 +6,29 @@ import UserCycle from "../../../components/UserCycle";
 import CommentsBlock from "./CommentsBlock";
 
 // api
-import { getContact } from "../../../utilities/api";
+import { deletePost, getContact } from "../../../utilities/api";
 
-const PostItem = ({ user, post }) => {
+const PostItem = ({ user, post, getPosts }) => {
     const [postUser, setPostUser] = useState({});
 
     useEffect(() => {
         getContact(post.contactId).then((data) => setPostUser(data));
     }, [post]);
 
+    const submitDelete = () => {
+        deletePost(post.id).then(() => getPosts());
+    };
+
     return (
         <div className="postItem">
             {Object.keys(postUser).length > 0 && (
                 <div className="postItem__user">
+                    <div
+                        className="postItem__user-delete"
+                        onClick={submitDelete}
+                    >
+                        DEL
+                    </div>
                     <UserCycle
                         name={{
                             firstName: postUser.firstName,

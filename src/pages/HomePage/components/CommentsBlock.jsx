@@ -37,6 +37,7 @@ const CommentsBlock = ({ user, postId }) => {
                               )
                             : comments
                     }
+                    getAllComments={getAllComments}
                 />
             )}
 

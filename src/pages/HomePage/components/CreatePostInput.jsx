@@ -13,14 +13,17 @@ const CreatePostInput = ({ user, getPosts }) => {
 
     const submitInput = (e) => {
         e.preventDefault();
-        createNewPost({
-            contactId: user.id,
-            title: inputTitle,
-            content: inputValue,
-        }).then(() => getPosts());
 
-        setInputTitle("");
-        setInputValue("");
+        if (inputTitle.length > 0 && inputValue.length > 0) {
+            createNewPost({
+                contactId: user.id,
+                title: inputTitle,
+                content: inputValue,
+            }).then(() => getPosts());
+
+            setInputTitle("");
+            setInputValue("");
+        }
     };
 
     return (

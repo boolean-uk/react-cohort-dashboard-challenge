@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import UserCycle from "../../../components/UserCycle";
 
 // api
-import { getContact } from "../../../utilities/api";
+import { deleteComment, getContact } from "../../../utilities/api";
 
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, getAllComments }) => {
     const [commentUser, setCommentUser] = useState({});
 
     useEffect(() => {
         getContact(comment.contactId).then((data) => setCommentUser(data));
     }, [comment]);
+
+    const submitDeleteComment = () => {
+        deleteComment(comment.postId, comment.id).then(() => getAllComments());
+    };
 
     return (
         <div className="commentItem">
@@ -25,6 +29,13 @@ const CommentItem = ({ comment }) => {
                     />
 
                     <div className="commentItem__content">
+                        <div
+                            className="commentItem__content-delete"
+                            onClick={submitDeleteComment}
+                        >
+                            ✖
+                        </div>
+
                         <h3 className="commentItem__content-name">
                             {commentUser.firstName} {commentUser.lastName}
                         </h3>

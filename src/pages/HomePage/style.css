@@ -65,11 +65,30 @@
 }
 
 .postItem__user {
+    position: relative;
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+}
+
+.postItem__user-delete {
+    position: absolute;
+    right: 0;
+    border: 1px solid #000046;
+    border-radius: 5px;
+    padding: 7.5px 20px;
+    color: #000046;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .1s ease-in;
+}
+
+.postItem__user-delete:hover {
+    background-color: #000046;
+    color: #fff;
 }
 
 .postItem__userName {
@@ -165,16 +184,33 @@
     display: flex;
 }
 
+
+
 .commentItem:not(:last-child) {
     margin-bottom: 15px;
 }
 
 .commentItem__content {
+    position: relative;
     margin-left: 15px;
     padding: 15px;
+    padding-right: 50px;
     background-color: #e6ebf5;
     border-radius: 8px;
     max-width: 800px;
+}
+
+.commentItem__content-delete {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #000046;
+    transition: all 0.1 ease-in;
+}
+
+.commentItem__content-delete:hover {
+    color: #cc0000;
 }
 
 .commentItem__content-name {

@@ -25,7 +25,7 @@ const HomePage = ({ setPage, user }) => {
         <div className="homePage">
             <CreatePostInput user={user} getPosts={getPosts} />
 
-            <PostsList user={user} posts={posts} />
+            <PostsList user={user} posts={posts} getPosts={getPosts} />
         </div>
     );
 };
