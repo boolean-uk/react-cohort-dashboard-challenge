@@ -56,7 +56,7 @@ export default function PostCommentFeed({
       )}
       <div className="post-comment-feed flex flex-col gap-4">
         {renderComments.map((comment) => (
-          <Comment key={`comment-${comment.id}`} comment={comment} />
+          <Comment key={`comment-${comment.id}`} comment={comment} setLoadComments={setLoadComments} />
         ))}
       </div>
     </>

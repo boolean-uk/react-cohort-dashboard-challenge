@@ -75,10 +75,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       <ItemOptions
         editableItem={editableItem}
         itemHover={itemHover}
-        postId={post.id}
+        itemId={post.id}
         showItemMenu={showItemMenu}
         setEditableItem={setEditableItem}
-        setLoadPosts={setLoadPosts}
+        setLoadItems={setLoadPosts}
         setShowItemMenu={setShowItemMenu}
       />
     </li>

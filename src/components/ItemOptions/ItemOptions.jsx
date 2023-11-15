@@ -4,10 +4,10 @@ import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 export default function ItemOptions({
   editablePost,
   itemHover,
-  postId,
+  itemId,
   showItemMenu,
   setEditableItem,
-  setLoadPosts,
+  setLoadItems,
   setShowItemMenu,
 }) {
   function handleOptionClick() {
@@ -20,7 +20,7 @@ export default function ItemOptions({
 
   function handleDeleteClick() {
     //TODO: if on single page, need to redirect back to home page
-    api.post.delete(postId).then(() => setLoadPosts(true));
+    api.post.delete(itemId).then(() => setLoadItems(true));
   }
 
   return (
@@ -64,9 +64,9 @@ export default function ItemOptions({
 ItemOptions.propTypes = {
   editablePost: boolProps,
   itemHover: boolProps,
-  postId: numberProp,
+  itemId: numberProp,
   showItemMenu: boolProps,
   setEditableItem: funcProp,
-  setLoadPosts: funcProp,
+  setLoadItems: funcProp,
   setShowItemMenu: funcProp,
 };
