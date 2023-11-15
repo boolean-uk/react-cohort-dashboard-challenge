@@ -1,4 +1,4 @@
-export default function putData(path, data, setReloadData, reloadData) {
+export default function putData(path, data) {
     const options = {
       method: "PUT",
       headers: {"content-type":"application/json"},
@@ -8,5 +8,4 @@ export default function putData(path, data, setReloadData, reloadData) {
     fetch(`https://boolean-api-server.fly.dev/Chloe0701962/${path}` ,options)
     .then(r => r.json())
     .catch(error => console.log("Failed to fetch:",error))
-    .then(() => setReloadData(!reloadData))
   }

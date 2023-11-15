@@ -102,6 +102,7 @@ export default function ProfilePageForm( {setReloadContacts, reloadContacts} ) {
   const handleSubmit = (e) => {
     e.preventDefault()
     putData(`contact/${contactId}`, form, setReloadContacts, reloadContacts)
+    setReloadContacts(!reloadContacts)
   }
 
   useEffect(() => getData(`contact/${contactId}`,setForm), [])

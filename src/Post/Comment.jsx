@@ -1,7 +1,6 @@
 import UserName from "../Low-level_components/UserName";
 import deleteData from "../../js_functions/delete";
 import CommentForm from "./commentForm";
-import putData from "../../js_functions/put";
 
 export default function Comment({
   edit,
@@ -17,10 +16,11 @@ export default function Comment({
     setReloadComments(!reloadComments);
   };
 
-  const editComment = () => {
+  const toggleEditComment = () => {
     setEdit(!edit);
-    // putData(`post/${postId}/comment/${comment.id}`);
   };
+
+
 
   return (
     <>
@@ -33,14 +33,14 @@ export default function Comment({
           <>
             <div className="empty"></div>
             <section className="comment edit-form">
-              <CommentForm edit={edit} comment={comment} />
+              <CommentForm edit={edit} setEdit={setEdit} comment={comment} setReloadComments={setReloadComments} reloadComments={reloadComments} postId={postId} />
             </section>
           </>
         ) : (
           <p>{comment.content}</p>
         )}
         <button onClick={deleteComment}>Delete</button>
-        <button onClick={editComment}>Edit</button>
+        <button onClick={toggleEditComment}>Edit</button>
       </div>
     </>
   );

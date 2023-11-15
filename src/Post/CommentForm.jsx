@@ -1,6 +1,7 @@
 import { useState } from "react"
 import postData from "../../js_functions/post"
 import { useEffect } from "react"
+import putData from "../../js_functions/put"
 const initialForm = {
   title: "",
   postId: undefined,
@@ -8,7 +9,7 @@ const initialForm = {
   content: ""
 }
 
-export default function CommentForm({setReloadComments, comment}) {
+export default function CommentForm({setReloadComments, reloadComments, edit, setEdit, comment, post, postId}) {
   const [form, setForm] = useState(initialForm)
 
 
@@ -17,13 +18,14 @@ export default function CommentForm({setReloadComments, comment}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postData(`post/${post.id}/comment/`, form)
-    console.log(form.contactId)
+    edit ? putData(`post/${postId}/comment/${comment.id}`, form): postData(`post/${post.id}/comment/`, form)
     setForm(initialForm)
-    setReloadComments(true)
+    setEdit(!edit)
+    setReloadComments(!reloadComments)
   }
 
   const handleChange = (e) => { 
+    edit? setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1, ["postId"]: postId}) :
     setForm({...form, [e.target.name]: e.target.value, ["contactId"]: 1, ["postId"]: post.id})
   }
 
