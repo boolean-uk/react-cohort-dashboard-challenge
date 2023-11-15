@@ -1,17 +1,22 @@
-import PostComments from "../../Main/components/Comment/PostComments"
 import AddNewComment from "../../Main/components/Comment/AddNewComment"
+import SinglePostComments from "./SinglePostComments"
 
 import { useEffect, useState } from "react"
 
 function SinglePostCommentContent({ post, URL, loggedInUser, loggedInUserInitials }) {
 
     const [allComments, setAllComments] = useState(null)
+    const [shouldGetComments, setShouldGetComments] = useState(true)
 
     useEffect(() => {
-        fetch(`${URL}/post/${post.id}/comment`)
-            .then(res => res.json())
-            .then(data => setAllComments(data))
-    }, [URL, post])
+      shouldGetComments
+      fetch(`${URL}/post/${post.id}/comment`)
+        .then(res => res.json())
+        .then(data => {
+            setAllComments(data)
+            setShouldGetComments(false)
+        })
+    }, [URL, post, shouldGetComments])
 
     if (!allComments) return <p>Comments not available</p>
 
@@ -19,7 +24,7 @@ function SinglePostCommentContent({ post, URL, loggedInUser, loggedInUserInitial
         <section className="comment-container grid">
             <ul className='post-comments-list grid'>
                 {allComments.map((comment) =>
-                    <PostComments key={comment.id} comment={comment} URL={URL} />
+                    <SinglePostComments key={comment.id} comment={comment} URL={URL} post={post} setShouldGetComments={setShouldGetComments} />
                 )}
             </ul>
             <AddNewComment post={post} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} URL={URL} setAllComments={setAllComments} />

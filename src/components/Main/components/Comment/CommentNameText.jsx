@@ -6,7 +6,6 @@ function CommentNameText({ comment, commentAuthor }) {
                 <h5 className="comment-author-name">{commentAuthor.firstName} {commentAuthor.lastName}</h5>
                 <p className="comment-content-text">{comment.content}</p>
             </div>
-            <button className="delete-comment-btn">Delete comment</button>
         </div>
     )
 }

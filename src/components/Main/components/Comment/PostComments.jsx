@@ -17,13 +17,10 @@ function PostComments({ comment, URL }) {
     const commentInitials = commentAuthor.firstName.slice(0, 1) + commentAuthor.lastName.slice(0, 1)
 
     return (
-            <li className="single-comment grid">
-                <UserProfileCircle author={commentAuthor} initials={commentInitials} />
-                <CommentNameText comment={comment} commentAuthor={commentAuthor} />
-                {/* <div className="delete-comment-container">
-                    <button className="delete-comment-btn">Delete comment</button>
-                </div> */}
-            </li>
+        <li className="single-comment grid">
+            <UserProfileCircle author={commentAuthor} initials={commentInitials} />
+            <CommentNameText comment={comment} commentAuthor={commentAuthor} />
+        </li>
     )
 }
 
