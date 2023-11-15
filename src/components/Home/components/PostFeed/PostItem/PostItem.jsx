@@ -51,8 +51,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   }, [postIdParam, postProp]);
 
   useEffect(() => {
-    setFormData({ ...formData, ...post });
-  }, [post]);
+    if (!formData.id) {
+      setFormData({ ...formData, ...post });
+    }
+  }, [formData, post]);
 
   function handleHoverEnter() {
     setItemHover(true);

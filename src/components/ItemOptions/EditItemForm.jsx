@@ -28,7 +28,7 @@ export default function EditItemForm({
     const formValid = checkFormValidity(formData, formSetup);
 
     setValidInput(formValid);
-  }, [formData]);
+  }, [formData, formSetup]);
 
   function handleSubmit(e) {
     e.preventDefault();

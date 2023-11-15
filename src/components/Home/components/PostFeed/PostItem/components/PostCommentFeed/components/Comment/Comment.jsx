@@ -36,8 +36,10 @@ export default function Comment({ comment, setLoadComments }) {
   }, [contactId]);
 
   useEffect(() => {
-    setFormData({ ...formData, ...comment });
-  }, [comment]);
+    if (!formData.id) {
+      setFormData({ ...formData, ...comment });
+    }
+  }, [comment, formData]);
 
   function handleHoverEnter() {
     setItemHover(true);
