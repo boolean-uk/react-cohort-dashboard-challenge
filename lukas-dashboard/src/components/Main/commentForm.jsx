@@ -21,7 +21,7 @@ export default function CommentForm({ postInfo, setPosts }) {
         setPostComment(
             {
                 postId: postInfo.id,
-                contactId: postInfo.contactId,
+                contactId: 1,
                 content: value
             }
         )
@@ -31,7 +31,7 @@ export default function CommentForm({ postInfo, setPosts }) {
         event.preventDefault()
         event.target.reset()
 
-        post(`${postURL}/${postInfo.id}/comment`, postComment)
+        post(`${postURL}/${postInfo.contactId}/comment`, postComment)
             .then(res => res.json())
             .then(() => get(`${postURL}`))
             .then(setPosts)
