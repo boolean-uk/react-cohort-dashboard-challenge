@@ -1,5 +1,5 @@
 import HomeNavLogo from "./homeNavLogo"
-import ProfileNavLogo from "./profileNavLogo"
+import ProfileNavLogo from "../Reusable/profileNavLogo"
 export default function LeftMenu() {
 
     return (

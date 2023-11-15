@@ -6,7 +6,6 @@ import { get, postURL } from "../client"
 export default function CommentContent({ users, postInfo }) {
 
     const [Comments, setComments] = useState(null)
-    console.log(Comments)
 
     useEffect(() => {
         if (postInfo) {
