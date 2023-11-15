@@ -1,0 +1,44 @@
+aside {
+  grid-area: 2 / 1 / 2/ 2;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  width: 120px;
+
+  background-color: #fff;
+  box-shadow: 5px 5px 5px #00000020;
+}
+
+.navbar__button {
+  display: flex;
+  border: none;
+  background-color: #fff;
+  padding: 0.8rem;
+  height: 100px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.navbar__button > span {
+  color: #000046;
+}
+
+.navbar__button:hover {
+  background-color: #e6ebf5;
+  transition: all 50ms ease-in;
+}
+
+.navbar__button > img {
+  padding-top: 0.7rem;
+  padding-bottom: 0.2rem;
+  position: relative;
+}
+
+.active {
+  background-color: #e6ebf5;
+  font-weight: 700;
+}
