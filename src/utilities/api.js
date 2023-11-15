@@ -24,6 +24,15 @@ export async function getAllPosts() {
     }
 }
 
+export async function getPostById(postId) {
+    try {
+        const response = await INSTANCE.get(`/post/${postId}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function createNewPost(postData) {
     try {
         const response = await INSTANCE.post("/post", postData);

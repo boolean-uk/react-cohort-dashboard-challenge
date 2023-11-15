@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // components
 import UserCycle from "../../../components/UserCycle";
@@ -28,9 +29,12 @@ const PostItem = ({ user, post }) => {
                         <span className="postItem__userName-title">
                             {postUser.firstName} {postUser.lastName}
                         </span>
-                        <span className="postItem__userName-subtitle">
+                        <Link
+                            to={`/post/${post.id}`}
+                            className="postItem__userName-subtitle"
+                        >
                             {post.title}
-                        </span>
+                        </Link>
                     </div>
                 </div>
             )}

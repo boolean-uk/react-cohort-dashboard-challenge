@@ -16,13 +16,15 @@ const CommentsForm = ({ user, getAllComments, postId }) => {
     const submitComment = (e) => {
         e.preventDefault();
 
-        createNewComment(postId, {
-            postId: postId,
-            content: comment,
-            contactId: user.id,
-        }).then(() => getAllComments());
+        if (comment.length > 0) {
+            createNewComment(postId, {
+                postId: postId,
+                content: comment,
+                contactId: user.id,
+            }).then(() => getAllComments());
 
-        setComment("");
+            setComment("");
+        }
     };
 
     return (

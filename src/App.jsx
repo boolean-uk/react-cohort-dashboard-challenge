@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
+import PostPage from "./pages/PostPage";
 
 // api
 import { getContact } from "./utilities/api";
@@ -33,6 +34,10 @@ function App() {
                 <Route
                     path="/profile"
                     element={<ProfilePage setPage={setPage} />}
+                />
+                <Route
+                    path="/post/:id"
+                    element={<PostPage user={user} setPage={setPage} />}
                 />
             </Routes>
         </div>
