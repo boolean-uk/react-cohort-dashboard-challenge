@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { contactURL, get } from "../client"
+import { contactURL, get, profileColour } from "../client"
 import { useEffect, useState } from "react"
 
 
 export default function ProfileLogo({id}) {
+    console.log(id)
 
     const [initials, setInitials] = useState("")
 
@@ -15,9 +16,9 @@ export default function ProfileLogo({id}) {
                 setInitials(firstLetter + lastLetter)
             })
     }, [])
-
+console.log(profileColour(id))
     return (
-        <div className="profileLogo">
+        <div className={`profileLogo ${profileColour(id)}`} >
             <strong>{initials}</strong>
         </div>
     )

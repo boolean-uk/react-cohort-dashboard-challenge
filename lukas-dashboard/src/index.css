@@ -35,6 +35,31 @@ body, html {
   text-align: center;
 }
 
+.profileBlue {
+  background-color: rgb(111, 148, 229);
+}
+
+.profileRed {
+  background-color: rgb(222, 115, 115);
+}
+
+.profileYellow {
+  background-color: rgb(220, 218, 100);
+}
+
+.profilePurple {
+  background-color: rgb(164, 96, 188);
+}
+
+.profileGreen {
+  background-color: rgb(100, 220, 116);
+}
+
+
+
+
+
+
 /* HEADER */
 .header {
 grid-area: header;
@@ -109,6 +134,10 @@ background-color: #000046;
   height: 35px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.postForm button:hover {
+  background-color: #64dc78;
 }
 
 
@@ -188,5 +217,5 @@ background-color: #000046;
 
 .inputAndButton button:hover {
   cursor: pointer;
-
+  background-color: #64dc78;
 }

@@ -31,3 +31,18 @@ export const remove = (url) => {
     return fetch(url, options)
         .then((res) => res.json())
 }
+
+export const profileColour = (id) => {
+    let className = ""
+    if (id < 5 && id % 2 === 1) {
+        className = "profileGreen"
+    } else if (id < 5 && id % 2 === 0) {
+        className = "profileBlue"
+    } else if (id > 5 && id % 2=== 1) {
+        className = "profileYellow"
+    } else if (id > 5 && id % 2 === 0) {
+        className = "profileRed"
+    } else {
+        className = "profilePurple"
+    } return className
+}

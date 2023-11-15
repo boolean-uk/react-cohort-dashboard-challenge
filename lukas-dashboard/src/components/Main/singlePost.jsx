@@ -25,12 +25,12 @@ export default function SinglePostPage({ users, posts, setPosts }) {
             setSingleUser(users.find((user) => user.id === singlePersonPost.contactId))
         }
     }, [singlePersonPost, users])
-    
+
 
     return ( singlePersonPost && singleUser && (
         <div className="post" key={singlePersonPost.id}>
             <div className="postInfo">
-                <ProfileLogo id={"1"} />
+                <ProfileLogo id={singleUser.id} />
                 <section>
                     <h2>{singleUser.firstName} {singleUser.lastName}</h2>
                     <title className="title">{singlePersonPost.title}</title>
