@@ -6,13 +6,13 @@ import { SendArrow } from "../../assets/SVGs";
 export default function AddComment ({postId, getComments}) {
 
   const contactId = 1
-
+  
   const initComment = {
     postId: postId,
     contactId: contactId,
     content: ""
   }
-
+  
   const [comment, setComment] = useState(initComment)
 
   const handleInput = (event) => {
@@ -22,15 +22,14 @@ export default function AddComment ({postId, getComments}) {
   const handleSubmission = () => {
     const endpoint = `/post/${postId}/comment`
     const body = {
-      ...comment,
-      "postId": postId
+      ...comment
     }
     const options = {
       headers: {"content-type": "application/json"},
       method: "POST",
       body: JSON.stringify(body)
     }
-
+    
     fetch(baseURL+endpoint, options)
       .then(response => response.json())
       .then(() => getComments())

@@ -28,7 +28,7 @@ export default function Comments ({postId, setReload}) {
   if (comments.length === 0) return (
     <>
       <p>No commments yet</p>
-      <AddComment />
+      <AddComment postId={postId}/>
     </>
   )
   

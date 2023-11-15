@@ -46,7 +46,7 @@ https://miro.com/app/board/uXjVNQnd7bg=/?share_link_id=918951540886
     - ✔︎ The fields should be automatically populated with the correct data when loading any user profile.
     - ✔︎ Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
 - ✔︎ You should be able to update all of the users information.
-- Posts and comments should be able to be updated and ✔︎ deleted.
+- ✔︎ Posts and comments should be able to be ✔︎ updated and ✔︎ deleted.
 
 ## Advice
 

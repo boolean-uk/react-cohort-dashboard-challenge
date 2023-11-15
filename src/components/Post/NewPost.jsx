@@ -33,7 +33,6 @@ export default function NewPost({getPosts}) {
 
     fetch(baseURL+endpoint, options)
       .then(response => response.json())
-      .then(data => console.log(data))
       .then(() => getPosts())
       .catch((error) => console.log("error fetching posts", error))
 
