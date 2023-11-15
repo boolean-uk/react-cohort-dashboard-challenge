@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
 import Comments from "./comments";
 import Post from "./post";
+import NewPost from "./new-post";
 
 const PostFeed = () => {
   const [posts, setPosts] = useState([]);
@@ -32,6 +32,27 @@ const PostFeed = () => {
     fetchData();
   }, [postURL]);
 
+  const handleNewPost = async (newPostContent) => {
+    try {
+      const response = await fetch(postURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: newPostContent }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create new post");
+      }
+
+      const createdPost = await response.json();
+      setPosts([...posts, createdPost]); // Update posts with the new post
+    } catch (error) {
+      setError(error);
+    }
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -42,17 +63,16 @@ const PostFeed = () => {
 
   return (
     <>
-      {/* TODO: Create new post box instead of just a button */}
       <div className="new-post">
-        <Link to="/new-post"><button>Post</button></Link>
+        <NewPost onNewPost={handleNewPost} />
       </div>
 
       <div className="posts">
         {posts.map((post) => (
           <div key={post.id}>
-            <Post posts={post} /> {/* Pass each post data to the Post component */}
+            <Post post={post} />
             <div className="comments">
-              <Comments postId={post.id} /> {/* Pass postId to the Comments component */}
+              <Comments postId={post.id} />
             </div>
           </div>
         ))}
