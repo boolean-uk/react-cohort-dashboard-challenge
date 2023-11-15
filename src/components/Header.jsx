@@ -15,6 +15,7 @@ const Header = ({ user }) => {
                         firstName: user.firstName,
                         lastName: user.lastName,
                     }}
+                    userId={user.id}
                 />
             )}
         </header>

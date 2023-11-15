@@ -76,6 +76,7 @@ const PostItem = ({ user, post, getPosts }) => {
                             firstName: postUser.firstName,
                             lastName: postUser.lastName,
                         }}
+                        userId={postUser.id}
                     />
                     <div className="postItem__userName">
                         <span className="postItem__userName-title">

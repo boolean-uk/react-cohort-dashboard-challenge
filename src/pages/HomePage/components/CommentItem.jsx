@@ -46,6 +46,7 @@ const CommentItem = ({ comment, getAllComments }) => {
                             firstName: commentUser.firstName,
                             lastName: commentUser.lastName,
                         }}
+                        userId={commentUser.id}
                     />
 
                     <div className="commentItem__content">

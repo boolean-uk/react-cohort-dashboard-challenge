@@ -34,6 +34,7 @@ const CreatePostInput = ({ user, getPosts }) => {
                         firstName: user.firstName,
                         lastName: user.lastName,
                     }}
+                    userId={user.id}
                 />
             )}
 

@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./style.css";
 
 import { colors } from "../utilities/colors";
-import { useEffect, useState } from "react";
 
-const UserCycle = ({ name: { firstName, lastName } }) => {
+const UserCycle = ({ name: { firstName, lastName }, userId }) => {
     const initials = `${firstName[0]}${lastName[0]}`;
     const [userColor, setUserColor] = useState("");
 
@@ -15,9 +17,13 @@ const UserCycle = ({ name: { firstName, lastName } }) => {
     }, [firstName]);
 
     return (
-        <div className="userCycle" style={{ backgroundColor: userColor }}>
+        <Link
+            to={`/profile/${userId}`}
+            className="userCycle"
+            style={{ backgroundColor: userColor }}
+        >
             <span className="userCycle__text">{initials}</span>
-        </div>
+        </Link>
     );
 };
 

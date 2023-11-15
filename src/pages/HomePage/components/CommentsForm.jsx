@@ -35,6 +35,7 @@ const CommentsForm = ({ user, getAllComments, postId }) => {
                         firstName: user.firstName,
                         lastName: user.lastName,
                     }}
+                    userId={user.id}
                 />
             )}
 

@@ -23,7 +23,7 @@ const Navigation = ({ page }) => {
                 </li>
                 <li className="navigation__item">
                     <Link
-                        to="/profile"
+                        to="/profile/1"
                         className={`navigation__link ${
                             page === "profile" && "navigation__link-active"
                         }`}
