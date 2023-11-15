@@ -37,9 +37,7 @@ export default function CommentForm({post, user, getComments}) {
 
         fetch(commentPostURL, options)
         .then(res => res.json())
-        .then(data => {
-            getComments(data)
-        })
+        .then((data) => getComments(data))
 
         setForm(INPUT_DATA)
 

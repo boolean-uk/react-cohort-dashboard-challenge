@@ -30,7 +30,7 @@ export default function PostForm({getPosts}) {
 
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post`, options)
         .then(res => res.json())
-        .then(data => getPosts(data))
+        .then((data) => getPosts(data))
 
         setForm(INPUT_DATA)
     }

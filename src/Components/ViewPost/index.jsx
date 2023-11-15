@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 export default function ViewPost({posts}) {
     const [viewPost, setViewPost] = useState(undefined)
-    const [postUser, setPostUser] = useState({})
+    const [postUser, setPostUser] = useState(undefined)
     const [postComments, setPostComments] = useState([])
     const [postCommentAuthors, setPostCommentAuthors] =  useState([])
 
@@ -30,25 +30,6 @@ export default function ViewPost({posts}) {
        }, [])
 
 
-    //     fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}/comment`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         const returnedData = data.map(eachCommentData => {
-    //             fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${eachCommentData.contactId}`)
-    //             .then(res => res.json())
-    //             .then(postCommentAuthorsData => {
-    //                 setPostComments([{
-    //                     ...eachCommentData,
-    //                     firstName: postCommentAuthorsData.firstName,
-    //                     lastName: postCommentAuthorsData.lastName
-    //                 }])
-    //             })
-    //         })
-    //     })
-
-    // }, [])
-
-
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ilham-saleh/post/${id}/comment`)
         .then(res => res.json())
@@ -68,16 +49,13 @@ export default function ViewPost({posts}) {
                         firstName: postCommentAuthorData.firstName,
                         lastName: postCommentAuthorData.lastName
                     }
-                    setPostCommentAuthors((authors) => [...authors, commentAndAuthors])
-                
+                    setPostCommentAuthors((authors) => [...authors, commentAndAuthors])              
                 })
             })
             Promise.all(promises)
         }
     }, [postComments])
     
-    // console.log("post user", postUser.firstName[0])
-    // const initials = postUser?.firstName.charAt(0) + postUser?.lastName.charAt(0)
 
     return (
         <div className="main">
@@ -86,7 +64,9 @@ export default function ViewPost({posts}) {
                     <li className="post">
                         <div className="post-header">
                             <div className="user-img-container">
-                                <p>User</p>
+                                {postUser ? (
+                                    <p>{postUser?.firstName[0]}{postUser.lastName[0]}</p>
+                                ) : <p>User</p>}
                             </div>
                             <div className="name-and-title">
                                 <p className="user-name">{postUser?.firstName} {postUser?.lastName}</p>
@@ -96,9 +76,9 @@ export default function ViewPost({posts}) {
                         <div className="content-container">
                             {viewPost?.content}
                         </div>
-                    {postCommentAuthors.map((postCommentAuthor, index) => (
-                        <div className="comments" key={index}> 
-                         <ul>
+                        <div className="comments" > 
+                            {postCommentAuthors.map((postCommentAuthor, index) => (
+                         <ul key={index}>
                              <li>
                                 <div className="comment-container">
                                  <div className="user-img-container">
@@ -111,8 +91,8 @@ export default function ViewPost({posts}) {
                               </div>
                             </li>
                         </ul>
-                    </div>
                     ))}
+                    </div>
                     </li>
                 </ul>
             </div>
