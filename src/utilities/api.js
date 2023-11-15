@@ -89,6 +89,18 @@ export async function createNewComment(postId, commentData) {
     }
 }
 
+export async function changeCommentData(postId, commentId, commentData) {
+    try {
+        const response = await INSTANCE.put(
+            `/post/${postId}/comment/${commentId}`,
+            commentData
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function deleteComment(postId, commentId) {
     try {
         const response = await INSTANCE.delete(

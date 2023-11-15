@@ -204,10 +204,8 @@
     display: flex;
 }
 
-
-
 .commentItem:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .commentItem__content {
@@ -220,6 +218,15 @@
     max-width: 800px;
 }
 
+.commentItem__content input {
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    width: 400px;
+    font-size: 16px;
+}
+
 .commentItem__content-delete {
     position: absolute;
     top: 15px;
@@ -227,6 +234,19 @@
     cursor: pointer;
     color: #000046;
     transition: all 0.1 ease-in;
+}
+
+.commentItem__content-edit {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.commentItem__content-edit:hover {
+    text-decoration: underline;
 }
 
 .commentItem__content-delete:hover {
