@@ -1,16 +1,8 @@
 import UserProfileCircle from "../../../Shared/UserProfileCircle"
 import NameTitleContainer from "./NameTitleContainer"
+import DeletePostButton from "../../../Shared/DeletePostButton"
 
 function PostContent({ post, URL, initials, author, setShouldGetPosts }) {
-
-    function handleDelete() {
-        const options = {
-            method: 'DELETE'
-        }
-        fetch(`${URL}/post/${post.id}`, options)
-            .then(res => res.json())
-            .then(() => setShouldGetPosts(true))
-    }
 
     return (
         <section className="post-content-container grid">
@@ -23,7 +15,7 @@ function PostContent({ post, URL, initials, author, setShouldGetPosts }) {
                     <p>{post.content}</p>  
                 </div>
             </div>
-            <button className="post-content-delete-btn" onClick={() => handleDelete()}>Delete Post</button>
+            <DeletePostButton post={post} URL={URL} setShouldGetPosts={setShouldGetPosts} />
         </section>
     )
 }
