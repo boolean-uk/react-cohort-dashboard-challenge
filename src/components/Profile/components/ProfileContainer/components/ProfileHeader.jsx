@@ -5,7 +5,7 @@ import { contactProps } from "@utilities/propTypeDefs";
 export default function ProfileHeader({ profile }) {
   return (
     <section className="profile-form-header flex items-center gap-4">
-    {/* TODO: Mess with sizes for profile form */}
+      {/* TODO: Mess with sizes for profile form */}
       <UserIcon contact={profile} />
       <UserName contact={profile} />
     </section>

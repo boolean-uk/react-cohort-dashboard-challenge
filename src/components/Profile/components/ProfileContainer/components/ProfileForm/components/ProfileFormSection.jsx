@@ -18,15 +18,15 @@ export default function ProfileFormSection({
       <hr />
       <h2 className="text-3xl font-semibold">{title}</h2>
       {/* <div className="field-container flex flex-col gap-8"> */}
-        {fields.map((field) => (
-          <TextLabel
-            key={`field-${field.inputName}`}
-            field={field}
-            formData={formData}
-            setFormData={setFormData}
-            submitted={submitted}
-          />
-        ))}
+      {fields.map((field) => (
+        <TextLabel
+          key={`field-${field.inputName}`}
+          field={field}
+          formData={formData}
+          setFormData={setFormData}
+          submitted={submitted}
+        />
+      ))}
       {/* </div> */}
     </section>
   );

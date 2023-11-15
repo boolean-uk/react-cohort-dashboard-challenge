@@ -8,7 +8,7 @@ export default function SubmitButton({ innerText, submitted }) {
         (submitted === false && "bg-red-400")
       }`}
     >
-    {/* TODO: button should revert to innerText after form input */}
+      {/* TODO: button should revert to innerText after form input */}
       {(submitted === true && "✓") || (submitted === false && "✗") || innerText}
     </button>
   );

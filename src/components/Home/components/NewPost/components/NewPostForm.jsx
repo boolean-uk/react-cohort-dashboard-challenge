@@ -20,7 +20,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
   );
 
   useEffect(() => {
-    const formValid = checkFormValidity(formData, newPostFormSetup)
+    const formValid = checkFormValidity(formData, newPostFormSetup);
 
     setValidInput(formValid);
   }, [formData]);
@@ -60,10 +60,7 @@ export default function NewPostForm({ setLoadPosts, user }) {
             />
           );
       })}
-      <SubmitButton
-        innerText={"Post"}
-        submitted={submitted}
-      />
+      <SubmitButton innerText={"Post"} submitted={submitted} />
     </form>
   );
 }
