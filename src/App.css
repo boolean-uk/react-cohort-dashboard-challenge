@@ -1,0 +1,136 @@
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "header header" 50px
+    "left-menu main" 1fr /
+    180px 1fr;
+}
+
+.main {
+  grid-area: main;
+  padding: 11px 0;
+  margin-right: 11px;
+}
+
+.left-menu {
+  grid-area: left-menu;
+  padding: 11px;
+  padding-left: 31x;
+  background-color: white;
+}
+
+.left-menu .nav-menu {
+  display: grid;
+  grid-gap: 11px;
+}
+
+.ant-space-item {
+  padding: 5px 10px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-space-item .menu-item.active {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: #000046;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.header > .author-initials {
+  background-color: #d5d1ff;
+  border-radius: 50%;
+  padding: 0px;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.header-icon {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.author-initials {
+  width: 40px;
+  height: 40px;
+  background-color: #d5d1ff;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  border-radius: 50%;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: black;
+}
+
+/* .menu-item, menu-item active {
+  text-decoration: none;
+  color: black;
+} */
+
+.custom-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom-form .ant-form-item {
+  margin-bottom: 15px;
+}
+
+.custom-form .ant-form-item-label > label {
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.custom-form .ant-input {
+  background-color: #f3f3f3;
+  font-size: 11px;
+}
+
+.form-column {
+  display: inline-block;
+  vertical-align: top;
+  width: 47%;
+  padding: 0 1%;
+  flex: 1;
+}
+
+.save-button {
+  flex: 1;
+  text-align: right;
+  margin-top: 17px;
+  margin-bottom: 51px;
+}
+
+.footer {
+  padding: 7px;
+  height: 15px;
+  position: fixed;
+  background-color: #f3f3f3;
+  font-weight: bold;
+  font-size: 11px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
