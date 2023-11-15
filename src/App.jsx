@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import Header from './components/header'
 import Nav from './components/nav'
 import PostFeed from './components/post-feed'
