@@ -32,7 +32,7 @@ The steps above will create a fresh React app using Vite. From this point on, it
 ✔︎ Here is my plan for this:
 https://miro.com/app/board/uXjVNQnd7bg=/?share_link_id=918951540886
 - ✔︎ Users should be able to create a new post. ✔︎ The new post should be displayed at the top of the post feed.
-- Users should be able to comment on existing posts.
+- ✔︎ Users should be able to comment on existing posts.
 - ✔︎ Posts and comments should show the initials of the author in a coloured circle.
 - ✔︎ Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You **must** use a route for this, not an array filter.
 - ✔︎ You must use [this style guide](./STYLE_GUIDE.md) to implement the colour scheme.
@@ -44,9 +44,9 @@ https://miro.com/app/board/uXjVNQnd7bg=/?share_link_id=918951540886
 - ✔︎ Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
     - ✔︎ Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
     - ✔︎ The fields should be automatically populated with the correct data when loading any user profile.
-    - Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
+    - ✔︎ Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
 - ✔︎ You should be able to update all of the users information.
-- Posts and comments should be able to be updated and deleted.
+- Posts and comments should be able to be updated and ✔︎ deleted.
 
 ## Advice
 

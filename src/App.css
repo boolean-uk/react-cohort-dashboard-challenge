@@ -100,6 +100,12 @@ nav li.active {
   gap: 5px;
 }
 
+.post-container .title-and-content {
+  display: grid;
+  grid-template-rows: minmax(30px) minmax(60px, 1fr);
+  gap: 5px;
+}
+
 .expandComments {
   color: var(--darkgrey);
 }
@@ -141,13 +147,12 @@ nav li.active {
 form.profile {
   margin: 20px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, 40%));
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
   place-items: end;
-  place-content: center;
 }
 
 form.profile input {
-  margin: 1em;
+  margin: 1em 0em;
 }
 
 input, textarea {
