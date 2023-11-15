@@ -3,6 +3,7 @@ import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
 export default function ItemOptions({
   editablePost,
+  handleDeleteClick,
   itemHover,
   itemId,
   showItemMenu,
@@ -16,11 +17,6 @@ export default function ItemOptions({
 
   function handleEditClick() {
     setEditableItem(!editablePost);
-  }
-
-  function handleDeleteClick() {
-    //TODO: if on single page, need to redirect back to home page
-    api.post.delete(itemId).then(() => setLoadItems(true));
   }
 
   return (
@@ -46,7 +42,7 @@ export default function ItemOptions({
           onClick={handleOptionClick}
           className={`post-item-more-options absolute right-4 top-4 flex cursor-pointer justify-center rounded-full p-4 ${
             showItemMenu
-              ? "rounded-none rounded-bl-xl hover:bg-cohort-bg-highlight"
+              ? "rounded-none rounded-bl-xl rounded-tr-xl hover:bg-cohort-bg-highlight"
               : "hover:bg-cohort-shade"
           }`}
         >

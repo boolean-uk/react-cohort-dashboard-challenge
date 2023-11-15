@@ -8,7 +8,6 @@ import api from "@utilities/api";
 import { commentProps } from "@utilities/propTypeDefs";
 
 import "./Comment.css";
-import ItemOptions from "@components/ItemOptions/ItemOptions";
 
 export default function Comment({ comment, setLoadComments }) {
   const [contact, setContact] = useState(null);
@@ -28,17 +27,34 @@ export default function Comment({ comment, setLoadComments }) {
     getContact();
   }, [contactId]);
 
+  function handleHoverEnter() {
+    setItemHover(true);
+  }
+
+  function handleHoverLeave() {
+    setItemHover(false);
+  }
+
+  function handleDeleteClick() {
+    api.post.comment.delete(comment.postId, comment.id).then(() => setLoadComments(true))
+  }
+
   return (
-    <div className="post-comment-item flex gap-4">
+    <div className="post-comment-item relative flex gap-4">
       <UserIcon contact={contact} />
-      <CommentBody contact={contact} comment={comment} />
-      <ItemOptions
+      <CommentBody
+        contact={contact}
+        comment={comment}
+        handleHoverEnter={handleHoverEnter}
+        handleHoverLeave={handleHoverLeave}
+        handleDeleteClick={handleDeleteClick}
+
         editableItem={editableItem}
         itemHover={itemHover}
         itemId={comment.id}
         showItemMenu={showItemMenu}
         setEditableItem={setEditableItem}
-        setLoadItems={setLoadComments}
+        setLoadComments={setLoadComments}
         setShowItemMenu={setShowItemMenu}
       />
     </div>

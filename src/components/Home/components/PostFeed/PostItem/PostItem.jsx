@@ -50,6 +50,11 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
     setItemHover(false);
   }
 
+  function handleDeleteClick() {
+    //TODO: if on single page, need to redirect back to home page
+    api.post.delete(post.id).then(() => setLoadPosts(true));
+  }
+
   if (!post) {
     return <PulseLoader />;
   }
@@ -74,6 +79,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       />
       <ItemOptions
         editableItem={editableItem}
+        handleDeleteClick={handleDeleteClick}
         itemHover={itemHover}
         itemId={post.id}
         showItemMenu={showItemMenu}
