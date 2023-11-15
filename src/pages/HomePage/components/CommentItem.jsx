@@ -11,7 +11,7 @@ const CommentItem = ({ comment }) => {
 
     useEffect(() => {
         getContact(comment.contactId).then((data) => setCommentUser(data));
-    }, []);
+    }, [comment]);
 
     return (
         <div className="commentItem">
