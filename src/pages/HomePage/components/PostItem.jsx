@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // components
 import UserCycle from "../../../components/UserCycle";
@@ -12,17 +12,23 @@ import InputElement from "../../../components/InputElement";
 const PostItem = ({ user, post, getPosts }) => {
     const [postUser, setPostUser] = useState({});
     const [isEdit, setIsEdit] = useState(false);
-    const [postTitle, setPostTitle] = useState(post.title);
-    const [postContent, setPostContent] = useState(post.content);
+    const [postTitle, setPostTitle] = useState("");
+    const [postContent, setPostContent] = useState("");
+
+    const navigation = useNavigate();
 
     useEffect(() => {
         getContact(post.contactId).then((data) => setPostUser(data));
+        setPostTitle(post.title);
+        setPostContent(post.content);
+        setIsEdit(false);
     }, [post]);
 
     // functions
 
     const submitDelete = () => {
         deletePost(post.id).then(() => getPosts());
+        navigation("/");
     };
 
     const submitChanges = () => {
