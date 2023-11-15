@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AddComment from "./AddComment";
 import Comments from "./Comments";
+import { Link } from "react-router-dom";
 
 function Post({ onePost }) {
   // GET the contact info
@@ -38,6 +39,31 @@ function Post({ onePost }) {
       });
   };
 
+  const handleAddComment = (content) => {
+    if (!content.trim()) return;
+
+    const data = {
+      postId: onePost.id,
+      content,
+      contactId: 1,
+    };
+
+    fetch(
+      `https://boolean-api-server.fly.dev/ps975076/post/${onePost.id}/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setComments([...comments, data]);
+      });
+  };
+
   return (
     <div className="commentContainer">
       <div className="commentSection">
@@ -57,7 +83,7 @@ function Post({ onePost }) {
               </p>
             </div>
             <div className="title">
-              <p>{onePost.title}</p>
+              <Link to={`/${onePost.id}`}>{onePost.title}</Link>
             </div>
           </div>
         </div>
@@ -69,7 +95,7 @@ function Post({ onePost }) {
       <hr />
       <Comments comments={comments} />
 
-      <AddComment postId={onePost.id} />
+      <AddComment handleAddComment={handleAddComment} />
     </div>
   );
 }

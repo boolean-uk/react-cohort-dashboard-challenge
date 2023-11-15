@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 function SideBar() {
+  const goTo = useNavigate();
   return (
     <nav className="sideBar">
-      <div className="homeIconCon">
+      <div className="homeIconCon" onClick={() => goTo("/")}>
         <div className="homeIcon">
           <img src="src/assets/home.svg" alt="home" />
         </div>

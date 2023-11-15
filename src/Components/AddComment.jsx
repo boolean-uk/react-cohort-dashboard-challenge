@@ -1,49 +1,29 @@
 import { useState } from "react";
 
-function AddComment({ postId }) {
+function AddComment({ handleAddComment }) {
   const [content, setContent] = useState("");
 
-  const handleAddComment = () => {
-    const data = {
-      postId,
-      content,
-      contactId: 1,
-    };
-    console.log(data);
-
-    fetch(
-      `https://boolean-api-server.fly.dev/ps975076/post/${postId}/comment`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+  const addComment = () => {
+    handleAddComment(content);
+    setContent("");
   };
+
   return (
     <div className="addAComment">
       <div className="userInitialsComment">
         <p>AW</p>
       </div>
       <div className="commentInput">
-        <form>
-          <input
-            className="inputAComment"
-            placeholder="Add a comment..."
-            type="text"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </form>
+        <input
+          className="inputAComment"
+          placeholder="Add a comment..."
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
       </div>
       <div className="commentButton">
-        <button onClick={handleAddComment}>
+        <button onClick={addComment}>
           <img src="src/assets/send-svgrepo-com.svg" alt="" />
         </button>
       </div>

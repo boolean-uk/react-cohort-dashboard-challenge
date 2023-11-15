@@ -1,13 +1,13 @@
 import NewPost from "./NewPost";
 import Posts from "./Posts";
 
-function MainContent({ posts }) {
+function MainContent({ posts, createPost }) {
   return (
-    <main className="mainContent">
+    <>
       {/* First box in Main */}
-      <NewPost />
+      <NewPost createPost={createPost} />
       <Posts posts={posts} />
-    </main>
+    </>
   );
 }
 

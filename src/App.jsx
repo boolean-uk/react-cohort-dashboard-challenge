@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
 import MainContent from "./Components/MainContent";
+import PostDetail from "./Components/PostDetails";
 import SideBar from "./Components/SideBar";
 
 function App() {
@@ -25,13 +27,45 @@ function App() {
       });
   };
 
+  const createPost = (content) => {
+    if (!content.trim()) return;
+
+    const data = {
+      title: "Default title",
+      content,
+      contactId: 1,
+    };
+    fetch("https://boolean-api-server.fly.dev/ps975076/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts([data, ...posts]);
+      });
+  };
+
   return (
     <div className="container">
-      <Header />
-      <div className="containerTwo">
-        <SideBar />
-        <MainContent posts={posts} />
-      </div>
+      <BrowserRouter>
+        <Header />
+        <div className="containerTwo">
+          <SideBar />
+
+          <main className="mainContent">
+            <Routes>
+              <Route
+                path="/"
+                element={<MainContent posts={posts} createPost={createPost} />}
+              />
+              <Route path="/:id" element={<PostDetail />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
