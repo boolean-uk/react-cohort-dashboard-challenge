@@ -8,7 +8,7 @@ export default function PostListItem({post}) {
 
   const fetchContact = () => {
     fetch(
-      `https://boolean-api-server.fly.dev/yee0802/contact/${post.contactId}`
+      `https://boolean-api-server.fly.dev/PCapid3v/contact/${post.contactId}`
     )
       .then((res) => res.json())
       .then((data) => setContact(data));
