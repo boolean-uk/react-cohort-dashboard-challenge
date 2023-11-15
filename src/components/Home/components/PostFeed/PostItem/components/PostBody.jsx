@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import SubmitButton from "@components/SubmitButton";
 import TextInput from "@components/TextInput";
 
-import api from "@utilities/api";
 import { editPostFormSetup } from "@utilities/formTemplates";
 import { checkFormValidity } from "@utilities/object";
 import { stringProp } from "@utilities/propTypeDefs";
