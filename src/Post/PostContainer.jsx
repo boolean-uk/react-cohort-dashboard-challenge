@@ -8,7 +8,7 @@ export default function PostContainer({post, reloadContacts, reloadPostList, set
         <>
             <section>
                 <AuthorContainer post={post} reloadContacts={reloadContacts}/>
-                <PostText post={post} edit={edit} setEdit={setEdit} setReloadPostList={setReloadPostList} reloadPostList={reloadPostList} />
+                <PostText post={post} edit={edit} setEdit={setEdit} setReloadPostList={setReloadPostList} reloadPostList={reloadPostList}/>
             </section>
         </>
     )

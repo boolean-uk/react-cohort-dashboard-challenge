@@ -16,11 +16,11 @@ export default function PostForm({
   setReloadComments,
   post,
   edit,
+  liRef
 }) {
 
   const [form, setForm] = useState(initialForm);
   const titleExtractedFromPost = form.content.slice(0, 20);
-
   //allows the form to be set to the value of the comment we want to edit
   useEffect(() => {
 
@@ -40,6 +40,8 @@ export default function PostForm({
     setForm(initialForm);
     setReloadPostList(!reloadPostList);
     setReloadComments(!reloadComments);
+    // the line of code below (44) was me trying to find ways to scroll down to the newly edited comment (seems pretty bad UX to have the user manually scroll back down to where they were after having edited something)- it's also why I had a go at trying to use HashLink for a bit. Couldn't seem to make it work - something to figure out later 
+    // liRef.current.scrollIntoview({behavior: 'smooth'})
   };
 
   const handleChange = (e) => {
@@ -66,7 +68,7 @@ export default function PostForm({
           placeholder="Share your thoughts!"
         />
         <button onClick={(e) => handleSubmit(e)}>
-          {edit ? "Edit" : "Post"}
+          {edit && post ? "Edit" : "Post"}
         </button>
       </form>
     </>
