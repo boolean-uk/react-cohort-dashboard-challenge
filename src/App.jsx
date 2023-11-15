@@ -5,7 +5,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import SelectedPostPage from "./Dashboard/Dashboard_components/SelectedPostPage";
-import { useState,  useEffect } from "react";
+import { useState } from "react";
 
 
 function App() {
