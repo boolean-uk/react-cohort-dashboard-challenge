@@ -1,6 +1,6 @@
-import UserName from "../Low-level_components/UserName";
-import deleteData from "../../js_functions/delete";
-import CommentForm from "./commentForm";
+import UserName from "../../Low-level_components/UserName";
+import deleteData from "../../../js_functions/delete";
+import CommentForm from "./CommentForm";
 
 export default function Comment({
   edit,

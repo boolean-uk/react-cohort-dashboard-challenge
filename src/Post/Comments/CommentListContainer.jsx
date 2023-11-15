@@ -1,6 +1,6 @@
 import CommentContainer from "./CommentContainer";
 import { useState, useEffect } from "react";
-import getData from "../../js_functions/get";
+import getData from "../../../js_functions/get";
 
 export default function CommentListContainer({
   postId,

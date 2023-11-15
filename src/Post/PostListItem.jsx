@@ -1,7 +1,7 @@
 import PostContainer from "./PostContainer";
 import { useState } from "react";
-import CommentListContainer from "./CommentListContainer";
-import AddCommentContainer from "./AddCommentContainer";
+import CommentListContainer from "./Comments/CommentListContainer";
+import AddCommentContainer from "./Comments/AddCommentContainer";
 import deleteData from "../../js_functions/delete";
 
 export default function PostListItem({

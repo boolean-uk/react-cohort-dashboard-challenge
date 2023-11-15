@@ -1,4 +1,4 @@
-import UserInitials from "../Low-level_components/UserInitials";
+import UserInitials from "../../Low-level_components/UserInitials";
 import Comment from "./Comment";
 import { useState } from "react";
 export default function CommentContainer({

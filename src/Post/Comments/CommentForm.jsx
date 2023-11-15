@@ -1,7 +1,7 @@
 import { useState } from "react"
-import postData from "../../js_functions/post"
+import postData from "../../../js_functions/post"
 import { useEffect } from "react"
-import putData from "../../js_functions/put"
+import putData from "../../../js_functions/put"
 const initialForm = {
   title: "",
   postId: undefined,
