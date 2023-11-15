@@ -1,21 +1,75 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:#F0F5FA;
+/* Global Styles */
+body {
+  background-color: #f0f5fa;
+  font-family: Arial, sans-serif; /* Adjust font-family as needed */
+  color: #000046;
 }
 
-.grid-container {
+/* Header Styles */
+header {
+  background-color: #000046;
+  color: #ffffff; 
   display: grid;
-  grid-template-areas: 
-  "Header Header"
-  "Nav Main";
-grid-template-rows: 67px 1fr;
-grid-template-columns: 137px 1fr;
-height: 100%;
+  grid-template-columns: 300px 400px 100px;
 }
 
-.header-section{
-background-color:#000046;
+.logo {
+  grid-column: 1;
+}
+
+.title{
+  grid-column: 2;
+}
+
+.profile {
+  grid-column: 3; 
+}
+
+/* Nav Styles */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+nav a {
+  margin: 0 10px; /* Adjust spacing as needed */
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="email"] {
+  background-color: #e6ebf5;
+  border: 1px solid #000046;
+  padding: 8px; /* Adjust padding as needed */
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: none;
+}
+
+button {
+  background-color: #000046;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px; /* Adjust padding as needed */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Button hover transition */
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+/* Post Styles */
+.posts div {
+  background-color: #e6ebf5;
+  margin-bottom: 20px; /* Adjust spacing as needed */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.posts div p {
+  color: #64648c;
 }
