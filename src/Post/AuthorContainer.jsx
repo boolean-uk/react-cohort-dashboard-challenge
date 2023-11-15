@@ -6,6 +6,7 @@ import PostTitle from "./PostTitle.jsx"
 
 export default function AuthorContainer({post, reloadContacts, reloadPostList}) {
     reloadPostList
+
     return(
         <>
             <div>

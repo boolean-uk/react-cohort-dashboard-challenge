@@ -1,9 +1,15 @@
 import PostContainer from "./PostContainer"
 import CommentListContainer from "./CommentListContainer"
 import AddCommentContainer from "./AddCommentContainer"
+import deleteData from "../../js_functions/delete"
 
 export default function PostListItem({post, setReloadPostList, reloadPostList, mockLoggedInUserId, reloadComments, setReloadComments, reloadContacts}) {
     reloadPostList
+
+    const deletePost = () => {
+        deleteData(`post/${post.id}`)
+        setReloadPostList(!reloadPostList)  
+    }
     return(
         <>
             <li className="post-list-element">
@@ -16,6 +22,8 @@ export default function PostListItem({post, setReloadPostList, reloadPostList, m
                     mockLoggedInUserId={mockLoggedInUserId} 
                     setReloadComments={setReloadComments}
                     reloadComments={reloadComments}/>   
+                <button onClick={deletePost}>Delete</button>
+    
             </li>
         </>
     )

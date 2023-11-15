@@ -92,6 +92,7 @@ textarea {
 button {
     background-color: #000046;
     color:  #F0F5FA;
+    margin: 2px;
 }
 
 button:hover {

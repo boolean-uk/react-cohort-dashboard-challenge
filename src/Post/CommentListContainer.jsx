@@ -15,6 +15,8 @@ export default function CommentListContainer({
     setDisplayAllComments(!displayAllComments);
   };
 
+  console.log(commentList)
+
   useEffect(() => {
     getData(`post/${postId}/comment`, setCommentList);
     setReloadComments(false);
@@ -31,9 +33,9 @@ export default function CommentListContainer({
           <ul>
             {(displayAllComments && commentList) ||
             (commentList && !commentList[3])
-              ? commentList.map((comment, index) => (
+              ? commentList.map((comment) => (
                   <CommentContainer
-                    key={index}
+                    key={comment.id}
                     postId={postId}
                     comment={comment}
                     reloadContacts={reloadContacts}
@@ -44,7 +46,7 @@ export default function CommentListContainer({
               : commentList && (
                   <>
                     <CommentContainer
-                      key={2}
+                      key={commentList.toReversed()[2].id}
                       comment={commentList.toReversed()[2]}
                       setReloadComments={setReloadComments}
                       reloadComments={reloadComments}
@@ -52,7 +54,7 @@ export default function CommentListContainer({
                       postId={postId}
                     />
                     <CommentContainer
-                      key={1}
+                      key={commentList.toReversed()[1].id}
                       comment={commentList.toReversed()[1]}
                       setReloadComments={setReloadComments}
                       reloadComments={reloadComments}
@@ -60,7 +62,7 @@ export default function CommentListContainer({
                       postId={postId}
                     />
                     <CommentContainer
-                      key={0}
+                      key={commentList.toReversed()[0].id}
                       comment={commentList.toReversed()[0]}
                       setReloadComments={setReloadComments}
                       reloadComments={reloadComments}

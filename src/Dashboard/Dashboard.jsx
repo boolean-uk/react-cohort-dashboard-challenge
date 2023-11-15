@@ -10,7 +10,7 @@ export default function Dashboard({mockLoggedInUserId, setReloadPostList, reload
     getData("post", setPostList, setReloadPostList )
     setReloadPostList(false)
   }, [reloadPostList]);
-  console.log("upon Submit", postList)
+
   return (
     <>
       {!reloadPostList && postList ? (

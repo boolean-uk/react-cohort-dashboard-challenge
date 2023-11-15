@@ -1,7 +1,6 @@
 import { useState } from "react";
 import postData from "../../../../js_functions/post"
 
-
 const initialForm = {
   title: "",
   content: "", 
@@ -10,7 +9,7 @@ const initialForm = {
 
 export default function AddPostForm({setReloadPostList, reloadPostList, reloadComments, setReloadComments}) {
   const [form, setForm] = useState(initialForm)
-  reloadPostList
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.title) {
@@ -19,7 +18,7 @@ export default function AddPostForm({setReloadPostList, reloadPostList, reloadCo
     postData("post", form)
     setForm(initialForm)
     setReloadPostList(!reloadPostList)
-    setReloadComments(true)
+    setReloadComments(!reloadComments)
   }
 
   const handleChange = (e) => { 

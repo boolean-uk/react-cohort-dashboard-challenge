@@ -8,7 +8,7 @@ export default function PostList({ postList, reloadPostList, setReloadPostList, 
         <ul>
           {postList.toReversed().map((post, index) => (
             <PostListItem 
-              key={index} 
+              key={post.id} 
               post={post} 
               setReloadPostList={setReloadPostList} 
               reloadPostList={reloadPostList} 

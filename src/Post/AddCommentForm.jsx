@@ -1,5 +1,6 @@
 import { useState } from "react"
 import postData from "../../js_functions/post"
+
 const initialForm = {
   title: "",
   postId: undefined,
@@ -13,6 +14,7 @@ export default function AddCommentForm({setReloadComments, post}) {
   const handleSubmit = (e) => {
     e.preventDefault()
     postData(`post/${post.id}/comment/`, form)
+    console.log(form.contactId)
     setForm(initialForm)
     setReloadComments(true)
   }
