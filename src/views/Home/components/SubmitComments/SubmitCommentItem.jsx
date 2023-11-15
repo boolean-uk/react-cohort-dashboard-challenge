@@ -22,7 +22,7 @@ export default function SubmitCommentItem({ comment, API_BASE_URL }) {
 
   return (
     <li className="comment__item">
-      <ProfileIcon contact={commentAuthor} />
+      <ProfileIcon contactPerson={commentAuthor} />
       <div className="comment__content">
         <h4>
           {`${commentAuthor?.firstName || "Loading..."} ${
