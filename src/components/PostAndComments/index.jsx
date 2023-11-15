@@ -36,7 +36,7 @@ import '../../styles/post-and-comments.css'
             <div className="post-and-comments-container">
                 <SinglePostContent post={showPost} URL={URL} initials={initials} author={author} setShouldGetPosts={setShouldGetPosts} />
                 <SinglePostCommentContent post={showPost} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
-                </div>
+            </div>
         </section>
     )
 }

@@ -20,6 +20,9 @@ function PostComments({ comment, URL }) {
             <li className="single-comment grid">
                 <UserProfileCircle author={commentAuthor} initials={commentInitials} />
                 <CommentNameText comment={comment} commentAuthor={commentAuthor} />
+                {/* <div className="delete-comment-container">
+                    <button className="delete-comment-btn">Delete comment</button>
+                </div> */}
             </li>
     )
 }

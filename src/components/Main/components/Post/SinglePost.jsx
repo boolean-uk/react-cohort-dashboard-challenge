@@ -22,7 +22,7 @@ function SinglePost({ post, URL, loggedInUser, loggedInUserInitials, setShouldGe
     return (
         <section className="single-post-container">
             <li className="single-post grid">
-            <PostContent post={post} URL={URL} author={author} initials={initials} setShouldGetPosts={setShouldGetPosts} />
+                <PostContent post={post} URL={URL} author={author} initials={initials} setShouldGetPosts={setShouldGetPosts} />
                 <CommentContent post={post} URL={URL} loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
             </li>
         </section>

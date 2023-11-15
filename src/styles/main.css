@@ -185,11 +185,17 @@
     align-items: center;
 }
 
-.comment-name-text {
+.comment-name-text-container {
+    grid-template-columns: 1fr 120px;
+    gap: 10px;
     background-color: #e6ebf5;
     border-radius: 10px;
-    padding: 10px 10px 30px 10px;
+    padding: 10px;
     margin-left: 10px;
+}
+
+.comment-name-text {
+    padding-bottom: 20px;
 }
 
 .comment-author-name {
@@ -204,6 +210,20 @@
     margin: 0;
 }
 
+.delete-comment-container {
+    background-color: #e6ebf5;
+}
+
+.delete-comment-btn {
+    align-self: center;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px blue, 2px 2px 5px green;
+    background-color: firebrick;
+    cursor: pointer;
+}
 
 /* ADD NEW COMMENT */
 .add-new-comment-container {
