@@ -6,8 +6,10 @@ import UserIcon from "@components/UserIcon";
 
 import api from "@utilities/api";
 import { commentProps } from "@utilities/propTypeDefs";
+import { editCommentInitialForm, editCommentFormSetup } from "@utilities/formTemplates";
 
 import "./Comment.css";
+import EditItemForm from "@components/ItemOptions/EditItemForm";
 
 export default function Comment({ comment, setLoadComments }) {
   const [contact, setContact] = useState(null);
@@ -17,15 +19,22 @@ export default function Comment({ comment, setLoadComments }) {
 
   const [editableItem, setEditableItem] = useState(false);
 
+  const [formData, setFormData] = useState(editCommentInitialForm);
+  const [submitted, setSubmitted] = useState(null);
+
   const { contactId } = comment;
 
   useEffect(() => {
     async function getContact() {
       const fetch = await api.contact.get(contactId);
-      setContact(await fetch);
+      setContact(fetch);
     }
     getContact();
   }, [contactId]);
+
+  useEffect(() => {
+    setFormData({...formData, ...comment})
+  },[comment])
 
   function handleHoverEnter() {
     setItemHover(true);
@@ -33,6 +42,10 @@ export default function Comment({ comment, setLoadComments }) {
 
   function handleHoverLeave() {
     setItemHover(false);
+  }
+
+  function putRequest(payload) {
+    return api.post.comment.put(payload.postId, payload.id, payload);
   }
 
   function handleDeleteClick() {
@@ -47,21 +60,37 @@ export default function Comment({ comment, setLoadComments }) {
         showItemMenu && "z-10"
       }`}
     >
-      <UserIcon contact={contact} />
-      <CommentBody
-        contact={contact}
-        comment={comment}
-        handleHoverEnter={handleHoverEnter}
-        handleHoverLeave={handleHoverLeave}
-        handleDeleteClick={handleDeleteClick}
-        editableItem={editableItem}
-        itemHover={itemHover}
-        itemId={comment.id}
-        showItemMenu={showItemMenu}
-        setEditableItem={setEditableItem}
-        setLoadComments={setLoadComments}
-        setShowItemMenu={setShowItemMenu}
-      />
+      {editableItem ? (
+        <EditItemForm
+          formSetup={editCommentFormSetup}
+          formData={formData}
+          putRequest={putRequest}
+          setEditableItem={setEditableItem}
+          setFormData={setFormData}
+          setLoadItem={setLoadComments}
+          setShowItemMenu={setShowItemMenu}
+          setSubmitted={setSubmitted}
+          submitted={submitted}
+        />
+      ) : (
+        <>
+          <UserIcon contact={contact} />
+          <CommentBody
+            contact={contact}
+            comment={comment}
+            handleHoverEnter={handleHoverEnter}
+            handleHoverLeave={handleHoverLeave}
+            handleDeleteClick={handleDeleteClick}
+            editableItem={editableItem}
+            itemHover={itemHover}
+            itemId={comment.id}
+            showItemMenu={showItemMenu}
+            setEditableItem={setEditableItem}
+            setLoadComments={setLoadComments}
+            setShowItemMenu={setShowItemMenu}
+          />
+        </>
+      )}
     </div>
   );
 }

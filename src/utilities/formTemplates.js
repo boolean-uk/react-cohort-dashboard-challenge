@@ -133,6 +133,11 @@ const newCommentFormSetup = [
 
 const newCommentInitialForm = reduceForm(newCommentFormSetup);
 
+const editCommentFormSetup = structuredClone(newCommentFormSetup);
+editCommentFormSetup[0].placeholderText = "Edit Comment";
+
+const editCommentInitialForm = reduceForm(editCommentFormSetup);
+
 const newPostFormSetup = [
   {
     inputName: "content",
@@ -158,6 +163,8 @@ editPostFormSetup[1].placeholderText = "Edit Title";
 const editPostInitialForm = reduceForm(editPostFormSetup);
 
 export {
+  editCommentFormSetup,
+  editCommentInitialForm,
   editPostFormSetup,
   editPostInitialForm,
   newCommentFormSetup,

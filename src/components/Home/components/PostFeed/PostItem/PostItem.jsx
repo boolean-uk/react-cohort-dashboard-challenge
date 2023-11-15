@@ -62,6 +62,10 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
     setItemHover(false);
   }
 
+  function putRequest(payload) {
+    return api.post.put(payload.id, payload); // doesn't work in single post view oops
+  }
+
   function handleDeleteClick() {
     //TODO: if on single page, need to redirect back to home page
     api.post.delete(post.id).then(() => setLoadPosts(true));
@@ -81,6 +85,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
         <EditItemForm
           formSetup={editPostFormSetup}
           formData={formData}
+          putRequest={putRequest}
           setEditableItem={setEditableItem}
           setFormData={setFormData}
           setLoadItem={setLoadPosts}

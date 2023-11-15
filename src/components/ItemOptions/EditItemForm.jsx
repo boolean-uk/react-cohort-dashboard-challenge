@@ -8,6 +8,7 @@ import api from "@utilities/api";
 export default function EditItemForm({
   formSetup,
   formData,
+  putRequest,
   setEditableItem,
   setFormData,
   setLoadItem,
@@ -15,20 +16,17 @@ export default function EditItemForm({
   setSubmitted,
   submitted,
 }) {
-  const [validInput, setValidInput] = useState(true)
-  // console.log("formSetup", formSetup);
-  // console.log("formData", formData);
+  const [validInput, setValidInput] = useState(true);
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (validInput) {
-      const payload = {...formData}
-      api.post.put(payload.id, payload).then(() => setLoadItem(true)) // doesn't work in single post view oops
-
-      setSubmitted(true)
-      setEditableItem(false)
-      setShowItemMenu(false)
+      const payload = { ...formData };
+      putRequest(payload).then(() => setLoadItem(true));
+      setSubmitted(true);
+      setEditableItem(false);
+      setShowItemMenu(false);
     }
   }
 
