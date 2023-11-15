@@ -1,0 +1,118 @@
+.profilePage {
+    padding: 25px;
+}
+
+.profilePage__title {
+    font-size: 35px;
+    color: #000046;
+    margin: 10px 0 25px 15px;
+}
+
+.profilePage__content {
+    width: 100%;
+    height: auto;
+    padding: 25px 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePage__user {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profilePage__user a {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.profilePage__user a span {
+    font-size: 25px;
+}
+
+.profilePage__user-name {
+    font-size: 25px;
+    color: #000046;
+    font-weight: bold;
+}
+
+.profilePage__user-button {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: 1px solid #000046;
+    border-radius: 5px;
+    padding: 10px 25px;
+    color: #000046;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all .1s ease-in;
+}
+
+.profilePage__user-button:hover {
+    color: #fff;
+    background-color: #000046;
+}
+
+.profilePage__info {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 20px;
+}
+
+.profilePage__block {
+    border-top: 1px solid #e6ebf5;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePage__block-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.profilePage__block-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePage__block-item:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.profilePage__block-item span {
+    color: #000046;
+    opacity: 0.6;
+    font-weight: bolder;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.profilePage__block-item p {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(230, 235, 245, 0.3);
+    border-radius: 8px;
+    font-size: 18px;
+    color: #000046;
+    text-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.profilePage__block-item input {
+    padding: 10px 15px;
+}
