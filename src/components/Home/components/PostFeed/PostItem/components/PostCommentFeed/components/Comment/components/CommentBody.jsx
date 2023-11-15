@@ -38,6 +38,7 @@ export default function CommentBody({
     >
       <UserName contact={contact} />
       <CommentContent content={content} />
+      {/* TODO: Menu disappears when edit is clicked, not very optimal but it *technically* meets extension criteria I think? */}
       <ItemOptions
         editableItem={editableItem}
         handleDeleteClick={handleDeleteClick}
