@@ -1,12 +1,11 @@
 import '../../styles/profile.css'
+import ProfileForm from './components/ProfileForm'
 
 function Profile() {
 
     return (
         <section className='profile'>
-            <div>
-                <h2>Profile page placeholder</h2>
-            </div>
+            <ProfileForm></ProfileForm>
         </section>
     )
 }

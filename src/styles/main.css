@@ -225,6 +225,14 @@
     cursor: pointer;
 }
 
+.delete-comment-btn:hover {
+    background-color: lightcoral;
+    color: midnightblue;
+    text-shadow: none;
+    transform: scale(1.1);
+    font-size: 14px;
+}
+
 /* ADD NEW COMMENT */
 .add-new-comment-container {
     grid-template-columns: 60px 1fr;
