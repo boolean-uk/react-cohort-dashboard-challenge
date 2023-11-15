@@ -1,12 +1,12 @@
 import api from "@utilities/api";
 import { boolProps, funcProp, numberProp } from "@utilities/propTypeDefs";
 
-export default function PostItemOptions({
+export default function ItemOptions({
   editablePost,
   itemHover,
   postId,
   showItemMenu,
-  setEditablePost,
+  setEditableItem,
   setLoadPosts,
   setShowItemMenu,
 }) {
@@ -15,7 +15,7 @@ export default function PostItemOptions({
   }
 
   function handleEditClick() {
-    setEditablePost(!editablePost)
+    setEditableItem(!editablePost);
   }
 
   function handleDeleteClick() {
@@ -61,12 +61,12 @@ export default function PostItemOptions({
   );
 }
 
-PostItemOptions.propTypes = {
+ItemOptions.propTypes = {
   editablePost: boolProps,
   itemHover: boolProps,
   postId: numberProp,
   showItemMenu: boolProps,
-  setEditablePost: funcProp,
+  setEditableItem: funcProp,
   setLoadPosts: funcProp,
   setShowItemMenu: funcProp,
 };

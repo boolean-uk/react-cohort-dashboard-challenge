@@ -5,8 +5,8 @@ import NewComment from "./components/NewComment/NewComment";
 import PostBody from "./components/PostBody";
 import PostCommentFeed from "./components/PostCommentFeed/PostCommentFeed";
 import PostHeader from "./components/PostHeader/PostHeader";
-import PostItemOptions from "./components/PostItemOptions/PostItemOptions";
 
+import ItemOptions from "@components/ItemOptions/ItemOptions";
 import PulseLoader from "@components/Loader/PulseLoader";
 
 import api from "@utilities/api";
@@ -21,7 +21,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
   const [itemHover, setItemHover] = useState(false);
   const [showItemMenu, setShowItemMenu] = useState(false);
 
-  const [editablePost, setEditablePost] = useState(false)
+  const [editableItem, setEditableItem] = useState(false)
 
   const { postIdParam } = useParams();
 
@@ -60,7 +60,7 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
       onMouseLeave={handleHoverLeave}
       className="post-item app-card relative flex flex-col gap-4"
     >
-      <PostHeader post={post} editablePost={editablePost}/>
+      <PostHeader post={post} editableItem={editableItem}/>
       <PostBody content={post.content} />
       <PostCommentFeed
         loadComments={loadComments}
@@ -72,12 +72,12 @@ export default function PostItem({ postProp, setLoadPosts, user }) {
         postId={post.id}
         setLoadComments={setLoadComments}
       />
-      <PostItemOptions
-        editablePost={editablePost}
+      <ItemOptions
+        editableItem={editableItem}
         itemHover={itemHover}
         postId={post.id}
         showItemMenu={showItemMenu}
-        setEditablePost={setEditablePost}
+        setEditableItem={setEditableItem}
         setLoadPosts={setLoadPosts}
         setShowItemMenu={setShowItemMenu}
       />
