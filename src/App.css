@@ -18,6 +18,10 @@ a{
   color: black;
 }
 
+span {
+  color:#64648c
+}
+
 .profile-form {
   grid-area: main;
   padding: 15px;

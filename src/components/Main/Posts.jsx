@@ -12,6 +12,8 @@ export default function PostList() {
 
   useEffect(fetchData, []);
 
+ 
+
   return (
     <div className="post-list-container">
       <ul className="post-list">

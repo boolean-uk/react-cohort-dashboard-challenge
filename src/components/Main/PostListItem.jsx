@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileIcon from "../../components/Header/ProfileIcon";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function PostListItem({post}) {
@@ -8,7 +9,7 @@ export default function PostListItem({post}) {
 
   const fetchContact = () => {
     fetch(
-      `https://boolean-api-server.fly.dev/PCapid3v/contact/${post.contactId}`
+      `https://boolean-api-server.fly.dev/PCapid3v/contact/${post.id}`
     )
       .then((res) => res.json())
       .then((data) => setContact(data));
@@ -26,6 +27,9 @@ export default function PostListItem({post}) {
               <h3>{`${contact.firstName} ${contact.lastName}`}</h3>
             </div>
           </div>
+        </div>
+        <div className="post-content">
+          <Link to={`/posts/${post.id}`}><span>{post.title}</span></Link>
         </div>
         <div className="post-content">
           <p>{post.content}</p>
