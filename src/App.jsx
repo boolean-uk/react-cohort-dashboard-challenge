@@ -24,8 +24,12 @@ function App() {
         getAllPosts().then((data) => setPosts(data.reverse()));
     };
 
-    useEffect(() => {
+    const getMainContact = () => {
         getContact(1).then((data) => setUser(data));
+    };
+
+    useEffect(() => {
+        getMainContact();
         getPosts();
     }, []);
 
@@ -48,7 +52,12 @@ function App() {
                 />
                 <Route
                     path="/profile/:id"
-                    element={<ProfilePage setPage={setPage} />}
+                    element={
+                        <ProfilePage
+                            setPage={setPage}
+                            getMainContact={getMainContact}
+                        />
+                    }
                 />
                 <Route
                     path="/post/:id"

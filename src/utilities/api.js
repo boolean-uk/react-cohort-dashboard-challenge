@@ -17,6 +17,18 @@ export async function getContact(contactId) {
     }
 }
 
+export async function changeContactData(contactId, contactData) {
+    try {
+        const response = await INSTANCE.put(
+            `/contact/${contactId}`,
+            contactData
+        );
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 // POSTS
 
 export async function getAllPosts() {
