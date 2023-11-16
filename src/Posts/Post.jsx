@@ -17,14 +17,16 @@ function Post() {
   }, []);
 
   return (
-    <div className="allposts">
+  <>
+     <div className="allposts">
       {allPosts.map((post) => (
         <div key={post.id}>
           <h3>
-            <ContactId post={post} />
+            <ContactId post={post}  />
           </h3>
           <p>{post.title}</p>
-          <p>{post.content}</p>
+        
+          <p>{post.content} </p>
           <h4>
             <Comments post={post} />
           </h4>
@@ -32,6 +34,10 @@ function Post() {
         </div>
       ))}
     </div>
+  </>
+   
+   
+  
   );
 }
 

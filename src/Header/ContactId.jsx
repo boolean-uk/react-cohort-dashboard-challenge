@@ -2,8 +2,6 @@ import { useState, useEffect } from "react"
 
 
 
-
-
 function ContactId({ post }) {
 
     const [contact, setContact] = useState({})
@@ -25,8 +23,8 @@ const initials = contact.firstName?.charAt(0) + contact.lastName?.charAt(0)
 
     return(
        <div>
-        <h3>{initials}</h3>
-        <p> {contact.firstName + " " + contact.lastName}</p>
+     
+        <p> <span>{initials}</span> {contact.firstName + " " + contact.lastName}</p>
 
        </div>
     )

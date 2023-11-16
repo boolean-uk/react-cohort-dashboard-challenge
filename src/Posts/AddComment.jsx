@@ -1,7 +1,9 @@
+
+
 function AddComment() {
   return (
     <div>
-      <input type="text" placeholder="add comment" />
+      <input type="text" placeholder="add comment" /> <button>POST COMMENT</button>
     </div>
   );
 }

@@ -1,3 +1,6 @@
+import MakePost from "./MakePost";
+
+
 function InputAndButton() {
   return (
     <div>

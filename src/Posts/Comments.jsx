@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import ContactId from "../Header/ContactId";
 
-function Comments({ post }) {
+function Comments({ post, }) {
   const [comments, setComments] = useState([]);
+  const [newComments, setNewComments] = useState({})
+  
+ 
 
-  const comment = post.id;
-  const URL3 = `https://boolean-api-server.fly.dev/LAVINIABENZAR/POST/${comment}/COMMENT`;
+  const getComment = post.id;
+  const URL3 = `https://boolean-api-server.fly.dev/LAVINIABENZAR/POST/${getComment}/COMMENT`;
 
   useEffect(() => {
     fetch(URL3)
@@ -12,7 +16,34 @@ function Comments({ post }) {
       .then((data) => setComments(data));
   }, []);
 
-  console.log(comments)
+  const handleSubmit = (event, postId) => {
+    event.preventDefault();
+    const newCommentValue = commentInputs[postId];
+
+    fetch(`https://boolean-api-server.fly.dev/LAVINIABENZAR/post/${postId}/comment`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        title: "",
+        postId: postId,
+        contactId: 16,
+        content: newCommentValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        setNewComments(prevComments => ({
+          ...prevComments,
+          [postId]: [...(prevComments[postId] || []), data],
+        }));
+        setNewComments(prevInputs => ({
+          ...prevInputs,
+          [postId]: "", // Clear the input after submission
+        }));
+      })
+      .catch(error => console.error("Error commenting on post:", error));
+  };
+ 
 
 
 
@@ -22,7 +53,7 @@ function Comments({ post }) {
         return (
           <div className='comments' key={comment.id}>
             <div className='commentInitials'>
-              <p>{comment.name}</p>
+
             </div>
             <div className='commentBox'>
               <p>{comment.content}</p>
