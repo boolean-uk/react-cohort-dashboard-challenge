@@ -1,0 +1,23 @@
+header {
+    background-color: #000046;
+    padding: 10px;
+    z-index: 1;
+}
+
+.header-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.header-logo {
+    margin-left: 40px;
+}
+
+.header-profile-icon {
+    margin-right: 60px;
+    color: black;
+    padding: 20px;
+    border-radius: 50px;
+}

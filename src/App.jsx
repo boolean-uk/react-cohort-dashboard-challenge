@@ -1,34 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+import Header from './components/Header/Header'
+import Posts from './components/MainPage/CreateAPost/PostSection/Posts'
+import RenderSinglePost from './components/MainPage/CreateAPost/PostSection/RenderSinglePost'
+import CreatePost from './components/MainPage/CreateAPost/CreateAPost'
+import Navbar from './components/Navbar/Navbar'
 import './App.css'
+import { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [contact , setContact] = useState({})
+
+  const [posts, setPosts] = useState([])
+  const contactId = posts.contactId
+
+  const userName = "TomEastwood"
+  const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
+  const endpointForContacts = "/contact"
+  const endpointForPosts = "/post"
+
+  useEffect(() => {
+    fetch(baseUrl + endpointForContacts)
+        .then(res => res.json())
+        .then(data => setContact(data))
+  } , [])
+
+  useEffect(() => {
+    fetch(baseUrl + endpointForPosts)
+        .then(res => res.json())
+        .then(data => setPosts(data))
+  } , [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <section className = "app">
+      <div className = "header">
+        <Header 
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className = "main-section">
+        <aside className = "side-bar">
+          <Navbar 
+          />
+        </aside>
+        <Routes>
+        <Route path="/home"
+          element={
+            <>
+            <div className="create-a-post">
+              <CreatePost
+                contact={contact}
+                posts={posts}
+                setPosts={setPosts}
+              />
+            </div>
+            <div className = "posts-container">
+              <Posts 
+                contact={contact}
+                posts={posts}
+                contactId={contactId}
+              />
+            </div>
+            </>
+          }/>
+          <Route path="/post/:id"
+            element={
+            <div className = "single-post">
+              <RenderSinglePost 
+                contact={contact}
+                posts={posts}
+              />
+            </div>
+            }/>
+        </Routes>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </section>
   )
 }
 

@@ -1,0 +1,14 @@
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.icon:hover{
+    background-color: #e6ebf5;
+    transition: 0.5s;
+}
+
