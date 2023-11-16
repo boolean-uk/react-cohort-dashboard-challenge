@@ -8,6 +8,8 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 import Post from "./subcomponents/post";
 
 export default function Content({user, posts, setPosts, contacts, setContacts}) {
+
+
   useEffect(() => {
     get(contApi).then((data) => setContacts(data));
 
@@ -15,7 +17,7 @@ export default function Content({user, posts, setPosts, contacts, setContacts}) 
   }, []);
 
   if (!posts.length || !contacts.length) {
-    return <p>a</p>;
+    return <p>LOADING</p>;
   }
   const reversedPosts = posts.toReversed();
 
@@ -26,7 +28,8 @@ export default function Content({user, posts, setPosts, contacts, setContacts}) 
         <div className="post-container">
           {reversedPosts.map((post) => { 
             const userInfo = contacts.find(cont => cont.id === post.contactId)
-            return <Post post={post} userInfo={userInfo} key={post.id} />;
+
+            return <Post postInfo={post} userInfo={userInfo} contacts={contacts} key={post.id} />;
           })}
         </div>
       </main>

@@ -8,7 +8,6 @@ import Content from "./components/content/content";
 import Post from "./components/content/subcomponents/post";
 import { get } from "./components/controller"
 
-const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
 
