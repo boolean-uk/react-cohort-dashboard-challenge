@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="container grid">
-        <Header loggedInUserInitials={loggedInUserInitials} />
+        <Header loggedInUser={loggedInUser} loggedInUserInitials={loggedInUserInitials} />
         <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} loggedInUser={loggedInUser} />      
         <Routes>
             <Route

@@ -22,28 +22,28 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
     })
 
     const accountInfo = [
-        {desc: "firstName", title: "First Name*"},
-        {desc: "lastName", title: "Last Name*"},
-        {desc: "username", title: "Username*"},
-        {desc: "email", title: "Email*"}
+        {desc: "firstName", title: "First Name*", required: true},
+        {desc: "lastName", title: "Last Name*", required: true},
+        {desc: "username", title: "Username*", required: true},
+        {desc: "email", title: "Email*", required: true}
     ]
 
     const addressInfo = [
-        {desc: "street", title: "Street"},
-        {desc: "suite", title: "Suite"},
-        {desc: "city", title: "City"},
-        {desc: "zipcode", title: "Zipcode"}
+        {desc: "street", title: "Street", required: false},
+        {desc: "suite", title: "Suite", required: false},
+        {desc: "city", title: "City", required: false},
+        {desc: "zipcode", title: "Zipcode", required: false}
     ]
 
     const contactInfo = [
-        {desc: "phone", title: "Phone*"},
-        {desc: "website", title: "Website"}
+        {desc: "phone", title: "Phone*", required: true},
+        {desc: "website", title: "Website", required: false}
     ]
 
     const companyInfo = [
-        {desc: "companyName", title: "Name"},
-        {desc: "catchPhrase", title: "Catch Phrase"},
-        {desc: "businessStatement", title: "Business Statement"}
+        {desc: "companyName", title: "Name", required: false},
+        {desc: "catchPhrase", title: "Catch Phrase", required: false},
+        {desc: "businessStatement", title: "Business Statement", required: false}
     ]
 
     function handleChange(e) {
@@ -82,6 +82,7 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
                             name={option.desc}
                             value={userData.input}
                             onChange={e => handleChange(e)}
+                            required={option.required}
                         />
                     </label>
                 )}  
@@ -97,6 +98,7 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
                             name={option.desc}
                             value={userData.input}
                             onChange={e => handleChange(e)}
+                            required={option.required}
                         />
                     </label>
                 )}  
@@ -112,6 +114,7 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
                             name={option.desc}
                             value={userData.input}
                             onChange={e => handleChange(e)}
+                            required={option.required}
                         />
                     </label>
                 )}
@@ -127,6 +130,7 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
                             name={option.desc}
                             value={userData.input}
                             onChange={e => handleChange(e)}
+                            required={option.required}
                         />
                     </label>
                 )}
