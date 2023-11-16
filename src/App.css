@@ -1,0 +1,147 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #F0F5FA;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+ width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows:  90px 1fr;
+  grid-template-columns: 105px 1fr;
+  grid-template-areas:
+    "header header"
+    "aside main"; 
+   
+}
+
+header {
+  grid-area: header;
+  width: 100%;
+  background-color:#000046;
+  color:white;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 20px  40px;
+}
+
+.headerLogo{
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.headerProfile{
+  
+  padding: 8px;
+  text-align: center;   
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 55px;
+
+}
+
+/* aside or navigation*/
+
+ul >li {
+  text-align: center;
+  padding: 10px 0;
+  list-style-type: none;
+}
+li:hover{
+  /*background-color:  #e6ebf5;*/
+background-color :  rgb(238, 235, 235);
+}
+
+aside {
+  grid-area: aside;
+  background-color:lightblue;
+
+}
+
+/*  main */
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: 120px 1fr;
+ /* background-color: lightgray;*/
+background-color:lightblue;
+ margin: 13px;
+}
+
+
+.mainContainer-1{
+  display: grid;
+  grid-template-columns: 80px 1fr 150px;
+  margin: 20px 0px 20px 0;
+ justify-items: center;
+  border-bottom: 10px solid white;
+}
+.mainProfileicon{
+  background-color:#000046;
+  color:white;
+  padding: 8px;
+  text-align: center;   
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 55px;
+  margin: 0px 0px 0px 20px;
+}
+
+.inputField > input{
+  padding:10px 20px;
+  width: 1100px;
+  font-size: 20px;
+  outline-color: #121276;
+ margin-bottom: 20px;
+}
+
+button{
+  width: 120px;
+  padding: 10px ;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #000046;
+  color: #F0F5FA;
+  
+}
+
+.mainContainer-2{
+  display: grid;
+  grid-template-rows: 70px 70px 0 100px;
+
+  padding: 5px;
+}
+.profile-and-sub{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+
+}
+.subject > p,h3{
+  font-size: 20px;
+}
+.para{
+  font-size: 20px;
+  padding: 0 60px 0px 30px;
+  
+}
+hr{
+  margin: 0 60px;
+ border: 1px solid #000046;
+}
+.comment{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding: 20px 0 ;
+  border-bottom: 10px solid white;
+}
