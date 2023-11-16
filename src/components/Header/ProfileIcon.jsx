@@ -1,11 +1,46 @@
 import { useState, useEffect } from "react";
 
+// Function to generate a random hexadecimal color code
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
 
-export default function ProfileIcon(props) {
-  const [user ,setUser] = useState(null)
-  const {contact} = props
-
-
-
-    return <div className="profile-icon"> {!contact ? "..." : contact.firstName.charAt(0) + contact.lastName.charAt(0)}</div>;
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
   }
+
+  return color;
+}
+
+const ProfileIcon = ({ contact }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {    
+    setUser({
+      id: "user123", 
+    });
+  }, [contact]);
+
+  const getBackgroundColor = () => {
+    if (user) {
+     
+      const userId = user.id || '';
+      return { backgroundColor: getRandomColor() + userId }; 
+    }
+    return { backgroundColor: getRandomColor() }; 
+  };
+
+  return (
+    <div
+      className="profile-icon"
+      style={{
+        color: "#fff", 
+        ...getBackgroundColor(),
+      }}
+    >
+      {!contact ? "..." : contact.firstName.charAt(0) + contact.lastName.charAt(0)}
+    </div>
+  );
+};
+
+export default ProfileIcon;

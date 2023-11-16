@@ -29,7 +29,7 @@ export default function PostListItem({post}) {
           </div>
         </div>
         <div className="post-content">
-          <Link to={`/posts/${post.id}`}><span>{post.title}</span></Link>
+          <Link to={`/posts/${post.id} `} state={{post}} ><span>{post.title}</span></Link>
         </div>
         <div className="post-content">
           <p>{post.content}</p>
