@@ -8,7 +8,7 @@ function Main(props) {
   };
   const [anotherComment, setAnotherComment] = useState(commentData);
   const [rerenderPost, setRerenderPost] = useState(false);
-  const [comment, setComment] = useState([]);
+  const [comments, setComments] = useState([]);
 
   //console.log("this is renderPost in Main.jsx:", rerenderpost);
 
@@ -39,8 +39,8 @@ function Main(props) {
       </section>
       <section className="displayed-post">
         <PostComment
-          comment={comment}
-          setComment={setComment}
+          comments={comments}
+          setComments={setComments}
           rerenderPost={rerenderPost}
           setRerenderPost={setRerenderPost}
           anotherComment={anotherComment}

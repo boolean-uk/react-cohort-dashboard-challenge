@@ -8,14 +8,7 @@ import "./showContent.css";
 function ShowContent(props) {
   const { contents, setContents, rerenderPost, setRerenderPost } = props;
   const [allContact, setAllContact] = useState([]);
-  const { contactIdOne, setContactIdOne } = props;
-  const { comment, setComment } = props;
-  const { anotherComment, setAnotherComment } = props;
-  const [newComment, setNewcomment] = useState({
-    postId: "",
-    comments: [],
-    contactId: "",
-  });
+  const { comments, setComments } = props;
 
   const navigate = useNavigate();
 
@@ -30,12 +23,18 @@ function ShowContent(props) {
           const postContents = postResponse.data;
           const allContact = contactResponse.data;
 
+          console.log("Post Contents:", postContents);
+          console.log("All Contact:", allContact);
+
           const combinedData = postContents.map((post) => {
-            const contact = allContact.find((c) => c.id === post.contactId);
+            const contact = allContact.find(
+              (contact) => contact.id === post.contactId
+            );
 
             return {
               postContent: post,
               contactData: contact || null,
+              comments: [], // Initialize comments array for each post
             };
           });
 
@@ -44,29 +43,47 @@ function ShowContent(props) {
       )
       .catch((error) => {
         console.error("Error fetching data:", error);
+        console.error("Response status:", error.response.status);
+        console.error("Response data:", error.response.data);
+      });
+  };
+
+  const fetchComments = (postId, index) => {
+    fetch(`https://boolean-api-server.fly.dev/tayokanch/post/${postId}/comment`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the comments array for the corresponding post
+        const updatedContents = [...contents];
+        updatedContents[index].comments = data;
+        setContents(updatedContents);
       });
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
-  const getRandomColor = () => {
-    // Function to generate a random hex color
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
-  };
+  }, [rerenderPost]);
 
   useEffect(() => {
-    if (rerenderPost) {
-      fetchData();
-      //console.log("this is content after post", content);
-      setRerenderPost(false);
-    }
-  }, [rerenderPost]);
+    // Fetch comments only for posts that haven't had their comments fetched yet
+    contents.forEach((content, index) => {
+      if (content.comments.length === 0) {
+        fetchComments(content.postContent.id, index);
+      }
+    });
+  }, [contents]);
+
+  useEffect(() => {
+    console.log("These are the comments:", comments);
+  }, [comments]);
+
+  const getRandomColor = () => {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  };
 
   return (
     <section>
       {contents.map((content) => (
-        <div className="post-box-container" key={content.postContent.id}>
+        <section className="post-box-container" key={content.postContent.id}>
           <section className="post-box">
             <div className="post-header">
               <p
@@ -74,7 +91,9 @@ function ShowContent(props) {
                 style={{ background: getRandomColor() }}
                 onClick={() => navigate(`/profile/${content.postContent.id}`)}
               >
-                {content.postContent.title}
+                {`${content.contactData.firstName.charAt(
+                  0
+                )} ${content.contactData.lastName.charAt(0)}`}
               </p>
               <div className="poster-content">
                 <p>
@@ -94,31 +113,28 @@ function ShowContent(props) {
               </div>
             </div>
             <p>{content.postContent.content}</p>
+
+            {/* Render comments for the post */}
+            <div className="comments-section">
+              <h3>Comments:</h3>
+              {content.comments.map((comment) => (
+                <div key={comment.id}>
+                  <p>
+                    <strong>
+                      {comment.contactId === content.postContent.contactId
+                        ? `${content.contactData.firstName} ${content.contactData.lastName}`
+                        : "Commenter Name Not Available"}
+                    </strong>
+                  </p>
+                  <p>{comment.content}</p>
+                </div>
+              ))}
+            </div>
           </section>
-        </div>
+        </section>
       ))}
     </section>
   );
 }
 
 export default ShowContent;
-
-/* 
-
-
-  const handleChange = (e, index, postId, contactId) => {
-    const updateNewComment = { ...newComment };
-    if (!updateNewComment.comments[index]) {
-      updateNewComment.comments[index] = {};
-    }
-    updateNewComment.comments[index] = { comment: e.target.value };
-    updateNewComment.postId = postId;
-    updateNewComment.contactId = contactId;
-
-    setNewcomment(updateNewComment);
-  };
-
-
-
-
-*/
