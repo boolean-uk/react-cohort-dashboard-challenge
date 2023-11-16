@@ -1,11 +1,11 @@
 import Mainpost from "./Components/Mainpost";
 import Posts from './Components/Posts'
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 import { useState } from "react";
-import Header from "./Components/Header";
-
+import Menu from "./Components/Menu";
 import "./Components/App.css";
-import LeftMenu from "./Components/Menu";
+
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="parent">
       <Header />
-      <LeftMenu />
+      <Menu />
       <div className="main-content">
       <Routes>
         <Route path="/" element={<Mainpost posts={posts} setPosts={setPosts} contacts={contacts} setContacts={setContacts} comments={comments} setComments={setComments} newPostContent={newPostContent} setNewPostContent={setNewPostContent} newCommentContent={newCommentContent} setNewCommentContent={setNewCommentContent}   />} />

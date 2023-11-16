@@ -40,7 +40,7 @@ export default function Mainpost() {
 
         setComments(allComments.flat());
       } catch (error) {
-        console.error('Error loading comments:', error);
+        console.error('Error:', error);
       }
     };
 
@@ -66,7 +66,7 @@ export default function Mainpost() {
         setPosts((prevPosts) => [newPost, ...prevPosts]);
         setNewPostContent('');
       })
-      .catch((error) => console.error('Error submitting post:', error));
+      .catch((error) => console.error('Error:', error));
   };
 
   const handleCommentSubmit = (postId, event) => {
@@ -87,7 +87,7 @@ export default function Mainpost() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Server says ' + response.status);
+          throw new Error('Server Error ' + response.status);
         }
         return response.json();
       })
@@ -95,7 +95,7 @@ export default function Mainpost() {
         setComments((prevComments) => [...prevComments, newComment]);
         setNewCommentContent((prev) => ({ ...prev, [postId]: '' }));
       })
-      .catch((error) => console.error('Error submitting comment:', error));
+      .catch((error) => console.error('Error:', error));
   };
 
   return (
@@ -137,14 +137,14 @@ export default function Mainpost() {
                       {postComments.map((comment, index) => {
                         const commenterContact = contacts.find((c) => c.id === comment.contactId);
                         const commenterInitials =
-                          commenterContact ? `${commenterContact.firstName[0]}${commenterContact.lastName[0]}` : 'A';
+                          commenterContact ? `${commenterContact.firstName[0]}${commenterContact.lastName[0]}` : '';
 
                         return (
                           <div className="comment-section" key={`${comment.id}-${index}`}>
                             <div className="comment-initials">{commenterInitials}</div>
                             <div className="comment-body">
                               <div className="commenter-name">
-                                {commenterContact ? `${commenterContact.firstName} ${commenterContact.lastName}` : 'Anonymous'}
+                                {commenterContact ? `${commenterContact.firstName} ${commenterContact.lastName}` : ''}
                               </div>
                               <div className="comment-content">{comment.content}</div>
                             </div>
