@@ -1,9 +1,8 @@
 import { useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-function ProfileForm({ URL, setShouldGetPosts, setShouldGetLoggedInUser }) {
+function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
 
-    const { contactId } = useParams()
     const navigate = useNavigate()
 
     const [userData, setUserData] = useState({

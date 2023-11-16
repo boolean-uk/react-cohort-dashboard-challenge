@@ -15,7 +15,7 @@ function App() {
 
   const [posts, setPosts] = useState([])
   const [shouldGetPosts, setShouldGetPosts] = useState(true)
-  
+
   const [loggedInUser, setLoggedInUser] = useState(null)
   const [shouldGetLoggedInUser, setShouldGetLoggedInUser] = useState(true)
  
@@ -63,7 +63,7 @@ function App() {
             </Route>
             <Route
               path='/profile/:contactId'
-              element={<Profile URL={URL} loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} setShouldGetPosts={setShouldGetPosts} setShouldGetLoggedInUser={setShouldGetLoggedInUser} />}
+              element={<Profile URL={URL} loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} setShouldGetLoggedInUser={setShouldGetLoggedInUser} />}
             />
             <Route
               path='/post/:postId'
