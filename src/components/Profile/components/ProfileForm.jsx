@@ -6,7 +6,7 @@ import AddressInfo from "./AddressInfo"
 import ContactInfo from "./ContactInfo"
 import CompanyInfo from "./CompanyInfo"
 
-function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
+function ProfileForm({ URL, setShouldGetLoggedInUser, contactId, setShouldGetPosts }) {
 
     const navigate = useNavigate()
 
@@ -40,12 +40,18 @@ function ProfileForm({ URL, setShouldGetLoggedInUser, contactId }) {
 
         fetch(`${URL}/contact/${contactId}`, options)
         .then(res => res.json())
-        .then(() => setShouldGetLoggedInUser(true))
+        .then(() => {
+            setShouldGetLoggedInUser(true)
+            setShouldGetPosts(true)
+        })
     }
 
     function handleSubmit(e) {
         e.preventDefault()
         updateContact()
+        setTimeout(() => {
+            location.reload()
+        }, 10);
         navigate('/')
     } 
 

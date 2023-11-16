@@ -3,7 +3,7 @@ import ProfileForm from './components/ProfileForm'
 import ProfileUserHeader from './components/ProfileUserHeader'
 import { useParams } from 'react-router-dom'
 
-function Profile({ URL, setShouldGetLoggedInUser }) {
+function Profile({ URL, setShouldGetLoggedInUser, setShouldGetPosts }) {
 
     const { contactId } = useParams()
 
@@ -12,7 +12,7 @@ function Profile({ URL, setShouldGetLoggedInUser }) {
             <h2 className='profile-title'>Profile</h2>
             <section className='profile-container grid'>
                 <ProfileUserHeader URL={URL} contactId={contactId} />
-                <ProfileForm URL={URL} setShouldGetLoggedInUser={setShouldGetLoggedInUser} contactId={contactId} />
+                <ProfileForm URL={URL} setShouldGetLoggedInUser={setShouldGetLoggedInUser} contactId={contactId} setShouldGetPosts={setShouldGetPosts} />
             </section>
         </section>
     )

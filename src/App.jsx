@@ -63,7 +63,7 @@ function App() {
             </Route>
             <Route
               path='/profile/:contactId'
-              element={<Profile URL={URL} loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} setShouldGetLoggedInUser={setShouldGetLoggedInUser} />}
+              element={<Profile URL={URL} setShouldGetLoggedInUser={setShouldGetLoggedInUser} setShouldGetPosts={setShouldGetPosts} />}
             />
             <Route
               path='/post/:postId'
