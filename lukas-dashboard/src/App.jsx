@@ -12,7 +12,7 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
-  
+
 
   useEffect(() => {
     get(contactURL)
@@ -23,16 +23,20 @@ function App() {
 
   }, [])
 
+
+  if (!posts || !users) {
+    return <p>...Loading</p>
+  }
   return (
 
-    <UserAndPostContext.Provider value={ { users, posts, setPosts} }>
+    <UserAndPostContext.Provider value={{ users, posts, setPosts }}>
       <div className='main-app-grid'>
         <Header />
         <LeftMenu />
         <Routes>
           <Route
             path='/'
-            element={<Home/>}
+            element={<Home />}
           />
           <Route
             path='/post/:postId'
@@ -44,4 +48,4 @@ function App() {
   )
 }
 
-export {App, UserAndPostContext}
+export { App, UserAndPostContext }
