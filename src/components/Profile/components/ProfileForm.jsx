@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
-function ProfileForm() {
+function ProfileForm({ URL, setShouldGetPosts, setShouldGetLoggedInUser }) {
+
+    const { contactId } = useParams()
+    const navigate = useNavigate()
 
     const [userData, setUserData] = useState({
         firstName: "",
@@ -48,11 +52,26 @@ function ProfileForm() {
         setUserData({ ...userData, [name]: value})
     }
 
-    console.log(userData)
-    
+    function updateContact() {
+        const options = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        }
+
+        fetch(`${URL}/contact/${contactId}`, options)
+        .then(res => res.json())
+        .then(() => setShouldGetLoggedInUser(true))
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        updateContact()
+        navigate('/')
+    }    
 
     return (
-        <form className="profile-form grid">
+        <form className="profile-form grid" onSubmit={handleSubmit}>
             <div className="account-info profile-group">
                 <h2 className="profile-group-title">Account Info</h2>
                 {accountInfo.map((option) =>

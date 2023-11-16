@@ -15,7 +15,9 @@ function App() {
 
   const [posts, setPosts] = useState([])
   const [shouldGetPosts, setShouldGetPosts] = useState(true)
+  
   const [loggedInUser, setLoggedInUser] = useState(null)
+  const [shouldGetLoggedInUser, setShouldGetLoggedInUser] = useState(true)
  
   const [currentSelect, setCurrentSelect] = useState('home')
 
@@ -32,16 +34,19 @@ function App() {
     shouldGetPosts && getPosts()
   }, [shouldGetPosts])
 
-
   function getLoggedInUser() {
     fetch(`${URL}/contact/1`)
       .then(res => res.json())
-      .then(data =>  setLoggedInUser(data))
+      .then(data => {
+        setLoggedInUser(data)
+        setShouldGetLoggedInUser(false)
+      })
   }
 
   useEffect(() => {
-    getLoggedInUser()
-  }, [])
+    shouldGetLoggedInUser && getLoggedInUser()
+  }, [shouldGetLoggedInUser])
+
 
   if (!loggedInUser) return <p>Loading...</p>
   const loggedInUserInitials = loggedInUser.firstName.slice(0, 1) + loggedInUser.lastName.slice(0, 1)
@@ -49,7 +54,7 @@ function App() {
   return (
     <div className="container grid">
         <Header loggedInUserInitials={loggedInUserInitials} />
-        <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />      
+        <Navigation currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} loggedInUser={loggedInUser} />      
         <Routes>
             <Route
               path='/'
@@ -57,8 +62,8 @@ function App() {
               >
             </Route>
             <Route
-              path='/profile'
-              element={<Profile loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} />}
+              path='/profile/:contactId'
+              element={<Profile URL={URL} loggedInUserInitials={loggedInUserInitials} currentSelect={currentSelect} setCurrentSelect={setCurrentSelect} setShouldGetPosts={setShouldGetPosts} setShouldGetLoggedInUser={setShouldGetLoggedInUser} />}
             />
             <Route
               path='/post/:postId'

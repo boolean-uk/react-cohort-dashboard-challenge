@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import profileIcon from '../../../../_assets/profile-icon.svg'
 
-function ProfileIcon({ currentSelect, setCurrentSelect }) {
+function ProfileIcon({ currentSelect, setCurrentSelect, loggedInUser }) {
 
     const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ function ProfileIcon({ currentSelect, setCurrentSelect }) {
     return (
         <div className={`nav-icon-container grid ${profileHighlight(currentSelect)}`} onClick={() => {
             setCurrentSelect('profile')
-            navigate('/profile')
+            navigate(`/profile/${loggedInUser.id}`)
         } }>
             <img className='nav-icon-img' src={profileIcon} alt="profile icon" />
             <p className='nav-icon-text'>Profile</p>
