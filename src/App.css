@@ -27,6 +27,12 @@ span {
   padding: 15px;
 }
 
+.newPostForm {
+  display: grid;
+  grid-template-columns: 125px 1fr 1fr;
+  align-items: start;
+  padding: 10px;
+}
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -63,7 +69,12 @@ input {
   cursor: pointer;
   justify-self: end;
   grid-column: 2/3;
+  
+}
 
+.btn-form {
+  grid-column: 3/4;
+  justify-self: start;
 }
 
 li {

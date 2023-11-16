@@ -7,7 +7,6 @@ import Posts from './components/Main/Posts'
 import './App.css'
 
 function App() {
- 
 
   return (
     <>

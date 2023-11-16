@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PostListItem from "./PostListItem";
+import ProfileIcon from "../Header/ProfileIcon";
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
@@ -17,6 +18,11 @@ export default function PostList() {
   return (
     <div className="post-list-container">
       <ul className="post-list">
+        <form className="newPostForm">
+         <ProfileIcon  />
+          <input type="text" placeholder="What is in your mind?" />
+          <button type="submit" className="btn btn-form">Submit</button>
+          </form>
         {posts.map((post, idx) => (
           <PostListItem key={idx} post={post} />
         ))}
