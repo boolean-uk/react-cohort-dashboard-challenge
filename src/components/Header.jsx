@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import logo from "../assets/img/header-logo.svg";
 import "./style.css";
 
 // components
 import UserCycle from "./UserCycle";
 
-const Header = ({ user }) => {
+// context
+import { MainContext } from "../App";
+
+const Header = () => {
+    const { user } = useContext(MainContext);
+
     return (
         <header className="header">
             <img src={logo} className="header__logo" />

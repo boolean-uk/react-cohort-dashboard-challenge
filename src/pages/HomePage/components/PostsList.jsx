@@ -1,6 +1,14 @@
+import { useContext } from "react";
+
+// components
 import PostItem from "./PostItem";
 
-const PostsList = ({ user, posts, getPosts }) => {
+// context
+import { MainContext } from "../../../App";
+
+const PostsList = () => {
+    const { user, posts, getPosts } = useContext(MainContext);
+
     return (
         <div className="postsList">
             {posts.map((post, index) => (

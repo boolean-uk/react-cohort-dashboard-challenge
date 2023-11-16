@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import "./style.css";
 
@@ -6,7 +7,12 @@ import "./style.css";
 import homeIcon from "../assets/img/house-icon.svg";
 import profileIcon from "../assets/img/profile-icon.svg";
 
-const Navigation = ({ page }) => {
+// context
+import { MainContext } from "../App";
+
+const Navigation = () => {
+    const { page } = useContext(MainContext);
+
     return (
         <nav className="navigation">
             <ul className="navigation__list">

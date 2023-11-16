@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import "./App.css";
 
@@ -13,6 +13,9 @@ import PostPage from "./pages/PostPage";
 // api
 import { getContact } from "./utilities/api";
 import { getAllPosts } from "./utilities/api";
+
+// context
+const MainContext = createContext();
 
 function App() {
     const [page, setPage] = useState("home");
@@ -34,45 +37,27 @@ function App() {
     }, []);
 
     return (
-        <div className="container">
-            <Header user={user} />
-            <Navigation page={page} />
+        <MainContext.Provider
+            value={{
+                user: user,
+                posts: posts,
+                getPosts: getPosts,
+                page: page,
+                setPage: setPage,
+            }}
+        >
+            <div className="container">
+                <Header />
+                <Navigation />
 
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <HomePage
-                            setPage={setPage}
-                            user={user}
-                            posts={posts}
-                            getPosts={getPosts}
-                        />
-                    }
-                />
-                <Route
-                    path="/profile/:id"
-                    element={
-                        <ProfilePage
-                            setPage={setPage}
-                            getMainContact={getMainContact}
-                        />
-                    }
-                />
-                <Route
-                    path="/post/:id"
-                    element={
-                        <PostPage
-                            user={user}
-                            setPage={setPage}
-                            getPosts={getPosts}
-                            posts={posts}
-                        />
-                    }
-                />
-            </Routes>
-        </div>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/profile/:id" element={<ProfilePage />} />
+                    <Route path="/post/:id" element={<PostPage />} />
+                </Routes>
+            </div>
+        </MainContext.Provider>
     );
 }
 
-export default App;
+export { App, MainContext };

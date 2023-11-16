@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 // styles
@@ -10,8 +10,13 @@ import PostItem from "../HomePage/components/PostItem";
 // api
 import { getPostById } from "../../utilities/api";
 
-const PostPage = ({ user, setPage, getPosts, posts }) => {
+// context
+import { MainContext } from "../../App";
+
+const PostPage = () => {
     const [post, setPost] = useState({});
+
+    const { user, setPage, getPosts, posts } = useContext(MainContext);
 
     const { id } = useParams();
 

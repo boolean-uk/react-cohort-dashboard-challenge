@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import "./style.css";
 
@@ -6,7 +6,12 @@ import "./style.css";
 import CreatePostInput from "./components/CreatePostInput";
 import PostsList from "./components/PostsList";
 
-const HomePage = ({ setPage, user, posts, getPosts }) => {
+// context
+import { MainContext } from "../../App";
+
+const HomePage = () => {
+    const { setPage, getPosts } = useContext(MainContext);
+
     useEffect(() => {
         setPage("home");
         getPosts();
@@ -14,9 +19,9 @@ const HomePage = ({ setPage, user, posts, getPosts }) => {
 
     return (
         <div className="homePage">
-            <CreatePostInput user={user} getPosts={getPosts} />
+            <CreatePostInput />
 
-            <PostsList user={user} posts={posts} getPosts={getPosts} />
+            <PostsList />
         </div>
     );
 };

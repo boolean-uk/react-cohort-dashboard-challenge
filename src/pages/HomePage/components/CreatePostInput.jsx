@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 // components
 import InputElement from "../../../components/InputElement";
@@ -7,9 +7,15 @@ import UserCycle from "../../../components/UserCycle";
 // api
 import { createNewPost } from "../../../utilities/api";
 
-const CreatePostInput = ({ user, getPosts }) => {
+// context
+import { MainContext } from "../../../App";
+
+const CreatePostInput = () => {
     const [inputTitle, setInputTitle] = useState("");
     const [inputValue, setInputValue] = useState("");
+
+    // context
+    const { user, getPosts } = useContext(MainContext);
 
     const submitInput = (e) => {
         e.preventDefault();

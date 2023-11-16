@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import "./style.css";
@@ -10,9 +10,15 @@ import InputElement from "../../components/InputElement";
 // api
 import { changeContactData, getContact } from "../../utilities/api";
 
-const ProfilePage = ({ setPage, getMainContact }) => {
+// context
+import { MainContext } from "../../App";
+
+const ProfilePage = () => {
     const [user, setUser] = useState({});
     const [isEdit, setIsEdit] = useState(false);
+
+    // context
+    const { setPage, getMainContact } = useContext(MainContext);
 
     // userInfo
     const [userFirstName, setUserFirstName] = useState("");
