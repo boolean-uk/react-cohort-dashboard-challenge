@@ -8,13 +8,8 @@ export default function CommentForm({ postInfo, setPosts }) {
 
     const userId = "1"
 
-    const [postComment, setPostComment] = useState(
-        {
-            postId: undefined,
-            contactId: undefined,
-            content: ""
-        })
-
+    const [postComment, setPostComment] = useState()
+        
     const handleChange = (event) => {
         const value = event.target.value
 

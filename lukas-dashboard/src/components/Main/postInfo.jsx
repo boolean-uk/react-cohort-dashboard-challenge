@@ -3,9 +3,13 @@ import { Link } from "react-router-dom"
 import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm";
 import CommentContent from "./commentContent";
+import { useContext } from "react";
+import { UserAndPostContext } from "../../App";
 
-export default function PostInfo({ users, posts, setPosts }) {
+export default function PostInfo() {
 
+    const {users, posts, setPosts} = useContext(UserAndPostContext)
+    
     return (
         <>
             {

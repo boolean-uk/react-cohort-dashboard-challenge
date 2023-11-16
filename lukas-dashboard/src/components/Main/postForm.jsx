@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import ProfileLogo from "../Reusable/profileLogo";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postURL, post, get } from "../client";
+import { UserAndPostContext } from "../../App";
 
 
-export default function PostForm({setPosts}) {
+export default function PostForm() {
+    const { setPosts } = useContext(UserAndPostContext)
 
     const userId = "1"
 
@@ -31,9 +33,9 @@ export default function PostForm({setPosts}) {
         event.target.reset()
 
         post(`${postURL}`, newPost)
-        .then(res => res.json())   
-        .then (() => get(`${postURL}`)) 
-        .then(setPosts)
+            .then(res => res.json())
+            .then(() => get(`${postURL}`))
+            .then(setPosts)
     }
 
     return (

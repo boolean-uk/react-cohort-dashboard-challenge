@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useContext, useState } from "react"
 import ProfileLogo from "../Reusable/profileLogo"
 import CommentForm from "./commentForm"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import CommentContent from "./commentContent"
+import { UserAndPostContext } from "../../App"
 
-export default function SinglePostPage({ users, posts, setPosts }) {
-
+export default function SinglePostPage() {
+    const {users, posts, setPosts} = useContext(UserAndPostContext)
+    
     const { postId } = useParams()
 
     const [singlePersonPost, setSinglePersonPost] = useState()
