@@ -4,6 +4,7 @@ import DeletePostButton from "../../../Shared/DeletePostButton"
 
 function PostContent({ post, URL, initials, author, setShouldGetPosts }) {
 
+
     return (
         <section className="post-content-container grid">
             <div className="post-content grid">

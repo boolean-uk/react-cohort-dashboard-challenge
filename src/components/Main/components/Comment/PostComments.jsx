@@ -7,9 +7,12 @@ function PostComments({ comment, URL }) {
     const [commentAuthor, setCommentAuthor] = useState(null)
 
     useEffect(() => {
-        fetch(`${URL}/contact/${comment.contactId}`)
+        if (comment) {
+            fetch(`${URL}/contact/${comment.contactId}`)
             .then(res => res.json())
             .then(data => setCommentAuthor(data))
+        }
+        else return <p>no comment</p>
     }, [URL, comment])
 
     if (!commentAuthor) return <p>Unknown author</p>

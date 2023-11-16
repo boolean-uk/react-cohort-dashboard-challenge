@@ -121,6 +121,11 @@
     color: #000046;
 }
 
+.author-name:hover {
+    cursor: pointer;
+    color: goldenrod;
+}
+
 /* POST TITLE */
 .post-title-link {
     text-decoration: none;
@@ -201,6 +206,11 @@
 .comment-author-name {
     margin: 0;
     color: #000046;
+}
+
+.comment-author-name:hover {
+    cursor: pointer;
+    color: green;
 }
 
 .comment-content-text {
