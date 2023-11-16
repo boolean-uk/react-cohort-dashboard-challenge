@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavButton({name, link, icon}) {
+export default function NavButton({name, link, icon}) {
     return (
         <>
         <Link to={link}>
@@ -15,4 +15,3 @@ function NavButton({name, link, icon}) {
     )
 }
 
-export default NavButton;

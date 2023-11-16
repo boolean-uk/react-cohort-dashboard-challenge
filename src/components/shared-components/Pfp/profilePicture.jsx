@@ -1,6 +1,6 @@
 import icon from './assets/profile-icon.svg' // temporary
 
-function Pfp() {
+export default function Pfp() {
     return (
         <>
         <img className="profile-picture" src={icon} height="50px" alt="Profile picture"/>
@@ -8,4 +8,3 @@ function Pfp() {
     )
 }
 
-export default Pfp;

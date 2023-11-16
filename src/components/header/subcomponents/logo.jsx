@@ -1,6 +1,6 @@
 import header from "../assets/header.svg"
 
-function Logo() {
+export default function Logo() {
     return (
         <>
         <img className="logo" src={header} height="75px" alt="header"/>
@@ -8,4 +8,3 @@ function Logo() {
     )
 }
 
-export default Logo;

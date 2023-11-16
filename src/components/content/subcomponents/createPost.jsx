@@ -1,7 +1,7 @@
 import Pfp from '../../shared-components/Pfp/profilePicture'
 
 
-function CreatePost() {
+export default function CreatePost() {
     return (
         <>
         <div className="create-post">
@@ -13,4 +13,3 @@ function CreatePost() {
     )
 }
 
-export default CreatePost;

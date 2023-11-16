@@ -3,7 +3,7 @@ import NavButton from "./subcomponents/navButton";
 import homeIcon from "./assets/home.svg"
 import profileIcon from "./assets/profile-icon.svg"
 
-function Menu() {
+export default function Menu() {
     return (
         <>
         <nav className="menu">
@@ -23,5 +23,3 @@ function Menu() {
         </>
     )
 }
-
-export default Menu;

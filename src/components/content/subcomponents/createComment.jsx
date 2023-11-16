@@ -1,7 +1,7 @@
 import Pfp from '../../shared-components/Pfp/profilePicture';
 
 
-function CreateComment() {
+export default function CreateComment() {
     return (
         <>
         <div className="create-comment">
@@ -12,4 +12,3 @@ function CreateComment() {
     )
 }
 
-export default CreateComment;
