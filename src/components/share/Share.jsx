@@ -1,24 +1,44 @@
-import ProfileInitialsBadge from '../topbar/ProfileBadge'
-import Topbar from '../topbar/Topbar'
-import './share.css'
-
-import ProfileBadge from '../topbar/ProfileBadge';  // Make sure the path is correct
+import BlogList from './BlogsList';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import ProfileBadge from '../topbar/ProfileBadge';
+import './share.css';
 
 function Share() {
-    // Assuming displayInitials is a variable holding the initials value
-    const displayInitials = "JD";  // Replace this with your logic to get the initials
 
-    return (
-        <div className="sharetop">
-            <div className="userlogo">
-                    <ProfileBadge initials={displayInitials} />
-                    </div>
-                <span><input className="inputbutton"placeholder="What's on your mind?" type="text" /></span>
-            
-            <button className="postbutton">Post</button>
+  const displayInitials = "JD"; // Replace this with your logic to get the initials
+  const handleClick = () => {
+    // Handle click logic here
+  };
+
+  
+
+  return (
+    <>
+      <div className="sharetop">
+        <div className="userlogo">
+          <ProfileBadge initials={displayInitials} />
         </div>
-    );
+        <span>
+          <input className="inputbutton" placeholder="What's on your mind?" type="text" />
+        </span>
+        <button onClick={(e) => handleClick('Posted')} className="postbutton">
+          Post
+        </button>
+      </div>
+      <div className="blogup">
+      <div>
+        <BlogList />
+      </div>
+      <div className="bloglogo">
+          <ProfileBadge initials={displayInitials} />
+      </div>
+        <span>
+          <input className="commentbutton" placeholder="Add a comment...." type="text" />
+          </span>
+      </div>
+    </>
+  );
 }
 
 export default Share;
-
