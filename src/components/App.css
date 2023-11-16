@@ -1,0 +1,419 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Parent Container Styles */
+.parent {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+    "header header"
+    "left-menu main-content";
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Header Styles */
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  background-color: #000046;
+  padding: 10px;
+  color: white;
+}
+
+.main-content {
+  grid-area: main-content;
+  background-color: #e6ebf5;
+  padding: 2px;
+  margin-right: 10vw;
+}
+
+.logo {
+  justify-self: start;
+  height: 50px;
+  padding-left: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 90px;
+}
+
+body {
+  padding: 0;
+}
+
+/* User Badge Styles */
+.user-badge {
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(120, 179, 120);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 20vw;
+}
+
+.user-badge:hover {
+  background-color: white;
+  color: rgb(48, 95, 48);
+  cursor: pointer;
+}
+
+menu {
+  grid-area: left-menu;
+  display: grid;
+  grid-template-rows: repeat(2, 120px);
+  gap: 10px;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.menu-item {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  width: 75%;
+  height: auto;
+  margin-left: 0.5vw;
+  transition: background-color 0.3s;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-item:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.menu-item img {
+  width: 65%;
+  height: auto;
+}
+
+.menu-item p {
+  width: 75%;
+  text-align: center;
+}
+
+.each-post {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  width: 90vw;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-ul {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+.comment-li {
+  margin-bottom: 30px;
+}
+
+.comment-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000046;
+  font-size: 1.2rem;
+}
+
+.comment-link {
+  color: #0000EE;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+}
+
+.main-comment {
+  margin-bottom: 1rem;
+  color: #000046;
+}
+
+.hr {
+  border: none;
+  height: 1px;
+  background-color: rgb(209, 204, 204);
+  margin-bottom: 1rem;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 84vw;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.input {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 73.5vw;
+  height: 10vh;
+  margin-left: 0.6vw;
+  background-color: #e6ebf5;
+  font-size: 1rem;
+}
+
+.post-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 8vh;
+  width: 5vw;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 1.7vw;
+}
+
+.post-button:hover {
+  background-color: #0056b3;
+}
+
+.title-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.initials {
+  background-color: #000046;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+  margin-right: 4px;
+}
+
+.comment-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comment-initials {
+  background-color: #000046;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.comment-body {
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.commenter-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #000046;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: #000046;
+  background-color: rgba(161, 231, 245, 0.22);
+  width: fit-content;
+  border-radius: 15px;
+}
+
+/* Post Box Styles */
+.post-box {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 30px;
+  margin-left: 2.2vw;
+  margin-right: 3vw;
+  margin-top: 0.5vw;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 85vw;
+}
+
+/* User Avatar Styles */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: #8aa884;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-initials {
+  color: white;
+  font-weight: bold;
+}
+
+.post-input {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.post-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  height: 4vh;
+}
+
+.main-post-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 5vw;
+  margin-left: 55vw;
+  margin-right: 5vw;
+}
+
+.main-post-button:hover {
+  background-color: #0056b3;
+}
+
+.main-post-input::placeholder {
+  color: #adb5bd;
+}
+
+/* Delete Button Styles */
+.delete-button {
+  background-color: #dc3545;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 4vh;
+}
+
+.delete-button:hover {
+  background-color: #bd2130;
+}
+
+/* Adjust the positioning of the delete button, removing button for a moment , will addd later
+
+
+
+
+
+*/
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.post-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  height: 4vh;
+}
+
+.post-button:hover {
+  background-color: #0056b3;
+}
+
+.post-input::placeholder {
+  color: #adb5bd;
+}
+
+.comment-input-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding-left: 2vw;
+}
