@@ -8,7 +8,7 @@ import { get } from "../../controller";
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
 
-export default function Post({ postInfo, userInfo, contacts}) {
+export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
     const [comments, setComments] = useState(null)
 
     let hasComments = false
@@ -37,7 +37,7 @@ export default function Post({ postInfo, userInfo, contacts}) {
           <Pfp />
           <div className="user-info">
             <h3>{`${userInfo.firstName} ${userInfo.lastName}`}</h3>
-            <Link to={`/post/${postInfo.id}`}>
+            <Link to={`/post/${postInfo.id}`} onClick={() => {setActivePost(postInfo)}}>
               <p>{postInfo.title}</p>
             </Link>
           </div>

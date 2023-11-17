@@ -4,6 +4,7 @@ import Comment from "./comment"
 import { get } from "../../controller"
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
+// unused currently
 
 export default function commentContainer(postInfo, userInfo) {
     const [comments, setComments] = useState(null)

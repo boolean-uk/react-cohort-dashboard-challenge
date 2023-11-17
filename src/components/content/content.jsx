@@ -7,15 +7,16 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
 import Post from "./subcomponents/post";
 
-export default function Content({user, posts, setPosts, contacts, setContacts}) {
-
-
+export default function Content({user, posts, setPosts, contacts, setContacts, setActivePost}) {
+  console.log('RENDER')
   useEffect(() => {
     get(contApi).then((data) => setContacts(data));
 
     get(postApi).then((data) => setPosts(data));
   }, []);
 
+
+  
   if (!posts.length || !contacts.length) {
     return <p>LOADING</p>;
   }
@@ -29,7 +30,7 @@ export default function Content({user, posts, setPosts, contacts, setContacts}) 
           {reversedPosts.map((post) => { 
             const userInfo = contacts.find(cont => cont.id === post.contactId)
 
-            return <Post postInfo={post} userInfo={userInfo} contacts={contacts} key={post.id} />;
+            return <Post postInfo={post} userInfo={userInfo} contacts={contacts} setActivePost={setActivePost} key={post.id} />;
           })}
         </div>
       </main>

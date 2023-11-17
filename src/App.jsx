@@ -6,9 +6,11 @@ import Header from "./components/header/header";
 import Menu from "./components/menu/menu";
 import Content from "./components/content/content";
 import Post from "./components/content/subcomponents/post";
+import PostPage from "./components/content/subcomponents/postPage";
 import { get } from "./components/controller"
 
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
+
 
 
 
@@ -16,10 +18,12 @@ export default function App() {
   const [user, setUser] = useState([]);
   const [posts, setPosts] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [activePost, setActivePost] = useState([]);
 
   useEffect(() => {
     get(`${contApi}/1`).then((data) => setUser(data));
   }, []);
+
 
   return (
     <>
@@ -36,6 +40,7 @@ export default function App() {
                 setPosts={setPosts}
                 contacts={contacts}
                 setContacts={setContacts}
+                setActivePost={setActivePost}
               />
             }
           />
@@ -44,8 +49,8 @@ export default function App() {
             element={<p>profile goes here</p>}
           />
           <Route
-            path={"/post/:UID"}
-            element={<Post />}
+            path={"/post/:PID"}
+            element={<PostPage activePost={activePost} contacts={contacts}/>}
           />
         </Routes>
       </div>
