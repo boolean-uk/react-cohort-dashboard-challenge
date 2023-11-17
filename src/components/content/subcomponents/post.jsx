@@ -30,8 +30,9 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
           />
           <div className="user-info">
             <h3>{`${userInfo.firstName} ${userInfo.lastName}`}</h3>
+            <hr></hr>
             <Link to={`/post/${postInfo.id}`} onClick={() => {setActivePost(postInfo)}}>
-              <p>{postInfo.title}</p>
+              <p className="post-title">{postInfo.title}</p>
             </Link>
           </div>
         </div>

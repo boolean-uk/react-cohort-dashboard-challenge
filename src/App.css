@@ -102,6 +102,13 @@
     color: white;
 }
 
+.post a {
+    color: #64648c;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
 .post .comment {
     margin-top: 20px;
 }
