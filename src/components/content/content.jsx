@@ -31,7 +31,11 @@ export default function Content({contacts, setContacts, setActivePost}) {
   return (
     <>
       <main className="content">
-        <CreatePost />
+        <CreatePost
+          user={user}
+          setPosts={setPosts}
+          posts={posts}
+        />
         <div className="post-container">
           {reversedPosts.map((post) => { 
             const userInfo = contacts.find(cont => cont.id === post.contactId)
