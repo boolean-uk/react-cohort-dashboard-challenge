@@ -82,6 +82,11 @@
 }
 
 .content .create-post .post-form button {
+    background-color: #000046;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
     margin-left: 10px;
 }
 
@@ -92,8 +97,9 @@
     background-color: white;
 }
 
-.content .create-comment {
-
+.content .create-comment button {
+    background-color: #000046;
+    color: white;
 }
 
 .post .comment {
@@ -117,8 +123,4 @@
     place-content: center;
     background-color: pink;
     border-radius: 50%;
-}
-
-.pfp .initials {
-
 }
