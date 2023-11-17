@@ -17,12 +17,16 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [activePost, setActivePost] = useState([]);
+  const [user, setUser] = useState(null);
+
 
 
   return (
     <>
       <div className="container">
-        <Header />
+        <Header 
+          userInfo={user}
+        />
         <Menu />
         <Routes>
           <Route
@@ -32,6 +36,8 @@ export default function App() {
                 contacts={contacts}
                 setContacts={setContacts}
                 setActivePost={setActivePost}
+                user={user}
+                setUser={setUser}
               />}
           />
           <Route

@@ -5,7 +5,9 @@ export default function Comment({userInfo, commentInfo}) {
     return (
         <>
             <div className="comment">
-                <Pfp/>
+                <Pfp
+                    userInfo={userInfo}
+                />
                 <div className="comment-body">
                     <h3>{`${userInfo.firstName} ${userInfo.lastName}`}</h3>
                     <p>{commentInfo.content}</p>

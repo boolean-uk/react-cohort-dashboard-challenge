@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    font-family: arial;
 }
 
 .container {
@@ -25,11 +26,11 @@
     padding-left: 50px;
 }
 
-.header .profile-picture {
-    padding-right: 50px;
+.header .pfp {
+    margin-right: 50px;
 }
 
-.header .logo, .profile-picture {
+.header .logo, .pfp {
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -107,4 +108,17 @@
     margin: 20px;
     padding: 15px;
     background-color: white;
+}
+
+.pfp {
+    display: grid;
+    height: 50px;
+    width: 50px;
+    place-content: center;
+    background-color: pink;
+    border-radius: 50%;
+}
+
+.pfp .initials {
+
 }

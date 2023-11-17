@@ -41,7 +41,9 @@ export default function CreateComment({ user, setComments, PID }) {
     return (
         <>
         <div className="create-comment">
-            <Pfp/>
+            <Pfp
+                userInfo={user}
+            />
             <form className="comment-form" onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" placeholder="What's on your mind?" onChange={(e) => handleChange(e) }/>
                 <button type="submit">Post</button>

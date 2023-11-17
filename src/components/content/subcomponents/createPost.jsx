@@ -40,7 +40,9 @@ export default function CreatePost({ user, setPosts }) {
     return (
         <>
         <div className="create-post">
-            <Pfp/>
+            <Pfp
+                userInfo={user}
+            />
             <form className="post-form" onSubmit={(e) => handleSubmit(e)}>
                 <input type="text" placeholder="What's on your mind?" onChange={(e) => handleChange(e) }/>
                 <button type="submit">Post</button>

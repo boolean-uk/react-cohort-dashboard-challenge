@@ -7,8 +7,7 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
 import Post from "./subcomponents/post";
 
-export default function Content({contacts, setContacts, setActivePost}) {
-  const [user, setUser] = useState([]);
+export default function Content({contacts, setContacts, setActivePost, user, setUser}) {
   const [posts, setPosts] = useState([]);
 
   console.log('RENDER')

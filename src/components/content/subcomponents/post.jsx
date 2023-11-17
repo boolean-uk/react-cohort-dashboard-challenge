@@ -20,11 +20,14 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
 
     //console.log(postInfo.id, comments)
     
+
     return (
     <>
       <div className="post">
         <div className="user">
-          <Pfp />
+          <Pfp
+            userInfo={userInfo}
+          />
           <div className="user-info">
             <h3>{`${userInfo.firstName} ${userInfo.lastName}`}</h3>
             <Link to={`/post/${postInfo.id}`} onClick={() => {setActivePost(postInfo)}}>
