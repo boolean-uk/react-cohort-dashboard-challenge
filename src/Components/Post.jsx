@@ -13,7 +13,7 @@ function Post({ onePost }) {
   useEffect(() => {
     fetchData();
     fetchComments();
-  }, []);
+  }, [onePost]);
 
   // 2. Fetch post
 
@@ -36,31 +36,6 @@ function Post({ onePost }) {
       .then((data) => {
         //console.log(data, "data");
         setComments(data);
-      });
-  };
-
-  const handleAddComment = (content) => {
-    if (!content.trim()) return;
-
-    const data = {
-      postId: onePost.id,
-      content,
-      contactId: 1,
-    };
-
-    fetch(
-      `https://boolean-api-server.fly.dev/ps975076/post/${onePost.id}/comment`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setComments([...comments, data]);
       });
   };
 
@@ -95,7 +70,11 @@ function Post({ onePost }) {
       <hr />
       <Comments comments={comments} />
 
-      <AddComment handleAddComment={handleAddComment} />
+      <AddComment
+        postId={onePost.id}
+        comments={comments}
+        setComments={setComments}
+      />
     </div>
   );
 }

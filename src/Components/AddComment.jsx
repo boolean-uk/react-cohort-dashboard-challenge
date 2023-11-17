@@ -1,11 +1,35 @@
 import { useState } from "react";
 
-function AddComment({ handleAddComment }) {
+function AddComment({ postId, comments, setComments }) {
   const [content, setContent] = useState("");
 
-  const addComment = () => {
-    handleAddComment(content);
-    setContent("");
+  const handleAddComment = () => {
+    if (!content.trim()) return;
+    postId = Number(postId);
+
+    const data = {
+      postId,
+      content,
+      contactId: 1,
+    };
+    console.log("DATA", data);
+
+    fetch(
+      `https://boolean-api-server.fly.dev/ps975076/post/${postId}/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("comment", data);
+        setComments([...comments, data]);
+        setContent("");
+      });
   };
 
   return (
@@ -23,7 +47,7 @@ function AddComment({ handleAddComment }) {
         />
       </div>
       <div className="commentButton">
-        <button onClick={addComment}>
+        <button onClick={handleAddComment}>
           <img src="src/assets/send-svgrepo-com.svg" alt="" />
         </button>
       </div>

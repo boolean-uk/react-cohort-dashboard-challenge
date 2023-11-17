@@ -1,15 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Comments from "./Comments";
+import Post from "./Post";
 
 function PostDetail() {
   const { id } = useParams();
-  const [comments, setComments] = useState([]);
+  const [post, setPost] = useState([]);
 
   // 3. useEffect
   useEffect(() => {
     fetchData();
-    fetchComments();
   }, []);
 
   // 2. Fetch post
@@ -18,23 +17,14 @@ function PostDetail() {
     fetch(`https://boolean-api-server.fly.dev/ps975076/post/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "data");
-      });
-  };
-
-  const fetchComments = () => {
-    fetch(`https://boolean-api-server.fly.dev/ps975076/post/${id}/comment`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "data");
+        setPost(data);
       });
   };
 
   return (
     <div>
-      <h1>Details</h1>
-      {/* post details */}
-      <Comments comments={comments} />
+      <h1 style={{ marginBottom: "20px" }}>{post.title}</h1>
+      <Post onePost={post} />
     </div>
   );
 }
