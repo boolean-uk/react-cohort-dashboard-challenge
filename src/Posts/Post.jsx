@@ -1,44 +1,79 @@
-import { useState, useEffect } from "react";
-import { Link } from "react";
-import Header from "../Header/Header";
-import ContactId from "../Header/ContactId";
-import Comments from "./Comments";
-import AddComment from "./AddComment";
 
-function Post() {
-  const [allPosts, setAllPosts] = useState([]);
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import AddComment from "./AddComment"
+import Comments from "./Comments"
+import "./posts.css"
 
-  const URL = "https://boolean-api-server.fly.dev/LAVINIABENZAR/POST";
+function Post (props) {
 
-  useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setAllPosts(data));
-  }, []);
+    const { post } = props
 
-  return (
-  <>
-     <div className="allposts">
-      {allPosts.map((post) => (
-        <div key={post.id}>
-          <h3>
-            <ContactId post={post}  />
-          </h3>
-          <p>{post.title}</p>
-        
-          <p>{post.content} </p>
-          <h4>
-            <Comments post={post} />
-          </h4>
-          <AddComment />
-        </div>
-      ))}
-    </div>
-  </>
-   
-   
-  
-  );
-}
+    const [contact, setContact] = useState({})
 
-export default Post;
+    const [comments, setComments] = useState([])
+
+    const contactId = post.contactId
+    const userName = "LAVINIABENZAR"
+    const baseUrl = `https://boolean-api-server.fly.dev/${userName}`
+    const endpointForContacts = `/contact/${contactId}`
+    const endpointForComments = `/post/${post.id}/comment`
+
+    useEffect(() => {
+        fetch(baseUrl + endpointForContacts)
+            .then(res => res.json())
+            .then(data => setContact(data))
+    } , [])
+
+    useEffect(() => {
+        fetch(baseUrl + endpointForComments)
+            .then(res => res.json())
+            .then(data => setComments(data))
+    } , [])
+
+    if(!contact) {
+        return <div>
+                <h3>LOADING</h3>
+                </div>
+    } 
+
+    const initials = contact.firstName?.charAt(0) + contact.lastName?.charAt(0)
+
+    return  (
+        <li>
+            <div className="post-header">
+                <div className="poster-name">
+                    <h3>{initials}</h3>
+                </div>
+                <h4>{contact.firstName + " " + contact.lastName}</h4>
+                <Link to={`/post/${post.id}`}>
+                    <h5>{post.title}</h5>
+                </Link>
+            </div>
+            <div className="post-content">
+                <p>{post.content}</p>
+            </div>
+            <div className="comments">
+                <ul>
+                    {comments.map(comment => 
+                    <Comments
+                        key={comment.id}
+                        post={post}
+                        comment={comment} 
+                        contact={contact}
+                    />)}
+                </ul>
+            </div>
+            <div className="add-comment">
+                <AddComment
+                    key={post.id}
+                    post={post}
+                    contact={contact}
+                    comments={comments}
+                    setComments={setComments}
+                />
+            </div>
+        </li>
+)}
+
+export default Post

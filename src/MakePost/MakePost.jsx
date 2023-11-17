@@ -1,11 +1,12 @@
 import { useState } from "react"
 import ProfileIcon from "../Header/ProfileIcon"
+import "./makePost.css"
 
 
 
 function MakePost (props) {
 
-    const { posts, setPosts } = props
+    const { posts, setPosts,  } = props
 
     const [newPost, setNewPost] = useState({contactId: 1, title: "", content: ""})
 

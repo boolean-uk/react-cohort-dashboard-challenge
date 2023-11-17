@@ -1,20 +1,22 @@
-import HeaderLogo from "../Header/HeaderLogo.svg"
-import ProfileIcon from "./ProfileIcon"
-import StyleHeader from "./StyleHeader.css"
-import {Link} from "react"
+import LogoAndTitle from "../Header/LogoAndTitle";
+import ProfileIcon from "../Header/ProfileIcon";
+import HomeLogo from "../Navigation/HomeLogo.svg";
 
 
+function Header () {
 
-
-function Header() {
-    return(
-        <div className="image"> 
-           <img src={HeaderLogo} alt="logo" width='300px' />
-           <ProfileIcon/>
-        </div>
-
-
-    )
+  return (
+      <header className = "header">
+          <div className = "header-elements">
+              <div className = "header-logo">
+                 <LogoAndTitle/>
+              </div>
+              <div className = "header-profile-icon">
+                  <ProfileIcon/>
+              </div>
+          </div>
+      </header>
+  )
 }
 
-export default Header
+export default Header;
