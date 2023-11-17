@@ -1,14 +1,13 @@
 import Pfp from "../../shared-components/Pfp/profilePicture";
 
-export default function Comment(userInfo, commentInfo) {
-    console.log(commentInfo)
+export default function Comment({userInfo, commentInfo}) {
 
     return (
         <>
             <div className="comment">
                 <Pfp/>
                 <div className="comment-body">
-                    <p>{userInfo.name}</p>
+                    <h3>{`${userInfo.firstName} ${userInfo.lastName}`}</h3>
                     <p>{commentInfo.content}</p>
                 </div>
             </div>

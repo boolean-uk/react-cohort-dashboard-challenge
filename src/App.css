@@ -68,10 +68,20 @@
 .content .create-post {
     display: grid;
     padding: 15px;
-    grid-template-columns: auto 1fr 150px;
+    grid-template-columns: 50px 1fr;
     gap: 10px;
     border-radius: 5px;
     background-color: white;
+}
+
+.content .create-post .post-form {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    justify-content: fit;
+}
+
+.content .create-post .post-form button {
+    margin-left: 10px;
 }
 
 .content .post {    
@@ -82,7 +92,15 @@
 }
 
 .content .create-comment {
-    border: solid 1px blue;
+
+}
+
+.post .comment {
+    margin-top: 20px;
+}
+
+.post .comment .comment-body {
+    background-color: lightgray;
 }
 
 .post-page .post {

@@ -39,10 +39,11 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
         <div className="post-content">
           <p>{postInfo.content}</p>
         </div>
+        <hr></hr>
         <div className="comment-container">
           {comments ? comments.map((comment) => {        
               const userInfo = contacts.find(cont => cont.id === comment.contactId)
-              console.log(postInfo.id, comment)
+              //console.log(postInfo.id, comment)
               return (
                 <Comment
                   userInfo={userInfo}

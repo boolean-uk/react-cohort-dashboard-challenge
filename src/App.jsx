@@ -15,7 +15,6 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
 
 export default function App() {
-  const [posts, setPosts] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [activePost, setActivePost] = useState([]);
 
@@ -30,8 +29,6 @@ export default function App() {
             path="/"
             element={
               <Content
-                posts={posts}
-                setPosts={setPosts}
                 contacts={contacts}
                 setContacts={setContacts}
                 setActivePost={setActivePost}
