@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateComment from "./createComment";
-import CommentContainer from "./commentContainer";
+import Comment from "./comment";
 import Pfp from "../../shared-components/Pfp/profilePicture";
 
 import { get } from "../../controller";
@@ -11,24 +11,18 @@ const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
     const [comments, setComments] = useState(null)
 
-    let hasComments = false
 
     useEffect(() => {
       get(`${postApi}/${postInfo.id}/comment`).then((data) => {
-        if(!data.length) {
+        if(!data) {
           console.log('false')
           return <p>false</p>
         }
         setComments(data)
       })}, [postInfo.id]);
-  
-    // const renderComment = (comment) => {
-    //   const userInfo = contacts.find(cont => cont.id === comment.contactId)
 
-    //   return <Comment userInfo={userInfo} commentInfo={commentInfo} />
-    // }
 
-    console.log(postInfo.id, comments)
+    //console.log(postInfo.id, comments)
     
     return (
     <>
@@ -46,7 +40,16 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
           <p>{postInfo.content}</p>
         </div>
         <div className="comment-container">
-          
+          {comments ? comments.map((comment) => {        
+              const userInfo = contacts.find(cont => cont.id === comment.contactId)
+              console.log(postInfo.id, comment)
+              return (
+                <Comment
+                  userInfo={userInfo}
+                  commentInfo={comment}
+                  key={comment.id}
+                />)
+            }) : false}
         </div>
         <CreateComment/>
       </div>

@@ -14,7 +14,11 @@ export default function PostPage({ activePost, contacts }) {
     return (
     <>
     <main className="post-page">
-      <Post postInfo={activePost} userInfo={userInfo} />
+      <Post
+      postInfo={activePost}
+      userInfo={userInfo}
+      contacts={contacts}
+      />
     </main>
     </>
   );

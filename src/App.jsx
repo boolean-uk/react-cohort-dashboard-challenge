@@ -15,14 +15,9 @@ const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
 
 export default function App() {
-  const [user, setUser] = useState([]);
   const [posts, setPosts] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [activePost, setActivePost] = useState([]);
-
-  useEffect(() => {
-    get(`${contApi}/1`).then((data) => setUser(data));
-  }, []);
 
 
   return (
@@ -35,14 +30,12 @@ export default function App() {
             path="/"
             element={
               <Content
-                user={user}
                 posts={posts}
                 setPosts={setPosts}
                 contacts={contacts}
                 setContacts={setContacts}
                 setActivePost={setActivePost}
-              />
-            }
+              />}
           />
           <Route
             path="/profile"
@@ -50,7 +43,11 @@ export default function App() {
           />
           <Route
             path={"/post/:PID"}
-            element={<PostPage activePost={activePost} contacts={contacts}/>}
+            element={
+              <PostPage
+              activePost={activePost}
+              contacts={contacts}
+            />}
           />
         </Routes>
       </div>
