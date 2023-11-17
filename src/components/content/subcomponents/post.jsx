@@ -14,10 +14,6 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
 
     useEffect(() => {
       get(`${postApi}/${postInfo.id}/comment`).then((data) => {
-        if(!data) {
-          console.log('false')
-          return <p>false</p>
-        }
         setComments(data)
       })}, [postInfo.id]);
 
@@ -52,7 +48,11 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
                 />)
             }) : false}
         </div>
-        <CreateComment/>
+        <CreateComment
+          setComments={setComments}
+          user={userInfo}
+          PID={postInfo.id}
+        />
       </div>
     </>
   );
