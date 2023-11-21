@@ -10,28 +10,28 @@ const PostFeed = () => {
 
   const postURL = "https://boolean-api-server.fly.dev/tomlukeprogarm/post";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(postURL);
+  // Function to fetch data
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(postURL);
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
       }
-    };
 
-    fetchData();
-  }, [postURL]);
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
+    fetchData(); 
+  }, []);
   const handleNewPost = async (newPostContent) => {
     try {
       const response = await fetch(postURL, {
