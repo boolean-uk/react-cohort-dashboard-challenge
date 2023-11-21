@@ -1,12 +1,9 @@
-import icon from './assets/profile-icon.svg' // temporary
-
 export default function Pfp({ userInfo }) {
     if (!userInfo) {
         return <p>pfp</p>
     }
     const initials = `${userInfo.firstName[0]}${userInfo.lastName[0]}`
-
-
+    
     return (
         <>
         <div className="pfp">

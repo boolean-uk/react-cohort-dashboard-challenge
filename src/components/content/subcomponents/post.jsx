@@ -3,23 +3,18 @@ import { useEffect, useState } from "react";
 import CreateComment from "./createComment";
 import Comment from "./comment";
 import Pfp from "../../shared-components/Pfp/profilePicture";
-
 import { get } from "../../controller";
+
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
 
 export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
     const [comments, setComments] = useState(null)
 
-
     useEffect(() => {
       get(`${postApi}/${postInfo.id}/comment`).then((data) => {
         setComments(data)
       })}, [postInfo.id]);
-
-
-    //console.log(postInfo.id, comments)
-    
 
     return (
     <>
@@ -43,7 +38,6 @@ export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
         <div className="comment-container">
           {comments ? comments.map((comment) => {        
               const userInfo = contacts.find(cont => cont.id === comment.contactId)
-              //console.log(postInfo.id, comment)
               return (
                 <Comment
                   userInfo={userInfo}

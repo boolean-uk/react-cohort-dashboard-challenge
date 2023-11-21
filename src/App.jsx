@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Header from "./components/header/header";
 import Menu from "./components/menu/menu";
 import Content from "./components/content/content";
-import Post from "./components/content/subcomponents/post";
 import PostPage from "./components/content/subcomponents/postPage";
-import { get } from "./components/controller"
-
-const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
-
-
-
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [activePost, setActivePost] = useState([]);
   const [user, setUser] = useState(null);
-
-
 
   return (
     <>

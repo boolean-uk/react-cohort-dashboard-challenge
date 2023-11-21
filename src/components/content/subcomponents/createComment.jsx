@@ -2,7 +2,6 @@ import Pfp from '../../shared-components/Pfp/profilePicture';
 import { useState } from "react";
 import { post, get } from "../../controller";
 
-
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
 const data = {
@@ -14,7 +13,6 @@ const data = {
 export default function CreateComment({ user, setComments, PID }) {
     const [newComment, setComment] = useState(data)
 
-
     const getComments = () => {
         get(`${postApi}/${PID}/comment`).then((data) => {
             setComments(data)
@@ -22,8 +20,6 @@ export default function CreateComment({ user, setComments, PID }) {
     }
     
     const handleChange = (e) => {
-        console.log('CHANGED')
-
         const info = {
             postId: PID,
             content: e.target.value,

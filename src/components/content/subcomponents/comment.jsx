@@ -1,7 +1,6 @@
 import Pfp from "../../shared-components/Pfp/profilePicture";
 
 export default function Comment({userInfo, commentInfo}) {
-
     return (
         <>
             <div className="comment">

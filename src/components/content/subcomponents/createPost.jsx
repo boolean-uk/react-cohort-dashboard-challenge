@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-
-
+import { useState } from "react";
 import Pfp from '../../shared-components/Pfp/profilePicture'
 import { post, get } from "../../controller";
-
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
@@ -21,8 +18,6 @@ export default function CreatePost({ user, setPosts }) {
     }
     
     const handleChange = (e) => {
-        console.log('CHANGED')
-
         const info = {
             title: "interesting title woo",
             content: e.target.value,

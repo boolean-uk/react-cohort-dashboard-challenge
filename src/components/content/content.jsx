@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { get } from "../controller";
 import CreatePost from "./subcomponents/createPost";
+import Post from "./subcomponents/post";
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
-import Post from "./subcomponents/post";
-
 export default function Content({contacts, setContacts, setActivePost, user, setUser}) {
   const [posts, setPosts] = useState([]);
 
-  console.log('RENDER')
   useEffect(() => {
     get(contApi).then((data) => setContacts(data));
     
@@ -19,8 +17,6 @@ export default function Content({contacts, setContacts, setActivePost, user, set
     get(`${contApi}/1`).then((data) => setUser(data));
 
   }, []);
-
-
   
   if (!posts.length || !contacts.length) {
     return <p>LOADING</p>;
