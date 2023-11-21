@@ -8,7 +8,6 @@ function Main(props) {
     contactId: 1,
   };
   const [anotherComment, setAnotherComment] = useState(commentData);
-  const [rerenderPost, setRerenderPost] = useState(false);
   const [comments, setComments] = useState([]);
   const { contents, setContents } = useContext(UserContents);
   //console.log("this is renderPost  in Main.jsx:", rerenderpost);
@@ -23,26 +22,16 @@ function Main(props) {
           setContactIdOne={setContactIdOne}
         />
         <PostInput
-          contents={contents}
-          setContents={setContents}
           anotherComment={anotherComment}
           setAnotherComment={setAnotherComment}
-          rerenderPost={rerenderPost}
-          setRerenderPost={setRerenderPost}
         />
       </section>
       <section className="displayed-post">
         <PostComment
           comments={comments}
           setComments={setComments}
-          rerenderPost={rerenderPost}
-          setRerenderPost={setRerenderPost}
           anotherComment={anotherComment}
           setAnotherComment={setAnotherComment}
-          contactIdOne={contactIdOne}
-          setContactIdOne={setContactIdOne}
-          contents={contents}
-          setContents={setContents}
           allContact={allContact}
           setAllContact={setAllContact}
         />

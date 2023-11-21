@@ -1,15 +1,12 @@
-// postInput.jsx
+import { useContext } from "react";
+import { UserContents } from "../../App";
 import React from "react";
 
 function PostInput(props) {
-  const {
-    setContent,
-    content,
-    anotherComment,
-    setAnotherComment,
-    rerenderPost,
-    setRerenderPost,
-  } = props;
+  const { anotherComment, setAnotherComment } = props;
+
+  const { rerenderPost, setRerenderPost } = useContext(UserContents);
+  //console.log(rerenderPost);
 
   const postNewComment = () => {
     const options = {
@@ -28,7 +25,6 @@ function PostInput(props) {
   const submitForm = (e) => {
     e.preventDefault();
     postNewComment();
-    console.log("this is the content data after post has been made", content);
   };
 
   return (
@@ -53,3 +49,5 @@ function PostInput(props) {
 }
 
 export default PostInput;
+
+

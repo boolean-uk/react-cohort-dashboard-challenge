@@ -28,3 +28,6 @@
 .comment-input-box > button:hover{
     cursor: pointer;
 }
+.poster-content > p {
+    color: blue;
+}
