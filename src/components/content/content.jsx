@@ -8,7 +8,6 @@ import { get } from "../controller";
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
-
 export default function Content() {
   const [posts, setPosts] = useState([]);
   

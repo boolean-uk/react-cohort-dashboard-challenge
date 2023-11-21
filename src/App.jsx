@@ -12,8 +12,7 @@ export const appContext = createContext()
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [activePost, setActivePost] = useState([]);
-  const [user, setUser] = useState(null);
-  
+  const [user, setUser] = useState(null);  
 
   return (
     <>
