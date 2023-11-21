@@ -8,7 +8,7 @@ const PostFeed = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const postURL = "https://boolean-api-server.fly.dev/api/post";
+  const postURL = "https://boolean-api-server.fly.dev/tomlukeprogarm/post";
 
   useEffect(() => {
     const fetchData = async () => {
