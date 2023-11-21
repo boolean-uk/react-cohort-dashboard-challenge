@@ -11,7 +11,7 @@ function RenderSinglePost(props) {
   const { id } = useParams();
 
   if (!posts) {
-    console.log("posts dont exist");
+    console.log("posts don't exist");
     return <h3>LOADING</h3>;
   }
 
