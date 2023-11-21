@@ -14,9 +14,7 @@ export default function CreateComment({ user, setComments, PID }) {
     const [newComment, setComment] = useState(data)
 
     const getComments = () => {
-        get(`${postApi}/${PID}/comment`).then((data) => {
-            setComments(data)
-        })
+        get(`${postApi}/${PID}/comment`).then((data) => setComments(data))
     }
     
     const handleChange = (e) => {

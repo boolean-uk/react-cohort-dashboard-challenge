@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { get } from "../controller";
+
 import CreatePost from "./subcomponents/createPost";
 import Post from "./subcomponents/post";
+import { get } from "../controller";
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";

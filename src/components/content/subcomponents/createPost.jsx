@@ -1,5 +1,5 @@
-import { useState } from "react";
 import Pfp from '../../shared-components/Pfp/profilePicture'
+import { useState } from "react";
 import { post, get } from "../../controller";
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";

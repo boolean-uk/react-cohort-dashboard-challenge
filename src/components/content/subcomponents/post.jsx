@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import Pfp from "../../shared-components/Pfp/profilePicture";
 import CreateComment from "./createComment";
 import Comment from "./comment";
-import Pfp from "../../shared-components/Pfp/profilePicture";
 import { get } from "../../controller";
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
-
 
 export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
     const [comments, setComments] = useState(null)
