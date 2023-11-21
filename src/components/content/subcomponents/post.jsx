@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { appContext } from '../../../App'
 import Pfp from "../../shared-components/Pfp/profilePicture";
 import CreateComment from "./createComment";
 import Comment from "./comment";
@@ -8,8 +9,9 @@ import { get } from "../../controller";
 
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 
-export default function Post({ postInfo, setActivePost, userInfo, contacts }) {
+export default function Post({ postInfo, setActivePost, userInfo }) {
     const [comments, setComments] = useState(null)
+    const { contacts } = useContext(appContext)
 
     useEffect(() => {
       get(`${postApi}/${postInfo.id}/comment`).then((data) => {

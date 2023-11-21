@@ -9,7 +9,6 @@ export default function PostPage({ activePost, contacts }) {
       <Post
         postInfo={activePost}
         userInfo={userInfo}
-        contacts={contacts}
       />
     </main>
     </>

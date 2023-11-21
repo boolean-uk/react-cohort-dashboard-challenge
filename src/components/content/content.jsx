@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
+import { appContext } from '../../App'
 import CreatePost from "./subcomponents/createPost";
 import Post from "./subcomponents/post";
 import { get } from "../controller";
@@ -7,8 +8,11 @@ import { get } from "../controller";
 const postApi = "https://boolean-api-server.fly.dev/Radio58/post";
 const contApi = "https://boolean-api-server.fly.dev/Radio58/contact";
 
-export default function Content({contacts, setContacts, setActivePost, user, setUser}) {
+
+export default function Content() {
   const [posts, setPosts] = useState([]);
+  
+  const { contacts, setContacts, setActivePost, user, setUser } = useContext(appContext)
 
   useEffect(() => {
     get(contApi).then((data) => setContacts(data));
@@ -30,7 +34,6 @@ export default function Content({contacts, setContacts, setActivePost, user, set
         <CreatePost
           user={user}
           setPosts={setPosts}
-          posts={posts}
         />
         <div className="post-container">
           {reversedPosts.map((post) => { 
@@ -40,7 +43,6 @@ export default function Content({contacts, setContacts, setActivePost, user, set
             <Post
               postInfo={post}
               userInfo={userInfo}
-              contacts={contacts}
               setActivePost={setActivePost}
               key={post.id} 
             />
