@@ -1,6 +1,6 @@
 import Post from './Post'
-import './Posts.css'
-import './Post.css'
+import './posts.css'
+import './post.css'
 
 function Posts (props) {
 

@@ -1,6 +1,6 @@
 import HomeIcon from "./HomeIcon"
 import UserIcon from "./UserIcon"
-import "./Navbar.css"
+import "./navBar.css"
 import { Link } from "react-router-dom"
 
 function Navbar() {

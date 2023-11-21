@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ProfileIcon from "../../Header/ProfileIcon"
-import './CreateAPost.css'
+import './createAPost.css'
 
 function CreatePost (props) {
 
