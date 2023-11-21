@@ -66,8 +66,8 @@ function ShowContent(props) {
   useEffect(() => {
     // Fetch comments only for posts that haven't had their comments fetched yet
     contents.forEach((content, index) => {
-      if (content.comments.length === 0) {
-        fetchComments(content.postContent.id, index);
+      if (content?.comments?.length === 0) {
+        fetchComments(content?.postContent?.id, index);
       }
     });
   }, [contents]);
@@ -83,7 +83,7 @@ function ShowContent(props) {
   return (
     <section>
       {contents.map((content) => (
-        <section className="post-box-container" key={content.postContent.id}>
+        <section className="post-box-container" key={content?.postContent?.id}>
           <section className="post-box">
             <div className="post-header">
               <p
@@ -91,14 +91,14 @@ function ShowContent(props) {
                 style={{ background: getRandomColor() }}
                 onClick={() => navigate(`/profile/${content.postContent.id}`)}
               >
-                {`${content.contactData.firstName.charAt(
+                {`${content?.contactData?.firstName.charAt(
                   0
-                )} ${content.contactData.lastName.charAt(0)}`}
+                )} ${content?.contactData?.lastName.charAt(0)}`}
               </p>
               <div className="poster-content">
                 <p>
-                  {content.contactData
-                    ? `${content.contactData.firstName} ${content.contactData.lastName}`
+                  {content?.contactData
+                    ? `${content.contactData?.firstName} ${content.contactData.lastName}`
                     : "Contact Data Not Available"}
                 </p>
                 <p
@@ -108,21 +108,21 @@ function ShowContent(props) {
                     })
                   }
                 >
-                  {content.postContent.title}
+                  {content?.postContent?.title}
                 </p>
               </div>
             </div>
-            <p>{content.postContent.content}</p>
+            <p>{content?.postContent?.content}</p>
 
             {/* Render comments for the post */}
             <div className="comments-section">
               <h3>Comments:</h3>
-              {content.comments.map((comment) => (
+              {content?.comments?.map((comment) => (
                 <div key={comment.id}>
                   <p>
                     <strong>
-                      {comment.contactId === content.postContent.contactId
-                        ? `${content.contactData.firstName} ${content.contactData.lastName}`
+                      {comment.contactId === content?.postContent.contactId
+                        ? `${content?.contactData?.firstName} ${content?.contactData?.lastName}`
                         : "Commenter Name Not Available"}
                     </strong>
                   </p>

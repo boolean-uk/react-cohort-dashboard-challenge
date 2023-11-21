@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 function FirstContact() {
   const { contents, setContents } = useContext(UserContents);
 
+  //const test = useContext(UserContents);
+  //console.log(test, "this is test");
   const navigate = useNavigate();
 
-  const firstLetterFirstName = contents[0].firstName ? charAt(0) : "";
-  const firstLetterLastName = contents[0].lastName ? charAt(0) : "";
+  const firstLetterFirstName = contents[0]?.contactData?.firstName?.charAt(0);
+  const firstLetterLastName = contents[0]?.contactData?.lastName?.charAt(0);
 
   return (
     <>

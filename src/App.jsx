@@ -16,32 +16,28 @@ function App() {
   const [allContact, setAllContact] = useState([]);
 
   return (
-    <div className="main-app-template">
-      <Header contactIdOne={contactIdOne} setContactIdOne={setContactIdOne} />
-      <UserContents.Provider value={{ contents, setContents }}>
+    <UserContents.Provider value={{ contents, setContents }}>
+      <div className="main-app-template">
+        <Header contactIdOne={contactIdOne} setContactIdOne={setContactIdOne} />
         <Routes>
           ...{" "}
           <Route
             path="/"
             element={
-              <UserContents.Provider value={{ contents, setContents }}>
-                <Main
-                  contactIdOne={contactIdOne}
-                  setContactIdOne={setContactIdOne}
-                  contents={contents}
-                  setContents={setContents}
-                  allContact={allContact}
-                  setAllContact={setAllContact}
-                />
-              </UserContents.Provider>
+              <Main
+                contactIdOne={contactIdOne}
+                setContactIdOne={setContactIdOne}
+                allContact={allContact}
+                setAllContact={setAllContact}
+              />
             }
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/myPost/:id" element={<MyPost />} />
         </Routes>
-      </UserContents.Provider>
-      <SideBar />
-    </div>
+        <SideBar />
+      </div>
+    </UserContents.Provider>
   );
 }
 
