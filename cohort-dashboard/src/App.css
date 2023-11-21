@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: grid;
+  grid-template: 75px 1fr / 120px 1fr;
+
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #f0f5fa;
+}
+
+/* Header */
+
+header {
+  grid-area: 1 / 1 / 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  height: 75px;
+  background-color: #000046;
+}
+
+.profile-icon {
+  display: grid;
+  place-items: center;
+  background-color: #64dc78;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-weight: bold;
+  box-shadow: 3px 2.5px 2.5px #00000030;
+}
+
+.color-one {
+  background-color: aquamarine;
+}
+
+.color-two {
+  background-color: rgb(241, 204, 250);
+}
+
+/* Nav */
+
+aside {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  width: 120px;
+  height: calc(100vh - 75px);
+  background-color: #fff;
+  box-shadow: 5px 5px 5px #00000020;
+}
+
+.nav-btn {
+  display: flex;
+  border: none;
+  background-color: #fff;
+  padding: 0.6rem;
+  height: 100px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.nav-btn > span {
+  color: #000046;
+}
+
+.nav-btn:hover {
+  background-color: #e6ebf5;
+  transition: all 100ms ease-in;
+}
+
+.nav-btn > img {
+  padding-top: 0.7rem;
+  padding-bottom: 0.2rem;
+  position: relative;
+}
+
+.page-link {
+  text-decoration: none;
+  color: #000046;
+}
+
+.active {
+  background-color: #e6ebf5;
+  font-weight: 500;
+}
+
+/* Post List */
+
+.home-container {
+  display: grid;
+  gap: 20px;
+  padding: 1rem 2rem 0 2rem;
+}
+
+.post-list-container {
+  display: grid;
+  overflow-y: scroll;
+  height: calc(100vh - 264px);
+}
+
+.post-list {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+}
+
+/* Post Input */
+
+.post-input-container {
+  display: grid;
+  column-gap: 14px;
+  grid-template-columns: 60px 1fr 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.4rem;
+}
+
+.post-input-title {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.post-input-content {
+  width: 100%;
+  height: 60px;
+}
+
+.input-p {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #e6ebf5;
+}
+
+.post-btn {
+  background-color: #000046;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  width: 200px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.post-btn:hover,
+.comment-btn:hover,
+.update-profile-btn:hover,
+.go-back-btn:hover {
+  background-color: #64dc78;
+  transition: all 120ms linear;
+}
+
+/* Post */
+
+#post {
+  display: grid;
+  grid-template: 80px 220px 1fr / 1fr;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px #00000030;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.icon-title-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-btn {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #000;
+  background-color: rgb(228, 18, 25);
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.post-header__author-title {
+  display: grid;
+  margin-left: 20px;
+}
+
+.profile-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.post-link {
+  font-weight: 500;
+  text-decoration: none;
+  color: #64648c;
+}
+
+.post-content {
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  padding: 1.5rem 1.2rem;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+/* Page */
+
+.post-page {
+  padding: 3rem 1rem;
+  overflow-y: scroll;
+}
+
+.post-page > button {
+  margin-bottom: 10px;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #000046;
+  cursor: pointer;
+}
+
+.post-page > button:hover {
+  background-color: #64dc78;
+  transition: all 120ms linear;
+}
+
+/* Comments */
+
+.post-comments {
+  display: grid;
+  gap: 10px;
+
+  list-style: none;
+}
+
+.comment-filter-btn {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  left: 78px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comment-filter-btn:hover {
+  background-color: #c6cbd4;
+  transition: all 120ms linear;
+}
+
+.comment {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 75px 1fr 33px;
+}
+
+.comment-del {
+  background-color: #e6ebf5;
+  box-shadow: 5px 2.5px 2.5px #00000030;
+}
+
+.comment-content {
+  padding: 0.7rem 1rem;
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 10px 5px 5px #00000030;
+}
+
+/* Comment Input */
+
+.comment-input-container {
+  display: grid;
+  grid-template-columns: 50px 1fr 70px;
+  align-items: center;
+  padding: 1rem 0;
+  column-gap: 25px;
+}
+
+.comment-input {
+  width: 100%;
+  height: 55px;
+}
+
+.comment-btn {
+  border: none;
+  border-radius: 7px;
+  width: 70px;
+  height: 55px;
+  background-color: #000046;
+  cursor: pointer;
+}
+
+/* Profile page */
+
+.profile-page-container {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  padding: 1.5rem;
+}
+
+.profile-page-container > h1 {
+  margin-left: 5px;
+}
+
+.profile-page {
+  display: grid;
+  grid-template: auto 1px 1fr / 1fr;
+
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #00000020;
+  border-radius: 10px;
+}
+
+.profile-header {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-header__name {
+  display: flex;
+  gap: 20px;
+}
+
+.go-back-btn {
+  border: none;
+  border-radius: 10px;
+  background-color: #000046;
+  color: #fff;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.profile-form-container {
+  display: grid;
+  grid-template-rows: 50px 1fr 45px;
+}
+
+#profile-form {
+  display: grid;
+  align-items: center;
+}
+
+#profile-form label > b {
+  font-size: 1.1rem;
+}
+
+#profile-form label > input {
+  width: 100%;
+  height: 33px;
+}
+
+#profile-form label > input::placeholder {
+  font-size: 1.05rem;
+}
+
+.update-profile-btn {
+  border: none;
+  border-radius: 15px;
+  background-color: #000046;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
