@@ -5,7 +5,8 @@ import Header from "../src/header.jsx";
 import Home from "../src/home.jsx";
 import LeftMenu from "../src/left-menu.jsx";
 import Form from "./form.jsx";
-import "./App.css";
+import "./App.css"
+
 
 const App = () => {
   const [showNames, setShowNames] = useState([]);
@@ -44,12 +45,13 @@ const App = () => {
           className="main-Container"
           showNames={showNames}
           showComments={showComments}
-        ></Home>
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+          </Routes>
+        </Home>
         <LeftMenu className="LeftMenu"></LeftMenu>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/form" element={<Form />} />
-        </Routes>
       </div>
     </>
   );
