@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import InputField from './input-field.jsx'
+import InputField from './InputField.jsx'
 
 
 const Profile = () => {
