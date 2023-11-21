@@ -1,6 +1,6 @@
 import Header from './components/header'
 import Nav from './components/nav'
-import PostFeed from './components/post-feed'
+import PostFeed from './Components/PostFeed'
 import './styles/App.css'
 
 function App() {

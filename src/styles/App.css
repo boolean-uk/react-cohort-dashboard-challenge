@@ -1,10 +1,15 @@
 /* Global Styles */
-body {
-  background-color: #f0f5fa;
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  background-color: #f0f5fa;
 }
+
 
 /* Header Styles */
 header {
@@ -12,7 +17,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  background-color: #000046;
 }
+
+img svg{
+  background-color: transparent;
+}
+
+
 .logo {
   width: 300px; 
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Comments from "./comments";
 import Post from "./post";
-import NewPost from "./new-post";
+import NewPost from "./NewPost";
 
 const PostFeed = () => {
   const [posts, setPosts] = useState([]);
