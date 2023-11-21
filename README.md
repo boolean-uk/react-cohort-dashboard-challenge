@@ -1,14 +1,16 @@
-# React Cohort Dashboard Challenge
+# React + Vite
 
-## Learning Objectives
-- Use ReactJS to build an implementation of a provided application design
-- Use HTTP requests to interact with a RESTful API
-- Use routing to allow navigation between pages in a React app
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-In this challenge, you'll create a social media style post feed. There is no boilerplate code provided - you'll be building this from scratch using the designs and specifications provided.
+Currently, two official plugins are available:
 
-## Setting up React with Vite
-- Fork and clone the repository
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+# <<<<<<< main
 
 \-------------------------------------------------------------------------------------------------------
 
@@ -40,7 +42,7 @@ The steps above will create a fresh React app using Vite. From this point on, it
 
 ## Core Requirements
 
-- Everything that *can* be its own component, *should* be its own component. You **must** provide evidence of planning what components you are going to create - this could be a component tree diagram, a bullet point list, a wireframe, whatever you like. Include your plan as a file in this repository.
+- Everything that _can_ be its own component, _should_ be its own component. You **must** provide evidence of planning what components you are going to create - this could be a component tree diagram, a bullet point list, a wireframe, whatever you like. Include your plan as a file in this repository.
 - Users should be able to create a new post. The new post should be displayed at the top of the post feed.
 - Users should be able to comment on existing posts.
 - Posts and comments should show the initials of the author in a coloured circle.
@@ -53,12 +55,14 @@ The steps above will create a fresh React app using Vite. From this point on, it
 - Use the Context API to reduce prop drilling of state
 - Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
-    - Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
-    - The fields should be automatically populated with the correct data when loading any user profile.
-    - Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
+  - Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
+  - The fields should be automatically populated with the correct data when loading any user profile.
+  - Note that the design provided only shows example form fields to demonstrate roughly how the design of the page should look, you should inspect what data is available on a Contact entity to decide which fields you'll actually create.
 - You should be able to update all of the users information.
 - Posts and comments should be able to be updated and deleted.
 
 ## Advice
 
 Break this project down into smaller, individual tasks. You could use a simple todo list, a project management board like Trello, anything you like. Not only will this reduce overwhelm and provide you with a clear path forward, it'll also ensure you have understood and accounted for every requirement.
+
+> > > > > > > main
