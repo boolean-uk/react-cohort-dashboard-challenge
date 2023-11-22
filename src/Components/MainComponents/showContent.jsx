@@ -128,22 +128,23 @@ function ShowContent(props) {
                 <h3>see previous comments</h3>
               ) : null}
               {content?.comments?.map((comment, index) => (
-                <div key={comment.id}>
-                  <p>
+                <div key={comment.id} className="each-comment-box">
+                  <p className="comment-initails">
+                    {comment.postId === content.postContent.id
+                      ? `${content?.contactData?.firstName.charAt(
+                          0
+                        )} ${content?.contactData?.lastName.charAt(0)}`
+                      : null}
+                  </p>
+
+                  <div className="comment-content">
                     <strong>
                       {comment.postId === content.postContent.id
                         ? `${content?.contactData?.firstName} ${content?.contactData?.lastName}`
                         : "Commenter Name Not Available"}
                     </strong>
-                  </p>
-                  <p>
-                    {comment.postId === content.postContent.id
-                      ? `${content?.contactData?.firstName.charAt(
-                          0
-                        )} ${content?.contactData?.lastName.charAt(0)}`
-                      : "Commenter Name Not Available"}
-                  </p>
-                  <p>{comment.content}</p>
+                    <p>{comment.content}</p>
+                  </div>
                 </div>
               ))}
               <AddCommentInput />
