@@ -129,7 +129,10 @@ function ShowContent(props) {
               ) : null}
               {content?.comments?.map((comment, index) => (
                 <div key={comment.id} className="each-comment-box">
-                  <p className="comment-initails">
+                  <p
+                    className="comment-initails"
+                    style={{ background: getRandomColor() }}
+                  >
                     {comment.postId === content.postContent.id
                       ? `${content?.contactData?.firstName.charAt(
                           0
