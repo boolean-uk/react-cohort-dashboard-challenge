@@ -4,6 +4,7 @@ import FirstContact from "../HeaderComponents/FirstContact";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./showContent.css";
+
 import { UserContents } from "../../App";
 
 function ShowContent(props) {
@@ -123,7 +124,9 @@ function ShowContent(props) {
 
             {/* Render comments for the post */}
             <div className="comments-section">
-              <h3>Comments:</h3>
+              {content?.comments && content?.comments?.length > 0 ? (
+                <h3>see previous comments</h3>
+              ) : null}
               {content?.comments?.map((comment, index) => (
                 <div key={comment.id}>
                   <p>
@@ -133,9 +136,17 @@ function ShowContent(props) {
                         : "Commenter Name Not Available"}
                     </strong>
                   </p>
+                  <p>
+                    {comment.postId === content.postContent.id
+                      ? `${content?.contactData?.firstName.charAt(
+                          0
+                        )} ${content?.contactData?.lastName.charAt(0)}`
+                      : "Commenter Name Not Available"}
+                  </p>
                   <p>{comment.content}</p>
                 </div>
               ))}
+              <AddCommentInput />
             </div>
           </section>
         </section>
