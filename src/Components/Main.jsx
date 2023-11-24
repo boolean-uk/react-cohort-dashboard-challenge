@@ -1,4 +1,4 @@
-import PostInput from "./MainComponents/PostInput";
+import Newpost from "./MainComponents/NewPost";
 import FirstContact from "./HeaderComponents/FirstContact";
 import PostComment from "./MainComponents/showContent";
 import { useState, useEffect, useContext } from "react";
@@ -7,7 +7,7 @@ function Main(props) {
   const commentData = {
     contactId: 1,
   };
-  const [anotherComment, setAnotherComment] = useState(commentData);
+  const [newPost, setNewPost] = useState(commentData);
   const [comments, setComments] = useState([]);
   const { contents, setContents } = useContext(UserContents);
   //console.log("this is renderPost  in Main.jsx:", rerenderpost);
@@ -21,17 +21,14 @@ function Main(props) {
           contactIdOne={contactIdOne}
           setContactIdOne={setContactIdOne}
         />
-        <PostInput
-          anotherComment={anotherComment}
-          setAnotherComment={setAnotherComment}
-        />
+        <Newpost newPost={newPost} setNewPost={setNewPost} />
       </section>
       <section className="displayed-post">
         <PostComment
           comments={comments}
           setComments={setComments}
-          anotherComment={anotherComment}
-          setAnotherComment={setAnotherComment}
+          newPost={newPost}
+          setNewPost={setNewPost}
           allContact={allContact}
           setAllContact={setAllContact}
         />

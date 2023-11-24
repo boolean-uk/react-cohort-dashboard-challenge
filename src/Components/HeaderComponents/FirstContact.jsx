@@ -8,8 +8,10 @@ function FirstContact() {
   const { contents, setContents } = useContext(UserContents);
   const navigate = useNavigate();
 
-  const firstLetterFirstName = contents[0]?.contactData?.firstName?.charAt(0);
-  const firstLetterLastName = contents[0]?.contactData?.lastName?.charAt(0);
+  const firstLetterFirstName =
+    contents[0]?.contactData?.firstName?.charAt(0) || "";
+  const firstLetterLastName =
+    contents[0]?.contactData?.lastName?.charAt(0) || "";
 
   return (
     <>

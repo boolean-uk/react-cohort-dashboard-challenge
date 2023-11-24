@@ -6,6 +6,9 @@ import axios from "axios";
 import "./showContent.css";
 
 import { UserContents } from "../../App";
+const getRandomColor = () => {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+};
 
 function ShowContent(props) {
   const [allContact, setAllContact] = useState([]);
@@ -81,12 +84,10 @@ function ShowContent(props) {
   useEffect(() => {
     console.log("this is con", contents);
   }, [contents]);
-  const getRandomColor = () => {
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
-  };
+
   useEffect(() => {
     getRandomColor();
-  }, [contents]);
+  }, []);
 
   return (
     <section>
@@ -160,3 +161,4 @@ function ShowContent(props) {
 }
 
 export default ShowContent;
+export { getRandomColor };

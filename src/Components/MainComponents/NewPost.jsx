@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { UserContents } from "../../App";
 import React from "react";
 
-function PostInput(props) {
-  const { anotherComment, setAnotherComment } = props;
+function NewPost(props) {
+  const { newPost, setNewPost } = props;
 
   const { rerenderPost, setRerenderPost } = useContext(UserContents);
   //console.log(rerenderPost);
@@ -12,12 +12,12 @@ function PostInput(props) {
     const options = {
       method: "POST",
       headers: { "content-Type": "application/json" },
-      body: JSON.stringify(anotherComment),
+      body: JSON.stringify(newPost),
     };
 
     fetch("https://boolean-api-server.fly.dev/tayokanch/post", options)
       .then((response) => response.json())
-      .then((newContentData) => {
+      .then(() => {
         setRerenderPost(true);
       });
   };
@@ -32,15 +32,13 @@ function PostInput(props) {
       <input
         type="text"
         placeholder="Title"
-        onChange={(e) =>
-          setAnotherComment({ ...anotherComment, title: e.target.value })
-        }
+        onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
       />
       <input
         type="text"
         placeholder="what's on your mind?"
         onChange={(e) =>
-          setAnotherComment({ ...anotherComment, content: e.target.value })
+          setNewPost({ ...newPost, content: e.target.value })
         }
       />
       <button>Post</button>
@@ -48,6 +46,4 @@ function PostInput(props) {
   );
 }
 
-export default PostInput;
-
-
+export default NewPost;

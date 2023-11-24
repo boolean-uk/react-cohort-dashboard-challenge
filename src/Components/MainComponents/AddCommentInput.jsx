@@ -13,11 +13,7 @@ function AddCommentInput(props) {
 
   return (
     <form className="comment-input-box" onSubmit={(e) => submitcomment(e)}>
-      <input
-        type="text"
-        placeholder="Add a comment..."
-        onChange={handleChange}
-      ></input>
+      <input type="text" placeholder="Add a comment..."></input>
       <button type="submit">
         <i class="fa-regular fa-paper-plane"></i>
       </button>
