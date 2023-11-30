@@ -9,12 +9,12 @@ function HomeIcon() {
   return (
     <>
       <figure onClick={() => navigate("/")}>
-        <i class="fa-solid fa-house"></i>
+        <i className="fa-solid fa-house"></i>
         <p>Home</p>
       </figure>
 
       <figure onClick={() => navigate("/profile")}>
-        <i class="fa-regular fa-circle-user"></i>
+        <i className="fa-regular fa-circle-user"></i>
         <p>Profile</p>
       </figure>
     </>
