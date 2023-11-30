@@ -18,7 +18,7 @@ function AddComment(props) {
         placeholder="Add a comment..."
         onChange={handleChange}></input>
       <button type="submit">
-        <i class="fa-regular fa-paper-plane"></i>
+        <i className="fa-regular fa-paper-plane"></i>
       </button>
     </form>
   );
