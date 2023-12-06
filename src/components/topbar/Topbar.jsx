@@ -1,9 +1,7 @@
 // Topbar.jsx
-
 import React from 'react';
 import HeadLeftLogo from './HeadLeftLogo';
-import ProfileInitialsBadge from './ProfileInitialsBadge';
-import CircleBadge from './CircleBadge'; // Add this import statement
+import ProfileBadge from './ProfileBadge';
 import './topbar.css';
 
 const Topbar = () => {
@@ -21,12 +19,8 @@ const Topbar = () => {
           <HeadLeftLogo />
         </span>
       </div>
-      
-      
-      
-      {}
       <div>
-        <ProfileInitialsBadge firstName={user.firstName} lastName={user.lastName} />
+        <ProfileBadge initials={initials} />
       </div>
     </div>
   );

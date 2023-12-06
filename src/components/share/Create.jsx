@@ -1,52 +1,46 @@
-import { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
 
-const Create = () => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [content, setContent] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
+const INITIAL_POST_STATE = {
+  title: "",
+  content: "",
+  // Assuming you get the user ID from some context or props
+  contactId: 1, // Replace this with the actual user ID
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const blog = { title, content };
-    setIsLoading(true);
+const API_BASE_URL = "http://localhost:8000"; // Fixed quotes around the URL
 
-    fetch('http://localhost:8000/blogs', {
-      method: 'POST',
+function Create({ setReload }) {
+  const [formData, setFormData] = useState(INITIAL_POST_STATE);
+
+  const createNewPost = () => {
+    const options = {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog)
-    }).then(() => {
-      console.log('New Blog Added');
-      setIsLoading(false);
-      history.push('/');
-    });
-  }
+      body: JSON.stringify(formData),
+    };
+
+    if (formData.content) {
+      fetch(`${API_BASE_URL}/post`, options)
+        .then((response) => response.json())
+        .then(() => {
+          setFormData(INITIAL_POST_STATE);
+          setReload(true);
+        })
+        .catch((error) => {
+          console.error("Error creating post:", error);
+        });
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
   return (
-    <div className="create">
-      <h2>Add a New Blog</h2>
-      <form onSubmit={handleSubmit}>
-        <label> Blog Title:</label>
-        <input
-          type="text"
-          required
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label> Blog Content:</label>
-        <select
-          value={content}
-          onChange={(e) => setContent(e.target.value)}>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          {/* Add your actual content options here */}
-        </select>
-        {!isLoading && <button>Add Blog</button>}
-        {isLoading && <button disabled>Adding Blog...</button>}
-      </form>
-    </div>
+    <>
+      
+    </>
   );
 }
 
