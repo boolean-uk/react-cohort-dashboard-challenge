@@ -1,21 +1,11 @@
 
-.sharebutton{
-  color:white;
-  
-  background-color: navy;
-  height: 50px;
-  display: flex;
-  border-radius: 25%;
-  
-}
+
+
 .sharetop {
-  
-  width: 98%;
+  display: flex;
   height: 80px;
   padding: 25px;
   background-color:white;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   
 }
@@ -35,24 +25,28 @@
 }
 
 .postbutton {
-  
   color: white;
   background-color: navy;
   height: 60px;
-  width: 120px; /* Adjust as needed */
+  width: 110px; /* Adjust as needed */
   border-radius: 15%;
-  margin-left: 10px;
+  margin-right: 10px;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  
+}
+
+label{
+  justify-content: center;
+  
 }
 
 .inputbutton {
+
   color: black;
   background-color:#e6ebf5;
   height: 50px;
-
-  width: 700px;
+  width: 450px;
   border-radius: 5%;
   margin-left: 5px;
   border: none;
@@ -69,9 +63,6 @@
   background-color:white;
   padding: 25px;
 
-  
-
-
 }
 .userlogo {
   display: inline-flex;
@@ -83,4 +74,7 @@
   background-color: #2a48a8; 
   color: #ffffff; 
   font-size: 24px; 
+}
+li{
+  list-style: none;
 }

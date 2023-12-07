@@ -1,30 +1,46 @@
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import ProfileBadge from '../topbar/ProfileBadge';
 import UserLogo from '../userlogo/UserLogo';
 import Create from './Create';
 import './share.css';
 
 function Share() {
+  const displayInitials = "JD"; // Replace this with your logic to get the initials
+
   const handleClick = () => {
+    // Handle click logic here
     console.log('Button clicked!');
   };
 
   return (
-    <>
+    <div className="share-container">
       <div className="sharetop">
         <div className="userlogo">
+        
           <UserLogo />
         </div>
-        <span>
+        <div className="input-container">
           <input className="inputbutton" placeholder="What's on your mind?" type="text" />
-        </span>
-        <button onClick={(e) => handleClick()} className="postbutton">
-          Post
-        </button>
+          <button onClick={handleClick} className="postbutton">
+            Post
+          </button>
+        </div>
+      </div>
+      <div className="blogup">
+        <div>
+      
+        </div>
+        <div className="bloglogo">
+          <ProfileBadge initials={displayInitials} />
+        </div>
+        <div className="comment-container">
+          <input className="commentbutton" placeholder="Add a comment...." type="text" />
+        </div>
       </div>
       {/* Render the Create component */}
       <Create />
-    </>
+    </div>
   );
 }
 

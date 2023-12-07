@@ -1,6 +1,8 @@
 import Topbar from '../../components/topbar/Topbar'
-import Feed from '../../components/feed/Feed'
 import Sidebar from '../../components/sidebar/Sidebar'
+import Share from '../../components/share/Share'
+
+
 import "./home.css"
 const Home = () => {
   return ( 
@@ -8,7 +10,7 @@ const Home = () => {
     <Topbar />
     <div className="homeContainer">
       <Sidebar />
-      <Feed />
+      <Share />
       
     
 

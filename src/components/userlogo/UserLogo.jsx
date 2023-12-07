@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 function UserLogo() {
@@ -6,12 +5,14 @@ function UserLogo() {
   const URL = "http://localhost:8000";
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserData = async (userId) => {
       try {
-        const response = await fetch(`${URL}/posts/1`);
-        
+        const response = await fetch(`${URL}/posts/${userId}`);
+
         if (!response.ok) {
           console.error("Error fetching user data:", response.status);
+          // Set userName to null or an empty object based on your requirements
+          setUserName(null);
           return;
         }
 
@@ -19,10 +20,13 @@ function UserLogo() {
         setUserName(data);
       } catch (error) {
         console.error("Error fetching user data:", error);
+        // Set userName to null or an empty object based on your requirements
+        setUserName(null);
       }
     };
 
-    fetchUserData();
+    // Replace 1 with the actual user ID
+    fetchUserData(1);
   }, [URL]);
 
   const getInitials = () => {

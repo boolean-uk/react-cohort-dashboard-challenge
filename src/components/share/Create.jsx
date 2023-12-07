@@ -1,46 +1,48 @@
 import React, { useState } from "react";
+import './create.css';
 
-const INITIAL_POST_STATE = {
-  title: "",
-  content: "",
-  // Assuming you get the user ID from some context or props
-  contactId: 1, // Replace this with the actual user ID
-};
+const Create = () => {
+  const [firstName, setFirstName] = useState('');
+  const [content, setContent] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [lastName, setLastName] = useState('');
 
-const API_BASE_URL = "http://localhost:8000"; // Fixed quotes around the URL
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = { firstName, content,lastName };
+    setIsLoading(true);
 
-function Create({ setReload }) {
-  const [formData, setFormData] = useState(INITIAL_POST_STATE);
-
-  const createNewPost = () => {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    };
-
-    if (formData.content) {
-      fetch(`${API_BASE_URL}/post`, options)
-        .then((response) => response.json())
-        .then(() => {
-          setFormData(INITIAL_POST_STATE);
-          setReload(true);
-        })
-        .catch((error) => {
-          console.error("Error creating post:", error);
-        });
-    }
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    fetch('http://localhost:8000/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(blog),
+    })
+    .then(() => {
+      console.log('New Blog Added');
+      setIsLoading(false);
+    });
   };
 
   return (
-    <>
-      
-    </>
+    <div className="create">
+      <form onSubmit={handleSubmit}>
+        <label> First Name:</label>
+        <input
+          type="text"
+          required
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label> Last Name:</label>
+        <textarea
+          value={lastName}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
+        
+        {!isLoading && <button className="create-button">Add Blog</button>}
+        {isLoading && <button className="create-button" disabled>Adding Blog...</button>}
+      </form>
+    </div>
   );
 }
 
