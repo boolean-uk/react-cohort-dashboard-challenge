@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProfileIcon from "../../components/Header/ProfileIcon";
+import ProfileIcon from "../../Components/Header/ProfileIcon";
 import { Link } from "react-router-dom";
 
 export default function PostListItem({post}) {
