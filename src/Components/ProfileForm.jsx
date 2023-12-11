@@ -9,6 +9,15 @@ const INITIAL_STATE = {
   gender: "",
   email: "",
   jobTitle: "",
+  userName: "",
+  suite: "",
+  city: "", 
+  zip: "",
+  phone: "",
+  website: "",
+  companyName: "",
+  catchPhrase: "",
+  businessStatement: "",
 };
 
 export default function ProfileForm() {
