@@ -5,7 +5,6 @@ import Header from "../src/header.jsx";
 import Home from "../src/home.jsx";
 import LeftMenu from "../src/left-menu.jsx";
 import Form from "./form.jsx";
-import CommentForm from "./components/Commentsform.jsx";
 import "./App.css"
 
 

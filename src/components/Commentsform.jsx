@@ -1,16 +1,17 @@
-import  { useState } from "react";
+// CommentForm.jsx
+import React, { useState } from "react";
 
-function CommentForm() {
-  const [comment, setComment] = useState("");
+function CommentForm({ comment, onSubmitComment }) {
+  const [inputComment, setInputComment] = useState(comment || ""); // Initialize with an empty string
 
   const handleInputChange = (e) => {
-    setComment(e.target.value);
+    setInputComment(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    document.getElementById("displayedComment").innerText = comment;
+    onSubmitComment(inputComment);
+    setInputComment("");
   };
 
   return (
@@ -19,15 +20,13 @@ function CommentForm() {
         <input
           type="text"
           placeholder="Add a comment"
-          value={comment}
+          value={inputComment}
           onChange={handleInputChange}
         />
         <button type="submit" onClick={handleSubmit}>
           Submit
         </button>
       </form>
-      
-      <p id="displayedComment"></p>
     </>
   );
 }

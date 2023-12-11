@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import homeicon from "./assets/homeicon.svg";
-import profileicon from "./assets/profileicon.svg";
+import Profileicon from "./assets/Profileicon.svg";
 import { Link, useNavigate } from "react-router-dom";
 function LeftMenu() {
   const navigator = useNavigate();
@@ -33,7 +33,7 @@ function LeftMenu() {
         <button className={`navbarbutton ${profile}`}
           >
           <img
-            src={profileicon}
+            src={Profileicon}
             className="profile-icon"
             alt="profile-icon"
             width={35}
