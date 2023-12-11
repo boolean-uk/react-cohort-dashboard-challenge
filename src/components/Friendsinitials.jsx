@@ -1,5 +1,0 @@
-function FriendsInitials(){
-    return(
-        
-    )
-}

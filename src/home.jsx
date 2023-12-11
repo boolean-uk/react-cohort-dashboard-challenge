@@ -1,23 +1,24 @@
 import UserProfilePic from "./Userpicture";
 import ComposePost from "./components/Composepost";
+import CommentForm from "./components/Commentsform";
 
 const Home = ({ showNames, showComments }) => {
-  // Check if showNames and showComments are arrays before mapping
+ 
   if (!Array.isArray(showNames) || !Array.isArray(showComments)) {
     return <p></p>;
   }
 
-  // Determine the minimum length of the two arrays
+  
   const minLength = Math.min(showNames.length, showComments.length);
 
   return (
     <div>
       <ComposePost></ComposePost>
 
-      {/* Iterate up to the minimum length of the two arrays */}
+  
       {Array.from({ length: minLength }, (_, index) => (
         <div key={index}>
-          {/* Display first name and last name */}
+        
           {index < showNames.length && (
             <>
               <div className="FriendsInitials">
@@ -29,12 +30,13 @@ const Home = ({ showNames, showComments }) => {
             </>
           )}
 
-          {/* Display title and content */}
+          
           {index < showComments.length && (
             <>
               <p>{`${showComments[index].title}`}</p>
               <p>{`${showComments[index].content}`}</p>
               <UserProfilePic></UserProfilePic>
+              <CommentForm></CommentForm>
             </>
           )}
         </div>

@@ -1,5 +1,17 @@
 import { useState } from "react";
 function ComposePostForm() {
+  const [postText, setPostText] = useState(""); 
+
+  const handleInputChange = (e) => {
+    setPostText(e.target.value); 
+  };
+
+  const handlePostClick = (e) => {
+    e.preventDefault();
+   
+    document.getElementById("displayedText").innerText = postText;
+  };
+
   return (
     <>
       <form id="firstform">
@@ -7,10 +19,15 @@ function ComposePostForm() {
           name="user"
           type="text"
           placeholder="What's on your mind?"
-          value=""
+          value={postText}
+          onChange={handleInputChange} 
         ></input>
+        <button className="form__submit" onClick={handlePostClick}>
+          Post
+        </button>
+
       </form>
-      <input className="form__submit" type="submit" value="post" />
+      <p id="displayedText"></p>
     </>
   );
 }
