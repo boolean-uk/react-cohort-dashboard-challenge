@@ -1,126 +1,187 @@
+/* eslint-disable no-constant-condition */
 import { useState } from "react";
 const INITIAL_STATE = {
-  FirstName: "",
-  LastName: "",
-  UserName: "",
-  EMail: "",
-  Phone: 0,
+  firstName: "",
+  lastName: "",
+  userName: "",
+  email: "",
+  phone: "",
   website: "",
   street: "",
-  Suite: "",
+  suite: "",
   city: "",
-  zipcode: 0,
+  zipcode: "",
   name: "",
   catchphrase: "",
   statement: "",
 };
 function Form() {
+  const [form, setForm] = useState(INITIAL_STATE);
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    console.log(form);
+
+    setForm(INITIAL_STATE);
+  };
+  const handleChange = (event) => {
+    const { name, type, value } = event.target;
+    if (type === 'text' ) {
+      setForm({ ...form, [name]: value });
+    } 
+    console.log(event.target);
+  };
   return (
-    <div className="form">
+    <form className="form" onSubmit={submitForm}>
       <h1>Profile</h1>
-      <form>
-        <h2>Alex Walker</h2>
-        <h3>Account Info</h3>
-        <label>
-          FirstName*
-          <input
-            type="text"
-            name="FirstName"
-            value=""
-            placeholder="Elizabeth"
-            required
-          />
-        </label>
-        <label>
-          LastName*
-          <input
-            type="text"
-            name="LastName"
-            value=""
-            placeholder="sonuga"
-            required
-          />
-        </label>
-        <label>
-          UserName*
-          <input
-            type="text"
-            name="UserName"
-            value=""
-            placeholder="Elizabethcodes"
-            required
-          />
-        </label>
-        <label>
-          E-mail*
-          <input
-            type="e-mail"
-            name="EMail"
-            value=""
-            placeholder="lizbeepmc@gmail.com"
-            required
-          />
-        </label>
-        <h3>Contact Info</h3>
-        <label>
-          Phone*
-          <input
-            type="number"
-            name="Phone"
-            value=""
-            placeholder="05525128270"
-            required
-          />
-        </label>
-        <label>
-          Website*
-          <input
-            type="website"
-            name="website"
-            value=""
-            placeholder="http://elizabethcodes.com"
-            required
-          />
-        </label>
-        <h3>Address</h3>
-        <label>
-          Street
-          <input
-            type="text"
-            name="street"
-            value=""
-            placeholder="karsiyaka tokat"
-            required
-          />
-        </label>
-        <label>
-          Suite
-          <input type="text" name="Suite" value="" />
-        </label>
-        <label>
-          City
-          <input type="text" name="city" value="" />
-        </label>
-        <label>
-          Zipcode
-          <input type="number" name="zipcode" value="" required />
-        </label>
-        <h3>Company Info</h3>
-        <label>
-          Name
-          <input type="text" name="name" value="" />
-        </label>
-        <label>
-          Catchphrase
-          <input type="text" name="catchphrase" value="" required />
-        </label>
-        <label>
-          Business Statement
-          <input type="text" name="statement" value="" required />
-        </label>
-        <input className="form__submit" type="submit" value="save" />
-      </form>
-    </div>
+
+      <h2>Alex Walker</h2>
+      <h3>Account Info</h3>
+      <label>
+        FirstName*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="firstName"
+          value={form.firstName}
+          placeholder="Elizabeth"
+          required
+        />
+      </label>
+      <label>
+        LastName*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="lastName"
+          value={form.lastName}
+          placeholder="sonuga"
+          required
+        />
+      </label>
+      <label>
+        UserName*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="userName"
+          value={form.userName}
+          placeholder="Elizabethcodes"
+          required
+        />
+      </label>
+      <label>
+        E-mail*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="email"
+          value={form.email}
+          placeholder="lizbeepmc@gmail.com"
+          required
+        />
+      </label>
+      <h3>Contact Info</h3>
+      <label>
+        Phone*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="phone"
+          value={form.phone}
+          placeholder="12345"
+         
+          required
+        />
+      </label>
+      <label>
+        Website*
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="website"
+          value={form.website}
+          placeholder="http://elizabethcodes.com"
+          required
+        />
+      </label>
+      <h3>Address</h3>
+      <label>
+        Street
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="street"
+          value={form.street}
+          placeholder="karsiyaka tokat"
+          required
+        />
+      </label>
+      <label>
+        Suite
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="suite"
+          value={form.suite}
+        />
+      </label>
+      <label>
+        City
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="city"
+          value={form.city}
+        />
+      </label>
+      <label>
+        Zipcode
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="zipcode"
+          value={form.zipcode}
+          required
+        />
+      </label>
+      <h3>Company Info</h3>
+      <label>
+        Name
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="name"
+          value={form.name}
+        />
+      </label>
+      <label>
+        Catchphrase
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="catchphrase"
+          value={form.catchphrase}
+          required
+        />
+      </label>
+      <label>
+        Business Statement
+        <input
+          onChange={(event) => handleChange(event)}
+          type="text"
+          name="statement"
+          value={form.statement}
+          required
+        />
+      </label>
+      <input
+        onChange={(event) => handleChange(event)}
+        className="form__submit"
+        type="submit"
+        value="save"
+      />
+    </form>
   );
 }
 export default Form;
