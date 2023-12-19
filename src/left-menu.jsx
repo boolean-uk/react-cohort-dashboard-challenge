@@ -2,11 +2,11 @@ import { useState } from "react";
 
 import homeicon from "./assets/homeicon.svg";
 import Profileicon from "./assets/Profileicon.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function LeftMenu() {
   const navigator = useNavigate();
   const [homeActive, setHomeActive] = useState("active");
-  const [profile, setProfile] = useState("");
+  const [profile] = useState("");
 
   return (
     <>
@@ -15,32 +15,32 @@ function LeftMenu() {
           className={`navbarbutton ${homeActive}`}
           onClick={() => {
             setHomeActive("active");
-          
 
             navigator("/");
           }}
         >
-        
-            <img
-              src={homeicon}
-              className="home-icon"
-              alt="home-icon"
-              width={35}
-            />
-            <span>HOME</span>
-      
+          <img
+            src={homeicon}
+            className="home-icon"
+            alt="home-icon"
+            width={35}
+          />
+          <span>HOME</span>
         </button>
-        <button className={`navbarbutton ${profile}`}
-          >
+        <button
+          className={`navbarbutton ${profile}`}
+          onClick={() => {
+            navigator("/form");
+          }}
+        >
           <img
             src={Profileicon}
             className="profile-icon"
             alt="profile-icon"
             width={35}
           />
-    
-            <p>PROFILE</p>
-    
+
+          <p>PROFILE</p>
         </button>
       </aside>
     </>

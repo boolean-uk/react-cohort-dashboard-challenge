@@ -1,5 +1,5 @@
 import titleheader from "./assets/titleheader.svg";
-import UserProfilePic from "./Userpicture";
+import UserProfilePic from "./components/Userpicture";
 
 function Header() {
   return (

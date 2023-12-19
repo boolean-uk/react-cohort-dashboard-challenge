@@ -7,6 +7,7 @@
 body {
   background-color: #f0f5fa;
 }
+
 .app-Container {
   width: 100%;
   height: 200vh;
@@ -90,4 +91,66 @@ aside {
 .active {
   background-color: #e6ebf5;
   font-weight: 700;
+}
+.customProfileicon {
+  display: grid;
+  place-items: center;
+  background-color: blue;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-weight: bold;
+  
+}
+.home {
+  display: grid;
+  gap: 25px;
+  padding: 1rem 2rem 0 1.5rem;
+}
+.entrycontainer {
+  display: grid;
+  overflow-y: scroll;
+  height: 180vh;
+}
+.entrylist {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+}
+.makeapost {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: 60px 1fr 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.4rem;
+}
+.titlepost {
+  width: 20%;
+  height: 40px;
+  margin-bottom: 18px;
+}
+.postcontent {
+  width: 60%;
+  height: 40px;
+  margin-bottom: 18px;
+}
+.inputp{
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #e6ebf5;
+  display:inline;
+  margin-inline: 5px;
+}
+.postbutton {
+  background-color: blue;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  height: 50px;
+  width: 150px;
+  color: black;
+  cursor: pointer;
+
 }
