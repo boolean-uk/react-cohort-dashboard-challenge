@@ -1,6 +1,20 @@
 import { useState } from "react";
+const INITIAL_STATE = {
+  FirstName: "",
+  LastName: "",
+  UserName: "",
+  EMail: "",
+  Phone: 0,
+  website: "",
+  street: "",
+  Suite: "",
+  city: "",
+  zipcode: 0,
+  name: "",
+  catchphrase: "",
+  statement: "",
+};
 function Form() {
-
   return (
     <div className="form">
       <h1>Profile</h1>
@@ -41,7 +55,7 @@ function Form() {
           E-mail*
           <input
             type="e-mail"
-            name="LastName"
+            name="EMail"
             value=""
             placeholder="lizbeepmc@gmail.com"
             required
@@ -98,7 +112,7 @@ function Form() {
         </label>
         <label>
           Catchphrase
-          <input type="text" name="cathphrase" value="" required />
+          <input type="text" name="catchphrase" value="" required />
         </label>
         <label>
           Business Statement
