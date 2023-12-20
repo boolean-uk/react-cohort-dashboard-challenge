@@ -1,12 +1,13 @@
-import logo from "../../assets/title-header-svg.svg";
-import ProfileIcon from "./ProfileIcon";
-import './Header.css'
+import SiteLogo from "../Reusable/siteLogo";
+import ProfileLogo from "../Reusable/profileLogo";
 
 export default function Header() {
-  return (
-    <header>
-      <img src={logo} alt="logo" />
-      <ProfileIcon />
-    </header>
-  );
+
+    const userId = "1"
+    return (
+        <div className="header">
+                <SiteLogo />
+                <ProfileLogo id={userId}/>
+        </div>
+    )
 }
