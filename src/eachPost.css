@@ -9,21 +9,64 @@
     "otherInitials postName"
     "otherInitials postTitle"
     "postContent postContent"
+    "comments comments"
     "addComment addComment";
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 85px;
   grid-template-rows: min-content;
 }
-
+.comments {
+  grid-area: comments;
+  border-top: 1px solid #e6ebf5;
+}
+.commentName {
+  font-weight: bold;
+  margin: 5px;
+  padding: 5px;
+}
+.commentContent {
+  margin: 15px;
+}
 .otherInitials {
   grid-area: otherInitials;
   border-radius: 100%;
   width: 30px;
   height: 30px;
-  background-color: lightgreen;
   padding: 10px;
   display: grid;
   place-content: center;
   margin: 20px;
+}
+.mine {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: lightgreen;
+}
+.otherInitials {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.other {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: blue;
 }
 .otherInitials p {
   color: #000046;

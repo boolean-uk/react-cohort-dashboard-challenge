@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+}
+.otherInitials {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.mines {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: lightgreen;
+}
+.otherInitials {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.others {
+  grid-area: otherInitials;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: blue;
+}
+.commentInitials {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.myComments {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: lightgreen;
+}
+.otherComments {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: pink;
+}

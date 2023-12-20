@@ -1,0 +1,46 @@
+.comments {
+  display: grid;
+  grid-area: addComment;
+  border-radius: 10px;
+  grid-template-columns: 1fr 20fr;
+}
+.commentInitials {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+}
+.myComment {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: lightgreen;
+}
+.otherComment {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  display: grid;
+  place-content: center;
+  margin: 20px;
+  background-color: pink;
+}
+.commentInitials p {
+  color: #000046;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.commentBox {
+  background-color: #e6ebf5;
+  width: 400px;
+  border-radius: 10px;
+  margin: 10px;
+}

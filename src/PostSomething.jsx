@@ -1,34 +1,48 @@
 import { useState } from "react";
-const PostSomething = ({ posts, loggedInUser, getData }) => {
+const PostSomething = ({ loggedInUser, getData }) => {
   const [inputMind, setInputMind] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    // const words = inputMind.split(" "); // splits into array of words
+
+    // // Get the first word
+    // const title = words[0]; // first word
+
+    // Split at the first full stop
+    const title = inputMind.split(/\.(?=\s)/);
+
+    // The result will be an array with two elements, separating the first and second sentences
+    console.log(title[0], title[1]);
+
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title: "newTitle",
-        content: inputMind,
-        contactId: 1,
+        title: title[0],
+        content: title[1],
+        contactId: loggedInUser.id,
       }),
     };
-    fetch(`https://boolean-api-server.fly.dev/hamza789987/post`, options);
-    getData();
-    console.log(inputMind);
-    setInputMind("");
+    fetch(`https://boolean-api-server.fly.dev/hamza789987/post`, options).then(
+      () => {
+        // getData and setInputMind after successful post
+        getData();
+        setInputMind(""); // Clear the input after successful submission
+      }
+    );
   };
 
   return (
     <div className='postContainer'>
       <div className='initials'>
-        <p>
+        <div>
           {loggedInUser.firstName && loggedInUser.lastName && (
             <p>
               {loggedInUser.firstName[0]}
               {loggedInUser.lastName[0]}
             </p>
           )}
-        </p>
+        </div>
       </div>
       <input
         value={inputMind}

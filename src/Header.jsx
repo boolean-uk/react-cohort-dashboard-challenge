@@ -1,7 +1,7 @@
 import "./header.css";
 import mySvg from "./assets/header.svg";
 const Header = ({ loggedInUser }) => {
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
   return (
     <header>
       <img src={mySvg} alt='' />

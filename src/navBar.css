@@ -3,6 +3,15 @@
   margin: 20px;
   display: grid;
   padding: 19px;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 50px 50px;
   grid-area: navBar;
+}
+.Link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #c4bebe;
+}
+p {
+  text-decoration: none;
+  cursor: pointer;
 }
