@@ -39,7 +39,6 @@ function Share() {
         </div>
       </div>
       {/* Render the Create component */}
-      <Create />
     </div>
   );
 }

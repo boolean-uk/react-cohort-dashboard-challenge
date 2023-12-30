@@ -12,7 +12,7 @@ const Create = () => {
     const blog = { firstName, content,lastName };
     setIsLoading(true);
 
-    fetch('http://localhost:8000/posts', {
+    fetch('https://boolean-api-server.fly.dev/Atiq07/post', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(blog),
