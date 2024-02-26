@@ -1,9 +1,11 @@
 import "../styles/Content.css";
+import PostInput from "./PostInput";
 import Post from "./Post";
 
 export default function Content() {
   return (
     <div className="content">
+      <PostInput />
       <Post>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

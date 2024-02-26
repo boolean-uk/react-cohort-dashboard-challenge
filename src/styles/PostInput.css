@@ -1,0 +1,25 @@
+.card div {
+  display: flex;
+  gap: 15px;
+}
+
+.card div input {
+  border: none;
+  font-family: "Jost";
+  font-weight: 600;
+  padding: 10px;
+  font-size: large;
+  border-radius: 0.6em;
+  width: 100%;
+  background-color: #e6ebf5;
+}
+
+.card div button {
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  background-color: var(--primary);
+  width: 200px;
+  border: none;
+  border-radius: 0.6em;
+}

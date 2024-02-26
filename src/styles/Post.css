@@ -16,6 +16,7 @@
 }
 
 .user-info-text {
+  line-height: 12px;
   display: flex;
   justify-content: center;
   flex-direction: column;

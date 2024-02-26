@@ -1,5 +1,7 @@
 .content {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0 auto;
   margin-top: 20px;
   width: 80%;
