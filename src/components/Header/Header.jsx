@@ -1,6 +1,6 @@
-import titleHeader from "../assets/title-header.svg";
-import "../styles/Header.css";
-import ProfileCircle from "./ProfileCircle";
+import titleHeader from "../../assets/title-header.svg";
+import "../../styles/Header.css";
+import ProfileCircle from "../ProfileCircle";
 
 export default function Header() {
   return (
