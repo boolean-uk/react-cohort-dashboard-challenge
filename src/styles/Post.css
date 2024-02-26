@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 0.6em;
+  width: 100%;
+  height: auto;
+}
+
+.user-info {
+  width: 400px;
+  display: flex;
+  gap: 20px;
+}
+
+.user-info-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.user-info-text p {
+  opacity: 0.6;
+  margin: 0;
+}

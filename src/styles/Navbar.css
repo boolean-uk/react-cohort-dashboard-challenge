@@ -1,6 +1,7 @@
 .navbar {
   width: 120px;
   height: 100vh;
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: column;
