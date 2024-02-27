@@ -1,0 +1,17 @@
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-info-form {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.user-info-form .info-section {
+  display: flex;
+  flex-direction: column;
+}
