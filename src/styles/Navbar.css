@@ -1,6 +1,6 @@
 .navbar {
   width: 120px;
-  height: 100vh;
+  height: 100%;
   grid-area: menu;
   display: flex;
   align-items: center;

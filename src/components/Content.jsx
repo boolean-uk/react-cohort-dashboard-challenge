@@ -2,7 +2,7 @@ import "@styles/Content.css";
 import PostInput from "./Post/PostInput";
 import Post from "./Post/Post";
 import { useGetAllPosts } from "@services/PostService";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Content() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ export default function Content() {
     <div className="content">
       <PostInput />
       {sortedPosts.map((post) => (
-        <Post title={post.title} key={post.id}>
+        <Post title={post.title} key={post.id} id={post.id}>
           {post.content}
         </Post>
       ))}
