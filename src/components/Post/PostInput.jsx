@@ -3,13 +3,13 @@ import "@styles/PostInput.css";
 import ProfileCircle from "../ProfileCircle";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { uploadPost } from "@services/PostService";
+import { createPost } from "@services/PostService";
 
 export default function PostInput({ onClick }) {
   const [content, setContent] = useState("");
   const { mutateAsync: createPostAsync, isLoading } = useMutation(
-    "uploadPost",
-    uploadPost
+    "createPost",
+    createPost
   );
 
   const handleClick = async () => {

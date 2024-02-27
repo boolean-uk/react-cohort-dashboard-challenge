@@ -1,5 +1,5 @@
 import "@styles/Post.css";
-import CommentField from "../CommentField";
+import CommentField from "./CommentField";
 import PostComment from "./PostComment";
 import ProfileCircle from "../ProfileCircle";
 import { useEffect, useState } from "react";
@@ -42,7 +42,10 @@ export default function Post({ children, title, id }) {
               key={comment.id}
             />
           ))}
-        <CommentField />
+        <CommentField
+          onClick={(comment) => setComments([...comments, comment])}
+          postId={id}
+        />
       </div>
     </div>
   );

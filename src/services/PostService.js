@@ -13,7 +13,16 @@ export const getAllComments = async (postId) => {
   return data;
 };
 
-export const uploadPost = async (post) => {
+export const createPost = async (post) => {
   const { data } = await axios.post(BASE_API_URL + "post", post);
+  return data;
+};
+
+export const createComment = async (comment) => {
+  console.log(comment);
+  const { data } = await axios.post(
+    BASE_API_URL + `post/${comment.postId}/comment`,
+    comment
+  );
   return data;
 };
