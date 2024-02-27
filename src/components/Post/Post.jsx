@@ -28,7 +28,7 @@ export default function Post({ children, title, id }) {
       {loading && <p>Loading comments...</p>}
       {error && <p>{error}</p>}
       <div className="card-comments">
-        {data.length > 3 && (
+        {data && data.length > 3 && (
           <a onClick={() => setComments(data)}>See previous comments</a>
         )}
         {data &&
