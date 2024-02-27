@@ -13,7 +13,7 @@ export default function Content() {
 
   return (
     <div className="content">
-      <PostInput />
+      <PostInput onClick={(post) => setPosts([...posts, post])} />
       {isLoading && <p>Loading posts...</p>}
       {error && <p>{error.message}</p>}
       {sortedPosts.map((post) => (

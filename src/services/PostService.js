@@ -12,3 +12,8 @@ export const getAllComments = async (postId) => {
   const { data } = await axios.get(BASE_API_URL + `post/${postId}/comment`);
   return data;
 };
+
+export const uploadPost = async (post) => {
+  const { data } = await axios.post(BASE_API_URL + "post", post);
+  return data;
+};
