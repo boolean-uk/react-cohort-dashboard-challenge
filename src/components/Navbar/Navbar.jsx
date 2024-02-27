@@ -1,6 +1,6 @@
 import homeIcon from "../../assets/home-icon.svg";
 import profileIcon from "../../assets/profile-icon.svg";
-import "../../styles/Navbar.css";
+import "@styles/Navbar.css";
 import NavbarButton from "./NavbarButton";
 
 export default function Navbar() {

@@ -1,11 +1,11 @@
 import "@styles/Content.css";
-import PostInput from "./Post/PostInput";
-import Post from "./Post/Post";
+import PostInput from "@components/Post/PostInput";
+import Post from "@components/Post/Post";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { getAllPosts } from "@services/PostService";
 
-export default function Content() {
+export default function Home() {
   const [posts, setPosts] = useState([]);
   const { isLoading, error } = useQuery("posts", () => getAllPosts(setPosts));
 

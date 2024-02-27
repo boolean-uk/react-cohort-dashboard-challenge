@@ -1,10 +1,13 @@
-import Content from "../components/Content";
-import { QueryClient, QueryClientProvider } from "react-query";
+import Header from "@components/Header/Header.jsx";
+import Navbar from "@components/Navbar/Navbar.jsx";
+import { Outlet } from "react-router-dom";
 
 export default function Root() {
   return (
-    <QueryClientProvider client={new QueryClient()}>
-      <Content />
-    </QueryClientProvider>
+    <>
+      <Header />
+      <Navbar />
+      <Outlet />
+    </>
   );
 }
