@@ -1,8 +1,7 @@
-import "../styles/Post.css";
-import CommentField from "./CommentField";
+import "@styles/Post.css";
+import CommentField from "../CommentField";
 import PostComment from "./PostComment";
-import PostInput from "./PostInput";
-import ProfileCircle from "./ProfileCircle";
+import ProfileCircle from "../ProfileCircle";
 
 export default function Post({ children }) {
   return (

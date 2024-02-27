@@ -1,6 +1,6 @@
-import "../styles/Post.css";
-import "../styles/PostInput.css";
-import ProfileCircle from "./ProfileCircle";
+import "@styles/Post.css";
+import "@styles/PostInput.css";
+import ProfileCircle from "../ProfileCircle";
 
 export default function PostInput() {
   return (

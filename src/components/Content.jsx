@@ -1,6 +1,6 @@
 import "../styles/Content.css";
-import PostInput from "./PostInput";
-import Post from "./Post";
+import PostInput from "./Post/PostInput";
+import Post from "./Post/Post";
 
 export default function Content() {
   return (

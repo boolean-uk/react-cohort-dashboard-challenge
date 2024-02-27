@@ -1,5 +1,5 @@
-import ProfileCircle from "./ProfileCircle";
-import "../styles/PostComment.css";
+import ProfileCircle from "../ProfileCircle";
+import "@styles/PostComment.css";
 
 export default function PostComment({ username, content }) {
   return (
