@@ -3,6 +3,7 @@
   width: 100%;
   height: 80px;
   color: white;
+  grid-area: header;
   padding: 10px;
   justify-content: center;
   z-index: 10;

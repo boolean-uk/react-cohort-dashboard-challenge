@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 * {
-  font-family: "Jost";
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 :root {
@@ -10,10 +13,6 @@
 
 html,
 body {
-  font-family: "Jost", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -22,6 +21,10 @@ body {
 }
 
 #root {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content";
   height: 100%;
   width: 100%;
   max-width: none;

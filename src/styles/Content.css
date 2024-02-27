@@ -1,8 +1,8 @@
 .content {
   display: flex;
   flex-direction: column;
+  grid-area: content;
   gap: 10px;
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 80%;
+  width: 95%;
+  padding: 20px;
 }
