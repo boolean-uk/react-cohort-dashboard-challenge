@@ -2,11 +2,14 @@ import "@styles/Post.css";
 import CommentField from "../CommentField";
 import PostComment from "./PostComment";
 import ProfileCircle from "../ProfileCircle";
-import { useGetAllComments } from "@services/PostService";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { getAllComments } from "@services/PostService";
 
 export default function Post({ children, title, id }) {
-  const { data, error, loading } = useGetAllComments(id);
+  const { isLoading, error, data } = useQuery(["comments", id], () =>
+    getAllComments(id)
+  );
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -25,8 +28,8 @@ export default function Post({ children, title, id }) {
         </div>
       </div>
       <p className="card-content">{children}</p>
-      {loading && <p>Loading comments...</p>}
-      {error && <p>{error}</p>}
+      {isLoading && <p>Loading comments...</p>}
+      {error && <p>{error.message}</p>}
       <div className="card-comments">
         {data && data.length > 3 && (
           <a onClick={() => setComments(data)}>See previous comments</a>
