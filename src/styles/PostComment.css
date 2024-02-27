@@ -11,8 +11,12 @@
   flex-direction: column;
 }
 
-.post-comment-content h3,
+.post-comment-content h3 {
+  margin: 0;
+  line-height: 0px;
+}
+
 .post-comment-content p {
   margin: 0;
-  line-height: 10px;
+  line-height: 25px;
 }
