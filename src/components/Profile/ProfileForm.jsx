@@ -15,7 +15,7 @@ const profileFormInit = {
 
 export default function ProfileForm() {
   const [form, setForm] = useState(profileFormInit);
-  const { isLoading, data, isSuccess } = useQuery("getContact", getContact);
+  const { isLoading, data } = useQuery("getContact", getContact);
   const [updateSuccessful, setUpdateSuccessful] = useState(false);
   const { mutateAsync: updateContactAsync } = useMutation(
     "putContact",
@@ -34,9 +34,10 @@ export default function ProfileForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUpdateSuccessful(false);
-    const updatedForm = await updateContactAsync(form);
+    const updatedForm = await updateContactAsync(form)
+      .catch(setUpdateSuccessful(false))
+      .finally(setUpdateSuccessful(true));
     setForm(updatedForm);
-    setUpdateSuccessful(true);
   };
 
   return (
