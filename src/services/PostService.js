@@ -24,10 +24,19 @@ export const createPost = async (post) => {
 };
 
 export const createComment = async (comment) => {
-  console.log(comment);
   const { data } = await axios.post(
     BASE_API_URL + `post/${comment.postId}/comment`,
     comment
   );
+  return data;
+};
+
+export const getContact = async () => {
+  const { data } = await axios.get(BASE_API_URL + "contact/1");
+  return data;
+};
+
+export const putContact = async (contact) => {
+  const { data } = await axios.put(BASE_API_URL + "contact/1", contact);
   return data;
 };

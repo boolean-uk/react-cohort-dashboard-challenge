@@ -14,9 +14,6 @@ export default function Profile() {
           <h2>Test User</h2>
         </div>
         <ProfileForm />
-        <button className="cm-button" style={{ height: "50px" }}>
-          Save
-        </button>
       </div>
     </div>
   );
