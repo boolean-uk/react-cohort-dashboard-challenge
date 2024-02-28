@@ -40,6 +40,9 @@ export default function Profile() {
             <ProfileFormInput name="Business Statement" />
           </section>
         </form>
+        <button className="cm-button" style={{ height: "50px" }}>
+          Save
+        </button>
       </div>
     </div>
   );
