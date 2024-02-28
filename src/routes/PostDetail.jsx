@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPost } from "@services/PostService";
 import { useQuery } from "react-query";
