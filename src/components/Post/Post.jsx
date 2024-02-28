@@ -5,8 +5,10 @@ import ProfileCircle from "../ProfileCircle";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getAllComments } from "@services/PostService";
+import { useNavigate } from "react-router-dom";
 
 export default function Post({ children, title, id }) {
+  const navigate = useNavigate();
   const { isLoading, error, data } = useQuery(["comments", id], () =>
     getAllComments(id)
   );
@@ -24,7 +26,13 @@ export default function Post({ children, title, id }) {
         <ProfileCircle color={"#64dc78"} fullname={"Test User"} />
         <div className="user-info-text">
           <h3 style={{ padding: 0, margin: 0 }}>Test User</h3>
-          <p className="title">{title}</p>
+          <p
+            className="title"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`post/${id}`)}
+          >
+            {title}
+          </p>
         </div>
       </div>
       <p className="card-content">{children}</p>

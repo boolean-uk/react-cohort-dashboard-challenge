@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import Profile from "./routes/Profile";
+import PostDetail from "./routes/PostDetail";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/profile/:id",
         element: <Profile />,
+      },
+      {
+        path: "/post/:id",
+        element: <PostDetail />,
       },
     ],
   },

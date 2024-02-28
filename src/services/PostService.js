@@ -8,6 +8,11 @@ export const getAllPosts = async (setPosts) => {
   return data;
 };
 
+export const getPost = async (id) => {
+  const { data } = await axios.get(BASE_API_URL + `post/${id}`);
+  return data;
+};
+
 export const getAllComments = async (postId) => {
   const { data } = await axios.get(BASE_API_URL + `post/${postId}/comment`);
   return data;
