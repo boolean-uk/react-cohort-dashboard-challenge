@@ -10,7 +10,7 @@ export default function Navbar() {
         <NavbarButton icon={homeIcon} href="/">
           Home
         </NavbarButton>
-        <NavbarButton icon={profileIcon} href="/profile/Sabbasn">
+        <NavbarButton icon={profileIcon} href="/profile/1">
           Profile
         </NavbarButton>
       </div>

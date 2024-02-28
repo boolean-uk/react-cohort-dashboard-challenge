@@ -17,7 +17,12 @@ export default function Home() {
       {isLoading && <p>Loading posts...</p>}
       {error && <p>{error.message}</p>}
       {sortedPosts.map((post) => (
-        <Post title={post.title} key={post.id} id={post.id}>
+        <Post
+          title={post.title}
+          key={post.id}
+          id={post.id}
+          contactId={post.contactId}
+        >
           {post.content}
         </Post>
       ))}

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/ProfileCircle.css";
 
-export default function ProfileCircle({ fullname, color }) {
+export default function ProfileCircle({ fullname, color, contactId }) {
   const fullnameSplit = fullname.split(" ");
   const navigate = useNavigate();
 
@@ -9,7 +9,7 @@ export default function ProfileCircle({ fullname, color }) {
     <div
       className="circle"
       style={{ backgroundColor: color }}
-      onClick={() => navigate("/profile/Sabbasn")}
+      onClick={() => navigate(`/profile/${contactId}`)}
     >
       <p>
         {fullnameSplit[0][0]}

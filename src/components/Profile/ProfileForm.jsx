@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProfileFormInput from "./ProfileFormInput";
-import { useMutation, useQuery } from "react-query";
-import { getContact, putContact } from "@services/PostService";
+import { useMutation } from "react-query";
+import { putContact } from "@services/PostService";
 
-const profileFormInit = {
-  firstName: "",
-  lastName: "",
-  username: "",
-  email: "",
-  street: "",
-  city: "",
-  jobTitle: "",
-};
-
-export default function ProfileForm() {
-  const [form, setForm] = useState(profileFormInit);
-  const { isLoading, data } = useQuery("getContact", getContact);
+export default function ProfileForm({ user }) {
+  const [form, setForm] = useState(user);
   const [updateSuccessful, setUpdateSuccessful] = useState(false);
   const { mutateAsync: updateContactAsync } = useMutation(
     "putContact",
     putContact
   );
-
-  useEffect(() => {
-    if (data) setForm(data);
-  }, [data]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,9 +25,12 @@ export default function ProfileForm() {
     setForm(updatedForm);
   };
 
+  if (!user) {
+    return <h2>No user with given id</h2>;
+  }
+
   return (
     <>
-      {isLoading && <h2>Loading...</h2>}
       <form className="user-info-form" onSubmit={(e) => handleSubmit(e)}>
         <section className="info-section">
           <h1>Account Info</h1>

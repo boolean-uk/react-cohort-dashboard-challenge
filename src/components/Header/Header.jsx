@@ -15,6 +15,7 @@ export default function Header() {
           className="profile-circle"
           fullname={"Test User"}
           color={"#64dc78"}
+          contactId={"1"}
         />
       </div>
     </nav>

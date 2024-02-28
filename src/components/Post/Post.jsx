@@ -47,6 +47,7 @@ export default function Post({ children, title, id }) {
             <PostComment
               username={"Test User"}
               content={comment.content}
+              contactId={comment.contactId}
               key={comment.id}
             />
           ))}

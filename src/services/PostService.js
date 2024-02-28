@@ -31,8 +31,8 @@ export const createComment = async (comment) => {
   return data;
 };
 
-export const getContact = async () => {
-  const { data } = await axios.get(BASE_API_URL + "contact/1");
+export const getContact = async (id) => {
+  const { data } = await axios.get(BASE_API_URL + `contact/${id}`);
   return data;
 };
 
