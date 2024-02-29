@@ -14,7 +14,11 @@ export default function CommentField({ postId, onClick }) {
 
   const handleKeyUp = async (e) => {
     if (e.key !== "Enter" || content.length === 0) return;
-    let comment = { postId: postId, content: content, contactId: currentUser.id };
+    let comment = {
+      postId: postId,
+      content: content,
+      contactId: currentUser.id,
+    };
     comment = await createCommentAsync(comment);
     onClick(comment);
     setContent("");
@@ -28,6 +32,7 @@ export default function CommentField({ postId, onClick }) {
         fullname={`${currentUser.firstName} ${currentUser.lastName}`}
       />
       <input
+        className="cm-input"
         placeholder="Add a comment..."
         value={content}
         onChange={(e) => setContent(e.target.value)}

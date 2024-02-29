@@ -14,7 +14,8 @@ export default function PostInput({ onClick }) {
     createPost
   );
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     let post = { content: content, title: "", contactId: 1 };
     if (content.length === 0) return;
     post = await createPostAsync(post);
@@ -24,19 +25,22 @@ export default function PostInput({ onClick }) {
 
   return (
     <div className="card">
-      <div>
+      <form className="post-input-form" onSubmit={(e) => handleClick(e)}>
         <ProfileCircle
           color={currentUser.favouriteColour}
           fullname={`${currentUser.firstName} ${currentUser.lastName}`}
         />
         <input
+          className="cm-input"
           onChange={(e) => setContent(e.target.value)}
           placeholder={`${isLoading ? "Loading..." : "What's on your mind?"}`}
           disabled={isLoading}
           value={content || ""}
         />
-        <button onClick={handleClick}>Post</button>
-      </div>
+        <button className="cm-button" type="submit">
+          Post
+        </button>
+      </form>
     </div>
   );
 }

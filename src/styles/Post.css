@@ -9,6 +9,11 @@
   height: auto;
 }
 
+.card div {
+  display: flex;
+  gap: 15px;
+}
+
 .delete-btn {
   cursor: pointer;
   user-select: none;
