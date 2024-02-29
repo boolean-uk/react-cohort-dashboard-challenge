@@ -1,32 +1,22 @@
 import "@styles/Post.css";
-import CommentField from "./CommentField";
-import PostComment from "./PostComment";
 import ProfileCircle from "../ProfileCircle";
-import { useContext, useEffect, useState } from "react";
-import { useMutation, useQuery } from "react-query";
-import { getAllComments, deletePost } from "@services/PostService";
+import { useContext } from "react";
+import { useMutation } from "react-query";
+import { deletePost } from "@services/PostService";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "@routes/Root";
+import PostCommentList from "./PostCommentList";
 
 export default function Post({ children, title, id, onDelete }) {
   const currentUser = useContext(UserContext);
   const navigate = useNavigate();
-  const { isLoading, error, data } = useQuery(["comments", id], () =>
-    getAllComments(id)
-  );
+
   const { mutate } = useMutation(["deletePost", id], () => deletePost(id));
-  const [comments, setComments] = useState([]);
 
   const removePost = () => {
     mutate(id);
     onDelete(id);
   };
-
-  useEffect(() => {
-    if (data) {
-      setComments(data.slice(0, 3));
-    }
-  }, [data]);
 
   return (
     <div className="card">
@@ -53,26 +43,7 @@ export default function Post({ children, title, id, onDelete }) {
         </div>
       </div>
       <p className="card-content">{children}</p>
-      {isLoading && <p>Loading comments...</p>}
-      {error && <p>{error.message}</p>}
-      <div className="card-comments">
-        {data && data.length > 3 && data.length !== comments.length && (
-          <a onClick={() => setComments(data)}>See previous comments</a>
-        )}
-        {data &&
-          comments.map((comment) => (
-            <PostComment
-              username={"Test User"}
-              content={comment.content}
-              contactId={comment.contactId}
-              key={comment.id}
-            />
-          ))}
-        <CommentField
-          onClick={(comment) => setComments([...comments, comment])}
-          postId={id}
-        />
-      </div>
+      <PostCommentList postId={id} />
     </div>
   );
 }
