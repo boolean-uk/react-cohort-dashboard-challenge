@@ -42,6 +42,7 @@ export default function Post({ children, title, id, onDelete, contactId }) {
       ) : (
         <div className="user-info">
           <ProfileCircle
+            contactId={contact.id}
             color={contact.favouriteColour}
             fullname={contactFullname}
           />
