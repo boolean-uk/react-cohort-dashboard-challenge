@@ -13,7 +13,7 @@ export default function PostInput({ onClick }) {
   );
 
   const handleClick = async () => {
-    let post = { content: content, title: "", contactId: 42 };
+    let post = { content: content, title: "", contactId: 1 };
     if (content.length === 0) return;
     post = await createPostAsync(post);
     onClick(post);
@@ -23,7 +23,7 @@ export default function PostInput({ onClick }) {
   return (
     <div className="card">
       <div>
-        <ProfileCircle color={"#64dc78"} fullname={"Test User"} />
+        <ProfileCircle fullname={"Test User"} />
         <input
           onChange={(e) => setContent(e.target.value)}
           placeholder={`${isLoading ? "Loading..." : "What's on your mind?"}`}
