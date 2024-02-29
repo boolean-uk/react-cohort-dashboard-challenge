@@ -9,9 +9,10 @@ import { getContact } from "@services/PostService";
 
 export default function Post({ children, title, id, onDelete, contactId }) {
   const [contact, setContact] = useState({});
-  const { mutate } = useMutation(["deletePost", id], () => deletePost(id));
-  const { isSuccess, data } = useQuery(["getContact", contactId], () =>
-    getContact(contactId)
+  const { mutateAsync } = useMutation(["deletePost", id], () => deletePost(id));
+  const { isLoading, isSuccess, data } = useQuery(
+    ["getContact", contactId],
+    () => getContact(contactId)
   );
   const navigate = useNavigate();
 
@@ -21,9 +22,9 @@ export default function Post({ children, title, id, onDelete, contactId }) {
     }
   }, [isSuccess, data]);
 
-  const removePost = () => {
-    mutate(id);
-    onDelete(id);
+  const removePost = async () => {
+    const response = await mutateAsync(id);
+    if (response) onDelete(id);
   };
 
   const contactFullname = `${contact.firstName} ${contact.lastName}`;
@@ -36,22 +37,26 @@ export default function Post({ children, title, id, onDelete, contactId }) {
       >
         delete
       </span>
-      <div className="user-info">
-        <ProfileCircle
-          color={contact.favouriteColour}
-          fullname={contactFullname}
-        />
-        <div className="user-info-text">
-          <h3 style={{ padding: 0, margin: 0 }}>{contactFullname}</h3>
-          <p
-            className="title"
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate(`post/${id}`)}
-          >
-            {title}
-          </p>
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div className="user-info">
+          <ProfileCircle
+            color={contact.favouriteColour}
+            fullname={contactFullname}
+          />
+          <div className="user-info-text">
+            <h3 style={{ padding: 0, margin: 0 }}>{contactFullname}</h3>
+            <p
+              className="title"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(`post/${id}`)}
+            >
+              {title}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
       <p className="card-content">{children}</p>
       <PostCommentList postId={id} />
     </div>

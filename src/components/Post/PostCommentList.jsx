@@ -25,7 +25,7 @@ export default function PostCommentList({ postId }) {
 
   return (
     <div className="card-comments">
-      {data.length > COMMENTS_MAX && (
+      {data && data.length > COMMENTS_MAX && (
         <p onClick={() => setShowAll(!showAll)}>
           {showAll ? "Show recent comments" : "Show all comments"}
         </p>
