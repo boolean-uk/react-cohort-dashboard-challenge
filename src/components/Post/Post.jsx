@@ -51,7 +51,7 @@ export default function Post({ children, title, id, onDelete, contactId }) {
             <p
               className="title"
               style={{ cursor: "pointer" }}
-              onClick={() => navigate(`post/${id}`)}
+              onClick={() => navigate(`/post/${id}`)}
             >
               {title}
             </p>
