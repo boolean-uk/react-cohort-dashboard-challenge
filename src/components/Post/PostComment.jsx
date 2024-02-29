@@ -17,7 +17,7 @@ export default function PostComment({ content, contactId }) {
   return (
     <div className="post-comment">
       <ProfileCircle
-        color={"var(--secondary"}
+        color={user ? user.favouriteColour : "var(--secondary)"}
         fullname={fullname}
         contactId={contactId}
       />

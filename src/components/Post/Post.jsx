@@ -2,12 +2,14 @@ import "@styles/Post.css";
 import CommentField from "./CommentField";
 import PostComment from "./PostComment";
 import ProfileCircle from "../ProfileCircle";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { getAllComments, deletePost } from "@services/PostService";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "@routes/Root";
 
 export default function Post({ children, title, id, onDelete }) {
+  const currentUser = useContext(UserContext);
   const navigate = useNavigate();
   const { isLoading, error, data } = useQuery(["comments", id], () =>
     getAllComments(id)
@@ -35,7 +37,10 @@ export default function Post({ children, title, id, onDelete }) {
         delete
       </span>
       <div className="user-info">
-        <ProfileCircle color={"#64dc78"} fullname={"Test User"} />
+        <ProfileCircle
+          color={currentUser.favouriteColour}
+          fullname={`${currentUser.firstName} ${currentUser.lastName}`}
+        />
         <div className="user-info-text">
           <h3 style={{ padding: 0, margin: 0 }}>Test User</h3>
           <p

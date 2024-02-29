@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ProfileCircle from "../ProfileCircle";
 import { useMutation } from "react-query";
 import { createComment } from "@services/PostService";
+import { UserContext } from "@routes/Root";
 
 export default function CommentField({ postId, onClick }) {
+  const currentUser = useContext(UserContext);
   const [content, setContent] = useState("");
   const { mutateAsync: createCommentAsync } = useMutation(
     "createComment",
@@ -21,7 +23,11 @@ export default function CommentField({ postId, onClick }) {
 
   return (
     <div>
-      <ProfileCircle color={"var(--secondary)"} fullname={"Test User"} />
+      <ProfileCircle
+        contactId={currentUser.id}
+        color={currentUser.favouriteColour}
+        fullname={`${currentUser.firstName} ${currentUser.lastName}`}
+      />
       <input
         placeholder="Add a comment..."
         value={content}

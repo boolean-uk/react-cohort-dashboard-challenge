@@ -9,6 +9,7 @@ export default defineConfig({
       "@styles": "/src/styles",
       "@components": "/src/components",
       "@services": "/src/services",
+      "@routes": "/src/routes",
     },
   },
 });

@@ -35,7 +35,7 @@ export default function Profile() {
             <div className="user-info">
               <ProfileCircle
                 fullname={fullname}
-                color="var(--secondary)"
+                color={user.favouriteColour}
                 contactId={id}
               />
               <h2>{fullname}</h2>

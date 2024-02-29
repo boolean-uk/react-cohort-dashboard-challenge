@@ -1,11 +1,13 @@
 import "@styles/Post.css";
 import "@styles/PostInput.css";
 import ProfileCircle from "../ProfileCircle";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useMutation } from "react-query";
 import { createPost } from "@services/PostService";
+import { UserContext } from "@routes/Root";
 
 export default function PostInput({ onClick }) {
+  const currentUser = useContext(UserContext);
   const [content, setContent] = useState("");
   const { mutateAsync: createPostAsync, isLoading } = useMutation(
     "createPost",
@@ -23,7 +25,10 @@ export default function PostInput({ onClick }) {
   return (
     <div className="card">
       <div>
-        <ProfileCircle fullname={"Test User"} />
+        <ProfileCircle
+          color={currentUser.favouriteColour}
+          fullname={`${currentUser.firstName} ${currentUser.lastName}`}
+        />
         <input
           onChange={(e) => setContent(e.target.value)}
           placeholder={`${isLoading ? "Loading..." : "What's on your mind?"}`}
