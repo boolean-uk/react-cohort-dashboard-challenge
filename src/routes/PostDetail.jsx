@@ -16,7 +16,7 @@ export default function PostDetail() {
       {error && <p>{error}</p>}
       {data && (
         <Post
-          id={id}
+          id={parseInt(id)}
           contactId={data.contactId}
           title={data.title}
           onDelete={() => navigate("/")}
