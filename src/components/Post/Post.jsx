@@ -3,16 +3,22 @@ import CommentField from "./CommentField";
 import PostComment from "./PostComment";
 import ProfileCircle from "../ProfileCircle";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { getAllComments } from "@services/PostService";
+import { useMutation, useQuery } from "react-query";
+import { getAllComments, deletePost } from "@services/PostService";
 import { useNavigate } from "react-router-dom";
 
-export default function Post({ children, title, id }) {
+export default function Post({ children, title, id, onDelete }) {
   const navigate = useNavigate();
   const { isLoading, error, data } = useQuery(["comments", id], () =>
     getAllComments(id)
   );
+  const { mutate } = useMutation(["deletePost", id], () => deletePost(id));
   const [comments, setComments] = useState([]);
+
+  const removePost = () => {
+    mutate(id);
+    onDelete(id);
+  };
 
   useEffect(() => {
     if (data) {
@@ -22,6 +28,12 @@ export default function Post({ children, title, id }) {
 
   return (
     <div className="card">
+      <span
+        onClick={removePost}
+        className="material-symbols-outlined delete-btn"
+      >
+        delete
+      </span>
       <div className="user-info">
         <ProfileCircle color={"#64dc78"} fullname={"Test User"} />
         <div className="user-info-text">

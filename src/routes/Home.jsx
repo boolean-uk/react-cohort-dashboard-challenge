@@ -9,6 +9,11 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   const { isLoading, error } = useQuery("posts", () => getAllPosts(setPosts));
 
+  const removePost = (id) => {
+    const removed = posts.filter((p) => p.id !== id);
+    setPosts(removed);
+  };
+
   const sortedPosts = posts.sort((a, b) => b.id - a.id);
 
   return (
@@ -19,6 +24,7 @@ export default function Home() {
       {!error &&
         sortedPosts.map((post) => (
           <Post
+            onDelete={(id) => removePost(id)}
             title={post.title}
             key={post.id}
             id={post.id}
