@@ -17,6 +17,7 @@ export default function PostInput({ onClick }) {
     if (content.length === 0) return;
     post = await createPostAsync(post);
     onClick(post);
+    setContent("");
   };
 
   return (
