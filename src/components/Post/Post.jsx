@@ -1,22 +1,32 @@
 import "@styles/Post.css";
 import ProfileCircle from "../ProfileCircle";
-import { useContext } from "react";
-import { useMutation } from "react-query";
+import { useEffect, useState } from "react";
+import { useMutation, useQuery } from "react-query";
 import { deletePost } from "@services/PostService";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "@routes/Root";
 import PostCommentList from "./PostCommentList";
+import { getContact } from "@services/PostService";
 
-export default function Post({ children, title, id, onDelete }) {
-  const currentUser = useContext(UserContext);
+export default function Post({ children, title, id, onDelete, contactId }) {
+  const [contact, setContact] = useState({});
+  const { mutate } = useMutation(["deletePost", id], () => deletePost(id));
+  const { isSuccess, data } = useQuery(["getContact", contactId], () =>
+    getContact(contactId)
+  );
   const navigate = useNavigate();
 
-  const { mutate } = useMutation(["deletePost", id], () => deletePost(id));
+  useEffect(() => {
+    if (isSuccess) {
+      setContact(data);
+    }
+  }, [isSuccess, data]);
 
   const removePost = () => {
     mutate(id);
     onDelete(id);
   };
+
+  const contactFullname = `${contact.firstName} ${contact.lastName}`;
 
   return (
     <div className="card">
@@ -28,11 +38,11 @@ export default function Post({ children, title, id, onDelete }) {
       </span>
       <div className="user-info">
         <ProfileCircle
-          color={currentUser.favouriteColour}
-          fullname={`${currentUser.firstName} ${currentUser.lastName}`}
+          color={contact.favouriteColour}
+          fullname={contactFullname}
         />
         <div className="user-info-text">
-          <h3 style={{ padding: 0, margin: 0 }}>Test User</h3>
+          <h3 style={{ padding: 0, margin: 0 }}>{contactFullname}</h3>
           <p
             className="title"
             style={{ cursor: "pointer" }}

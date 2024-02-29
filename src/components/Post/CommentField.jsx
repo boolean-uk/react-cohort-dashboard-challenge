@@ -14,9 +14,8 @@ export default function CommentField({ postId, onClick }) {
 
   const handleKeyUp = async (e) => {
     if (e.key !== "Enter" || content.length === 0) return;
-    let comment = { postId: postId, content: content, contactId: 1 };
+    let comment = { postId: postId, content: content, contactId: currentUser.id };
     comment = await createCommentAsync(comment);
-    console.log(comment);
     onClick(comment);
     setContent("");
   };
