@@ -3,7 +3,7 @@ import Navbar from "@components/Navbar/Navbar.jsx";
 import { useQuery } from "react-query";
 import { Outlet } from "react-router-dom";
 import { getContact } from "@services/PostService";
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 
 export const UserContext = createContext(null);
 
@@ -14,9 +14,6 @@ export default function Root() {
     data: currentUser,
   } = useQuery(["getCurrentUser"], () => getContact(1));
 
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
   return (
     <>
       {isLoading && <h1>Loading...</h1>}
