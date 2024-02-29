@@ -16,16 +16,17 @@ export default function Home() {
       <PostInput onClick={(post) => setPosts([...posts, post])} />
       {isLoading && <p>Loading posts...</p>}
       {error && <p>{error.message}</p>}
-      {sortedPosts.map((post) => (
-        <Post
-          title={post.title}
-          key={post.id}
-          id={post.id}
-          contactId={post.contactId}
-        >
-          {post.content}
-        </Post>
-      ))}
+      {!error &&
+        sortedPosts.map((post) => (
+          <Post
+            title={post.title}
+            key={post.id}
+            id={post.id}
+            contactId={post.contactId}
+          >
+            {post.content}
+          </Post>
+        ))}
     </div>
   );
 }
