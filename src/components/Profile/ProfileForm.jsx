@@ -33,7 +33,7 @@ export default function ProfileForm({ user }) {
     <>
       <form className="user-info-form" onSubmit={(e) => handleSubmit(e)}>
         <section className="info-section">
-          <h1>Account Info</h1>
+          <h1>Account info</h1>
           <ProfileFormInput
             name="First Name"
             required
@@ -54,7 +54,7 @@ export default function ProfileForm({ user }) {
           />
         </section>
         <section className="info-section">
-          <h1>Address</h1>
+          <h1>Other info</h1>
           <ProfileFormInput
             name="Street"
             value={form.street}
