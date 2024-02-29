@@ -5,6 +5,8 @@ import CommentField from "./CommentField";
 import "@styles/PostCommentList.css";
 import { useEffect, useState } from "react";
 
+const COMMENTS_MAX = 3;
+
 export default function PostCommentList({ postId }) {
   const [comments, setComments] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -17,20 +19,17 @@ export default function PostCommentList({ postId }) {
     if (showAll) {
       setComments(data);
     } else {
-      setComments(data.slice(0, 3));
+      setComments(data.slice(0, COMMENTS_MAX));
     }
   }, [data, isSuccess, showAll]);
 
   return (
     <div className="card-comments">
-      <p onClick={() => setShowAll(!showAll)}>
-        {showAll ? "Show recent comments" : "Show all comments"}
-      </p>
-      {comments &&
-        comments.length > 3 &&
-        comments.length !== comments.length && (
-          <a onClick={() => setComments(comments)}>See previous comments</a>
-        )}
+      {data.length > COMMENTS_MAX && (
+        <p onClick={() => setShowAll(!showAll)}>
+          {showAll ? "Show recent comments" : "Show all comments"}
+        </p>
+      )}
       {comments &&
         comments.map((comment) => (
           <PostComment
