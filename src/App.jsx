@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Posts from "./Components/Posts";
@@ -6,36 +6,38 @@ import Header from "./Components/Header";
 
 export const AppContext = createContext();
 
-const INITIAL_COMMENTS = [
-  {
-    id: 1,
-    user: "Alex Niklasson",
-    content: "Cool post",
-    post_id: 1,
-  },
-  {
-    id: 2,
-    user: "André Sturesson",
-    content: "Yes I agree with Alex. This is a cool post",
-    post_id: 1,
-  },
-];
 const INITIAL_POSTS = [
   {
     id: 1,
     title: "Inital Post",
     content: "Post content",
     user: "Elias Soprani",
-    comments: INITIAL_COMMENTS,
   },
 ];
 
 export function App() {
-  const [posts, setPosts] = useState(INITIAL_POSTS);
+  const [posts, setPosts] = useState();
   const loggedInUser = {
     id: 1,
     user: "Elias",
   };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch(
+        "https://boolean-api-server.fly.dev/Eliassoprani/post"
+      );
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
   return (
     <>
       <div className="container">

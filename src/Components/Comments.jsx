@@ -1,6 +1,9 @@
 import CreateComment from "./CreateComment";
 
 function Comments({ postComments, postId }) {
+  if (!postComments) {
+    return
+  }
   return (
     <div>
       {postComments.map((comment, index) => {

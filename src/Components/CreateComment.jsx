@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../App";
+import { PostContext } from "./Post";
 
 function CreateComment({ postId }) {
-  const { posts, setPosts, loggedInUser } = useContext(AppContext);
-
+  const { loggedInUser } = useContext(AppContext);
+  const { postComments, setPostComments } = useContext(PostContext);
   const [content, setContent] = useState("");
   const [isInputFocused, setIsInputFocused] = useState(false);
 
@@ -17,27 +18,16 @@ function CreateComment({ postId }) {
 
   const addNewComment = (event) => {
     event.preventDefault();
-    if (content.trim() !== "") {
-      const updatedPosts = posts.map((post) => {
-        if (post.id === postId) {
-          return {
-            ...post,
-            comments: [
-              ...post.comments,
-              {
-                id: post.comments.length + 1,
-                user: loggedInUser.user,
-                content: content,
-              },
-            ],
-          };
-        }
-        return post;
-      });
-      setPosts(updatedPosts);
-      setContent("");
-      setIsInputFocused(false);
-    }
+    setPostComments([
+      ...postComments,
+      {
+        id: postComments.length + 1,
+        user: loggedInUser.user,
+        content: content,
+      },
+    ]);
+    setContent("");
+    setIsInputFocused(false);
   };
 
   return (
