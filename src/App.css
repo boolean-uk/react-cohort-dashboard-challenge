@@ -1,42 +1,88 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 10% 90%;
+  height: 100vh;
+}
+
+.header {
+  grid-column: 1 / span 2;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.header img {
+  width: 25%;
+  height: 25%;
+}
+
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-content {
+  background-color: #e6e6e6;
+  padding: 20px;
+}
+
+.header {
+  background-color: #000046;
+}
+
+ul {
+  list-style-type: none;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  color: #000046;
+  width: 100vw;
+  background-color: #f0f5fa;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  color: #000046;
+  background-color: #f0f5fa;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post {
+  background-color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.post h3 {
+  color: #64648c;
 }
 
-.card {
-  padding: 2em;
+.comment {
+  background-color: #e6ebf5;
 }
 
-.read-the-docs {
-  color: #888;
+.btn {
+  background-color: #000046;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #64dc78;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #e6ebf5;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
 }

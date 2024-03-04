@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, createContext } from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Posts from "./Components/Posts";
+import Header from "./Components/Header";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const AppContext = createContext();
 
+const INITIAL_COMMENTS = [
+  {
+    id: 1,
+    user: "Alex Niklasson",
+    content: "Cool post",
+    post_id: 1,
+  },
+  {
+    id: 2,
+    user: "André Sturesson",
+    content: "Yes I agree with Alex. This is a cool post",
+    post_id: 1,
+  },
+];
+const INITIAL_POSTS = [
+  {
+    id: 1,
+    title: "Inital Post",
+    content: "Post content",
+    user: "Elias Soprani",
+    comments: INITIAL_COMMENTS,
+  },
+];
+
+export function App() {
+  const [posts, setPosts] = useState(INITIAL_POSTS);
+  const loggedInUser = {
+    id: 1,
+    user: "Elias",
+  };
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <header className="header">
+          <Header />
+        </header>
+        <div className="sidebar">Sidebar</div>
+        <div className="main-content">
+          <AppContext.Provider
+            value={{
+              posts: posts,
+              setPosts: setPosts,
+              loggedInUser: loggedInUser,
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Posts />} />
+            </Routes>
+          </AppContext.Provider>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App

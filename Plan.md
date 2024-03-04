@@ -12,8 +12,10 @@
     simple UL list for rendering comment
   -Comment
     component to display a comment
-
+  -Header
+    simple component to display header
+  -Header
+    component to display navigation to home page and profile page
 ### States:
   -posts
-  -comments
   -user
