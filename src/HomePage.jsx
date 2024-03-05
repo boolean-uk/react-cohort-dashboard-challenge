@@ -52,12 +52,12 @@ export default function HomePage(props)
     return (
         <>
         <header>
-            <h1>Cohort Manager</h1>
+            <h1 >Cohort Manager</h1>
         </header>
         
         <input type="text" name="title" placeholder="Title" onChange={handleInput} value={newPost.title}></input>
         <input type="text" name="content" placeholder="What's on your mind?" onChange={handleInput} value={newPost.content}></input>
-        <button onClick={handlePost}>Post</button>
+        <button type="button" onClick={handlePost}>Post</button>
 
         <ul>
             {posts.map((post, index) => (

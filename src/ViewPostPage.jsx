@@ -32,7 +32,7 @@ export default function ViewPostPage(props)
 
     return (
         <>
-        <h1>{post && post.title}</h1>
+        <h1 className="postTitle">{post && post.title}</h1>
         <h2>{author && author.firstName} {author && author.lastName}</h2>
         <ul>
             {comments.map((comment, index) => (

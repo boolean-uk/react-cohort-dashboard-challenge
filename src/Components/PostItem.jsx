@@ -49,7 +49,7 @@ export default function PostItem(props)
         <>
         <h2>{author.firstName && author.firstName.charAt(0)}
             {author.lastName && author.lastName.charAt(0)} - {author.firstName} {author.lastName}</h2>
-        <p onClick={handleLink}>{post.title}</p>
+        <p onClick={handleLink} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {comments.map((comment, index) => (
