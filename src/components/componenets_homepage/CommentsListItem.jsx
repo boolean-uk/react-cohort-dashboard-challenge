@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { getInitials } from "../../utils/getInitials";
 
 function CommentsListItem(props) {
-  const { post, user } = props;
+  const { post } = props;
 
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);

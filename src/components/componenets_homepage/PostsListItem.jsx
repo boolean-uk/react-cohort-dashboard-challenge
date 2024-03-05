@@ -38,7 +38,7 @@ function PostsListItem(props) {
           <p>{post.content}</p>
         </div>
         <div className="post-comment-card">
-          <CommentsListItem post={post} user={currentContact} />
+          <CommentsListItem post={post} />
           <input type="text" placeholder="Add a comment..."></input>
         </div>
       </div>
