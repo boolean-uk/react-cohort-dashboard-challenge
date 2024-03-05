@@ -13,7 +13,7 @@ export default function HomePage()
         fetch("https://boolean-api-server.fly.dev/klaand01/post")
         .then((response) => response.json())
         .then((data) => {
-            //console.log("DATA", data)
+            console.log("DATA", data)
             setPosts(data.reverse())
         })
     }, [])

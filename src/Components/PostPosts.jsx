@@ -13,7 +13,7 @@ export default function PostPosts()
     }
 
     const [newPost, setNewPost] = useState(INITIAL_POST)
-    const [createPost, setCreateNewPost] = useState(INITIAL_POST)
+    const [createPost, setCreatePost] = useState(INITIAL_POST)
 
     useEffect(() =>
     {
@@ -40,7 +40,7 @@ export default function PostPosts()
         if (newPost.title.length > 0 && newPost.content.length > 0)
         {
             addPost({newPost})
-            setCreateNewPost(newPost)
+            setCreatePost(newPost)
             setNewPost(INITIAL_POST)
         }
     }
