@@ -1,0 +1,16 @@
+.center {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid green;
+
+  background-color: #f0f5fa;
+}
+.feed-item {
+  flex: auto;
+  border-radius: 8px;
+  background-color: white;
+  /* border: 2px solid grey; */
+  padding: 2rem;
+  margin: 3rem;
+}

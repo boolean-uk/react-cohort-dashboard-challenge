@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+}
+.create-post {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+}
+.create-input {
+  flex-grow: 1;
+}

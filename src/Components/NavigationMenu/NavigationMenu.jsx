@@ -1,6 +1,6 @@
 import "./NavigationMenu.css";
 function NavigationMenu() {
-  return <div>NavigationMenu</div>;
+  return <div className="navigation-menu">NavMenu</div>;
 }
 
 export default NavigationMenu;

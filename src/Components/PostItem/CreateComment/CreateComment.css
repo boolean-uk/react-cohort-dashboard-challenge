@@ -1,0 +1,10 @@
+.response {
+  flex: auto;
+  display: flex;
+}
+.input {
+  background-color: transparent;
+  border: 0;
+  color: black;
+  flex: auto;
+}
