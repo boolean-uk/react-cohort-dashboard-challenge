@@ -1,0 +1,22 @@
+.navigation-menu {
+    position: fixed;
+    left: 0px;
+    top: 20px;
+}
+
+.navigation-menu > div {
+    padding-top: 20px;
+    height: 80px;
+    width: 150px;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-menu > div > p {
+    margin: 0px;
+}
+
+.active {
+    background-color: var(--form-background-color)
+}
