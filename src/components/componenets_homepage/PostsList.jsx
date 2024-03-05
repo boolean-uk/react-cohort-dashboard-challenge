@@ -2,7 +2,6 @@ import PostsListItem from "./PostsListItem.jsx";
 import PropTypes from "prop-types";
 
 function PostsList(props) {
-  console.log("in postLists");
   const { postsList } = props;
   return (
     <ul>

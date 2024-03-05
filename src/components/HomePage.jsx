@@ -8,7 +8,6 @@ function HomePage() {
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/post`;
 
   useEffect(() => {
-    console.log("useEffect in HomePage");
     const fetchData = async () => {
       try {
         const response = await fetch(URL);
@@ -18,7 +17,7 @@ function HomePage() {
         }
 
         const data = await response.json();
-        console.log("DATA: ", data);
+
         setPostsList(data);
       } catch (er) {
         console.log("OBS!!! Something went wrong retrieving Posts from DB");
@@ -27,7 +26,6 @@ function HomePage() {
     fetchData();
   }, [URL]);
 
-  console.log(postsList);
   return (
     <>
       <CreatePostModule />

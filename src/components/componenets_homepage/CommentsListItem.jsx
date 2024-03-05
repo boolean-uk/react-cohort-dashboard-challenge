@@ -31,7 +31,6 @@ function CommentsListItem(props) {
           usersResponse.map((response) => response.json())
         );
         setUsers(usersData);
-        console.log("usersdata", usersData);
       } catch (error) {
         console.log(
           `OBS!!! Something went wrong retrieving comments for ${post.id}`

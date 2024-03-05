@@ -14,7 +14,6 @@ function PostsListItem(props) {
     fetchData(URL, post.contactId, setCurrentContact);
   }, [URL, post.contactId]);
 
-  console.log("Current contact: ", currentContact);
   return (
     <>
       <div className="blogpost-card">

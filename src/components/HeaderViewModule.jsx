@@ -6,6 +6,7 @@ function HeaderViewModule() {
     <>
       <section>
         <img src={TitleHeader} alt="Home Icon" />
+        <p>Placeholder</p>
       </section>
     </>
   );

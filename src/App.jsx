@@ -10,8 +10,6 @@ import ProfilePage from "./components/ProfilePage.jsx";
 import { Link } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <body>

@@ -1,4 +1,15 @@
 section {
-  background-color: blue;
+  background-color: #000046;
   width: auto;
+  justify-content: space-between;
+  display: flex;
+  padding: 20px;
+}
+
+section > img {
+  width: 30%;
+}
+
+section > p {
+  justify-content: center;
 }
