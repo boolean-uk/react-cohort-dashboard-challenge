@@ -1,0 +1,22 @@
+.post-comment {
+  width: 100%;
+}
+
+.post-comment-content {
+  background-color: #e6ebf5;
+  width: auto;
+  padding: 15px;
+  border-radius: 0.6em;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-comment-content h3 {
+  margin: 0;
+  line-height: 0px;
+}
+
+.post-comment-content p {
+  margin: 0;
+  line-height: 25px;
+}
