@@ -1,3 +1,4 @@
+import "./CreateComment.css";
 function CreateComment() {
   return <div>CreateComment</div>;
 }
