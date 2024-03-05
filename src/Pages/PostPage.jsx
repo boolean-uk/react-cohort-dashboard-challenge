@@ -1,8 +1,7 @@
 import Comments from "./components/Comments";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getRequest } from "../API";
-//import ModifyPost from "./components/ModifyPost";
 
 export default function PostPage() {
   const [post, setPost] = useState([]);
@@ -33,8 +32,12 @@ export default function PostPage() {
           <Comments postId={postId} />
         </>
       )}
-      <button> Modify </button>
-      <button> Delete </button>
+      <button>
+        <Link to={`/post/${postId}/modify`}>Modify</Link>
+      </button>
+      <button>
+        <Link to={`/post/${postId}/delete`}>Delete</Link>
+      </button>
     </>
   );
 }

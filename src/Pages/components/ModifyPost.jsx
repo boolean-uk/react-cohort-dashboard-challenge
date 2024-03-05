@@ -2,16 +2,11 @@ import { getRequest, updateRequest } from "../../API";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// const DEFAULT_POST = {
-//   contactId: 1,
-//   title: "",
-//   content: "",
-// };
-
 export default function ModifyPost() {
   // state
   const [post, setPost] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modified, setModified] = useState(false);
 
   // navigation
   const { postId } = useParams();
@@ -37,6 +32,7 @@ export default function ModifyPost() {
       ({ data, error }) => {
         if (data) {
           navigate(`/post/${data.id}`);
+          setModified(true);
           return null;
         } else {
           return error[0];
@@ -76,6 +72,7 @@ export default function ModifyPost() {
           <button type="submit">Modify</button>
         </form>
       )}
+      {modified && <p>The post has been modified.</p>}
     </div>
   );
 }
