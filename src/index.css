@@ -11,11 +11,25 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #000046;
+  --post-title-color: #64648c;
+  --body-background-color: #F0F5FA;
+  --button-hover-color: #64dc78;
+  --form-background-color: #e6ebf5;
+
+}
+
+a, p, span, div {
+  color: var(--primary-color);
+}
+
+header {
+  background-color: var(--primary-color);
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
@@ -28,11 +42,16 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--body-background-color);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h1, h2, h3, h4 {
+  color: var(--post-title-color)
 }
 
 button {
@@ -42,12 +61,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--button-hover-color);
 }
 button:focus,
 button:focus-visible {
@@ -65,4 +84,9 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+input[type="text"] {
+  background-color: var(--form-background-color)
 }
