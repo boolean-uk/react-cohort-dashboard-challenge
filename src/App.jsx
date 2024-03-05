@@ -14,8 +14,8 @@ function App() {
 
   return (
     <>
-      <HeaderViewModule />
       <body>
+        <HeaderViewModule />
         <div className="container">
           <aside>
             <div className="sidebar">

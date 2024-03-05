@@ -34,13 +34,17 @@ p {
   font-size: 16px;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   font-family: "Poppins", sans-serif;
   font-size: 0.88rem;
   user-select: none;
-  overflow: hidden;
+  overflow: scroll;
   color: var(--clr-dark);
   background-color: var(--clr-backgound);
 }
@@ -138,7 +142,39 @@ main > * {
   display: block;
 }
 
-/* main > .active,
-main > .acrive * {
-  display: block;
-} */
+.blogpost-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-white);
+  box-shadow: var(--box-shadow);
+  border-radius: 15px;
+  height: auto;
+  position: relative;
+  padding: 30px;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.blogpost-card > .contact-card,
+.comment-card {
+  margin-bottom: 20px;
+}
+
+.blogpost-card > .post-comment-card {
+  border-top: 1px solid rgba(132, 139, 200, 0.2);
+  padding: 20px;
+}
+
+.blogpost-card > .post-comment-card > input {
+  padding: 10px;
+
+  width: 97%;
+}
+
+.blogpost-card > .blogpost-card:hover {
+  box-shadow: none;
+}
+
+.CreatePostModule {
+  justify-content: space-between;
+}

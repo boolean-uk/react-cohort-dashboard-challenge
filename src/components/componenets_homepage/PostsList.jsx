@@ -1,4 +1,5 @@
 import PostsListItem from "./PostsListItem.jsx";
+import PropTypes from "prop-types";
 
 function PostsList(props) {
   console.log("in postLists");
@@ -13,5 +14,9 @@ function PostsList(props) {
     </ul>
   );
 }
+
+PostsList.propTypes = {
+  postsList: PropTypes.array,
+};
 
 export default PostsList;
