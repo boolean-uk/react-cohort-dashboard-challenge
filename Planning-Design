@@ -1,0 +1,37 @@
+Components:
+App /
+---- Header /
+---- SideBar /
+---- Body /
+-------- WritePost /
+-------- Feed /
+-------- Post /
+------------ PostHeader / ??
+------------ Comments /
+------------ AddComment /
+
+Routes:
+Home
+Profile
+1 for each Post
+States:
+Posts
+Comments for each Post
+NewPost
+
+PostStructure:
+{
+--"id": auto,
+--"contactId": X,
+--"title": "",
+--"content": ""
+},
+
+CommentStructure:
+[
+--{
+----"postId": X,
+----"content": "",
+----"contactId": X
+--},
+]
