@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { getInitials } from "../../utils/getInitials";
 
 function CommentsListItem(props) {
-  const { post } = props;
+  const { post, user } = props;
 
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
@@ -50,9 +51,14 @@ function CommentsListItem(props) {
           {comments.map((comment, index) => (
             <li key={comment.id}>
               <div className="comment-card">
-                <p>
+                <div className="initials-circle">
+                  {getInitials(
+                    `${users[index]?.firstName} ${users[index]?.lastName}`
+                  )}
+                </div>
+                <h4>
                   {users[index]?.firstName} {users[index]?.lastName}
-                </p>
+                </h4>
                 <p>{comment.content}</p>
               </div>
             </li>
@@ -65,6 +71,7 @@ function CommentsListItem(props) {
 
 CommentsListItem.propTypes = {
   post: PropTypes.object,
+  user: PropTypes.object,
 };
 
 export default CommentsListItem;
