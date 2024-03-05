@@ -10,10 +10,10 @@ import {
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { getContactById } from "../../../Helpers/APIManager";
-
+import { Link } from "react-router-dom";
 export function Comment({ comment }) {
   const [contact, setContact] = useState({});
-  console.log("comment", comment);
+
   useEffect(() => {
     const fetchContact = async () => {
       const data = await getContactById(comment.contactId);
@@ -28,16 +28,20 @@ export function Comment({ comment }) {
     <Container size="sm" ml={0}>
       {contact ? (
         <Group position="left">
-          <Avatar
-            src={contact.profileImage}
-            alt={`${contact.firstName} ${contact.lastName}`}
-            radius="xl"
-          />
+          <Link to={`/profile/${contact.id}`}>
+            <Avatar
+              src={contact.profileImage}
+              alt={`${contact.firstName} ${contact.lastName}`}
+              radius="xl"
+            />
+          </Link>
           <div>
             <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <Text size="xs" fw={700} ta={"left"}>
-                {contact.firstName} {contact.lastName}
-              </Text>
+              <Link to={`/profile/${contact.id}`}>
+                <Text size="xs" fw={700} ta={"left"}>
+                  {contact.firstName} {contact.lastName}
+                </Text>
+              </Link>
               <Text size="sm" c="dimmed">
                 {comment.content}
               </Text>
