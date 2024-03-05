@@ -1,0 +1,8 @@
+section {
+  background-color: blue;
+  width: 100vh;
+}
+
+section > img {
+  height: 20px;
+}

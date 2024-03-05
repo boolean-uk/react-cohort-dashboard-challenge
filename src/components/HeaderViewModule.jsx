@@ -1,6 +1,7 @@
 import TitleHeader from "../assets/title_header_svg.svg";
+import "./HeaderViewModule.css";
 
-function Header() {
+function HeaderViewModule() {
   return (
     <>
       <section>
@@ -10,4 +11,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderViewModule;
