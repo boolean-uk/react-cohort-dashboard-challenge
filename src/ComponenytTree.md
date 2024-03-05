@@ -1,9 +1,16 @@
 # Component tree
 
 - App (root)
+
   - HomePage
     Route: /
     Explanation: Where the user can see all of the posts and comments
+
+    - PostItem
+      Explanation: Renders for every post
+    - PostPosts
+      Explanation: Handles the posting of the posts
+
     - ViewPostPage
       Route: /post/:id
       Explanation: Where the user can see the post
