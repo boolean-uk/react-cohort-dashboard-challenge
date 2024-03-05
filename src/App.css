@@ -12,9 +12,10 @@
 .headerBox {
   background-color: #000046;
   color: #ffffff;
-  width: 100%;
+  width: 100vw;
   height: 60px;
-  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .sideBar {
   background-color: #ffffff;

@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import "../Body.css";
-export default function PostHeader() {
+export default function PostHeader({ post }) {
   return (
     <>
-      <div className="post-title">This is a title</div>
+      <div className="post-title">{post.title}</div>
     </>
   );
 }
