@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import PostComments from "./PostComments";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function PostItem(props)
 {
     const { post } = props;
+    const navigate = useNavigate()
     const [comments, setComments] = useState([])
     const [author, setAuthor] = useState({})
     const [initials, setInitials] = useState("")
@@ -38,11 +40,16 @@ export default function PostItem(props)
         setComments([...comments, data.comment])
     }
 
+    const handleLink = () =>
+    {
+        navigate(`/post/${post.id}`)
+    }
+
     return (
         <>
         <h2>{author.firstName && author.firstName.charAt(0)}
             {author.lastName && author.lastName.charAt(0)} - {author.firstName} {author.lastName}</h2>
-        <p>{post.title}</p>
+        <p onClick={handleLink}>{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {comments.map((comment, index) => (

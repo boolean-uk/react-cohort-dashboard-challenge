@@ -1,27 +1,52 @@
-import { createContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { AddPostContext } from "./App"
 import PostItem from "./Components/PostItem"
-import PostPosts from "./Components/PostPosts"
 
-export const AddPostContext = createContext()
-
-export default function HomePage()
+export default function HomePage(props)
 {
-    const [posts, setPosts] = useState([])
+    const {posts} = props
+    const { addPost } = useContext(AddPostContext)
 
+    const INITIAL_POST =
+    {
+        title: "",
+        content: "",
+        contactId: undefined
+    }
+
+    const [newPost, setNewPost] = useState(INITIAL_POST)
+    const [createPost, setCreatePost] = useState(INITIAL_POST)
+
+    // POST a new post
     useEffect(() =>
     {
-        fetch("https://boolean-api-server.fly.dev/klaand01/post")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log("DATA", data)
-            setPosts(data.reverse())
-        })
-    }, [])
+        const postOptions =
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(createPost)
+        }
+        
+        fetch("https://boolean-api-server.fly.dev/klaand01/post", postOptions)
+    }, [createPost])
 
-    const addPost = (data) =>
+    // Helper functions
+    const handleInput = (event) =>
     {
-        console.log("NEWPOST", data.newPost)
-        setPosts([data.newPost, ...posts])
+        const {name, value} = event.target
+        setNewPost({...newPost, [name]: value, contactId: 1})
+    }
+
+    const handlePost = () =>
+    {
+        if (newPost.title.length > 0 && newPost.content.length > 0)
+        {
+            addPost({newPost})
+            setCreatePost(newPost)
+            setNewPost(INITIAL_POST)
+        }
     }
 
     return (
@@ -29,11 +54,12 @@ export default function HomePage()
         <header>
             <h1>Cohort Manager</h1>
         </header>
-        <AddPostContext.Provider value={{addPost}}>
-            <PostPosts posts={posts}/>
-        </AddPostContext.Provider>
-        <ul>
+        
+        <input type="text" name="title" placeholder="Title" onChange={handleInput} value={newPost.title}></input>
+        <input type="text" name="content" placeholder="What's on your mind?" onChange={handleInput} value={newPost.content}></input>
+        <button onClick={handlePost}>Post</button>
 
+        <ul>
             {posts.map((post, index) => (
                 <li key={index}>
                     <PostItem post={post}/>

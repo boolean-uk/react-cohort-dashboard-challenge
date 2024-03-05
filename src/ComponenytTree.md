@@ -8,11 +8,9 @@
 
     - PostItem
       Explanation: Renders for every post
-    - PostPosts
-      Explanation: Handles the posting of the posts
     - PostComments
       Explanation: Handles the posting of the comments
 
-    - ViewPostPage
-      Route: /post/:id
-      Explanation: Where the user can see the post
+  - ViewPostPage
+    Route: /post/:id
+    Explanation: Where the user can see the post
