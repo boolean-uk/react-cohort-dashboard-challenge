@@ -1,8 +1,14 @@
-import { atom } from "jotai";
+import { loadable, atomWithRefresh } from "jotai/utils";
 import { getPosts } from "../Helpers/APIManager";
 
-const initialPosts = getPosts();
+const fetchData = async () => {
+  const data = await getPosts();
+  console.log("data", data);
+  return data;
+};
 
-export const postState = atom(initialPosts, (_get, set, newPosts) => {
-  set(postState, newPosts);
+export const postState = atomWithRefresh(async (get) => {
+  return fetchData();
 });
+
+export const loadablePostState = loadable(postState);

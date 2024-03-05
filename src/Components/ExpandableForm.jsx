@@ -12,9 +12,15 @@ import PropTypes from "prop-types";
 import { userState } from "../State/auth.state";
 import { useAtom } from "jotai";
 
-export function ExpandableForm({ handleSubmit, opened, toggle }) {
-  const [value, setValue] = useState("");
-  const [title, setTitle] = useState("");
+export function ExpandableForm({
+  handleSubmit,
+  opened,
+  toggle,
+  value,
+  setValue,
+  title,
+  setTitle,
+}) {
   const [user] = useAtom(userState);
 
   return (
@@ -58,4 +64,8 @@ ExpandableForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   opened: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  setValue: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  setTitle: PropTypes.func.isRequired,
 };

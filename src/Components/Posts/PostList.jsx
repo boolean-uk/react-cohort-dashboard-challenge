@@ -1,18 +1,21 @@
-import { Post } from "./Post";
-import { postState } from "../../State/posts.state";
 import { useAtom } from "jotai";
-import { Space } from "@mantine/core";
+import { loadablePostState } from "../../State/posts.state";
+import { Loader } from "@mantine/core";
+import { Post } from "./Post";
 export function PostList() {
-  const [posts] = useAtom(postState);
+  const [loadablePosts] = useAtom(loadablePostState);
 
   return (
-    <>
-      {posts.map((post) => (
-        <>
-          <Post key={post.id} post={post} />
-          <Space h={10} />
-        </>
-      ))}
-    </>
+    <div>
+      {loadablePosts.state === "hasData" ? (
+        <ul>
+          {loadablePosts.data.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
+        </ul>
+      ) : (
+        <Loader />
+      )}
+    </div>
   );
 }

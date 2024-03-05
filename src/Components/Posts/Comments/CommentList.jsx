@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import { Comment } from "./Comment";
+import { AddComment } from "./AddComment";
 import { getComments } from "../../../Helpers/APIManager";
 import PropTypes from "prop-types";
-import { Button, Center, Space } from "@mantine/core";
+import { Button, Center, Space, Loader } from "@mantine/core";
 
 export function CommentList({ postId }) {
   const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getComments(postId).then((data) => {
-      setComments(data);
-    });
-  }, []);
+    console.log("Fetching comments for post", postId);
+    setLoading(true);
+    getComments(postId)
+      .then((data) => {
+        setComments(data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [postId]);
 
   const [visibleComments, setVisibleComments] = useState(3);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
@@ -29,9 +37,13 @@ export function CommentList({ postId }) {
 
   return (
     <>
-      {comments.slice(0, visibleComments).map((comment) => (
-        <Comment key={comment.id} comment={comment} />
-      ))}
+      {loading ? (
+        <Loader />
+      ) : (
+        comments
+          .slice(0, visibleComments)
+          .map((comment) => <Comment key={comment.id} comment={comment} />)
+      )}
       {showLoadMoreButton && (
         <>
           <Center position="center">
@@ -42,6 +54,11 @@ export function CommentList({ postId }) {
           <Space h={10} />
         </>
       )}
+      <AddComment
+        postId={postId}
+        comments={comments}
+        setComments={setComments}
+      />
     </>
   );
 }

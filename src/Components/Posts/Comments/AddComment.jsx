@@ -6,7 +6,7 @@ import { createComment } from "../../../Helpers/APIManager";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export function AddComment({ postId }) {
+export function AddComment({ postId, comments, setComments }) {
   const [user, setUser] = useAtom(userState);
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInState);
   const [commentText, setCommentText] = useState("");
@@ -25,7 +25,8 @@ export function AddComment({ postId }) {
         contactId: user.id,
       };
 
-      await createComment(comment, postId);
+      const data = await createComment(comment, postId);
+      setComments(comments.concat(data));
       setCommentText("");
     } catch (error) {
       console.error("Error adding comment:", error);
@@ -57,4 +58,6 @@ export function AddComment({ postId }) {
 
 AddComment.propTypes = {
   postId: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired,
+  setComments: PropTypes.func.isRequired,
 };

@@ -55,6 +55,7 @@ export function Profile() {
             <Table.Th>Gender</Table.Th>
             <Table.Th>Longitude</Table.Th>
             <Table.Th>Latitude</Table.Th>
+            <Table.Th>Email</Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
@@ -64,6 +65,7 @@ export function Profile() {
             <Table.Td>{contact.gender}</Table.Td>
             <Table.Td>{contact.longitude}</Table.Td>
             <Table.Td>{contact.latitude}</Table.Td>
+            <Table.Td>{contact.email}</Table.Td>
           </Table.Tr>
         </Table.Tbody>
       </Table>

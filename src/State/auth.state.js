@@ -12,11 +12,7 @@ if (user) {
     isLoggedInState = atom(false);
   }
 } else {
-  user = {
-    id: 0,
-    name: "Guest",
-    email: "",
-  };
+  user = {};
   isLoggedInState = atom(false);
 }
 

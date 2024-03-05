@@ -13,18 +13,23 @@ export function AddPost() {
   const [opened, { toggle }] = useDisclosure(false);
   const [user] = useAtom(userState);
   const [isLoggedIn] = useAtom(isLoggedInState);
-  const [posts, setPosts] = useAtom(postState);
+  const [posts, refreshPosts] = useAtom(postState);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("title", title);
+    console.log("value", value);
+    console.log("Making a post...");
     if (value === "") return;
     if (opened && title === "") return;
-    const data = await createPost({
+
+    const newPost = await createPost({
       title: title,
       content: value,
       contactId: user.id,
     });
-    setPosts([...posts, data]);
+
+    refreshPosts();
     setValue("");
     setTitle("");
     toggle();
@@ -39,6 +44,10 @@ export function AddPost() {
               handleSubmit={handleSubmit}
               opened={opened}
               toggle={toggle}
+              value={value}
+              setValue={setValue}
+              title={title}
+              setTitle={setTitle}
             />
           </Card>
         </>
