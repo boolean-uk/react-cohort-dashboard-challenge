@@ -31,11 +31,16 @@ h2 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 li {
   list-style: none;
+  background-color: var(--clr-backgound);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 body {
@@ -155,7 +160,7 @@ main > * {
   transition: all 0.3s ease;
 }
 
-.blogpost-card > .contact-card,
+.blogpost-card > .content-card,
 .comment-card {
   margin-bottom: 20px;
 }

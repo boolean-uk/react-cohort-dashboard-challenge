@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import CommentsListItem from "./CommentsListItem.jsx";
+import { fetchData } from "../../utils/api";
 
 function PostsListItem(props) {
   const { post } = props;
@@ -7,24 +9,10 @@ function PostsListItem(props) {
   const [currentContact, setCurrentContact] = useState(null);
 
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
-  console.log("POST: ", post.contactId);
+
   useEffect(() => {
-    const fechData = async () => {
-      try {
-        const response = await fetch(URL + `/${post.contactId}`);
-
-        if (!response.ok) {
-          console.log(`Error: ${response.status} - ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        setCurrentContact(data);
-      } catch (er) {
-        console.log("OBS!!! Something went wrong retrieving post owner");
-      }
-    };
-    fechData();
-  }, [URL]);
+    fetchData(URL, post.contactId, setCurrentContact);
+  }, [URL, post.contactId]);
 
   console.log("Current contact: ", currentContact);
   return (
@@ -39,10 +27,11 @@ function PostsListItem(props) {
           <div>Loading...</div>
         )}
 
-        <div className="comment-card">
+        <div className="content-card">
           <p>{post.content}</p>
         </div>
         <div className="post-comment-card">
+          <CommentsListItem post={post} />
           <input type="text" placeholder="Add a comment..."></input>
         </div>
       </div>
