@@ -59,9 +59,8 @@ button:hover {
 	margin: 0;
 	align-items: center;
 }
-
 .menu > a {
-	padding: 37px 50px;
+	padding: 20px 50px;
 	height: 100px;
 	width: 50px;
 	font-weight: bold;
@@ -70,11 +69,9 @@ button:hover {
 .menu > .active {
 	background-color: #e6ebf5;
 }
-
 .menu > a:hover {
 	background-color: #64dc78;
 }
-
 .menu > a > img {
 	width: 100%;
 }
@@ -100,6 +97,8 @@ main {
 	margin: 10px;
 	padding: 10px;
 	border-radius: 20px;
+	font-size: large;
+	padding: 1rem 2rem;
 }
 
 .form-text-input {
@@ -112,13 +111,60 @@ main {
 
 .profile-icon {
 	border-radius: 50%;
+	padding: 0;
 	background-color: #04aa6d;
 	border: none;
-	color: white;
-	padding: 20px;
+	color: #000046;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
 	margin: 4px 2px;
+	height: 50px;
+	width: 50px;
+	font-weight: bold;
+}
+
+.post-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.post-details {
+	margin-left: 10px;
+}
+.post-details > a {
+	font-size: 18px;
+	font-weight: 400;
+	color: #000046;
+}
+
+.card h1 {
+	font-size: 20px;
+	margin: 0;
+	margin-bottom: 0.5rem;
+}
+
+.post {
+	border-bottom-style: solid;
+	border-color: #e6ebf5;
+	border-width: 2px;
+	margin-bottom: 1rem;
+}
+
+.comment {
+	display: flex;
+}
+
+.comment-content {
+	background-color: #f0f5fa;
+	border-radius: 15px;
+	padding: 10px 20px;
+	padding-right: 50px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.comment-content p {
+	margin: 0;
+	margin-bottom: 20px;
 }

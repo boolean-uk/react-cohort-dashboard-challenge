@@ -19,11 +19,13 @@ export const Comment = ({ comment }) => {
 	return !commentOwner ? (
 		<p>loading comment owner</p>
 	) : (
-		<>
+		<div className="comment">
 			<ProfileIcon user={commentOwner} />
-			<h1>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h1>
-			<p>{comment.content}</p>
-		</>
+			<div className="comment-content">
+				<h1>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h1>
+				<p>{comment.content}</p>
+			</div>
+		</div>
 	);
 };
 

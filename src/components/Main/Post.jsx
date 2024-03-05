@@ -40,11 +40,17 @@ export const Post = ({ post }) => {
 		);
 	} else {
 		return (
-			<div className="card post">
-				<ProfileIcon user={user} />
-				<h1>{`${postOwner.firstName} ${postOwner.lastName}`}</h1>
-				<Link to={post.id}>{post.title}</Link>
-				<p>{post.content}</p>
+			<div className="card">
+				<div className="post">
+					<div className="post-header">
+						<ProfileIcon user={user} />
+						<div className="post-details">
+							<h1>{`${postOwner.firstName} ${postOwner.lastName}`}</h1>
+							<Link to={`../posts/${post.id}`}>{post.title}</Link>
+						</div>
+					</div>
+					<p>{post.content}</p>
+				</div>
 				{!comments ? (
 					<p>Loading comments</p>
 				) : (
