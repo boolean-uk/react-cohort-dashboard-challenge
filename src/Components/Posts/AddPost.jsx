@@ -1,35 +1,48 @@
-import {
-  TextInput,
-  rem,
-  Avatar,
-  ActionIcon,
-  Card,
-  Container,
-  Space,
-} from "@mantine/core";
-import { IconArrowRight } from "@tabler/icons-react";
+import { useState } from "react";
+import { Card } from "@mantine/core";
+import { userState, isLoggedInState } from "../../State/auth.state";
+import { useAtom } from "jotai";
+import { postState } from "../../State/posts.state";
+import { createPost } from "../../Helpers/APIManager";
+import { useDisclosure } from "@mantine/hooks";
+import { ExpandableForm } from "../ExpandableForm";
 
 export function AddPost() {
+  const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
+  const [opened, { toggle }] = useDisclosure(false);
+  const [user] = useAtom(userState);
+  const [isLoggedIn] = useAtom(isLoggedInState);
+  const [posts, setPosts] = useAtom(postState);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (value === "") return;
+    if (opened && title === "") return;
+    const data = await createPost({
+      title: title,
+      content: value,
+      contactId: user.id,
+    });
+    setPosts([...posts, data]);
+    setValue("");
+    setTitle("");
+    toggle();
+  };
+
   return (
     <>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <TextInput
-          radius="xl"
-          size="md"
-          placeholder="What's on your mind?	"
-          rightSectionWidth={42}
-          leftSection={<Avatar src={null} alt="no image here" />}
-          rightSection={
-            <ActionIcon size={32} radius="xl" variant="filled">
-              <IconArrowRight
-                style={{ width: rem(18), height: rem(18) }}
-                stroke={1.5}
-              />
-            </ActionIcon>
-          }
-        />
-      </Card>
-      <Space h={10} />
+      {isLoggedIn && (
+        <>
+          <Card shadow="sm" padding="lg" radius="md" withBorder>
+            <ExpandableForm
+              handleSubmit={handleSubmit}
+              opened={opened}
+              toggle={toggle}
+            />
+          </Card>
+        </>
+      )}
     </>
   );
 }

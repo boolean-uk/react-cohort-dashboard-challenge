@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./Pages/HomePage";
+import { Profile } from "./Pages/Profile";
 import { Header } from "./Components/Header";
 import { AppShell } from "@mantine/core";
 import { SideBar } from "./Components/Sidebar";
 import { useDisclosure } from "@mantine/hooks";
-
 function App() {
   const [opened, { toggle }] = useDisclosure();
   return (
@@ -24,6 +24,7 @@ function App() {
         <AppShell.Main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/profile/:contactId" element={<Profile />} />
           </Routes>
         </AppShell.Main>
       </AppShell>

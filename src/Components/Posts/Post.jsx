@@ -1,35 +1,51 @@
 import { Avatar, Group, Text, Card, Space } from "@mantine/core";
 import { AddComment } from "./Comments/AddComment";
 import { CommentList } from "./Comments/CommentList";
+import { getContactById } from "../../Helpers/APIManager";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+export function Post({ post }) {
+  const [contact, setContact] = useState({});
 
-export function Post() {
+  useEffect(() => {
+    getContactById(post.contactId).then((data) => {
+      console.log(data);
+      setContact(data);
+    });
+  }, []);
+
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Group position="left">
-        <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
-          alt="André Sturesson"
-          radius="xl"
-        />
+        <Link to={`/profile/${contact.id}`}>
+          <Avatar
+            src={contact.profileImage}
+            alt="{contact.firstName} {contact.lastName}"
+            radius="xl"
+          />
+        </Link>
         <div>
-          <Text size="sm" fw={700} ta={"left"}>
-            André Sturesson
-          </Text>
+          <Link to={`/profile/${contact.id}`}>
+            <Text size="sm" fw={700} ta={"left"}>
+              {contact.firstName} {contact.lastName}
+            </Text>
+          </Link>
           <Text size="xs" c="dimmed">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consequatur repellendus.
+            {post.title}
           </Text>
         </div>
       </Group>
       <Text pl={54} pt="sm" size="sm" ta={"left"}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, maxime
-        nesciunt consectetur consequatur necessitatibus adipisci possimus
-        repudiandae cum, dolorem laboriosam voluptatem molestiae, minus impedit
-        atque non delectus fuga eos deleniti!
+        {post.content}
       </Text>
       <Space h={10} />
-      <CommentList />
-      <AddComment />
+      <CommentList postId={post.id} />
+      <AddComment postId={post.id} />
     </Card>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+};

@@ -1,22 +1,22 @@
 import { Avatar, Group, Text, Container, Space, Card } from "@mantine/core";
+import PropTypes from "prop-types";
 
-export function Comment() {
+export function Comment({ comment }) {
   return (
     <Container size="sm" ml={0}>
       <Group position="left">
         <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
-          alt="André Sturesson"
+          src={comment.contact.profileImage}
+          alt={`${comment.contact.firstName} ${comment.contact.lastName}`}
           radius="xl"
         />
         <div>
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Text size="xs" fw={700} ta={"left"}>
-              André Sturesson
+              {comment.contact.firstName} {comment.contact.lastName}
             </Text>
             <Text size="sm" c="dimmed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Consequatur repellendus.
+              {comment.content}
             </Text>
           </Card>
         </div>
@@ -25,3 +25,7 @@ export function Comment() {
     </Container>
   );
 }
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+};

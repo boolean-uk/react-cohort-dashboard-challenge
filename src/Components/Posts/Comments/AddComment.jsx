@@ -1,21 +1,60 @@
 import { Avatar, TextInput, ActionIcon, rem } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-export function AddComment() {
-  return (
-    <TextInput
-      radius="xl"
-      size="md"
-      placeholder="Post Comment"
-      rightSectionWidth={42}
-      leftSection={<Avatar src={null} alt="no image here" />}
-      rightSection={
-        <ActionIcon size={32} radius="xl" variant="filled">
-          <IconArrowRight
-            style={{ width: rem(18), height: rem(18) }}
-            stroke={1.5}
-          />
-        </ActionIcon>
-      }
-    />
-  );
+import { userState, isLoggedInState } from "../../../State/auth.state";
+import { useAtom } from "jotai";
+import { createComment } from "../../../Helpers/APIManager";
+import PropTypes from "prop-types";
+import { useState } from "react";
+
+export function AddComment({ postId }) {
+  const [user, setUser] = useAtom(userState);
+  const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInState);
+  const [commentText, setCommentText] = useState("");
+
+  const handleAddComment = async (event) => {
+    event.preventDefault();
+
+    if (commentText.trim() === "") {
+      return;
+    }
+
+    try {
+      const comment = {
+        postId: postId,
+        content: commentText,
+        contactId: user.id,
+      };
+
+      await createComment(comment, postId);
+      setCommentText("");
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
+  };
+
+  return isLoggedIn ? (
+    <form onSubmit={handleAddComment}>
+      <TextInput
+        radius="xl"
+        size="md"
+        placeholder="Post Comment"
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
+        rightSectionWidth={42}
+        leftSection={<Avatar src={user.profileImage} alt="Profile Image" />}
+        rightSection={
+          <ActionIcon size={32} radius="xl" variant="filled" type="submit">
+            <IconArrowRight
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+        }
+      />
+    </form>
+  ) : null;
 }
+
+AddComment.propTypes = {
+  postId: PropTypes.string.isRequired,
+};
