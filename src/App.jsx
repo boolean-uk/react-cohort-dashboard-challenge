@@ -10,9 +10,19 @@ export const UserContext = createContext();
 
 function App() {
 	const loggedInUser = {
-		id: 0,
-		firstName: "Linus",
-		lastName: "Willmont",
+		firstName: "Gianni",
+		lastName: "Homenick",
+		gender: "Two-spirit",
+		email: "Lenora.Nitzsche@gmail.com",
+		jobTitle: "Principal Configuration Technician",
+		street: "Meredith Lake",
+		city: "Clementinastad",
+		latitude: -62.1199,
+		longitude: 18.7978,
+		favouriteColour: "#caadcc",
+		profileImage:
+			"https://www.gravatar.com/avatar/Lenora.Nitzsche@gmail.com?s=120&d=identicon",
+		id: 1,
 	};
 	return (
 		<body>

@@ -1,20 +1,55 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProfileIcon } from "../General/ProfileIcon";
 import { UserContext } from "../../App";
+import { postRequest } from "../../utilites/apiRequests";
+import PropTypes from "prop-types";
 
-export const CreatePost = () => {
+export const CreatePost = ({ getPosts }) => {
 	const user = useContext(UserContext);
+	const [formData, setFormData] = useState("");
+
+	const handleInput = (event) => {
+		setFormData(event.target.value);
+	};
+
+	const postNewPost = () => {
+		return postRequest(
+			"https://boolean-api-server.fly.dev/LinusWillmont/post",
+			{
+				title: "Title",
+				content: formData,
+				contactId: user.id,
+			}
+		)
+			.then((data) => console.log(data))
+			.catch((error) => console.error("Failed to post", error));
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log("Posting post", formData);
+		postNewPost()
+			.then(() => getPosts())
+			.then(setFormData(""))
+			.catch((error) => console.error(error));
+	};
 	return (
 		<div className="card create-post-item">
 			<ProfileIcon user={user} />
-			<form action="">
+			<form action="" onSubmit={handleSubmit}>
 				<input
 					type="text"
 					placeholder="What's on your mind?"
 					className="form-text-input"
+					value={formData}
+					onChange={handleInput}
 				/>
 				<button>Post</button>
 			</form>
 		</div>
 	);
+};
+
+CreatePost.propTypes = {
+	getPosts: PropTypes.func,
 };

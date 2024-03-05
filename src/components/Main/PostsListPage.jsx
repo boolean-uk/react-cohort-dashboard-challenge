@@ -6,17 +6,20 @@ import { getRequest } from "../../utilites/apiRequests";
 export const PostsListPage = () => {
 	const [posts, setPosts] = useState([]);
 
-	useEffect(() => {
+	useEffect(() => getPosts(), []);
+
+	const getPosts = () => {
 		getRequest("https://boolean-api-server.fly.dev/LinusWillmont/post")
 			.then((data) => {
-				setPosts(data);
+				data = data.reverse();
+				setPosts([...data]);
 			})
 			.catch((error) => console.error("Failed to get posts", error));
-	}, []);
+	};
 
 	return (
 		<main>
-			<CreatePost />
+			<CreatePost getPosts={getPosts} />
 			{posts.map((post) => {
 				return <Post key={post.id} post={post} />;
 			})}

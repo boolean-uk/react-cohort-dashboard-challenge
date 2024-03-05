@@ -12,9 +12,10 @@ const getRequest = (url) => {
 };
 
 const postRequest = (url, body) => {
+	console.log("Payload", JSON.stringify(body));
 	return fetch(url, {
 		method: "POST",
-		body: JSON.stringify(body),
+		body: JSON.stringify({ ...body }),
 		headers: {
 			"Content-type": "application/json; charset=UTF-8",
 		},
