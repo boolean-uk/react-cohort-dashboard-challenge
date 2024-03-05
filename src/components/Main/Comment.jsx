@@ -5,6 +5,7 @@ import { getRequest } from "../../utilites/apiRequests";
 
 export const Comment = ({ comment }) => {
 	const [commentOwner, setCommentOwner] = useState(null);
+
 	useEffect(() => {
 		getRequest(
 			`https://boolean-api-server.fly.dev/LinusWillmont/contact/${comment.contactId}`
@@ -15,12 +16,11 @@ export const Comment = ({ comment }) => {
 			.catch((error) => console.error("Failed to get comment owner", error));
 	}, [comment.contactId]);
 
-	if (!commentOwner) {
-		return <p>loading comment owner</p>;
-	}
-	return (
+	return !commentOwner ? (
+		<p>loading comment owner</p>
+	) : (
 		<>
-			<ProfileIcon />
+			<ProfileIcon user={commentOwner} />
 			<h1>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h1>
 			<p>{comment.content}</p>
 		</>

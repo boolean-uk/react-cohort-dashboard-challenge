@@ -4,9 +4,11 @@ import { Comment } from "./Comment";
 import { CreateComment } from "./CreateComment";
 import { PropTypes } from "prop-types";
 import { getRequest } from "../../utilites/apiRequests";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../App";
 
 export const Post = ({ post }) => {
+	const user = useContext(UserContext);
 	const [postOwner, setPostOwner] = useState(null);
 	const [comments, setComments] = useState(null);
 
@@ -21,7 +23,6 @@ export const Post = ({ post }) => {
 	}, [post.contactId]);
 
 	useEffect(() => {
-		console.log("Get comments effect");
 		getRequest(
 			`https://boolean-api-server.fly.dev/LinusWillmont/post/${post.id}/comment`
 		)
@@ -40,7 +41,7 @@ export const Post = ({ post }) => {
 	} else {
 		return (
 			<div className="card post">
-				<ProfileIcon />
+				<ProfileIcon user={user} />
 				<h1>{`${postOwner.firstName} ${postOwner.lastName}`}</h1>
 				<Link to={post.id}>{post.title}</Link>
 				<p>{post.content}</p>
@@ -48,7 +49,6 @@ export const Post = ({ post }) => {
 					<p>Loading comments</p>
 				) : (
 					comments.map((comment) => {
-						console.log(comment);
 						return <Comment key={comment.id} comment={comment} />;
 					})
 				)}

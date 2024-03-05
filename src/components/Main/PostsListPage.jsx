@@ -9,13 +9,10 @@ export const PostsListPage = () => {
 	useEffect(() => {
 		getRequest("https://boolean-api-server.fly.dev/LinusWillmont/post")
 			.then((data) => {
-				console.log("Data", data);
 				setPosts(data);
 			})
 			.catch((error) => console.error("Failed to get posts", error));
 	}, []);
-
-	console.log("Posts", posts);
 
 	return (
 		<main>

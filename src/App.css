@@ -1,29 +1,11 @@
-/* #root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-
-	color: #000046;
-	background-color: #f0f5fa;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-} */
-
 body {
-	/* Make the body fill all the size of viewport */
 	width: 100vw;
 	height: 100vh;
 	font-family: sans-serif;
-	/* remove padding and margins */
 	margin: 0;
 	padding: 0;
 }
 
-/* Create a root container that fills the screen
-make the child components lay out using flex, vertically stacked in a column */
 .container {
 	width: 100vw;
 	height: 100vh;
@@ -60,19 +42,45 @@ button {
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
+
 button:hover {
 	background-color: #64dc78;
 }
 
 .menu {
-	width: 200px;
 	height: 100%;
+	min-width: 150px;
+	max-width: 150px;
 	max-height: calc(100vh - 60px);
 	background-color: white;
 	display: flex;
 	flex-direction: column;
 	padding: 0;
 	margin: 0;
+	align-items: center;
+}
+
+.menu > a {
+	padding: 37px 50px;
+	height: 100px;
+	width: 50px;
+	font-weight: bold;
+	color: #000046;
+}
+.menu > .active {
+	background-color: #e6ebf5;
+}
+
+.menu > a:hover {
+	background-color: #64dc78;
+}
+
+.menu > a > img {
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
 }
 
 main {

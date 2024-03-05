@@ -1,5 +1,5 @@
 const getRequest = (url) => {
-	console.log("Getting data from", url);
+	// console.log("Getting data from", url);
 	return fetch(url)
 		.then((response) => {
 			if (!response.ok) {

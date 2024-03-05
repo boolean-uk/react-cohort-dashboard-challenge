@@ -1,3 +1,7 @@
 export const NotFoundPage = () => {
-	return <h1>Error 404 page not found</h1>;
+	return (
+		<main>
+			<h1 className="card">Error 404: page not found</h1>
+		</main>
+	);
 };
