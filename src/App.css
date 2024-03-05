@@ -34,30 +34,27 @@ p {
   font-size: 16px;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  user-select: none;
+  overflow: hidden;
+  color: var(--clr-dark);
+  background-color: var(--clr-backgound);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 12rem auto 23rem; /* Free columns one at 12rem middle aouto and right 23rem*/
+  width: 95%;
+  margin: 0 auto;
+  gap: 1.8rem;
+}
+
 aside {
   height: 100vh;
-}
-
-aside .toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.4rem;
-}
-
-aside .toggle .logo {
-  display: flex;
-  gap: 0.5rem;
-}
-
-aside .toggle .logo img {
-  width: 3rem;
-  height: 3rem;
-}
-
-aside .toggle .close {
-  padding-right: 1rem;
-  display: none;
 }
 
 aside .sidebar {
@@ -66,7 +63,7 @@ aside .sidebar {
   background-color: var(--clr-white);
   box-shadow: var(--box-shadow);
   border-radius: 15px;
-  height: 88vh;
+  height: 80vh;
   position: relative;
   top: 1.5rem;
   transition: all 0.3s ease;
@@ -136,3 +133,12 @@ aside .sidebar .message-count {
   color: var(--clr-dark);
   border-radius: var(--border-radius-1);
 }
+
+main > * {
+  display: block;
+}
+
+/* main > .active,
+main > .acrive * {
+  display: block;
+} */

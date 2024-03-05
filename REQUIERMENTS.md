@@ -16,6 +16,10 @@ Component Tree diagram
   }, [URL] )
 
   -BlogViewModule
+  const { contactId } = useParam()
+  useEffect(() => {
+  fetch(URL) -> GET
+  })
 
   -CreatePostModule
   const onPostPost = () => {
