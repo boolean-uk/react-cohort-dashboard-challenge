@@ -5,9 +5,3 @@ export const colorTheme = {
 	postTitle: "#64648c",
 	bodyBackground: "#F0F5FA",
 };
-
-export const svg = {
-	headerIcon: "./_assets/title-header-svg.md",
-	homeIcon: "./_assets/home-icon-svg.md",
-	profileIcon: "./_assets/profile-icon-svg.md",
-};
