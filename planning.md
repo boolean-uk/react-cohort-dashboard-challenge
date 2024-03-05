@@ -62,17 +62,17 @@ comments =
   - **Routes**
     - **PostsListPage** _/posts_ [posts, setPosts]
       - (Display a list of all the posts and comments)
-      - **CreatePostItem** {UserContext}
+      - **CreatePost** {UserContext}
       - **Post** {postId} [Comments, setComments]
         - -> _/posts/id_
         - **CommmentsList** {postId}
           - **Comment**
-          - **CreateCommentItem** {UserContext}
+          - **CreateComment** {UserContext}
     - **PostDetailPage** _/posts/id_
     - - **Post** {postId} [Comments, setComments]
         - **CommmentsList** {postId}
           - **Comment**
-          - **CreateCommentItem** {UserContext}
+          - **CreateComment** {UserContext}
   - **General Components**
     - **ProfileIcon**
       - (Get the first letter of name/surname)
