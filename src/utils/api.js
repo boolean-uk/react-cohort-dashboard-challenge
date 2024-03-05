@@ -1,10 +1,12 @@
-export const fetchData = async (URL, ids, setDataCallback) => {
+export const fetchData = async (URL, id, setDataCallback) => {
   try {
-    const responses = await Promise.all(ids.map((id) => fetch(`${URL}/${id}`)));
+    const response = await fetch(`${URL}/${id}`);
 
-    const data = await Promise.all(
-      responses.map((response) => response.json())
-    );
+    if (!response.ok) {
+      console.log(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json();
     setDataCallback(data);
   } catch (error) {
     console.log("OBS!!! Something went wrong:", error.message);

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
 import { fetchData } from "../../utils/api";
+import { getInitials } from "../../utils/getInitials.js";
 
 function PostsListItem(props) {
   const { post } = props;
@@ -19,8 +20,15 @@ function PostsListItem(props) {
       <div className="blogpost-card">
         {currentContact ? (
           <div className="contact-card">
-            <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
-            <h3>{`${post.title}`}</h3>
+            <div className="initials-circle">
+              {getInitials(
+                `${currentContact.firstName} ${currentContact.lastName}`
+              )}
+            </div>
+            <div className="contact-info">
+              <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
+              <h3>{`${post.title}`}</h3>
+            </div>
           </div>
         ) : (
           <div>Loading...</div>

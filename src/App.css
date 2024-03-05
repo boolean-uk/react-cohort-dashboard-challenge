@@ -19,6 +19,7 @@
 }
 * {
   font-family: "Open Sans";
+  color: #000046;
   margin: 0;
 }
 
@@ -46,12 +47,12 @@ li {
 body {
   width: 100vw;
   height: 100vh;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.88rem;
   user-select: none;
   overflow: scroll;
   color: var(--clr-dark);
-  background-color: var(--clr-backgound);
+  background-color: #f0f5fa;
 }
 
 .container {
@@ -160,26 +161,53 @@ main > * {
   transition: all 0.3s ease;
 }
 
-.blogpost-card > .content-card,
-.comment-card {
-  margin-bottom: 20px;
+.content-card,
+.contact-card {
+  margin-bottom: 35px;
 }
 
-.blogpost-card > .post-comment-card {
+.post-comment-card {
   border-top: 1px solid rgba(132, 139, 200, 0.2);
   padding: 20px;
 }
 
-.blogpost-card > .post-comment-card > input {
+.post-comment-card > input {
   padding: 10px;
-
   width: 97%;
 }
 
-.blogpost-card > .blogpost-card:hover {
+.blogpost-card:hover {
   box-shadow: none;
 }
 
 .CreatePostModule {
   justify-content: space-between;
+}
+
+.initials-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info h2 {
+  margin: 0;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
 }
