@@ -4,7 +4,7 @@ import './style.css'
 function SideMenu() {
     return(
         <div className='side-menu'>
-            <checkbox id="home-checkbox" />
+            <input type="checkbox" id="home-checkbox" />
             <label htmlFor="home-checkbox"><Link to="/">
                 <svg width="33" height="36" viewBox="0 0 33 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.5 36V12L16.6 0L32.5 12V36H20.8V21.75H12.15V36H0.5Z" fill="#64648C" />
@@ -12,7 +12,7 @@ function SideMenu() {
                 <p>Home</p>
                 </Link></label>
 
-            <checkbox id="profile-checkbox" />
+            <input type="checkbox" id="profile-checkbox" />
                 <label htmlFor="profile-checkbox">
                 <Link to="/profile"><svg
                 width="41"

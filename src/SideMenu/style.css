@@ -7,7 +7,7 @@
     background-color: white;
   }
 
-.side-menu checkbox {
+.side-menu input[type=checkbox] {
     display: none;
 }
 
