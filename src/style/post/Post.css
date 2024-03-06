@@ -1,0 +1,30 @@
+.post-list > .list-item {
+    margin: 1rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 2px 1px lightsteelblue;
+    color: navy;
+    font-size: 24px;
+}
+
+.post-list > .list-item > .post-owner {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.post-list > .list-item > .post-owner > .owner-info {
+    margin-left: 1rem;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > h2,
+.post-list > .list-item > .post-owner > .owner-info > p {
+    margin: 0;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > p {
+    color: #64648c;
+    font-size: 20px;
+}
