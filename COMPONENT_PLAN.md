@@ -1,9 +1,15 @@
 ### STRUCTURE
 
-APP
+MIGHT BE UPDATED AFTER POSSIBLE RESTRUCTURING
 
-- state users, messages,
-  PostForm
-  PostListing
-
-Post
+- COMPONENTS
+  - App
+    - Dasboard
+      - Header
+      - SideBar
+      - Posts
+        - CreatePost
+        - Post
+          - CreateComment
+          - Comment
+      - Profile
