@@ -11,6 +11,10 @@ function getPostById(postId) {
   const url = `https://boolean-api-server.fly.dev/martenere/post/${postId}`;
   return fetch(url);
 }
+function getAllPosts() {
+  const url = `https://boolean-api-server.fly.dev/martenere/post`;
+  return fetch(url);
+}
 
 function postCommentToPost(postId, content, contactId) {
   const url = `https://boolean-api-server.fly.dev/martenere/post/${postId}/comment`;
@@ -57,6 +61,7 @@ const postOptions = (payload) => {
 };
 
 export {
+  getAllPosts,
   postNewPost,
   getPostById,
   postCommentToPost,

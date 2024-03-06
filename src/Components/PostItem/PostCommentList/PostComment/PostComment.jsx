@@ -24,7 +24,9 @@ function PostComment({ comment }) {
       </div>
       <div className="chat-bubble">
         <h6>
-          {commentUser.firstName} {commentUser.lastName} commentId: {comment.id}
+          <b>
+            {commentUser.firstName} {commentUser.lastName}
+          </b>
         </h6>
         <p>{comment.content}</p>
       </div>

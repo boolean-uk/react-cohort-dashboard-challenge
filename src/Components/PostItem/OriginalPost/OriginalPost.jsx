@@ -11,9 +11,11 @@ function OriginalPost() {
       <div className="d-flex py-3 align-items-start">
         <ProfileCircle user={originalPostUser}></ProfileCircle>
         <div className="info">
-          <h4>
-            {originalPostUser.firstName} {originalPostUser.lastName}
-          </h4>
+          <h5>
+            <b>
+              {originalPostUser.firstName} {originalPostUser.lastName}
+            </b>
+          </h5>
           <Link to={`/posts/${post.id}`}>
             {" "}
             <small>{post.title}</small>

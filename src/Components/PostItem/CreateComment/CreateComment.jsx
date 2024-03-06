@@ -23,7 +23,7 @@ function CreateComment() {
   };
 
   return (
-    <div className="d-flex">
+    <div className="d-flex mt-3">
       <ProfileCircle />
       <div className="input-bubble ml-3 mx-3 response align-items-center">
         <input

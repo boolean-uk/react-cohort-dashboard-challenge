@@ -41,6 +41,7 @@ function PostItem(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getUser(), []);
   useEffect(() => updateComments(), []);
+
   return (
     <PostContext.Provider
       value={{
