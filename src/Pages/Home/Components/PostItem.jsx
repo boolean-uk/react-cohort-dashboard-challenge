@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UsersContext } from '../../../App'
 import ProfilePicture from '../../../globalComponents/profilePicture'
 import CommentList from './CommentList'
+import { Link } from 'react-router-dom'
 
 
 function PostItem({ post }) {
@@ -9,7 +10,12 @@ function PostItem({ post }) {
  
   const users = useContext(UsersContext)
 
-  useEffect(() => { setAuthor(users.find((user) => user.id === post.contactId)) }, [users])
+  useEffect(() => {
+    // Check if post is defined before attempting to find the author
+    if (post) {
+      setAuthor(users.find((user) => user.id === post.contactId));
+    }
+  }, [users, post]);
 
   if (author === undefined) { return <a>loading...</a> }
 
@@ -17,7 +23,9 @@ function PostItem({ post }) {
     <div className='post-container'>
       <ProfilePicture firstName={author.firstName} lastName={author.lastName} favouriteColour={author.favouriteColour} />
       <div>{author.firstName} {author.lastName}</div>
+      <Link to={`/post/${post.id}`} >
       <div>{post.title}</div>
+      </Link>
       <div>{post.content}</div>
       <CommentList postId={post.id} />
     </div>

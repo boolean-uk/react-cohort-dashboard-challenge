@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { PostsContext } from '../../../Dashboard'
+import PostItem from '../Components/PostItem'
+import { useParams } from 'react-router-dom'
 
 function PostView() {
+  const {id} = useParams()
+  const {posts, fetchPosts} = useContext(PostsContext)
+  const [post, setPost] = useState(undefined)
+  useEffect(() => {
+    const selectedPost = posts.find((post) => post.id === parseInt(id));
+    setPost(selectedPost);
+  }, [id, posts]);
+
+   // Check if posts or selectedPost is undefined before rendering
+   if (!posts || !post) return <p>Loading the post...</p>;
   return (
-    <div>PostView</div>
+    <PostItem post={post}/>
   )
 }
 
