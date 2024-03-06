@@ -3,9 +3,8 @@
     top: 90px;
     left: 150px;
     padding: 30px;
-    border: solid black 1px;
-    width: calc(100vw - 150px);
-    height: calc(100vh - 90px);
+    width: calc(100vw - 200px - 30px);
+    height: calc(100vh - 90px - 50px);
 }
 
 .scroll-container {

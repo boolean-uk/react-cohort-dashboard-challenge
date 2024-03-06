@@ -1,17 +1,18 @@
 import "./ContentView.css"
 import { Routes, Route } from 'react-router-dom'
 import PostView from "./PostView/PostView"
-import { useState, useEffect, createContext } from 'react'
-import { baseUrl } from "@/Utils/apiUtils"
+import { useState, useEffect } from 'react'
+import { basePostUrl } from "@/Utils/apiUtils"
+import { PostsContext } from "@/Utils/contexts"
 
-export const PostsContext = createContext()
 
 const ContentView = () => {
     const [posts, setPosts] = useState([])
 
     const fetchPosts = async () => {
-        await fetch(baseUrl)
+        await fetch(basePostUrl)
             .then((res) => res.json())
+            .then((res) => res.reverse()) // New posts will appear first
             .then((res) => setPosts([...res]))
     }
 

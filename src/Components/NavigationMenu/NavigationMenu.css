@@ -2,6 +2,8 @@
     position: fixed;
     left: 0px;
     top: 90px;
+    height: calc(100vh - 90px);
+    background-color: white;
 }
 
 .navigation-menu > div {
@@ -26,5 +28,6 @@
 
 .active {
     z-index: 2;
-    background-color: var(--form-background-color)
+    background-color: var(--form-background-color);
+    color: var(--primary-color)
 }
