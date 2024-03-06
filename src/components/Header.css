@@ -1,0 +1,7 @@
+.header-top {
+    width: 400px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
