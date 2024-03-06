@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
 import { getInitials } from "../../utils/getInitials";
 import { Link } from "react-router-dom";
+import { fetchDataByContactId } from "../../utils/api.js";
 
 function PostsListItem(props) {
   const { post } = props;
@@ -12,23 +13,8 @@ function PostsListItem(props) {
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
 
   useEffect(() => {
-    fetchData();
+    setCurrentContact(fetchDataByContactId(post.contactId));
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${URL}/${post.contactId}`);
-
-      if (!response.ok) {
-        console.log(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      setCurrentContact(data);
-    } catch (error) {
-      console.log("OBS!!! Something went wrong:", error.message);
-    }
-  };
 
   return (
     <>
