@@ -1,3 +1,5 @@
+import Post from './Post'
+
 import { useContext } from "react"
 import { PostContext } from ".."
 
@@ -7,7 +9,7 @@ function Timeline() {
     return(
         <>
             {context.posts.map((post, index) => (
-                <p key={index}>{post.content}</p>
+                <Post key={index} post={post} />
             ))}
         </>
     )

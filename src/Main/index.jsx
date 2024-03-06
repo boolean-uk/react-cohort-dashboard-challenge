@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Home } from './Home'
 
 import './style.css'
+import Profile from './Profile'
 
 function Main() {
     return(
@@ -14,7 +15,7 @@ function Main() {
           />
           <Route
             path="/profile"
-            element={<>Profile</>}
+            element={<Profile />}
           />
         </Routes>
         </div>
