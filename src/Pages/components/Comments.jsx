@@ -8,7 +8,7 @@ export default function Comments({ postId }) {
 
   const { commentId } = useParams();
 
-  // on load: fetch articles
+  // on load: fetch comments
   useEffect(() => {
     const runEffect = async () => {
       const { data, error } = await getRequest(`/post/${postId}/comment`);

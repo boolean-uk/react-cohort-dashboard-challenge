@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../API";
 import Comments from "./Comments";
+import Users from "./Users";
 
 export default function PostsList() {
   const [post, setPost] = useState([]);
@@ -30,6 +31,7 @@ export default function PostsList() {
           {post.map((post) => {
             return (
               <div key={post.id}>
+                <Users userId={post.contactId} />
                 <h3>
                   <Link to={`/post/${post.id}`}>{post.title}</Link>
                 </h3>

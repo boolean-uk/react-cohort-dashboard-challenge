@@ -2,6 +2,7 @@ import Comments from "./components/Comments";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRequest } from "../API";
+import Users from "./components/Users";
 
 export default function PostPage() {
   const [post, setPost] = useState([]);
@@ -27,6 +28,7 @@ export default function PostPage() {
       {loading && <p>Loading...</p>}
       {!loading && (
         <>
+          <Users userId={post.contactId} />
           <h1>{post.title} </h1>
           <p>{post.content}</p>
           <Comments postId={postId} />
