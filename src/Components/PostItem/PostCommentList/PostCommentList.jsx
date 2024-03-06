@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import * as API from "../../../API/API";
+import { useContext, useState } from "react";
+// import * as API from "../../../API/API";
 
 import "./PostCommentList.css";
 import { PostContext } from "../PostItem";
