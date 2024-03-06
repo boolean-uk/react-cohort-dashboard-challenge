@@ -1,0 +1,138 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 500px;
+  width: 100vw;
+  background-color: #000046;
+}
+
+.icon_header {
+  height: 50px;
+  width: 100vw;
+}
+
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  background-color: red;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.dashboard_layout {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  background-color: #F0F5FA;
+}
+
+.post_layout {
+  background-color: white;
+  color: #64648c;
+  margin: 20px;
+  padding-inline-start: 30px;
+  height: fit-content;
+  width: 94%;
+  border-radius: 8px;
+}
+
+
+
+.circle {
+  height: 50px;
+  width: 50px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046
+}
+
+.circle_text {
+  margin: auto;
+}
+
+.post_title_colour {
+  color: #64648c
+}
+
+.post_name_colour {
+  color: black;
+}
+
+.normal_text_colour {
+  color: #000046
+}
+
+.create_post_layout {
+  background-color: white;
+  color: #64648c;
+  margin: 20px;
+  padding-inline-start: 30px;
+  height: fit-content;
+  width: 94%;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.title_input {
+  height: 40px;
+  width: 400px;
+  border-radius: 8px;
+  background-color: #e6ebf5;
+  color: rgb(68, 68, 68);
+  border-style: none;
+}
+
+.content_input {
+  height: 40px;
+  width: 800px;
+  border-radius: 8px;
+  background-color: #e6ebf5;
+  color: rgb(68, 68, 68);
+  border-style: none;
+}
+
+.post_button {
+  height: 45px;
+  width: 150px;
+  border-radius: 8px;
+  background-color: #000046;
+  color: white;
+  margin-left: 15px;
+}
+.button_text {
+  margin: auto;
+}
