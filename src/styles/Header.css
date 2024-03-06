@@ -4,5 +4,5 @@
     align-items: center;
     background-color: #000046;
     width: 100%;
-    height: 80px;
+    grid-area: header;
 }

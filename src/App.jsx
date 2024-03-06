@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 export const UserContext = createContext();
 
@@ -18,20 +19,21 @@ function App() {
   }, []);
 
   return (
-    <>
+    <UserContext.Provider value={user}>
       {
         user ?
-          <UserContext.Provider value={user}>
             <Header />
-          </UserContext.Provider>
           :
           <h1>Loading...</h1>
       }
+      <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={
+            <Home />
+        } />
       </Routes>
-    </>
+      </UserContext.Provider>
   )
 }
 

@@ -1,14 +1,37 @@
 import '../styles/ProfileImage.css'
 import PropTypes from 'prop-types';
 
-export default function ProfileImage({ imageUrl, w, h, marginL, marginR }) {
+export default function ProfileImage({ user, w, h, marginL, marginR }) {
     return (
-        <img src={imageUrl} style={{ width: w, height: h, marginLeft: marginL, marginRight: marginR }} alt="profile image" className="image" />
+        <div className="profileImageContainer" style={
+            {
+                width: w,
+                minWidth: w,
+                height: h,
+                minHeight: h,
+                marginLeft: marginL,
+                marginRight: marginR,
+                backgroundColor: user.favouriteColour
+            }
+        }>
+            {
+                user.firstName && user.lastName ?
+                    <>
+                        <p>{user.firstName.toUpperCase()[0]}</p>
+                        <p>{user.lastName.toUpperCase()[0]}</p>
+                    </>
+                    :
+                    <>
+                        <p>?</p>
+                        <p>?</p>
+                    </>
+            }
+        </div>
     )
 }
 
 ProfileImage.propTypes = {
-    imageUrl: PropTypes.string,
+    user: PropTypes.object,
     w: PropTypes.number,
     h: PropTypes.number,
     marginR: PropTypes.number,

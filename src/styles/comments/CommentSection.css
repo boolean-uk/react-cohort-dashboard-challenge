@@ -2,8 +2,13 @@
     font-weight: 600;
     color: #818181;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .seePreviousCommentsButton:hover {
     color: #64dc78;
+}
+
+.commentSectionContainer{
+    width: 100%;
 }

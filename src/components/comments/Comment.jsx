@@ -14,11 +14,11 @@ export default function Comment({ comment }) {
             {
                 commentUser ?
                     <>
-                        <ProfileImage imageUrl={commentUser.profileImage} w={50} h={50} />
+                        <ProfileImage user={commentUser} w={50} h={50} />
                         <CommentContent comment={comment} commentUser={commentUser} />
                     </>
                     :
-                    <h1>Loading...</h1>
+                    <p>Loading...</p>
             }
         </div>
     )

@@ -1,5 +1,4 @@
 .postContainer {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -18,6 +17,6 @@
 .divider {
     width: 100%;
     height: 1px;
-    background-color: #f0f0f0;
+    background-color: #d1d1d1;
     margin: 15px 0;
 }

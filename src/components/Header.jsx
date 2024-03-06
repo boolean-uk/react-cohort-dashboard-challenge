@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <div className="headerContainer">
             <Logo />
-            <ProfileImage imageUrl={user.profileImage} w={50} h={50} marginR={60} />
+            <ProfileImage user={user} w={50} h={50} marginR={60} />
         </div>
     )
 }

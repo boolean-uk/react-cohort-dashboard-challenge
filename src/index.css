@@ -13,6 +13,16 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "navbar main";
+    grid-template-columns: 150px;
+    grid-template-rows: 80px 1fr;
+    height: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;

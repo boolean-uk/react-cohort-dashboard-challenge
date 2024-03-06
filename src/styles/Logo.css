@@ -2,4 +2,10 @@
     height: 100%;
     width: 350px;
     margin-left: 60px;
+    transition: all 0.3s ease;
+}
+
+.logoimg:hover {
+    scale: 1.05;
+    cursor: pointer;
 }

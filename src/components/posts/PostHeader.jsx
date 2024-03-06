@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../App";
+import { useEffect, useState } from "react"
 import ProfileImage from "../ProfileImage";
 import "../../styles/posts/PostHeader.css";
 export default function PostHeader({ post }) {
     const [creator, setCreator] = useState({});
-    const loggedInUser = useContext(UserContext);
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/spectraldesign/contact/${post.contactId}`)
             .then((response) => response.json())
@@ -13,7 +11,7 @@ export default function PostHeader({ post }) {
 
     return (
         <div className="postHeaderContainer">
-            <ProfileImage imageUrl={creator.profileImage} w={45} h={45} />
+            <ProfileImage user={creator} w={45} h={45} />
             <div className="postHeaderDetailsContainer">
                 <p className="postHeaderName">{creator.firstName} {creator.lastName}</p>
                 <p className="postHeaderTitle">{post.title}</p>
