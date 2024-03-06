@@ -5,6 +5,7 @@ import Body from "./components/Body/Body";
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./components/Profile";
+import SinglePost from "./components/Body/Post/SinglePost";
 
 const PostContext = createContext();
 
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Body />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/post/:id" element={<SinglePost posts={posts} />} />
             </Routes>
           </div>
         </div>

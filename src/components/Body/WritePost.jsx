@@ -21,7 +21,7 @@ export default function WritePost() {
     if (newPost.content !== "" && newPost.content !== undefined) {
       const tempArray = newPost.content.split(".");
       newPost.title = tempArray[0];
-      newPost.contactId = 16; // PLACEHOLDER ID
+      newPost.contactId = 1; // PLACEHOLDER ID
       fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`, {
         method: "POST",
         headers: {

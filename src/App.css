@@ -24,8 +24,8 @@
   max-height: calc(100vh - 60px);
 }
 .sideBar-Button {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
 }
 .sideBar-Button:hover {

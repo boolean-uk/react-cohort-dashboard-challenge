@@ -2,7 +2,6 @@
 import { useContext, useState } from "react";
 import "../Body.css";
 import { CommentContext } from "./Post";
-import { PostContext } from "../../../App";
 
 const INITIAL_COMMENT = {
   content: "",
@@ -21,7 +20,7 @@ export default function AddComment({ post }) {
     event.preventDefault();
     if (newComment.content !== "" && newComment.content !== undefined) {
       newComment.postId = post.id;
-      newComment.contactId = 16; // PLACEHOLDER ID
+      newComment.contactId = 1; // PLACEHOLDER ID
       fetch(
         `https://boolean-api-server.fly.dev/VictorAdamson/post/${post.id}/comment`,
         {
