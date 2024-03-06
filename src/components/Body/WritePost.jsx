@@ -20,8 +20,32 @@ export default function WritePost() {
     event.preventDefault();
     setNewPost(INITIAL_POST);
     if (newPost.content !== "" && newPost.content !== undefined) {
-      setPosts([...posts, newPost]);
-      console.log(newPost);
+      const tempArray = newPost.content.split(".");
+      newPost.title = tempArray[0];
+      newPost.contactId = 1; // PLACEHOLDER ID
+      fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newPost),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw response;
+        })
+        .then((jsonData) => {
+          //If request is Ok
+          setNewPost(jsonData);
+          //Add the newly added post to the original state
+          setPosts([...posts, newPost]);
+        })
+        .catch((err) => {
+          //If request is bad
+          console.log(err, "Error: post could not be added!");
+        });
     } else {
       console.log("Can't create empty post!");
     }

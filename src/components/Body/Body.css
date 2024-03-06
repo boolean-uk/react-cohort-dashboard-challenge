@@ -31,7 +31,7 @@
   background-color: #f0f5fa;
   flex-grow: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 85px);
   padding: 10px;
 }
 .form-input {

@@ -21,9 +21,9 @@ export default function Feed() {
   return (
     <>
       <div>
-        {posts.toReversed().map((post, index) => (
-          <Post key={index} post={post} />
-        ))}
+        {posts.toReversed().map((post, index) => {
+          return <Post key={index} post={post} />;
+        })}
       </div>
     </>
   );
