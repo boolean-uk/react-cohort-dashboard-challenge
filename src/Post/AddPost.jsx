@@ -1,23 +1,33 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { NameContext } from "../App"
+
+const INITIAL_POST = {
+    title: '',
+    content: ''
+}
 
 function AddPost({ setPosts }) {
-    const [post, setPost] = useState('')
+    const [post, setPost] = useState({ ...INITIAL_POST })
+    const { initials } = useContext(NameContext)
 
     const handleChange = (event) => {
-        setPost(event.target.value)
+        post[event.target.name] = event.target.value
+        setPost({ ...post })
     }
     const Submit = (event) => {
+        event.preventDefault()
         setPosts(post)
-        setPost('')
+        setPost({ ...INITIAL_POST })
     }
 
     return (
 
-        <div className="addPost">
-            <span className="initials">AB</span>
-            <input type="text" value={post} onChange={handleChange} name="comment" placeholder="What's on your mind?" />
-            <button onClick={Submit}>Post</button>
-        </div>
+        <form className="addPost" onSubmit={Submit}>
+            <span className="initials postInitials">{initials}</span>
+            <input type="text" value={post.title} onChange={handleChange} name="title" placeholder="Subject" required />
+            <input type="text" value={post.content} onChange={handleChange} name="content" placeholder="What's on your mind?" required />
+            <input className="postButton" type="submit" value="Post" />
+        </form>
     )
 }
 

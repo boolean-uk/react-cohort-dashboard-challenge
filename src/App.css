@@ -11,15 +11,20 @@
 span.initials {
   height: 60px;
   width: 60px;
-  position: absolute;
-  left: 220px;
   background-color: lightgreen;
   border-radius: 50%;
   display: inline-block;
   font-size: 35px;
   text-align: center;
   line-height: 60px;
+
 }
+
+span.postInitials {
+  position: absolute;
+  left: 220px;
+}
+
 
 ul {
   list-style-type: none;

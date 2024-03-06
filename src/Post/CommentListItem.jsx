@@ -18,7 +18,7 @@ function CommentListItem({ comment }) {
 
     return (
         <div>
-            <span className="initials">{author.firstName[0]}{author.lastName[0]}</span>
+            <span className="initials postInitials">{author.firstName[0]}{author.lastName[0]}</span>
             <div className="comment">
                 <h1>{author.firstName} {author.lastName}</h1>
                 <h2>{comment.content}</h2>

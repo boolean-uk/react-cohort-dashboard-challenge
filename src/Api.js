@@ -18,6 +18,19 @@ const getComments = (id) => {
         })
 }
 
+const getPosts = () => {
+    console.log("Get posts...")
+    return fetch('https://boolean-api-server.fly.dev/Annemoon-de-Groen/post', {}).then((response) => {
+        return response.json();
+    })
+
+}
+
+const getPostById = (id) => {
+    return fetch(`https://boolean-api-server.fly.dev/Annemoon-de-Groen/post/${id}`, {})
+        .then((response) => { return response.json() })
+}
+
 function postComment(postId, comment, authorId) {
     const data = {
         postId: postId,
@@ -37,4 +50,23 @@ function postComment(postId, comment, authorId) {
     })
 }
 
-export { getAuthor, getComments, postComment }
+function postPost(title, content, contactId) {
+    const data = {
+        title: title,
+        content: content,
+        contactId: contactId
+    }
+    const URL = `https://boolean-api-server.fly.dev/Annemoon-de-Groen/post`
+    const postRequestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(URL, postRequestOptions).then((response) => {
+        return response.json();
+    })
+}
+
+export { getAuthor, getComments, getPosts, postComment, postPost, getPostById }

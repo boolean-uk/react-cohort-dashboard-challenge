@@ -2,24 +2,22 @@ import { useEffect, useState } from 'react'
 import './stylesheets/Page.css'
 import PostListItem from './PostListItem'
 import AddPost from './Post/AddPost'
-
-const URL = 'https://boolean-api-server.fly.dev/Annemoon-de-Groen/post'
+import { getPosts, postPost } from './Api'
 
 function Home() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        console.log("Get posts...")
-        fetch(URL, {}).then((response) => {
-            return response.json();
-        }).then((jsonData) => { setPosts(jsonData) })
+        getPosts()
+            .then((jsonData) => { setPosts(jsonData.reverse()) })
     }, [])
 
     const addPost = (post) => {
         posts.unshift({
             contactId: 1,
-            title: "Title",
-            content: post,
+            title: post.title,
+            content: post.content,
         })
+        postPost(post.title, post.content, 1)
         setPosts([...posts])
         console.log(posts)
     }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getAuthor } from "../Api"
+import { useNavigate } from "react-router-dom"
 
 let InitialAuthor = {
     firstName: "",
@@ -10,17 +11,19 @@ let InitialAuthor = {
 }
 function PostListItemText({ post }) {
     const [author, setAuthor] = useState({ ...InitialAuthor })
+    const navigate = useNavigate()
+
     useEffect(() => {
         getAuthor(post.contactId)
             .then((response) => { setAuthor(response) })
-    }, [])
+    }, [post])
 
     return (
         <div>
             <span className="initials postInitials">{author.firstName[0]}{author.lastName[0]}</span>
             <h1 className="postHead">{author.firstName} {author.lastName}</h1>
-            <h2 className="postHead">{post.title}</h2>
-            <h2 className="postText">{post.content}</h2>
+            <h2 className="postHead" onClick={() => navigate(`/post/${post.id}`)}>{post.title}</h2>
+            <h2 className="postText" onClick={() => navigate(`/post/${post.id}`)}>{post.content}</h2>
         </div>
     )
 }

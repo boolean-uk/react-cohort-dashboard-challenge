@@ -1,0 +1,27 @@
+.page {
+    background: white;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 10px;
+}
+
+.profileHead {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 80px auto;
+    line-height: 20px;
+    border-bottom: 1px solid lightgrey
+}
+
+.profileInfo {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+
+.profileForm input {
+    width: 400px;
+    position: relative;
+    right: 100px
+}

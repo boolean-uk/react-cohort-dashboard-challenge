@@ -6,7 +6,10 @@
     margin-top: 20px;
 }
 
-span.postInitials {}
+.onlyPost {
+    margin-left: 40px;
+}
+
 
 .postHead {
     margin-left: 90px;
@@ -75,4 +78,16 @@ input {
     border: 2px solid black;
     padding: 4px;
     margin: 5px;
+}
+
+.postButton {
+    background: #000046;
+    color: white
+}
+
+.showAllComments {
+    color: gray;
+    font-size: large;
+    font-weight: 600;
+
 }
