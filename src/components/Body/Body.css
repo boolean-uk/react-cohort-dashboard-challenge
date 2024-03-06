@@ -7,9 +7,25 @@
   width: 85vw;
 }
 .post-body {
+  border-bottom: 1.5px solid #e6ebf5;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .post-title {
   font-weight: bold;
+  position: absolute;
+  left: 5%;
+  top: 0%;
+}
+.post-header {
+  position: relative;
+}
+.post-user {
+  color: #64648c;
+  font-weight: 300;
+  position: absolute;
+  left: 5%;
+  top: 50%;
 }
 .main-body {
   background-color: #f0f5fa;
@@ -34,6 +50,7 @@
   border-radius: 100%;
   padding: 0.6em;
   font-weight: bold;
+  width: 22px;
 }
 .comment-input {
   background-color: #e6ebf5;
@@ -47,8 +64,13 @@
 }
 .comment-box {
   background-color: #e6ebf5;
-  border: 0.5px solid #c1c6ce;
+  border: 0px solid #c1c6ce;
   border-radius: 5px;
+  padding: 3px;
   margin-bottom: 3px;
   font-size: 12px;
+}
+.sideBar-title {
+  color: #64648c;
+  text-align: center;
 }
