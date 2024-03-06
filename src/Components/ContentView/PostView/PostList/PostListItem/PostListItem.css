@@ -25,11 +25,14 @@
 
 
 .post-content-container {
-    position: relative;
     display: inline-block;
-    justify-content: left;
-    text-align: left;
+    position: relative;
+    justify-content: normal;
     border-bottom: solid 1px lightgray;
+}
+
+.post-content-container > p {
+    text-align: left;
 }
 
 .post-title {

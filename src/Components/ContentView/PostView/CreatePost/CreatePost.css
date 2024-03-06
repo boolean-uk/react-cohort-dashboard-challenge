@@ -20,7 +20,7 @@ input {
 }
 
 button {
-    position: fixed;
-    left: calc(100vw - 200px - 250px + 290px);
+    position: relative;
+    left: 10px;
     width: 100px;
 }

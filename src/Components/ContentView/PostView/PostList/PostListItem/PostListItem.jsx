@@ -36,7 +36,7 @@ const PostListItem = ({post}) => {
                     </div>
                 }
                 <div className='post-content-container'>
-                    <p>{post?.id} {post?.content}</p>
+                    <p>{post?.content}</p>
                 </div>
             </div>
         </li>
