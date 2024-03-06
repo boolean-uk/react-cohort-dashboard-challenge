@@ -1,0 +1,15 @@
+.header {
+    background-color: navy;
+}
+
+.header > .main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+.header > .main-menu > svg {
+    color: white;
+    height: 4rem;
+}
