@@ -22,13 +22,15 @@ function App() {
   },[users])
 
   return (
-    <div>
+    <div className='app-container'>
       <CurrentUserContext.Provider value={{currentUser:currentUser, setCurrentUser:setCurrentUser}} >
         <Header/>
+        <div className='content-container'>
         <LeftMenu />
         <UsersContext.Provider value={users}>
           <Dashboard />
         </UsersContext.Provider>
+        </div>
       </CurrentUserContext.Provider>
     </div>
   )
