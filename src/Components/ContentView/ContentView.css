@@ -1,0 +1,14 @@
+.content-view-container {
+    position: fixed;
+    top: 90px;
+    left: 150px;
+    padding: 30px;
+    border: solid black 1px;
+    width: calc(100vw - 150px);
+    height: calc(100vh - 90px);
+}
+
+.scroll-container {
+    scrollbar-width: 5px;
+    overflow: scroll;
+}

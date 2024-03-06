@@ -17,7 +17,6 @@
   --body-background-color: #F0F5FA;
   --button-hover-color: #64dc78;
   --form-background-color: #e6ebf5;
-
 }
 
 a, p, span, div {
@@ -89,4 +88,10 @@ button:focus-visible {
 
 input[type="text"] {
   background-color: var(--form-background-color)
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
