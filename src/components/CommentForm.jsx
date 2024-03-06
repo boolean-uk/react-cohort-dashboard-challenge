@@ -8,22 +8,10 @@ const CommentForm = ({ postId }) => {
 
   useEffect(() => {
     const fetchComments = async () => {
-      try {
-        const response = await axios.get(
-          `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`
-        );
-        if (response.status === 200) {
-          setComments(response.data);
-        } else {
-          console.error(
-            "Error fetching comments:",
-            response.status,
-            response.statusText
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-      }
+      const response = await axios.get(
+        `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`
+      );
+      setComments(response.data);
     };
 
     fetchComments();
@@ -31,29 +19,19 @@ const CommentForm = ({ postId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (content.trim() === "") {
-      alert("Comment content cannot be empty");
-      return;
-    }
-    try {
-      const response = await axios.post(
-        `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`,
-        { content }
-      );
-      if (response.status === 200) {
-        setComments([...comments, response.data]);
-        setContent("");
-      } else {
-        console.error(
-          "Error posting comment:",
-          response.status,
-          response.statusText
-        );
-        console.error("Server response:", response.data); // Log the server's response
-      }
-    } catch (error) {
-      console.error("Error posting comment:", error);
-    }
+    const response = await axios.post(
+      `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`,
+      { content, postId: Number(postId), contactId: 42 } // i set 42 just for tests,update in future if needed
+    );
+    setComments([...comments, response.data]);
+    setContent("");
+  };
+
+  const handleDelete = async (commentId) => {
+    await axios.delete(
+      `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment/${commentId}`
+    );
+    setComments(comments.filter((comment) => comment.id !== commentId));
   };
 
   return (
@@ -61,6 +39,7 @@ const CommentForm = ({ postId }) => {
       {comments.map((comment) => (
         <div key={comment.id}>
           <p>{comment.content}</p>
+          <button onClick={() => handleDelete(comment.id)}>Delete</button>
         </div>
       ))}
       <form onSubmit={handleSubmit}>

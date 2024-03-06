@@ -1,48 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import useLocalStorageState from "use-local-storage-state";
 import Post from "./Post";
 
 const PostForm = () => {
   const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
   const [posts, setPosts] = useLocalStorageState("posts", []);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          "https://boolean-api-server.fly.dev/krzysztofmmm/post"
-        );
-        if (response.status === 200) {
-          setPosts(response.data);
-        } else {
-          console.error(
-            "Error fetching posts:",
-            response.status,
-            response.statusText
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (content.trim() === "") {
-      alert("Post content cannot be empty");
-      return;
-    }
     const response = await axios.post(
       "https://boolean-api-server.fly.dev/krzysztofmmm/post",
-      { content }
+      { title, content, contactId: 42 } // Add contactId here
     );
-    if (response.data && Array.isArray(posts)) {
-      setPosts([response.data, ...posts]);
-    }
+    setPosts([response.data, ...posts]);
+    setTitle("");
     setContent("");
   };
 
@@ -53,6 +26,11 @@ const PostForm = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+        />
+        <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="What's on your mind?"

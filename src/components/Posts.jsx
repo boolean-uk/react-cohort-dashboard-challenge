@@ -6,22 +6,10 @@ function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      try {
-        const response = await axios.get(
-          "https://boolean-api-server.fly.dev/krzysztofmmm/post"
-        );
-        if (response.status === 200) {
-          setPosts(response.data);
-        } else {
-          console.error(
-            "Error fetching posts:",
-            response.status,
-            response.statusText
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
+      const response = await axios.get(
+        "https://boolean-api-server.fly.dev/krzysztofmmm/post"
+      );
+      setPosts(response.data);
     };
 
     fetchPosts();
