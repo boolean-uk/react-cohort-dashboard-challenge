@@ -35,6 +35,61 @@ li {
   color: black;
 }
 
+.headerSVG {
+  width: 500px;
+}
+
+.homeIcon {
+  padding-left: 5px;
+}
+
+.homeButton {
+  width: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 40px;
+}
+
+.homeButton:hover {
+  background-color: lightblue;
+}
+
+.profileButton {
+  width: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 40px;
+}
+
+.profileButton:hover {
+  background-color: lightblue;
+}
+
+.profileIcon {
+  padding-left: 5px;
+}
+
+.sidebar {
+  width: 700px;
+  height: 1000px;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.iconText {
+}
+
+
 /* OLD STUFF */
 
 /* #root {

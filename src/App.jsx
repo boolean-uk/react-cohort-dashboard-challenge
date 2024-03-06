@@ -9,27 +9,40 @@ export const AddPostContext = createContext()
 function App() {
 
   const [posts, setPosts] = useState([])
+  const [authors, setAuthors] = useState([])
 
-    useEffect(() =>
-    {
-      fetch("https://boolean-api-server.fly.dev/klaand01/post")
-      .then((response) => response.json())
-      .then((data) => {
-          //console.log("DATA", data)
-          setPosts(data.reverse())
-      })
-    }, [])
+  // GET the posts
+  useEffect(() =>
+  {
+    fetch("https://boolean-api-server.fly.dev/klaand01/post")
+    .then((response) => response.json())
+    .then((data) => {
+        //console.log("POSTS", data)
+        setPosts(data.reverse())
+    })
+  }, [])
 
-    const addPost = (data) =>
-    {
-      setPosts([data.newPost, ...posts])
-    }
+  // GET the authors
+  useEffect(() =>
+  {
+    fetch("https://boolean-api-server.fly.dev/klaand01/contact")
+    .then((response) => response.json())
+    .then((data) => {
+        //console.log("AUTHORS", data)
+        setAuthors(data)
+    })
+  }, [])
+
+  const addPost = (data) =>
+  {
+    setPosts([data.newPost, ...posts])
+  }
 
   return (
     <>
       <AddPostContext.Provider value={{addPost}}>
         <Routes>
-          <Route path='/' element={<HomePage posts={posts}/>} />
+          <Route path='/' element={<HomePage posts={posts} authors={authors}/>} />
           <Route path="/post/:id" element={<ViewPostPage posts={posts}/>}/>
         </Routes>
       </AddPostContext.Provider>

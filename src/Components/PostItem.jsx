@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function PostItem(props)
 {
-    const { post } = props;
+    const { post, authors } = props;
     const navigate = useNavigate()
     const [comments, setComments] = useState([])
-    const [author, setAuthor] = useState({})
-    const [initials, setInitials] = useState("")
+
+    const authorId = post.contactId - 1
+    const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
 
     // GET the comments
     useEffect(() =>
@@ -22,19 +23,6 @@ export default function PostItem(props)
         })
     }, [post.id])
 
-    // GET the author
-    useEffect(() =>
-    {
-        fetch(`https://boolean-api-server.fly.dev/klaand01/contact/${post.contactId}`)
-        .then((response) => response.json())
-        .then((data) => 
-        {
-            //console.log("AUTHOR", data)
-            setAuthor(data)
-            setInitials(data.firstName.charAt(0) + data.lastName.charAt(0)) // SET THIS TO THE USER'S INITIALS!
-        })
-    }, [post.contactId])
-
     const addComment = (data) =>
     {
         setComments([...comments, data.comment])
@@ -47,13 +35,15 @@ export default function PostItem(props)
 
     return (
         <>
-        <h2>{author.firstName && author.firstName.charAt(0)}
-            {author.lastName && author.lastName.charAt(0)} - {author.firstName} {author.lastName}</h2>
+        <h2>{authors[authorId].firstName && authors[authorId].firstName.charAt(0)}
+            {authors[authorId].lastName && authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
         <p onClick={handleLink} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {comments.map((comment, index) => (
-                <li key={index}>{comment.content}</li>
+                <li key={index}>
+                    {authors[comment.contactId - 1].firstName && authors[comment.contactId - 1].firstName.charAt(0)}
+                    {authors[comment.contactId - 1].lastName && authors[comment.contactId - 1].lastName.charAt(0)} - {comment.content}</li>
             ))}
         </ul>
         <PostComments initials={initials} addComment={addComment} postId={post.id}/>
