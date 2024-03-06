@@ -26,7 +26,7 @@ function Dashboard() {
 
   useEffect(() => {
     fetchPosts();
-  }, []); // Empty dependency array to fetch data only once when the component mounts
+  }, []); 
 
   return (
     <div className='dashboard-component'>
