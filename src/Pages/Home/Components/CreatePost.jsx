@@ -30,6 +30,8 @@ function CreatePost({fetchPosts}) {
         // Post request was successful, you may want to handle the response
         console.log('Post created successfully');
         fetchPosts()
+        setTitle("")
+        setContent("")
       } else {
         // Handle the error case
         console.error('Failed to create post');

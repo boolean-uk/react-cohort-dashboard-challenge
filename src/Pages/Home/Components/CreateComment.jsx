@@ -28,6 +28,7 @@ function CreateComment({fetchComments, postId}) {
       if (response.ok) {
         // Post request was successful, you may want to handle the response
         console.log('Post created successfully');
+        setContent("")
         fetchComments()
       } else {
         // Handle the error case

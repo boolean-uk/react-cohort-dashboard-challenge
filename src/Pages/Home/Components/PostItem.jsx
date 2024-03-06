@@ -16,8 +16,9 @@ function PostItem({ post }) {
   return (
     <div className='post-container'>
       <ProfilePicture firstName={author.firstName} lastName={author.lastName} favouriteColour={author.favouriteColour} />
-      <div>{post.title}</div>
       <div>{author.firstName} {author.lastName}</div>
+      <div>{post.title}</div>
+      <div>{post.content}</div>
       <CommentList postId={post.id} />
     </div>
   )
