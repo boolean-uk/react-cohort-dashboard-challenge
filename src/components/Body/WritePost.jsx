@@ -18,11 +18,10 @@ export default function WritePost() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewPost(INITIAL_POST);
     if (newPost.content !== "" && newPost.content !== undefined) {
       const tempArray = newPost.content.split(".");
       newPost.title = tempArray[0];
-      newPost.contactId = 1; // PLACEHOLDER ID
+      newPost.contactId = 16; // PLACEHOLDER ID
       fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`, {
         method: "POST",
         headers: {
@@ -41,6 +40,7 @@ export default function WritePost() {
           setNewPost(jsonData);
           //Add the newly added post to the original state
           setPosts([...posts, newPost]);
+          setNewPost(INITIAL_POST);
         })
         .catch((err) => {
           //If request is bad

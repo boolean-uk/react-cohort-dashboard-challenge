@@ -5,13 +5,12 @@ import { CommentContext } from "./Post";
 import { PostContext } from "../../../App";
 
 const INITIAL_COMMENT = {
-  title: "",
   content: "",
 };
 
 export default function AddComment({ post }) {
   const { comments, setComments } = useContext(CommentContext);
-  const [newComment, setNewComment] = useState({ title: "", content: "" });
+  const [newComment, setNewComment] = useState({ content: "" });
 
   const handleFormChange = (event) => {
     const { value } = event.target;
@@ -20,10 +19,9 @@ export default function AddComment({ post }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewComment(INITIAL_COMMENT);
     if (newComment.content !== "" && newComment.content !== undefined) {
       newComment.postId = post.id;
-      newComment.contactId = 2; // PLACEHOLDER ID
+      newComment.contactId = 16; // PLACEHOLDER ID
       fetch(
         `https://boolean-api-server.fly.dev/VictorAdamson/post/${post.id}/comment`,
         {
@@ -44,7 +42,9 @@ export default function AddComment({ post }) {
           //If request is Ok
           setNewComment(jsonData);
           //Add the newly added comment to the original state
+          console.log(newComment);
           setComments([...comments, newComment]);
+          setNewComment(INITIAL_COMMENT);
         })
         .catch((err) => {
           //If request is bad
@@ -67,7 +67,7 @@ export default function AddComment({ post }) {
             value={newComment.content}
             onChange={handleFormChange}
           />
-          <button type="submit">I-</button>
+          <button type="submit">-</button>
         </form>
       </div>
     </>
