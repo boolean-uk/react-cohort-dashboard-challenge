@@ -5,6 +5,7 @@ import HeaderViewModule from "./components/HeaderViewModule.jsx";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage.jsx";
 import ProfilePage from "./components/ProfilePage.jsx";
+import DetailedPostViewPage from "./components/DetailedPostViewPage.jsx";
 
 //temp before component
 import { Link } from "react-router-dom";
@@ -49,10 +50,10 @@ function App() {
                 <h3>Profile</h3>
               </Link>
 
-              <a href="#">
+              <Link to="#">
                 <span className="material-symbols-outlined">logout</span>
                 <h3>Logout</h3>
-              </a>
+              </Link>
             </div>
           </aside>
 
@@ -60,6 +61,10 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
               <Route path="/profile" element={<ProfilePage />}></Route>
+              <Route
+                path="post/view/:id"
+                element={<DetailedPostViewPage />}
+              ></Route>
             </Routes>
           </main>
         </div>

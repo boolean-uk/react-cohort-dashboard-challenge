@@ -20,7 +20,7 @@ function CommentsListItem(props) {
 
   useEffect(() => {
     fetchDataForComments();
-  }, [post.id, postURL, userURL]);
+  }, []);
 
   const fetchDataForComments = async () => {
     try {

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
 import { getInitials } from "../../utils/getInitials";
+import { Link } from "react-router-dom";
 
 function PostsListItem(props) {
   const { post } = props;
 
   const [currentContact, setCurrentContact] = useState(null);
-  const [comments, setComments] = useState([]);
 
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
 
@@ -25,10 +25,6 @@ function PostsListItem(props) {
 
       const data = await response.json();
       setCurrentContact(data);
-
-      if (data.comments) {
-        setComments(data.comments);
-      }
     } catch (error) {
       console.log("OBS!!! Something went wrong:", error.message);
     }
@@ -46,7 +42,9 @@ function PostsListItem(props) {
             </div>
             <div className="contact-info">
               <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
-              <h3>{`${post.title}`}</h3>
+              <Link to={`/post/view/${post.id}`}>
+                <h3>{`${post.title}`}</h3>
+              </Link>
             </div>
           </div>
         ) : (

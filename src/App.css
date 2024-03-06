@@ -63,7 +63,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 0.88rem;
   user-select: none;
-  overflow: scroll;
+  overflow-x: hidden;
   color: var(--clr-backgound);
   background-color: #f0f5fa;
 }
@@ -157,8 +157,13 @@ aside .sidebar .message-count {
   border-radius: var(--border-radius-1);
 }
 
-main > * {
-  display: block;
+main {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+main > ul {
+  padding-left: 0;
 }
 
 .blogpost-card {
