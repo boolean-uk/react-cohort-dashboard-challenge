@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { ProfileIcon } from "../General/ProfileIcon";
 import { UserContext } from "../../App";
 import { postRequest } from "../../utilites/apiRequests";
+import sendButton from "../../assets/send-icon48.png";
 import PropTypes from "prop-types";
 
 export const CreateComment = ({ postId, getComments }) => {
@@ -27,7 +28,9 @@ export const CreateComment = ({ postId, getComments }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Posting comment", formData);
+
+    if (!formData.length) return;
+
     postComment()
       .then(() => getComments())
       .then(setFormData(""))
@@ -37,7 +40,7 @@ export const CreateComment = ({ postId, getComments }) => {
   return (
     <div className="create-post-item">
       <ProfileIcon user={user} />
-      <form onSubmit={handleSubmit}>
+      <form className="form-message" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Add a comment..."
@@ -45,7 +48,9 @@ export const CreateComment = ({ postId, getComments }) => {
           value={formData}
           onChange={handleInput}
         />
-        <button>{`>`}</button>
+        <button className="message-post-button">
+          <img src={sendButton} alt="Send" />
+        </button>
       </form>
     </div>
   );

@@ -27,7 +27,9 @@ export const CreatePost = ({ getPosts }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Posting post", formData);
+
+    if (!formData.length) return;
+
     postNewPost()
       .then(() => getPosts())
       .then(setFormData(""))
@@ -45,7 +47,7 @@ export const CreatePost = ({ getPosts }) => {
           value={formData}
           onChange={handleInput}
         />
-        <button>Post</button>
+        <button className="post-submit-button">Post</button>
       </form>
     </div>
   );

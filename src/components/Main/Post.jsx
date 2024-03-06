@@ -29,7 +29,6 @@ export const Post = ({ post }) => {
       `https://boolean-api-server.fly.dev/LinusWillmont/post/${post.id}/comment`
     )
       .then((comments) => {
-        comments = comments.reverse();
         setComments([...comments]);
       })
       .catch((error) => console.error("Failed to get post comments", error));
@@ -38,7 +37,7 @@ export const Post = ({ post }) => {
   if (!postOwner) {
     return (
       <>
-        <p>Loading</p>
+        <p>Loading posts</p>
       </>
     );
   } else {
@@ -69,5 +68,4 @@ export const Post = ({ post }) => {
 
 Post.propTypes = {
   post: PropTypes.object,
-  getPosts: PropTypes.func,
 };

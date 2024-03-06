@@ -1,170 +1,208 @@
 body {
-	width: 100vw;
-	height: 100vh;
-	font-family: sans-serif;
-	margin: 0;
-	padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	background-color: #f0f5fa;
-	color: #000046;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f5fa;
+  color: #000046;
 }
 
 .container-nav-main {
-	display: flex;
-	flex-direction: row;
-	flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
 header {
-	width: 100vw;
-	height: 60px;
-	display: flex;
-	background-color: #000046;
-	justify-content: space-between;
-	height: 5em;
+  width: 100vw;
+  height: 5em;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  background-color: #000046;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+header > button {
+  align-self: center;
+  margin-right: 50px;
 }
 
 button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #000046;
-	color: white;
-	cursor: pointer;
-	transition: border-color 0.25s;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #000046;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 button:hover {
-	background-color: #64dc78;
+  background-color: #64dc78;
 }
 
 .menu {
-	height: 100%;
-	min-width: 150px;
-	max-width: 150px;
-	max-height: calc(100vh - 60px);
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-	margin: 0;
-	align-items: center;
+  height: 100%;
+  min-width: 150px;
+  max-width: 150px;
+  max-height: calc(100vh - 60px);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  align-items: center;
 }
 .menu > a {
-	padding: 20px 50px;
-	height: 100px;
-	width: 50px;
-	font-weight: bold;
-	color: #000046;
+  padding: 20px 50px;
+  height: 100px;
+  width: 50px;
+  font-weight: bold;
+  color: #000046;
 }
 .menu > .active {
-	background-color: #e6ebf5;
+  background-color: #e6ebf5;
 }
 .menu > a:hover {
-	background-color: #64dc78;
+  background-color: #64dc78;
 }
 .menu > a > img {
-	width: 100%;
+  width: 100%;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 main {
-	flex-grow: 1;
-	overflow-y: auto;
-	max-height: calc(100vh - 60px);
-}
-
-.create-post-item {
-	display: flex;
-	justify-content: space-between;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
 }
 
 .card {
-	background-color: white;
-	height: fit-content;
-	margin: 10px;
-	padding: 10px;
-	border-radius: 20px;
-	font-size: large;
-	padding: 1rem 2rem;
+  background-color: white;
+  height: fit-content;
+  margin: 10px;
+  padding: 1.3rem 2rem;
+  border-radius: 20px;
+  font-size: large;
+}
+
+.create-post-item {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.create-post-item > form {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.create-post-item * {
+  margin-left: 10px;
 }
 
 .form-text-input {
-	background-color: #e6ebf5;
-	color: #000046;
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
+  background-color: #e6ebf5;
+  color: #000046;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1;
+  align-self: stretch;
+  outline: none;
+}
+
+.post-submit-button {
+  width: 12rem;
 }
 
 .profile-icon {
-	border-radius: 50%;
-	padding: 0;
-	background-color: #04aa6d;
-	border: none;
-	color: #000046;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	margin: 4px 2px;
-	height: 50px;
-	width: 50px;
-	font-weight: bold;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #04aa6d;
+  border: none;
+  color: #000046;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  height: 50px;
+  width: 50px;
+  font-weight: bold;
 }
 
 .post-header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .post-details {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 .post-details > a {
-	font-size: 18px;
-	font-weight: 400;
-	color: #000046;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000046;
 }
 
 .card h1 {
-	font-size: 20px;
-	margin: 0;
-	margin-bottom: 0.5rem;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .post {
-	border-bottom-style: solid;
-	border-color: #e6ebf5;
-	border-width: 2px;
-	margin-bottom: 1rem;
+  border-bottom-style: solid;
+  border-color: #e6ebf5;
+  border-width: 2px;
+  margin-bottom: 1rem;
 }
 
 .comment {
-	display: flex;
+  display: flex;
 }
 
 .comment-content {
-	background-color: #f0f5fa;
-	border-radius: 15px;
-	padding: 10px 20px;
-	padding-right: 50px;
-	margin-bottom: 20px;
-	margin-left: 10px;
+  background-color: #f0f5fa;
+  border-radius: 15px;
+  padding: 10px 20px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .comment-content p {
-	margin: 0;
-	margin-bottom: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.form-message {
+  background-color: #e6ebf5;
+  border-radius: 5px;
+}
+
+.form-message > button {
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background-color: #f0f5fa;
+}
+.form-message > button:hover {
+  background-color: #64dc78;
 }
