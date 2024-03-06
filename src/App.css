@@ -1,8 +1,66 @@
-#root {
+.App {
+  text-decoration: none;
+  height: 100%;
+}
+
+
+header .banner {
+  float: top;
+}
+
+header .navmenu {
+  width: 5em;
+  float: left;
+}
+
+main {
+  background-color:  #F0F5FA;
+  margin-left: 5em;
+}
+
+.post--title {
+  color: #64648c;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  background-color: #000046;
+}
+
+button {
+  background-color: #000046;
+  color: #FFFFFF
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+p {
+  color: #000046
+}
+
+h2 {
+  color: #000046
+}
+
+h4 {
+  color: #000046
+}
+
+li {
+  color: #000046
+}
+
+/*#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .logo {
@@ -39,4 +97,4 @@
 
 .read-the-docs {
   color: #888;
-}
+}*/
