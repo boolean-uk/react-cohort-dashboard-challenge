@@ -7,23 +7,28 @@
 - Component `<PostsFeed>`
 
   - `api.GetPosts()` is fetched to render **\<PostItem>** s
-  - _Will be wrapped in a provider to make data accessible through out application_
+
   - Component `<CreatePost>`
     - `api.CreatePost()`
   - _several_ Component `<PostItem>`
     - `api.GetPostComments()`
 
-  ***
+## Component \<PostItem>
 
-  A `<PostItem>`contains the following:
+A `<PostItem>`contains the following:
 
-  - `PostItem`
-    - Component `<OriginalPost>`
-    - Component `<PostCommentList>`
-      - `State.ShowAmount(3)` or `ShowAmount(All)`
-    - Component `<CommentItem>`
-    - Component `<CreateComment>`
-      - `api.PostCommentToPost()`
+Each PostItem has a PostContext which contains `{Post, originalPosterUser, Comments, UpdateComments, UpdatePost }`
+
+API.GetComments()
+
+- `PostItem`
+  - Component `<OriginalPost>`
+  - Component `<PostCommentList>`
+    - `State.ShowAmount(3)` or `ShowAmount(All)`
+    - *Contains several *Component `<CommentItem>`
+      - API.getUserById()
+  - Component `<CreateComment>`
+    - `api.PostCommentToPost()`
 
 ---
 
