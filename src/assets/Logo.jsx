@@ -5,7 +5,7 @@ export default function Logo() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        viewBox="0 0 356 56"
+        viewBox="395 0 356 56"
         className="headerBox"
       >
         <path
