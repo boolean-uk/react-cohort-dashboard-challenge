@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../API";
 import Comments from "./Comments";
 import Users from "./Users";
+import NewComment from "./NewComment";
 
 export default function PostsList() {
   const [post, setPost] = useState([]);
@@ -12,7 +13,7 @@ export default function PostsList() {
     const runEffect = async () => {
       const { data, error } = await getRequest("/post");
       if (data) {
-        let finalisedpost = data;
+        let finalisedpost = data.sort((a, b) => b.id - a.id); // Sort posts by id, descending
         setPost(finalisedpost);
       } else {
         console.error("Error fetching post:", error);
@@ -39,6 +40,7 @@ export default function PostsList() {
                 </h3>
                 <p className="post-content">{post.content}</p>
                 <Comments postId={post.id} />
+                <NewComment postId={post.id} />
               </div>
             );
           })}

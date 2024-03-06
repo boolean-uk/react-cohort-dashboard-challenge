@@ -4,7 +4,7 @@ import CreateNewPost from "./components/CreateNewPost";
 export default function HomePage() {
   return (
     <>
-      <h1>Home Page</h1>
+      <h1>Cohort Manager</h1>
       <CreateNewPost />
       <PostsList />
     </>

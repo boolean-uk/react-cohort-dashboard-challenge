@@ -28,17 +28,17 @@ export default function Comments({ postId, userId }) {
     <>
       {loading && <p>Loading...</p>}
       {!loading && (
-        <div className="comment">
+        <>
           <h2>Comments</h2>
           {comment.map((com) => {
             return (
-              <div key={com.id}>
+              <div className="comment" key={com.id}>
                 <Users userId={com.contactId} />
                 <p>{com.content}</p>
               </div>
             );
           })}
-        </div>
+        </>
       )}
     </>
   );
