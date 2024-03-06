@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Feed from "./components/Feed";
 import SideMenu from "./components/SideMenu";
+import HeaderIcon from "./components/icons/HeaderIcon";
 
 const Context = createContext()
 
@@ -13,7 +14,6 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
       .then((response) => response.json())
       .then((data) => setPosts(data.reverse()))
-      //.then(setPosts);
   }, [posts]);
 
   return (
@@ -21,8 +21,8 @@ function App() {
 
       <div className="app">
         <header className="header">
-          <h1>Cohort Manager</h1>
-          {/* TODO add user avatar and logo */}
+          <HeaderIcon />
+          {/* TODO add user avatar*/}
         </header>
 
         <SideMenu />
