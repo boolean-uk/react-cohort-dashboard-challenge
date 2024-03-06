@@ -1,0 +1,33 @@
+.left-menu {
+    padding-top: 15px;
+    width: 100px; /* Set fixed width for left menu */
+    height: 100vh; /* Ensure full viewport height */
+    background-color: #fff; /* White background */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    color: #64648c;
+}
+
+.options {
+    padding-top: 15px;
+    height: 85px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Add cursor pointer on hover */
+    font-weight: bold;
+}
+
+.options:hover {
+    background-color: #eae9fa;
+    filter: brightness(1); /* Invert the icon color on hover */
+}
+
+.icon {
+    width: 30px; /* Adjust icon size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: -10px; /* Adjust margin to reduce space between icon and text */
+}
+
+

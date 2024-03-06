@@ -1,27 +1,14 @@
-#root {
-    padding: 2rem;
-  }
-
 /* App.css */
-
-/* Base styles for the entire app */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif; /* Add a default font family */
-}
 
 /* Container for the entire page content */
 .app-container {
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
+  font-family: sans-serif; 
+  background-color: #F0F5FA;
   min-height: 100vh; /* Ensure viewport height */
-
 }
 
 /* Content wrapper for scrollable content */
 .content-wrapper {
-  flex: 1; /* Allow content to fill remaining space */
-  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex; /* Allow side-by-side positioning */
   padding-top: 50px; /* Adjust padding based on header height */
 }

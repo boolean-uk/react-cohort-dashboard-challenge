@@ -1,3 +1,5 @@
+// App.jsx
+
 import './styles/App.css'; // Import the CSS file
 
 import { Header } from './components/Header';
