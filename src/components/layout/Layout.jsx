@@ -9,7 +9,7 @@ const Layout = (props) => {
             <MainMenu />
             <main className="main">
                 <LeftMenu />
-                {props.children}
+                <div className="content">{props.children}</div>
             </main>
         </div>
     );
