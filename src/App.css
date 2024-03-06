@@ -1,0 +1,227 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 100px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.sidebar-button {
+  width: 100%;
+  height: 100px;
+  background-color: #e6ebf5;
+}
+.sidebar-button:hover {
+  background-color: #64dc78;
+  color: white;
+}
+.sidebar-button-image-and-font {
+  color: #888;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.main-post {
+  flex-grow: 1;
+}
+
+.blue {
+  background-color: #000046;
+}
+
+.red {
+  background-color: white;
+}
+
+.green {
+  background-color: #f0f5fa;
+}
+
+.yellow {
+  background-color: white;
+  color: black;
+  margin: 10px;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-bar-box {
+  display: flex;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  height: 100px;
+  width: 100%;
+}
+.circle {
+  flex: 1;
+  float: left;
+  width: 80px;
+  height: 80%;
+  background-color: green;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.text {
+  color: #000046;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.post-bar-button {
+  flex: 1;
+  background-color: #000046;
+  color: whitesmoke;
+  height: 60px;
+  width: 60px;
+  margin-right: 60px;
+  margin-top: 20px;
+  padding: 5px;
+  float: right;
+}
+
+.post-bar-button:hover {
+  background-color: #64dc78;
+  color: #000046;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #888;
+}
+
+.post-bar-text-field {
+  flex: 1;
+  background-color: #e6ebf5;
+  color: #000046;
+  width: 560px;
+  height: 40px;
+
+  margin: 25px;
+}
+
+.no-list-style {
+  list-style-type: none;
+}
+
+.left {
+  float: left;
+}
+
+.comment-box {
+  background-color: #f0f5fa;
+  color: #000046;
+  width: 100%;
+  margin: 10px;
+}
+
+.comment-text-box {
+  background-color: #f0f5fa;
+  color: #000046;
+  width: 70%;
+  margin: 10px;
+}
+.comment-button {
+  background-color: #f0f5fa;
+  color: #000046;
+  margin: 10px;
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.comment-button:hover {
+  background-color: #64dc78;
+  color: #f0f5fa;
+  -webkit-animation: rotating 4s linear infinite;
+}
