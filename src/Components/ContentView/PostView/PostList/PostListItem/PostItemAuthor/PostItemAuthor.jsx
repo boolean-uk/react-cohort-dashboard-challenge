@@ -1,7 +1,10 @@
 import AccountIcon from '@/Components/AccountIcon/AccountIcon'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
 
 const PostItemAuthor = ({user, post}) => {
+    const navigate = useNavigate()
+
     return (
         <div className="post-user-information-container">
             <AccountIcon user={user} />
@@ -9,8 +12,11 @@ const PostItemAuthor = ({user, post}) => {
             <span>
                 {user.firstName} {user.lastName}
             </span> <br/>
-            <span className='post-title'>
-                {post.title}
+            <span 
+                className='post-title'
+                onClick={() => navigate(`/post/${post.id}`)}
+            >
+                    {post.title}
             </span>
             </div>
         </div>

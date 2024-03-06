@@ -3,13 +3,16 @@ import PostReply from "./PostReply/PostReply"
 import { useState, useEffect } from 'react'
 import "./PostReplyList.css"
 import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
 import { ReplyContext } from "@/Utils/contexts"
 import ReplyToPost from './ReplyToPost/ReplyToPost'
 
 const PostReplyList = ({ postID }) => {
+    const location = useLocation()
     const [replies, setReplies] = useState([])
-    const [replyLimit, setReplyLimit] = useState(3)
-
+    const [replyLimit, setReplyLimit] = useState(() => 
+        location.pathname.includes("/post/") ? undefined : 3)
+        
     const retrieveReplies = async (id) => {
         await fetch(`${basePostUrl}/${id}/comment`)
             .then((res) => res.json())

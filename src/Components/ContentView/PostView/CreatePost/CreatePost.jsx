@@ -5,10 +5,12 @@ import { userContext } from '@/Utils/contexts'
 
 
 const CreatePost = () => {
-    const [postObject, setPostObject] = useState({})
+    const [postObject, setPostObject] = useState(
+        {content: localStorage.getItem("post_in_progress") || ""})
     const { LoggedInUser } = useContext(userContext)
 
     const handleChangeEvent = (e) => {
+        localStorage.setItem("post_in_progress")
         setPostObject({...postObject, [e.target.id]: e.target.value})
     }
 

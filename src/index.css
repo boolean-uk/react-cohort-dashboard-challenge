@@ -44,7 +44,7 @@ body {
   background-color: var(--body-background-color);
 }
 
-ul {
+ul, li {
   list-style: none;
   padding: 0;
   margin-top: 20px;

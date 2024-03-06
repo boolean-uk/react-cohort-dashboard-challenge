@@ -9,10 +9,10 @@ const NavigationMenu = () => {
     const location = useLocation()
     const [activeNavigation, setActiveNavigation] = useState()
 
-    const navigateHome = () => {
+    const navigateHome = (useNavigate = true) => {
         localStorage.setItem("navigationLocation", "Home")
         setActiveNavigation("Home")
-        navigate("/")
+        useNavigate && navigate("/")
     }
 
     const navigateProfile = () => {
@@ -25,7 +25,7 @@ const NavigationMenu = () => {
         if (location.pathname === "/my-profile") {
             navigateProfile()
         } else {
-            navigateHome()
+            navigateHome(false)
 
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
