@@ -1,10 +1,12 @@
 * App
-
 * Dashboard
 * Left menu
 * Header
-* Profile page 
+* Home Page
+* Comment
+* Post
+* Post comment page
 * Post page
-* Create post page
-* Comments post view page
-* Write comment page
+* View comment page
+* Clicked post view
+* Profile page
