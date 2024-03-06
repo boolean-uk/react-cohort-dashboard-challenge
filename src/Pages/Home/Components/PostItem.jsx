@@ -3,6 +3,7 @@ import { UsersContext } from '../../../App'
 import ProfilePicture from '../../../globalComponents/profilePicture'
 import CommentList from './CommentList'
 import { Link } from 'react-router-dom'
+import '../Home.css'
 
 
 function PostItem({ post }) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CreateComment from './CreateComment'
 import CommentItem from './CommentItem'
+import '../Home.css'
 
 function CommentList({postId}) {
     const URL = `https://boolean-api-server.fly.dev/thegrevling/post/${postId}/comment`
@@ -26,7 +27,7 @@ function CommentList({postId}) {
     }, [])
 
     return (
-        <div>
+        <div className="comment-list-container">
             {comments && comments.map((comment, index) => <CommentItem comment={comment} key={index} />)}
             <CreateComment fetchComments={fetchComments} postId={postId}/>
         </div>

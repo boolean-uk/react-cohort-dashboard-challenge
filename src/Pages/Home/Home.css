@@ -1,0 +1,79 @@
+.create-comment-container {
+    background-color: #e6ebf5;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .textarea-section {
+    margin-bottom: 10px;
+  }
+  
+  .content {
+    width: 100%;
+    max-width: 400px; /* Set the maximum width as needed */
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+  }
+  
+  .actions-section {
+    text-align: right;
+  }
+  
+  .submit-btn {
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #b0d2f9;
+    cursor: not-allowed;
+  }
+
+  .post-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-container:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .author-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .author-info img {
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .post-details {
+    margin-left: 16px; /* Adjust as needed */
+  }
+  
+  .post-details h2 {
+    margin-bottom: 8px;
+  }
+
+  .comment-list-container {
+    /* Add styles for the container */
+    margin-top: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+  }

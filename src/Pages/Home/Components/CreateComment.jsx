@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import { CurrentUserContext } from '../../../App';
+import '../Home.css'; 
 
-function CreateComment({fetchComments, postId}) {
+function CreateComment({ fetchComments, postId }) {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [content, setContent] = useState('');
-  const URL = `https://boolean-api-server.fly.dev/thegrevling/post/${postId}/comment`
-
+  const URL = `https://boolean-api-server.fly.dev/thegrevling/post/${postId}/comment`;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -13,7 +13,7 @@ function CreateComment({fetchComments, postId}) {
     const postData = {
       postId: postId,
       content: content,
-      contactId: currentUser.id
+      contactId: currentUser.id,
     };
 
     try {
@@ -28,8 +28,8 @@ function CreateComment({fetchComments, postId}) {
       if (response.ok) {
         // Post request was successful, you may want to handle the response
         console.log('Post created successfully');
-        setContent("")
-        fetchComments()
+        setContent('');
+        fetchComments();
       } else {
         // Handle the error case
         console.error('Failed to create post');
@@ -40,7 +40,7 @@ function CreateComment({fetchComments, postId}) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="create-comment-container">
       <div className="textarea-section">
         <textarea
           className="content"
@@ -51,15 +51,13 @@ function CreateComment({fetchComments, postId}) {
         ></textarea>
       </div>
 
-      <div></div>
-
       <div className="actions-section">
-        <button type="submit" disabled={content.length < 1} className="tweet-btn">
+        <button type="submit" disabled={content.length < 1} className="submit-btn">
           Send
         </button>
       </div>
     </form>
-  )
+  );
 }
 
-export default CreateComment
+export default CreateComment;

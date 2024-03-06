@@ -1,74 +1,45 @@
-import React, { useContext, useState } from 'react';
-import { CurrentUserContext } from '../../../App';
+import React, { useContext, useEffect, useState } from 'react';
+import { UsersContext } from '../../../App';
+import ProfilePicture from '../../../globalComponents/profilePicture';
+import CommentList from './CommentList';
+import { Link } from 'react-router-dom';
+import '../Home.css';
 
-function CreatePost({fetchPosts}) {
-  const [content, setContent] = useState('');
-  const [title, setTitle] = useState('');
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+function PostItem({ post }) {
+  const [author, setAuthor] = useState(undefined);
 
-  const URL = "https://boolean-api-server.fly.dev/thegrevling/post";
+  const users = useContext(UsersContext);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const postData = {
-      title: title,
-      content: content,
-      contactId: currentUser.id
-    };
-
-    try {
-      const response = await fetch(URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(postData),
-      });
-
-      if (response.ok) {
-        // Post request was successful, you may want to handle the response
-        console.log('Post created successfully');
-        fetchPosts()
-        setTitle("")
-        setContent("")
-      } else {
-        // Handle the error case
-        console.error('Failed to create post');
-      }
-    } catch (error) {
-      console.error('Error creating post:', error);
+  useEffect(() => {
+    // Check if post is defined before attempting to find the author
+    if (post) {
+      setAuthor(users.find((user) => user.id === post.contactId));
     }
+  }, [users, post]);
+
+  if (author === undefined) {
+    return <a>loading...</a>;
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="textarea-section">
-        <textarea
-          className="content"
-          type="text"
-          placeholder="What's the title?"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        ></textarea>
-        <textarea
-          className="content"
-          type="text"
-          placeholder="What is happening?!"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        ></textarea>
+    <div className='post-container'>
+      <div className='author-info'>
+        <ProfilePicture
+          firstName={author.firstName}
+          lastName={author.lastName}
+          favouriteColour={author.favouriteColour}
+        />
+        <div>{author.firstName} {author.lastName}</div>
       </div>
-
-      <div></div>
-
-      <div className="actions-section">
-        <button type="submit" disabled={content.length < 1} className="tweet-btn">
-          Send
-        </button>
-      </div>
-    </form>
+      <Link to={`/post/${post.id}`}>
+        <div className='post-details'>
+          <h2>{post.title}</h2>
+          <p>{post.content}</p>
+        </div>
+      </Link>
+      <CommentList postId={post.id} />
+    </div>
   );
 }
 
-export default CreatePost;
+export default PostItem;
