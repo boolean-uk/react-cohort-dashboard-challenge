@@ -1,0 +1,8 @@
+.side-menu {
+    width: 200px;
+    height: 100%;
+    /* fix the sidebar to be 100 viewport minus the header */
+    max-height: calc(100vh - 60px);
+    background-color: red;
+    margin: 0;
+  }
