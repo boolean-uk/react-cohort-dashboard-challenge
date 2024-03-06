@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: #000046;
+  align-items: center;
+  padding: 30px;
 }
 
 .title-header {

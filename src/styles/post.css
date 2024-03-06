@@ -1,0 +1,15 @@
+.post {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.post-content {
+  border-bottom: 1px solid gray;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

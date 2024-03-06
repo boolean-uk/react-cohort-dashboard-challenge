@@ -9,22 +9,34 @@ const PostContext = createContext()
 
 function App() {
   const [posts, setPosts] = useState()
+  const [contacts, setContacts] = useState()
 
   const userName = "oysteinbjo"
-  const baseURL = `https://boolean-api-server.fly.dev/${userName}/post`
+  const baseURL = `https://boolean-api-server.fly.dev/${userName}/`
 
   async function getPosts() {
-    const response = await fetch(baseURL)
+    const response = await fetch(baseURL + 'post')
     const data = await response.json()
     setPosts(data)
   }
 
+  async function getContacts() {
+    const response = await fetch(baseURL + 'contact')
+    const data = await response.json()
+    setContacts(data)
+  }
+
   useEffect(() => {
     getPosts()
+    getContacts()
   }, [])
   
   return (
-    <PostContext.Provider value={{posts: posts, setPosts: setPosts}}>
+    <PostContext.Provider value={{
+                          posts: posts, 
+                          setPosts: setPosts, 
+                          contacts:contacts, 
+                          setContacts: setContacts}}>
       <div className='app-container'>
         <Header />
         <LeftNav />
