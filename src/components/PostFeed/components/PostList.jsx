@@ -1,24 +1,13 @@
 import PostItem from "./PostItem"
 
 
-function PostList() {
+function PostList({posts}) {
   return (
     <div>
     <div>PostList</div>
-    <ul>
-        <li>
-            <PostItem></PostItem>
-        </li>
-        <li>
-            <PostItem></PostItem>
-        </li>
-        <li>
-            <PostItem></PostItem>
-        </li>
-        <li>
-            <PostItem></PostItem>
-        </li>
-    </ul>
+        {posts.map((post, index) => 
+        <PostItem post={post} key={index}></PostItem>
+        )}
     </div>
   )
 }

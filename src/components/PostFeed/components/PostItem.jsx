@@ -2,10 +2,10 @@ import CreateComment from "./CreateComment"
 import CommentList from "./CommentList"
 import PostContent from "./PostContent"
 
-function PostItem() {
+function PostItem({post}) {
   return (
     <div>
-        <PostContent></PostContent>
+        <PostContent post={post}></PostContent>
         <CommentList></CommentList>
         <CreateComment></CreateComment>
     </div>

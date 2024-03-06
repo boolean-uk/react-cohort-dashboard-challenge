@@ -28,6 +28,7 @@ make the child components lay out using flex, vertically stacked in a column */
 .header {
   height: 60px;
   width: 100vw;
+  background-color: #000046
 }
 
 /* make the sidebar fill the available height and be of fixed width */
