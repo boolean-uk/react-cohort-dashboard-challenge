@@ -14,8 +14,9 @@ header {
   grid-area: hd;
 }
 
-section {
+.body-container {
   grid-area: bd;
+  padding: 1rem;
 }
 
 .nav-container {
@@ -25,5 +26,3 @@ section {
 button {
   color: #000046;
 }
-
-.body-container {}
