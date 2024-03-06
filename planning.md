@@ -52,17 +52,16 @@ comments =
 ### Tree
 
 - **App**
-  - [ user, setUser]
+  - [ loggedInUser, setLoggedInUser]
   - **Contexts**
     - UserContext [ user ]
-  - **Header**
-  - **LeftMenu** {UserContext}
+  - **HeaderBar** {UserContext}
+  - **LeftMenu** [active, setActive]
     - -> _/posts_
     - -> _/profile_ (Extension)
   - **Routes**
     - **PostsListPage** _/posts_ [posts, setPosts]
-      - (Display a list of all the posts and comments)
-      - **CreatePost** {UserContext}
+      - **CreatePost** {UserContext, getPosts}
       - **Post** {postId} [Comments, setComments]
         - -> _/posts/id_
         - **CommmentsList** {postId}
