@@ -1,0 +1,31 @@
+# Component Tree
+
+- App
+  - NavigationBar
+    - HomeButton
+    - ProfileButton
+  - Dashboard
+    - Route: /
+      - HomePage
+        - PostForm
+          - PostContent
+        - PostList
+          - Post
+            - PostHeader
+            - PostContent
+            - CommentForm
+            - CommentList
+              - Comment
+    - Route: /profile
+      - ProfilePage
+        - AccountInfoForm
+        - AddressForm
+        - ContactInfoForm
+        - CompanyInfoForm
+    - Route: /{username}/posts/:postId
+      - PostDetailsPage
+        - PostDetails
+          - PostHeader
+          - PostContent
+          - CommentList
+            - Comment
