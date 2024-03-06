@@ -17,7 +17,6 @@ function App() {
     getRequest(
       "https://boolean-api-server.fly.dev/LinusWillmont/contact/1"
     ).then((contact) => {
-      console.log(contact);
       setLoggedInUser(contact);
     });
   }, []);

@@ -17,7 +17,7 @@ export const CreatePost = ({ getPosts }) => {
         contactId: user.id,
       }
     )
-      .then((data) => console.log(data))
+      .then((data) => console.log("New post", data))
       .catch((error) => console.error("Failed to post", error));
   };
 

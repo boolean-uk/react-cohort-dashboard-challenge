@@ -18,7 +18,7 @@ export const CreateComment = ({ postId, getComments }) => {
         contactId: user.id,
       }
     )
-      .then((data) => console.log("Posted comment", data))
+      .then((data) => console.log("New comment", data))
       .catch((error) => console.error("Failed to post comment", error));
   };
 
