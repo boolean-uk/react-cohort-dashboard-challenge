@@ -10,7 +10,7 @@ function Dashboard() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/post/:id' element={<PostView />} />
-        <Route path='/profile/:id' element={<UserProfile />} />
+        <Route path='/profile/' element={<UserProfile />} />
       </Routes>
     </div>
   )
