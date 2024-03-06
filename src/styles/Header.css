@@ -1,0 +1,23 @@
+/* Header.css */
+
+.header {
+  background-color: #000046;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 65px;
+}
+
+.header-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.header-logo {
+  cursor: pointer;
+  width: 290px;
+}
