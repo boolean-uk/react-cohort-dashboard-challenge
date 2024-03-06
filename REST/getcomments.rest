@@ -1,0 +1,1 @@
+GET https://boolean-api-server.fly.dev/ssuihko/post/11/comment/
