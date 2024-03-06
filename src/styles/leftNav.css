@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
-.nav-container > img {
+.nav-element > img {
   padding: 2rem;
+}
+
+.nav-element {
+  display: flex;
+  flex-direction: column;
 }
