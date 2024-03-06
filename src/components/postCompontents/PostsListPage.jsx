@@ -6,10 +6,17 @@ import { getRequest } from "../../utilites/apiRequests";
 export const PostsListPage = () => {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => getPosts(), []);
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  const handleDeletePost = () => {
+    console.log("Handeling delet post");
+    getPosts();
+  };
 
   const getPosts = () => {
-    getRequest("https://boolean-api-server.fly.dev/LinusWillmont/post")
+    getRequest("/post")
       .then((data) => {
         data = data.reverse();
         setPosts([...data]);
@@ -21,7 +28,9 @@ export const PostsListPage = () => {
     <main>
       <CreatePost getPosts={getPosts} />
       {posts.map((post) => {
-        return <Post key={post.id} post={post} />;
+        return (
+          <Post key={post.id} post={post} handleDeletePost={handleDeletePost} />
+        );
       })}
     </main>
   );

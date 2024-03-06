@@ -15,18 +15,11 @@ export const ProfilePage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitting changes");
-    putRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/contact/${userId}`,
-      formData
-    );
+    putRequest(`/contact/${userId}`, formData);
   };
 
   useEffect(() => {
-    getRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/contact/${userId}`
-    ).then((responseUser) => {
-      console.log(responseUser);
+    getRequest(`/contact/${userId}`).then((responseUser) => {
       setUser(responseUser);
       setFormData(responseUser);
     });

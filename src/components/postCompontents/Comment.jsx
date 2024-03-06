@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { ProfileIcon } from "../General/ProfileIcon";
 import PropTypes from "prop-types";
-import { getRequest } from "../../utilites/apiRequests";
+import { deleteRequest, getRequest } from "../../utilites/apiRequests";
 
-export const Comment = ({ comment }) => {
+export const Comment = ({ comment, handleDeleteComment }) => {
   const [commentOwner, setCommentOwner] = useState(null);
 
+  const deletComment = () => {
+    deleteRequest(`/post/${comment.postId}/comment/${comment.id}`).then(() =>
+      handleDeleteComment()
+    );
+  };
+
   useEffect(() => {
-    getRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/contact/${comment.contactId}`
-    )
+    getRequest(`/contact/${comment.contactId}`)
       .then((commentOwner) => {
         setCommentOwner(commentOwner);
       })
@@ -24,6 +28,8 @@ export const Comment = ({ comment }) => {
       <div className="comment-content">
         <h1>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h1>
         <p>{comment.content}</p>
+        <button>Edit</button>
+        <button onClick={deletComment}>Delete</button>
       </div>
     </div>
   );
@@ -31,4 +37,5 @@ export const Comment = ({ comment }) => {
 
 Comment.propTypes = {
   comment: PropTypes.object,
+  handleDeleteComment: PropTypes.func,
 };

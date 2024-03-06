@@ -15,9 +15,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
-    getRequest(
-      "https://boolean-api-server.fly.dev/LinusWillmont/contact/1"
-    ).then((contact) => {
+    getRequest("/contact/1").then((contact) => {
       setLoggedInUser(contact);
     });
   }, []);

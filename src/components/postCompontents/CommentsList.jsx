@@ -10,9 +10,7 @@ export const CommentsList = ({ postId }) => {
   const [previewView, setPreviewView] = useState(true);
 
   const getComments = useCallback(() => {
-    getRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/post/${postId}/comment`
-    )
+    getRequest(`/post/${postId}/comment`)
       .then((responseComments) => {
         if (responseComments.length < PREVIEW_COMMENTS_AMOUNT)
           setPreviewView(false);
@@ -25,6 +23,10 @@ export const CommentsList = ({ postId }) => {
       })
       .catch((error) => console.error("Failed to get post comments", error));
   }, [postId, previewView]);
+
+  const handleDeleteComment = () => {
+    getComments();
+  };
 
   const stopPreviewView = () => {
     setPreviewView(false);
@@ -46,7 +48,11 @@ export const CommentsList = ({ postId }) => {
             </button>
           ) : null}
           {comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
+            <Comment
+              key={comment.id}
+              comment={comment}
+              handleDeleteComment={handleDeleteComment}
+            />
           ))}
         </>
       )}

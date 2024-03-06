@@ -1,22 +1,24 @@
 import { Link } from "react-router-dom";
 import { ProfileIcon } from "../General/ProfileIcon";
 import { PropTypes } from "prop-types";
-import { getRequest } from "../../utilites/apiRequests";
+import { deleteRequest, getRequest } from "../../utilites/apiRequests";
 import { useEffect, useState } from "react";
 import { CommentsList } from "./CommentsList";
 
-export const Post = ({ post }) => {
+export const Post = ({ post, handleDeletePost }) => {
   const [postOwner, setPostOwner] = useState(null);
 
   useEffect(() => {
-    getRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/contact/${post.contactId}`
-    )
+    getRequest(`/contact/${post.contactId}`)
       .then((postOwner) => {
         setPostOwner(postOwner);
       })
       .catch((error) => console.error("Failed to get post owner", error));
   }, [post.contactId]);
+
+  const deletePost = () => {
+    deleteRequest(`/post/${post.id}`).then(() => handleDeletePost());
+  };
 
   if (!postOwner) {
     return (
@@ -34,6 +36,8 @@ export const Post = ({ post }) => {
               <h1>{`${postOwner.firstName} ${postOwner.lastName}`}</h1>
               <Link to={`../posts/${post.id}`}>{post.title}</Link>
             </div>
+            <button>Edit</button>
+            <button onClick={deletePost}>Delete</button>
           </div>
           <p>{post.content}</p>
         </div>
@@ -45,4 +49,5 @@ export const Post = ({ post }) => {
 
 Post.propTypes = {
   post: PropTypes.object,
+  handleDeletePost: PropTypes.func,
 };

@@ -9,14 +9,11 @@ export const CreatePost = ({ getPosts }) => {
   const [formData, setFormData] = useState("");
 
   const postNewPost = () => {
-    return postRequest(
-      "https://boolean-api-server.fly.dev/LinusWillmont/post",
-      {
-        title: "Title",
-        content: formData,
-        contactId: user.id,
-      }
-    )
+    return postRequest("/post", {
+      title: "Title",
+      content: formData,
+      contactId: user.id,
+    })
       .then((data) => console.log("New post", data))
       .catch((error) => console.error("Failed to post", error));
   };

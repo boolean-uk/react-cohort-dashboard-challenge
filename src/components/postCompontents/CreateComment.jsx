@@ -10,14 +10,11 @@ export const CreateComment = ({ postId, getComments }) => {
   const [formData, setFormData] = useState("");
 
   const postComment = () => {
-    return postRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/post/${postId}/comment`,
-      {
-        postId: postId,
-        content: formData,
-        contactId: user.id,
-      }
-    )
+    return postRequest(`/post/${postId}/comment`, {
+      postId: postId,
+      content: formData,
+      contactId: user.id,
+    })
       .then((data) => console.log("New comment", data))
       .catch((error) => console.error("Failed to post comment", error));
   };
