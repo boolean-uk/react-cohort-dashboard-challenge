@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getInitials } from "../../utils/getInitials";
+import { fetchDataForComments } from "../../utils/api";
 
 function CommentsListItem(props) {
   const { post } = props;
@@ -9,9 +10,6 @@ function CommentsListItem(props) {
   const [users, setUsers] = useState([]);
   const [content, setContent] = useState("");
 
-  const postURL = `https://boolean-api-server.fly.dev/llllllll-l/post`;
-  const userURL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
-
   const userInitials = getInitials(
     `${localStorage.getItem("userFirstName")} ${localStorage.getItem(
       "userLastName"
@@ -19,35 +17,11 @@ function CommentsListItem(props) {
   );
 
   useEffect(() => {
-    fetchDataForComments();
-  }, []);
-
-  const fetchDataForComments = async () => {
-    try {
-      const response = await fetch(`${postURL}/${post.id}/comment`);
-
-      if (!response.ok) {
-        console.log(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      setComments(data);
-
-      // Fetch user information for each comment
-      const userIds = data.map((comment) => comment.contactId);
-      const usersResponse = await Promise.all(
-        userIds.map((userId) => fetch(`${userURL}/${userId}`))
-      );
-      const usersData = await Promise.all(
-        usersResponse.map((response) => response.json())
-      );
-      setUsers(usersData);
-    } catch (error) {
-      console.log(
-        `OBS!!! Something went wrong retrieving comments for ${post.id}`
-      );
-    }
-  };
+    fetchDataForComments(post.id).then(({ comments, users }) => {
+      setComments(comments);
+      setUsers(users);
+    });
+  }, [post.id]);
 
   const handleSendComment = async () => {
     try {

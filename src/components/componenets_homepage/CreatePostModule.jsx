@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { getInitials } from "../../utils/getInitials";
 import PropTypes from "prop-types";
+import { postData } from "../../utils/api";
+import { basePostURL } from "../../utils/urls";
 
 function CreatePostModule(props) {
   const { onPostCreation } = props;
@@ -15,35 +17,50 @@ function CreatePostModule(props) {
   const userInitials = getInitials(`${userFirstName} ${userLastName}`);
 
   const handlePostClick = async () => {
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          content,
-          contactId: parseInt(contactId),
-        }),
-      });
+    const payload = {
+      title,
+      content,
+      contactId: parseInt(contactId),
+    };
 
-      if (response.ok) {
-        console.log("Post created successfully!");
-        setTitle("");
-        setContent("");
+    const success = await postData(basePostURL, payload);
 
-        onPostCreation();
-      } else {
-        console.error(
-          `OBS!!! Something went wrong createing post: ${response.statusText}`
-        );
-      }
-    } catch (er) {
-      console.log(
-        `OBS!!! Something went wrong createing post: ${er.statusText}`
-      );
+    if (!success) {
+      console.error("OBS!!! Something went wrong creating post");
     }
+    onPostCreation();
+
+    setTitle("");
+    setContent("");
+    // try {
+    //   const response = await fetch(URL, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       title,
+    //       content,
+    //       contactId: parseInt(contactId),
+    //     }),
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("Post created successfully!");
+    //     setTitle("");
+    //     setContent("");
+
+    //     onPostCreation();
+    //   } else {
+    //     console.error(
+    //       `OBS!!! Something went wrong createing post: ${response.statusText}`
+    //     );
+    //   }
+    // } catch (er) {
+    //   console.log(
+    //     `OBS!!! Something went wrong createing post: ${er.statusText}`
+    //   );
+    // }
   };
   return (
     <>

@@ -10,11 +10,21 @@ function PostsListItem(props) {
 
   const [currentContact, setCurrentContact] = useState(null);
 
-  const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
-
   useEffect(() => {
-    setCurrentContact(fetchDataByContactId(post.contactId));
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await fetchDataByContactId(post.contactId);
+
+        if (response) {
+          setCurrentContact(response);
+        }
+      } catch (error) {
+        console.log("OBS!!! Something went wrong:", error.message);
+      }
+    };
+
+    fetchData();
+  }, [post.contactId]);
 
   return (
     <>
