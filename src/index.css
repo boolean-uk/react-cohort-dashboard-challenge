@@ -93,5 +93,6 @@ button:focus-visible {
 
 
 input[type="text"] {
+  border: none;
   background-color: var(--form-background-color)
 }

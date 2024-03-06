@@ -4,9 +4,9 @@ import PostListItem from "./PostListItem/PostListItem"
 
 const PostList = () => {
     // eslint-disable-next-line no-unused-vars
-    const [elementLimit, setElementLimit] = useState(undefined)
+    const [elementLimit, setElementLimit] = useState(3)
 
-    const { posts} = useContext(PostsContext)
+    const { posts } = useContext(PostsContext)
     return (
         <div>
             <ul>

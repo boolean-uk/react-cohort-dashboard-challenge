@@ -1,0 +1,19 @@
+.post-reply-container {
+    display: block;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.show-more-replies-button {
+    position: relative;
+    top: 0%;
+    left: -40%;
+    width: auto;
+    border: none;
+    background: none;
+    color: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+}

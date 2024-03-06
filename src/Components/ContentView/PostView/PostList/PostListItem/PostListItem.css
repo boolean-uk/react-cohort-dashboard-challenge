@@ -29,6 +29,7 @@
     position: relative;
     justify-content: normal;
     border-bottom: solid 1px lightgray;
+    width: 100%;
 }
 
 .post-content-container > p {
