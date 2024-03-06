@@ -54,6 +54,7 @@ export default function CreateNewPost() {
           onChange={handleChange}
         />
         <input
+          className="inputBox"
           type="text"
           name="content"
           placeholder="Description"

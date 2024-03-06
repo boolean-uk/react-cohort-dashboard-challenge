@@ -27,15 +27,17 @@ export default function PostsList() {
       {loading && <p>Loading...</p>}
       {!loading && post.length === 0 && <p>No posts available.</p>}
       {!loading && (
-        <div>
+        <div className="post-container">
           {post.map((post) => {
             return (
-              <div key={post.id}>
+              <div key={post.id} className="post-card">
                 <Users userId={post.contactId} />
                 <h3>
-                  <Link to={`/post/${post.id}`}>{post.title}</Link>
+                  <Link className="post-title" to={`/post/${post.id}`}>
+                    {post.title}
+                  </Link>
                 </h3>
-                <p>{post.content}</p>
+                <p className="post-content">{post.content}</p>
                 <Comments postId={post.id} />
               </div>
             );

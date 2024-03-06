@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getRequest } from "../../API";
 import { useParams } from "react-router-dom";
+import Users from "./Users";
 
-export default function Comments({ postId }) {
+export default function Comments({ postId, userId }) {
   const [comment, setComment] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,15 +28,17 @@ export default function Comments({ postId }) {
     <>
       {loading && <p>Loading...</p>}
       {!loading && (
-        <>
+        <div className="comment">
+          <h2>Comments</h2>
           {comment.map((com) => {
             return (
               <div key={com.id}>
+                <Users userId={com.contactId} />
                 <p>{com.content}</p>
               </div>
             );
           })}
-        </>
+        </div>
       )}
     </>
   );

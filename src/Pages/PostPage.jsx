@@ -27,19 +27,19 @@ export default function PostPage() {
     <>
       {loading && <p>Loading...</p>}
       {!loading && (
-        <>
+        <div className="post-card">
           <Users userId={post.contactId} />
           <h1>{post.title} </h1>
-          <p>{post.content}</p>
+          <p className="post-content">{post.content}</p>
           <Comments postId={postId} />
-        </>
+          <button>
+            <Link to={`/post/${postId}/modify`}>Modify</Link>
+          </button>
+          <button>
+            <Link to={`/post/${postId}/delete`}>Delete</Link>
+          </button>
+        </div>
       )}
-      <button>
-        <Link to={`/post/${postId}/modify`}>Modify</Link>
-      </button>
-      <button>
-        <Link to={`/post/${postId}/delete`}>Delete</Link>
-      </button>
     </>
   );
 }

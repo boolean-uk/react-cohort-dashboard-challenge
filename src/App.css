@@ -45,16 +45,40 @@
   display: flex;
   justify-content: center;
   gap: 1em;
-  margin-top: 2em;
+  background-color: #000046;
+  margin-top: 1em;
+  padding: 1em;
 }
 
 .inputBox {
+  margin-left: 0.5em;
+}
+
+/* CSS for PostsList component */
+.post-container {
   display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 2em;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between cards */
+}
+
+.post-card {
+  background-color: #fff; /* Background color of the card */
+  border-radius: 8px; /* Border radius for rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  padding: 20px; /* Padding inside the card */
+  margin-top: 1em;
+}
+
+.post-content {
+  margin-top: 10px; /* Adjust margin for content */
+}
+
+.comment {
+  margin-top: 10px; /* Adjust margin for comments */
+  border-top: 1px solid #ddd; /* Border between comments */
+  padding-top: 10px; /* Padding between comments */
+}
+
+.post-title {
+  color: #64648c;
 }
