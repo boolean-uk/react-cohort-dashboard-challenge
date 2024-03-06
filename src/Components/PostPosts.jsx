@@ -1,10 +1,17 @@
-import PostItem from "./PostItem"
 import { useContext, useEffect, useState } from "react"
-import { PostContext } from "../App"
+import { AuthorContext, PostContext } from "../App"
+import { useNavigate } from "react-router-dom"
 
 export default function PostPosts()
 {
-    const { posts, addPost } = useContext(PostContext)
+    const navigate = useNavigate()
+    const { addPost } = useContext(PostContext)
+    const { authors } = useContext(AuthorContext)
+
+    if (!authors[0])
+        return
+
+    const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
 
     const INITIAL_POST =
     {
@@ -55,18 +62,10 @@ export default function PostPosts()
     
     return (
         <>
-        <div className="postPosts">
+            <p onClick={() => navigate("/user/1")}>{initials}</p>
             <input type="text" name="title" placeholder="Title" onChange={handleInput} value={newPost.title}></input>
             <input type="text" name="content" placeholder="What's on your mind?" onChange={handleInput} value={newPost.content}></input>
             <button type="button" onClick={handlePost}>Post</button>
-            <ul>
-                {posts.map((post, index) => (
-                  <li key={index}>
-                        <PostItem post={post}/>
-                    </li>
-                ))}
-            </ul>
-        </div>
         </>
     )
 }

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import { createContext, useEffect, useState } from 'react'
 import HomePage from './HomePage'
 import ViewPostPage from './ViewPostPage'
+import ProfilePage from './ProfilePage'
 
 export const PostContext = createContext()
 export const AuthorContext = createContext()
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path="/post/:id" element={<ViewPostPage/>}/>
+            <Route path="/user/:id" element={<ProfilePage/>}/>
           </Routes>
         </AuthorContext.Provider>
       </PostContext.Provider>

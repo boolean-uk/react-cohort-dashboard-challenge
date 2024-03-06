@@ -13,6 +13,8 @@ export default function PostComments(props)
     const [comment, setComment] = useState(INITIAL_COMMENT)
     const [createComment, setCreateComment] = useState(INITIAL_COMMENT)
 
+
+    // POST a comment
     useEffect(() =>
     {
         const postOptions =
@@ -28,6 +30,7 @@ export default function PostComments(props)
     }, [createComment])
 
 
+    // Helper functions
     const handleInput = (event) =>
     {
         setComment({content: event.target.value, contactId: 1, postId: postId})

@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
 import PostComments from "./PostComments";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthorContext } from "../App";
 
@@ -11,6 +11,9 @@ export default function PostItem(props)
     const [showedComments, setShowedComments] = useState([])
     const navigate = useNavigate()
 
+    if (!authors[0])
+        return
+    
     const authorId = post.contactId - 1
     const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
 
@@ -44,15 +47,15 @@ export default function PostItem(props)
 
     return (
         <>
-        <h2>{authors[authorId].firstName.charAt(0)}{authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
+        <h2 onClick={() => navigate(`/user/${authors[authorId].id}`)}>{authors[authorId].firstName.charAt(0)}{authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
         <p onClick={handleLink} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {showedComments.map((comment, index) => (
                 <li key={index}>
-                    {authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)} - 
-                    {authors[comment.contactId - 1].firstName} {authors[comment.contactId - 1].lastName} - 
-                    {comment.content}</li>
+                    <h4 onClick={() => navigate(`/user/${authors[comment.contactId - 1].id}`)}>{authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)} - {authors[comment.contactId - 1].firstName} {authors[comment.contactId - 1].lastName}</h4>
+                    {comment.content}
+                </li>
             ))}
             {comments.length > 3 && <button onClick={showMoreComments}>See previous comments</button>}
         </ul>

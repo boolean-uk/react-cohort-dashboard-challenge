@@ -17,13 +17,23 @@ input {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-}
+} 
+
+/* CHANGE CLASS NAMES HERE!! */
 
 .postTitle {
   color: #64648c;
 }
 
 h2 {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+h4 {
   color: black;
 }
 
@@ -55,6 +65,11 @@ li {
   background-color: lightblue;
 }
 
+.sidebar {
+  width: 200px;
+  display: inline;
+}
+
 .profileButton {
   width: 100px;
   padding-top: 50px;
@@ -71,16 +86,15 @@ li {
   padding-left: 5px;
 }
 
-.sidebar {
-  width: 700px;
-  height: 1000px;
-  /* fix the sidebar to be 100 viewport minus the header */
-  max-height: calc(100vh - 60px);
-}
-
 /* Create a container that fills the rest of the screen that is left over */
 /* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.profilePage {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -90,47 +104,29 @@ li {
 }
 
 
-/* OLD STUFF */
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.main {
+  flex-grow: 1;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.green {
+  margin: 10px;
+  height: 450px;
+  width: 300px;
+  display: flex;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row1 {
+  flex: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.row2 {
+  flex: 1;
 }
 
-.card {
-  padding: 2em;
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
 }
-
-.read-the-docs {
-  color: #888;
-} */
