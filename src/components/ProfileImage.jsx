@@ -1,17 +1,14 @@
-import { UserContext } from "../App"
-import { useContext } from "react"
 import '../styles/ProfileImage.css'
 import PropTypes from 'prop-types';
 
-export default function ProfileImage({ w, h, marginL, marginR }) {
-
-    const { user } = useContext(UserContext);
+export default function ProfileImage({ imageUrl, w, h, marginL, marginR }) {
     return (
-        <img src={user.profileImage} style={{ width: w, height: h, marginLeft: marginL, marginRight: marginR }} alt="profile image" className="image" />
+        <img src={imageUrl} style={{ width: w, height: h, marginLeft: marginL, marginRight: marginR }} alt="profile image" className="image" />
     )
 }
 
 ProfileImage.propTypes = {
+    imageUrl: PropTypes.string,
     w: PropTypes.number,
     h: PropTypes.number,
     marginR: PropTypes.number,

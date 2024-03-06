@@ -1,0 +1,9 @@
+.seePreviousCommentsButton {
+    font-weight: 600;
+    color: #818181;
+    cursor: pointer;
+}
+
+.seePreviousCommentsButton:hover {
+    color: #64dc78;
+}

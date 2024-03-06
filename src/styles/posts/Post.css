@@ -1,0 +1,23 @@
+.postContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.postContainer>* {
+    margin-left: 20px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 15px 0;
+}

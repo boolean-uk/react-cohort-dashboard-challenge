@@ -1,11 +1,14 @@
 import Logo from "./Logo";
 import "../styles/Header.css";
 import ProfileImage from "./ProfileImage";
+import { useContext } from "react";
+import { UserContext } from "../App";
 export default function Header() {
+    const user = useContext(UserContext);
     return (
         <div className="headerContainer">
             <Logo />
-            <ProfileImage w={50} h={50} marginR={60} />
+            <ProfileImage imageUrl={user.profileImage} w={50} h={50} marginR={60} />
         </div>
     )
 }

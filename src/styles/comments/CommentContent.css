@@ -1,0 +1,16 @@
+.commentContent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e6ebf5;
+    margin-left: 20px;
+}
+
+.commentUserName {
+    font-size: 15px;
+    font-weight: bold;
+}
