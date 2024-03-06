@@ -4,7 +4,7 @@
 
 - Component `<NavigationMenu>`
 - Component `<Header user={user}>`
-- Component `<PostsFeed>`
+- Component `<PostsFeed>`_: path="/posts"_
 
   _Has a `FeedContext`_ which provides all posts downwards
 
@@ -17,6 +17,9 @@
 
       - _which contains several_ Component `<PostItem>`
         - `api.GetPostComments()`
+
+- Component `<PostPage>`_: path="/posts/:id"_
+  - Retrieves a single post and displays a `<PostItem>` with that post
 
 ## Component \<PostItem>
 
