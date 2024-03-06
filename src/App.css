@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #F0F5FA; /* Body background color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align sidebar and main content horizontally */
+  overflow: hidden;
+  min-height: calc(100vh - 60px); /* Reduce the min-height by the header's height */
+  max-height: calc(100vh - 60px); /* Prevent the container from exceeding the view height */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #000046; /* Header background color */
+  color: white; /* Header text and icons color */
+}
+
+.home-icon, .profile-icon {
+  fill: #000046; /* Icon color to match the header background */
+}
+
+.home-icon-class {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.profile-icon-class {
+  margin-top: 5px;
+}
+
+.initials-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0b7cad; /* Initials circle background color */
+  color: white; /* Initials text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ... existing styles ... */
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Center the header content horizontally */
+  flex-grow: 1; /* Make the header content grow to fill the space */
+}
+
+.header-content span {
+  font-size: 1.5em; /* Increase the font size of the COHORT MANAGER text */
+  text-align: center;
+}
+
+.header-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; /* Set width to 48px */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #e6ebf5;
+  padding: 20px;
+  width: 100px; /* Adjust if sidebar width is different */
+  flex-shrink: 0; /* Prevent the sidebar from shrinking */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.main-page {
+  flex-grow: 1; /* Allow the main content area to grow */
+  overflow-y: auto; /* Only this section will be scrollable */
+  background-color: #F0F5FA;
+  padding-left: 20px;
+  padding: 20px;
+}
+
+
+/* Aligns text to the right */
+.main-page h1 {
+  text-align: left;
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #e6ebf5; /* Sidebar background color */
+  padding: 20px;
+  width: 100px; /* Adjust if sidebar width is different */
+  height: 100vh;
+}
+
+.main-page {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #F0F5FA; /* Match the body background color */
+}
+
+.post-title {
+  color: #64648c; /* Post title color */
+}
+
+.form-input {
+  background-color: #e6ebf5; /* Form input background color */
+}
+
+.button {
+  background-color: #000046; /* Button background color */
+  color: white; /* Button text color */
+}
+
+.button:hover {
+  background-color: #64dc78; /* Button hover background color */
+}
+
+/* Further styles for form inputs, buttons, posts, and other components can be added here */
