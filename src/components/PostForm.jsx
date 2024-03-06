@@ -12,6 +12,7 @@ const PostForm = () => {
     e.preventDefault();
     const response = await axios.post(
       "https://boolean-api-server.fly.dev/krzysztofmmm/post",
+
       { title, content, contactId: 42 } // Add contactId here
     );
     setPosts([response.data, ...posts]);

@@ -13,12 +13,12 @@ const CommentForm = ({ postId }) => {
       );
       setComments(response.data);
     };
-
     fetchComments();
   }, [postId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const response = await axios.post(
       `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`,
       { content, postId: Number(postId), contactId: 42 } // i set 42 just for tests,update in future if needed
