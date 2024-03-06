@@ -6,7 +6,7 @@ export const ProfileIcon = ({ user }) => {
 
   return (
     <button
-      onClick={() => navigate("/id")}
+      onClick={() => navigate(`../profile/${user.id}`)}
       className="profile-icon"
       style={{ backgroundColor: `${user.favouriteColour}` }}
     >

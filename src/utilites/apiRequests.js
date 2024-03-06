@@ -30,4 +30,23 @@ const postRequest = (url, body) => {
     .catch((error) => console.error("Error during POST request", error));
 };
 
-export { getRequest, postRequest };
+const putRequest = (url, body) => {
+  // console.log("Payload", JSON.stringify(body));
+  return fetch(url, {
+    method: "PUT",
+    body: JSON.stringify({ ...body }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(`Failed to PUT data ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => data)
+    .catch((error) => console.error("Error during PUT request", error));
+};
+
+export { getRequest, postRequest, putRequest };

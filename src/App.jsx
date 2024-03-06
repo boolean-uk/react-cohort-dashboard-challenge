@@ -2,11 +2,12 @@ import "./App.css";
 import { LeftMenu } from "./components/LeftMenu";
 import { HeaderBar } from "./components/HeaderBar";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { PostsListPage } from "./components/Main/PostsListPage";
+import { PostsListPage } from "./components/postCompontents/PostsListPage";
 import { NotFoundPage } from "./components/NotFoundPage";
 import { createContext, useEffect, useState } from "react";
 import { getRequest } from "./utilites/apiRequests";
-import { PostDetailPage } from "./components/Main/PostDetailPage";
+import { PostDetailPage } from "./components/postCompontents/PostDetailPage";
+import { ProfilePage } from "./components/ProfilePage";
 
 export const UserContext = createContext();
 
@@ -33,7 +34,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to={"/posts"} />} />
               <Route path="/posts" element={<PostsListPage />} />
-              <Route path="/posts/:id" element={<PostDetailPage />} />
+              <Route path="/posts/:postId" element={<PostDetailPage />} />
+              <Route path="/profile/:userId" element={<ProfilePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

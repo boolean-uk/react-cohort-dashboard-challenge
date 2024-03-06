@@ -4,14 +4,14 @@ import { getRequest } from "../../utilites/apiRequests";
 import { Post } from "./Post";
 
 export const PostDetailPage = () => {
-  const { id } = useParams();
+  const { postId } = useParams();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     getRequest(
-      `https://boolean-api-server.fly.dev/LinusWillmont/post/${id}`
+      `https://boolean-api-server.fly.dev/LinusWillmont/post/${postId}`
     ).then((data) => setPost(data));
-  }, [id]);
+  }, [postId]);
 
   return !post ? (
     <p>Loading</p>
