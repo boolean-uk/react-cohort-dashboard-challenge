@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import "../../style/post/Posts.css";
 import Post from "./Post";
+import { postContext } from "../../App";
 
 const Posts = () => {
-    const posts = ["1", "2", "3", "4"];
+    const { posts, contacts } = useContext(postContext);
     return (
         <ul className="post-list">
             {posts.map((post, i) => (
-                <Post key={i} post={post} />
+                <Post key={i} post={post}/>
             ))}
         </ul>
     );

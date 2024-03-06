@@ -5,9 +5,6 @@ import ProfileIconSvg from "../../icons/ProfileIconSvg";
 
 const LeftMenu = () => {
     const location = useLocation();
-
-    console.log("Current path:", location.pathname);
-
     return (
         <nav className="left-menu">
             <ul className="page-list">
