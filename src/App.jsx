@@ -30,7 +30,7 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/klaand01/contact")
     .then((response) => response.json())
     .then((data) => {
-        //console.log("AUTHORS", data)
+        console.log("AUTHORS", data)
         setAuthors(data)
     })
   }, [])
@@ -40,10 +40,21 @@ function App() {
     setPosts([data.newPost, ...posts])
   }
 
+  const editAuthor = (data) =>
+  {
+    const tmpAuthors = authors.map((author) =>
+    {
+      if (author.id === data.newAuthor.id) return data.newAuthor
+        return author
+    })
+
+    setAuthors(tmpAuthors)
+  }
+
   return (
     <>
       <PostContext.Provider value={{posts, addPost}}>
-        <AuthorContext.Provider value={{authors}}>
+        <AuthorContext.Provider value={{authors, editAuthor}}>
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path="/post/:id" element={<ViewPostPage/>}/>

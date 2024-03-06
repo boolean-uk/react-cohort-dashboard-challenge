@@ -20,3 +20,6 @@
   - ProfilePage
     Route: /user/:id
     Explanation: Where the user can see information about a user
+
+    - ProfileInfo
+      Explanation: Handles the information about a user

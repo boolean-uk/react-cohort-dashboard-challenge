@@ -1,7 +1,7 @@
-import PostComments from "./PostComments";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthorContext } from "../App";
+import PostComments from "./PostComments";
 
 export default function PostItem(props)
 {

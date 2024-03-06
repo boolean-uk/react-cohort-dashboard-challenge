@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
-import PostPosts from "./Components/PostPosts"
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { AuthorContext, PostContext } from "./App"
 import PostItem from "./Components/PostItem"
+import PostPosts from "./Components/PostPosts"
 
 export default function HomePage()
 {

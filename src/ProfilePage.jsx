@@ -1,18 +1,14 @@
-import { useContext, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { AuthorContext } from "./App"
+import ProfileInfo from "./Components/ProfileInfo"
 
 export default function ProfilePage()
 {
-    const { authors } = useContext(AuthorContext)
     const navigate = useNavigate()
-    const {id} = useParams()
-    
-    if (!authors[id - 1])
-        return    
-
-    const author = authors[id - 1]
-    const initials = author.firstName.charAt(0) + author.lastName.charAt(0)
+    const { authors } = useContext(AuthorContext)    
+    if (!authors[0])
+        return
 
     return (
     <>
@@ -46,31 +42,7 @@ export default function ProfilePage()
                             <p className="iconText">Profile</p>
                         </div>
                     </nav>
-                    <main className="main">
-                        {/* FIX PROFILE IMAGE */}
-                        <h2>Profile</h2>
-                        <h2>{initials} - {author.firstName} {author.lastName}</h2>
-                        <main className="green">
-                            <div className="yellow row1">
-                                <h3>Account info</h3>
-                                <p>First Name*</p>
-                                <input type="text" value={author.firstName}></input>
-                                <p>Last Name*</p>
-                                <input type="text" value={author.lastName}></input>
-                                <p>Email*</p>
-                                <input type="text" value={author.email}></input>
-                                <p>Job Title</p>
-                                <input type="text" value={author.jobTitle}></input>
-                            </div>
-                            <div className="yellow row2">
-                                <h3>Address</h3>
-                                <p>Street</p>
-                                <input type="text" value={author.street}></input>
-                                <p>City</p>
-                                <input type="text" value={author.lastName}></input>
-                            </div>
-                        </main>
-                    </main>
+                    <ProfileInfo/>
                 </div>
             </div>
         </body>

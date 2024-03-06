@@ -9,6 +9,7 @@ button {
 input {
   background-color: #e6ebf5;
   height: 15px;
+  color: black;
 
   border-radius: 8px;
   padding: 0.6em 1.2em;
@@ -65,6 +66,13 @@ li {
   background-color: lightblue;
 }
 
+.yellow {
+  /* background-color: yellow; */
+    margin: 10px;
+    height: 200px;
+    width: 100%;
+}
+
 .sidebar {
   width: 200px;
   display: inline;
@@ -113,14 +121,6 @@ li {
   height: 450px;
   width: 300px;
   display: flex;
-}
-
-.row1 {
-  flex: 1;
-}
-
-.row2 {
-  flex: 1;
 }
 
 /* Create a root container that fills the screen
