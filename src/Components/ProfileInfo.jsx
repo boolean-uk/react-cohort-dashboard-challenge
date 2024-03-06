@@ -15,8 +15,7 @@ export default function ProfileInfo()
         email: "",
         jobTitle: "",
         street: "",
-        city: "",
-        id: author.id
+        city: ""
     }
     const [newAuthor, setNewAuthor] = useState(INITIAL_AUTHOR)
     const [updateAuthor, setUpdateAuthor] = useState(INITIAL_AUTHOR)
@@ -35,13 +34,15 @@ export default function ProfileInfo()
         }
         
         fetch(`https://boolean-api-server.fly.dev/klaand01/contact/${newAuthor.id}`, putOptions)
+        .then((response) => response.json())
+        .then(() => setNewAuthor(INITIAL_AUTHOR))
     }, [updateAuthor])
 
 
     const handleInput = (event) =>
     {
         const {name, value} = event.target
-        setNewAuthor({...newAuthor, [name]: value})
+        setNewAuthor({...newAuthor, [name]: value, id: author.id})
     }
 
     const handleClick = () =>
@@ -54,7 +55,6 @@ export default function ProfileInfo()
         {
             editAuthor({newAuthor})
             setUpdateAuthor(newAuthor)
-            setNewAuthor(INITIAL_AUTHOR)
         }
     }
 

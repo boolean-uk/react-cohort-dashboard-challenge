@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { PostContext } from "./App"
+import PostDelete from "./Components/PostDelete"
 
 export default function ViewPostPage()
 {
@@ -35,12 +36,15 @@ export default function ViewPostPage()
         <>
         <h1 className="postTitle">{post && post.title}</h1>
         <h2>{author && author.firstName} {author && author.lastName}</h2>
+        <p>{post && post.content}</p>
         <ul>
             {comments.map((comment, index) => (
                 <li key={index}>{comment.content}</li>
             ))}
         </ul>
         <button onClick={() => navigate("/")}>Go Back</button>
+        <button onClick={() => navigate(`/editPost/${post.id}`)}>Edit</button>
+        <PostDelete post={post}/>
         </>
     )
 }

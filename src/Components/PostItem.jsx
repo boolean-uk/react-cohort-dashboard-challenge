@@ -11,12 +11,6 @@ export default function PostItem(props)
     const [showedComments, setShowedComments] = useState([])
     const navigate = useNavigate()
 
-    if (!authors[0])
-        return
-    
-    const authorId = post.contactId - 1
-    const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
-
     // GET the comments
     useEffect(() =>
     {
@@ -29,15 +23,16 @@ export default function PostItem(props)
             setShowedComments(data.filter((comment, index) => index < 3))
         })
     }, [post.id])
+    
+    if (!authors[post.contactId - 1])
+        return
+    
+    const authorId = post.contactId - 1
+    const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
 
     const addComment = (data) =>
     {
         setComments([...comments, data.comment])
-    }
-
-    const handleLink = () =>
-    {
-        navigate(`/post/${post.id}`)
     }
     
     const showMoreComments = () =>
@@ -48,7 +43,7 @@ export default function PostItem(props)
     return (
         <>
         <h2 onClick={() => navigate(`/user/${authors[authorId].id}`)}>{authors[authorId].firstName.charAt(0)}{authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
-        <p onClick={handleLink} className="postTitle">{post.title}</p>
+        <p onClick={() => navigate(`/post/${post.id}`)} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {showedComments.map((comment, index) => (

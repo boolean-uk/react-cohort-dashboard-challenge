@@ -17,9 +17,16 @@
     Route: /post/:id
     Explanation: Where the user can see the post
 
+    - PostDelete
+      Explanation: Handles the deletion of posts
+
   - ProfilePage
     Route: /user/:id
     Explanation: Where the user can see information about a user
 
     - ProfileInfo
       Explanation: Handles the information about a user
+
+  - EditPostPage
+    Route: /editPost/:id
+    Explanation: Handles the editing of the post

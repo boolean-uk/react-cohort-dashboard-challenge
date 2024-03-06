@@ -11,8 +11,7 @@ export default function PostPosts()
     const INITIAL_POST =
     {
         title: "",
-        content: "",
-        contactId: undefined
+        content: ""
     }
     
     const [newPost, setNewPost] = useState(INITIAL_POST)
