@@ -1,6 +1,10 @@
-header{
+.header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: #000046;
+}
+
+.title-header {
+  max-width: 300px;
 }

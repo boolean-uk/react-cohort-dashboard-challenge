@@ -1,0 +1,8 @@
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container > img {
+  padding: 2rem;
+}
