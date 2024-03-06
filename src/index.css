@@ -4,8 +4,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,8 +17,10 @@
   --form-background-color: #e6ebf5;
 }
 
-a, p, span, div {
+a, p, span, div, input {
   color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
 }
 
 header {
@@ -42,6 +42,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--body-background-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
 h1 {
@@ -88,10 +94,4 @@ button:focus-visible {
 
 input[type="text"] {
   background-color: var(--form-background-color)
-}
-
-#root {
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
 }
