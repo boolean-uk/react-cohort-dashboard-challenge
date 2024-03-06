@@ -4,7 +4,8 @@ import { createContext, useEffect, useState } from 'react'
 import HomePage from './HomePage'
 import ViewPostPage from './ViewPostPage'
 
-export const AddPostContext = createContext()
+export const PostContext = createContext()
+export const AuthorContext = createContext()
 
 function App() {
 
@@ -40,12 +41,14 @@ function App() {
 
   return (
     <>
-      <AddPostContext.Provider value={{addPost}}>
-        <Routes>
-          <Route path='/' element={<HomePage posts={posts} authors={authors}/>} />
-          <Route path="/post/:id" element={<ViewPostPage posts={posts}/>}/>
-        </Routes>
-      </AddPostContext.Provider>
+        <PostContext.Provider value={{posts, addPost}}>
+          <AuthorContext.Provider value={{authors}}>
+            <Routes>
+              <Route path='/' element={<HomePage/>} />
+              <Route path="/post/:id" element={<ViewPostPage/>}/>
+            </Routes>
+          </AuthorContext.Provider>
+        </PostContext.Provider>
     </>
   )
 }

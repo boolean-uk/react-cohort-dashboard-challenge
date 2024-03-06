@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { PostContext } from "./App"
 
-export default function ViewPostPage(props)
+export default function ViewPostPage()
 {
-    const {posts} = props
     const {id} = useParams()
     const [comments, setComments] = useState([])
     const [author, setAuthor] = useState({})
+    const {posts} = useContext(PostContext)
     const post = posts[posts.length - id]
 
     const navigate = useNavigate()

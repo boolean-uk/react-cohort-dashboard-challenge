@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PostComments from "./PostComments";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthorContext } from "../App";
 
 export default function PostItem(props)
 {
-    const { post, authors } = props;
-    const navigate = useNavigate()
+    const { post } = props;
+    const { authors } = useContext(AuthorContext)
     const [comments, setComments] = useState([])
+    const navigate = useNavigate()
 
     const authorId = post.contactId - 1
     const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
@@ -35,15 +37,15 @@ export default function PostItem(props)
 
     return (
         <>
-        <h2>{authors[authorId].firstName && authors[authorId].firstName.charAt(0)}
-            {authors[authorId].lastName && authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
+        <h2>{authors[authorId].firstName.charAt(0)}{authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
         <p onClick={handleLink} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {comments.map((comment, index) => (
                 <li key={index}>
-                    {authors[comment.contactId - 1].firstName && authors[comment.contactId - 1].firstName.charAt(0)}
-                    {authors[comment.contactId - 1].lastName && authors[comment.contactId - 1].lastName.charAt(0)} - {comment.content}</li>
+                    {authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)} - 
+                    {authors[comment.contactId - 1].firstName} {authors[comment.contactId - 1].lastName} - 
+                    {comment.content}</li>
             ))}
         </ul>
         <PostComments initials={initials} addComment={addComment} postId={post.id}/>
