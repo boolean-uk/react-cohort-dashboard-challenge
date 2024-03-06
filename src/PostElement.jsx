@@ -6,6 +6,8 @@ import CommentElement from "./CommentElement";
 function PostElement(props) {
   const { postData } = props;
   const [commentsList, setCommentsList] = useState([]);
+  const [newCommentData, setNewCommentData] = useState("");
+
   const [loadingComments, setLoadingComments] = useState(true);
   const [commentsError, setCommentsError] = useState(null);
 
@@ -35,12 +37,54 @@ function PostElement(props) {
   if (loadingComments) return "Loading Comments...";
   if (commentsError) return "Error while loading comments...";
 
+  const handleInputPostData = (event) => {
+    const postCommentValue = event.target.value;
+
+    setNewCommentData(postCommentValue);
+  };
+
   const HandleSubmit = (event) => {
     event.preventDefault();
+    const postRequestData = createCommentPostRequestBody(newCommentData);
 
-    //const postRequestData = stringToPostRequestBody(newPostData);
+    MakeAPIPostRequest(postRequestData);
+  };
 
-    //MakeAPIPostRequest(postRequestData);
+  const createCommentPostRequestBody = (newCommentData) => {
+    const postRequestBody = {
+      postId: postData.id,
+      content: newCommentData,
+      contactId: postData.contactId,
+    };
+    return postRequestBody;
+  };
+
+  const MakeAPIPostRequest = (postRequestData) => {
+    const postRequestOption = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postRequestData),
+    };
+
+    fetch(
+      `https://boolean-api-server.fly.dev/MackanPalm/post/${postData.id}/comment`,
+      postRequestOption
+    )
+      .then((responce) => {
+        if (responce.ok) {
+          return responce.json();
+        }
+        throw responce;
+      })
+      .then((data) => {
+        setCommentsList([...commentsList, data]);
+      })
+      .catch((err) => {
+        console.log(err);
+        //add something for the user to see
+      });
+
+    console.log(postRequestOption);
   };
 
   return (
@@ -67,6 +111,9 @@ function PostElement(props) {
           <input
             className="comment-text-box"
             placeholder="write your comment here"
+            type="text"
+            name="postText"
+            onChange={handleInputPostData}
           ></input>
           <button className="comment-button">submit button</button>
         </form>

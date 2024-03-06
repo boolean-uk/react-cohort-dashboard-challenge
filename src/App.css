@@ -119,6 +119,7 @@ make the child components lay out using flex, vertically stacked in a column */
   background-color: #f0f5fa;
 }
 
+/*PostElement****************************************************************************************/
 .post-box {
   background-color: white;
   color: black;
@@ -192,17 +193,46 @@ hr.rounded {
   font-weight: bold;
 }
 
+/*CommentElement*************************************************************/
+
 .post-comment-box {
   position: relative;
-  background-color: #f0f5fa;
-  color: #000046;
+  background-color: white;
+
   width: 100%;
   top: 10%;
   margin: 10px;
-  padding-left: 1%;
-  text-align: left;
 }
 
+.post-comment-circle {
+  position: absolute;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(57, 72, 240);
+  border-radius: 50%;
+}
+
+.comment-circle-text {
+  color: #000046;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.post-comment-content {
+  position: relative;
+  text-align: left;
+  padding-left: 1%;
+  left: 5%;
+  top: 10%;
+  max-width: 85%;
+  margin: 10px;
+  min-height: 50px;
+  background-color: #f0f5fa;
+  color: #000046;
+}
+
+/*CommentElement-END**********************************************************************************/
 .post-bar-box {
   display: flex;
   background-color: white;
