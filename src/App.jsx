@@ -1,5 +1,4 @@
 // App.jsx
-
 import './styles/App.css'; // Import the CSS file
 
 import { Header } from './components/Header';
@@ -10,7 +9,7 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <div className="content-wrapper">
+      <div className="main-content">
         <LeftMenu />
         <Feed />
       </div>

@@ -1,5 +1,4 @@
 .left-menu {
-    padding-top: 15px;
     width: 100px; /* Set fixed width for left menu */
     height: 100vh; /* Ensure full viewport height */
     background-color: #fff; /* White background */
@@ -9,7 +8,7 @@
 }
 
 .options {
-    padding-top: 15px;
+    padding-top: 1rem;
     height: 85px;
     display: flex;
     flex-direction: column; /* Stack content vertically */

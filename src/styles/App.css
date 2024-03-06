@@ -2,13 +2,12 @@
 
 /* Container for the entire page content */
 .app-container {
-  font-family: sans-serif; 
-  background-color: #F0F5FA;
-  min-height: 100vh; /* Ensure viewport height */
+  font-family: sans-serif;
 }
 
 /* Content wrapper for scrollable content */
-.content-wrapper {
+.main-content {
+  margin-top: 65px;
   display: flex; /* Allow side-by-side positioning */
-  padding-top: 50px; /* Adjust padding based on header height */
+  
 }
