@@ -1,15 +1,17 @@
-import { useContext } from "react"
-import { PostsContext } from "@/Components/ContentView/ContentView.jsx"
+import { useContext, useState } from "react"
+import { PostsContext } from "@/Utils/contexts"
+import PostListItem from "./PostListItem/PostListItem"
 
 const PostList = () => {
+    // eslint-disable-next-line no-unused-vars
+    const [elementLimit, setElementLimit] = useState(2)
+
     const { posts} = useContext(PostsContext)
     return (
         <div>
             <ul>
-                {posts.map((post, index) => (
-                    <li key={index}>
-                        <p>{post.content}</p>
-                    </li>
+                {posts.slice(0, elementLimit).map((post, index) => (
+                    <PostListItem post={post} key={index}/>
                 ))}
             </ul>
         </div>
