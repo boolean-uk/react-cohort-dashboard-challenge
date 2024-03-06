@@ -4,25 +4,28 @@ import { useParams } from "react-router-dom";
 import Users from "./Users";
 
 export default function Comments({ postId, userId }) {
-  const [comment, setComment] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [showAllComments, setShowAllComments] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const { commentId } = useParams();
 
   // on load: fetch comments
   useEffect(() => {
-    const runEffect = async () => {
+    const fetchComments = async () => {
       const { data, error } = await getRequest(`/post/${postId}/comment`);
       if (error === null) {
-        setComment(data);
+        setComments(data);
       } else {
         // display error
         console.log(error);
       }
       setLoading(false);
     };
-    runEffect();
+    fetchComments();
   }, [commentId, postId]);
+
+  const visibleComments = showAllComments ? comments : comments.slice(0, 3);
 
   return (
     <>
@@ -30,7 +33,7 @@ export default function Comments({ postId, userId }) {
       {!loading && (
         <>
           <h2>Comments</h2>
-          {comment.map((com) => {
+          {visibleComments.map((com) => {
             return (
               <div className="comment" key={com.id}>
                 <Users userId={com.contactId} />
@@ -38,6 +41,11 @@ export default function Comments({ postId, userId }) {
               </div>
             );
           })}
+          {comments.length > 3 && !showAllComments && (
+            <button onClick={() => setShowAllComments(true)}>
+              See previous comments
+            </button>
+          )}
         </>
       )}
     </>
