@@ -8,6 +8,7 @@ export default function PostItem(props)
     const { post } = props;
     const { authors } = useContext(AuthorContext)
     const [comments, setComments] = useState([])
+    const [showedComments, setShowedComments] = useState([])
     const navigate = useNavigate()
 
     const authorId = post.contactId - 1
@@ -22,6 +23,7 @@ export default function PostItem(props)
         {
             //console.log("COMMENTS", data)
             setComments(data)
+            setShowedComments(data.filter((comment, index) => index < 3))
         })
     }, [post.id])
 
@@ -34,6 +36,11 @@ export default function PostItem(props)
     {
         navigate(`/post/${post.id}`)
     }
+    
+    const showMoreComments = () =>
+    {
+        setShowedComments(comments)
+    }
 
     return (
         <>
@@ -41,12 +48,13 @@ export default function PostItem(props)
         <p onClick={handleLink} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
-            {comments.map((comment, index) => (
+            {showedComments.map((comment, index) => (
                 <li key={index}>
                     {authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)} - 
                     {authors[comment.contactId - 1].firstName} {authors[comment.contactId - 1].lastName} - 
                     {comment.content}</li>
             ))}
+            {comments.length > 3 && <button onClick={showMoreComments}>See previous comments</button>}
         </ul>
         <PostComments initials={initials} addComment={addComment} postId={post.id}/>
         </>

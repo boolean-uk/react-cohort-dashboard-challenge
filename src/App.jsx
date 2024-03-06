@@ -41,14 +41,14 @@ function App() {
 
   return (
     <>
-        <PostContext.Provider value={{posts, addPost}}>
-          <AuthorContext.Provider value={{authors}}>
-            <Routes>
-              <Route path='/' element={<HomePage/>} />
-              <Route path="/post/:id" element={<ViewPostPage/>}/>
-            </Routes>
-          </AuthorContext.Provider>
-        </PostContext.Provider>
+      <PostContext.Provider value={{posts, addPost}}>
+        <AuthorContext.Provider value={{authors}}>
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path="/post/:id" element={<ViewPostPage/>}/>
+          </Routes>
+        </AuthorContext.Provider>
+      </PostContext.Provider>
     </>
   )
 }
