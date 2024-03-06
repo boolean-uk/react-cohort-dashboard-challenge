@@ -14,6 +14,7 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f0f5fa;
 }
 
 /* Create a container that fills the rest of the screen that is left over */
@@ -22,6 +23,35 @@ make the child components lay out using flex, vertically stacked in a column */
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+}
+
+.dashboard-profile {
+  background-color: #f0f5fa;
+  width: 800px;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.profile-link {
+  color: #000046;
+}
+
+.profile-form {
+  background-color: white;
+  padding: 10px;
+}
+
+.profile-form input {
+  background-color: #e6ebf5;
+}
+
+.dashboard-title {
+  background-color: white;
+}
+
+.dashboard-title {
+  padding-bottom: 10px;
+  text-align: inherit;
 }
 
 /* style for the header, it must have a fixed height and full width */
@@ -68,6 +98,12 @@ make the child components lay out using flex, vertically stacked in a column */
   color: #000046;
 }
 
+.show-comment-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 .post-content {
   background-color: white;
   margin-bottom: 10px;
@@ -93,6 +129,10 @@ make the child components lay out using flex, vertically stacked in a column */
   width: 100%;
 }
 
+.comment-background {
+  background-color: #e6ebf5;
+}
+
 .create-post {
   background-color: white;
 }
@@ -111,8 +151,41 @@ textarea {
   background-color: #000046;
 }
 
+.del-button {
+  margin-top: 10px;
+  float: right;
+  color: white;
+  background-color: maroon;
+}
+
+.modify-btn {
+  margin-top: 10px;
+  float: right;
+  color: white;
+  background-color: darkorange;
+}
+
+.update-btn {
+  float: right;
+  margin-bottom: 30px;
+  color: white;
+  background-color: #000046;
+}
+
 .post-btn:hover {
   background-color: #64dc78; /* Green */
+}
+
+.update-btn:hover {
+  background-color: #64dc78; /* Green */
+}
+
+.del-button:hover {
+  background-color: red; /* Green */
+}
+
+.modify-btn:hover {
+  background-color: orange; /* Green */
 }
 
 .post-title {
@@ -169,16 +242,4 @@ textarea {
   float: left;
   z-index: -1;
   position: relative;
-}
-
-#profileImage {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: #512da8;
-  font-size: 35px;
-  color: #fff;
-  text-align: center;
-  line-height: 150px;
-  margin: 20px 0;
 }

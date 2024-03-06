@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import imgDoge from "../assets/images/doge.jpg";
 import PropTypes from "prop-types";
-import user from "../assets/data/user";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 export default function CreateComment({ comments, setComments, post }) {
   const [formData, setFormData] = useState([]);
+  const context = useContext(AppContext);
 
   const addComment = (formData) => {
     const postOptions = {
@@ -45,7 +47,7 @@ export default function CreateComment({ comments, setComments, post }) {
   };
 
   useEffect(() => {
-    setFormData({ contactId: user.id, postId: post.id, content: "" });
+    setFormData({ contactId: context.user.id, postId: post.id, content: "" });
   }, []);
 
   return (
@@ -61,7 +63,9 @@ export default function CreateComment({ comments, setComments, post }) {
         >
           <div className="profile-icon-contact">
             <div id="profile-icon-id-contact">
-              {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
+              {context.user.firstName.charAt(0) +
+                "" +
+                context.user.lastName.charAt(0)}
             </div>
           </div>
           <button type="submit" className="post-btn">
