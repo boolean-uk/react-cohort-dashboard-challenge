@@ -12,7 +12,6 @@ const Post = ({ post }) => {
             firstName: "Unknown",
             lastName: "User",
         };
-    console.log(owner);
 
     return (
         <li className="list-item">
