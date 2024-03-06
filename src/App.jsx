@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 
 import HeaderViewModule from "./components/HeaderViewModule.jsx";
@@ -10,6 +10,27 @@ import ProfilePage from "./components/ProfilePage.jsx";
 import { Link } from "react-router-dom";
 
 function App() {
+  // Simulating the current logged in user
+  useEffect(() => {
+    // Fetch the first contact from the specified URL
+    fetch("https://boolean-api-server.fly.dev/llllllll-l/contact")
+      .then((response) => response.json())
+      .then((data) => {
+        const firstContact = data[0];
+
+        // Check if the first contact exists before storing in localStorage
+        if (firstContact) {
+          console.log(firstContact);
+          const { firstName, lastName, id } = firstContact;
+          localStorage.setItem("userFirstName", firstName);
+          localStorage.setItem("userLastName", lastName);
+          localStorage.setItem("contactId", id);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching contact:", error);
+      });
+  }, []);
   return (
     <>
       <body>

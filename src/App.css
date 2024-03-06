@@ -44,6 +44,19 @@ li {
   font-size: 16px;
 }
 
+button {
+  font-size: large;
+  font-weight: 500;
+  color: #64648c;
+  background-color: #000046;
+
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -210,4 +223,21 @@ main > * {
 .contact-card {
   display: flex;
   align-items: center;
+}
+
+#create-post-module-input {
+  display: flex;
+}
+
+#create-post-module-input > input {
+  width: 75%;
+  font-size: large;
+  font-weight: 500;
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#create-post-module-input > button {
+  width: 200px;
 }

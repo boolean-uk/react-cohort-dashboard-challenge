@@ -2,7 +2,7 @@ function ProfilePage() {
   return (
     <>
       <h1>Profile</h1>
-      <form>
+      <form className="">
         <h2>Temp Tesmpsson</h2>
       </form>
     </>

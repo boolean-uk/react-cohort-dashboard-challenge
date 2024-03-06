@@ -1,13 +1,81 @@
-function CreatePostModule() {
+import { useState } from "react";
+import { getInitials } from "../../utils/getInitials";
+import PropTypes from "prop-types";
+
+function CreatePostModule(props) {
+  const { onPostCreation } = props;
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const userFirstName = localStorage.getItem("userFirstName");
+  const userLastName = localStorage.getItem("userLastName");
+  const contactId = localStorage.getItem("contactId");
+  const URL = `https://boolean-api-server.fly.dev/llllllll-l/post`;
+
+  const userInitials = getInitials(`${userFirstName} ${userLastName}`);
+
+  const handlePostClick = async () => {
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          content,
+          contactId: parseInt(contactId),
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Post created successfully!");
+        setTitle("");
+        setContent("");
+
+        onPostCreation();
+      } else {
+        console.error(
+          `OBS!!! Something went wrong createing post: ${response.statusText}`
+        );
+      }
+    } catch (er) {
+      console.log(
+        `OBS!!! Something went wrong createing post: ${er.statusText}`
+      );
+    }
+  };
   return (
     <>
-      <div className="CreatePostModule">
-        <h1>CreatePostModule</h1>
-        <input type="text" placeholder="What's on your mind?"></input>
-        <button>Save</button>
+      <div className="blogpost-card">
+        <div id="create-post-module-input">
+          {userInitials ? (
+            <div className="initials-circle">{userInitials}</div>
+          ) : (
+            <div>Loading...</div>
+          )}
+
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
+          ></input>
+          <input
+            type="text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="What's on your mind?"
+          />
+          <button onClick={handlePostClick}>POST</button>
+        </div>
       </div>
     </>
   );
 }
+
+CreatePostModule.propTypes = {
+  onPostCreation: PropTypes.func,
+};
 
 export default CreatePostModule;

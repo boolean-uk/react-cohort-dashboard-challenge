@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
-import { fetchData } from "../../utils/api";
 import { getInitials } from "../../utils/getInitials.js";
 
 function PostsListItem(props) {
@@ -11,8 +10,24 @@ function PostsListItem(props) {
 
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
 
+  console.log("POST in PostsListItem", post);
   useEffect(() => {
-    fetchData(URL, post.contactId, setCurrentContact);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${URL}/${post.contactId}`);
+
+        if (!response.ok) {
+          console.log(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Data", data);
+        setCurrentContact(data);
+      } catch (error) {
+        console.log("OBS!!! Something went wrong:", error.message);
+      }
+    };
+    fetchData();
   }, [URL, post.contactId]);
 
   return (
