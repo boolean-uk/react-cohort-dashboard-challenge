@@ -1,0 +1,125 @@
+body {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f5fa;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.header {
+  height: 60px;
+  width: 100vw;
+  background-color: #000046;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-right: 10px;
+  color: white;
+  background-color: #000046;
+}
+
+.skada {
+  color: #000046;
+}
+
+.sidebar {
+  width: 100px; /* Adjust the width as needed */
+  height: 100%;
+  max-height: calc(100vh - 60px);
+  background-color: #e6ebf5;
+  color: #ffffff;
+  padding-top: 10px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+}
+
+.main {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+}
+
+/* Add styles for the navigation buttons with logos */
+.nav-button {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  background-color: #e6ebf5;
+  color: #000046;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Add styles for the rounded boxes */
+.rounded-box {
+  background-color: #e6ebf5;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+  border-radius: 10px; /* Add rounded edges */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.rounded-post {
+  background-color: #e6ebf5;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+  border-radius: 10px; /* Add rounded edges */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+/* Add styles for the input field and button inside the rounded box */
+.rounded-box textarea {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.rounded-box button {
+  background-color: gainsboro;
+  margin-bottom: auto;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.rounded-box button:hover {
+  background-color: #000046;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
