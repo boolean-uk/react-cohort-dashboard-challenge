@@ -44,3 +44,19 @@
 ul {
   list-style-type: none;
 }
+
+.embed-submit-field {
+  position: relative;
+  
+  input {
+    width: 95%;
+    padding: 15px;
+  }
+
+  button {
+    position: absolute;
+    right: 20px;
+    top: 7px;
+
+  }
+}

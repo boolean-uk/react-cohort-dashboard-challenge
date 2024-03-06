@@ -13,10 +13,10 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
       .then((response) => response.json())
       .then(setPosts);
-  }, []);
+  }, [posts]);
 
   return (
-    <Context.Provider value={ {posts} }>
+    <Context.Provider value={ { posts, setPosts } }>
 
       <div className="app">
         <header className="header">
@@ -31,13 +31,6 @@ function App() {
             path='/'
             element={<Feed />} 
           />
-          {/* 
-          
-          <Route 
-            path='/profile' 
-            element={} 
-          />
-          */}
         </Routes>
       </div> 
     </Context.Provider>
