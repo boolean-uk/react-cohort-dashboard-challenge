@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { PostsContext } from '../../../Dashboard'
-import PostItem from '../Components/PostItem'
+import { PostsContext } from '../../Dashboard'
 import { useParams } from 'react-router-dom'
+import PostItem from '../Home/Components/PostItem'
 
 function PostView() {
   const {id} = useParams()

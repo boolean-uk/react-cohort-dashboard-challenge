@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import UserProfile from './Pages/UserProfile/UserProfile';
-import PostView from './Pages/Home/PostView/PostView';
+import PostView from './Pages/PostView/PostView';
 
 const URL = "https://boolean-api-server.fly.dev/thegrevling/post";
 export const PostsContext = createContext();
