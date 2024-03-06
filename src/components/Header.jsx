@@ -1,3 +1,4 @@
+// Header.jsx
 import '../styles/Header.css'; // Corrected import path
 import titleHeader from '../assets/title-header.svg';
 import { ProfileImage } from './ProfileImage';
@@ -11,7 +12,9 @@ export const Header = () => {
             src={titleHeader}
             alt="cohort-manager-logo"
           />
+          <div className='header-profile'>
           <ProfileImage />
+          </div>
         </div>
       </nav>
     );

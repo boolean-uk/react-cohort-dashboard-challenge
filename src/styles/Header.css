@@ -1,23 +1,26 @@
 /* Header.css */
-
 .header {
   background-color: #000046;
-  padding: 10px;
+  padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding-left: 65px;
 }
 
 .header-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
 }
 
 .header-logo {
+  margin-left: 1%;
   cursor: pointer;
   width: 290px;
+}
+
+.header-profile {
+  margin-right: 3%;
 }

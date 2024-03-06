@@ -1,3 +1,4 @@
+// ProfileImage.jsx
 import '../styles/ProfileImage.css'; // Corrected import path
 
 export const ProfileImage = () => {
