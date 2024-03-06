@@ -18,7 +18,7 @@
     grid-template-areas:
         "header header"
         "navbar main";
-    grid-template-columns: 150px;
+    grid-template-columns: 130px 1fr;
     grid-template-rows: 80px 1fr;
     height: 100%;
 }

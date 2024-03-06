@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .profileImageContainer>p {
@@ -11,4 +12,10 @@
     font-weight: 500;
     margin: 0;
     text-align: center;
+}
+
+.profileImageContainer:hover {
+    cursor: pointer;
+    scale: 1.05;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 }

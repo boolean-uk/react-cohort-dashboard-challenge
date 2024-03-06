@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Profile from './pages/Profile';
 
 export const UserContext = createContext();
 
@@ -22,7 +23,7 @@ function App() {
     <UserContext.Provider value={user}>
       {
         user ?
-            <Header />
+          <Header />
           :
           <h1>Loading...</h1>
       }
@@ -30,10 +31,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={
-            <Home />
+          <Home />
+        } />
+        <Route path="/profile/:id" element={
+          <Profile />
         } />
       </Routes>
-      </UserContext.Provider>
+    </UserContext.Provider>
   )
 }
 

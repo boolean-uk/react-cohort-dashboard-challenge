@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import '../styles/ProfileImage.css'
 import PropTypes from 'prop-types';
 
 export default function ProfileImage({ user, w, h, marginL, marginR }) {
+    const navigate = useNavigate();
     return (
         <div className="profileImageContainer" style={
             {
@@ -13,7 +15,9 @@ export default function ProfileImage({ user, w, h, marginL, marginR }) {
                 marginRight: marginR,
                 backgroundColor: user.favouriteColour
             }
-        }>
+        }
+        onClick={() => navigate(`/profile/${user.id}`)}
+        >
             {
                 user.firstName && user.lastName ?
                     <>
