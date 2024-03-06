@@ -6,12 +6,17 @@
 - Component `<Header user={user}>`
 - Component `<PostsFeed>`
 
+  _Has a `FeedContext`_ which provides all posts downwards
+
   - `api.GetPosts()` is fetched to render **\<PostItem>** s
 
   - Component `<CreatePost>`
+
     - `api.CreatePost()`
-  - _several_ Component `<PostItem>`
-    - `api.GetPostComments()`
+    - Component `<PostList>`
+
+      - _which contains several_ Component `<PostItem>`
+        - `api.GetPostComments()`
 
 ## Component \<PostItem>
 
