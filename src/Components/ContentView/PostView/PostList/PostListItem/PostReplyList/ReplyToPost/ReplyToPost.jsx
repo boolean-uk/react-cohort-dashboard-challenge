@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState } from 'react'
 import { userContext } from '@/Utils/contexts.js'
 import { ReplyContext } from "@/Utils/contexts.js"
 import { basePostUrl } from '@/Utils/apiUtils'
@@ -7,13 +7,9 @@ import "./ReplyToPost.css"
 import PropTypes from 'prop-types'
 
 const ReplyToPost = ({postID}) => {
-    const [data, setData] = useState({})
+    const [data, setData] = useState({"commentText": localStorage.getItem(`uncommited_comment_${postID}`) || ""})
     const { LoggedInUser } = useContext(userContext)
     const { refetchReplies } = useContext(ReplyContext)
-
-    useEffect(() => {
-        setData({"commentText": localStorage.getItem(`uncommited_comment_${postID}`) || ""})
-    }, [])
 
     const handleChange = (e) => {
         localStorage.setItem(`uncommited_comment_${postID}`, e.target.value)
