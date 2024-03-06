@@ -1,34 +1,38 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
-import { getInitials } from "../../utils/getInitials.js";
+import { getInitials } from "../../utils/getInitials";
 
 function PostsListItem(props) {
   const { post } = props;
 
   const [currentContact, setCurrentContact] = useState(null);
+  const [comments, setComments] = useState([]);
 
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
 
-  console.log("POST in PostsListItem", post);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${URL}/${post.contactId}`);
-
-        if (!response.ok) {
-          console.log(`Error: ${response.status} - ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        console.log("Data", data);
-        setCurrentContact(data);
-      } catch (error) {
-        console.log("OBS!!! Something went wrong:", error.message);
-      }
-    };
     fetchData();
-  }, [URL, post.contactId]);
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${URL}/${post.contactId}`);
+
+      if (!response.ok) {
+        console.log(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      setCurrentContact(data);
+
+      if (data.comments) {
+        setComments(data.comments);
+      }
+    } catch (error) {
+      console.log("OBS!!! Something went wrong:", error.message);
+    }
+  };
 
   return (
     <>
@@ -54,7 +58,6 @@ function PostsListItem(props) {
         </div>
         <div className="post-comment-card">
           <CommentsListItem post={post} />
-          <input type="text" placeholder="Add a comment..."></input>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@
   --clr-info-dark: #7d8da1;
   --clr-dark: #363949;
   --clr-light: rgba(132, 139, 200, 0.2);
-  --clr-backgound: #f6f6f9;
+  --clr-backgound: #f0f5fa;
   --clr-red: #e22928;
   --clr-yellow: #ff8b2f;
 
@@ -64,13 +64,13 @@ body {
   font-size: 0.88rem;
   user-select: none;
   overflow: scroll;
-  color: var(--clr-dark);
+  color: var(--clr-backgound);
   background-color: #f0f5fa;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 12rem auto 23rem; /* Free columns one at 12rem middle aouto and right 23rem*/
+  grid-template-columns: 12rem auto 23rem;
   width: 95%;
   margin: 0 auto;
   gap: 1.8rem;
@@ -240,4 +240,20 @@ main > * {
 
 #create-post-module-input > button {
   width: 200px;
+}
+
+#comment-post-card {
+  display: flex;
+}
+
+#comment-post-card > input {
+  border: none;
+  width: 89%;
+  background-color: var(--clr-backgound);
+}
+
+#comment-post-card > span {
+  margin-left: -40px;
+  cursor: pointer;
+  margin-top: 2.5%;
 }

@@ -27,7 +27,6 @@ function HomePage() {
       console.log("OBS!!! Something went wrong retrieving Posts from DB");
     }
   };
-  console.log("postsList in Homepage: ", postsList);
 
   const handlePostCreation = () => {
     fetchData();
