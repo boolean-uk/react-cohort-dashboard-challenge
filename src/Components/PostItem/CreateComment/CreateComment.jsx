@@ -25,16 +25,18 @@ function CreateComment() {
   return (
     <div className="d-flex">
       <ProfileCircle />
-      <div className="chat-bubble ml-3 response">
+      <div className="input-bubble ml-3 mx-3 response align-items-center">
         <input
-          className="input"
+          className="input mx-2"
           type="text"
           name="comment"
           value={comment}
           onChange={handleCommentChange}
           placeholder="Write a comment..."
         />
-        <button onClick={postComment}>Send</button>
+        <button className="btn btn-primary mx-3" onClick={postComment}>
+          Send
+        </button>
       </div>
     </div>
   );

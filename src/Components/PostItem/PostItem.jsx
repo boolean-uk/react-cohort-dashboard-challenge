@@ -51,7 +51,7 @@ function PostItem(props) {
         updateComments: updateComments,
       }}
     >
-      <div className="feed-item">
+      <div id={post.id} className="feed-item">
         <OriginalPost />
         <PostCommentList />
         <CreateComment />

@@ -16,3 +16,11 @@
   overflow: auto;
   overflow-y: auto;
 }
+
+.btn-primary {
+  background-color: #000046;
+  border: 0;
+}
+.btn-primary:hover {
+  background-color: #64dc78;
+}

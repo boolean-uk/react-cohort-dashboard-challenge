@@ -1,6 +1,6 @@
 import "./ProfileCircle.css";
 function ProfileCircle({ user }) {
-  if (!user) {
+  if (!user || user.firstName === undefined || user.lastName === undefined) {
     return <div className="profile-circle">N/A</div>;
   }
 

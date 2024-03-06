@@ -1,10 +1,11 @@
-.center {
+.feed-background {
   flex: auto;
   display: flex;
   flex-direction: column;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 
   background-color: #f0f5fa;
+  padding-bottom: 2rem;
 }
 .feed-item {
   flex: auto;
@@ -12,5 +13,8 @@
   background-color: white;
   /* border: 2px solid grey; */
   padding: 2rem;
-  margin: 3rem;
+  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
 }
