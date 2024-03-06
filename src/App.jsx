@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Feed from "./components/Feed";
 import SideMenu from "./components/SideMenu";
 import HeaderIcon from "./components/icons/HeaderIcon";
+//import HeaderIcon from "./components/icons/HeaderIcon";
 
 const Context = createContext()
 
@@ -17,23 +18,19 @@ function App() {
   }, [posts]);
 
   return (
-    <Context.Provider value={ { posts, setPosts } }>
-
+    <Context.Provider value={{ posts, setPosts }}>
       <div className="app">
         <header className="header">
           <HeaderIcon />
-          {/* TODO add user avatar*/}
+          {/* WANT TO PUT SVG IMAGE HERE*/}
         </header>
 
         <SideMenu />
 
         <Routes>
-          <Route 
-            path='/'
-            element={<Feed />} 
-          />
+          <Route path="/" element={<Feed />} />
         </Routes>
-      </div> 
+      </div>
     </Context.Provider>
   );
 }

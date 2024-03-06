@@ -50,24 +50,26 @@ function PostListItem({ post }) {
       <p>{post.content}</p>
 
       <div className="comments">
-        <div className="posted-comments">
-          <h3>Comments: </h3>
-          <ul className="comments-ul">
-            {comments.map((comment) => (
-              <li key={comment.id}>
-                User #{comment.contactId}: {comment.content}
-                <br /> <br />
-              </li>
-            ))}
-          </ul>
-        </div>
+        {comments.length > 0 && (
+          <div className="posted-comments">
+            <h3>Comments: </h3>
+            <ul className="comments-ul">
+              {comments.map((comment) => (
+                <li key={comment.id}>
+                  User #{comment.contactId}: {comment.content}
+                  <br /> <br />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <form className="comment-form" onSubmit={handleSubmit}>
           {/* TODO user info */}
           <div className="embed-submit-field">
-            <input 
-              name="content" 
-              placeholder="Add a comment..." 
+            <input
+              name="content"
+              placeholder="Add a comment..."
               onChange={handleChange}
               value={commentInput.content}
             />
