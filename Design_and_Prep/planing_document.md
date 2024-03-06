@@ -11,6 +11,8 @@ CohortManagerMainPage
 Displays a list of PostElements. Provide individual postData in to the PostElement as props.
 
 PostElement
+Resives information from CohortManagerMainPage as props. uses the data to display the comment.
+Has a text field to write a new comment.
 
 LookAtSpecificPostPage
 uses useParam function to get id from url path.

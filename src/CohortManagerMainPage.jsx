@@ -83,7 +83,7 @@ function CohortManagerMainPage() {
 
   return (
     <div className="container">
-      <header className="header blue">
+      <header className="header header-colour">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -100,7 +100,7 @@ function CohortManagerMainPage() {
         </svg>
       </header>
       <div className="container-nav-main">
-        <nav className="sidebar red">
+        <nav className="sidebar sidebar-colour">
           <button className="sidebar-button">
             <svg
               width="33"
@@ -134,7 +134,7 @@ function CohortManagerMainPage() {
             <p>Profile</p>
           </button>
         </nav>
-        <main className="main green">
+        <main className="main background">
           <div className="post-bar-box">
             <div className="circle">
               <p className="text">MP</p>

@@ -38,20 +38,31 @@ function PostElement(props) {
   const HandleSubmit = (event) => {
     event.preventDefault();
 
-    const postRequestData = stringToPostRequestBody(newPostData);
+    //const postRequestData = stringToPostRequestBody(newPostData);
 
-    MakeAPIPostRequest(postRequestData);
+    //MakeAPIPostRequest(postRequestData);
   };
 
   return (
-    <div className="yellow main-post">
-      <h2>{postData.title}</h2>
-      <p>{postData.content}</p>
-      <div className="left">
-        comments:
+    <div className="post-box main-post">
+      <div className="post-box-head">
+        <div className="post-head-circle">
+          <p className="text">MP</p>
+        </div>
+        <h2 className="post-head-user">name of poster</h2>
+        <h5 className="post-head-title">{postData.title}</h5>
+      </div>
+      <div className="post-box-body">
+        <p className="post-body-content">{postData.content}</p>
+        <hr className="rounded"></hr>
+      </div>
+      <div className="post-box-comments">
+        <p className="post-comments-header">Comments:</p>
         {commentsList.toReversed().map((comment, index) => {
           return <CommentElement key={index} comment={comment} />;
         })}
+      </div>
+      <div className="post-input-coment-box">
         <form onSubmit={HandleSubmit}>
           <input
             className="comment-text-box"
