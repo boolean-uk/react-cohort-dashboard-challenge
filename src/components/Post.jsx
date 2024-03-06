@@ -7,21 +7,23 @@ import PostComment from './PostComment';
 const Post = ({ post }) => {
   const { contacts } = useContext(PostContext)
 
-  let contact = contacts[post.contactId]
-
+  let contact = contacts.find(c => c.id === post.contactId)  
   return (
     <div className='post'>
       <div className='post-content'>
         <div className='post-header'>
-          <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+          <ProfilePicture firstName={
+                          contact ? contact.firstName : "Bill"} 
+                          lastName={contact ? contact.lastName : "Clinton"} 
+                          favouriteColour={contact ? contact.favouriteColour : "Green"} />
           <div>
-            <p><b>{contact.firstName} {contact.lastName}</b></p>
+            <p><b>{contact ? contact.firstName : "Bill"} {contact ? contact.lastName : "Clinton"}</b></p>
             <p>{post.title}</p>
           </div>
         </div>
         <p>{post.content}</p>
-      </div>
         <PostComment/>
+      </div>
     </div>
   );
 }

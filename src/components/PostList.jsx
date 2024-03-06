@@ -7,7 +7,7 @@ const PostList = () => {
 
   return (
     <div>
-      {posts.map((post, index) => {
+      {posts.toReversed().map((post, index) => {
         return <Post post={post} key={index}/>
       })}
     </div>
