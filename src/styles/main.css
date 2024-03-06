@@ -1,0 +1,29 @@
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-auto-rows: minmax(100px, auto); */
+  grid-template-areas:
+    "hd hd hd hd hd hd"
+    "ln bd bd bd bd bd"
+    "ln bd bd bd bd bd"
+  ;
+}
+
+header {
+  background-color: #000046;
+  grid-area: hd;
+}
+
+section {
+  grid-area: bd;
+}
+
+.nav-container {
+  grid-area: ln;
+}
+
+button {
+  color: #000046;
+}
+
+.body-container {}
