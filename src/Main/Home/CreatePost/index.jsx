@@ -1,8 +1,11 @@
-import './style.css'
-
 function CreatePost() {
     return(
-        <h>Hi</h>
+        <div className="create-post">
+            <form>
+                <input type="text" placeholder="What's on your mind?" />
+                <button>Post</button>
+            </form>
+        </div>
     )
 }
 

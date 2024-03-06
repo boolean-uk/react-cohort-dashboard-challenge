@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #F0F5FA;
+  color: #000046;
 }
 
 .container {
@@ -17,4 +18,12 @@ body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+}
+
+button {
+  background-color: #000046;
+}
+
+button:hover {
+  background-color: #64dc78;
 }
