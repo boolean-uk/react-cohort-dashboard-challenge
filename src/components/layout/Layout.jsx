@@ -3,7 +3,6 @@ import LeftMenu from "./menu/LeftMenu";
 import MainMenu from "./menu/MainMenu";
 
 /* eslint-disable react/prop-types */
-//height: 90vh
 const Layout = (props) => {
     return (
         <div className="layout">
