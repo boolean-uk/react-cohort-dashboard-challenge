@@ -1,11 +1,10 @@
 * App
 
-* Start page
-* Create post page
-* Show posts page
-* Write comment page
-* Navbar
-* Publisher of post page
-* Post page
+* Dashboard
+* Left menu
+* Header
 * Profile page 
+* Post page
+* Create post page
 * Comments post view page
+* Write comment page
