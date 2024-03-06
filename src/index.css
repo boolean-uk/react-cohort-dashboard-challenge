@@ -1,0 +1,55 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  max-height: calc(100vh - 60px);
+}
+
+.main {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
