@@ -52,6 +52,28 @@ function postNewPost(content) {
   return fetch(url, options);
 }
 
+function updateUser(userId, userObject) {
+  // Example Payload /How the userObject should be structured
+  // {
+  //   "firstName": "Rick",
+  //   "lastName": "Sanchez",
+  //   "street": "Morty Lane",
+  //   "city": "Jerryville",
+  //   "gender": "Male",
+  //   "email": "rick@sanchez.com",
+  //   "jobTitle": "Scientist",
+  //   "latitude": 42,
+  //   "longitude": 629,
+  //   "favouriteColour": "#0d7f26",
+  //   "profileImage": "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
+  // }
+
+  const url = `https://boolean-api-server.fly.dev/martenere/contact/${userId}`;
+  const options = putOptions(userObject);
+
+  return fetch(url, options);
+}
+
 const postOptions = (payload) => {
   return {
     method: "POST",
@@ -59,8 +81,28 @@ const postOptions = (payload) => {
     body: JSON.stringify(payload),
   };
 };
+const putOptions = (payload) => {
+  return {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  };
+};
+
+function resetApiData() {
+  const url = "https://boolean-api-server.fly.dev/martenere/admin";
+  const delOptions = { method: "DELETE" };
+
+  fetch(url, delOptions)
+    .then((res) => {
+      console.log(res), res.json();
+    })
+    .then((data) => console.log(data));
+}
 
 export {
+  updateUser,
+  resetApiData,
   getAllPosts,
   postNewPost,
   getPostById,

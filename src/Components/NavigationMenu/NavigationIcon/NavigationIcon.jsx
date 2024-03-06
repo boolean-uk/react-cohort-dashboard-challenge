@@ -6,7 +6,8 @@ function NavigationIcon({ img, title, selected, navigateLink }) {
 
   const navigateTo = () => nav(navigateLink);
 
-  let classes = "d-flex flex-column align-items-center px-5 py-2 pt-4 ";
+  let classes =
+    "nav-icon d-flex flex-column align-items-center px-5 py-2 pt-4 ";
   selected ? (classes += "selected") : "";
   return (
     <div onClick={navigateTo} className={classes}>

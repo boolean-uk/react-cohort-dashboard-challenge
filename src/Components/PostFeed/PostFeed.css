@@ -1,7 +1,10 @@
 .feed-background {
-  flex: auto;
+  /* flex: auto; */
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+
   /* border: 2px solid green; */
 
   background-color: #f0f5fa;

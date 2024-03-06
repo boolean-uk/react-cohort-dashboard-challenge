@@ -5,6 +5,7 @@ import "./PostFeed.css";
 import * as API from "../../API/API";
 
 export const FeedContext = createContext();
+
 function PostFeed() {
   const [posts, setPosts] = useState([]);
 

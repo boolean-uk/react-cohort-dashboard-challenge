@@ -3,9 +3,11 @@ import "./CreateComment.css";
 import ProfileCircle from "../../ProfileCircle/ProfileCircle";
 import * as API from "../../../API/API";
 import { PostContext } from "../PostItem";
+import { UserContext } from "../../../App";
 function CreateComment() {
   const [comment, setComment] = useState("");
   const { post, updateComments } = useContext(PostContext);
+  const { user } = useContext(UserContext);
   const handleCommentChange = (event) => {
     event.preventDefault();
     const { value } = event.target;
@@ -24,7 +26,7 @@ function CreateComment() {
 
   return (
     <div className="d-flex mt-3">
-      <ProfileCircle />
+      <ProfileCircle user={user} />
       <div className="input-bubble ml-3 mx-3 response align-items-center">
         <input
           className="input mx-2"

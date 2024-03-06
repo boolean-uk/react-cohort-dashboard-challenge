@@ -39,8 +39,8 @@ function PostCommentList() {
             </div>
           </button>
         )}
-        {visibleComments.map((comment, indx) => (
-          <PostComment key={indx} comment={comment} />
+        {visibleComments.map((comment) => (
+          <PostComment key={comment.id} comment={comment} />
         ))}
       </div>
     </>

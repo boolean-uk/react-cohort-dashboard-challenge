@@ -3,9 +3,11 @@ import ProfileCircle from "../ProfileCircle/ProfileCircle";
 import "./CreatePost.css";
 import * as API from "../../API/API";
 import { FeedContext } from "../PostFeed/PostFeed";
+import { UserContext } from "../../App";
 function CreatePost() {
   const [postContent, setPostContent] = useState("");
   const { updatePosts } = useContext(FeedContext);
+  const { user } = useContext(UserContext);
 
   const handlePostChange = (event) => {
     const { value } = event.target;
@@ -24,7 +26,7 @@ function CreatePost() {
   return (
     <div className="feed-item p-3 flex ">
       <div className="create-post ml-3">
-        <ProfileCircle />
+        <ProfileCircle user={user} />
         <div className="input-bubble mx-3 response align-items-center">
           <input
             className="input mx-2"
