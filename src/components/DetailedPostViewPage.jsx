@@ -1,30 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import PostsList from "./componenets_homepage/PostsList";
 
 function DetailedPostViewPage() {
+  const [post, setPost] = useState([]);
+
   const URL = `https://boolean-api-server.fly.dev/llllllll-l/post`;
+  const { id } = useParams();
+
   useEffect(() => {
     fetchData();
   }, [URL]);
 
   const fetchData = async () => {
     try {
-      const response = await fetch(URL);
+      const response = await fetch(URL + `/${id}`);
 
       if (!response.ok) {
         console.log(`Error: ${response.status} - ${response.statusText}`);
       }
 
       const data = await response.json();
-      const sortedPosts = data.sort((a, b) => b.id - a.id);
-      setPostsList(sortedPosts);
+      const postData = Array.isArray(data) ? data : [data];
+
+      setPost(postData);
     } catch (er) {
       console.log("OBS!!! Something went wrong retrieving Posts from DB");
     }
   };
+
   return (
     <>
-      <h1>HELLO WORLD</h1>
-      <p>DetailedPostViewPage</p>
+      <PostsList postsList={post} />
     </>
   );
 }
