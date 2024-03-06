@@ -11,7 +11,7 @@ function LeftMenu() {
   };
 
   return (
-    <div className='left-menu'>
+    <aside className='left-menu'>
       <Link to={"/"}>
         <div
           className={`button ${selectedButton === 'Home' ? 'selected' : ''}`}
@@ -46,9 +46,7 @@ function LeftMenu() {
           Profile
         </div>
       </Link>
-
-      {/* Add more buttons as needed */}
-    </div>
+    </aside>
   );
 }
 

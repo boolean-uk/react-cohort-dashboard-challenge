@@ -4,7 +4,6 @@ import { CurrentUserContext } from './App'
 
 function Header() {
   const currentUserContext = useContext(CurrentUserContext)
-  console.log(currentUserContext.currentUser)
 
   // Check if currentUser is available before rendering the ProfilePicture
   const renderProfilePicture = currentUserContext.currentUser ? (
