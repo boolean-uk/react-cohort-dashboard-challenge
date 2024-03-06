@@ -12,7 +12,8 @@ function App() {
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
       .then((response) => response.json())
-      .then(setPosts);
+      .then((data) => setPosts(data.reverse()))
+      //.then(setPosts);
   }, [posts]);
 
   return (
