@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { MyContext } from "../App"
 
 export default function CreateNewPostComment(props){
+    const context = useContext(MyContext)
     const {post} = props
 
     const newComment = {
@@ -11,6 +13,8 @@ export default function CreateNewPostComment(props){
     }
 
     const [commentForm, setCommentForm] = useState(newComment)
+
+    const contact = context.contacts.find((x) => x.id === newComment?.contactId)
 
     function handleInput(event) {
         const postInput = {...commentForm}
@@ -34,21 +38,23 @@ export default function CreateNewPostComment(props){
         await fetch(`https://boolean-api-server.fly.dev/mkmbaran/post/${post.id}/comment`, reqOptions)
     }
 
+    if (!contact) return <p>Loading post author...</p>
+
     return (
         <form onSubmit={handleSubmit}>
-            <li><b>Add Comment</b></li>
-            <br/>
-            <input
+        <img src={contact.profileImage}/>
+        <li>
+        <input
                 type="textarea"
                 id="content"
                 name="content"
-                placeholder="Your Comment..."
+                placeholder="Add a comment..."
                 value={commentForm.content}
                 onChange={handleInput}
                 required
             />
-            <br/>
             <button type="submit">Post</button>
+        </li>
         </form>
     )
 }

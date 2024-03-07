@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import PostsList from './components/PostsList'
 import { Route, Routes } from 'react-router-dom'
 import Post from './components/Post'
 import Header from './components/Header'
+import NavMenu from './components/NavMenu'
+
+const MyContext = createContext()
 
 function App() {
 
@@ -28,18 +31,23 @@ function App() {
   useEffect(() => {
     getPostsFromApi()
     getContactsFromApi()
-  })
+  },[])
 
   return (
-    <div className='App'>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<PostsList posts={posts} contacts={contacts}/>}/>
-        <Route path="/posts" element={<PostsList posts={posts} contacts={contacts} />}/>
-        <Route path="/posts/:id" element={<Post contacts={contacts}/>}/>
-      </Routes>
-    </div>
+      <div className='app'>
+        <MyContext.Provider value={{posts, setPosts, contacts, setContacts}}>
+          <Header/>
+          <div className='app-nav-main'>
+            <NavMenu/>
+            <Routes>
+              <Route path="/" element={<PostsList />}/>
+              <Route path="/posts/:id" element={<Post />}/>
+            </Routes>
+          </div>
+        </MyContext.Provider>
+      </div>
   )
 }
 
-export default App
+export default App;
+export {MyContext};

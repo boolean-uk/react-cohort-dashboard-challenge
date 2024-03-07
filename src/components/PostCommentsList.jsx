@@ -4,7 +4,7 @@ import CreateNewPostComment from "./CreateNewPostComment"
 import PostComment from "./PostComment"
 
 export default function PostCommentsList(props) {
-    const {post, contacts} = props
+    const {post} = props
     const [postComments, setPostComments] = useState([])
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function PostCommentsList(props) {
         <div>
             <h4>All comments</h4>
             <div>
-                <ul>
+                <ul className="comments">
                     {postComments.map((comment, index) => (
                         <PostComment key={index} comment={comment}/>
                     ))}

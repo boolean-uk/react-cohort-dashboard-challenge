@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { MyContext } from "../App"
 
 export default function CreateNewPost() {
+    const context = useContext(MyContext)
 
     const newPost = {
         title: "",
@@ -10,6 +12,8 @@ export default function CreateNewPost() {
     }
 
     const [postForm, setPostForm] = useState(newPost)
+
+    const contact = context.contacts.find((x) => x.id === newPost?.contactId)
 
     function handleInput(event) {
         const postInput = {...postForm}
@@ -21,7 +25,6 @@ export default function CreateNewPost() {
         event.preventDefault()
         console.log(postForm)
         postToDB()
-        location.reload()
     }
 
     const postToDB = async () => {
@@ -33,34 +36,41 @@ export default function CreateNewPost() {
         await fetch("https://boolean-api-server.fly.dev/mkmbaran/post", reqOptions)
     }
 
+    if (!contact) return <p>Loading post author...</p>
+
     return (
         <form onSubmit={handleSubmit}>
-            <h2>New Post</h2>
-            <label htmlFor="title">Give your post a title</label>
-            <br/>
+        <ul className="card">
+        <img src={contact.profileImage}/>
+            <li>
+            <label htmlFor="title">Give your post a title </label>
             <input
                 type="text"
                 id="title"
                 name="title"
-                placeholder="Give your post a title..."
+                placeholder="Topic"
                 value={postForm.title}
                 onChange={handleInput}
                 required
             />
-            <br/>
-            <label htmlFor="content">Write your post below</label>
+            </li>
+           <li>
             <br/>
             <input
-                type="textarea"
+                type="text"
                 id="content"
                 name="content"
-                placeholder="Fill out your post body here..."
+                placeholder="What's on your mind?"
                 value={postForm.content}
                 onChange={handleInput}
                 required
             />
-            <br/>
-            <button type="submit">Post</button>
+           </li>
+           <br/>
+            <li>
+            <button type="submit">Create a new post</button>
+            </li>
+        </ul>
         </form>
     )
 }

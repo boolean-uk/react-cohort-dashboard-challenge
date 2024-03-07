@@ -1,26 +1,20 @@
 /* eslint-disable react/prop-types */
-//import { useEffect, useState } from "react"
+
+import { useContext } from "react"
+import { MyContext } from "../App"
 
 export default function PostComment(props){
+    const context = useContext(MyContext)
     const {comment} = props
-    /*
-    const [contact, setContact] = useState({
-        firstName: "",
-        lastName: "",
-        favouriteColour: "#FFFFFF"
-    })
 
-    /*
-    useEffect(() =>{
-        setContact(contacts.find((x) => x.id === comment.contactId))
-    }, [contact])
+    const contact = context.contacts.find((x) => x.id === comment?.contactId)
 
     if (!contact) return <p>Loading comment user author...</p>
-    */
    
     return (
         <div key={comment.id}>
-            <h4>{comment.contactId}</h4>
+            <img src={contact.profileImage}/>
+            <h4>{contact.firstName} {contact.lastName}</h4>
             <p>{comment.content}</p>
         </div>
     )
