@@ -1,6 +1,7 @@
 import React from 'react'
 import { Post } from './Post'
 import { PersonalPost } from './PersonalPost'
+import "./styles/Posts.css"
 
 export function Posts({posts}) {
     
@@ -9,10 +10,14 @@ export function Posts({posts}) {
 
     return (
         <>
-            <PersonalPost />
-            {posts.map((post, key) => 
-                <Post post={post} key={key}/>
-                )}
+            <div className='page'>
+                <PersonalPost />
+                <ul className='post-list'>
+                {posts.map((post, key) => 
+                    <Post postIdAlt={post.id} key={key}/>
+                    )}
+                </ul>
+            </div>
         </>
     )
 }

@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { ConnectionContext, UsersContext } from '../App';
 import ProfilePicture from './ProfilePicture';
+import "./styles/PersonalPost.css"
 
 export function PersonalPost() {
     
     const { currentUser, setPosts } = useContext(UsersContext);
     const {url} = useContext(ConnectionContext);
-    const [personalPost, setPersonalPost] = useState("")
+    const [personalPost, setPersonalPost] = useState({})
 
     const changePersonalpost = (event) => {
         setPersonalPost(event.target.value)
@@ -32,9 +33,11 @@ export function PersonalPost() {
 
     return (
         <>
+            <div className='post-create'>
             <ProfilePicture firstName={currentUser.firstName} lastName={currentUser.lastName} favouriteColour={currentUser.favouriteColour}/>
-            <input type='text' value={personalPost} onChange={changePersonalpost}></input>
-            <button onClick={submitPost}>Post</button>
+            <input type="text" name="title" value={personalPost.title} onChange={changePersonalpost} className='post-bar' placeholder="What's on your mind?"></input>
+            <button onClick={submitPost} className='post-btn'>Post</button>
+            </div>
         </>
     )
 }

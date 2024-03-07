@@ -1,10 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./styles/Profile.css"
-import { ConnectionContext } from '../App';
+import { ConnectionContext, UsersContext } from '../App';
+import { useParams } from 'react-router-dom';
 
-export function Profile({currentUser, setCurrentUser, setUsers}) {
+export function Profile() {
+
+    const {id} = useParams()
 
     const {usersUrl} = useContext(ConnectionContext)
+    const {users, setUsers} = useContext(UsersContext)
 
     const [editUser, setEditUser] = useState({})
 
@@ -16,8 +20,7 @@ export function Profile({currentUser, setCurrentUser, setUsers}) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setCurrentUser(editUser)
-        fetch(`${usersUrl}/${currentUser.id}`, {
+        fetch(`${usersUrl}/${editUser.id}`, {
             method: "PUT", 
             headers: {
                 'Content-Type': 'application/json',
@@ -30,8 +33,9 @@ export function Profile({currentUser, setCurrentUser, setUsers}) {
     }
 
     useEffect(() => {
-        setEditUser({...currentUser})
-    }, [currentUser])
+        const activeUser = users.find(u => u.id == id)
+        setEditUser({...activeUser})
+    }, [users, id])
 
     if(!editUser) return <h1>Loading...</h1>
 

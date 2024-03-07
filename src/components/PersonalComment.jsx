@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { ConnectionContext, UsersContext } from '../App'
 import ProfilePicture from './ProfilePicture';
+import "./styles/PersonalComment.css"
+import SendIcon from './Icons/SendIcon';
 
 
 export function PersonalComment({ post, setComments }) {
@@ -17,6 +19,7 @@ export function PersonalComment({ post, setComments }) {
 
     const submitComment = (event) => {
         event.preventDefault();
+        
         fetch(`${url}/${post.id}/comment`, {
             method: "POST",
             headers: {
@@ -32,10 +35,14 @@ export function PersonalComment({ post, setComments }) {
     }
 
     return (
-        <>
+        <div className='comment-create'>
             <ProfilePicture firstName={currentUser.firstName} lastName={currentUser.lastName} favouriteColour={currentUser.favouriteColour}/>
-            <input type='text' value={comment} onChange={changeComment}></input>
-            <button onClick={submitComment}>Submit</button>
-        </>
+            <div className='comment-form'>
+                <input type='text' value={comment} onChange={changeComment} className='comment-bar' placeholder='Add a comment...'></input>
+                <button onClick={submitComment} className='comment-btn'>
+                    <SendIcon />
+                </button>
+            </div>
+        </div>
     )
 }

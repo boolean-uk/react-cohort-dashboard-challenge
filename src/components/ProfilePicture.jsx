@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styles/ProfilePicture.css"
 
 const ProfilePicture = ({ firstName, lastName, favouriteColour }) => {
   // Function to generate initials from the first and last name
@@ -23,7 +24,7 @@ const ProfilePicture = ({ firstName, lastName, favouriteColour }) => {
   };
 
   return (
-    <div style={circleStyle}>
+    <div style={circleStyle} className='profile-picture'>
       {generateInitials()}
     </div>
   );

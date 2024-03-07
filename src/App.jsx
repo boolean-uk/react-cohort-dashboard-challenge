@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState } from 'react'
-import './App.css'
+import "./components/styles/Layout.css"
 import { Route, Routes } from 'react-router-dom'
 import { Dashboard } from './components/Dashboard'
 import { Profile } from './components/Profile'
 import { Sidebar } from './components/Sidebar'
 import { Header } from './components/Header'
+import { Post } from './components/Post'
 
 const ConnectionContext = createContext();
 const UsersContext = createContext();
@@ -40,19 +41,24 @@ function App() {
   return (
     <>
     <ConnectionContext.Provider value={{url: url, usersUrl: usersUrl}}>
-    <UsersContext.Provider value={{users: users, setUsers: setUsers, 
-      currentUser: currentUser, setCurrentUser: setCurrentUser, 
-      posts: posts, setPosts: setPosts}}>
-    <nav>
-      <Header />
-      <Sidebar />
-    </nav>
-      <Routes>
-        <Route path="/" element={<Dashboard posts={posts}/>}/>
-        <Route path="/profile" element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser} setUsers={setUsers}/>}/>
-      </Routes>
-    </UsersContext.Provider>
-    </ConnectionContext.Provider>
+      <UsersContext.Provider value={{users: users, setUsers: setUsers, 
+        currentUser: currentUser, setCurrentUser: setCurrentUser, 
+        posts: posts, setPosts: setPosts}}> 
+        <nav className="layout">
+          <Header />
+          <main className='main'>
+            <Sidebar />
+            <div className='routes'>
+            <Routes>
+              <Route path="/" element={<Dashboard posts={posts.toReversed()}/>}/>
+              <Route path="/profile/:id" element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser} setUsers={setUsers}/>}/>
+              <Route path="post/:postId" element={<Post />}/>
+            </Routes>
+            </div>
+          </main>
+       </nav>
+      </UsersContext.Provider>
+     </ConnectionContext.Provider>
     </>
   )
 }

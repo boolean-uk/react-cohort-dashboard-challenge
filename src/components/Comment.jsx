@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { UsersContext } from '../App'
 import ProfilePicture from './ProfilePicture'
+import { Link } from 'react-router-dom'
+import "./styles/Comment.css"
 
 export function Comment({ comment }) {
 
@@ -13,12 +15,17 @@ export function Comment({ comment }) {
 
     return (
         <>
-            <div className='Comment'>
-                <ProfilePicture firstName={user.firstName} 
-                    lastName={user.lastName} 
-                    favouriteColour={user.favouriteColour}/>
-                Comment {comment.contactId}: {comment.content}
-            </div>
+            <li className='comment-list-item'>
+                <Link to={`/profile/${user.id}`}>
+                    <ProfilePicture firstName={user.firstName} 
+                        lastName={user.lastName} 
+                        favouriteColour={user.favouriteColour}/>
+                </Link>
+                <div className='comment-content'>
+                    <h3>{user.firstName} {user.lastName}</h3>
+                    <p>{comment.content}</p>
+                </div>
+            </li>
         </>
     )
 }

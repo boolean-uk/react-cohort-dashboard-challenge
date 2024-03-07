@@ -1,0 +1,18 @@
+.comment-list-item {
+    display: flex;
+    justify-content: left;
+    margin: 1rem 0;
+}
+
+.comment-list-item > .comment-content {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 1rem;
+    box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.comment-list-item > .comment-content > h3,
+.comment-list-item > .comment-content > p {
+    margin: 0;
+}
