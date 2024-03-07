@@ -2,7 +2,7 @@ import '../Home.css';
 import React, { useContext, useState } from 'react';
 import { CurrentUserContext } from '../../../App';
 
-function CreatePost({fetchPosts}) {
+function CreatePost({ fetchPosts }) {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
