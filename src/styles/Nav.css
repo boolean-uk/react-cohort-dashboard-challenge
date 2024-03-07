@@ -1,0 +1,23 @@
+.nav-menu {
+    text-align: center;
+    background-color: #ffffff;
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .nav-menu ul {
+    list-style-type: none;
+    padding: 10px;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    margin-right: 10px; /* Add margin to the right side */
+  }
+  
+  .nav-button {
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 100px;
+    margin-top: 10px;
+    padding: 20px;
+  }

@@ -1,0 +1,162 @@
+/* Feed.css */
+
+/* Input container styles */
+.post-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.post-input-container input {
+  margin-right: 10px;
+  width: 100%;
+}
+
+.post-input-container button {
+  padding: 10px;
+  background-image: linear-gradient(
+    to right,
+    #1d976c 0%,
+    #93f9b9 51%,
+    #1d976c 100%
+  );
+  text-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.65);
+  border: 0px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.post-input-container button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main feed styles */
+.feed-ul {
+  padding-left: 0;
+}
+
+.post {
+  padding: 10px;
+  margin: 15px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px;
+  filter: drop-shadow(5px 5px 5px rgb(124, 124, 124));
+}
+
+.post-header {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+}
+
+/* Post.css */
+
+/* Post.css */
+
+.initials {
+  background-color: #63ff82;
+  border-radius: 50%; /* Make it a circle */
+  text-align: center;
+  padding: 6px;
+  margin-right: 10px;
+  font-size: 12px;
+  filter: drop-shadow(3px 5px 5px rgb(164, 164, 164));
+  width: 24px; /* Adjust the width and height for the circle */
+  height: 24px; /* Adjust the width and height for the circle */
+  line-height: 24px; /* Center the text vertically */
+}
+
+
+.commenter-initials {
+  background-color: rgb(148, 255, 253);
+  border-radius: 50%; /* Make it a circle */
+  text-align: center;
+  padding: 6px;
+  margin-right: 10px;
+  font-size: 12px;
+  filter: drop-shadow(3px 5px 5px rgb(164, 164, 164));
+  width: 24px; /* Adjust the width and height for the circle */
+  height: 24px; /* Adjust the width and height for the circle */
+  line-height: 24px; /* Center the text vertically */
+}
+
+
+.author-and-title {
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.post-content {
+  padding: 10px;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.comment-name-and-content {
+  padding: 10px;
+}
+
+.commenter-name {
+  color: #565656;
+  padding-bottom: 5px;
+}
+
+.comment-section {
+  background-color: rgb(15, 9, 60);
+  margin: 5px;
+  margin-left: 50px; /* Adjust the left margin to shift it to the right */
+  border-radius: 5px;
+}
+
+
+.submit-button {
+  padding: 10px;
+  background-image: linear-gradient(
+    to right,
+    #1d976c 0%,
+    #93f9b9 51%,
+    #1d976c 100%
+  );
+  text-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.65);
+  border: 0px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.submit-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.feed-ul button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+hr {
+  margin: 10px;
+  border: 1px solid rgb(108, 108, 108);
+  border-radius: 5px;
+}
+
+input {
+  margin: 10px;
+  width: 90%;
+  height: 26px;
+  justify-content: center;
+  border-radius: 5px;
+  padding-left: 5px;
+}

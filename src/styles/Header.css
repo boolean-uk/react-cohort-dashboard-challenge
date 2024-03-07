@@ -1,0 +1,22 @@
+/* Header.jsx */
+
+header {
+    height: 90px;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Spread items horizontally */
+    background: #000046;
+    padding: 0 20px; /* Add padding to the left and right */
+  }
+  
+  header h1 {
+    color: white;
+  }
+  
+  header p {
+    border: 2px white solid;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #63ff82;
+    color: white;
+  }
