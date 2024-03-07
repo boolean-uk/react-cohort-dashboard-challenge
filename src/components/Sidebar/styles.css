@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
+    user-select: none;
 }
 
 .sidebar > div {
@@ -40,6 +41,6 @@
 }
 
 .sidebar > div:hover {
-    background-color: #dfe4e9;
+    background-color: #e6ebf5;
     cursor: pointer;
 }

@@ -40,5 +40,13 @@ make the child components lay out using flex, vertically stacked in a column */
   background-color: yellow;
   margin: 10px;
   height: 200px;
-  width: 100%;
+  width: 100% - 20px;
+}
+
+h1 {
+  user-select: none;
+}
+
+h2 {
+  user-select: none;
 }

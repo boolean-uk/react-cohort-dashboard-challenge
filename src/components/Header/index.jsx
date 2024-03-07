@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <header className="header">
             <img className="header-logo" src={headerLogo}/>
-            <UserIcon firstName={loggedInUser.firstName} lastName={loggedInUser.lastName} color={loggedInUser.favouriteColour}/>
+            <UserIcon userToIcon={loggedInUser}/>
         </header>
     )
 }

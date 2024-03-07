@@ -1,12 +1,16 @@
 .circle {
     width: 40px;
     height: 40px;
-    line-height: 41px;
+    line-height: 40px;
     border-radius: 50%;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 500;
     color: black;
     text-align: center;
     background-color: #000;
-    display: inline-block; /* Ensures the circle doesn't expand to the full width */
-  }
+    user-select: none;
+}
+
+.circle:hover {
+    cursor: pointer;
+}
