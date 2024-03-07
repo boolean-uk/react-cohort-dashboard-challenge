@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import Feed from "./components/Feed";
 import SideMenu from "./components/SideMenu";
 import HeaderIcon from "./components/icons/HeaderIcon";
-//import HeaderIcon from "./components/icons/HeaderIcon";
 
 const Context = createContext()
 
@@ -25,11 +24,13 @@ function App() {
           {/* WANT TO PUT SVG IMAGE HERE*/}
         </header>
 
-        <SideMenu />
+        <div className="content">
+          <SideMenu />
 
-        <Routes>
-          <Route path="/" element={<Feed />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Feed />} />
+          </Routes>
+        </div>
       </div>
     </Context.Provider>
   );
