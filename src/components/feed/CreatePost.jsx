@@ -19,7 +19,7 @@ export const CreatePost = () => {
   }
   
   return (
-    <div className="feed-entry">
+    <div className="comment-container">
       <div className="rem-right">
         <ProfileImage />
       </div>
