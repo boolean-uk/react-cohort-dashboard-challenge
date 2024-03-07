@@ -1,43 +1,45 @@
 import { DataContext } from "../../App";
 import { useContext, useState, useEffect } from "react";
 
-const initState = { title: "", content: "", contactId: 2, user: null };
-export default function CreatePost() {
+const initState = { content: "", contactId: 2, user: null };
+export default function CreateComment({post, setComments, comments}) {
   const users = useContext(DataContext).users;
   const user = useContext(DataContext).user;
   const posts = useContext(DataContext).posts;
   const setPosts = useContext(DataContext).setPosts;
-  const [newPost, setNewPost] = useState(initState); //TODO: change this to be correct
+  const [newComment, setNewComment] = useState(initState); //TODO: change this to be correct
 
   useEffect(() => {
-
-    newPost.user = user
-if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.contactId);
-    if (postUser) setNewPost({ ...newPost, user: postUser });}
+    setNewComment({...newComment, postId: post.id})
+    newComment.user = user;
+    if (!newComment.user) { //TODO: fix this
+      const postUser = users.find((u) => u.id === newComment.contactId);
+      if (postUser) setNewComment({ ...newComment, user: postUser });
+    }
   }, [users]);
 
   function handleChange(event) {
-    setNewPost({ ...newPost, [event.target.name]: event.target.value });
+    setNewComment({ ...newComment, [event.target.name]: event.target.value });
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://boolean-api-server.fly.dev/pkekkonen/post/", {
+    fetch("https://boolean-api-server.fly.dev/pkekkonen/post/" + post.id + "/comment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPost),
+      body: JSON.stringify(newComment),
     })
       .then((response) => {
         return response.json();
       })
       .then((responseData) => {
-        setPosts([...posts, responseData]);
+        setComments([...comments, newComment])
       });
 
-    setNewPost(initState);
+    setNewComment(initState);
   };
 
   return (
@@ -50,21 +52,13 @@ if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.co
           {user.firstName[0] + "" + user.lastName[0]}
         </div>
       )}
-      <label htmlFor="title"> Title: </label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        onChange={handleChange}
-        value={newPost.title}
-      />
       <input
         type="text-area"
         id="content"
         name="content"
-        placeholder="What's on your mind?"
+        placeholder="Add a comment..."
         onChange={handleChange}
-        value={newPost.content}
+        value={newComment.content}
       />
       <button type="submit">Post</button>
     </form>

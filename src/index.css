@@ -52,21 +52,55 @@ make the child components lay out using flex, vertically stacked in a column */
 }
 
 .red {
-  background-color:#F0F5FA;;
+  background-color: #f0f5fa;
 }
 
 .green {
   background-color: #e6ebf5;
 }
 
-.yellow {
-  background-color: #F0F5FA;
+.post-container {
+  background-color: #f0f5fa;
   margin: 10px;
   height: 200px;
   width: 100%;
+  overflow: scroll;
 }
 
+.post-child {
+  display: inline-block;
+  height: 100px;
+
+  margin: 10px;
+  text-align: left; /* Align text to the left */
+  padding: 10px; /* Optional: Add padding for better spacing */
+  float: left; /* Float elements to the left */
+}
 
 .post img {
   width: 20px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000046;
+  text-align: center;
+  background: #ffffff;
+}
+
+.header-name {
+  font-weight: bold;
+}
+
+.header-top {
+  display: inline-block;
+}
+
+.post {
+  height: 90px;
 }

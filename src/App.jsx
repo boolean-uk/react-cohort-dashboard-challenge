@@ -10,21 +10,40 @@ const DataContext = createContext();
 function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https:boolean-api-server.fly.dev/pkekkonen/post")
+    fetch("https://boolean-api-server.fly.dev/pkekkonen/contact")
       .then((response) => {
         return response.json();
       })
-      .then((postData) => {
-        setPosts(postData);
+      .then((userData) => {
+        setUsers(userData);
+
+        // Get user data
+        fetch("https:boolean-api-server.fly.dev/pkekkonen/post")
+          .then((response) => {
+            return response.json();
+          })
+          .then((postData) => {
+            const postDataWithUsers = postData.map((data) => ({
+              ...data,
+              user: userData.find((u) => u.id === data.contactId),
+            }));
+
+
+            setUser(userData[3]); //TODO: fix so not hardcoded
+            setPosts(postDataWithUsers);
+          });
+
       });
+
   }, []);
 
   return (
     <body>
       <div className="container">
-        <DataContext.Provider value={{ posts, setPosts, user, setUser }}>
+        <DataContext.Provider value={{ posts, setPosts, user, setUser, users }}>
           <Header />
           <div className="container-nav-main">
             <LeftMenu />
