@@ -1,8 +1,11 @@
 .posts {
+    display: flex;
+    width: calc(100vw -  150px);
     
     .list{
         display: flex;
         flex-flow: column;
+        width: 100%;
 
         list-style: none;
         padding: 0;
