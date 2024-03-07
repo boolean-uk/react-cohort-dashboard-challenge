@@ -30,6 +30,7 @@ const AdditionalInfoSectionData = {
   entries: [
     { labelName: "Favourite Colour", name: "favouriteColour" },
     { labelName: "Profile Image Link", name: "profileImage" },
+    // Provided by db, shouldnty be edited
     // { labelName: "ID", name: "id" },
   ],
 };

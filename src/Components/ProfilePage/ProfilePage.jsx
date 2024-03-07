@@ -54,7 +54,7 @@ function ProfilePage() {
         }
       });
   };
-
+  // Get user from api
   function getUser() {
     API.getUserById(userId)
       .then((res) => {
@@ -76,6 +76,7 @@ function ProfilePage() {
   };
 
   useEffect(() => updateFormData(), [updateFormData]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getUser(), [userId]);
   if (!user) {
     return <>Loading</>;

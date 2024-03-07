@@ -19,17 +19,18 @@ function CreatePost() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setPostContent("");
         updatePosts();
       });
   };
 
   return (
-    <div className="feed-item p-3 flex ">
-      <div className="create-post ml-3">
+    <div className="max-height feed-item p-3 flex-grow">
+      <div className="create-post ml-3 align-items-center">
         <ProfileCircle user={user} />
         <div className="input-bubble mx-3 response align-items-center">
           <input
-            className="input mx-2"
+            className="input mx-2 my-1 flex-grow"
             type="text"
             name="comment"
             value={postContent}
@@ -37,7 +38,7 @@ function CreatePost() {
             placeholder="What's on your mind?"
           />
         </div>{" "}
-        <button className="btn btn-primary px-5" onClick={createNewPost}>
+        <button className="btn btn-primary px-5 " onClick={createNewPost}>
           Send
         </button>
       </div>

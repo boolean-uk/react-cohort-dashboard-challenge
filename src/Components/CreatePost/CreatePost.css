@@ -1,8 +1,15 @@
+.max-height {
+  max-height: 6rem;
+  max-width: 100%;
+  width: calc(100% - 2rem);
+}
+
 .flex {
   display: flex;
   flex: auto;
   flex-direction: row;
 }
+
 .create-post {
   display: flex;
   flex: auto;

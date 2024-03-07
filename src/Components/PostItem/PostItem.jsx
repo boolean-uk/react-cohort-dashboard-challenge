@@ -1,13 +1,13 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./PostItem.css";
 import * as API from "../../API/API";
 
 import OriginalPost from "./OriginalPost/OriginalPost";
 import PostCommentList from "./PostCommentList/PostCommentList";
 import CreateComment from "./CreateComment/CreateComment";
-import { UserContext } from "../../App";
 
 export const PostContext = createContext();
+
 function PostItem(props) {
   const [post, setPost] = useState(props.post);
   const [comments, setComments] = useState([]);
@@ -39,8 +39,10 @@ function PostItem(props) {
       });
   };
 
+  //functions needs to be memoized to be able to use as deps, so disabling
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getUser(), []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => updateComments(), []);
 
   return (

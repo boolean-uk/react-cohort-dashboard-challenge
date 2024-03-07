@@ -6,20 +6,17 @@
   color: #000046;
   display: flex;
   flex-direction: column;
-  /* text-align: center; */
 }
 
 .page-body {
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
   flex: auto;
   flex-grow: 1;
-  /* TODO FIX HEIGHT ISSUE*/
-  max-height: calc(92vh);
+
+  max-height: calc(100vh - 5rem);
 }
 .main-content-scrollable {
-  /* display: flex; */
   flex: 1;
   overflow: auto;
   overflow-y: auto;

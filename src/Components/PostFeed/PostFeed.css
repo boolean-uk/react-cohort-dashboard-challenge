@@ -3,21 +3,18 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100%;
-
-  /* border: 2px solid green; */
+  min-height: 100%;
+  align-items: center;
 
   background-color: #f0f5fa;
   padding-bottom: 2rem;
 }
 .feed-item {
-  flex: auto;
   border-radius: 8px;
   background-color: white;
-  /* border: 2px solid grey; */
+
   padding: 2rem;
   margin: 1rem;
   margin-top: 1rem;
   margin-bottom: 0rem;
-  /* box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5); */
 }

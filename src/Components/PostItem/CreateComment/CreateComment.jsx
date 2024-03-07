@@ -19,6 +19,7 @@ function CreateComment() {
     API.postCommentToPost(post.id, comment, 1)
       .then((response) => response.json())
       .then((data) => {
+        setComment("");
         updateComments();
         console.log(data);
       });

@@ -20,7 +20,13 @@ function PostFeed() {
   useEffect(() => updatePosts(), []);
   return (
     <div className="feed-background">
-      <FeedContext.Provider value={{ posts: posts, updatePosts: updatePosts }}>
+      <FeedContext.Provider
+        value={{
+          posts: posts,
+          updatePosts: updatePosts,
+          deletePostAction: updatePosts,
+        }}
+      >
         <CreatePost></CreatePost>
         <PostList></PostList>
       </FeedContext.Provider>

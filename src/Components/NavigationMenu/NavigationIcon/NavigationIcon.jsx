@@ -8,7 +8,9 @@ function NavigationIcon({ img, title, selected, navigateLink }) {
 
   let classes =
     "nav-icon d-flex flex-column align-items-center px-5 py-2 pt-4 ";
+  // add selected class to show as highlighted if this route is the current active path
   selected ? (classes += "selected") : "";
+
   return (
     <div onClick={navigateTo} className={classes}>
       <img src={img} width={24} />

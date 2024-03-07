@@ -19,7 +19,7 @@ function PostPage({ props }) {
   };
   useEffect(() => getPost(), []);
   return (
-    <FeedContext.Provider value={{ posts: [post], updatePosts: goTohome }}>
+    <FeedContext.Provider value={{ posts: [post], deletePostAction: goTohome }}>
       <div className="feed-background">{post && <PostItem post={post} />}</div>
     </FeedContext.Provider>
   );

@@ -9,7 +9,7 @@ import TextEditor from "./TextEditor/TextEditor";
 import { FeedContext } from "../../PostFeed/PostFeed";
 
 function OriginalPost() {
-  const { updatePosts } = useContext(FeedContext);
+  const { deletePostAction } = useContext(FeedContext);
   const {
     post,
     originalPostUser,
@@ -17,17 +17,20 @@ function OriginalPost() {
   } = useContext(PostContext);
   const [edit, setEdit] = useState(false);
 
+  // Update post with new content
   const updatePost = (newContent) => {
     API.UpdatePost(post.id, post, newContent)
       .then((res) => res.json)
       .then(() => updatePostContent());
   };
 
+  //Delete post from api
   const deletePost = () => {
     API.DeletePostById(post.id)
       .then((res) => res.json())
-      .then(() => updatePosts());
+      .then(() => deletePostAction());
   };
+  //Show hide editor of text
   const toggleEdit = () => setEdit(!edit);
 
   return (

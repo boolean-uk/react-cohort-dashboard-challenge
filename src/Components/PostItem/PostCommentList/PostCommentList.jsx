@@ -5,20 +5,19 @@ import "./PostCommentList.css";
 import { PostContext } from "../PostItem";
 import PostComment from "./PostComment/PostComment";
 
-const DEFAULT_AMOUNT_COMMENTS = 3;
+const PREVIEW_AMOUNT_COMMENTS = 3;
 function PostCommentList() {
-  // eslint-disable-next-line no-unused-vars
   const [isLimitedView, setIsLimitedView] = useState(true);
   const { comments } = useContext(PostContext);
 
-  const hasExcessComments = comments.length > DEFAULT_AMOUNT_COMMENTS;
-  const hiddenCommentCount = comments.length - DEFAULT_AMOUNT_COMMENTS;
+  const hasExcessComments = comments.length > PREVIEW_AMOUNT_COMMENTS;
+  const hiddenCommentCount = comments.length - PREVIEW_AMOUNT_COMMENTS;
 
   const toggleFilterComments = () => setIsLimitedView(!isLimitedView);
 
   let visibleComments = comments;
   if (isLimitedView) {
-    visibleComments = visibleComments.slice(-DEFAULT_AMOUNT_COMMENTS);
+    visibleComments = visibleComments.slice(-PREVIEW_AMOUNT_COMMENTS);
   }
 
   return (

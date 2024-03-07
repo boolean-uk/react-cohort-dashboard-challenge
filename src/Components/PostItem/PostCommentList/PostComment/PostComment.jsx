@@ -9,11 +9,11 @@ import { PostContext } from "../../PostItem";
 function PostComment({ comment }) {
   const [commentUser, setCommentUser] = useState("");
   const { updateComments } = useContext(PostContext);
-
   const [edit, setEdit] = useState(false);
 
   const toggleEdit = () => setEdit(!edit);
 
+  // Get user from api, then update interface
   const getUser = () => {
     API.getUserById(comment.contactId)
       .then((res) => res.json())
@@ -22,7 +22,7 @@ function PostComment({ comment }) {
         setCommentUser(userData);
       });
   };
-
+  //Send updateComment to api, then update interface
   const updateComment = (newCommentText) => {
     API.updateComment(comment, newCommentText)
       .then((res) => res.json())
@@ -31,13 +31,15 @@ function PostComment({ comment }) {
         updateComments();
       });
   };
+  //Send deletePost to api, then update interface
   const deleteComment = () =>
     API.deleteComment(comment)
       .then((res) => res.json())
-      .then((data) => updateComments());
+      .then(() => updateComments());
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getUser(), []);
+
   return (
     <div className="d-flex my-3">
       <div className="mr-3">
@@ -67,7 +69,7 @@ function PostComment({ comment }) {
     </div>
   );
 }
-
+// Edit and delete buttons for comment
 function CommentButtons({ deleteComment, toggleEdit }) {
   return (
     <div id="buttons">
