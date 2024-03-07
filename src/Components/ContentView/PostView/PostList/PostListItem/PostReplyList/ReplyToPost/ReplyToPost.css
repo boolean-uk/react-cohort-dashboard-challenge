@@ -23,11 +23,10 @@
 
 .reply-container-item > button {
     position: relative;
-    border: 1px lightgray solid;
     background:none;
     color: none;
     width: 15px;
-    border-radius: 45%;
+    border-radius: 15px;
     left: -50px;
 }
 
@@ -38,10 +37,6 @@
     width: 25px;
     height: 25px;
     transform: rotate(45deg)
-}
-
-.reply-container-item > button:hover {
-    background-color: gray;
 }
 
 input {

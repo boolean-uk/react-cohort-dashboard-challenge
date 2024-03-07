@@ -20,7 +20,7 @@ const PostView = () => {
 
     return (
         <PostsContext.Provider
-            value={{posts: posts, setPosts: setPosts}}
+            value={{posts: posts, setPosts: setPosts, fetchPosts: fetchPosts}}
         >
         <div>
             <CreatePost />
