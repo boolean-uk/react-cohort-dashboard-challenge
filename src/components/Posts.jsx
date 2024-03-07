@@ -1,23 +1,25 @@
+import { useContext } from "react"
+import { MyContext } from "../App"
+
+export default function Posts() {
+    const context = useContext(MyContext)
 
 
-
-export default function Posts({posts, setPosts}) {
-
+    
 
     return (
-        <div>
-          <ul>
-            {/*posts.map(post, index => (
-              <li key={post.id}>
-                <Post post={post} />
-                
-              </li>
-            ))*/}
-          </ul>
-        </div>
-      )
-
-
-
-
+        <>
+            {context.posts.map(post => {
+                return (
+                    <div className="rounded-post" key={post.id}>
+                        <h3>{post.title}</h3>
+                        <p>{post.content}</p>
+                        <div className="comments">
+                        <p></p>
+                        </div>
+                    </div>
+                )
+            })}
+        </>
+    )
 }

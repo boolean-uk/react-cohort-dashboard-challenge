@@ -115,6 +115,15 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+.postButton {
+  background-color: gainsboro;
+  margin-bottom: auto;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 
 .rounded-box button:hover {

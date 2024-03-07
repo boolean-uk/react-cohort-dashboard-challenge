@@ -1,10 +1,14 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import './App.css';
 import cmlogo from './assets/title-header.svg';
 import homeLogo from './assets/home-icon.svg';
 import profileLogo from './assets/profile-icon.svg';
 import Posts from './components/Posts';
+import CreatePost from './components/CreatePost';
+
+const MyContext = createContext()
+
 
 function App() {
   const [posts, setPosts] = useState([]); 
@@ -64,16 +68,12 @@ function App() {
             </button>
           </nav>
           <main className="main green">
-            
-            <div className="rounded-box yellow">
-              <textarea placeholder="What are you thinking?"></textarea> <br></br>
-              <button>Submit</button>
-            </div>
+            <MyContext.Provider value={{posts: posts, setPosts: setPosts}}>
+              <CreatePost />
+              <Posts/>
+              
+            </MyContext.Provider>
 
-            <div className="rounded-post">
-              <Posts posts={posts} setPosts={setPosts}/>
-
-            </div>
           </main>
         </div>
       </div>
@@ -81,4 +81,4 @@ function App() {
   );
 }
 
-export default App;
+export {App, MyContext};
