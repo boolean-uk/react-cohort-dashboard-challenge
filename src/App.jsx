@@ -6,7 +6,7 @@ import DashboardComponent from './components/Dashboard'
 
 //Global api url
 const BASEURL = 'https://boolean-api-server.fly.dev/'
-const GITUSER = 'moph13121/'
+const GITUSER = 'moph13121'
 export const APIURL = BASEURL + GITUSER
 
 export default function App() {

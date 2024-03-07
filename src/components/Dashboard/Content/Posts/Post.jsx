@@ -1,11 +1,13 @@
 import React from 'react'
 import './Post.css'
 
-export default function PostComponent({}) {
+export default function PostComponent({post}) {
+
+
     return (
         <li className='item'>
             <div className='card'>
-                PostComponent
+                {post.title}
             </div>
         </li>
     )
