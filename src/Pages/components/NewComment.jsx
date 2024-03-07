@@ -13,11 +13,8 @@ export default function NewComment({ postId }) {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      content: value,
-    }));
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -47,15 +44,27 @@ export default function NewComment({ postId }) {
   return (
     <>
       <form onSubmit={handleSubmit} className="comment">
-        <input
-          type="text"
-          name="content"
-          placeholder="Add a comment..."
-          value={formData.content}
-          onChange={handleChange}
-        />
-        <button type="submit"> Post</button>
+        <div className="input-wrapper">
+          <input
+            className="inputBox"
+            type="text"
+            name="content"
+            placeholder="Add a comment..."
+            value={formData.content}
+            onChange={handleChange}
+          />
+          <button type="submit" className="submit-button">
+            <img
+              src="https://static.thenounproject.com/png/105496-200.png"
+              alt="buttonpng"
+              border="0"
+              width="20"
+              height="20"
+            />
+          </button>
+        </div>
       </form>
+
       {error.length > 3 && <p style={{ color: "red" }}>{error}</p>}
     </>
   );

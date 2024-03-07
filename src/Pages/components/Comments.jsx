@@ -3,7 +3,7 @@ import { getRequest } from "../../API";
 import { useParams } from "react-router-dom";
 import Users from "./Users";
 
-export default function Comments({ postId, userId }) {
+export default function Comments({ postId }) {
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -13,18 +13,20 @@ export default function Comments({ postId, userId }) {
   // on load: fetch comments
   useEffect(() => {
     const fetchComments = async () => {
+      setLoading(true);
       const { data, error } = await getRequest(`/post/${postId}/comment`);
       if (error === null) {
         setComments(data);
+        console.log(data);
       } else {
-        // display error
         console.log(error);
       }
       setLoading(false);
     };
     fetchComments();
-  }, [commentId, postId]);
+  }, [postId, commentId]);
 
+  // show all comments if showAllComments is true, otherwise show the first 3
   const visibleComments = showAllComments ? comments : comments.slice(0, 3);
 
   return (
@@ -35,9 +37,9 @@ export default function Comments({ postId, userId }) {
           <h2>Comments</h2>
           {visibleComments.map((com) => {
             return (
-              <div className="comment" key={com.id}>
+              <div key={com.id}>
                 <Users userId={com.contactId} />
-                <p>{com.content}</p>
+                <p className="comment">{com.content}</p>
               </div>
             );
           })}

@@ -1,10 +1,26 @@
-import { Link } from "react-router-dom";
+// Navigation component
+import { Link, useLocation } from "react-router-dom";
 
-export default function Navigations() {
+export default function SidebarNavigation() {
+  const location = useLocation();
+
   return (
-    <div className="navegation">
-      <Link to="/">Home</Link>
-      <Link to="/profile">Profile</Link>
+    <div className="sidebar">
+      <div className="logo">
+        <img src="src/assets/logo.png" alt="Logo" />
+      </div>
+
+      <div className="navigation glow">
+        <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+          Home
+        </Link>
+        <Link
+          to="/profile"
+          className={location.pathname === "/profile" ? "active" : ""}
+        >
+          Profile
+        </Link>
+      </div>
     </div>
   );
 }

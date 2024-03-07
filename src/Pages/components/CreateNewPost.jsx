@@ -43,8 +43,19 @@ export default function CreateNewPost() {
     });
   }
 
+  /*
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+*/
+
   return (
-    <>
+    <div className="post-card">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -52,20 +63,25 @@ export default function CreateNewPost() {
           placeholder="What's on your mind?"
           value={formData.title}
           onChange={handleChange}
+          className="inputBox"
         />
         <input
-          className="inputBox"
           type="text"
           name="content"
           placeholder="Description"
           value={formData.content}
           onChange={handleChange}
+          className="inputBox"
         />
-        <button type="submit">Post</button>
+        <button type="submit" className="button">
+          Post
+        </button>
       </form>
-      {creating && <p>Post has been published successfully</p>}
-      {error.length > 3 && <p style={{ color: "red" }}>{error}</p>}
-    </>
+      {creating && (
+        <p className="success-message">Post has been published successfully</p>
+      )}
+      {error.length > 3 && <p className="error-message">{error}</p>}
+    </div>
   );
 }
 
