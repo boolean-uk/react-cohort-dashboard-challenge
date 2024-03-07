@@ -27,4 +27,9 @@
 .post-list > .list-item > .post-owner > .owner-info > p {
     color: #64648c;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > p:hover {
+    color: navy;
 }

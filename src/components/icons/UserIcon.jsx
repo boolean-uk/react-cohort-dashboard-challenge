@@ -19,7 +19,7 @@ const UserIcon = ({ color, firstName, lastName, onClick }) => {
 export default UserIcon;
 
 UserIcon.propTypes = {
-    color: PropTypes.string.isRequired,
+    color: PropTypes.string,
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     onClick: PropTypes.func,
