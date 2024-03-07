@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CurrentUserContext } from '../../../App';
-import '../Home.css'; 
+import '../Home.css';
 
 function CreateComment({ fetchComments, postId }) {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);

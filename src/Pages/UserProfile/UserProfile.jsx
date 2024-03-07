@@ -13,8 +13,6 @@ function UserProfile() {
   const [editedUser, setEditedUser] = useState({});
 
   useEffect(() => {
-    console.log(currentUser)
-
     // Check if currentUser exists before trying to find the user
     if (currentUser) {
       console.log(currentUser)

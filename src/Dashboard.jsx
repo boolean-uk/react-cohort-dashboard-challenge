@@ -26,7 +26,7 @@ function Dashboard() {
 
   useEffect(() => {
     fetchPosts();
-  }, []); 
+  }, []);
 
   return (
     <div className='dashboard-component'>
