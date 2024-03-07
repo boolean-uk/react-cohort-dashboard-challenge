@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostsList from "./componenets_homepage/PostsList";
+import { fetchAllContacts } from "../utils/api";
+import { basePostURL } from "../utils/urls";
 
 function DetailedPostViewPage() {
   const [post, setPost] = useState([]);
@@ -10,23 +12,11 @@ function DetailedPostViewPage() {
 
   useEffect(() => {
     fetchData();
-  }, [URL]);
+  }, []);
 
   const fetchData = async () => {
-    try {
-      const response = await fetch(URL + `/${id}`);
-
-      if (!response.ok) {
-        console.log(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      const postData = Array.isArray(data) ? data : [data];
-
-      setPost(postData);
-    } catch (er) {
-      console.log("OBS!!! Something went wrong retrieving Posts from DB");
-    }
+    const response = await fetchAllContacts(`${basePostURL}/${id}`);
+    setPost(response);
   };
 
   return (

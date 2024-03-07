@@ -209,7 +209,7 @@ main > ul {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #007bff;
+  background-color: #007bff; /*<-- Default color*/
   color: #fff;
   font-size: 18px;
   font-weight: bold;
@@ -234,8 +234,17 @@ main > ul {
   display: flex;
 }
 
-#create-post-module-input > input {
-  width: 75%;
+#create-post-module-input > #title {
+  width: 120px;
+  font-size: large;
+  font-weight: 500;
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#create-post-module-input > #content {
+  width: 60%;
   font-size: large;
   font-weight: 500;
   padding: 5px;
@@ -253,12 +262,12 @@ main > ul {
 
 #comment-post-card > input {
   border: none;
-  width: 89%;
+  width: 92%;
   background-color: var(--clr-backgound);
 }
 
 #comment-post-card > span {
   margin-left: -40px;
   cursor: pointer;
-  margin-top: 2.5%;
+  margin-top: 1.7%;
 }

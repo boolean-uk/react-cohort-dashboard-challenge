@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import CreatePostModule from "./componenets_homepage/CreatePostModule.jsx";
 import PostsList from "./componenets_homepage/PostsList.jsx";
-//import { fetchData } from "../utils/api.js";
+import { fetchAllContacts } from "../utils/api.js";
+import { basePostURL } from "../utils/urls.js";
 
 function HomePage() {
   const [postsList, setPostsList] = useState([]);
@@ -13,19 +14,8 @@ function HomePage() {
   }, [URL]);
 
   const fetchData = async () => {
-    try {
-      const response = await fetch(URL);
-
-      if (!response.ok) {
-        console.log(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      const sortedPosts = data.sort((a, b) => b.id - a.id);
-      setPostsList(sortedPosts);
-    } catch (er) {
-      console.log("OBS!!! Something went wrong retrieving Posts from DB");
-    }
+    const response = await fetchAllContacts(basePostURL);
+    setPostsList(response);
   };
 
   const handlePostCreation = () => {

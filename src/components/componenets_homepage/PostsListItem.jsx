@@ -4,6 +4,7 @@ import CommentsListItem from "./CommentsListItem.jsx";
 import { getInitials } from "../../utils/getInitials";
 import { Link } from "react-router-dom";
 import { fetchDataByContactId } from "../../utils/api.js";
+import UserCircle from "../UserCircle.jsx";
 
 function PostsListItem(props) {
   const { post } = props;
@@ -31,11 +32,11 @@ function PostsListItem(props) {
       <div className="blogpost-card">
         {currentContact ? (
           <div className="contact-card">
-            <div className="initials-circle">
-              {getInitials(
-                `${currentContact.firstName} ${currentContact.lastName}`
-              )}
-            </div>
+            <UserCircle
+              userFirstName={currentContact.firstName}
+              userLastName={currentContact.lastName}
+              userfavouriteColour={currentContact.favouriteColour}
+            />
             <div className="contact-info">
               <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
               <Link to={`/post/view/${post.id}`}>

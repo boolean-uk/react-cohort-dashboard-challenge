@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getInitials } from "../../utils/getInitials";
 import { fetchDataForComments } from "../../utils/api";
+import { basePostURL } from "../../utils/urls";
+import { postData } from "../../utils/api";
 
 function CommentsListItem(props) {
   const { post } = props;
@@ -24,40 +26,29 @@ function CommentsListItem(props) {
   }, [post.id]);
 
   const handleSendComment = async () => {
-    try {
-      const contactId = localStorage.getItem("contactId");
-      const postId = post.id;
+    const postId = post.id;
+    const contactId = localStorage.getItem("contactId");
 
-      const commentData = {
-        postId,
-        content,
-        contactId: parseInt(contactId),
-      };
+    const payload = {
+      postId,
+      content,
+      contactId: parseInt(contactId),
+    };
 
-      // Make the API call to add the comment
-      const response = await fetch(
-        `https://boolean-api-server.fly.dev/llllllll-l/post/${postId}/comment`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(commentData),
-        }
-      );
+    const success = await postData(`${basePostURL}/${postId}/comment`, payload);
 
-      if (response.ok) {
-        console.log("Comment added successfully!");
-        fetchDataForComments();
-        setContent("");
-      } else {
-        console.error(`Failed to add comment: ${response.statusText}`);
-      }
-    } catch (error) {
-      console.error("OBS!!! Something went wrong:", error.message);
+    if (!success) {
+      console.error("OBS!!! Something went wrong creating a comment");
+    } else {
+      fetchDataForComments(post.id).then(({ comments, users }) => {
+        setComments(comments);
+        setUsers(users);
+      });
     }
+
+    setContent("");
   };
-  //console.log("Comment: ", comments);
+
   return (
     <>
       <div className="post-comments">
@@ -66,7 +57,12 @@ function CommentsListItem(props) {
           {comments.map((comment, index) => (
             <li key={comment.id}>
               <div className="comment-card">
-                <div className="initials-circle">
+                <div
+                  className="initials-circle"
+                  style={{
+                    backgroundColor: `${users[index]?.favouriteColour}`,
+                  }}
+                >
                   {getInitials(
                     `${users[index]?.firstName} ${users[index]?.lastName}`
                   )}
@@ -81,7 +77,14 @@ function CommentsListItem(props) {
         </ul>
         <div id="comment-post-card">
           {userInitials ? (
-            <div className="initials-circle">{userInitials}</div>
+            <div
+              className="initials-circle"
+              style={{
+                backgroundColor: `${localStorage.getItem("favouriteColour")}`,
+              }}
+            >
+              {userInitials}
+            </div>
           ) : (
             <div>Loading...</div>
           )}
