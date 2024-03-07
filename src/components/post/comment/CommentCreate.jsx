@@ -33,7 +33,6 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
             postApiRequest
         );
         const data = await response.json();
-        console.log(data);
         setCommentData([...commentData, data]);
         setInput("");
     };
