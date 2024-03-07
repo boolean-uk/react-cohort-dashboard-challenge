@@ -14,7 +14,8 @@ const Comment = ({ comment }) => {
         lastName={contact ? contact.lastName : "Clinton"}
         favouriteColour={contact ? contact.favouriteColour : "Green"} 
         height={"28px"}
-        width={"28px"}/>
+        width={"28px"}
+        profileId={contact.id}/>
         <p>{comment.content}</p>
 
     </div>

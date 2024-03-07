@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className='header'>
       <img className='title-header' src={title_header_svg}/>
-      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"}/>
+      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"} profileId={1}/>
     </header>
   );
 }

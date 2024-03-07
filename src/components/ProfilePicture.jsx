@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ProfilePicture = ({ firstName, lastName, favouriteColour, height, width }) => {
+const ProfilePicture = ({ firstName, lastName, favouriteColour, height, width, profileId }) => {
+  const nav = useNavigate()
   // Function to generate initials from the first and last name
   const generateInitials = () => {
     const firstInitial = firstName ? firstName[0] : '';
@@ -20,10 +22,11 @@ const ProfilePicture = ({ firstName, lastName, favouriteColour, height, width })
     color: '#000046', // You can adjust the text color based on your design
     fontSize: '20px', // Adjust the font size as needed
     fontWeight: 'bold',
+    font: "Lexend",
   };
 
   return (
-    <div style={circleStyle}>
+    <div style={circleStyle} onClick={() => nav(`/profile/${profileId}`)}>
       {generateInitials()}
     </div>
   );

@@ -43,7 +43,7 @@ const CreatePost = () => {
 
   return (
     <div className='create-post-container'>
-      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"}/>
+      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"} profileId={post.contactId}/>
       <TextField multiline value={post.content} onChange={handleChange}/>
       <Button onClick={handleSubmit}>Post</Button>
     </div>

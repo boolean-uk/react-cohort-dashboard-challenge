@@ -39,7 +39,7 @@ const PostComment = ({post}) => {
 
   return (
     <div className='post-comment'>
-      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"} />
+      <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"} profileId={1}/>
       <TextField multiline={true}
         className='comment-input'
         value={comment.content}

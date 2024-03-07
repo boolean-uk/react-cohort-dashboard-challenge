@@ -10,6 +10,7 @@ const AppRouter = () => {
     <Routes>
       <Route path='/home' element={<PostComponent />} />
       <Route path='/profile' element={<Profile />} />
+      <Route path='/profile/:id' element={<Profile/>}/> 
       <Route path='/post/:id' element={<Post/>}/>
     </Routes>
 

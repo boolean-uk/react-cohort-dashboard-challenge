@@ -45,7 +45,8 @@ const Post = (props) => {
           <ProfilePicture firstName={
             contact ? contact.firstName : "Bill"}
             lastName={contact ? contact.lastName : "Clinton"}
-            favouriteColour={contact ? contact.favouriteColour : "Green"} />
+            favouriteColour={contact ? contact.favouriteColour : "Green"} 
+            profileId={contact.id}/>
           <div>
             <p><b>{contact ? contact.firstName : "Bill"} {contact ? contact.lastName : "Clinton"}</b></p>
             <Link to={`/post/${post.id}`}>{post.title}</Link>
