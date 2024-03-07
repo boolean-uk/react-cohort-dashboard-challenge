@@ -1,7 +1,9 @@
 import PostSummary from "./PostSummary";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../App";
 
-function HomePage({ posts, setPosts, contacts, getInitials }) {
+function HomePage() {
+  const { posts, setPosts, contacts, getInitials } = useContext(AppContext);
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostContent, setNewPostContent] = useState("");
 
@@ -78,6 +80,7 @@ function HomePage({ posts, setPosts, contacts, getInitials }) {
             <PostSummary
               key={post.id}
               post={post}
+              setPosts={setPosts}
               contacts={contacts}
               getInitials={getInitials}
             />
