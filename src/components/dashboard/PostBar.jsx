@@ -40,27 +40,28 @@ const PostBar = () => {
 
 
     return(
-
+        <>
+        <div className="circle">
+            <span className="initials">AB</span>
+        </div>
         <form onSubmit={handleSubmit} className="postBar-form">
-        <input 
-            name="postBar"
-            type="text"
-            placeholder="Post Your Thoughts"
-            className="postBar"
-            value={inputPost.content} 
-            onChange={(e) => {setInputPost({...inputPost, content : e.target.value})}}           
-        />
+                <input
+                    name="postBar"
+                    type="text"
+                    placeholder="Post Your Thoughts"
+                    className="postBar"
+                    value={inputPost.content}
+                    onChange={(e) => { setInputPost({ ...inputPost, content: e.target.value }); } } />
 
-        <input 
-            name="postTitleBar"
-            type="text"
-            placeholder="Title"
-            className="postBar"
-            value={inputPost.title} 
-            onChange={(e) => {setInputPost({...inputPost, title : e.target.value})}}           
-        />
-        <button type="submit">Post</button>
-        </form>
+                <input
+                    name="postTitleBar"
+                    type="text"
+                    placeholder="Title"
+                    className="postBar"
+                    value={inputPost.title}
+                    onChange={(e) => { setInputPost({ ...inputPost, title: e.target.value }); } } />
+                <button type="submit">Post</button>
+            </form></>
 
     )
 }

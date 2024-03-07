@@ -4,6 +4,8 @@
     height: 100v;
     display: flex;
     flex-direction: column;
+    background-color: #F0F5FA;
+  
 }
 
 .dashboard-header {
@@ -11,6 +13,7 @@
     width: 100vw;
     border: solid black 1px;
     position: fixed;
+
 }
 
 .dashboard-leftNavBar {
@@ -19,6 +22,8 @@
     height: 90vh;
     border: solid black 1px;
     position: fixed;
+    background-color: white;
+
 }
 
 .dashboard-postbar {
@@ -28,14 +33,20 @@
     height: 10vh;
     justify-content: center;
     align-items: center;
+    background-color: white;
+
 }
 
 
 .dashboard-content {
     margin-left: 15vw;
     height: 100vh;
+    background-color: #F0F5FA;
 }
 .dashboard-post {
     border: solid black 1px;
+    border-radius: 1%;
     align-items: center;
+    margin-top: 2vh;
+    background-color: white;
 }

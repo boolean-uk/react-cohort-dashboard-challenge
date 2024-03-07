@@ -5,12 +5,13 @@ const HttpRequestsContextAPIContext = createContext();
 
 const HttpRequestsContextAPIProvider = ({children}) => {
     const baseURL = "https://boolean-api-server.fly.dev/Vegardvog/post";
-
+    const baserURLContact = "https://boolean-api-server.fly.dev/Vegardvog/contact"
     return (
 
     <HttpRequestsContextAPIContext.Provider
     value={{
-        baseURL
+        baseURL,
+        baserURLContact,
     }}>
     
     {children}

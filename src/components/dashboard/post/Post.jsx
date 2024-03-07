@@ -17,6 +17,7 @@ const Post = () => {
             console.log(response.data)
             setPosts(response.data)
         }
+        
         fetchData();
     }, []);
 

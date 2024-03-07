@@ -1,8 +1,6 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  height: 100%;
-  width: 100%;
 }
 
 button:hover {
@@ -18,7 +16,27 @@ form input {
   background-color: #e6ebf5;
 }
 
-body {
+body html {
   background-color: #F0F5FA;
   color: #000046;
+}
+
+
+
+
+.circle {
+  width: 60px;
+  height: 60px; 
+  border-radius: 50%; 
+  background-color: #007bff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  font-size: 24px; 
+  font-weight: bold; 
+}
+
+.initials {
+  text-transform: uppercase; 
 }

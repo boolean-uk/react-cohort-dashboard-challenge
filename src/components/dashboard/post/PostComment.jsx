@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../../../style/dashboard/postComment.css"
 import axios from "axios";
 import { HttpRequestsContextAPIContext } from "../../../contextAPI/HttpRequestsContextAPI";
@@ -12,7 +12,7 @@ const PostComment = (props) => {
 
     const {baseURL} = useContext(HttpRequestsContextAPIContext)
     const {postsHistory, setPostsHistory} = useContext(PostContextAPIContext)
-
+    
     const {post} = props ?? {}
 
      const comment = {
@@ -24,12 +24,12 @@ const PostComment = (props) => {
 
 
 
-
     const handleSubmit =  (e) => {
         e.preventDefault();
         const fetchData = async () => {
             try {
-            const response = await axios.post(baseURL + `/${post.id}/comment`, comment)
+            const response = await axios.post(baseURL + `/${post.id}/comment`, comment,{
+            });
             if(response) {
                 //Loops through postsHistory, checks for correct id and changes history of that item to be response data
                 const updatedList = postsHistory.map(historyItem =>  historyItem.postId === post.id 
@@ -39,6 +39,7 @@ const PostComment = (props) => {
                         : historyItem);
                 console.log(updatedList)
                 setPostsHistory(updatedList)
+
       
             }
 
