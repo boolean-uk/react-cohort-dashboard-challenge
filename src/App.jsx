@@ -19,7 +19,7 @@ function App() {
           <div className="box-nav-main">
             <SideBar />
             <Routes>
-              <Route path="/" element={<Body />} />
+              <Route path="/*" element={<Body />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/post/:id" element={<SinglePost posts={posts} />} />
             </Routes>

@@ -6,7 +6,7 @@ const INITIAL_POST = {
   title: "",
   content: "",
 };
-
+const currentUserId = 1; //This is a placeholder
 export default function WritePost() {
   const { posts, setPosts } = useContext(PostContext);
   const [newPost, setNewPost] = useState({ title: "", content: "" });
@@ -21,7 +21,7 @@ export default function WritePost() {
     if (newPost.content !== "" && newPost.content !== undefined) {
       const tempArray = newPost.content.split(".");
       newPost.title = tempArray[0];
-      newPost.contactId = 1; // PLACEHOLDER ID
+      newPost.contactId = currentUserId;
       fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`, {
         method: "POST",
         headers: {

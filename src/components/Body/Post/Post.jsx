@@ -26,18 +26,24 @@ export default function Post({ post }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [setUser, setComments, post.contactId]);
+  }, [setUser, post.contactId]);
 
   return (
-    <div className="post-box">
-      <CommentContext.Provider value={{ comments, setComments }}>
-        <Link to={`/post/${post.id}`} className="to-post">
-          <PostHeader post={post} user={user} />
-          <div className="post-body">{post.content}</div>
-        </Link>
-        <Comments post={post} comments={comments} setComments={setComments} />
-        <AddComment post={post} comments={comments} setComments={setComments} />
-      </CommentContext.Provider>
-    </div>
+    <>
+      <div className="post-box">
+        <CommentContext.Provider value={{ comments, setComments }}>
+          <Link to={`/post/${post.id}`} className="to-post">
+            <PostHeader post={post} user={user} />
+            <div className="post-body">{post.content}</div>
+          </Link>
+          <Comments post={post} comments={comments} setComments={setComments} />
+          <AddComment
+            post={post}
+            comments={comments}
+            setComments={setComments}
+          />
+        </CommentContext.Provider>
+      </div>
+    </>
   );
 }

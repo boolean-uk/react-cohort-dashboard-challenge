@@ -23,7 +23,7 @@ export default function Comment({ comment }) {
   return (
     <>
       <div className="comment-box">
-        {comment.contactId}: {comment.content}
+        {comment.contactId} Commenter name: {comment.content}
       </div>
     </>
   );
