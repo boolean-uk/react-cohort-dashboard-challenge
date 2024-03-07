@@ -41,7 +41,6 @@ function PostListItem({ post }) {
   }
 
   function getUserInfo(contactId) {
-    console.log(users);
     return users.find((user) => Number(user.id) === Number(contactId));
   }
 

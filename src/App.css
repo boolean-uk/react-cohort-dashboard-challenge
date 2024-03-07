@@ -32,15 +32,7 @@ ul {
   z-index: 3;
 }
 
-.post-li {
-  margin-top: 15px;
-  margin-left: 5px;
-  background-color: #fff;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #eee;
-}
+
 
 .app {
   display: flex;
@@ -103,8 +95,8 @@ ul {
 
 .post-form input,
 .post-form textarea {
-  width: calc(100% - 40px);
-  margin-bottom: 15px;
+  width: calc(100% - 50px);
+  
   margin-top: 15px;
   padding: 10px;
   border: 1px solid #eee;
@@ -122,8 +114,36 @@ ul {
   border: 1px solid #eee;
 }
 
+.post-li {
+  width: ;
+  margin-top: 15px;
+  margin-left: 5px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.posts-ul {
+  margin: 0;
+  padding: 0;
+  padding-left: -40px;
+}
+
+
 .post-form button {
   background-color: #000046;
   color: #fff;
+  margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar-container {
+  padding: 15px;
 }

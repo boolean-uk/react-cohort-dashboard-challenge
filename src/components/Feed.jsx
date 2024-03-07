@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import PostsList from "./PostsList";
 import { Context } from "../App";
-import Avatar from "react-avatar";
 
 const initInput = {
   contactId: 10, 
@@ -54,7 +53,7 @@ function Feed() {
             onChange={handleChange}
             value={input.content}
           ></textarea>
-
+          <br/>
           <button type="submit" className="post-button">Post</button>
         </form>
 

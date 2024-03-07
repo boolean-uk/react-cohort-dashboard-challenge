@@ -5,12 +5,14 @@ import Feed from "./components/Feed";
 import SideMenu from "./components/SideMenu";
 import HeaderIcon from "./components/icons/HeaderIcon";
 import PostView from "./components/PostView";
+import Avatar from "react-avatar";
 
 const Context = createContext();
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([])
+  const [userLoggedId, setUserLoggedIn] = useState("")
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
@@ -21,14 +23,20 @@ function App() {
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/contact")
       .then((response) => response.json())
-      .then(setUsers);
+      .then((data) => {
+        setUsers(data)
+        setUserLoggedIn(data[10])
+      });
   }, []);
 
   return (
-    <Context.Provider value={{ posts, setPosts, users }}>
+    <Context.Provider value={{ posts, setPosts, users, userLoggedId }}>
       <div className="app">
         <header className="header">
-          <HeaderIcon />
+          <HeaderIcon className="img"/>
+          <div className="avatar-container">
+            <Avatar className="header-avatar" name={`${userLoggedId.firstName} ${userLoggedId.lastName}`} round={true} size={50}/>
+          </div>
         </header>
       
         <div className="content">
