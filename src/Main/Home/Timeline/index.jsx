@@ -1,7 +1,7 @@
 import Post from './Post'
 
 import { useContext } from "react"
-import { PostContext } from ".."
+import { PostContext } from '../../../App'
 
 function Timeline() {
     const context = useContext(PostContext)

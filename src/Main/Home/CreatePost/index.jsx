@@ -1,11 +1,11 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../../../App"
-import { PostContext } from "../../Home"
-
+import { PostContext } from "../../../App"
 import './style.css'
 
 function CreatePost() {
     const [postContent, setPostContent] = useState("")
+    const [postTitle, setPostTitle] = useState("")
     const [post, setPost] = useState({})
 
     const userContext = useContext(UserContext)
@@ -18,7 +18,7 @@ function CreatePost() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setPost({title: "", content: postContent, contactId: userContext.users[0].id})
+        setPost({title: postTitle !== "" ? postTitle : "No title", content: postContent, contactId: userContext.users[0].id})
 
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post`, {
             method: 'POST', 
@@ -26,7 +26,7 @@ function CreatePost() {
                 "Content-Type": "application/json"},
             body: JSON.stringify(
                 {
-                    title: "", 
+                    title: postTitle !== "" ? postTitle : "No title", 
                     content: postContent, 
                     contactId: userContext.users[0].id
                 })
