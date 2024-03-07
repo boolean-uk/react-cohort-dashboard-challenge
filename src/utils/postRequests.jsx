@@ -28,8 +28,7 @@ export const postPost = async (post, setPosts) => {
         }
         
         const newPost = await response.json();
-        setPosts(prevPosts => [newPost, ...prevPosts]);
-        console.log("Post created successfully:", newPost);
+        setPosts(prevPosts => [...prevPosts, newPost]);
     } catch (error) {
         console.error("Error creating post: ", error)
     }

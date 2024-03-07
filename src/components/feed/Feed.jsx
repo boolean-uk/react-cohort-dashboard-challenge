@@ -7,12 +7,12 @@ import { Post } from "./post/Post.jsx"
 
 export const Feed = () => {
     const { posts } = useContext(PostsContext);
-
+    
     if (!posts) return <h2>posts not found</h2>
     return (
         <div className="feed">
             <CreatePost />
-            {posts.map((post, index) => <Post key={index} post={post} />)}
+            {posts.slice(0).reverse().map((post, index) => <Post key={index} post={post} />)}
         </div>
     )
 }

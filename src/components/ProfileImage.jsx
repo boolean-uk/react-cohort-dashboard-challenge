@@ -1,13 +1,9 @@
 // ProfileImage.jsx
 import '../styles/ProfileImage.css'; // Corrected import path
+import PropTypes from 'prop-types';
 
-export const ProfileImage = () => {
+export const ProfileImage = ({user}) => {
     const colors = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#9e9e9e", "#607d8b"];
-
-    const user = {
-        firstName: "Arne",
-        lastName: "Doe"
-    }
     
     const getInitials = (firstName, lastName) => {
         return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
@@ -37,4 +33,11 @@ export const ProfileImage = () => {
             {getInitials(user.firstName, user.lastName)}
         </div>
     );
+};
+
+ProfileImage.propTypes = {
+    user: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+    }).isRequired,
 };

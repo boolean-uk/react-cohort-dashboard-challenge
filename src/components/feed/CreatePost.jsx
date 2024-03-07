@@ -3,9 +3,10 @@ import { useContext, useState } from 'react';
 import { ProfileImage } from '../ProfileImage'
 // import '/src/styles/Feed/CreatePost.css'
 import '/src/styles/Feed/CreatePost.css'
-import { PostsContext } from '../App';
+import { AuthContext, PostsContext } from '../App';
 
 export const CreatePost = () => {
+  const authUser = useContext(AuthContext)
   const { writePost } = useContext(PostsContext);
   const [input, setInput] = useState("");
   
@@ -21,7 +22,7 @@ export const CreatePost = () => {
   return (
     <div className="comment-container">
       <div className="profile-image-container">
-        <ProfileImage />
+        <ProfileImage user={authUser} />
       </div>
       <input
         type="text"

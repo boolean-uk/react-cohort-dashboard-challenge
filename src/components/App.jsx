@@ -4,18 +4,27 @@ import { Header } from './Header.jsx';
 import { LeftMenu } from './LeftMenu.jsx';
 import { Feed } from './Feed/Feed.jsx';
 import { createContext, useEffect, useState } from 'react';
-import { getPosts, postPost } from '../utils/requests.jsx';
+import { getPosts, postPost } from '../utils/postRequests.jsx';
+import { getUser } from '../utils/userRequests.jsx';
+export const AuthContext = createContext('');
 export const PostsContext = createContext('')
 
 function App() {
+  const [authUser, setAuthUser] = useState('');
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getUser(1)
+      .then((data) =>{
+        setAuthUser(data)
+      })
+  }, [] );
 
   useEffect(() => {
     getPosts()
       .then((data) => {
         setPosts(data)
       })
-      .catch((error) => console.error('Error fetching posts: ', error))
   }, [] );
 
   const writePost = (title, content) => {
@@ -29,7 +38,9 @@ function App() {
     postPost(newPost, setPosts)
   }
 
+  if (!authUser) return (<p>not logged in</p>)
   return (
+    <AuthContext.Provider value={authUser}>
     <div className="app-container">
       <Header />
 
@@ -39,8 +50,9 @@ function App() {
         <Feed />
       </div>
       </PostsContext.Provider>
-
+      
     </div>
+    </AuthContext.Provider>
   );
 }
 
