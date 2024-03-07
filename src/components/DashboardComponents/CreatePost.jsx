@@ -41,32 +41,34 @@ if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.co
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {user && (
-        <div
-          className="circle header-top"
-          style={{ background: user.favouriteColour }}
-        >
-          {user.firstName[0] + "" + user.lastName[0]}
-        </div>
-      )}
-      <label htmlFor="title"> Title: </label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        onChange={handleChange}
-        value={newPost.title}
-      />
-      <input
-        type="text-area"
-        id="content"
-        name="content"
-        placeholder="What's on your mind?"
-        onChange={handleChange}
-        value={newPost.content}
-      />
-      <button type="submit">Post</button>
-    </form>
+    <div className="create-post">
+      <form  onSubmit={handleSubmit}>
+        {user && (
+          <div
+            className="circle header-top"
+            style={{ background: user.favouriteColour }}
+          >
+            {user.firstName[0] + "" + user.lastName[0]}
+          </div>
+        )}
+        <label htmlFor="title"> Title: </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          onChange={handleChange}
+          value={newPost.title}
+        />
+        <input
+          type="text-area"
+          id="content"
+          name="content"
+          placeholder="What's on your mind?"
+          onChange={handleChange}
+          value={newPost.content}
+        />
+        <button type="submit">Post</button>
+      </form>
+    </div>
   );
 }

@@ -1,9 +1,32 @@
 import { DataContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function CommentListItem({ comment }) {
-  const user = useContext(DataContext).user;
+  const users = useContext(DataContext).users;
   const posts = useContext(DataContext).posts;
+  const [commentUser, setCommentUser] = useState(null)
 
-  return <p>{comment.content}</p>;
+  useEffect(() => {
+    if (users) {
+      setCommentUser(users.find((u) => u.id === Number(comment.contactId)));
+    }
+  }, [comment.contactId, users]);
+
+  if (!comment) return <p>Loading...</p>;
+
+  return (
+    <div className="comment">
+      {commentUser && (
+        <div
+          className="circle header-top post-circle"
+          style={{ background: commentUser.favouriteColour }}
+        >
+          {commentUser.firstName[0] + commentUser.lastName[0]}
+        </div>
+      )}
+      <div className="comment-box">
+        <p>{comment.content}</p>{" "}
+      </div>
+    </div>
+  );
 }

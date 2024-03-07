@@ -25,16 +25,17 @@ export default function PostListItem({ post }) {
   }, []);
   return (
     <div className="post-container">
-      <span className="post-child">
+      <span className="post-child post-header">
         <PostHeader post={post} />
       </span>
-      <span className="post-child">
+      <span className="post-child post-content">
         <PostContent post={post} />
       </span>
-      <span className="post-child">
+      <hr></hr>
+      <span className="post-child post-commentlist">
         {comments && <CommentList post={post} comments={comments} />}
       </span>
-      <span className="post-child">
+      <span className="post-child post-create-comment">
         <CreateComment
           post={post}
           setComments={setComments}

@@ -50,7 +50,6 @@ make the child components lay out using flex, vertically stacked in a column */
 .blue {
   background-color: #000046;
 }
-
 .red {
   background-color: #f0f5fa;
 }
@@ -59,26 +58,15 @@ make the child components lay out using flex, vertically stacked in a column */
   background-color: #e6ebf5;
 }
 
-.post-container {
-  background-color: #f0f5fa;
-  margin: 10px;
-  height: 200px;
-  width: 100%;
-  overflow: scroll;
-}
-
-.post-child {
-  display: inline-block;
-  height: 100px;
-
-  margin: 10px;
-  text-align: left; /* Align text to the left */
-  padding: 10px; /* Optional: Add padding for better spacing */
-  float: left; /* Float elements to the left */
-}
-
 .post img {
   width: 20px;
+}
+
+.create-post {
+  background-color: #f0f5fa;
+  margin: 10px;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
 }
 
 .circle {
@@ -93,6 +81,26 @@ make the child components lay out using flex, vertically stacked in a column */
   background: #ffffff;
 }
 
+.header-logo {
+  height: 80px;
+  width: 360px;
+  margin-left: 20px;
+}
+
+.header-circle {
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000046;
+  text-align: center;
+  margin-left: 60vw;
+  margin-top: 7px;
+}
+
 .header-name {
   font-weight: bold;
 }
@@ -101,6 +109,97 @@ make the child components lay out using flex, vertically stacked in a column */
   display: inline-block;
 }
 
+
+
+.home {
+  color: #000046;
+  font-weight: bold;
+}
+
+.home-icon {
+  margin-top: 20px;
+}
+
+.header-div {
+  display: flex;
+}
+
+.current-tab {
+  background: #d6dbe1;
+}
+
+.post-container {
+  background-color: #f0f5fa;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin: 10px;
+  height: fit-content;
+  min-height: 200px;
+  width: 100%;
+  overflow: auto;
+  display: block;
+  position: relative;
+}
+
+.post-child {
+  padding: 10px;
+  display: flex;
+  text-align: left;
+  
+}
+
+.post-commentlist {
+  display: block;
+  float: left;
+  width: 90%
+}
+
+.post-create-comment {
+  width: 90%
+}
+
+.post-content {
+  margin-left: 20px
+}
+
+.post-title-and-user {
+  width:80%;
+  margin-left: 10px
+}
+
 .post {
-  height: 90px;
+  display: flex
+}
+
+.post-user {
+  width: 100%
+}
+
+.post-title {
+  width: 100%
+}
+
+.comment {
+  display: flex
+}
+
+.post-circle {
+  margin-top:  7px;
+}
+
+.comment-box {
+  width: 100%;
+    border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #bebecb
+}
+
+.comment-box p {
+  margin-left: 10px
+}
+
+hr {
+  width: 90%
 }

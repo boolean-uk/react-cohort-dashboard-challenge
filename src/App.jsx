@@ -4,6 +4,8 @@ import "./App.css";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
 import Dashboard from "./components/Dashboard";
+import { Link, Route, Routes } from "react-router-dom";
+import ViewPost from "./components/DashboardComponents/ViewPost";
 
 const DataContext = createContext();
 
@@ -31,27 +33,28 @@ function App() {
               user: userData.find((u) => u.id === data.contactId),
             }));
 
-
             setUser(userData[3]); //TODO: fix so not hardcoded
             setPosts(postDataWithUsers);
           });
-
       });
-
   }, []);
 
   return (
-    <body>
-      <div className="container">
-        <DataContext.Provider value={{ posts, setPosts, user, setUser, users }}>
-          <Header />
-          <div className="container-nav-main">
-            <LeftMenu />
-            <Dashboard />
+    <>
+      <DataContext.Provider value={{ posts, setPosts, user, setUser, users }}>
+          <div className="container">
+            <Header />
+            <div className="container-nav-main">
+              <LeftMenu />
+
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/view/:id" element={<ViewPost />} />
+              </Routes>
+            </div>
           </div>
-        </DataContext.Provider>
-      </div>
-    </body>
+      </DataContext.Provider>
+    </>
   );
 }
 
