@@ -18,6 +18,11 @@
     font-weight: bold;
 }
 
+.postHeaderName:hover {
+    cursor: pointer;
+    color: #64dc78;
+}
+
 .postHeaderTitle {
     font-size: 12px;
     font-weight: bold;

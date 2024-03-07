@@ -12,7 +12,12 @@ export default function Home() {
     useEffect(() => {
         fetch('https://boolean-api-server.fly.dev/spectraldesign/post')
             .then((response) => response.json())
-            .then((data) => setPosts(data))
+            .then((data) => {
+                const sortedData = data.sort((a, b) => {
+                    return b.id - a.id;
+                });
+                setPosts(sortedData);
+            })
     }, []);
 
     return (
