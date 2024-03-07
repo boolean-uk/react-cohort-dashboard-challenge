@@ -24,7 +24,6 @@ export const Comment = ({ comment, handleDeleteComment }) => {
 	};
 
 	const handleEditComment = () => {
-		console.log(comment);
 		navigate(`/posts/${comment.postId}/comments/${comment.id}/edit`);
 	};
 
@@ -34,7 +33,7 @@ export const Comment = ({ comment, handleDeleteComment }) => {
 		<div className="comment">
 			<ProfileIcon user={commentOwner} />
 			<div className="comment-content">
-				<h1>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h1>
+				<h2>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h2>
 				<p>{comment.content}</p>
 				<button onClick={handleEditComment}>Edit</button>
 				<button onClick={deletComment}>Delete</button>

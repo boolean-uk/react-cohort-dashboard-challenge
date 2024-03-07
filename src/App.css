@@ -1,9 +1,22 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
 body {
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+p {
+	margin: 1rem 0;
+}
+
+h1 {
+	font-size: 34px;
 }
 
 .container {
@@ -56,6 +69,42 @@ button:hover {
 
 ul {
 	list-style: none;
+}
+
+label {
+	background-color: white;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 400;
+	color: #7e7e7e;
+	padding: 0;
+}
+
+textarea {
+	box-sizing: border-box;
+	border-radius: 5px;
+	width: 100%;
+	min-height: 20rem;
+	resize: none;
+	margin-bottom: 10px;
+	height: fit-content;
+	outline: none;
+	background-color: #e6ebf5;
+	border: none;
+	font-size: 18px;
+	padding: 1rem;
+}
+
+input {
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	background-color: #e6ebf5;
+	border: none;
+	font-size: 18px;
+	padding: 1rem;
 }
 
 .menu {
@@ -120,7 +169,7 @@ main {
 	margin: 10px;
 	padding: 1.3rem 2rem;
 	border-radius: 20px;
-	font-size: large;
+	font-size: 18px;
 }
 
 .create-post-item {
@@ -176,18 +225,27 @@ main {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: flex-start;
 }
+
+.post-header-buttons {
+	margin-left: auto;
+}
+
+.post-header-buttons * {
+	margin-left: 5px;
+}
+
 .post-details {
 	margin-left: 10px;
 }
 
-.card h1 {
-	font-size: 20px;
+.card h2 {
 	margin: 0;
-	margin-bottom: 0.5rem;
+	font-size: 24px;
 }
 
-.post {
+.border-bottom {
 	border-bottom-style: solid;
 	border-color: #e6ebf5;
 	border-width: 2px;
@@ -225,4 +283,50 @@ main {
 }
 .form-message > button:hover {
 	background-color: #64dc78;
+}
+
+.user-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-self: center;
+	margin-bottom: 1rem;
+}
+
+.user-header h1 {
+	margin: 0 1rem;
+	font-size: 34px;
+}
+
+.profile-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 0;
+}
+
+.profile-form > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 2rem;
+}
+
+.profile-form > div > ul {
+	width: 50%;
+	margin: 0;
+	padding: 0;
+}
+
+.profile-form h1 {
+	margin-bottom: 1rem;
+}
+
+.disabled {
+	background-color: #7e7e7e;
+}
+
+.disabled:hover {
+	background-color: #7e7e7e;
+	cursor: default;
 }

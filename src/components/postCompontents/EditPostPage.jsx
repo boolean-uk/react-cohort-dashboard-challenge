@@ -9,14 +9,11 @@ export const EditPostPage = () => {
 	const { postId } = useParams();
 
 	useEffect(() => {
-		console.log("Effect");
 		getRequest(`/post/${postId}`).then((response) => {
 			setPost({ ...response });
 			setFormData({ ...response });
 		});
 	}, [postId]);
-
-	console.log(post);
 
 	const handleInput = (event) => {
 		const { name, value } = event.target;
@@ -26,47 +23,51 @@ export const EditPostPage = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("submitting");
 		putRequest(`/post/${postId}`, formData).then(setSuccesfullSubmit(true));
 	};
 
 	return !post ? (
 		<p>Loading post</p>
 	) : (
-		<>
-			<form action="" onSubmit={handleSubmit}>
-				<ul>
-					<li>
-						<input
-							type="text"
-							id="title"
-							name="title"
-							placeholder={`${post.title} `}
-							value={formData.title}
-							onChange={handleInput}
-						/>
-					</li>
-					<li>
-						<textarea
-							id="content"
-							name="content"
-							placeholder={`${post.content} `}
-							value={formData.content}
-							onChange={handleInput}
-						/>
-					</li>
+		<main>
+			<div className="card">
+				<h1>Edit post</h1>
+				<form action="" onSubmit={handleSubmit}>
+					<ul>
+						<li>
+							<label htmlFor="title">Title</label>
+							<input
+								type="text"
+								id="title"
+								name="title"
+								placeholder={`${post.title} `}
+								value={formData.title}
+								onChange={handleInput}
+							/>
+						</li>
+						<li>
+							<label htmlFor="content">Content</label>
+							<textarea
+								id="content"
+								name="content"
+								placeholder={`${post.content} `}
+								value={formData.content}
+								onChange={handleInput}
+							/>
+						</li>
 
-					{successfullSubmit ? (
-						<li>
-							<p>Saved!</p>
-						</li>
-					) : (
-						<li>
-							<button disabled={successfullSubmit}>Save</button>
-						</li>
-					)}
-				</ul>
-			</form>
-		</>
+						{successfullSubmit ? (
+							<li>
+								<p>Saved!</p>
+							</li>
+						) : (
+							<li>
+								<button disabled={successfullSubmit}>Save</button>
+							</li>
+						)}
+					</ul>
+				</form>
+			</div>
+		</main>
 	);
 };

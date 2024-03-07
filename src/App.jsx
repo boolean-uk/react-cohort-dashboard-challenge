@@ -25,28 +25,26 @@ function App() {
 	return !loggedInUser ? (
 		<p>Logging in</p>
 	) : (
-		<body>
-			<div className="container">
-				<LoggedInUserContext.Provider value={loggedInUser}>
-					<HeaderBar />
-					<div className="container-nav-main">
-						<LeftMenu />
-						<Routes>
-							<Route path="/" element={<Navigate to={"/posts"} />} />
-							<Route path="/posts" element={<PostsListPage />} />
-							<Route path="/posts/:postId" element={<PostDetailPage />} />
-							<Route path="/posts/:postId/edit" element={<EditPostPage />} />
-							<Route
-								path="/posts/:postId/comments/:commentId/edit"
-								element={<EditCommentPage />}
-							/>
-							<Route path="/profile/:userId" element={<ProfilePage />} />
-							<Route path="*" element={<NotFoundPage />} />
-						</Routes>
-					</div>
-				</LoggedInUserContext.Provider>
-			</div>
-		</body>
+		<div className="container">
+			<LoggedInUserContext.Provider value={loggedInUser}>
+				<HeaderBar />
+				<div className="container-nav-main">
+					<LeftMenu />
+					<Routes>
+						<Route path="/" element={<Navigate to={"/posts"} />} />
+						<Route path="/posts" element={<PostsListPage />} />
+						<Route path="/posts/:postId" element={<PostDetailPage />} />
+						<Route path="/posts/:postId/edit" element={<EditPostPage />} />
+						<Route
+							path="/posts/:postId/comments/:commentId/edit"
+							element={<EditCommentPage />}
+						/>
+						<Route path="/profile/:userId" element={<ProfilePage />} />
+						<Route path="*" element={<NotFoundPage />} />
+					</Routes>
+				</div>
+			</LoggedInUserContext.Provider>
+		</div>
 	);
 }
 

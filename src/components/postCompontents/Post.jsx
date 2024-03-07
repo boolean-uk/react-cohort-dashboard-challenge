@@ -34,15 +34,17 @@ export const Post = ({ post, handleDeletePost }) => {
 	} else {
 		return (
 			<div className="card">
-				<div className="post">
+				<div className="post border-bottom">
 					<div className="post-header">
 						<ProfileIcon user={postOwner} />
 						<div className="post-details">
-							<h1>{`${postOwner.firstName} ${postOwner.lastName}`}</h1>
+							<h2>{`${postOwner.firstName} ${postOwner.lastName}`}</h2>
 							<Link to={`../posts/${post.id}`}>{post.title}</Link>
 						</div>
-						<button onClick={handleEditPost}>Edit</button>
-						<button onClick={deletePost}>Delete</button>
+						<div className="post-header-buttons">
+							<button onClick={handleEditPost}>Edit</button>
+							<button onClick={deletePost}>Delete</button>
+						</div>
 					</div>
 					<p>{post.content}</p>
 				</div>

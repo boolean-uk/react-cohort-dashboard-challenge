@@ -27,7 +27,6 @@ export const EditCommentPage = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("submitting");
 		putRequest(`/post/${postId}/comment/${commentId}`, formData).then(
 			setSuccesfullSubmit(true)
 		);
@@ -36,28 +35,30 @@ export const EditCommentPage = () => {
 	return !comment ? (
 		<p>Loading comment</p>
 	) : (
-		<>
-			<form action="" onSubmit={handleSubmit}>
-				<ul>
-					<li>
-						<textarea
-							id="content"
-							name="content"
-							value={formData.content}
-							onChange={handleInput}
-						/>
-					</li>
-					{successfullSubmit ? (
+		<main>
+			<div className="card">
+				<form action="" onSubmit={handleSubmit}>
+					<ul>
 						<li>
-							<p>Saved!</p>
+							<textarea
+								id="content"
+								name="content"
+								value={formData.content}
+								onChange={handleInput}
+							/>
 						</li>
-					) : (
-						<li>
-							<button disabled={successfullSubmit}>Save</button>
-						</li>
-					)}
-				</ul>
-			</form>
-		</>
+						{successfullSubmit ? (
+							<li>
+								<p>Saved!</p>
+							</li>
+						) : (
+							<li>
+								<button disabled={successfullSubmit}>Save</button>
+							</li>
+						)}
+					</ul>
+				</form>
+			</div>
+		</main>
 	);
 };
