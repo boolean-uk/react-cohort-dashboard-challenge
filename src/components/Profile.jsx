@@ -6,20 +6,32 @@ import { Button, TextField } from '@mui/material';
 const Profile = () => {
 
   const [profileForm, setProfileForm] = useState({
-    firstName: "Øystein",
-    lastName: "Haugen",
-    userName: "",
-    email: "",
-    street: "",
-    suite: "",
-    city: "",
-    zipCode: "",
-    phoneNo: 0,
-    website: "",
-    companyName: "",
-    catchPhrase: "",
-    statement: "",
+    firstName: JSON.parse(localStorage.getItem("firstName")) || "",
+    lastName: JSON.parse(localStorage.getItem("lastName")) || "",
+    userName: JSON.parse(localStorage.getItem("userName")) || "",
+    email: JSON.parse(localStorage.getItem("email")) || "",
+    street: JSON.parse(localStorage.getItem("street")) || "",
+    suite: JSON.parse(localStorage.getItem("suite")) || "",
+    city: JSON.parse(localStorage.getItem("city")) || "",
+    zipCode: JSON.parse(localStorage.getItem("zipCode")) || "",
+    phoneNo: JSON.parse(localStorage.getItem("phoneNo")) || 0,
+    website: JSON.parse(localStorage.getItem("website")) || "",
+    companyName: JSON.parse(localStorage.getItem("companyName")) || "",
+    catchPhrase: JSON.parse(localStorage.getItem("catchPhrase")) || "",
+    statement: JSON.parse(localStorage.getItem("statement")) || "",
   })
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    localStorage.setItem(name, JSON.stringify(value))
+    setProfileForm(values => ({ ...values, [name]: value }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   return (
     <div className='profile'>
       <h1>Profile</h1>
@@ -37,7 +49,9 @@ const Profile = () => {
                 required
                 id="filled-required"
                 label="First Name"
-                defaultValue={profileForm.firstName}
+                name='firstName'
+                value={profileForm.firstName}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -45,7 +59,9 @@ const Profile = () => {
                 required
                 id="filled-required"
                 label="Last Name"
-                defaultValue={profileForm.lastName}
+                name='lastName'
+                value={profileForm.lastName}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -53,7 +69,9 @@ const Profile = () => {
                 required
                 id="filled-required"
                 label="Username"
-                defaultValue={profileForm.userName}
+                name='userName'
+                value={profileForm.userName}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -61,7 +79,9 @@ const Profile = () => {
                 required
                 id="filled-required"
                 label="Email"
-                defaultValue={profileForm.email}
+                name='email'
+                value={profileForm.email}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -74,28 +94,37 @@ const Profile = () => {
               <TextField
                 id="filled"
                 label="Street"
-                defaultValue={profileForm.street}
+                name='street'
+                value={profileForm.street}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="Suite"
+                name='suite'
                 defaultValue={profileForm.suite}
+                value={profileForm.suite}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="City"
-                defaultValue={profileForm.city}
+                name='city'
+                value={profileForm.city}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="Zipcode"
-                defaultValue={profileForm.zipCode}
+                name='zipCode'
+                value={profileForm.zipCode}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -109,14 +138,18 @@ const Profile = () => {
                 required
                 id="filled-required"
                 label="Phone"
-                defaultValue={profileForm.phoneNo}
+                name='phoneNo'
+                value={profileForm.phoneNo}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="Website"
-                defaultValue={profileForm.website}
+                name='website'
+                value={profileForm.website}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -125,25 +158,31 @@ const Profile = () => {
           <div className='profile-form-group'>
             <hr />
             <h1>Company info</h1>
-            <div className='company-fomr'>
+            <div className='company-form'>
               <TextField
                 id="filled"
                 label="Name"
-                defaultValue={profileForm.companyName}
+                name='companyName'
+                value={profileForm.companyName}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="Catch Phrase"
-                defaultValue={profileForm.catchPhrase}
+                name='catchPhrase'
+                value={profileForm.catchPhrase}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
               <TextField
                 id="filled"
                 label="Business Statement"
-                defaultValue={profileForm.statement}
+                name='statement'
+                value={profileForm.statement}
+                onChange={handleChange}
                 size='small'
                 fullWidth
               />
@@ -151,7 +190,7 @@ const Profile = () => {
           </div>
         </div>
         <div className='form-footer'>
-          <Button>Save</Button>
+          <Button onSubmit={handleSubmit}>Save</Button>
         </div>
       </div>
     </div>
