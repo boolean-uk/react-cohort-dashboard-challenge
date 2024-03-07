@@ -9,7 +9,7 @@ export default function Posts() {
     <>
       <CreatePost />
       {/* Reverse the order so new posts are at top */}
-      {posts.slice().reverse().map((post, index) => (
+      {posts.map((post, index) => (
       <Post post={post} key={index} index={index} ></Post>
       ))}
     </>
