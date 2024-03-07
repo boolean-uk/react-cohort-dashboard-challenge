@@ -83,12 +83,12 @@ function App() {
   return (
     <>
       <div className="app">
-        <TempContext.Provider value={{ currentTab: currentTab, setCurrentTab: setCurrentTab, postData: postData, contactData: contactData, currentUser: currentUser, AddPost:AddPost}}>
+        <TempContext.Provider value={{ currentTab: currentTab, setCurrentTab: setCurrentTab, postData: postData, contactData: contactData, currentUser: currentUser, AddPost:AddPost, getContacts:getContacts}}>
           <Header />
           <LeftMenu />
           <Routes>
             <Route path="/" element={<PostBoard />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/post/:id" element={<PostPage />} />
           </Routes>
         </TempContext.Provider>

@@ -28,6 +28,10 @@ function PostItem({ post, keydata }) {
           <div
             className="profileIcon"
             style={{ background: author.favouriteColour }}
+            onClick={() => {
+              setCurrentTab("profile");
+              navigate(`/profile/${author.id}`);
+            }}
           >
             {author.firstName[0]}
             {author.lastName[0]}

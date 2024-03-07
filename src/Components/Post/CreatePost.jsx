@@ -37,7 +37,7 @@ function CreatePost() {
             style={{ background: currentUser.favouriteColour }}
             onClick={() => {
               setCurrentTab("profile");
-              navigate("/profile");
+              navigate("/profile/1");
             }}
           >
             {` ${

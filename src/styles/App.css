@@ -1,6 +1,12 @@
 *{
   
   list-style-type: none;
+  color:  #000046;
+
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  
 }
 
 *::-webkit-scrollbar {
@@ -10,12 +16,11 @@
 
 .app {
   background-color: #F0F5FA;
-
   display: grid;
   grid-template:
-    'header header' 90px
-    'left-menu page' 1fr /
-    120px 1fr;
+  'header header' 90px
+  'left-menu page' 1fr /
+  120px 1fr;
 }
 
 .app > .page {
@@ -32,7 +37,6 @@
   background-color: white;
   grid-area: left-menu;
   padding-left: 0;
-
 }
 
 .app > .left-menu > li{
@@ -74,6 +78,7 @@
 }
 
 .profileIcon{
+  
   width: 48px; 
   height: 48px;
   border-radius: 50%;
@@ -91,38 +96,63 @@
   background-color: white;
   padding: 20px;
 }
-.createPost form {
+.createPost > form {
   height: 40%;
   display: grid;
   column-gap: 2%;
   grid-template-columns: 50px 70% 20%;
 }
 
-.createPost .avatar-section {
-  padding: 3px;
+.createComment
+{
+  margin:  2%;
+}
+.createComment > form {
+  height: 40%;
+  display: grid;
+  column-gap: 2%;
+  grid-template-columns: 50px 90%;
 }
 
-
+.createPost .avatar-section {
+  padding: 3px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
 
 .createPost .avatar {
   width: 50px;
   border-radius: 50%;
 }
 
-.createPost .textarea-section {
+.createPost > form > .textarea-section {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    row-gap: 10%;
   margin-right: 12px;
+  margin-bottom: 12px;
   margin-bottom: 12px;
   width: 100%;
   height: 100%;
-  display: flex;
-  border: none;
+  /* display: flex; */
+  .content{
+    border: none;
+    padding: 2px;
+  }
 }
 
-.createPost .content {
+.actions-section {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.content {
   background-color: #e6ebf5;
   border-radius: 10px;
   width: 100%;
-  height: 100%;
+  height: 80%;
   font-size: 1.4rem;
   line-height: 1;
   padding: 5px;
@@ -134,11 +164,12 @@
   border: none;
   font-size: 1.2rem;
   border-radius: 10px;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   color: #e6ebf5;
   background-color:#000046;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .post-btn:hover{
@@ -197,3 +228,4 @@
   margin: 0.5%;
   margin-bottom: 2%;
 }
+

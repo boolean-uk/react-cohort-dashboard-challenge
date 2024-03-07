@@ -36,7 +36,7 @@ function LeftMenu() {
           className={`item ${currentTab === "profile" ? "active" : ""}`}
           onClick={() => {
             setCurrentTab("profile");
-            navigate("/profile");
+            navigate("/profile/1");
           }}
         >
           <div className="menu--item">

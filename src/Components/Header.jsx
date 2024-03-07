@@ -33,7 +33,7 @@ function Header() {
         style={{ background: currentUser.favouriteColour }}  
         onClick={() => {
           setCurrentTab("profile");
-          navigate("/profile");
+          navigate("/profile/1");
         }}
       >
          {` ${currentUser ? `${currentUser.firstName[0]}${currentUser.lastName[0]}` : ""}`}

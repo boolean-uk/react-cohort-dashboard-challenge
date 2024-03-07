@@ -16,7 +16,7 @@ function CreateComment({ id, AddComment }) {
         content: content,
       };
       AddComment(newComment);
-      console.log(id)
+      console.log(id);
     }
   }
   const addTweet = (e) => {
@@ -26,11 +26,11 @@ function CreateComment({ id, AddComment }) {
       contactId: currentUser.id,
       content: content,
     };
-    console.log(newComment)
+    console.log(newComment);
     AddComment(newComment, id);
   };
   return (
-    <div className="createPost">
+    <div className="createComment">
       <form onSubmit={addTweet} onKeyUp={handleKeyUp} tabIndex={0}>
         <div className="avatar-section">
           <div
@@ -38,7 +38,7 @@ function CreateComment({ id, AddComment }) {
             style={{ background: currentUser.favouriteColour }}
             onClick={() => {
               setCurrentTab("profile");
-              navigate("/profile");
+              navigate("/profile/1");
             }}
           >
             {` ${
@@ -58,7 +58,6 @@ function CreateComment({ id, AddComment }) {
             onChange={(e) => setContent(e.target.value)}
           ></input>
         </div>
-        <div className="actions-section"></div>
       </form>
     </div>
   );
