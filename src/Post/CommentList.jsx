@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import CommentListItem from "./CommentListItem"
+import { CommentContext } from "../PostListItem"
 
-function CommentList({ comments, removeComment }) {
-
+function CommentList() {
+    const { comments } = useContext(CommentContext)
     const [showAll, setShowAll] = useState(false)
     let ShownComments = comments
     if (!showAll) {
@@ -11,7 +12,7 @@ function CommentList({ comments, removeComment }) {
     return (
         <ul>
             {(comments.length > 3 && !showAll) && <h1 className="showAllComments" onClick={() => { setShowAll(true) }}>See previous comments</h1>}
-            {ShownComments.map((comment) => { return (<CommentListItem comment={comment} removeComment={removeComment} />) })}
+            {ShownComments.map((comment) => { return (<CommentListItem comment={comment} />) })}
         </ul>
     )
 }

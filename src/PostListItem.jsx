@@ -22,11 +22,7 @@ function PostListItem({ post, one, removePost }) {
             setComments([...comments])
         })
     }
-    const removeComment = (comment) => {
-        deleteComment(post.id, comment.id)
-        comments.splice(comments.indexOf(comment), 1)
-        setComments([...comments])
-    }
+
 
     return (
         <div className={`post ${one ? 'onlyPost' : ''}`}>
@@ -35,7 +31,7 @@ function PostListItem({ post, one, removePost }) {
                 comments: comments,
                 setComments: setComments
             }}>
-                <CommentList comments={comments} removeComment={removeComment} />
+                <CommentList />
                 <AddComment setComments={addComment} />
             </CommentContext.Provider>
         </div>

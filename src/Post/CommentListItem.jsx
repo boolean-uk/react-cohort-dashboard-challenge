@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { getAuthor, updateComment } from "../Api"
+import { deleteComment, getAuthor, updateComment } from "../Api"
 import { useNavigate } from "react-router-dom"
 import { CommentContext } from "../PostListItem"
 
@@ -11,7 +11,7 @@ let InitialAuthor = {
     jobTitle: "",
 }
 
-function CommentListItem({ comment, removeComment }) {
+function CommentListItem({ comment }) {
     const [author, setAuthor] = useState({ ...InitialAuthor })
     const [isEditing, setIsEditing] = useState(false)
     const { comments, setComments } = useContext(CommentContext)
@@ -21,7 +21,11 @@ function CommentListItem({ comment, removeComment }) {
             .then((response) => { setAuthor(response) })
     }, [comment])
 
-
+    const removeComment = (event) => {
+        deleteComment(comment.postId, comment.id)
+        comments.splice(comments.indexOf(comment), 1)
+        setComments([...comments])
+    }
 
     const editComment = (event) => {
         setIsEditing(true)
