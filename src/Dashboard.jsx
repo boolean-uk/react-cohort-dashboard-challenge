@@ -15,7 +15,7 @@ function Dashboard() {
       const response = await fetch(URL);
       if (response.ok) {
         const data = await response.json();
-        setPosts(data);
+        setPosts(data.reverse());
       } else {
         console.error('Failed to fetch posts');
       }
