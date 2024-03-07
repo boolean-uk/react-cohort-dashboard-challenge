@@ -157,6 +157,46 @@ make the child components lay out using flex, vertically stacked in a column */
   margin-bottom: 10px;
   color: #000046;
 }
+.postAddComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #000046;
+}
+.postAddCommentInput {
+  padding: 10px;
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
+  flex: 8;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #000046;
+  padding: 10px;
+}
+
+.comment-author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #000046;
+  padding-right: 10px;
+  flex: 1;
+}
+.comment {
+  flex: 4;
+  border: 2px solid #000046;
+  padding-left: 10px;
+  height: 100px;
+  border-radius: 5px;
+}
+
 
 .titleImg {
   max-width: 100%;
@@ -176,6 +216,7 @@ make the child components lay out using flex, vertically stacked in a column */
   margin-top: 5px;
   margin-left: auto;
   margin-right: 20px;
+  cursor:pointer;
 }
 
 .profile-picture-post {
@@ -188,12 +229,52 @@ make the child components lay out using flex, vertically stacked in a column */
   align-items: center;
   justify-content: center;
   margin-right: 15px;
+  cursor:pointer;
+}
+
+.profileHeader {
+  margin-left: 30px;
+  font-size: xx-large;
 }
 
 .profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: white;
   margin: 30px;
   padding: 20px;
   color: black;
   border-radius: 5px;
+}
+.profileTop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profileTopText {
+  margin-left: 20px;
+  font-size: xx-small;
+  color: #000046;
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+}
+.profileContent > div {
+  margin-bottom: 20px;
+}
+
+.profileContent > div:nth-child(2) {
+  flex: 2;
+  padding-left: 15px;
+}
+.profileTextDetails div{  
+  padding: 10px;
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
 }

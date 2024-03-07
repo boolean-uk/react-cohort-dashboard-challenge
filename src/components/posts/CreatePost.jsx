@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react'
-import ProfilePicturePost from './profile/ProfilePicturePost'
-import { UserContext } from '../contexts/UserContext'
-import { AppContext } from '../App'
-import { useNavigate } from 'react-router-dom'
+import ProfilePicturePost from '../profile/ProfilePicturePost'
+import { UserContext } from '../../contexts/UserContext'
+import { AppContext } from '../../App'
 
 export default function CreatePost() {
   const user = useContext(UserContext)
@@ -10,9 +9,6 @@ export default function CreatePost() {
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-
-  const navigate = useNavigate();
-
 
   const handleInputChange = (e) => {
     const text = e.target.value;
@@ -58,7 +54,7 @@ export default function CreatePost() {
   
   return (
     <div className='create-post'>
-      <ProfilePicturePost initials={`${user.firstName[0]}${user.lastName[0]}`} color={user.favouriteColour} />
+      <ProfilePicturePost initials={`${user.firstName[0]}${user.lastName[0]}`} color={user.favouriteColour} author={user} />
       <textarea placeholder="What's on your mind? HINT: Title is the first sentence of your post" className='postInput main-background' value={text} onChange={handleInputChange} />
       <div className='postButton' onClick={handleSubmit}>
         <p>Post</p>
