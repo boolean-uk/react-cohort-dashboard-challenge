@@ -47,7 +47,11 @@ const Post = ({ post }) => {
             <p>{post.content}</p>
             <hr />
             <Comments comments={commentData} />
-            <CommentCreate />
+            <CommentCreate
+                postId={post.id}
+                commentData={commentData}
+                setCommentData={setCommentData}
+            />
         </li>
     );
 };

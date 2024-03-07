@@ -3,14 +3,14 @@
     margin: 1rem 0;
 }
 
-.comment-create > .comment-container {
+.comment-create > .comment-form {
     width: 100%;
     display: flex;
     position: relative;
     align-items: center;
 }
 
-.comment-create > .comment-container > .comment-bar {
+.comment-create > .comment-form > .comment-bar {
     background-color: lightgray;
     color: #64648c;
     border-radius: 10px;
@@ -22,7 +22,7 @@
     box-shadow: 1px 1px 2px 1px darkgrey;
 }
 
-.comment-create > .comment-container > .comment-btn {
+.comment-create > .comment-form > .comment-btn {
     background-color: darkgray;
     padding: 1rem 1rem;
     font-size: 24px;
@@ -36,14 +36,14 @@
     align-items: center;
 }
 
-.comment-create > .comment-container > .comment-btn:hover {
+.comment-create > .comment-form > .comment-btn:hover {
     background-color: lightgray;
 }
 
-.comment-create > .comment-container > .comment-btn > svg > path {
+.comment-create > .comment-form > .comment-btn > svg > path {
     stroke: #64648c;
 }
 
-.comment-create > .comment-container > .comment-btn:hover > svg > path {
+.comment-create > .comment-form > .comment-btn:hover > svg > path {
     stroke: navy;
 }
