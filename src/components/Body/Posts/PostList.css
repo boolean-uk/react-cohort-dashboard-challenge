@@ -1,0 +1,9 @@
+.post-list-element {
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+.post-list {
+    padding: 0;
+}

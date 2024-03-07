@@ -3,7 +3,7 @@
     height: 100%; /* Take up full height of the viewport */
     background-color: #ffffff;
     position: fixed;
-    top: 82px; /* Adjust as needed to position it below the header */
+    top: 72px; /* Adjust as needed to position it below the header */
     left: 0;
   }
 

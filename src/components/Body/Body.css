@@ -1,6 +1,9 @@
 .content-body{
-    padding-left: 170px;
+    padding-left: 200px;
     padding-top: 20px;
-    background-color: #F0F5FA;;
-    flex: 1
+    padding-right: 50px;
+    background-color: #F0F5FA;
+    flex: 1;
+    overflow-y: auto;
+
 }

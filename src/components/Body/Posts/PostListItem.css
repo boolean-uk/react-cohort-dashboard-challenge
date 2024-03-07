@@ -1,0 +1,66 @@
+.user-post-container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+
+  .user-post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add some space between the header and content */
+  }
+
+  .user-post-container input[type="text"],
+  .user-post-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+  }
+
+  .user-post-container textarea {
+    height: 100px;
+    font-family: Arial, sans-serif;
+    resize: none;
+
+  }
+
+  .user-profile-picture-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .initials {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .user-post-header{
+    font-size: 20px;
+    flex: 1;
+  }
+
+  .user-post-header p {
+    margin: 0; /* Remove default margin */
+    font-weight: bold; /* Optionally make the text bold */
+  }
+
+  .user-post-content {
+    margin-bottom: 10px; /* Add some space between the content and the button */
+  }

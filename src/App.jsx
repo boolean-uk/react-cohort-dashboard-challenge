@@ -11,8 +11,8 @@ export const WebsiteContext = createContext()
 function App() {
 
   const [profile, setProfile] = useState({
-    firstName: "",
-    lastName: "",
+    firstName: "Anon",
+    lastName: "Ymous",
     username: "",
     email: "",
     street: "",

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { WebsiteContext } from '../../App'
 
@@ -9,6 +10,7 @@ function ProfilePage() {
 
     const [tempProfile, setTempProfile] =  useState(profile);
 
+    const navigate = useNavigate()
 
     function handleInput(e){
         const{name, value} = e.target
@@ -18,15 +20,17 @@ function ProfilePage() {
     }
 
     function handleSubmit(event){
-        //Navigate back to dashboard?
         setProfile(tempProfile)
         console.log("Profile SAVED")
+
+        navigate("/")
     }
 
   return (
     <div>
         <h1>Profile</h1>
         <form onSubmit={handleSubmit}>
+        <div className='account-info'>
         <h3>Account Info</h3>
         <label>
             First Name:
@@ -50,6 +54,8 @@ function ProfilePage() {
             <input type="text" name="email" value={tempProfile.email} onChange={handleInput}/>
         </label>
         <br />
+        </div>
+        <div className='address'>
             <h3>Address:</h3>
         <label>
             Street:
@@ -74,6 +80,9 @@ function ProfilePage() {
             <input type="text" name="zipcode" value={tempProfile.zipcode} onChange={handleInput}/>
         </label>
         <br />
+        </div>
+
+        <div className='contact-info'>
             <h3>Contact Info</h3>
         <label>
             Phone:
@@ -86,9 +95,10 @@ function ProfilePage() {
             <input type="text" name="website" value={tempProfile.website} onChange={handleInput}/>
         </label>
         <br />
+        </div>
 
+        <div className='company-info'>
             <h3>Company Info</h3>
-            
         <label>
             Name:
             <input type="text" name="companyName" value={tempProfile.companyName} onChange={handleInput}/>
@@ -106,6 +116,7 @@ function ProfilePage() {
             <input type="text" name="companyBusinessStatement" value={tempProfile.companyBusinessStatement} onChange={handleInput}/>
         </label>
         <br />
+        </div>
 
         <button type='submit'>Save</button>
         </form>
