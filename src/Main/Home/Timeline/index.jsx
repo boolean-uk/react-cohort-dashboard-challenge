@@ -8,7 +8,7 @@ function Timeline() {
 
     return(
         <>
-            {context.posts.map((post, index) => (
+            {[...context.posts].reverse().map((post, index) => (
                 <Post key={index} post={post} />
             ))}
         </>
