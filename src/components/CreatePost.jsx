@@ -62,18 +62,23 @@ title
           console.error("Failed to create a new post", e);
       }
   };
-
+  
     return (
         <div className="rounded-box yellow">
-        <form onSubmit={handleSubmit}>
-            <label>
+        <form onSubmit={handleSubmit} className="form">
               <input type="text" name="title" onChange={handleChange} value={post.title} className="postInput" placeholder="Title: "></input>
-            </label>
+          
             <br/>
             <label>
-              <textarea name="content" onChange={handleChange} value={post.content} cols={50} rows={5} placeholder="What are you thinking?"></textarea> 
+              <textarea className="inputTextarea" 
+                name="content" 
+                onChange={handleChange}
+                value={post.content}
+                cols={50} rows={5}
+                placeholder="What are you thinking?">
+              </textarea> 
             </label>
-            <br/>
+           
             <input type="submit" value="Post!" className="postButton"></input>
         </form>
         </div>

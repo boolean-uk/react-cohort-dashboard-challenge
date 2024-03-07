@@ -8,6 +8,11 @@ body {
   background-color: #f0f5fa;
 }
 
+.postInput {
+  width: 90%;
+  
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -49,15 +54,15 @@ body {
 }
 
 .sidebar {
-  width: 100px; /* Adjust the width as needed */
+  width: 100px; 
   height: 100%;
   max-height: calc(100vh - 60px);
   background-color: #e6ebf5;
   color: #ffffff;
-  padding-top: 10px; /* Adjust as needed */
+  padding-top: 10px; 
   display: flex;
-  flex-direction: column; /* Arrange items in a column */
-  align-items: center; /* Center items horizontally */
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .main {
@@ -66,11 +71,11 @@ body {
   max-height: calc(100vh - 60px);
 }
 
-/* Add styles for the navigation buttons with logos */
+
 .nav-button {
   display: flex;
-  flex-direction: column; /* Arrange items in a column */
-  align-items: center; /* Center items horizontally */
+  flex-direction: column; 
+  align-items: center; 
   background-color: #e6ebf5;
   color: #000046;
   border: none;
@@ -78,35 +83,58 @@ body {
   cursor: pointer;
 }
 
-/* Add styles for the rounded boxes */
 .rounded-box {
   background-color: #e6ebf5;
   margin: 10px;
   height: 200px;
-  width: 100%;
-  border-radius: 10px; /* Add rounded edges */
-  padding: 20px; /* Adjust padding as needed */
+  width: 80%;
+  border-radius: 10px; 
+  padding: 20px; 
 }
 
 .rounded-post {
   background-color: #e6ebf5;
   margin: 10px;
   height: 200px;
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
   padding: 20px;
   display: inline-block;
   overflow-y: scroll;
-  /* Remove overflow-y: auto; from here */
+  
 }
 
-/* Add styles for the input field and button inside the rounded box */
+
+
+
 .rounded-box textarea {
   width: 90%;
   height: 100px;
   margin-bottom: 10px;
   border-radius: 5px;
   padding: 10px;
+}
+
+.form{
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  display: inline-block;
+  width: 80%; 
+  height: 100%;
+}
+.form textarea {
+  height: 20px;
+
+}
+.form input {
+  height: 30px;
+  width: 50%;
+}
+
+.form button {
+  height: 40%;
+  width: 10%;
+
 }
 
 .rounded-box button {
@@ -128,12 +156,59 @@ body {
   cursor: pointer;
 }
 
+.profile-circle {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; 
+  font-weight: bold;
+  margin-right: 10px; 
+}
+
+.profile-icon-container {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000046; 
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 1000px; 
+}
+
+.commentcard {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150vh; /* Adjust as needed */
+  margin: 0 auto; /* Center horizontally */
+}
 
 .rounded-box button:hover {
   background-color: #000046;
 }
 ::-webkit-scrollbar {
   width: 10px;
+}
+.postcard {
+  margin-top: 10px;
+  background-color: whitesmoke;
+  border-style: solid;
+  color: black;
+
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  
+  bottom: 0; 
+  width: 90%; 
 }
 
 .comment {
@@ -143,8 +218,8 @@ body {
   padding: 10px;
   margin: 5px 0;
   
-  bottom: 0; /* Position comments at the bottom of the post */
-  width: 80%; /* Make comments span the entire width of the post */
+  bottom: 0; 
+  width: 80%; 
 }
 
 
@@ -156,14 +231,53 @@ body {
   margin-top: 20px;
 }
 
+
+
 .profile-icon {
   width: 30px;
   height: 30px;
-  background-color: #3498db; /* You can customize the color */
+  background-color: #3498db; 
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff; /* You can customize the text color */
+  color: #fff; 
   font-weight: bold;
+}
+
+.rounded-form {
+  background-color: #e6ebf5;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  width: 80%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000046;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #000046;
+}
+
+.postButton {
+  background-color: gainsboro;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.postButton:hover {
+  background-color: #000046;
 }

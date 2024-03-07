@@ -59,7 +59,7 @@ export default function CreateComment({postId, comments, setComments}) {
         <div className="addComment">
         <form onSubmit={handleSubmit}>
             <label>
-              <input type="text" name="content" onChange={handleChange} value={comment.comment} className="postInput" placeholder="Comment: "></input>
+              <input type="text" name="content" onChange={handleChange} value={comment.comment} className="postInput" placeholder="Comment: " ></input>
             </label>
             <br/>
             <br/>
