@@ -1,10 +1,11 @@
 import React from 'react'
+import HeaderIcon from '../assets/icons/HeaderIcon'
 
 function Header() {
   return (
-    <div>
-      
-    </div>
+    <header>
+      <HeaderIcon />
+    </header>
   )
 }
 

@@ -1,0 +1,17 @@
+
+
+.dashboard-container {
+    /* background-color: aqua; */
+    
+    max-width: 1800px;
+    border-left: solid 1px var(--border);
+    border-right: solid 1px var(--border);
+    /* position: absolute; */
+    margin-left: 300px;
+    
+}
+
+.dashboard-container > main {
+    /* background-color: rgb(62, 189, 24); */
+   
+}
