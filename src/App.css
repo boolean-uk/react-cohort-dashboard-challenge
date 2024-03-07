@@ -5,6 +5,30 @@
   height: 100vh;
 }
 
+.createPost{
+  padding: 10px;
+  display: flex;
+  background-color: white;
+}
+
+.createPost .input-group{
+  width: 100%
+}
+
+
+
+.createPost .input-group input{
+  width: 100%;
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+
+.createPost button{
+  width: 20%;
+  height: 10%;
+  margin-right: 10px;
+}
+
 .header {
   grid-column: 1 / span 2;
   background-color: #333;
@@ -23,7 +47,7 @@
 }
 .input-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -53,14 +77,31 @@ body {
 
 .post {
   background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+.post h4 {
+  color: #64648c;
+  margin: 0px;
 }
 
 .post h3 {
-  color: #64648c;
+  margin: 0px;
 }
 
 .comment {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comment-content{
   background-color: #e6ebf5;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .btn {
@@ -84,5 +125,55 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #007bff; /* Change border color on focus */
+  border-color: #007bff;
+}
+
+.profile-picture {
+  width: 45px;
+  height: 45px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.profile-picture-comment{
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.profile-picture p {
+  font-size: 20px;
+  color: black;
+  margin: 0;
+}
+
+.input-group button {
+  margin-top: 2.4px;
+  background-color: #adb0b7;
+  right: 50px;
+  width: 25px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group img {
+  width: 15px;
+}
+
+.createPost .profile-picture{
+  width: 60px;
+  margin-right: 5px;
 }

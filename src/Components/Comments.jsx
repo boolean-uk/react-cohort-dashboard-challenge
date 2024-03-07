@@ -1,6 +1,13 @@
 import CreateComment from "./CreateComment";
+import Comment from "./Comment";
+import { useEffect, useContext } from "react";
+import { PostContext } from "./Post"
+function Comments({ fetchUser }) {
+  const { postComments, postId } = useContext(PostContext)
+  useEffect(() => {
+    console.log(postId, postComments);
 
-function Comments({ postComments, postId }) {
+  }, [postComments])
   if (!postComments) {
     return
   }
@@ -8,10 +15,7 @@ function Comments({ postComments, postId }) {
     <div>
       {postComments.map((comment, index) => {
         return (
-          <div key={index} className="comment">
-            <h4>{comment.user}</h4>
-            <p>{comment.content}</p>
-          </div>
+          <Comment key={index} comment={comment} fetchUser={fetchUser} />
         );
       })}
       <CreateComment postId={postId} />

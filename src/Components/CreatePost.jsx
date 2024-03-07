@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../App";
-
+import { getInitials } from "../Utils/helpers";
 function CreatePost() {
   const { posts, setPosts, loggedInUser } = useContext(AppContext);
 
@@ -24,16 +24,33 @@ function CreatePost() {
   const addNewPost = (event) => {
     event.preventDefault();
     if (content.trim() !== "" && title.trim() !== "") {
-      setPosts([
-        ...posts,
-        {
-          id: posts.length + 1,
-          title: title,
-          content: content,
-          user: loggedInUser.user,
-          comments: [],
+      const payload = {
+        title: title,
+        content: content,
+        contactId: loggedInUser.id
+      };
+      console.log(payload);
+      fetch('https://boolean-api-server.fly.dev/Eliassoprani/post', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
         },
-      ]);
+        body: JSON.stringify(payload)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(posts);
+          console.log(data);
+          setPosts({
+            title: title,
+            content: content,
+            contactId: loggedInUser.id,
+            id: data.id
+          });
+        })
+        .catch(error => console.error('Error adding new post:', error));
+
       setContent("");
       setTitle("");
       setIsInputFocused(false);
@@ -42,6 +59,11 @@ function CreatePost() {
 
   return (
     <form onSubmit={addNewPost} className="createPost">
+      {loggedInUser && (
+        <div className="profile-picture" style={{ backgroundColor: loggedInUser.favouriteColour}}>
+          <p>{getInitials(loggedInUser.name)}</p>
+        </div>
+      )}
       <div className="input-group">
         <input
           type="text"
