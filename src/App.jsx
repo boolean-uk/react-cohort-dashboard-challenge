@@ -28,7 +28,7 @@ function App() {
   return (
     <>
     <userContext.Provider
-      value={{LoggedInUser: loggedInUser}}
+      value={{LoggedInUser: loggedInUser, retrieveUserDetails: retrieveUserDetails}}
     >
       <Header />
       <NavigationMenu />

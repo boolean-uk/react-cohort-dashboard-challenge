@@ -1,0 +1,14 @@
+label {
+    width: 100%;
+}
+
+label > span {
+    font-size: 16px;
+    padding-left: 15px;
+    color: var(--post-title-color)
+}
+
+input[type="text"] {
+    width: 95%;
+    margin-left: 0px;
+}

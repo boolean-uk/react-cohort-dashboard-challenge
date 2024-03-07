@@ -1,0 +1,11 @@
+.profile-view-main-container {
+    display: block;
+    position: relative;
+    top: -30px;
+}
+
+.profile-view-main-container > h2 {
+    padding-left: 20px;
+    text-align: left;
+}
+

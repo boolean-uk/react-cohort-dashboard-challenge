@@ -1,0 +1,22 @@
+.grid-item-color-selector > p {
+    width: 100%;
+    font-size: 16px;
+    padding-left: 15px;
+    color: var(--post-title-color)
+}
+
+.grid-item-color-selector > label > input[type="text"] {
+    width: calc(75% - 15px);
+}
+
+.grid-item-color-selector > label > input[type="color"] {
+    appearance: none;
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+
+    margin-left: 0px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: none;
+}
