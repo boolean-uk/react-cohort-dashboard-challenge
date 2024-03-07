@@ -4,7 +4,7 @@ import NavigationMenu from '@/Components/NavigationMenu/NavigationMenu'
 import Header from '@/Components/Header/Header'
 import ContentView from '@/Components/ContentView/ContentView'
 import { userContext } from '@/Utils/contexts'
-import { baseUserUrl } from './Utils/apiUtils'
+import { baseUserUrl } from '@/Utils/apiUtils'
 
 const user = {
   firstName: "A",
@@ -18,7 +18,7 @@ function App() {
   const retrieveUserDetails = async () => {
     await fetch(baseUserUrl)
       .then((res) => res.json())
-      .then((res) => setLoggedInUser({...res.at(-1)}))
+      .then((res) => setLoggedInUser({...res.at(0)}))
   }
   
   useEffect(() => {

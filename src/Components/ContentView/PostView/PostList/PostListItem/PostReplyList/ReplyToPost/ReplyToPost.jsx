@@ -16,6 +16,13 @@ const ReplyToPost = ({postID}) => {
         setData({...data, [e.target.id]: e.target.value})
     }
 
+    const handleKeyDown = (e) => {
+        // 13 is keyCode for "enter" button
+        if (e.keyCode === 13) {
+            submitPostComment(e)
+        }
+    }
+
     const submitPostComment = async (e) => {
         e.preventDefault()
         const commentData = {
@@ -50,6 +57,7 @@ const ReplyToPost = ({postID}) => {
                     id="commentText"
                     value={data["commentText"]}
                     onChange={(e) => handleChange(e)}
+                    onKeyDown={(e) => handleKeyDown(e)}
                 >
                 </input>
                 <button
