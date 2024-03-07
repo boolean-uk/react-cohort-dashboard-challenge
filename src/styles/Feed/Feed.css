@@ -1,0 +1,17 @@
+/* Feed/index.css */
+.feed {
+    width: 100%;
+}
+  
+.feed-input-field {
+    background-color: #e6ebf5;
+    color: black; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.75rem 1rem; /* Adjust padding if needed */
+    border: none; /* Remove border */
+    width: 90%;
+}
+
+.post-button-text {
+    width: 10rem
+}

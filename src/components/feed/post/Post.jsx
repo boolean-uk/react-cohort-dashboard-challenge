@@ -1,4 +1,4 @@
-import { CommentSecton } from '../../../styles/Feed/post/CommentSection/CommentSection';
+import { CommentSecton } from '../../../styles/Feed/post/commentSection/CommentSection';
 import { ProfileImage } from '../../ProfileImage'
 import '/src/styles/Feed/post/Post.css'
 

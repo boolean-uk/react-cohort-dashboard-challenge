@@ -1,0 +1,18 @@
+.comment-container {
+    margin: 1rem;
+    display: flex; /* Allow side-by-side positioning */
+    align-items: center; /* Align items vertically */
+    background-color: white;
+    border: 1px solid #e6ebf5;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.profile-image-container {
+    margin-right: 0.5rem;
+}
+
+
+.post-button {
+    margin-left: 1rem;
+}

@@ -2,8 +2,8 @@
 import { useContext, useState } from 'react';
 import { ProfileImage } from '../ProfileImage'
 // import '/src/styles/Feed/CreatePost.css'
-import '/src/styles/Feed/index.css'
-import { PostsContext } from '../../App';
+import '/src/styles/Feed/CreatePost.css'
+import { PostsContext } from '../App';
 
 export const CreatePost = () => {
   const { writePost } = useContext(PostsContext);
@@ -20,7 +20,7 @@ export const CreatePost = () => {
   
   return (
     <div className="comment-container">
-      <div className="rem-right">
+      <div className="profile-image-container">
         <ProfileImage />
       </div>
       <input

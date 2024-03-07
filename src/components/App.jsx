@@ -1,11 +1,10 @@
 // App.jsx
-import './styles/App.css'; // Import the CSS file
-
-import { Header } from './components/Header';
-import { LeftMenu } from './components/LeftMenu';
-import { Feed } from './components/Feed';
+import '../styles/App.css'; 
+import { Header } from './Header.jsx';
+import { LeftMenu } from './LeftMenu.jsx';
+import { Feed } from './Feed/Feed.jsx';
 import { createContext, useEffect, useState } from 'react';
-import { getPosts, postPost } from './utils/requests';
+import { getPosts, postPost } from '../utils/requests.jsx';
 export const PostsContext = createContext('')
 
 function App() {

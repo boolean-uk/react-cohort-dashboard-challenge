@@ -1,9 +1,9 @@
 // Feed.jsx
 import { CreatePost } from "./CreatePost"
-import '/src/styles/Feed/index.css'
-import { PostsContext } from "../../App"
+import '/src/styles/Feed/Feed.css'
+import { PostsContext } from "../App.jsx"
 import { useContext } from "react"
-import { Post } from "./post"
+import { Post } from "./post/Post.jsx"
 
 export const Feed = () => {
     const { posts } = useContext(PostsContext);
