@@ -1,9 +1,10 @@
 import { useEffect, useState, createContext } from "react"
+import { Link } from 'react-router-dom';
 import Comments from '../comments/comments.jsx'
 
 const MyContext = createContext()
 
-function Post({ post, baseURL }) {
+function Post({ post, baseURL, user }) {
 
     const [postContact, setPostContact] = useState([])
 
@@ -24,17 +25,15 @@ function Post({ post, baseURL }) {
             <img src={postContact.profileImage}/>
             </div>
             <div>
-                <h4>{post.title}</h4>
+                <Link to={`/post/${post.id}`}>{post.title}</Link>
             </div>
             <div>
                 <h4>{post.content}</h4>
             </div>
         </article>
-        <MyContext.Provider value={{ post: post, baseURL: baseURL }} >
             <main className="purple">
-                <Comments />
+                <Comments postId={post.id} baseURL={baseURL} user={user}/>
             </main> 
-        </MyContext.Provider>
         </div>
         </>
 

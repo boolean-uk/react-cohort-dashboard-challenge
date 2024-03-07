@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom'
+import { MyContext } from "../../App.jsx";
 
-function Profile({ user, baseURL }){
+function Profile(){
+
+    const context = useContext(MyContext)
 
     const [person, setPerson] = useState({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        jobTitle: user.jobTitle,
-        street: user.street,
-        city: user.city,
-        favouriteColour: user.favouriteColour,
-        profileImage: user.profileImage
+        firstName: context.user.firstName,
+        lastName: context.user.lastName,
+        email: context.user.email,
+        jobTitle: context.user.jobTitle,
+        street: context.user.street,
+        city: context.user.city,
+        favouriteColour: context.user.favouriteColour,
+        profileImage: context.user.profileImage
       });
 
       const navigate = useNavigate();
@@ -21,7 +24,7 @@ function Profile({ user, baseURL }){
     function handleSubmit(event) {
         event.preventDefault();
     
-        fetch(`${baseURL}/contact/${user.id}`, {
+        fetch(`${context.baseURL}/contact/${context.user.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(person),
@@ -36,13 +39,15 @@ function Profile({ user, baseURL }){
         });
     }
     return (
-        <>
+        <main className="main green">
+            <div className="yellow">
+                <article>
             <h1>Edit Profile</h1>
-            <button className="profile-icon" onClick={() => navigate('/profileIcon')}>
-            <img src={user.profileImage}/>
+            <button className="sidebar-icons"/* naviger til edit profile pic component (kanskje pop up?) onClick={() => navigate('/profileIcon')} */>
+            <img src={context.user.profileImage}/>
             </button>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="firstName">First Name</label>
+                <label htmlFor="firstName">First Name </label>
                 <input
                     type="text"
                     id="firstName"
@@ -50,7 +55,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.firstName}
                 />
-                <label htmlFor="lastName">Last Name</label>
+                <p></p>
+                <label htmlFor="lastName">Last Name </label>
                 <input
                     type="text"
                     id="lastName"
@@ -58,7 +64,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.lastName}
                 />
-                <label htmlFor="email">Email</label>
+                <p></p>
+                <label htmlFor="email">Email </label>
                 <input
                     type="text"
                     id="email"
@@ -66,7 +73,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.email}
                 />
-                <label htmlFor="jobTitle">job Title</label>
+                <p></p>
+                <label htmlFor="jobTitle">job Title </label>
                 <input
                     type="text"
                     id="jobTitle"
@@ -74,7 +82,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.jobTitle}
                 />
-                <label htmlFor="street">Street</label>
+                <p></p>
+                <label htmlFor="street">Street </label>
                 <input
                     type="text"
                     id="street"
@@ -82,7 +91,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.street}
                 />
-                <label htmlFor="city">City</label>
+                <p></p>
+                <label htmlFor="city">City </label>
                 <input
                     type="text"
                     id="city"
@@ -90,7 +100,8 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.city}
                 />
-                <label htmlFor="favouriteColour">favourite Colour</label>
+                <p></p>
+                <label htmlFor="favouriteColour">favourite Colour </label>
                 <input
                     type="text"
                     id="favouriteColour"
@@ -98,9 +109,12 @@ function Profile({ user, baseURL }){
                     onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
                     value={person.favouriteColour}
                 />
+                <p></p>
                 <button type="submit">Edit</button>
                 </form>
-        </>
+                </article>
+            </div>
+        </main>
     )
 }
 export default Profile

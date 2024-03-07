@@ -51,6 +51,13 @@ make the child components lay out using flex, vertically stacked in a column */
   /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
 }
+.profile-main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
 
 .blue {
   background-color: blue;
@@ -62,6 +69,9 @@ make the child components lay out using flex, vertically stacked in a column */
 
 .green {
   background-color: green;
+}
+.pink {
+  background-color: pink;
 }
 
 .yellow {
@@ -76,6 +86,7 @@ make the child components lay out using flex, vertically stacked in a column */
   height: auto;
   width: 70%;
 }
+
 .profile-icon img {
   height: 40px;
   width: 40px;

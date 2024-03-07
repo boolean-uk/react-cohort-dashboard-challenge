@@ -3,6 +3,7 @@ import Header from './components/header.jsx'
 import SideBar from './components/sideBar.jsx'
 import Posts from './components/posts/posts.jsx'
 import Profile from './components/profile/profile.jsx'
+import ShowPost from './components/posts/showPost.jsx'
 import { useEffect, useState, createContext } from 'react'
 import { Route, Routes, Link } from 'react-router-dom';
 
@@ -24,18 +25,26 @@ function App() {
         <Header />
         <div className="container-nav-main">
         <SideBar  />
-        <Posts />
-      </div>
-      </MyContext.Provider>
       <Routes>
         <Route
           path='/'
+          element={<Posts />}
         />
         <Route
           path='/profile'
-          element={<Profile user={user} baseURL={baseURL}/>}
+          element={<Profile />}
         />
+        <Route
+          path='/post/:postId'
+          element={<ShowPost />}
+          />
+        {/* <Route
+          path='/profile/Icon'
+          element={<ProfileIcon />}
+        /> */}
       </Routes>
+      </div>
+      </MyContext.Provider>
     </div>
 )
 }

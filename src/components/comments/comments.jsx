@@ -1,25 +1,28 @@
-import { useContext, useEffect, useState } from "react";
-import { MyContext } from "../posts/post.jsx";
+import { useEffect, useState } from "react";
 import Comment from './comment.jsx'
+import NewComment from './newComment.jsx'
 
-function Comments(){
+function Comments({ postId, baseURL, user }){
 
-    const context = useContext(MyContext)
+    console.log(postId)
     const [comments, setComments] = useState([])
 
   useEffect(() => {
-    fetch(`${context.baseURL}/post/${context.post.id}/comment`)
+    fetch(`${baseURL}/post/$${postId}/comment`)
       .then((response) => response.json())
       .then((data) => setComments(data));
-    }, [context.baseURL, context.post.id, setComments]);
+    }, [baseURL, postId, setComments]);
 
 
     return(
         <main className="main green">
+            <NewComment user={user} baseURL={baseURL} postId={postId}/>
             {
-              comments.map((comment, index) => (
-                <Comment key={index} comment={comment} baseURL={context.baseURL} />
-              ))
+            [...comments]
+            .sort((a, b) => b.id - a.id)
+            .map((comment, index) => (
+                <Comment key={index} comment={comment} baseURL={baseURL} />
+                ))
             }
         </main>
     )
