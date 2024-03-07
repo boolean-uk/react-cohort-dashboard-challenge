@@ -70,7 +70,7 @@ function App() {
   {
     const tmpAuthors = authors.map((author) =>
     {
-      if (author.id === data.newAuthor.id) return data.newAuthor
+      if (author.id === data.tmpAuthor.id) return data.tmpAuthor
       return author
     })
 

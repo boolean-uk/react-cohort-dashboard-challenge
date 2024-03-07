@@ -63,6 +63,7 @@ export default function EditPostPage()
     {
         const updatedPost = newPost
         
+        // Setting default values if not updated
         if (updatedPost.title.length === 0)
             updatedPost.title = post.title
     

@@ -30,10 +30,10 @@ export default function ProfileInfo()
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newAuthor)
+            body: JSON.stringify(updateAuthor)
         }
         
-        fetch(`https://boolean-api-server.fly.dev/klaand01/contact/${newAuthor.id}`, putOptions)
+        fetch(`https://boolean-api-server.fly.dev/klaand01/contact/${updateAuthor.id}`, putOptions)
         .then((response) => response.json())
         .then(() => setNewAuthor(INITIAL_AUTHOR))
     }, [updateAuthor])
@@ -47,15 +47,26 @@ export default function ProfileInfo()
 
     const handleClick = () =>
     {
-        if (newAuthor.firstName.length > 0 &&
-            newAuthor.lastName.length > 0 &&
-            newAuthor.email.length > 0 &&
-            newAuthor.street.length > 0 &&
-            newAuthor.city.length > 0)
-        {
-            editAuthor({newAuthor})
-            setUpdateAuthor(newAuthor)
-        }
+        const tmpAuthor = newAuthor
+
+        // Setting default values if not updated
+        if (tmpAuthor.firstName.length === 0)
+            tmpAuthor.firstName = author.firstName
+
+        if (tmpAuthor.lastName.length === 0)
+            tmpAuthor.lastName = author.lastName
+
+        if (tmpAuthor.email.length === 0)
+            tmpAuthor.email = author.email
+
+        if (tmpAuthor.street.length === 0)
+            tmpAuthor.street = author.street
+
+        if (tmpAuthor.city.length === 0)
+            tmpAuthor.city = author.city
+
+        editAuthor({tmpAuthor})
+        setUpdateAuthor(tmpAuthor)
     }
 
     return (
