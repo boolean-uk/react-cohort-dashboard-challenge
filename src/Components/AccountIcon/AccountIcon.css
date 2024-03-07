@@ -4,6 +4,7 @@
     left: 0%;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .profile-icon-background {
