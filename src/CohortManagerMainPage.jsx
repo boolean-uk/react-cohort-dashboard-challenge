@@ -2,9 +2,11 @@ import "./App.css";
 import PostElement from "./PostElement";
 import { PostContext } from "./App";
 import { useContext, useEffect, useState } from "react";
+import GetAContactByID from "./GetAContactByID";
 
 function CohortManagerMainPage() {
-  const simulatedUser = 1; /* simulating a user with id 1 for posting  */
+  const simulatedUser =
+    GetAContactByID(1); /* simulating a user with id 1 for posting  */
 
   const { postsData, setPostsData } = useContext(PostContext);
   const [newPostData, setNewPostData] = useState("");
