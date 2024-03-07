@@ -1,25 +1,23 @@
 import { useContext } from "react";
-import { PostContext } from "../../App";
+import { PostContext, UserContext } from "../../App";
 import PostItem from "./PostItem";
 
 export default function PostList() {
     const postContext = useContext(PostContext);
+    const userContext = useContext(UserContext);
 
-    console.log(postContext.users)
-
-    const getUser = (post) => {
-        console.log("IN get user")
-        const postUser = postContext.users.find((user) => user.id === post.contactId)
-        return postUser
-    }
-
-
-    
+    //console.log(postContext.users)
 
     return (
       <>
         {[...postContext.posts].reverse().map((post, index) => (
-          <PostItem post={post} key={index} postUser={getUser(post)} />
+          <PostItem
+            post={post}
+            key={index}
+            postUser={userContext.users.find(
+              (user) => user.id === post.contactId
+            )}
+          />
         ))}
       </>
     );

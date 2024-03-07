@@ -1,0 +1,94 @@
+/* make the main fill the remaining width and the full height of the parent */
+.dashboard_layout {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  background-color: #F0F5FA;
+}
+
+.post_layout {
+    background-color: white;
+    color: #64648c;
+    margin: 20px;
+    padding-inline-start: 30px;
+    height: fit-content;
+    width: 94%;
+    border-radius: 8px;
+}
+
+.post_header {
+    display: flex;
+}
+
+.post_circle {
+  height: 50px;
+  width: 50px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046;
+
+  margin-top: 10px;
+}
+
+.post_circle_text {
+  margin: auto;
+}
+
+.post_name {
+  color: black;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: medium;
+}
+
+.post_title {
+  color: #64648c;
+  margin-top: 35px;
+  margin-left: -130px;
+  font-size: medium;
+}
+
+.normal_text {
+  color: #000046;
+  margin-left: 5px;
+  font-size: medium;
+}
+
+.post_dividers {
+  border-top: 1px solid #bbb;
+  width: 90%;
+  padding-inline-start: 120px;
+}
+
+.comment_div {
+    display: flex;
+}
+
+.comment_circle {
+  height: 50px;
+  width: 50px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046;
+
+  margin-top: 10px;
+  margin-left: -40px;
+}
+
+.comment_circle_text {
+  margin: auto;
+}
+
+.comment_rectangle {
+    background-color: #e6ebf5;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+}

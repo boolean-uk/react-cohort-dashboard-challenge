@@ -1,11 +1,16 @@
 import { createContext, useState, useEffect } from 'react'
+import { Route, Routes } from "react-router-dom";
 import './App.css'
-import Header from './Header/Header';
+import Header from './Header';
 import Dashboard from './Dashboard';
+import ShowPost from './Dashboard/components/ShowPost';
+import LeftMenu from './LeftMenu';
 
 const PostContext = createContext()
+const UserContext = createContext();
 
 function App() {
+  const mainUserId = 1
 
   const [posts, setPosts] = useState([])
   const [users, setUsers] = useState([])
@@ -24,18 +29,24 @@ function App() {
 
   return (
     <body>
-      <div className="container">
-        <Header />
+      <PostContext.Provider value={{ posts, setPosts }}>
+        <UserContext.Provider value={{ users, setUsers, mainUserId }}>
+          <div className="container">
+            <Header />
 
-        <div className="container-nav-main">
-          <nav className="sidebar">Sidebar</nav>
-          <PostContext.Provider value={{ posts, setPosts, users }}>
-            <Dashboard />
-          </PostContext.Provider>
-        </div>
-      </div>
+            <div className="container-nav-main">
+              <LeftMenu />
+
+              <Routes>
+                <Route path="/view_post/:id" element={<ShowPost />} />
+                <Route exact path="/" element={<Dashboard />} />
+              </Routes>
+            </div>
+          </div>
+        </UserContext.Provider>
+      </PostContext.Provider>
     </body>
   );
 }
 
-export { App, PostContext };
+export { App, PostContext, UserContext };
