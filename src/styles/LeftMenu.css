@@ -1,6 +1,9 @@
 .left-menu {
+    position: fixed;
+    top: 78px;
+    left: 0;
     width: 100px; /* Set fixed width for left menu */
-    height: 100vh; /* Ensure full viewport height */
+    height: calc(100vh - 78px); /* Ensure full viewport height */
     background-color: #fff; /* White background */
     display: flex;
     flex-direction: column; /* Stack content vertically */

@@ -3,10 +3,12 @@
 /* Container for the entire page content */
 .app-container {
   font-family: sans-serif;
+  
 }
 
 /* Content wrapper for scrollable content */
 .main-content {
   margin-top: 78px;
+  margin-left: 100px;
   display: flex; /* Allow side-by-side positioning */
 }
