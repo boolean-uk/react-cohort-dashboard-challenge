@@ -36,6 +36,7 @@ function PostListItem({ post }) {
             state={{
               firstName: getUserInfo(post.contactId).firstName,
               lastName: getUserInfo(post.contactId).lastName,
+              getUserInfo: getUserInfo
             }}
           >
             {post.title}

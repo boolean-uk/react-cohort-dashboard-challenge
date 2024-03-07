@@ -12,7 +12,7 @@ const Context = createContext();
 function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([])
-  const [userLoggedIn, setUserLoggedIn] = useState("")
+  const [userLoggedIn, setUserLoggedIn] = useState({})
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
@@ -25,7 +25,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setUsers(data)
-        setUserLoggedIn(data[10])
+        setUserLoggedIn(data[9]);
       });
   }, []);
 
