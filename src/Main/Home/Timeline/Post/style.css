@@ -11,20 +11,30 @@
     padding: 10px;
 }
 
+hr {
+    border: 1px solid gainsboro;
+}
+
 .top {
     display: flex;
     flex-direction: row;
-    height: 80px;
-}
+    align-items: center;
 
-.top img {
-    align-self: center;
-    padding: 15px;
-    border-radius: 50%;
-    width: 50px;
+    padding: 10px;
 }
 
 .top-name-title {
     display: flex;
     flex-direction: column;
+    line-height: 1px;
+    padding-left: 10px;
+}
+
+.top-name-title h2 {
+    font-size: 15px;
+}
+
+.top-name-title h4 {
+    font-size: 12px;
+    color: #444499;
 }

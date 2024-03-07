@@ -33,6 +33,7 @@ function Post({ post }) {
                 </div>
             </div>
             <p>{post.content}</p>
+            <hr />
             {comments.map((comment, index) => (
                 <Comment key={index} comment={comment}/>
             ))}

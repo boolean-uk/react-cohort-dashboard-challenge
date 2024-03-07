@@ -14,8 +14,8 @@ function Comment({comment}) {
 
     return(
         <div className="comment">
-            <div>{commentingUser[0].firstName[0]}</div>
-            <div className="comment-name-content">
+            <div className="profile-pic" style={{backgroundColor: `${commentingUser[0].favouriteColour}`}}>{commentingUser[0].firstName[0]}{commentingUser[0].lastName[0]}</div>
+            <div className="comment-content">
                 <h4>{commentingUser[0].firstName} {commentingUser[0].lastName}</h4>
                 <p>{comment.content}</p>
             </div>

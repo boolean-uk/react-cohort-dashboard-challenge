@@ -11,3 +11,12 @@
     display: none;
 }
 
+.side-menu label {
+  text-align: center;
+  padding: 30%;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}

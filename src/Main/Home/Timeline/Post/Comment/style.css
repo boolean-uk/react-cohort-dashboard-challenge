@@ -1,4 +1,9 @@
 .comment {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-content {
     background-color:rgb(224, 227, 243);
     margin: 10px;
     border-radius: 10px;
@@ -6,5 +11,5 @@
 }
 
 .comment input[type=text] {
-    
+
 }
