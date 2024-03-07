@@ -4,6 +4,7 @@ import CohortManagerMainPage from "./pages/CohortManagerMainPage";
 import { useEffect, useState, createContext } from "react";
 import { getAllPosts } from "./Api.js";
 export const PostContext = createContext();
+import LookAtSpecificPostPage from "./pages/LookAtSpecificPostPage.jsx";
 
 function App() {
   const [postsData, setPostsData] = useState([]);
@@ -25,8 +26,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<CohortManagerMainPage />} />
-
-            {/*<Route path="/posts/:id" element={}/>*/}
+            <Route path="/posts/:postId" element={<LookAtSpecificPostPage />} />
+            {/**/}
           </Routes>
         </BrowserRouter>
       </PostContext.Provider>

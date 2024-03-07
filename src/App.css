@@ -86,10 +86,10 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 100px;
   background-color: #e6ebf5;
 }
-.sidebar-button:hover {
+/*.sidebar-button:hover {
   background-color: #64dc78;
   color: white;
-}
+}*/
 .sidebar-button-image-and-font {
   color: #888;
 }

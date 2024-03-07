@@ -8,6 +8,9 @@ import {
   postNewCommentToAPI,
 } from "../Api.js";
 import GetInitalsFromNames from "../GetInitialsFromNames";
+import { Link } from "react-router-dom";
+
+const initialCommentData = "";
 
 function Post(props) {
   //props data on the current post
@@ -18,7 +21,7 @@ function Post(props) {
   const [loadingComments, setLoadingComments] = useState(true);
   const [commentsError, setCommentsError] = useState(null);
   // state to store the data for the comment being written
-  const [newCommentData, setNewCommentData] = useState("");
+  const [newCommentData, setNewCommentData] = useState(initialCommentData);
   // data on the person that posted the current comment.
   const [posterInformation, setPosterInformation] = useState(null);
 
@@ -49,6 +52,8 @@ function Post(props) {
     const postRequestData = createCommentPostRequestBody(newCommentData);
 
     MakeAPICommentPostRequest(postRequestData);
+
+    setNewCommentData(initialCommentData);
   };
 
   const createCommentPostRequestBody = (newCommentData) => {
@@ -97,7 +102,9 @@ function Post(props) {
           </h2>
         )}
 
-        <h5 className="post-head-title">{postData.title}</h5>
+        <Link to={`/posts/${postData.id}`} className="post-head-title">
+          {postData.title}
+        </Link>
       </div>
       <div className="post-box-body">
         <p className="post-body-content">{postData.content}</p>
@@ -122,6 +129,7 @@ function Post(props) {
             placeholder="write your comment here"
             type="text"
             name="postText"
+            value={newCommentData}
             onChange={handleInputPostData}
           ></input>
           <button className="comment-button">submit button</button>

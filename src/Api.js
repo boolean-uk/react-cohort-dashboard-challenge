@@ -104,4 +104,21 @@ export function postNewCommentToAPI(
     });
 }
 
+export function getAPostByID(postId, setCurrentPost) {
+  fetch(`https://boolean-api-server.fly.dev/MackanPalm/post/${postId}`)
+    .then((responce) => {
+      if (responce.ok) {
+        return responce.json();
+      }
+      throw responce;
+    })
+    .then((data) => {
+      setCurrentPost([data]);
+    })
+    .catch((err) => {
+      console.log(err);
+      //add something for the user to see
+    });
+}
+
 export default { getAContactByID, getAllComments };

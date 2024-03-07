@@ -10,12 +10,14 @@ import {
 } from "../components/images.jsx";
 import GetInitalsFromNames from "../GetInitialsFromNames.jsx";
 
+const InitialPostData = "";
+
 function CohortManagerMainPage() {
   const [simulatedUserData, setSimulatedUserData] =
     useState(null); /* simulating a user with id 1 for posting  */
 
   const { postsData, setPostsData } = useContext(PostContext);
-  const [newPostData, setNewPostData] = useState("");
+  const [newPostData, setNewPostData] = useState(InitialPostData);
 
   //Controls whether the post button should be disabled or not.
   useEffect(() => {
@@ -53,6 +55,8 @@ function CohortManagerMainPage() {
     const postRequestData = stringToPostRequestBody(newPostData);
 
     MakeAPIPostRequest(postRequestData);
+
+    setNewPostData(InitialPostData); // this resets the text box
   };
 
   //Splits the input text to the title and content and puts them in a postRequestBody object
@@ -112,6 +116,7 @@ function CohortManagerMainPage() {
                 placeholder="Write your post here. To separate post title and post text you ned to add a: | between them."
                 type="text"
                 name="postText"
+                value={newPostData}
                 onChange={handleInputPostData}
               />
               <button
