@@ -3,10 +3,10 @@ import { userContext } from '@/Utils/contexts.js'
 import { ReplyContext } from "@/Utils/contexts.js"
 import { basePostUrl } from '@/Utils/apiUtils'
 import AccountIcon from "@/Components/AccountIcon/AccountIcon"
-import "./ReplyToPost.css"
+import "./CommentOnPost.css"
 import PropTypes from 'prop-types'
 
-const ReplyToPost = ({postID}) => {
+const CommentOnPost = ({postID}) => {
     const [data, setData] = useState({"commentText": localStorage.getItem(`uncommited_comment_${postID}`) || ""})
     const { LoggedInUser } = useContext(userContext)
     const { refetchReplies } = useContext(ReplyContext)
@@ -71,8 +71,8 @@ const ReplyToPost = ({postID}) => {
     )
 }
 
-ReplyToPost.propTypes = {
+CommentOnPost.propTypes = {
     postID: PropTypes.number,
 }
 
-export default ReplyToPost
+export default CommentOnPost

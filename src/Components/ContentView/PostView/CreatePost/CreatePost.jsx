@@ -45,25 +45,25 @@ const CreatePost = () => {
         >
             <AccountIcon user={LoggedInUser}/>
             <div className="create-post-input-container">
-            <label>
-                <input
-                    id="title"
-                    type="text"
-                    placeholder="What's on your mind?"
-                    value={postObject["title"]}
-                    onChange={(e) => handleChangeEvent(e)}
-                />
-            </label>
-            {postObject["title"] && <label>
-                <input
-                    id="content"
-                    type="text"
-                    placeholder="Write post content here"
-                    value={postObject["content"]}
-                    onChange={(e) => handleChangeEvent(e)}
-                />
+                <label>
+                    <input
+                        id="title"
+                        type="text"
+                        placeholder="What's on your mind?"
+                        value={postObject["title"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
                 </label>
-            }
+                {postObject["title"] && <label>
+                    <input
+                        id="content"
+                        type="text"
+                        placeholder="Write post content here"
+                        value={postObject["content"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
+                    </label>
+                }
             </div>
             <button onClick={(e) => submitPost(e)}>
                 Post

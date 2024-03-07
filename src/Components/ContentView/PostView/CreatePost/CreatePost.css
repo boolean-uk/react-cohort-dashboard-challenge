@@ -6,13 +6,18 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    width: calc(100% - 10px);
+    width: calc(100% - 30px);
     height: 80px;
     padding: 10px;
+    padding-left: 30px;
+}
+
+.create-post-container > label > input {
+    margin-left: 20px;
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 15px;
     margin-left: 20px;
     padding-left: 10px;
     width: 100%;
@@ -21,13 +26,15 @@ input {
 
 button {
     position: relative;
-    left: calc(100px / 2);
+    left: calc(80px / 2);
     width: 100px;
 }
 
 .create-post-input-container {
-    display: flexbox;
-    width: calc(100vw - 200px - 250px);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: calc(100vw - 200px - 270px);
 }
 
 .create-post-input-container > label > input {

@@ -5,7 +5,7 @@ import "./PostReplyList.css"
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import { ReplyContext } from "@/Utils/contexts"
-import ReplyToPost from './ReplyToPost/ReplyToPost'
+import CommentOnPost from './CommentOnPost/CommentOnPost'
 
 const PostReplyList = ({ postID }) => {
     const location = useLocation()
@@ -44,7 +44,7 @@ const PostReplyList = ({ postID }) => {
                 <PostReply key={index} reply={reply}/>
             ))}
             <div>
-                <ReplyToPost postID={postID}/>
+                <CommentOnPost postID={postID}/>
             </div>
         </div>
         </ReplyContext.Provider>
