@@ -11,4 +11,6 @@
 
 .layout > .main > .content {
     flex: 1;
+    max-height: 90vh;
+    overflow: auto;
 }

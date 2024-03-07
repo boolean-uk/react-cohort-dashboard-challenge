@@ -6,9 +6,9 @@ import { createContext, useEffect, useState } from "react";
 
 function App() {
     const [user, setUser] = useState({
-        id: 1,
-        firstName: "Gudbrand",
-        lastName: "Dynna",
+        id: -1,
+        firstName: "Not",
+        lastName: "Loaded",
     });
     const [postData, setPostData] = useState([]);
     const [contactData, setContactData] = useState([]);
@@ -28,6 +28,7 @@ function App() {
         );
         const data = await response.json();
         console.log(data);
+        setUser({ ...data[0] });
         setContactData([...data]);
     };
 
