@@ -1,0 +1,36 @@
+.profileContainer {
+    grid-area: main;
+    margin-left: 20px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.profileContentContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 30px min-content;
+    grid-template-areas:
+        "account address"
+        "spacing spacing"
+        "contact job";
+}
+
+.updatePostButton {
+    grid-area: company;
+    width: 150px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    background-color: #000046;
+    transition: all 0.3s ease;
+}
+
+.updatePostButton:hover {
+    background-color: #64dc78;
+    cursor: pointer;
+    scale: 1.05;
+}

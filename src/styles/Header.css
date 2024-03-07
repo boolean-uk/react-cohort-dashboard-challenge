@@ -1,0 +1,8 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000046;
+    width: 100%;
+    grid-area: header;
+}

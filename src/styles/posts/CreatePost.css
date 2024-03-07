@@ -1,0 +1,36 @@
+.createPostContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.createPostButton {
+    width: 200px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    margin-left: 10px;
+    background-color: #000046;
+    transition: all 0.3s ease;
+}
+
+.createPostButton:hover {
+    background-color: #64dc78;
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.inputForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
