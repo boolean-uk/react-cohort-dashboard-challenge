@@ -1,0 +1,28 @@
+.postfeed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Optional: Center the items horizontally */
+  }
+
+.create-post-container{
+    margin-bottom: 20px; /* Adjust the margin as needed */
+    max-width: 90%;
+    margin: auto;
+
+}
+
+.create-post-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .submitbtn{
+    color: #f0ffff;
+    background-color: #000046
+  }

@@ -2,10 +2,11 @@ import PostItem from "./PostItem"
 
 
 function PostList({posts}) {
+  const reversedPosts = [...posts].reverse()
+    
   return (
     <div>
-    <div>PostList</div>
-        {posts.map((post, index) => 
+        {reversedPosts.map((post, index) => 
         <PostItem post={post} key={index}></PostItem>
         )}
     </div>

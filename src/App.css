@@ -1,3 +1,7 @@
+button{
+  color: #000046
+}
+
 body {
   /* Make the body fill all the size of viewport */
   width: 100vw;
@@ -26,12 +30,16 @@ make the child components lay out using flex, vertically stacked in a column */
 
 /* style for the header, it must have a fixed height and full width */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 60px;
   width: 100vw;
   background-color: #000046
 }
 
 /* make the sidebar fill the available height and be of fixed width */
+
 .sidebar {
   width: 200px;
   height: 100%;
@@ -53,15 +61,15 @@ make the child components lay out using flex, vertically stacked in a column */
 }
 
 .red {
-  background-color: red;
+  background-color: rgb(255, 255, 255);
 }
 
 .green {
-  background-color: green;
+  background-color: #F0F5FA;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: rgb(255, 255, 255);
   margin: 10px;
   height: 200px;
   width: 100%;

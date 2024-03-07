@@ -1,13 +1,14 @@
 import { useState, useContext } from "react"
+import "./../styles.css"
 
 
 
 function CreatePost({setPosts, posts}) {
-    console.log(posts)
+
     const [post, setPost] = useState({
         title: "",
         content: "",
-        contactId: 2
+        contactId: 1
     })
     const handleChange = (event) => {
         event.preventDefault()
@@ -25,12 +26,10 @@ function CreatePost({setPosts, posts}) {
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify(post)
             })
-            console.log(res.json)
-            console.log(res)
             if(res.ok) {
                 console.log("success post added")
                 setPosts([...posts, post])
-
+                setPost({...post, title: "", content: ""})
             } else{
                 console.error("Failed to add post")
             }
@@ -39,30 +38,35 @@ function CreatePost({setPosts, posts}) {
             console.error('Error:', error)
         }
 
-
     }
     
   return (
     <div>
     <form onSubmit={addPost}>
         <div>
-            <input 
+            <input
+            className="create-post-input" 
             name="title" 
             id="title" 
             placeholder="whats on your mind?"
             value= {post.title}
             onChange={handleChange} 
+            required
             ></input>
         </div>
         <div>
             <textarea 
+            className="create-post-input" 
             name="content" 
             id="content" 
-            placeholder="whats on your mind?"
+            placeholder="Elaborate"
             value= {post.content}
             onChange={handleChange}
-            cols="30" 
-            rows="10"></textarea>
+            cols="10" 
+            rows="4"
+            required
+            >
+            </textarea>
         </div>
         <button type="submit">Post</button>
     </form>

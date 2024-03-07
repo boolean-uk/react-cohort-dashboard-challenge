@@ -1,13 +1,47 @@
 import CreateComment from "./CreateComment"
 import CommentList from "./CommentList"
 import PostContent from "./PostContent"
+import ProfileCircle from "../../Profile/components/ProfileCircle"
+
+import { useEffect, useState } from "react"
+
 
 function PostItem({post}) {
+  const [comments, setComments] = useState([])
+  const [user, setUser] = useState({
+    firstName: "default",
+    lastName: "default"
+  })
+
+  const fetchComments = () => {
+    fetch(`https://boolean-api-server.fly.dev/AxelHan/post/${post.id}/comment`)
+    .then((res) => res.json())
+    .then((data) => {
+      setComments(data)
+    })
+  }
+
+  const fetchUser = () => {
+    fetch(`https://boolean-api-server.fly.dev/AxelHan/contact/${post.contactId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setUser(data)
+    })
+  }
+
+
+  useEffect(() => {
+    fetchComments()
+    fetchUser()
+  }, [])
+
+
   return (
-    <div>
+    <div className="yellow">
+        <ProfileCircle user={user}></ProfileCircle>
         <PostContent post={post}></PostContent>
-        <CommentList></CommentList>
-        <CreateComment></CreateComment>
+        <CommentList comments={comments}></CommentList>
+        <CreateComment setComments={setComments} comments={comments} postId={post.id}> </CreateComment>
     </div>
   )
 }

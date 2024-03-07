@@ -1,6 +1,9 @@
-function Comment() {
+function Comment(comment) {
+
   return (
-    <div>Comment</div>
+    <div>
+      <p>{comment.comment.content}</p>
+    </div>
   )
 }
 

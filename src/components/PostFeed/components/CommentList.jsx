@@ -1,16 +1,12 @@
 import Comment from "./Comment"
 
-function CommentList() {
+function CommentList({comments}) {
+
   return (
     <div>
-        <ul>
-            <li>
-                <Comment></Comment>
-            </li>
-            <li>
-                <Comment></Comment>
-            </li>
-        </ul>
+        {comments.map((comment, index) => 
+        <Comment comment={comment} key={index}> </Comment>
+        )}
     </div>
   )
 }
