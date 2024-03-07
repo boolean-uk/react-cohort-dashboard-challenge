@@ -1,71 +1,119 @@
 import PropTypes from "prop-types";
 import UserCircle from "./UserCircle";
+import { putData } from "../utils/api.js";
 import "./ProfilePage.css";
+import React, { useState, useEffect } from "react";
+import { baseContectURL } from "../utils/urls.js";
 
 function ProfilePage(props) {
-  const { loggedInUser } = props;
-  console.log("loggedInUser: ", loggedInUser);
+  const { user, handleSave } = props;
+  const [formValues, setFormValues] = useState(user);
+
+  useEffect(() => {
+    setFormValues(user);
+  }, [user]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+    console.log(value);
+  };
+
+  const saveProfile = async () => {
+    console.log(
+      "not implementet but will sav the changes made in the profile: ",
+      formValues
+    );
+    const response = await putData(`${baseContectURL}/${user.id}`, formValues);
+    if (response) {
+      console.log("Successfully updated profile information!");
+      handleSave();
+    } else {
+      console.error(
+        "OBS!!! Something happened trying to update the profile information"
+      );
+    }
+  };
+
   return (
     <>
       <h1>Profile</h1>
       <div className="blogpost-card">
         <div className="form-header">
           <UserCircle
-            userFirstName={loggedInUser.firstName}
-            userLastName={loggedInUser.lastName}
-            userfavouriteColour={loggedInUser.favouriteColour}
+            userFirstName={user.firstName}
+            userLastName={user.lastName}
+            userfavouriteColour={user.favouriteColour}
           />
-          <h1>{`${loggedInUser.firstName} ${loggedInUser.lastName}`}</h1>
+          <h1>{`${user.firstName} ${user.lastName}`}</h1>
         </div>
         <form className="form-form">
           <div className="form-form-grid">
             <h2>Account info</h2>
-            <label>First Name*</label>
-            <input type="text" placeholder="First Name" />
-            <label>Last Name*</label>
-            <input type="text" placeholder="Last Name" />
-            <label>Username*</label>
-            <input type="text" placeholder="Username" />
-            <label>Email*</label>
-            <input type="text" placeholder="Email" />
+            {["firstName", "lastName", "gender", "email"].map((field) => (
+              // <-- represents <></>
+              <React.Fragment key={field}>
+                <label>{field}</label>
+                <input
+                  type="text"
+                  placeholder={field}
+                  onChange={handleInputChange}
+                  value={formValues[field]}
+                  name={field}
+                />
+              </React.Fragment>
+            ))}
           </div>
           <div className="form-form-grid">
             <h2>Address</h2>
-            <label>Street</label>
-            <input type="text" placeholder="Street" />
-            <label>Suite</label>
-            <input type="text" placeholder="Suite" />
-            <label>City</label>
-            <input type="text" placeholder="City" />
-            <label>Zipcode</label>
-            <input type="text" placeholder="Zipcode" />
+            {["street", "city"].map((field) => (
+              <React.Fragment key={field}>
+                <label>{field}</label>
+                <input
+                  type="text"
+                  placeholder={field}
+                  onChange={handleInputChange}
+                  value={formValues[field]}
+                  name={field}
+                />
+              </React.Fragment>
+            ))}
           </div>
           <div className="form-form-grid">
-            <h2>Contact info</h2>
-            <label>Phone*</label>
-            <input type="text" placeholder="Phone" />
-            <label>Website</label>
-            <input type="text" placeholder="Website" />
+            <h2>Position</h2>
+            {["latitude", "longitude"].map((field) => (
+              <React.Fragment key={field}>
+                <label>{field}</label>
+                <input
+                  type="text"
+                  placeholder={field}
+                  onChange={handleInputChange}
+                  value={formValues[field]}
+                />
+              </React.Fragment>
+            ))}
             <label>*Required</label>
           </div>
           <div className="form-form-grid">
             <h2>Company info</h2>
-            <label>Nmae</label>
-            <input type="text" placeholder="Name" />
-            <label>Catch Phrase</label>
-            <input type="text" placeholder="Catch Phrase" />
-            <label>Business Statement</label>
-            <input type="text" placeholder="Business Statement" />
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              onChange={(e) => e.target.value}
+              value={user.jobTitle}
+            />
           </div>
         </form>
-        <button>Save</button>
+        <button onClick={saveProfile}>Save</button>
       </div>
     </>
   );
 }
 
 ProfilePage.propTypes = {
-  loggedInUser: PropTypes.object,
+  user: PropTypes.object,
+  handleSave: PropTypes.func,
 };
 
 export default ProfilePage;

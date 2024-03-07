@@ -23,7 +23,8 @@ h1 {
 }
 
 .form-form-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 12px;
   border-bottom: 1px solid rgba(132, 139, 200, 0.2);
 }

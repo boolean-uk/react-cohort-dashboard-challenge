@@ -11,18 +11,24 @@ import { fetchLoggedinContact } from "./utils/api.js";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+
   // Simulating the current logged in user
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetchLoggedinContact();
-      if (response) {
-        setLoggedInUser(response);
-      } else {
-        console.error("OBS!!! Something went wrong getting the logged in user");
-      }
-    };
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    const response = await fetchLoggedinContact();
+    if (response) {
+      setLoggedInUser(response);
+    } else {
+      console.error("OBS!!! Something went wrong getting the logged in user");
+    }
+  };
+
+  const handleSave = () => {
+    fetchData();
+  };
 
   return (
     <>
@@ -37,7 +43,9 @@ function App() {
               <Route path="/" element={<HomePage />}></Route>
               <Route
                 path="/profile"
-                element={<ProfilePage loggedInUser={loggedInUser} />}
+                element={
+                  <ProfilePage user={loggedInUser} handleSave={handleSave} />
+                }
               ></Route>
               <Route
                 path="post/view/:id"

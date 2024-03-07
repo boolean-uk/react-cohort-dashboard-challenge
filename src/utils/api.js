@@ -114,3 +114,26 @@ export const postData = async (URL, payload) => {
     return false;
   }
 };
+
+export const putData = async (URL, payload) => {
+  try {
+    const response = await fetch(URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      console.error(`Failed to update data: ${response.statusText}`);
+      return false;
+    }
+
+    console.log("Data successfully updated!");
+    return true;
+  } catch (er) {
+    console.error(er);
+    return false;
+  }
+};
