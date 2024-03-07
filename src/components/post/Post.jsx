@@ -4,6 +4,7 @@ import UserIcon from "../icons/UserIcon";
 import { useContext, useEffect, useState } from "react";
 import { postContext } from "../../App";
 import Comments from "./comment/Comments";
+import CommentCreate from "./comment/CommentCreate";
 
 const Post = ({ post }) => {
     const { contacts } = useContext(postContext);
@@ -46,6 +47,7 @@ const Post = ({ post }) => {
             <p>{post.content}</p>
             <hr />
             <Comments comments={commentData} />
+            <CommentCreate />
         </li>
     );
 };
