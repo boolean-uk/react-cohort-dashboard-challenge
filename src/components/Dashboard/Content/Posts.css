@@ -1,0 +1,11 @@
+.posts {
+    
+    .list{
+        display: flex;
+        flex-flow: column;
+
+        list-style: none;
+        padding: 0;
+        
+    }
+}

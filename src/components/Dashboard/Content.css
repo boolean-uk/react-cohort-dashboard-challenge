@@ -1,0 +1,16 @@
+.content {
+    height: 100%;
+    flex: 1;
+
+    .scroll {
+        max-height: 90%;
+        overflow-y: scroll;
+        flex-direction: column;
+        padding: 1rem;
+        padding-bottom: 0rem;
+    }
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
