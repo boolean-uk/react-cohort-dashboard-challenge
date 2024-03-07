@@ -10,6 +10,7 @@ const Context = createContext();
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
@@ -17,12 +18,17 @@ function App() {
       .then((data) => setPosts(data.reverse()));
   }, [posts]);
 
+  useEffect(() => {
+    fetch("https://boolean-api-server.fly.dev/maha897/contact")
+      .then((response) => response.json())
+      .then(setUsers);
+  }, []);
+
   return (
-    <Context.Provider value={{ posts, setPosts }}>
+    <Context.Provider value={{ posts, setPosts, users }}>
       <div className="app">
         <header className="header">
           <HeaderIcon />
-          {/* WANT TO PUT SVG IMAGE HERE*/}
         </header>
 
         <div className="content">

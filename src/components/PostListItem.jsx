@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Avatar from "react-avatar";
 import { Link } from "react-router-dom";
+import { Context } from "../App";
 
 function PostListItem({ post }) {
   const [comments, setComments] = useState([]);
-  const [users, setUsers] = useState([]);
+  const { users } = useContext(Context)
   const initCommentInput = {
     contactId: 10,
     postId: post ? post.id : null,
@@ -19,14 +20,9 @@ function PostListItem({ post }) {
       .then(setComments);
   }, [post.id]);
 
-  useEffect(() => {
-    fetch("https://boolean-api-server.fly.dev/maha897/contact")
-      .then((response) => response.json())
-      .then(setUsers);
-  }, []);
-
   function getUserInfo(contactId) {
-    return users.find((user) => user.id === contactId);
+    console.log(users)
+    return users.find((user) => Number(user.id) === Number(contactId));
   }
 
   function handleSubmit(event) {
@@ -76,8 +72,17 @@ function PostListItem({ post }) {
             <ul className="comments-ul">
               {comments.map((comment) => (
                 <li key={comment.id}>
-                  User #{comment.contactId}: {comment.content}
-                  <br /> <br />
+                  <Avatar
+                    name={`${getUserInfo(comment.contactId).firstName} ${
+                      getUserInfo(comment.contactId).lastName
+                    }`}
+                    round={true}
+                  />
+                  <b>{`${getUserInfo(comment.contactId).firstName} ${
+                    getUserInfo(comment.contactId).lastName
+                  }`}</b>
+                  <p>{comment.content}</p>
+                  <br />
                 </li>
               ))}
             </ul>
@@ -85,7 +90,12 @@ function PostListItem({ post }) {
         )}
 
         <form className="comment-form" onSubmit={handleSubmit}>
-          {/* TODO user info */}
+          <Avatar
+            name={`${getUserInfo(10).firstName} ${
+              getUserInfo(10).lastName
+            }`}
+            round={true}
+          />
           <div className="embed-submit-field">
             <input
               name="content"
