@@ -15,7 +15,6 @@ function UserProfile() {
   useEffect(() => {
     // Check if currentUser exists before trying to find the user
     if (currentUser) {
-      console.log(currentUser)
       // Find the user with the matching id from the URL
       const userToEdit = currentUser.find((user) => user.id === parseInt(id, 10));
 
