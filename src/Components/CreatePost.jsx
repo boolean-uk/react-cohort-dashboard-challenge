@@ -27,29 +27,21 @@ function CreatePost() {
       const payload = {
         title: title,
         content: content,
-        contactId: loggedInUser.id
+        contactId: loggedInUser.id,
       };
-      console.log(payload);
-      fetch('https://boolean-api-server.fly.dev/Eliassoprani/post', {
-        method: 'POST',
+      fetch("https://boolean-api-server.fly.dev/Eliassoprani/post", {
+        method: "POST",
         headers: {
-          'accept': 'application/json',
-          'Content-Type': 'application/json'
+          accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       })
-        .then(response => response.json())
-        .then(data => {
-          console.log(posts);
-          console.log(data);
-          setPosts({
-            title: title,
-            content: content,
-            contactId: loggedInUser.id,
-            id: data.id
-          });
+        .then((response) => response.json())
+        .then((data) => {
+          setPosts([data, ...posts]);
         })
-        .catch(error => console.error('Error adding new post:', error));
+        .catch((error) => console.error("Error adding new post:", error));
 
       setContent("");
       setTitle("");
@@ -60,7 +52,9 @@ function CreatePost() {
   return (
     <form onSubmit={addNewPost} className="createPost">
       {loggedInUser && (
-        <div className="profile-picture" style={{ backgroundColor: loggedInUser.favouriteColour}}>
+        <div
+          className="profile-picture"
+          style={{ backgroundColor: loggedInUser.favouriteColour }}>
           <p>{getInitials(loggedInUser.name)}</p>
         </div>
       )}
@@ -82,7 +76,9 @@ function CreatePost() {
           />
         )}
       </div>
-      <button className="btn" type="submit">Post</button>
+      <button className="btn" type="submit">
+        Post
+      </button>
     </form>
   );
 }

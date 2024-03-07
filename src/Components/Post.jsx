@@ -7,39 +7,32 @@ import DeleteIcon from "../assets/delete.svg";
 
 export const PostContext = createContext();
 
-function Post({ post, fetchUser }) {
+function Post({ post, fetchUser, key, postId }) {
   const { loggedInUser, deletePost, newPost, posts } = useContext(AppContext);
   const [postComments, setPostComments] = useState([]);
   const [user, setUser] = useState(null);
-
   useEffect(() => {
-    fetchComments();
+    fetch(
+      `https://boolean-api-server.fly.dev/Eliassoprani/post/${postId}/comment`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data set", postId);
+        console.log("POST ID", postId);
+        setPostComments(data);
+      });
     fetchUsername();
   }, []);
-
   const updateComment = (obj) => {
-    setPostComments([
-      ...postComments, obj])
-  }
-
+    setPostComments([...postComments, obj]);
+  };
+  console.log("Postcomments", postComments);
   const fetchUsername = async () => {
     try {
       const getuser = await fetchUser(post.contactId);
       setUser(getuser);
     } catch (error) {
       console.error("Error fetching username:", error);
-    }
-  };
-
-  const fetchComments = async () => {
-    try {
-      const response = await fetch(
-        `https://boolean-api-server.fly.dev/Eliassoprani/post/${post.id}/comment`
-      );
-      const data = await response.json();
-      setPostComments(data);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
     }
   };
 
@@ -51,9 +44,14 @@ function Post({ post, fetchUser }) {
     <div className="post">
       <li>
         <div style={{ display: "flex" }}>
-
           {user && (
-            <div className="profile-picture" style={{ backgroundColor: user.favouriteColour, marginTop: 'auto', marginBottom: 'auto' }}>
+            <div
+              className="profile-picture"
+              style={{
+                backgroundColor: user.favouriteColour,
+                marginTop: "auto",
+                marginBottom: "auto",
+              }}>
               <p>{getInitials(user.name)}</p>
             </div>
           )}
@@ -62,16 +60,31 @@ function Post({ post, fetchUser }) {
             <h3>{user && user.name}</h3>
             <h4>{post.title}</h4>
           </div>
-          {(loggedInUser && user) ? (loggedInUser.id === user.id && <button style={{ marginLeft: 'auto' }} onClick={handleDelete}><img style={{ width: "20px" }} src={DeleteIcon} alt="" /></button>) : null}
-          {(loggedInUser && user) ? (loggedInUser.id === user.id && <button><img style={{ width: "20px" }} src={EditIcon} alt="" /></button>) : null}
-
+          {loggedInUser && user
+            ? loggedInUser.id === user.id && (
+                <button style={{ marginLeft: "auto" }} onClick={handleDelete}>
+                  <img style={{ width: "20px" }} src={DeleteIcon} alt="" />
+                </button>
+              )
+            : null}
+          {loggedInUser && user
+            ? loggedInUser.id === user.id && (
+                <button>
+                  <img style={{ width: "20px" }} src={EditIcon} alt="" />
+                </button>
+              )
+            : null}
         </div>
 
         <p>{post.content}</p>
         <hr />
 
-        <PostContext.Provider value={{ postId: post.id, postComments, setPostComments: updateComment }}>
-          <Comments fetchUser={fetchUser} />
+        <PostContext.Provider
+          value={{
+            postComments: postComments,
+            setPostComments: setPostComments,
+          }}>
+          <Comments fetchUser={fetchUser} postId={post.id} />
         </PostContext.Provider>
       </li>
     </div>

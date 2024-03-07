@@ -11,37 +11,41 @@ export function App() {
   const [loggedInUser, setLoggedInUser] = useState({
     id: 12,
     name: "",
-    favouriteColour: ""
+    favouriteColour: "",
   });
 
   useEffect(() => {
-    fetchPosts();
-    setUser(loggedInUser.id)
+    fetch("https://boolean-api-server.fly.dev/Eliassoprani/post")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts([...data].reverse());
+      });
+    setUser(loggedInUser.id);
   }, []);
 
   const setUser = async (id) => {
     fetchUser(id).then((data) => {
-      setLoggedInUser(data)
-    })
-  }
+      setLoggedInUser(data);
+    });
+  };
 
   const deletePost = async (postId) => {
     fetch(`https://boolean-api-server.fly.dev/Eliassoprani/post/${postId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Accept': 'application/json'
-      }
+        Accept: "application/json",
+      },
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to delete post');
+          throw new Error("Failed to delete post");
         }
-        fetchPosts();
+        setPosts(posts.filter((post) => post.id !== postId));
       })
-      .catch(error => {
-        console.error('Error deleting post:', error);
+      .catch((error) => {
+        console.error("Error deleting post:", error);
       });
-  }
+  };
 
   const fetchUser = async (userId) => {
     try {
@@ -49,31 +53,14 @@ export function App() {
         `https://boolean-api-server.fly.dev/Eliassoprani/contact/${userId}`
       );
       const data = await response.json();
-      return ({
+      return {
         id: data.id,
         name: data.firstName + " " + data.lastName,
-        favouriteColour: data.favouriteColour
-      })
+        favouriteColour: data.favouriteColour,
+      };
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
-  }
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch(
-        "https://boolean-api-server.fly.dev/Eliassoprani/post"
-      );
-      const data = await response.json();
-      const reversedData = data.reverse();
-      setPosts([...reversedData]);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
-
-  const newPost = async (obj) => {
-    setPosts((prevPosts) => [...prevPosts, obj].reverse());
   };
 
   return (
@@ -87,13 +74,11 @@ export function App() {
           <AppContext.Provider
             value={{
               posts: posts,
-              setPosts: newPost,
-              fetchPosts: fetchPosts,
+              setPosts: setPosts,
               loggedInUser: loggedInUser,
               fetchUser: fetchUser,
-              deletePost: deletePost
-            }}
-          >
+              deletePost: deletePost,
+            }}>
             <Routes>
               <Route path="/" element={<Posts />} />
             </Routes>
