@@ -11,19 +11,6 @@
     margin-bottom: 30px;
 }
 
-.post-user-information-container {
-    display: flex;
-    width: 100%;
-}
-
-.post-user-information {
-    justify-content: flex-start;
-    text-align: left;
-    width: 100%;
-    margin-left: 20px;
-}
-
-
 .post-content-container {
     display: inline-block;
     position: relative;
@@ -34,8 +21,4 @@
 
 .post-content-container > p {
     text-align: left;
-}
-
-.post-title {
-    color: var(--post-title-color)
 }
