@@ -37,7 +37,7 @@ export default function CreatePost() {
             {user &&
                 <ProfileImage user={user} w={40} h={40} marginR={20} />
             }
-            <form className="createPostForm" onSubmit={(e) => handleFormSubmit(e)}>
+            <form className="inputForm" onSubmit={(e) => handleFormSubmit(e)}>
                 <InputBox placeholder="What's on your mind?" setContent={setPostContent} value={postContent} />
                 <button type="submit" className="createPostButton">Post</button>
             </form>

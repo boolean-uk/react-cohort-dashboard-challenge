@@ -9,7 +9,10 @@ export default function CommentSection({ post }) {
         fetch(`https://boolean-api-server.fly.dev/spectraldesign/post/${post.id}/comment`)
             .then((response) => response.json())
             .then((data) => {
-                setComments(data)
+                const sortedComments = data.sort((a, b) => {
+                    return a.id - b.id
+                })
+                setComments(sortedComments)
             })
     }, [])
 
@@ -25,7 +28,7 @@ export default function CommentSection({ post }) {
                     <Comments comments={comments} />
             }
 
-            <CreateComment />
+            <CreateComment postId={post.id} comments={comments} setComments={setComments} />
         </div>
     )
 }

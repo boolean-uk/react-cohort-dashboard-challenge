@@ -27,7 +27,7 @@
     scale: 1.05;
 }
 
-.createPostForm{
+.inputForm{
     display: flex;
     flex-direction: row;
     align-items: center;
