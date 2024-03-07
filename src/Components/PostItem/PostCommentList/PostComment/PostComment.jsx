@@ -47,7 +47,7 @@ function PostComment({ comment }) {
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h6>
             <b>
-              {commentUser.firstName} {commentUser.lastName} {comment.id}
+              {commentUser.firstName} {commentUser.lastName}
             </b>
           </h6>
           <div id="buttons">

@@ -5,11 +5,11 @@ import ProfileCircle from "../../ProfileCircle/ProfileCircle";
 import { Link } from "react-router-dom";
 import * as API from "../../../API/API";
 import { FeedContext } from "../../PostFeed/PostFeed";
-import { UserContext } from "../../../App";
+
 import TextEditor from "./TextEditor/TextEditor";
+import { PostPageContext } from "../../PostPage/PostPage";
 
 function OriginalPost() {
-  const { updatePosts } = useContext(FeedContext);
   const {
     post,
     originalPostUser,
@@ -38,8 +38,7 @@ function OriginalPost() {
           <div className="info">
             <h5>
               <b>
-                {originalPostUser.firstName} {originalPostUser.lastName}{" "}
-                {post.id}
+                {originalPostUser.firstName} {originalPostUser.lastName}
               </b>
             </h5>
             <Link to={`/posts/${post.id}`}>
