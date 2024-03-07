@@ -17,6 +17,7 @@ const MainMenu = () => {
             <div className="main-menu">
                 <TitleHeaderSvg />
                 <UserIcon
+                    color={user.favouriteColour}
                     firstName={user.firstName}
                     lastName={user.lastName}
                     onClick={goToProfile}

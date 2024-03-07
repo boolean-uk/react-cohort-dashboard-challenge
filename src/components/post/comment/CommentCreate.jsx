@@ -40,8 +40,11 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
 
     return (
         <div className="comment-create">
-            <UserIcon firstName={user.firstName} lastName={user.lastName} />
-
+            <UserIcon
+                color={user.favouriteColour}
+                firstName={user.firstName}
+                lastName={user.lastName}
+            />
             <form className="comment-form" onSubmit={submitComment}>
                 <input
                     type="text"

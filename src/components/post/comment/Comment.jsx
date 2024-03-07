@@ -15,7 +15,11 @@ const Comment = ({ comment }) => {
 
     return (
         <li className="list-item">
-            <UserIcon firstName={owner.firstName} lastName={owner.lastName} />
+            <UserIcon
+                color={owner.favouriteColour}
+                firstName={owner.firstName}
+                lastName={owner.lastName}
+            />
             <div className="comment-content">
                 <h3>{owner.firstName + " " + owner.lastName}</h3>
                 <p>{comment.content}</p>

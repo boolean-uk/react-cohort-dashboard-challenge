@@ -36,6 +36,7 @@ const Post = ({ post }) => {
         <li className="list-item">
             <div className="post-owner">
                 <UserIcon
+                    color={owner.favouriteColour}
                     firstName={owner.firstName}
                     lastName={owner.lastName}
                 />
