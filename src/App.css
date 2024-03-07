@@ -1,0 +1,56 @@
+body {
+  background-color: #f0f5fa;
+  color: #000046;
+  /* Font color for the entire app */
+}
+
+/* Header Styles */
+
+header {
+  background-color: #000046;
+}
+
+/* Form Styles */
+
+form input {
+  background-color: #e6ebf5;
+  color: #000046;
+}
+
+/* Button Styles */
+
+button {
+  background-color: #000046;
+  color: #ffffff;
+  /* Font color for buttons */
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+/* Post Styles */
+
+.post-title {
+  color: #64648c;
+}
+
+.author-circle {
+  background-color: #000046;
+  color: #ffffff;
+}
+
+.content-container {
+  display: flex;
+}
+
+/* You can adjust the width of LeftMenu based on your requirements */
+.left-menu {
+  width: 100px;
+  /* Adjust the width as needed */
+}
+
+/* You can add more styling for DashboardComponent if necessary */
+.dashboard-component {
+  flex-grow: 1;
+}
