@@ -3,6 +3,7 @@ import { PostContext } from '../App';
 import ProfilePicture from './ProfilePicture';
 import '../styles/post.css'
 import PostComment from './PostComment';
+import Comment from './Comment';
 
 const Post = ({ post }) => {
   const { contacts } = useContext(PostContext)
@@ -20,9 +21,6 @@ const Post = ({ post }) => {
     GetComments()
     setComments(comments.filter(c => c.postId == post.id))
   },[])
-  console.log("🚀 ~ Post ~ comments:", comments)
-  
-  
 
   return (
     <div className='post'>
@@ -44,7 +42,7 @@ const Post = ({ post }) => {
         <div>
           <p>See previous comments</p>
           {comments.map((comment, index) => {
-            return <p>{comment.content}</p>
+            return <Comment comment={comment} key={index}/>
           })}
         </div>
       ) : <>

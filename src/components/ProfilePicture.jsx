@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfilePicture = ({ firstName, lastName, favouriteColour }) => {
+const ProfilePicture = ({ firstName, lastName, favouriteColour, height, width }) => {
   // Function to generate initials from the first and last name
   const generateInitials = () => {
     const firstInitial = firstName ? firstName[0] : '';
@@ -10,8 +10,8 @@ const ProfilePicture = ({ firstName, lastName, favouriteColour }) => {
 
   // Style object for the circle with the background color
   const circleStyle = {
-    width: '48px', // Adjust the size of the circle as needed
-    height: '48px',
+    width: width || '48px', // Adjust the size of the circle as needed
+    height: height || '48px',
     borderRadius: '50%',
     backgroundColor: favouriteColour || '#CCCCCC', // Default to a fallback color if favouriteColour is not provided
     display: 'flex',
