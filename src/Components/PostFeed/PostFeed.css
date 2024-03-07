@@ -1,0 +1,20 @@
+.feed-background {
+  /* flex: auto; */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+  align-items: center;
+
+  background-color: #f0f5fa;
+  padding-bottom: 2rem;
+}
+.feed-item {
+  border-radius: 8px;
+  background-color: white;
+
+  padding: 2rem;
+  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}

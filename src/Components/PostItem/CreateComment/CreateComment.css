@@ -1,0 +1,19 @@
+.response {
+  flex: auto;
+
+  display: flex;
+}
+.input {
+  background-color: transparent;
+  border: 0;
+  color: black;
+  flex: auto;
+}
+.input-bubble {
+  padding: 0.2rem;
+  /* padding-bottom: 0rem; */
+  border-radius: 10px;
+  background-color: #e6ebf5;
+  border: 0;
+  color: black;
+}
