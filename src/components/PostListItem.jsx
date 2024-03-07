@@ -1,19 +1,12 @@
 import PropTypes from "prop-types";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Avatar from "react-avatar";
 import { Link } from "react-router-dom";
 import { Context } from "../App";
-import CommentForm from "./CommentForm";
+import Comments from "./Comments";
 
 function PostListItem({ post }) {
-  const [comments, setComments] = useState([]);
   const { users } = useContext(Context);
-
-  useEffect(() => {
-    fetch(`https://boolean-api-server.fly.dev/maha897/post/${post.id}/comment`)
-      .then((response) => response.json())
-      .then(setComments);
-  }, [post.id]);
 
   function getUserInfo(contactId) {
     return users.find((user) => Number(user.id) === Number(contactId));
@@ -53,46 +46,9 @@ function PostListItem({ post }) {
       <div className="line-container">
         <hr className="line" />
       </div>
-
-      <div className="comments">
-        {comments.length > 0 && (
-          <div className="posted-comments">
-            <ul className="comments-ul">
-              {comments.map((comment) => (
-                <li key={comment.id} className="comment-item">
-                  <div className="comment-avatar-container">
-                    <Avatar
-                      name={`${getUserInfo(comment.contactId).firstName} ${
-                        getUserInfo(comment.contactId).lastName
-                      }`}
-                      round={true}
-                      size={50}
-                    />
-                  </div>
-                  <div className="comment-details">
-                    <div className="comment-user">
-                      <b>{`${getUserInfo(comment.contactId).firstName} ${
-                        getUserInfo(comment.contactId).lastName
-                      }`}</b>
-                    </div>
-                    <div className="comment-content">
-                      <p>{comment.content}</p>
-                    </div>
-                  </div>
-
-                  <br />
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <CommentForm
-          post={post}
-          comments={comments}
-          setComments={setComments}
-        />
-      </div>
+      
+      <Comments post={post} getUserInfo={getUserInfo} />
+      
     </li>
   );
 }
