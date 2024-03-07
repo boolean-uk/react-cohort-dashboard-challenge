@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../styles/createPost.css'
 import { TextField, Button } from '@mui/material';
 import ProfilePicture from './ProfilePicture';
+import { PostContext } from '../App';
 
+/**
+ * TODOS: 
+ * - refresh data on CreatePost
+ */
 const CreatePost = () => {
+  const {getPosts} = useContext(PostContext)
   const [post, setPost] = useState({
     title: "Title",
     content: "",
@@ -27,12 +33,12 @@ const CreatePost = () => {
     const handleSubmit = (event) => {
       event.preventDefault()
       PostPost()
+      getPosts()
     }
 
     const handleChange = (event) => {
       setPost({...post, content: event.target.value})
     }
-  console.log(post.contactId)
 
 
   return (

@@ -36,7 +36,9 @@ function App() {
                           posts: posts, 
                           setPosts: setPosts, 
                           contacts:contacts, 
-                          setContacts: setContacts}}>
+                          setContacts: setContacts,
+                          getPosts:getPosts,
+                          }}>
       <div className='app-container'>
         <Header />
         <LeftNav />

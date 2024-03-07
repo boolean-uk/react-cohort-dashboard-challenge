@@ -50,7 +50,7 @@ const Post = ({ post }) => {
       ) : <>
       </>
     }
-        <PostComment/>
+        <PostComment post={post}/>
     </div>
   );
 }
