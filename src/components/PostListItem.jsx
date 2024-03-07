@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import Avatar from "react-avatar"
 
 function PostListItem({ post }) {
   const [comments, setComments] = useState([]);
+  const [users, setUsers] = useState([])
   const initCommentInput = {
     contactId: 10,
     postId: post ? post.id : null,
@@ -15,6 +17,16 @@ function PostListItem({ post }) {
       .then((response) => response.json())
       .then(setComments);
   }, [post.id]);
+
+  useEffect(() => {
+    fetch("https://boolean-api-server.fly.dev/maha897/contact")
+      .then((response) => response.json())
+      .then(setUsers)
+  }, [])
+
+  function getUserInfo(contactId) {
+    return users.find((user) => user.id === contactId)
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -44,7 +56,14 @@ function PostListItem({ post }) {
   return (
     <li className="post-li">
       <div className="post-header">
-        {/* TODO user info */}
+        {post.contactId && users.length > 0 && (
+          <Avatar
+            name={`${getUserInfo(post.contactId).firstName} ${
+              getUserInfo(post.contactId).lastName
+            }`}
+            round={true}
+          />
+        )}
         <h3>{post.title}</h3>
       </div>
       <p>{post.content}</p>
