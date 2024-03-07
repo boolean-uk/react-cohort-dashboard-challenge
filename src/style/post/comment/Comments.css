@@ -1,3 +1,10 @@
 .comment-list {
     list-style: none;
 }
+
+.comment-list > .comment-list-btn {
+    background: none;
+    color: #64648c;
+    padding: 0;
+    border: none;
+}
