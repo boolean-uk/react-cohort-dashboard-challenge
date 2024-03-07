@@ -9,30 +9,30 @@ import Comment from './Comment';
 /**
  * TODO: re-render on comment
  */
-const Post = ( props ) => {
+const Post = (props) => {
   const postId = useParams()
-  
-  let {post} = props
+
+  let { post } = props
   const { contacts, posts } = useContext(PostContext)
   if (post == undefined) {
-    post = posts.find(({id}) => id.toString() == postId.id)
+    post = posts.find(({ id }) => id.toString() == postId.id)
   }
-  
+
   const [comments = [], setComments] = useState()
-  const [expandComments, setExpandComments] = useState(false)
-  
-  let contact = contacts.find(c => c.id == post.contactId)  
-  
-  async function GetComments(){
+  const [expandComments, setExpandComments] = useState(postId.id ? true :false)
+
+  let contact = contacts.find(c => c.id == post.contactId)
+
+  async function GetComments() {
     const response = await fetch(`https://boolean-api-server.fly.dev/oysteinbjo/post/${post.id}/comment`)
     const data = await response.json()
     setComments(data)
   }
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     GetComments()
     setComments(comments.filter(c => c.postId == post.id))
-  },[])
+  }, [])
 
   const handleExpandComments = () => {
     setExpandComments(!expandComments)
@@ -43,9 +43,9 @@ const Post = ( props ) => {
       <div className='post-content'>
         <div className='post-header'>
           <ProfilePicture firstName={
-                          contact ? contact.firstName : "Bill"} 
-                          lastName={contact ? contact.lastName : "Clinton"} 
-                          favouriteColour={contact ? contact.favouriteColour : "Green"} />
+            contact ? contact.firstName : "Bill"}
+            lastName={contact ? contact.lastName : "Clinton"}
+            favouriteColour={contact ? contact.favouriteColour : "Green"} />
           <div>
             <p><b>{contact ? contact.firstName : "Bill"} {contact ? contact.lastName : "Clinton"}</b></p>
             <Link to={`/post/${post.id}`}>{post.title}</Link>
@@ -53,18 +53,21 @@ const Post = ( props ) => {
         </div>
         <p>{post.content}</p>
       </div>
-      {comments.length > 2 ?
-      (
-        <div>
-          <button onClick={() => handleExpandComments()}>See previous comments</button>
+      {comments.length > 0 ?
+        (
+          <div>
+            {
+              comments.length > 3 && postId.id === undefined &&
+              <button onClick={() => handleExpandComments()}>See previous comments</button>
+            }
             {comments.slice(0, expandComments ? comments.length : 3).map((comment, index) => {
-            return <Comment comment={comment} key={index}/>
-          })}
-        </div>
-      ) : <>
-      </>
-    }
-        <PostComment post={post}/>
+              return <Comment comment={comment} key={index} />
+            })}
+          </div>
+        ) : <>
+        </>
+      }
+      <PostComment post={post} />
     </div>
   );
 }
