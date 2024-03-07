@@ -42,11 +42,11 @@ function Post({ post }) {
             </div>
             <p>{post.content}</p>
             <hr />
-            <input id="see-previous-checkbox" type="checkbox" />
-            <label htmlFor="see-previous-checkbox">See previous comments</label>
-            {comments.map((comment, index) => (
+            <input id="see-previous-checkbox" type="checkbox" onChange={() => setMaxThree(!maxThree)}/>
+            <label htmlFor="see-previous-checkbox">{maxThree ? "See previous comments" : "Hide"}</label>
+            {comments.map((comment, index) => !maxThree || index >= comments.length-3 ? (
                 <Comment key={index} comment={comment}/>
-            ))}
+            ) : <></>)}
             <CommentField post={post}/>
         </div>
     )
