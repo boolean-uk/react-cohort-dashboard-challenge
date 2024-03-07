@@ -4,6 +4,7 @@ import { Home } from './Home'
 
 import './style.css'
 import Profile from './Profile'
+import SinglePost from './Home/SinglePost'
 
 function Main() {
     return(
@@ -12,6 +13,10 @@ function Main() {
           <Route
             path="/"
             element={<Home />}
+          />
+          <Route
+            path="/:id"
+            element={<SinglePost />}
           />
           <Route
             path="/profile"
