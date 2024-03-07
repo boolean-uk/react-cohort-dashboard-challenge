@@ -1,4 +1,4 @@
-import "./App.css";
+import "../App.css";
 import PropTypes from "prop-types";
 function CommentElement(props) {
   return (

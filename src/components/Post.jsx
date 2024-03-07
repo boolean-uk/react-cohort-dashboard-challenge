@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "../App.css";
 import PropTypes from "prop-types";
-import CommentElement from "./CommentElement";
-import GetAContactByID from "./GetAContactByID";
-import GetInitalsFromNames from "./GetInitialsFromNames";
+import CommentElement from "./Comment";
+import { getAContactByID, getAllComments } from "../Api.js";
+import GetInitalsFromNames from "../GetInitialsFromNames";
 
 function PostElement(props) {
   //props data on the current post
@@ -16,47 +16,17 @@ function PostElement(props) {
   // state to store the data for the comment being written
   const [newCommentData, setNewCommentData] = useState("");
   // data on the person that posted the current comment.
-  const [posterInformation, setPosterInformation] = useState({});
+  const [posterInformation, setPosterInformation] = useState(null);
 
   useEffect(() => {
-    //setPosterInformation(GetAContactByID(postData.contactId));
-    fetch(
-      `https://boolean-api-server.fly.dev/MackanPalm/contact/${postData.contactId}`
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        console.log("Contact", data);
-        setPosterInformation(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching contact data: ", error);
-      });
+    getAContactByID(postData.contactId, setPosterInformation);
 
-    fetch(
-      `https://boolean-api-server.fly.dev/MackanPalm/post/${postData.id}/comment`
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        console.log("comments", data);
-        setCommentsList(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setCommentsError(error);
-      })
-      .finally(() => {
-        setLoadingComments(false);
-      });
+    getAllComments(
+      postData.id,
+      setCommentsList,
+      setLoadingComments,
+      setCommentsError
+    );
   }, [postData.id, setCommentsList, postData.contactId]);
 
   if (loadingComments) return "Loading Comments...";
@@ -117,14 +87,21 @@ function PostElement(props) {
     <div className="post-box main-post">
       <div className="post-box-head">
         <div className="post-head-circle">
-          <p className="text">
-            {GetInitalsFromNames(
-              posterInformation.firstName,
-              posterInformation.lastName
-            )}
-          </p>
+          {posterInformation && (
+            <p className="text">
+              {GetInitalsFromNames(
+                posterInformation.firstName,
+                posterInformation.lastName
+              )}
+            </p>
+          )}
         </div>
-        <h2 className="post-head-user">name of poster</h2>
+        {posterInformation && (
+          <h2 className="post-head-user">
+            {posterInformation.firstName + " " + posterInformation.lastName}
+          </h2>
+        )}
+
         <h5 className="post-head-title">{postData.title}</h5>
       </div>
       <div className="post-box-body">

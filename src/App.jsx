@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CohortManagerMainPage from "./CohortManagerMainPage";
+import CohortManagerMainPage from "./pages/CohortManagerMainPage";
 import { useEffect, useState, createContext } from "react";
 
 export const PostContext = createContext();
