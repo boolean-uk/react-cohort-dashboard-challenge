@@ -6,7 +6,7 @@ import { Context } from "../App";
 
 function PostListItem({ post }) {
   const [comments, setComments] = useState([]);
-  const { users } = useContext(Context)
+  const { users, userLoggedIn } = useContext(Context);
   const initCommentInput = {
     contactId: 10,
     postId: post ? post.id : null,
@@ -52,35 +52,56 @@ function PostListItem({ post }) {
   return (
     <li className="post-li">
       <div className="post-header">
-        {post.contactId && users.length > 0 && (
+        <div className="post-avatar-container">
           <Avatar
             name={`${getUserInfo(post.contactId).firstName} ${
               getUserInfo(post.contactId).lastName
             }`}
             round={true}
+            size={60}
           />
-        )}
-        <Link to={`/post/${post.id}`}>{post.title}</Link>
+        </div>
+        <div className="post-details">
+          <b>
+            {`${getUserInfo(post.contactId).firstName} ${
+              getUserInfo(post.contactId).lastName
+            }`}
+          </b>{" "}
+          <br />
+          <Link to={`/post/${post.id}`}>{post.title}</Link>
+        </div>
       </div>
       <p>{post.content}</p>
+      <div className="line-container">
+        <hr className="line" />
+      </div>
 
       <div className="comments">
         {comments.length > 0 && (
           <div className="posted-comments">
-            <h3>Comments: </h3>
             <ul className="comments-ul">
               {comments.map((comment) => (
-                <li key={comment.id}>
-                  <Avatar
-                    name={`${getUserInfo(comment.contactId).firstName} ${
-                      getUserInfo(comment.contactId).lastName
-                    }`}
-                    round={true}
-                  />
-                  <b>{`${getUserInfo(comment.contactId).firstName} ${
-                    getUserInfo(comment.contactId).lastName
-                  }`}</b>
-                  <p>{comment.content}</p>
+                <li key={comment.id} className="comment-item">
+                  <div className="comment-avatar-container">
+                    <Avatar
+                      name={`${getUserInfo(comment.contactId).firstName} ${
+                        getUserInfo(comment.contactId).lastName
+                      }`}
+                      round={true}
+                      size={50}
+                    />
+                  </div>
+                  <div className="comment-details">
+                    <div className="comment-user">
+                      <b>{`${getUserInfo(comment.contactId).firstName} ${
+                        getUserInfo(comment.contactId).lastName
+                      }`}</b>
+                    </div>
+                    <div className="comment-content">
+                      <p>{comment.content}</p>
+                    </div>
+                  </div>
+
                   <br />
                 </li>
               ))}
@@ -89,13 +110,14 @@ function PostListItem({ post }) {
         )}
 
         <form className="comment-form" onSubmit={handleSubmit}>
-          <Avatar
-            name={`${getUserInfo(10).firstName} ${
-              getUserInfo(10).lastName
-            }`}
+          <div className="comment-form-container">
+            <div id="c-avatar"><Avatar
+            className="header-avatar"
+            name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}
             round={true}
-          />
-          <div className="embed-submit-field">
+            size={50}
+          /></div>
+          
             <input
               name="content"
               placeholder="Add a comment..."
@@ -104,6 +126,7 @@ function PostListItem({ post }) {
             />
             <button type="submit">Comment</button>
           </div>
+          
         </form>
       </div>
     </li>

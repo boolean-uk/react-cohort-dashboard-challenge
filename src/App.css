@@ -9,21 +9,6 @@ ul {
   list-style-type: none;
 }
 
-.embed-submit-field {
-  position: relative;
-
-  input {
-    width: 95%;
-    padding: 15px;
-  }
-
-  button {
-    position: absolute;
-    right: 20px;
-    top: 7px;
-  }
-}
-
 .header svg {
   max-height: 60px;
   padding: 10px;
@@ -31,8 +16,6 @@ ul {
   padding-left: 70px;
   z-index: 3;
 }
-
-
 
 .app {
   display: flex;
@@ -115,7 +98,6 @@ ul {
 }
 
 .post-li {
-  width: ;
   margin-top: 15px;
   margin-left: 5px;
   background-color: #fff;
@@ -139,6 +121,10 @@ ul {
   margin-bottom: 15px;
 }
 
+.post-form button:hover{
+  background-color: #14147d;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -146,4 +132,99 @@ ul {
 
 .avatar-container {
   padding: 15px;
+}
+
+.post-header {
+  display: flex;
+}
+
+.post-avatar-container {
+  margin-right: 25px; 
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.post-details {
+  flex-grow: 1; 
+  margin-top: 20px;
+  text-align: left;
+}
+
+.post-details a {
+  color: #000046;
+}
+
+.line-container {
+  width: 90%; 
+  margin: 20px auto; 
+}
+
+.line {
+  border: none;
+  height: 2px;
+  background-color: #e6ebf5;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  
+}
+
+.comment-avatar-container {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.comment-details {
+  flex-grow: 1;
+  text-align: left;
+  background-color: #e6ebf5;
+  padding: 15px;
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 5px;
+}
+
+.comments ul {
+  margin: 0;
+  padding: 0;
+}
+
+.comment-form input{
+  width: calc(100% - 50px);
+  
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+}
+
+.comment-form-container {
+  display: flex;
+  align-items: center;
+}
+
+.comment-form input {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.comment-form button {
+  background-color: #000046;
+  color: #fff;
+  margin-right: 10px;
+}
+
+#c-avatar {
+  padding: 10px;
 }

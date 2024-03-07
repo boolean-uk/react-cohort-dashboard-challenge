@@ -12,7 +12,7 @@ const Context = createContext();
 function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([])
-  const [userLoggedId, setUserLoggedIn] = useState("")
+  const [userLoggedIn, setUserLoggedIn] = useState("")
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/post")
@@ -30,12 +30,12 @@ function App() {
   }, []);
 
   return (
-    <Context.Provider value={{ posts, setPosts, users, userLoggedId }}>
+    <Context.Provider value={{ posts, setPosts, users, userLoggedIn }}>
       <div className="app">
         <header className="header">
           <HeaderIcon className="img"/>
           <div className="avatar-container">
-            <Avatar className="header-avatar" name={`${userLoggedId.firstName} ${userLoggedId.lastName}`} round={true} size={50}/>
+            <Avatar className="header-avatar" name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`} round={true} size={50}/>
           </div>
         </header>
       
