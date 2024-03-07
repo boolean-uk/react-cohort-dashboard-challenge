@@ -1,0 +1,52 @@
+.post-feed-add {
+    background-color: white;
+    padding: 20px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-feed-add-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.post-feed-add-header > input[type="submit"] {
+    padding: 8px 55px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e6ebf5;
+    background-color: #64648C;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-feed-add-header > input[type="submit"]:hover {
+    background-color: #000046;
+}
+
+.post-feed-add-header > input[type="text"] {
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    background-color: #e6ebf5;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post-feed-add > textarea {
+    outline: none;
+    border: none;
+    background-color: #e6ebf5;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    resize: vertical;
+}
