@@ -1,40 +1,52 @@
 import { useState, useContext } from "react";
 import { TempContext } from "./../../App";
 import { useNavigate } from "react-router-dom";
-function CreateComment() {
+function CreateComment({ id, AddComment }) {
   const [content, setContent] = useState("");
   const { currentUser, setCurrentTab } = useContext(TempContext);
   const navigate = useNavigate();
 
+  function handleKeyUp(e) {
+    e.preventDefault();
+    // Enter
+    if (e.keyCode === 13) {
+      let newComment = {
+        postId: Number(id),
+        contactId: currentUser.id,
+        content: content,
+      };
+      AddComment(newComment);
+      console.log(id)
+    }
+  }
   const addTweet = (e) => {
     e.preventDefault();
-    // setTweets([
-    //     {
-    //         ...user,
-    //         date: '1m',
-    //         content,
-    //         commentCount: 0,
-    //         retweetCount: 0,
-    //         heartCount: 0,
-    //         analyticsCount: 0
-    //     },
-    //     ...tweets
-    // ])
+    let newComment = {
+      postId: Number(id),
+      contactId: currentUser.id,
+      content: content,
+    };
+    console.log(newComment)
+    AddComment(newComment, id);
   };
   return (
     <div className="createPost">
-      <form onSubmit={addTweet}>
+      <form onSubmit={addTweet} onKeyUp={handleKeyUp} tabIndex={0}>
         <div className="avatar-section">
-        <div
-        className="profileIcon"
-        style={{ background: currentUser.favouriteColour }}  
-        onClick={() => {
-          setCurrentTab("profile");
-          navigate("/profile");
-        }}
-      >
-         {` ${currentUser ? `${currentUser.firstName[0]}${currentUser.lastName[0]}` : ""}`}
-      </div>
+          <div
+            className="profileIcon"
+            style={{ background: currentUser.favouriteColour }}
+            onClick={() => {
+              setCurrentTab("profile");
+              navigate("/profile");
+            }}
+          >
+            {` ${
+              currentUser
+                ? `${currentUser.firstName[0]}${currentUser.lastName[0]}`
+                : ""
+            }`}
+          </div>
         </div>
 
         <div className="textarea-section">
@@ -46,11 +58,10 @@ function CreateComment() {
             onChange={(e) => setContent(e.target.value)}
           ></input>
         </div>
-        <div className="actions-section">
-        </div>
+        <div className="actions-section"></div>
       </form>
     </div>
   );
 }
 
-export default CreateComment
+export default CreateComment;

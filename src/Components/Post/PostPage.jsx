@@ -64,7 +64,6 @@ function PostPage() {
         <p>{post.content}</p>
       </div>
       <CommentList id={id} hide={false}/>
-      <CreateComment />
     </li>
   );
 }

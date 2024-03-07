@@ -9,6 +9,29 @@ function CommentList({ id, hide }) {
   const [amount, setAmount] = useState(3);
   const URL = `https://boolean-api-server.fly.dev/Slingreen/post/${id}/comment`;
 
+
+  async function AddComment(comment) {
+    console.log(comment)
+    const response = await fetch(
+      URL,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(comment),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        "Failed to submit form: " + response.status + response.statusText
+      );
+    }
+
+    getComments();
+  }
+
   function getComments() {
     fetch(URL)
       .then((res) => res.json())
@@ -46,7 +69,7 @@ function CommentList({ id, hide }) {
           <CommentItem key={index} keydata={index} post={post} />
         ))}
       </ul>
-      <CreateComment />
+      <CreateComment id={id} AddComment={AddComment}/>
     </div>
   );
 }
