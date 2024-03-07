@@ -19,17 +19,13 @@ const PostReplyList = ({ postID }) => {
             .then((res) => setReplies([...res]))
     }
 
-    const triggerRefetch = (id) => {
-        retrieveReplies(id)
-    }
-
     useEffect(() => {
         retrieveReplies(postID)
     }, [postID])
 
     return (
         <ReplyContext.Provider
-            value={{refetchReplies: triggerRefetch,}}
+            value={{refetchReplies: retrieveReplies,}}
         >
         <div className="post-reply-container">
             {(replies.length > replyLimit) && 

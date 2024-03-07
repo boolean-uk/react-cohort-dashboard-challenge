@@ -13,10 +13,10 @@
 .post-reply-content-container {
     margin-left: 10px;
     border-radius: 15px;
-    padding: 2px;
+    padding: 5px;
     padding-left: 10px;
     padding-right: 20px;
-    background-color: var(--form-background-color)
+    background-color: var(--form-background-color);
 }
 
 .post-reply-content-container > span {
@@ -32,4 +32,37 @@
     margin-bottom: 8px;
     font-size: 18px;
     text-align: left;
+}
+
+
+.modify-post-container {
+    position: relative;
+    display: flex;
+    justify-content: right;
+}
+
+
+.modify-post-container > span {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.modify-post-container > img:hover {
+    background-color: lightcoral;
+}
+
+.text-like-field {
+    display: block;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    resize: none; /* Disable textarea resizing */
+    border: none;
+    overflow: hidden;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: transparent;
 }

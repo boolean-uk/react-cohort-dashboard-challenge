@@ -17,10 +17,15 @@
   --form-background-color: #e6ebf5;
 }
 
-a, p, span, div, input {
+a, p, span, div, input, textarea {
   color: var(--primary-color);
   font-size: 20px;
   font-weight: 500;
+}
+
+textarea {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 header {
