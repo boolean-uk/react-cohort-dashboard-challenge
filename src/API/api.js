@@ -4,6 +4,7 @@ const BASE_URL = "https://boolean-api-server.fly.dev/Enock97";
 const fetchPosts = async () => {
   const response = await fetch(`${BASE_URL}/post`);
   if (!response.ok) throw new Error("Failed to fetch posts");
+<<<<<<< HEAD
   const posts = await response.json();
 
   // Fetch user information for each post
@@ -15,6 +16,9 @@ const fetchPosts = async () => {
   );
 
   return postsWithUserInfo;
+=======
+  return await response.json();
+>>>>>>> 23056adfe6455c018ed5eaffd32cccae66c05ee8
 };
 
 const fetchPostById = async (postId) => {
@@ -55,6 +59,7 @@ const deletePost = async (postId) => {
 const fetchComments = async (postId) => {
   const response = await fetch(`${BASE_URL}/post/${postId}/comment`);
   if (!response.ok)
+<<<<<<< HEAD
     throw new Error(`Failed to fetch comments for post ${postId}`);
   const comments = await response.json();
 
@@ -67,6 +72,10 @@ const fetchComments = async (postId) => {
   );
 
   return commentsWithUserInfo;
+=======
+    throw new Error(`Failed to fetch comments for post ID ${postId}`);
+  return await response.json();
+>>>>>>> 23056adfe6455c018ed5eaffd32cccae66c05ee8
 };
 
 const addComment = async (postId, comment) => {
