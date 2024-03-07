@@ -9,13 +9,13 @@ export const FeedContext = createContext();
 function PostFeed() {
   const [posts, setPosts] = useState([]);
 
-  function updatePosts() {
+  const updatePosts = () => {
     API.getAllPosts()
       .then((res) => res.json())
       .then((data) => {
         setPosts([...data]);
       });
-  }
+  };
 
   useEffect(() => updatePosts(), []);
   return (

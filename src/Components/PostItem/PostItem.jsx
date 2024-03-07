@@ -1,10 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import "./PostItem.css";
 import * as API from "../../API/API";
 
 import OriginalPost from "./OriginalPost/OriginalPost";
 import PostCommentList from "./PostCommentList/PostCommentList";
 import CreateComment from "./CreateComment/CreateComment";
+import { UserContext } from "../../App";
 
 export const PostContext = createContext();
 function PostItem(props) {

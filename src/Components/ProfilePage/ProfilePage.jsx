@@ -33,7 +33,7 @@ const {
 
 function ProfilePage() {
   let { userId } = useParams();
-
+  const { getUser: updateLoggedInUser } = useContext(UserContext);
   const [user, setUser] = useState("");
   const [formProfileData, setFormProfileData] = useState();
 
@@ -48,6 +48,10 @@ function ProfilePage() {
         console.log("Updated user and received: ", data);
         //retrieve user from API again to see changes
         getUser();
+        //Update loggedInuserProfile if that user profile being edited
+        if (userId === 1) {
+          updateLoggedInUser();
+        }
       });
   };
 

@@ -42,11 +42,15 @@ label {
   display: flex;
   flex-direction: column;
 }
-
+textarea {
+  font-size: 14px;
+}
+textarea,
 input {
   padding: 0.3rem;
   padding-left: 0.7rem;
   font-weight: bold;
+
   color: rgb(57, 58, 113);
   background-color: #e6ebf5;
   border-radius: 6px;

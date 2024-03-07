@@ -81,17 +81,11 @@ const postOptions = (payload) => {
     body: JSON.stringify(payload),
   };
 };
-const putOptions = (payload) => {
-  return {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  };
-};
+
+const delOptions = { method: "DELETE" };
 
 function resetApiData() {
   const url = "https://boolean-api-server.fly.dev/martenere/admin";
-  const delOptions = { method: "DELETE" };
 
   fetch(url, delOptions)
     .then((res) => {
@@ -100,7 +94,50 @@ function resetApiData() {
     .then((data) => console.log(data));
 }
 
+function updateComment(OriginalComment, newCommentText) {
+  const url = `https://boolean-api-server.fly.dev/martenere/post/${OriginalComment.postId}/comment/${OriginalComment.id}`;
+  const payload = {
+    postId: OriginalComment.postId,
+    content: newCommentText,
+    contactId: OriginalComment.contactId,
+  };
+  const options = putOptions(payload);
+  return fetch(url, options);
+}
+function deleteComment(comment) {
+  const url = `https://boolean-api-server.fly.dev/martenere/post/${comment.postId}/comment/${comment.id}`;
+  return fetch(url, delOptions);
+}
+
+function UpdatePost(postId, originalPost, newContent) {
+  const url = `https://boolean-api-server.fly.dev/martenere/post/${postId}`;
+  const payload = {
+    title: originalPost.title,
+    content: newContent,
+    contactId: originalPost.contactId,
+  };
+  const Options = putOptions(payload);
+
+  return fetch(url, Options);
+}
+const putOptions = (payload) => {
+  return {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  };
+};
+function DeletePostById(postId) {
+  const url = `https://boolean-api-server.fly.dev/martenere/post/${postId}`;
+
+  return fetch(url, delOptions);
+}
+
 export {
+  deleteComment,
+  updateComment,
+  UpdatePost,
+  DeletePostById,
   updateUser,
   resetApiData,
   getAllPosts,
