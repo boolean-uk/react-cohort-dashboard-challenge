@@ -27,7 +27,7 @@ function App() {
         <Header/>
         <div className='content-container'>
         <LeftMenu />
-        <UsersContext.Provider value={users}>
+        <UsersContext.Provider value={{users:users,setUsers:setUsers}}>
           <Dashboard />
         </UsersContext.Provider>
         </div>

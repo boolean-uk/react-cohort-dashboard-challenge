@@ -5,7 +5,7 @@ import ProfilePicture from '../../../globalComponents/profilePicture'
 
 function CommentItem({comment}) {
   const [author, setAuthor] = useState(undefined)
-  const users = useContext(UsersContext)
+  const {users,setUsers} = useContext(UsersContext)
 
   useEffect(() => { setAuthor(users.find((user) => user.id === comment.contactId)) }, [users])
 

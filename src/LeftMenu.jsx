@@ -25,7 +25,7 @@ function LeftMenu() {
         </div>
       </Link>
 
-      <Link to={"/profile"}>
+      <Link to={"/profile/1"}>
         <div
           className={`button ${selectedButton === 'Profile' ? 'selected' : ''}`}
           onClick={() => handleButtonClick('Profile')}

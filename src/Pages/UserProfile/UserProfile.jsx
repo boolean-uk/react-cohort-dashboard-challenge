@@ -1,19 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CurrentUserContext } from '../../App';
 import ProfilePicture from '../../globalComponents/profilePicture';
 import './UserProfile.css'
+import { useParams } from 'react-router-dom';
+import { UsersContext } from '../../App';
 
 function UserProfile() {
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  const URL = "https://boolean-api-server.fly.dev/thegrevling/contact"
-
+  const { id } = useParams();
+  const { users: currentUser, setUsers: setCurrentUser } = useContext(UsersContext); // Assuming your context is named UsersContext
+  const URL = `https://boolean-api-server.fly.dev/thegrevling/contact`;
 
   // Local state to track changes
   const [editedUser, setEditedUser] = useState({});
 
-  // Initialize editedUser when currentUser changes
   useEffect(() => {
-    setEditedUser({ ...currentUser });
+    console.log(currentUser)
+
+    // Check if currentUser exists before trying to find the user
+    if (currentUser) {
+      console.log(currentUser)
+      // Find the user with the matching id from the URL
+      const userToEdit = currentUser.find((user) => user.id === parseInt(id, 10));
+
+      // Set the editedUser state with the user details
+      setEditedUser(userToEdit || {});
+    }
   }, [currentUser]);
 
   // Handle input changes
@@ -27,7 +37,7 @@ function UserProfile() {
   // Handle form submission
   const handleSubmit = async () => {
     try {
-      const response = await fetch(URL+`/${currentUser.id}`, {
+      const response = await fetch(`${URL}/${editedUser.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +47,21 @@ function UserProfile() {
 
       if (response.ok) {
         // If the PUT request is successful, update the currentUser context
-        setCurrentUser(editedUser);
+        setCurrentUser((prevUsers) => {
+          // Find the index of the user with the same ID as editedUser
+          const userIndex = prevUsers.findIndex(user => user.id === editedUser.id);
+
+          if (userIndex !== -1) {
+            // If found, create a new array with the updated user
+            const updatedUsers = [...prevUsers];
+            updatedUsers[userIndex] = { ...prevUsers[userIndex], ...editedUser };
+            return updatedUsers;
+          }
+
+          // If user with the same ID is not found, return the previous array
+          return prevUsers;
+        });
+
         alert('Profile updated successfully!');
       } else {
         // Handle error cases
@@ -47,9 +71,6 @@ function UserProfile() {
       console.error('Error updating profile:', error);
     }
   };
-
-  
-
 
   if (!currentUser) return <p>Loading...</p>;
 

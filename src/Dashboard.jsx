@@ -34,7 +34,7 @@ function Dashboard() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/post/:id' element={<PostView />} />
-          <Route path='/profile/' element={<UserProfile />} />
+          <Route path='/profile/:id' element={<UserProfile />} />
         </Routes>
       </PostsContext.Provider>
     </div>

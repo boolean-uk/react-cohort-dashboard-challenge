@@ -9,7 +9,7 @@ import '../Home.css'
 function PostItem({ post }) {
   const [author, setAuthor] = useState(undefined)
  
-  const users = useContext(UsersContext)
+  const {users,setUsers} = useContext(UsersContext)
 
   useEffect(() => {
     // Check if post is defined before attempting to find the author
@@ -23,7 +23,7 @@ function PostItem({ post }) {
   return (
     <div className='post-container'>
       <ProfilePicture firstName={author.firstName} lastName={author.lastName} favouriteColour={author.favouriteColour} />
-      <div>{author.firstName} {author.lastName}</div>
+      <Link to={`/profile/${author.id}`}><div>{author.firstName} {author.lastName}</div> </Link>
       <Link to={`/post/${post.id}`} >
       <div>{post.title}</div>
       </Link>
