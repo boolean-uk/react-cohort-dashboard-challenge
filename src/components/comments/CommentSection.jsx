@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import Comments from './Comments';
 import "../../styles/comments/CommentSection.css"
 import CreateComment from "./CreateComment";
-export default function CommentSection({ post }) {
+export default function CommentSection({ post, showAllInitially }) {
     const [comments, setComments] = useState([])
-    const [showAll, setShowAll] = useState(false)
+    const [showAll, setShowAll] = useState(showAllInitially)
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/spectraldesign/post/${post.id}/comment`)
             .then((response) => response.json())

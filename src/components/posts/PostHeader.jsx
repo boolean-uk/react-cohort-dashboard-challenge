@@ -16,7 +16,7 @@ export default function PostHeader({ post }) {
             <ProfileImage user={creator} w={45} h={45} />
             <div className="postHeaderDetailsContainer">
                 <p className="postHeaderName" onClick={() => navigate(`/profile/${creator.id}`)}>{creator.firstName} {creator.lastName}</p>
-                <p className="postHeaderTitle">{post.title}</p>
+                <p className="postHeaderTitle" onClick={() => navigate(`/post/${post.id}`)}>{post.title}</p>
             </div>
         </div>
     )

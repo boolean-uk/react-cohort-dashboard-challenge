@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
+import PostDetails from './pages/PostDetails';
 
 export const UserContext = createContext();
 
@@ -35,6 +36,9 @@ function App() {
         } />
         <Route path="/profile/:id" element={
           <Profile />
+        } />
+        <Route path="/post/:id" element={
+          <PostDetails />
         } />
       </Routes>
     </UserContext.Provider>
