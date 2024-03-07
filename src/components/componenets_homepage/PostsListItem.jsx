@@ -37,7 +37,10 @@ function PostsListItem(props) {
               userfavouriteColour={currentContact.favouriteColour}
             />
             <div className="contact-info">
-              <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
+              <Link to={`/profile/${currentContact.id}`}>
+                <h2>{`${currentContact.firstName} ${currentContact.lastName}`}</h2>
+              </Link>
+
               <Link to={`/post/view/${post.id}`}>
                 <h3>{`${post.title}`}</h3>
               </Link>

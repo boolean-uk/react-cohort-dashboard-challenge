@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { fetchDataForComments } from "../../utils/api";
 import { basePostURL } from "../../utils/urls";
 import { postData } from "../../utils/api";
@@ -61,7 +62,10 @@ function CommentsListItem(props) {
                   userfavouriteColour={users[index]?.favouriteColour}
                 />
                 <h4>
-                  {users[index]?.firstName} {users[index]?.lastName}
+                  <Link to={`/profile/${users[index]?.id}`}>
+                    {" "}
+                    {users[index]?.firstName} {users[index]?.lastName}
+                  </Link>
                 </h4>
                 <p>{comment.content}</p>
               </div>

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { getInitials } from "../../utils/getInitials";
+
 import PropTypes from "prop-types";
 import { postData } from "../../utils/api";
 import { basePostURL } from "../../utils/urls";
+import UserCircle from "../UserCircle";
 
 function CreatePostModule(props) {
   const { onPostCreation } = props;
@@ -11,8 +12,7 @@ function CreatePostModule(props) {
 
   const userFirstName = localStorage.getItem("userFirstName");
   const userLastName = localStorage.getItem("userLastName");
-
-  const userInitials = getInitials(`${userFirstName} ${userLastName}`);
+  const userfavouriteColour = localStorage.getItem("favouriteColour");
 
   const handlePostClick = async () => {
     const contactId = localStorage.getItem("contactId");
@@ -37,18 +37,11 @@ function CreatePostModule(props) {
     <>
       <div className="blogpost-card">
         <div id="create-post-module-input">
-          {userInitials ? (
-            <div
-              className="initials-circle"
-              style={{
-                backgroundColor: `${localStorage.getItem("favouriteColour")}`,
-              }}
-            >
-              {userInitials}
-            </div>
-          ) : (
-            <div>Loading...</div>
-          )}
+          <UserCircle
+            userFirstName={userFirstName}
+            userLastName={userLastName}
+            userfavouriteColour={userfavouriteColour}
+          />
 
           <input
             id="title"

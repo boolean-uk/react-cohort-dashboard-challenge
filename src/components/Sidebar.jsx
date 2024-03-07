@@ -7,7 +7,7 @@ function Sidebar() {
         <span className="material-symbols-outlined">Home</span>
         <h3>Home</h3>
       </Link>
-      <Link to="/profile">
+      <Link to="/profile/1">
         <span className="material-symbols-outlined">account_circle</span>
         <h3>Profile</h3>
       </Link>

@@ -1,22 +1,38 @@
 import PropTypes from "prop-types";
 import UserCircle from "./UserCircle";
-import { putData } from "../utils/api.js";
+import { fetchDataByContactId, putData } from "../utils/api.js";
 import "./ProfilePage.css";
 import React, { useState, useEffect } from "react";
 import { baseContectURL } from "../utils/urls.js";
+import { useParams } from "react-router-dom";
 
 function ProfilePage(props) {
-  const { user, handleSave } = props;
-  const [formValues, setFormValues] = useState(user);
+  const { handleSave } = props;
+  const [formValues, setFormValues] = useState({});
+
+  const { id } = useParams();
 
   useEffect(() => {
-    setFormValues(user);
-  }, [user]);
+    const fetchUser = async () => {
+      const response = await fetchDataByContactId(id);
+
+      if (!response) {
+        console.error(
+          `OBS!!! Something went wrong fetching the contact with id: ${id}`
+        );
+      } else {
+        console.log(`Successfull!!`);
+        setFormValues(response);
+      }
+    };
+    //setFormValues(user);
+    fetchUser();
+  }, [id]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
-    console.log(value);
+    //console.log(value);
   };
 
   const saveProfile = async () => {
@@ -24,7 +40,10 @@ function ProfilePage(props) {
       "not implementet but will sav the changes made in the profile: ",
       formValues
     );
-    const response = await putData(`${baseContectURL}/${user.id}`, formValues);
+    const response = await putData(
+      `${baseContectURL}/${formValues.id}`,
+      formValues
+    );
     if (response) {
       console.log("Successfully updated profile information!");
       handleSave();
@@ -41,11 +60,11 @@ function ProfilePage(props) {
       <div className="blogpost-card">
         <div className="form-header">
           <UserCircle
-            userFirstName={user.firstName}
-            userLastName={user.lastName}
-            userfavouriteColour={user.favouriteColour}
+            userFirstName={formValues.firstName}
+            userLastName={formValues.lastName}
+            userfavouriteColour={formValues.favouriteColour}
           />
-          <h1>{`${user.firstName} ${user.lastName}`}</h1>
+          <h1>{`${formValues.firstName} ${formValues.lastName}`}</h1>
         </div>
         <form className="form-form">
           <div className="form-form-grid">
@@ -101,7 +120,7 @@ function ProfilePage(props) {
               type="text"
               placeholder="Name"
               onChange={(e) => e.target.value}
-              value={user.jobTitle}
+              value={formValues.jobTitle}
             />
           </div>
         </form>

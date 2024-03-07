@@ -42,10 +42,8 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
               <Route
-                path="/profile"
-                element={
-                  <ProfilePage user={loggedInUser} handleSave={handleSave} />
-                }
+                path="/profile/:id"
+                element={<ProfilePage handleSave={handleSave} />}
               ></Route>
               <Route
                 path="post/view/:id"
