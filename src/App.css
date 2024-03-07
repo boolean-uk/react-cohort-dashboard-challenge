@@ -183,8 +183,10 @@ main {
 	flex-direction: row;
 	flex: 1;
 }
+
 .create-post-item * {
 	margin-left: 10px;
+	margin-bottom: 0;
 }
 
 .form-text-input {
