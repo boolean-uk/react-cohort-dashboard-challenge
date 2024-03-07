@@ -1,9 +1,9 @@
-import "./ProfileInformationGridItemColorSelector.css"
+import "./ProfileInformationColorItem.css"
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { ProfileEditContext } from "@/Utils/contexts"
 
-const ProfileInformationGridItemColorSelector = ({label, id, required = false}) => {
+const ProfileInformationColorItem = ({label, id, required = false}) => {
     const { handleFieldChange, userData, allowEdit } = useContext(ProfileEditContext)
     return (
         <div className="grid-item-color-selector">
@@ -31,11 +31,11 @@ const ProfileInformationGridItemColorSelector = ({label, id, required = false}) 
     )
 }
 
-ProfileInformationGridItemColorSelector.propTypes = {
+ProfileInformationColorItem.propTypes = {
     label: PropTypes.string,
     id: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
 }
 
-export default ProfileInformationGridItemColorSelector
+export default ProfileInformationColorItem

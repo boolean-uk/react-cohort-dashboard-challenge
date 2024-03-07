@@ -4,8 +4,8 @@ import { baseUserUrl } from '@/Utils/apiUtils'
 import { ProfileEditContext, userContext } from '@/Utils/contexts'
 import PropTypes from 'prop-types'
 import "./ProfileInformation.css"
-import ProfileInformationGridItem from './ProfileInformationGridItem/ProfileInformationGridItem'
-import ProfileInformationGridItemColorSelector from './ProfileInformationGridItemColorSelector/ProfileInformationGridItemColorSelector'
+import ProfileInformationItem from './ProfileInformationItem/ProfileInformationItem'
+import ProfileInformationColorItem from './ProfileInformationColorItem/ProfileInformationColorItem'
 
 const ProfileInformation = ({ id }) => {
     const [user, setUser] = useState()
@@ -62,17 +62,17 @@ const ProfileInformation = ({ id }) => {
             <div className='profile-header-grid'>
                 <div className='profile-header-grid-item'>
                     <h3>Account info</h3>
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"First Name"} 
                         id={"firstName"} 
                         required={true}
                     />
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"Last Name"} 
                         id={"lastName"}
                         required={true}
                     />
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"Email"} 
                         id={"email"}
                         required={true}
@@ -80,22 +80,22 @@ const ProfileInformation = ({ id }) => {
                 </div>
                 <div className='profile-header-grid-item'>
                     <h3>Address</h3>
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"Street"} 
                         id={"street"} 
                     />
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"City"} 
                         id={"city"} 
                     />
                 </div>
                 <div className='profile-header-grid-item'>
                     <h3>Other</h3>
-                    <ProfileInformationGridItem 
+                    <ProfileInformationItem 
                         label={"Job title"} 
                         id={"jobTitle"} 
                     />
-                    <ProfileInformationGridItemColorSelector
+                    <ProfileInformationColorItem
                         label={"Profile color"} 
                         id={"favouriteColour"} 
                     />

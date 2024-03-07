@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import "./NavigationMenu.css"
 import HomeButton from "@/assets/home-icon.svg"
 import ProfileButton from "@/assets/profile-icon.svg"
+import { userContext } from '@/Utils/contexts'
 
 const NavigationMenu = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [activeNavigation, setActiveNavigation] = useState()
+    const { LoggedInUser } = useContext(userContext)
 
     const navigateHome = (useNavigate = true) => {
         localStorage.setItem("navigationLocation", "Home")
@@ -18,18 +20,17 @@ const NavigationMenu = () => {
     const navigateProfile = () => {
         localStorage.setItem("navigationLocation", "Profile")
         setActiveNavigation("Profile")
-        navigate("/my-profile")
     }
 
     useEffect(() => {
-        if (location.pathname === "/my-profile") {
+        if (location.pathname.includes("/profile")) {
             navigateProfile()
         } else {
             navigateHome(false)
 
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [location])
 
     return (
         <div className="navigation-menu">
@@ -48,7 +49,7 @@ const NavigationMenu = () => {
                     ? "navigation-profile-button active" 
                     :"navigation-profile-button"
                 }
-                onClick={() => navigateProfile()}
+                onClick={() => navigate(`/profile/${LoggedInUser.id}`)}
             >
                 <img src={ProfileButton}/>
                 <p>Profile</p>

@@ -1,9 +1,9 @@
-import "./ProfileInformationGridItem.css"
+import "./ProfileInformationItem.css"
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { ProfileEditContext } from "@/Utils/contexts"
 
-const ProfileInformationGridItem = ({label, id, required = false}) => {
+const ProfileInformationItem = ({label, id, required = false}) => {
     const { handleFieldChange, userData, allowEdit } = useContext(ProfileEditContext)
     return (
         <div>
@@ -22,11 +22,11 @@ const ProfileInformationGridItem = ({label, id, required = false}) => {
     )
 }
 
-ProfileInformationGridItem.propTypes = {
+ProfileInformationItem.propTypes = {
     label: PropTypes.string,
     id: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
 }
 
-export default ProfileInformationGridItem
+export default ProfileInformationItem
