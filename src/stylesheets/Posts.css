@@ -3,22 +3,39 @@
     width: 750px;
     height: auto;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 50px;
+    border: 1px solid gray;
 }
 
 .onlyPost {
     margin-left: 40px;
 }
 
+.closeButton {
+    text-align: right;
+    margin-right: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+}
+
+.editButton {
+    text-align: right;
+    margin-right: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
 
 .postHead {
     margin-left: 90px;
     height: 20px;
+    position: relative;
+    top: -100px;
 }
 
 h1.postHead {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 1000;
+    width: fit-content;
 }
 
 h2.postHead {
@@ -29,6 +46,7 @@ h2.postHead {
     font-size: 20px;
     font-weight: 500;
     border-bottom: gray solid 1px;
+    margin-top: -50px;
 }
 
 .comment {
@@ -90,4 +108,9 @@ input {
     font-size: large;
     font-weight: 600;
 
+}
+
+.commentButtons {
+    display: grid;
+    grid-template-columns: max-content max-content
 }

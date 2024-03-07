@@ -9,11 +9,13 @@ import { getAuthor } from './Api'
 import Profile from './Profile/Profile'
 
 export const NameContext = createContext()
-
+export const PostContext = createContext()
 
 function App() {
 
   const [initials, setInitials] = useState('')
+  const [posts, setPosts] = useState([])
+
   useEffect(() => {
     getAuthor(1).then((author) => {
       setInitials(author.firstName[0] + author.lastName[0])
@@ -28,11 +30,16 @@ function App() {
       <Header />
       <div className='container-nav-main'>
         <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/post/:id" element={<ShowOnePost />} />
-          <Route path="/profile/:id" element={<Profile />} />
-        </Routes>
+        <PostContext.Provider value={{
+          posts: posts,
+          setPosts: setPosts
+        }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/post/:id" element={<ShowOnePost />} />
+            <Route path="/profile/:id" element={<Profile />} />
+          </Routes>
+        </PostContext.Provider>
       </div>
     </NameContext.Provider>
   )

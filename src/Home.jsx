@@ -1,31 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './stylesheets/Page.css'
 import PostListItem from './PostListItem'
 import AddPost from './Post/AddPost'
-import { getPosts, postPost } from './Api'
+import { deletePost, getPosts, postPost, updatePost } from './Api'
+import { PostContext } from './App'
 
 function Home() {
-    const [posts, setPosts] = useState([])
+    const { posts, setPosts } = useContext(PostContext)
     useEffect(() => {
         getPosts()
             .then((jsonData) => { setPosts(jsonData.reverse()) })
     }, [])
 
     const addPost = (post) => {
-        posts.unshift({
-            contactId: 1,
-            title: post.title,
-            content: post.content,
+
+        postPost(post.title, post.content, 1).then((data) => {
+            posts.unshift(data);
+            setPosts([...posts])
         })
-        postPost(post.title, post.content, 1)
-        setPosts([...posts])
-        console.log(posts)
     }
+
+    const removePost = (post) => {
+        deletePost(post.id)
+        posts.splice(posts.indexOf(post), 1)
+        setPosts([...posts])
+
+    }
+
     return (
         <div className='page'>
             <ul>
                 <li><AddPost setPosts={addPost} /></li>
-                {posts.map((post) => { return (<li><PostListItem post={post} /></li>) })}
+                {posts.map((post) => { return (<li><PostListItem post={post} removePost={removePost} /></li>) })}
             </ul>
 
         </div>

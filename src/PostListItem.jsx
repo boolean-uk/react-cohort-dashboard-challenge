@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import AddComment from './Post/AddComment'
 import CommentList from './Post/CommentList'
 import PostListItemText from './Post/PostListItemText'
-import { getComments, getPostById, postComment } from "./Api"
+import { deleteComment, getComments, getPostById, postComment } from "./Api"
 import './stylesheets/Posts.css'
-import { json, useParams } from 'react-router-dom'
 
-function PostListItem({ post, one }) {
+export const CommentContext = createContext()
+
+function PostListItem({ post, one, removePost }) {
     const [comments, setComments] = useState([])
 
 
@@ -16,19 +17,27 @@ function PostListItem({ post, one }) {
     }, [post])
 
     const addComment = (comment) => {
-        postComment(post.id, comment, 1)
-        comments.push({
-            postId: post.id,
-            content: comment,
-            contactId: 1
+        postComment(post.id, comment, 1).then((response) => {
+            comments.push(response)
+            setComments([...comments])
         })
+    }
+    const removeComment = (comment) => {
+        deleteComment(post.id, comment.id)
+        comments.splice(comments.indexOf(comment), 1)
         setComments([...comments])
     }
+
     return (
         <div className={`post ${one ? 'onlyPost' : ''}`}>
-            <PostListItemText post={post} />
-            <CommentList comments={comments} />
-            <AddComment setComments={addComment} />
+            <PostListItemText post={post} removePost={removePost} />
+            <CommentContext.Provider value={{
+                comments: comments,
+                setComments: setComments
+            }}>
+                <CommentList comments={comments} removeComment={removeComment} />
+                <AddComment setComments={addComment} />
+            </CommentContext.Provider>
         </div>
     )
 }

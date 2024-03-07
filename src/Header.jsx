@@ -1,9 +1,11 @@
 import './stylesheets/Header.css'
 import { NameContext } from './App'
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
     const { initials } = useContext(NameContext)
+    const navigate = useNavigate()
     return (
         <div className='header'>
             <svg
@@ -18,7 +20,7 @@ function Header() {
                     fill="#64DC78"
                     d="M36.068 22.934H13.07c-.618 0-1.122.505-1.122 1.122v1.122c0 .617.504 1.122 1.121 1.122h23c.616 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.122-1.122-1.122ZM19.38 19.568h10.378c.617 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.121-1.122-1.121H19.38c-.617 0-1.122.505-1.122 1.122v1.121c0 .617.505 1.122 1.122 1.122Zm10.378 10.097H19.38c-.617 0-1.122.505-1.122 1.122v1.122c0 .617.505 1.122 1.122 1.122h10.378c.617 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.122-1.122-1.122Z" />
             </svg>
-            <span className='initials'>{initials}</span>
+            <span className='initials' onClick={() => { navigate('profile/1') }}>{initials}</span>
         </div>
     )
 }
