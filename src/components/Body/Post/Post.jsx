@@ -9,7 +9,9 @@ export default function Post({ post }) {
   const [user, setUser] = useState({});
   useEffect(() => {
     fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post.contactId}`
+      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${
+        post.contactId ?? 1
+      }`
     )
       .then((response) => {
         if (response.ok) {

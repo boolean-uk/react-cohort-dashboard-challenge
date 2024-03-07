@@ -9,7 +9,7 @@ export default function Comments({ post }) {
   const [comments, setComments] = useState([{ title: "", content: "" }]);
   useEffect(() => {
     fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/post/${post.id}/comment`
+      `https://boolean-api-server.fly.dev/VictorAdamson/post/${post?.id}/comment`
     )
       .then((response) => {
         if (response.ok) return response.json();
@@ -21,7 +21,7 @@ export default function Comments({ post }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [post.id, setComments]);
+  }, [post?.id, setComments]);
 
   return (
     <>

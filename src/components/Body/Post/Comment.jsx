@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../Body.css";
+
 export default function Comment({ comment }) {
-  // Here I need to fetch contacts and instead of printing contactId I need to print their name
+  // Here I need to fetch contacts
   const [user, setUser] = useState({});
+
   useEffect(() => {
     fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${comment.contactId}`
+      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${
+        comment?.contactId ?? 1
+      }`
     )
       .then((response) => {
         if (response.ok) {
@@ -18,9 +22,9 @@ export default function Comment({ comment }) {
         setUser(jsonData);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Error in Comment.jsx", err);
       });
-  }, [setUser, comment.contactId]);
+  }, [setUser]);
 
   return (
     <>

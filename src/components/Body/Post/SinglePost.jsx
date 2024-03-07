@@ -8,6 +8,8 @@ export default function SinglePost({ posts }) {
   const post = posts.find((post) => post.id === parseInt(id));
   const [user, setUser] = useState({});
 
+  // if (!post) return <p>Loading...</p>;
+
   useEffect(() => {
     fetch(
       `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post.contactId}`
@@ -25,7 +27,6 @@ export default function SinglePost({ posts }) {
         console.log(err);
       });
   }, [setUser, post.contactId]);
-
   return (
     <>
       <div className="main-body">

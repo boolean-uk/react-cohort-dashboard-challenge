@@ -43,6 +43,6 @@ CommentStructure:
 
 - Users should be able to comment on existing posts. ✔
 
-- Posts and comments should show the initials of the author in a coloured circle.
+- Posts and comments should show the initials of the author in a coloured circle. ✔
 
-- Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You must use a route for this, not an array filter.
+- Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You must use a route for this, not an array filter. ✔
