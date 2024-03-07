@@ -54,8 +54,8 @@ ul {
 }
 
 .content {
-  margin-top: 60px; /* Adjust according to the height of header */
-  margin-left: 200px; /* Adjust according to the width of side menu */
+  margin-top: 60px; 
+  margin-left: 200px; 
 }
 
 .side-menu {
@@ -87,4 +87,9 @@ ul {
 
 .content {
   margin-left: 100px;
+}
+
+.post-view {
+  padding-left: 80px;
+  padding-top: 60px;;
 }

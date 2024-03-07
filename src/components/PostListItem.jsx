@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import Avatar from "react-avatar";
+import { Link } from "react-router-dom";
 
 function PostListItem({ post }) {
   const [comments, setComments] = useState([]);
@@ -64,7 +65,7 @@ function PostListItem({ post }) {
             round={true}
           />
         )}
-        <h3>{post.title}</h3>
+        <Link to={`/post/${post.id}`}>{post.title}</Link>
       </div>
       <p>{post.content}</p>
 
@@ -75,21 +76,7 @@ function PostListItem({ post }) {
             <ul className="comments-ul">
               {comments.map((comment) => (
                 <li key={comment.id}>
-                  <div className="comment-avatar">
-                    <Avatar
-                      name={`${getUserInfo(comment.contactId).firstName} ${
-                        getUserInfo(comment.contactId).lastName
-                      }`}
-                      round={true}
-                    />
-                  </div>
-                  <h3>
-                    {`${getUserInfo(comment.contactId).firstName} ${
-                      getUserInfo(comment.contactId).lastName
-                    }`}
-                    :
-                  </h3>
-                  {comment.content}
+                  User #{comment.contactId}: {comment.content}
                   <br /> <br />
                 </li>
               ))}
