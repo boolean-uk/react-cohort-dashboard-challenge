@@ -1,12 +1,14 @@
+import { UserContext } from "../../App"
 import CreatePost from "./CreatePost"
 import Timeline from "./Timeline"
 
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect, createContext, useContext } from 'react'
 
 const PostContext = createContext()
 
 function Home() {
     const [posts, setPosts] = useState([])
+    const userContext = useContext(UserContext)
 
     useEffect(() => {
         fetch("https://boolean-api-server.fly.dev/nora-hansen/post")

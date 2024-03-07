@@ -10,7 +10,7 @@ const UserContext = createContext()
 
 function App() {
   const [users, setUsers] = useState([])
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/nora-hansen/contact")
@@ -18,10 +18,8 @@ function App() {
       .then(setUsers)
   }, [])
 
-  if (users === undefined) return <p>Loading users...</p>
-
-  if (users !== undefined) () => setCurrentUser(users[0])
-  console.log(users[0])
+  if (users.length === 0) return <p>Loading users...</p>
+  if (users.length > 0 && !currentUser) setCurrentUser(users[0])
 
   return (
     <div className="container">

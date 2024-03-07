@@ -1,0 +1,4 @@
+.home-create-timeline {
+    display: flex;
+    flex-direction: column;
+}

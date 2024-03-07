@@ -20,10 +20,7 @@ body {
   flex-grow: 1;
 }
 
-button {
-  background-color: #000046;
-}
-
-button:hover {
-  background-color: #64dc78;
+.user-image {
+  border-radius: 50%;
+  width: 50px;
 }

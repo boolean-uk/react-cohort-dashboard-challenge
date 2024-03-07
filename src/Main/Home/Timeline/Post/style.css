@@ -1,3 +1,31 @@
-.post .title {
-    color: #64648c;
+.post {
+    margin: 10px;
+    width: 100%;
+
+    background-color: white;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:gainsboro;
+
+    padding: 10px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+}
+
+.top img {
+    align-self: center;
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+}
+
+.top-name-title {
+    display: flex;
+    flex-direction: column;
 }
