@@ -1,10 +1,11 @@
 .createpost {
-
     .card {
         background-color: white;
         border: 0px rgb(204, 204, 204) solid;
         border-radius: 5px;
-        padding: 0.8rem;
+        padding: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
         display: flex;
 
         .textbox {
@@ -37,12 +38,10 @@
             color: white;
             font-size: 20px;
             font-family: Segoe UI;
-        }
 
-        .button:hover {
-            background-color: #64dc78
+            &:hover {
+                background-color: #64dc78
+            }
         }
     }
-
-
 }

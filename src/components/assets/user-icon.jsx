@@ -1,10 +1,10 @@
 import React from 'react'
-import './user-icon.css'
+import './user-icon.css'    
 
-export default function UserIconComponent({firstName, lastName, color}) {
+export default function UserIconComponent({user}) {
     return (
-        <div className='usericon' style={{backgroundColor:color}}>
-            {`${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`}
+        <div className='usericon' style={{backgroundColor:user.favouriteColour}}>
+            {`${user.firstName[0].toUpperCase()}${user.lastName[0].toUpperCase()}`}
         </div>
     )
 }
