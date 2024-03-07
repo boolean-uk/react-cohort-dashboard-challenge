@@ -1,23 +1,29 @@
 import "../App.css";
-import PostElement from "../components/Post";
-import { PostContext } from "../App";
+import Post from "../components/Post";
+import { PostContext } from "../App.jsx";
 import { useContext, useEffect, useState } from "react";
-import GetAContactByID from "../Api.js";
+import { getAContactByID, makeNewPostToAPI } from "../Api.js";
 import {
   ProfileIcon,
   HomePageIcon,
   MainPageIcon,
 } from "../components/images.jsx";
+import GetInitalsFromNames from "../GetInitialsFromNames.jsx";
 
 function CohortManagerMainPage() {
-  const simulatedUser =
-    GetAContactByID(1); /* simulating a user with id 1 for posting  */
+  const [simulatedUserData, setSimulatedUserData] =
+    useState(null); /* simulating a user with id 1 for posting  */
 
   const { postsData, setPostsData } = useContext(PostContext);
   const [newPostData, setNewPostData] = useState("");
 
   //Controls whether the post button should be disabled or not.
   useEffect(() => {
+    getAContactByID(
+      1,
+      setSimulatedUserData
+    ); /* simulating a user with id 1 for posting  */
+
     //Moved this check out of stringToPostRequestBody. Instead of checking for a bad value and sending an error, I decided that the button should not be interactable while the postData is bad/empty.
     console.log("doing this");
     console.log(newPostData);
@@ -55,7 +61,7 @@ function CohortManagerMainPage() {
     const postRequestBody = {
       title: splitTitleAndText[0],
       content: splitTitleAndText[1],
-      contactId: simulatedUser,
+      contactId: 1,
     };
     return postRequestBody;
   };
@@ -67,23 +73,7 @@ function CohortManagerMainPage() {
       body: JSON.stringify(postRequestData),
     };
 
-    fetch(
-      "https://boolean-api-server.fly.dev/MackanPalm/post",
-      postRequestOption
-    )
-      .then((responce) => {
-        if (responce.ok) {
-          return responce.json();
-        }
-        throw responce;
-      })
-      .then((data) => {
-        setPostsData([...postsData, data]);
-      })
-      .catch((err) => {
-        console.log(err);
-        //add something for the user to see
-      });
+    makeNewPostToAPI(postRequestOption, setPostsData, postsData);
 
     console.log(postRequestOption);
   };
@@ -107,7 +97,14 @@ function CohortManagerMainPage() {
         <main className="main background">
           <div className="post-bar-box">
             <div className="circle">
-              <p className="text">MP</p>
+              {simulatedUserData && (
+                <p className="text">
+                  {GetInitalsFromNames(
+                    simulatedUserData.firstName,
+                    simulatedUserData.lastName
+                  )}
+                </p>
+              )}
             </div>
             <form onSubmit={handleSubmit}>
               <input
@@ -127,7 +124,7 @@ function CohortManagerMainPage() {
             </form>
           </div>
           {postsData.toReversed().map((postData, index) => (
-            <PostElement key={index} postData={postData} />
+            <Post key={index} postData={postData} simulatedUserID={1} />
           ))}
         </main>
       </div>

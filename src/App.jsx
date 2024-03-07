@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CohortManagerMainPage from "./pages/CohortManagerMainPage";
 import { useEffect, useState, createContext } from "react";
-
+import { getAllPosts } from "./Api.js";
 export const PostContext = createContext();
 
 function App() {
@@ -11,24 +11,7 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://boolean-api-server.fly.dev/MackanPalm/post`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        console.log(data);
-        setPostsData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    getAllPosts(setPostsData, setLoading, setError);
   }, []);
 
   if (loading) return "Loading...";

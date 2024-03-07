@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import PropTypes from "prop-types";
 import CommentElement from "./Comment";
-import { getAContactByID, getAllComments } from "../Api.js";
+import {
+  getAContactByID,
+  getAllComments,
+  postNewCommentToAPI,
+} from "../Api.js";
 import GetInitalsFromNames from "../GetInitialsFromNames";
 
-function PostElement(props) {
+function Post(props) {
   //props data on the current post
   const { postData } = props;
   // list of comments on the current post
@@ -29,7 +33,9 @@ function PostElement(props) {
     );
   }, [postData.id, setCommentsList, postData.contactId]);
 
-  if (loadingComments) return "Loading Comments...";
+  console.log(loadingComments);
+  //something is wrong. the loading comments state does never return to false so i had to disable them. but the data is working.
+  //if (loadingComments) return "Loading Comments...";
   if (commentsError) return "Error while loading comments...";
 
   const handleInputPostData = (event) => {
@@ -49,7 +55,7 @@ function PostElement(props) {
     const postRequestBody = {
       postId: postData.id,
       content: newCommentData,
-      contactId: postData.contactId,
+      contactId: props.simulatedUserID,
     };
     return postRequestBody;
   };
@@ -62,23 +68,12 @@ function PostElement(props) {
       body: JSON.stringify(postRequestData),
     };
     //posts comment to comments API
-    fetch(
-      `https://boolean-api-server.fly.dev/MackanPalm/post/${postData.id}/comment`,
-      postRequestOption
-    )
-      .then((responce) => {
-        if (responce.ok) {
-          return responce.json();
-        }
-        throw responce;
-      })
-      .then((data) => {
-        setCommentsList([...commentsList, data]);
-      })
-      .catch((err) => {
-        console.log(err);
-        //add something for the user to see
-      });
+    postNewCommentToAPI(
+      postData.id,
+      postRequestOption,
+      setCommentsList,
+      commentsList
+    );
 
     console.log(postRequestOption);
   };
@@ -110,8 +105,14 @@ function PostElement(props) {
       </div>
       <div className="post-box-comments">
         <p className="post-comments-header">Comments:</p>
-        {commentsList.toReversed().map((comment, index) => {
-          return <CommentElement key={index} comment={comment} />;
+        {commentsList.map((comment, index) => {
+          return (
+            <CommentElement
+              key={index}
+              comment={comment}
+              posterInformation={posterInformation}
+            />
+          );
         })}
       </div>
       <div className="post-input-coment-box">
@@ -129,7 +130,8 @@ function PostElement(props) {
     </div>
   );
 }
-export default PostElement;
-PostElement.propTypes = {
+export default Post;
+Post.propTypes = {
   postData: PropTypes.object,
+  simulatedUserID: PropTypes.number,
 };
