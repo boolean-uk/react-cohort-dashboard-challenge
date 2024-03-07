@@ -8,7 +8,7 @@ function Comments({ postId, baseURL, user }){
     const [comments, setComments] = useState([])
 
   useEffect(() => {
-    fetch(`${baseURL}/post/$${postId}/comment`)
+    fetch(`${baseURL}/post/${postId}/comment`)
       .then((response) => response.json())
       .then((data) => setComments(data));
     }, [baseURL, postId, setComments]);

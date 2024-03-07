@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { MyContext } from "../../App"
-import { Post } from './post.jsx'
+import Post  from './post.jsx'
 import NewPost from './newPost.jsx'
 
 function Posts(){

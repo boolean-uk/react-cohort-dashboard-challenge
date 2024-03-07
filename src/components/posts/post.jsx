@@ -43,4 +43,4 @@ function Post({ post, baseURL, user }) {
 
     )
 }
-export { Post, MyContext}
+export default Post
