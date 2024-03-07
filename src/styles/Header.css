@@ -1,0 +1,15 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: #000046; /* Use the desired background color */
+    padding: 20px; /* Adjust padding according to your design */
+  }
+  
+  .logo {
+    margin-right: 10px; /* Adjust spacing between logo and title */
+  }
+  
+  .title {
+    color: white; /* Text color */
+  }
+  
