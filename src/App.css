@@ -36,10 +36,6 @@ make the child components lay out using flex, vertically stacked in a column */
   max-height: calc(100vh - 60px);
 }
 
-.green {
-  background-color: green;
-}
-
 .yellow {
   background-color: yellow;
   margin: 10px;

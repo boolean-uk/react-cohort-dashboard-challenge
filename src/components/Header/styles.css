@@ -1,7 +1,7 @@
 /* style for the header, it must have a fixed height and full width */
 .header {
     height: 60px;
-    width: 100vw;
+    width: 92vw;
     background-color: #000046;
     display: flex;
     flex-direction: row;
