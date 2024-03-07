@@ -1,0 +1,43 @@
+.post{
+   
+
+    margin-top: 10px;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(158, 158, 158, 0.247);
+}
+.post p{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.post-header{
+height: 100%;
+display: flex;
+}
+.post-avatar{
+    display: inline-block;
+    margin-right: 10px;
+}
+.post-header-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.post-header-text p{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(117, 117, 117);
+
+
+ 
+}
+.post-header-text h4{
+    margin:0;
+    
+}

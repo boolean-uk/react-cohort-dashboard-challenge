@@ -1,0 +1,23 @@
+header{
+  background:#000046;
+}
+body{
+  background-color: #F0F5FA;
+}
+.left-side{
+background-color: #ffffff;
+
+}
+.center{
+  padding: 30px;
+}
+.body{
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+.title-header{
+  height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+}
