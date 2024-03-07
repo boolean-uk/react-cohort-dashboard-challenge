@@ -2,6 +2,8 @@ import { useContext } from "react"
 //hämta contacts
 import { ContactContext } from "../App"
 
+import circle from '../assets/yellow-and-amber-colored-circles-clipart-1.png'
+
 function Comment({ comment }) {
     const { contacts } = useContext(ContactContext)
 
@@ -17,12 +19,19 @@ function Comment({ comment }) {
     }
     
     const name = matchingContact.firstName + ' ' + matchingContact.lastName
+    const initials = matchingContact.firstName.charAt(0) + matchingContact.lastName.charAt(0);
 
     return (
-        <li>
-            {name}
-            <br />
-            {comment.content}
+        <li className="comment">
+            <div className='pic-and-name'>
+                <div className='profile-container'>
+                    <img className='profile-image' src={circle} alt="profile icon" />
+                    <div className="profile-text">{initials}</div>
+                </div>
+
+                <h2>{name}</h2>
+            </div>
+            <p>{comment.content}</p>
         </li>
     )
 }

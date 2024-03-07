@@ -5,7 +5,7 @@ import { ContactContext } from '../App.jsx'
 
 import CommentList from './CommentList.jsx';
 
-import icon from '../assets/profile-icon.svg'
+import circle from '../assets/yellow-and-amber-colored-circles-clipart-1.png'
 
 function Post({ post }) {
     const { contacts } = useContext(ContactContext)
@@ -27,6 +27,7 @@ function Post({ post }) {
     //mappa contacts id mot post.contactId
     const matchingContact = contacts.find(contact => Number(contact.id) === Number(post.contactId));
     const name = matchingContact.firstName + ' ' + matchingContact.lastName
+    const initials = matchingContact.firstName.charAt(0) + matchingContact.lastName.charAt(0);
 
     //set content i ny comment
     const handleChange = (e) => {
@@ -56,7 +57,11 @@ function Post({ post }) {
     return (
         <li className='post'>
             <div className='pic-and-name'>
-                <img src={icon} alt="profile image" />
+                <div className='profile-container'>
+                    <img className='profile-image' src={circle} alt="profile icon" />
+                    <div className="profile-text">{initials}</div>
+                </div>
+
                 <h2>{name}</h2>
             </div>
 
