@@ -10,8 +10,6 @@ function SinglePost() {
     const [post, setPost] = useState(null)
     useEffect(() => {
         setPost(postContext.posts.filter((post) => Number(post.id) === Number(id.id)))
-
-        console.log("Hey post!", id.id)
     }, [])
 
     if (post === null) return <p>Loading post...</p>

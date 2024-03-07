@@ -5,10 +5,17 @@ import CommentField from './CommentField'
 import Comment from './Comment'
 import { Link } from 'react-router-dom'
 
+/*
+    TODO: Limit comments to 3!
+        - Make checkbox invisible
+        - If checked, show all comments
+        - Use maxThree for this?
+*/
 function Post({ post }) {
     const [postingUser, setPostingUser] = useState(null)
     const userContext = useContext(UserContext)
     const [comments, setComments] = useState([])
+    const [maxThree, setMaxThree] = useState(true)
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post/${post.id}/comment`)
@@ -35,6 +42,8 @@ function Post({ post }) {
             </div>
             <p>{post.content}</p>
             <hr />
+            <input id="see-previous-checkbox" type="checkbox" />
+            <label htmlFor="see-previous-checkbox">See previous comments</label>
             {comments.map((comment, index) => (
                 <Comment key={index} comment={comment}/>
             ))}
