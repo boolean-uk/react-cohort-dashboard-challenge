@@ -2,7 +2,7 @@ import { baseUserUrl } from '@/Utils/apiUtils'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import "./PostListItem.css"
-import PostItemAuthor from './PostItemAuthor/PostItemAuthor.jsx'
+import PostItemHeader from './PostItemHeader/PostItemHeader.jsx'
 import PostReplyList from './PostReplyList/PostReplyList'
 
 const PostListItem = ({post}) => {
@@ -24,7 +24,7 @@ const PostListItem = ({post}) => {
         <li>
             <div className='post-panel'>
                 {user && 
-                    <PostItemAuthor user={user} post={post}/>
+                    <PostItemHeader user={user} post={post}/>
                 }
                 <div className='post-content-container'>
                     <p>{post?.content}</p>

@@ -1,9 +1,9 @@
 import AccountIcon from '@/Components/AccountIcon/AccountIcon'
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
-import "./PostItemAuthor.css"
+import "./PostItemHeader.css"
 
-const PostItemAuthor = ({user, post}) => {
+const PostItemHeader = ({user, post}) => {
     const navigate = useNavigate()
 
     return (
@@ -24,9 +24,9 @@ const PostItemAuthor = ({user, post}) => {
     )
 }
 
-PostItemAuthor.propTypes = {
+PostItemHeader.propTypes = {
     user: PropTypes.object,
     post: PropTypes.object,
 }
 
-export default PostItemAuthor
+export default PostItemHeader

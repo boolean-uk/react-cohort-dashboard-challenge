@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import AccountIcon from '@/Components/AccountIcon/AccountIcon'
 import { baseUserUrl } from '@/Utils/apiUtils'
-import "./PostReply.css"
+import "./PostReplyItem.css"
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 
-const PostReply = ({ reply }) => {
+const PostReplyItem = ({ reply }) => {
     const [user, setUser] = useState()
     const navigate = useNavigate()
 
@@ -36,8 +36,8 @@ const PostReply = ({ reply }) => {
     )
 }
 
-PostReply.propTypes = {
+PostReplyItem.propTypes = {
     reply: PropTypes.object,
 }
 
-export default PostReply
+export default PostReplyItem

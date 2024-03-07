@@ -1,5 +1,5 @@
 import { basePostUrl } from "@/Utils/apiUtils"
-import PostReply from "./PostReply/PostReply"
+import PostReplyItem from "./PostReplyItem/PostReplyItem"
 import { useState, useEffect } from 'react'
 import "./PostReplyList.css"
 import PropTypes from 'prop-types'
@@ -41,7 +41,7 @@ const PostReplyList = ({ postID }) => {
                 </button>
             }
             {replies.slice(-replyLimit).map((reply, index) => (
-                <PostReply key={index} reply={reply}/>
+                <PostReplyItem key={index} reply={reply}/>
             ))}
             <div>
                 <CommentOnPost postID={postID}/>
