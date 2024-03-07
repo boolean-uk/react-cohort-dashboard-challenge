@@ -1,6 +1,6 @@
-import { useContext } from "react"
+
 import Avatar from "react-avatar"
-import { AppContext } from "../../App"
+import './style.css'
 
 function Header({loggedInUser}){
 

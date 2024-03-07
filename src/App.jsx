@@ -3,6 +3,7 @@ import { Link,Route, Routes } from 'react-router-dom'
 import PostList from './components/Dashboard'
 import './App.css'
 import Header from './components/Header'
+import RenderProfile from './components/Profile'
 
 const AppContext = createContext()
 
@@ -36,8 +37,10 @@ function App() {
           <br></br>
           <br></br>
           <div className='profile'>
-            <img src='src\assets\profile-icon.svg'></img>
-            <p>Profile</p>
+            <Link to={'/profile'}>
+              <img src='src\assets\profile-icon.svg'></img>
+              <p>Profile</p>
+            </Link>
           </div>
         </nav>
 
@@ -46,6 +49,9 @@ function App() {
           <Routes>
             <Route path='/'
               element={<PostList />}/>
+
+            <Route path='/profile'
+              element={<RenderProfile/>}/>
             </Routes>
         </AppContext.Provider>        
         </main>

@@ -1,0 +1,77 @@
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    margin-left: 30px;
+  }
+  
+  .user-header {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .user-avatar {
+    max-width: 60px;
+    max-height: 60px;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  
+  form > div {
+    width: 45%; 
+    margin-bottom: 15px;
+  }
+
+ h2 {
+    margin-left: 12px;
+  }
+  
+  form > div label {
+    font-size: 16px;
+    margin-left: 5px;
+    color: #555;
+  }
+  
+  form > div input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-top: 5px;
+    border: transparent;
+    border-radius: 8px;
+    background-color: rgba(197, 208, 217, 0.413);
+  }
+  
+  button {
+    background-color: rgb(0, 0, 77);
+    color: white;
+    margin-left: 70%;
+    padding: 10px 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .devider{
+    color: rgba(151, 151, 151, 0.683);
+  }
