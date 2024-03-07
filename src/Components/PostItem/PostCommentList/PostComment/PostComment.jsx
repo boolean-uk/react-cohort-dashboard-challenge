@@ -50,16 +50,11 @@ function PostComment({ comment }) {
               {commentUser.firstName} {commentUser.lastName}
             </b>
           </h6>
-          <div id="buttons">
-            <button onClick={toggleEdit} className="btn mx-0">
-              <small>Edit</small>
-            </button>
-            <button onClick={deleteComment} className="btn mx-0">
-              <small>Delete</small>
-            </button>
-          </div>
+          <CommentButtons
+            deleteComment={deleteComment}
+            toggleEdit={toggleEdit}
+          />
         </div>
-
         {!edit && <p>{comment.content}</p>}
         {edit && (
           <TextEditor
@@ -72,4 +67,18 @@ function PostComment({ comment }) {
     </div>
   );
 }
+
+function CommentButtons({ deleteComment, toggleEdit }) {
+  return (
+    <div id="buttons">
+      <button onClick={toggleEdit} className="btn mx-0">
+        <small>Edit</small>
+      </button>
+      <button onClick={deleteComment} className="btn mx-0">
+        <small>Delete</small>
+      </button>
+    </div>
+  );
+}
+
 export default PostComment;

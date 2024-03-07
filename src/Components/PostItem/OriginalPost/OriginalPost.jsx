@@ -4,12 +4,12 @@ import { PostContext } from "../PostItem";
 import ProfileCircle from "../../ProfileCircle/ProfileCircle";
 import { Link } from "react-router-dom";
 import * as API from "../../../API/API";
-import { FeedContext } from "../../PostFeed/PostFeed";
 
 import TextEditor from "./TextEditor/TextEditor";
-import { PostPageContext } from "../../PostPage/PostPage";
+import { FeedContext } from "../../PostFeed/PostFeed";
 
 function OriginalPost() {
+  const { updatePosts } = useContext(FeedContext);
   const {
     post,
     originalPostUser,
@@ -20,13 +20,13 @@ function OriginalPost() {
   const updatePost = (newContent) => {
     API.UpdatePost(post.id, post, newContent)
       .then((res) => res.json)
-      .then((data) => updatePostContent());
+      .then(() => updatePostContent());
   };
 
   const deletePost = () => {
     API.DeletePostById(post.id)
       .then((res) => res.json())
-      .then((data) => updatePosts());
+      .then(() => updatePosts());
   };
   const toggleEdit = () => setEdit(!edit);
 
