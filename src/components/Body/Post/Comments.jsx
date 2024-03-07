@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import "../Body.css";
 import Comment from "./Comment";
-import { CommentContext } from "./Post";
+import AddComment from "./AddComment";
+
+export const CommentContext = createContext();
 export default function Comments({ post }) {
-  //, comments, setComments
-  const { comments, setComments } = useContext(CommentContext);
+  const [comments, setComments] = useState([{ title: "", content: "" }]);
   useEffect(() => {
     fetch(
       `https://boolean-api-server.fly.dev/VictorAdamson/post/${post.id}/comment`
@@ -24,12 +25,19 @@ export default function Comments({ post }) {
 
   return (
     <>
-      <div>
-        Comments:
-        {comments.map((comment, index) => {
-          return <Comment key={index} comment={comment} />;
-        })}
-      </div>
+      <CommentContext.Provider value={{ comments, setComments }}>
+        <div>
+          Comments:
+          {comments.map((comment, index) => {
+            return <Comment key={index} comment={comment} />;
+          })}
+          <AddComment
+            post={post}
+            comments={comments}
+            setComments={setComments}
+          />
+        </div>
+      </CommentContext.Provider>
     </>
   );
 }

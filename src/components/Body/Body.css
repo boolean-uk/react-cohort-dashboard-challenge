@@ -62,6 +62,18 @@
   height: 25px;
   padding: 0.6em 1.2em;
 }
+.comment {
+  position: relative;
+}
+.comment-icon {
+  background-color: #5386ec;
+  border: 0.5px solid #c1c6ce;
+  border-radius: 100%;
+  padding: 0.4em;
+  font-size: 11px;
+  width: 15px;
+  position: absolute;
+}
 .comment-box {
   background-color: #e6ebf5;
   border: 0px solid #c1c6ce;
@@ -69,6 +81,8 @@
   padding: 3px;
   margin-bottom: 3px;
   font-size: 12px;
+  width: 95%;
+  margin-left: 30px;
 }
 .sideBar-title {
   color: #64648c;

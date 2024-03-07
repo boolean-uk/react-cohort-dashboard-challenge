@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import "../Body.css";
-import { CommentContext } from "./Post";
+import { CommentContext } from "./Comments";
 
 const INITIAL_COMMENT = {
   content: "",

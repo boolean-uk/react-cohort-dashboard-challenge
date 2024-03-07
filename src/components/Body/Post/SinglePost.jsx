@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import "../Body.css";
 import { useEffect, useState } from "react";
+import Comments from "./Comments";
 export default function SinglePost({ posts }) {
   const { id } = useParams();
   const post = posts.find((post) => post.id === parseInt(id));
@@ -40,6 +41,7 @@ export default function SinglePost({ posts }) {
             </div>
           </div>
           <div className="post-body">{post.content}</div>
+          <Comments post={post} />
         </div>
       </div>
     </>
