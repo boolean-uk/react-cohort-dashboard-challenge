@@ -1,0 +1,19 @@
+section {
+  background-color: #000046;
+  width: auto;
+  justify-content: space-between;
+  display: flex;
+  padding: 20px;
+}
+
+section > img {
+  width: 30%;
+}
+
+section > h2 {
+  color: #fff;
+}
+
+section > p {
+  justify-content: center;
+}
