@@ -8,6 +8,7 @@ function getInitialPost() {
     return {
       title: title || '',
       content: content || '',
+      contactId: 1
     }
 }
 
@@ -23,14 +24,44 @@ export default function CreatePost() {
         })
         localStorage.setItem(name, value)
     }
+    /*
+contactId
+: 
+1
+14
+content
+: 
+title
+: 
+*/ 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        context.setPosts([...context.posts, post])
-        localStorage.clear()
-        setPost(getInitialPost)
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-    }
+      const postToSend = {
+        ...post,
+        contactId: 1,
+    };
+      console.log("Post Data:", postToSend);
+      
+
+      const response = await fetch("https://boolean-api-server.fly.dev/hassanhussa1n/post", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postToSend),
+      });
+
+      if (response.ok) {
+          const newPost = await response.json();
+          context.setPosts([...context.posts, newPost]);
+          localStorage.clear();
+          setPost(getInitialPost());
+      } else {
+          console.error("Failed to create a new post", e);
+      }
+  };
 
     return (
         <div className="rounded-box yellow">

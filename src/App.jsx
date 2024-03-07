@@ -11,9 +11,34 @@ const MyContext = createContext()
 
 
 function App() {
-  const [posts, setPosts] = useState([]); 
-  const [contacts, setContacts] = useState([])
+  const [posts, setPosts] = useState([]);
+  const [contacts, setContacts] = useState([]);
+  const [postUsers, setPostUsers] = useState([]);
+  const [commentUsers, setCommentUsers] = useState([]);
 
+
+  const getInitials = (user) => {
+    if (user) {
+      const firstName = user.firstName || '';
+      const lastName = user.lastName || '';
+      return `${firstName.charAt(0)}${lastName.charAt(0)}`;
+    }
+    return '';
+  };
+
+  const fetchUserInfo = async (contactId) => {
+    const response = await fetch(`https://boolean-api-server.fly.dev/hassanhussa1n/contact/${contactId}`);
+    const userData = await response.json();
+    
+
+    userData.initials = getInitials(userData);
+  
+    return userData;
+  };
+  
+  
+  
+  
 
   useEffect(() => {
     const fetchData = () => {
@@ -43,10 +68,12 @@ function App() {
   console.log(contacts)
   console.log(posts)
 
+  
 
 
   return (
     <>
+    
       <div className="container">
         <header className="header blue">
         
@@ -68,7 +95,7 @@ function App() {
             </button>
           </nav>
           <main className="main green">
-            <MyContext.Provider value={{posts: posts, setPosts: setPosts}}>
+            <MyContext.Provider value={{ posts, setPosts, postUsers, commentUsers }}>
               <CreatePost />
               <Posts/>
               

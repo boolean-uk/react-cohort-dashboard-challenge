@@ -93,8 +93,11 @@ body {
   margin: 10px;
   height: 200px;
   width: 100%;
-  border-radius: 10px; /* Add rounded edges */
-  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  overflow-y: scroll;
+  /* Remove overflow-y: auto; from here */
 }
 
 /* Add styles for the input field and button inside the rounded box */
@@ -131,4 +134,36 @@ body {
 }
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+.comment {
+  background-color: darkcyan;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  
+  bottom: 0; /* Position comments at the bottom of the post */
+  width: 80%; /* Make comments span the entire width of the post */
+}
+
+
+.comment p {
+  color: white;
+}
+
+.rounded-post + .rounded-post {
+  margin-top: 20px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #3498db; /* You can customize the color */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* You can customize the text color */
+  font-weight: bold;
 }
