@@ -1,0 +1,18 @@
+.singlePost-container {
+    margin: 5%;
+    padding: 1%;
+}
+
+
+.singlePost-postHistory {
+    border: solid black 1px;
+    margin-top: 5vh;
+}
+
+.singlePost-header {
+    border: solid blue 1px;
+}
+
+.singlePost-title {
+    color : #64648c;
+}
