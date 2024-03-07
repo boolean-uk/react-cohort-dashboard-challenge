@@ -1,0 +1,11 @@
+.profileInputFieldContainer {
+    width: 80%
+}
+
+.fieldTitle {
+    color: rgb(130, 138, 146);
+    font-size: small;
+    margin-left: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}

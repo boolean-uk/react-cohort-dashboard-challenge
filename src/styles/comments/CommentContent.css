@@ -14,3 +14,10 @@
     font-size: 15px;
     font-weight: bold;
 }
+
+.editContainer {
+    width: 95%;
+    border-radius: 12px;
+    background-color: white;
+    padding: 10px;
+}

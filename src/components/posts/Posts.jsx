@@ -1,4 +1,4 @@
-import { PostContext } from '../../pages/Home';
+import { PostContext } from '../../App';
 import { useContext } from 'react';
 import Post from './Post';
 import "../../styles/posts/Posts.css";

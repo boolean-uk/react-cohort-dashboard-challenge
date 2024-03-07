@@ -9,7 +9,7 @@ export default function PostHeader({ post }) {
         fetch(`https://boolean-api-server.fly.dev/spectraldesign/contact/${post.contactId}`)
             .then((response) => response.json())
             .then((data) => setCreator(data))
-    }, [post.userId]);
+    }, [post]);
 
     return (
         <div className="postHeaderContainer">

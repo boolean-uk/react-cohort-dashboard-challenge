@@ -1,10 +1,13 @@
 import Logo from "./Logo";
 import "../styles/Header.css";
 import ProfileImage from "./ProfileImage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../App";
 export default function Header() {
-    const user = useContext(UserContext);
+    const {user} = useContext(UserContext);
+    useEffect(() => {
+
+    }, [user]);
     return (
         <div className="headerContainer">
             <Logo />

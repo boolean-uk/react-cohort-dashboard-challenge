@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import "../../styles/posts/CreatePost.css";
-import { UserContext } from "../../App";
-import { PostContext } from "../../pages/Home";
+import { UserContext,PostContext } from "../../App";
 import ProfileImage from "../ProfileImage";
 import InputBox from "../InputBox";
-import { useNavigate } from "react-router-dom";
 export default function CreatePost() {
-    const user = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const { posts, setPosts } = useContext(PostContext);
     const [postContent, setPostContent] = useState("");
     const handleFormSubmit = (e) => {

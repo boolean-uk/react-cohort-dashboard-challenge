@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Post from "../components/posts/Post";
 
@@ -11,6 +11,6 @@ export default function PostDetails() {
             .then((data) => setPost(data))
     }, [id]);
     return (
-        post.contactId ? <Post post={post} showAllComments={true} /> : <h1>Loading...</h1>
+            post.contactId ? <Post post={post} showAllComments={true} /> : <h1>Loading...</h1>
     )
 }

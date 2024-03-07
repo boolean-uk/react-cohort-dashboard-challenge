@@ -1,11 +1,12 @@
 import { useContext, useState } from "react"
-import { UserContext } from "../../App"
+import { CommentContext, UserContext } from "../../App"
 import ProfileImage from "../ProfileImage"
 import "../../styles/comments/CreateComment.css"
 import InputBox from "../InputBox";
-export default function CreateComment( {postId, comments, setComments} ) {
-    const user = useContext(UserContext);
+export default function CreateComment( {postId} ) {
+    const {user} = useContext(UserContext);
     const [content, setContent] = useState("");
+    const {comments, setComments} = useContext(CommentContext)
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (content === "") {
@@ -24,7 +25,16 @@ export default function CreateComment( {postId, comments, setComments} ) {
             body: JSON.stringify(comment),
         }).then((response) => response.json())
             .then((data) => {
-                setComments([...comments, data]);
+                comments[postId] ? 
+                setComments({
+                    ...comments,
+                    [postId]: [data, ...comments[postId]]
+                })
+                :
+                setComments({
+                    ...comments,
+                    [postId]: [data]
+                })
                 setContent("");
             })
     }

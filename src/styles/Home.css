@@ -1,3 +1,7 @@
 .home {
     grid-area: main;
 }
+
+.notFound {
+    margin-left: 25px;
+}

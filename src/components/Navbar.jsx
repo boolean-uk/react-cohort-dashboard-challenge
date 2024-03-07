@@ -2,11 +2,12 @@ import "../styles/Navbar.css";
 import HomeIcon from "../assets/home-icon.svg";
 import ProfileIcon from "../assets/profile-icon.svg";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../App";
 export default function Navbar() {
     const navigate = useNavigate();
-    const user = useContext(UserContext)
+    const {user} = useContext(UserContext)
+
     return (
         <div className='navbar'>
             <div className="iconContainer" onClick={() => navigate("/")}>
