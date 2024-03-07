@@ -1,7 +1,9 @@
+import { useContext } from 'react'
 import './style.css'
+import { UserContext } from '../../../../../App'
 
 function Comment({comment}) {
-    console.log("c is for", comment)
+    const userContext = useContext(UserContext)
 
     return(
         <div className="comment">

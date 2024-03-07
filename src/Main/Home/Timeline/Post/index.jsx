@@ -24,7 +24,9 @@ function Post({ post }) {
     return(
         <div className="post">
             <div className="top">
-                <img src={postingUser[0].profileImage} />
+                <div 
+                style={{backgroundColor: `${postingUser[0].favouriteColour}`}}
+                className="profile-pic">{postingUser[0].firstName[0]}{postingUser[0].lastName[0]}</div>
                 <div className="top-name-title">
                     <h2>{postingUser[0].firstName} {postingUser[0].lastName}</h2>
                     <h4>{post.title}</h4>

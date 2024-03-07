@@ -42,7 +42,9 @@ function CreatePost() {
     return(
         <div >
             <form className="create-post" onSubmit={handleSubmit}>
-                <img src={userContext.currentUser.profileImage} className="user-image" />
+                <div 
+                    style={{backgroundColor: `${userContext.users[0].favouriteColour}`}}
+                className="profile-pic">{userContext.users[0].firstName[0]}{userContext.users[0].lastName[0]}</div>
                 <input type="text" placeholder="What's on your mind?" onChange={handleChange} value={postContent}/>
                 <button>Post</button>
             </form>

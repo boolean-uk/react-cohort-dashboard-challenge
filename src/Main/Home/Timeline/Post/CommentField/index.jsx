@@ -1,8 +1,10 @@
 function CommentField() {
     return(
         <>
+        <div>AA</div>
         <form>
-            <input type="text"></input>
+            <input type="text" placeholder="Add a comment..."/>
+            <button>SEND</button>
         </form>
         </>
     )
