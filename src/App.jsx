@@ -58,7 +58,7 @@ function App() {
   {
     const tmpPosts = posts.filter((post) =>
     {
-      if (post.id !== data.post.id) return post
+      if (post.id !== data.postDelete.id) return post
     })
 
     setPostsGET(tmpPosts)

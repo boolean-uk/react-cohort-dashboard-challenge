@@ -21,6 +21,9 @@ export default function PostPosts()
     // POST a new post
     useEffect(() =>
     {
+        if (!createPost.contactId)
+            return
+
         const postOptions =
         {
             method: "POST",
@@ -46,14 +49,14 @@ export default function PostPosts()
     const handleInput = (event) =>
     {
         const {name, value} = event.target
-        setNewPost({...newPost, [name]: value, contactId: 1})
+        setNewPost({...newPost, [name]: value})
     }
 
     const handlePost = () =>
     {
         if (newPost.title.length > 0 && newPost.content.length > 0)
         {
-            setCreatePost(newPost)
+            setCreatePost({...newPost, contactId: 1})
             setNewPost(INITIAL_POST)
         }
     }

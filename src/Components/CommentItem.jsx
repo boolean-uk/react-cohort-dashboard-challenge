@@ -12,6 +12,9 @@ export default function CommentItem(props)
     // PUT an updated comment
     useEffect(() =>
     {
+        if (!commentUpdate.content)
+            return
+
         const putOptions =
         {
             method: "PUT",
@@ -29,6 +32,9 @@ export default function CommentItem(props)
     // DELETE the comment
     useEffect(() =>
     {
+        if (!commentDelete.content)
+            return
+
         const deleteOption =
         {
             method: "DELETE",

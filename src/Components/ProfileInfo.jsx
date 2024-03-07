@@ -24,6 +24,9 @@ export default function ProfileInfo()
     // PUT an updated author
     useEffect(() =>
     {
+        if (!updateAuthor.id)
+            return
+
         const putOptions =
         {
             method: "PUT",
@@ -42,7 +45,7 @@ export default function ProfileInfo()
     const handleInput = (event) =>
     {
         const {name, value} = event.target
-        setNewAuthor({...newAuthor, [name]: value, id: author.id})
+        setNewAuthor({...newAuthor, [name]: value})
     }
 
     const handleClick = () =>
@@ -65,6 +68,7 @@ export default function ProfileInfo()
         if (tmpAuthor.city.length === 0)
             tmpAuthor.city = author.city
 
+        tmpAuthor.id = author.id
         editAuthor({tmpAuthor})
         setUpdateAuthor(tmpAuthor)
     }

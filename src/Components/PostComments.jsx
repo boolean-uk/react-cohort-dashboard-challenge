@@ -6,9 +6,7 @@ export default function PostComments(props)
 
     const INITIAL_COMMENT =
     {
-        content: "",
-        postId: undefined,
-        contactId: undefined
+        content: ""
     }
 
     const [comment, setComment] = useState(INITIAL_COMMENT)
@@ -18,6 +16,9 @@ export default function PostComments(props)
     // POST a comment
     useEffect(() =>
     {
+        if (!createComment.postId)
+            return
+        
         const postOptions =
         {
             method: "POST",
@@ -37,14 +38,14 @@ export default function PostComments(props)
     // Helper functions
     const handleInput = (event) =>
     {
-        setComment({content: event.target.value, contactId: 1, postId: postId})
+        setComment({content: event.target.value})
     }
 
     const handleClick = () =>
     {
         if (comment.content !== "")
         {   
-            setCreateComment(comment)
+            setCreateComment({...comment, contactId: 1, postId: postId})
             setComment(INITIAL_COMMENT)
         }
     }

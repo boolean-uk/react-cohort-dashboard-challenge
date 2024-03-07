@@ -11,8 +11,7 @@ export default function EditPostPage()
     const INITIAL_POST =
     {
         title: "",
-        content: "",
-        contactId: 1
+        content: ""
     }
     const [post, setPost] = useState(undefined)
     const [newPost, setNewPost] = useState(INITIAL_POST)
@@ -21,6 +20,9 @@ export default function EditPostPage()
     // PUT an updated post
     useEffect(() =>
     {
+        if (!updatePost.id)
+            return
+
         const putOptions =
         {
             method: "PUT",
@@ -56,7 +58,7 @@ export default function EditPostPage()
     const handleInput = (event) =>
     {
         const {name, value} = event.target
-        setNewPost({...newPost, [name]: value, id: post.id})
+        setNewPost({...newPost, [name]: value})
     }
 
     const handleClick = () =>
@@ -70,9 +72,8 @@ export default function EditPostPage()
         if (updatedPost.content.length === 0)
             updatedPost.content = post.content
 
-        if (updatedPost.id === undefined)
-            updatedPost.id = post.id
-        
+        updatedPost.id = post.id
+        updatedPost.contactId = 1
         setUpdatePost({...updatedPost})
     }
 

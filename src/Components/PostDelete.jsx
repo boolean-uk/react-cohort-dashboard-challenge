@@ -12,6 +12,9 @@ export default function PostDelete(props)
     // DELETE the post
     useEffect(() =>
     {
+        if (!postDelete.title)
+            return
+
         const deleteOption =
         {
             method: "DELETE",
@@ -24,7 +27,8 @@ export default function PostDelete(props)
         fetch(`https://boolean-api-server.fly.dev/klaand01/post/${postDelete.id}`, deleteOption)
         .then((response) => response.json())
         .then(() => {
-            if (postDelete.id !== undefined) navigate("/")
+            deletePost({postDelete})
+            navigate("/")
         }
     )
     }, [postDelete])
@@ -32,7 +36,6 @@ export default function PostDelete(props)
 
     const handleDelete = () =>
     {
-        deletePost({post})
         setPostDelete(post)
     }
 

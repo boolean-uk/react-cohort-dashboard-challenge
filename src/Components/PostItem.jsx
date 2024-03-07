@@ -10,6 +10,7 @@ export default function PostItem(props)
     const [comments, setComments] = useState([])
     const [commentsGET, setCommentsGET] = useState([])
     const [showedComments, setShowedComments] = useState([])
+    const [showedCommentsText, setShowedCommentsText] = useState("See previous comments")
     const navigate = useNavigate()
 
     // GET the comments
@@ -22,6 +23,7 @@ export default function PostItem(props)
             //console.log("COMMENTS", data)
             setComments(data.reverse())
             setShowedComments(data.filter((comment, index) => index < 3))
+            setShowedCommentsText("See previous comments")
         })
     }, [post.id, commentsGET])
     
@@ -39,6 +41,15 @@ export default function PostItem(props)
     const showMoreComments = () =>
     {
         setShowedComments(comments)
+
+        if (showedCommentsText === "See previous comments")
+            setShowedCommentsText("Hide comments")
+        else
+        {
+            const filteredComments = comments.filter((comment, index) => index < 3)
+            setShowedComments(filteredComments)
+            setShowedCommentsText("See previous comments")
+        }
     }
 
     return (
@@ -53,7 +64,7 @@ export default function PostItem(props)
                     {comment.content}
                 </li>
             ))}
-            {comments.length > 3 && <button onClick={showMoreComments}>See previous comments</button>}
+            {comments.length > 3 && <button onClick={showMoreComments}>{showedCommentsText}</button>}
         </ul>
         <PostComments initials={initials} addComment={addComment} postId={post.id}/>
         </>
