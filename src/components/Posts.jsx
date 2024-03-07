@@ -6,12 +6,14 @@ import CreatePost from './CreatePost'
 export default function Posts() {
   const { posts } = useContext(AppContext)
   return (
-    <main className="main main-background">
-
+    <>
       <CreatePost />
-      {posts.map((post, index) => (
+      {/* Reverse the order so new posts are at top */}
+      {posts.slice().reverse().map((post, index) => (
       <Post post={post} key={index} index={index} ></Post>
       ))}
-  </main>
+    </>
+
+
   )
 }

@@ -7,6 +7,8 @@ body {
   padding: 0;
   /* Set the font family to be used in the whole app */
   font-family: 'Roboto', sans-serif;
+  color:#000046;
+  background-color: #F0F5FA;
 }
 
 /* Create a root container that fills the screen
@@ -49,7 +51,7 @@ make the child components lay out using flex, vertically stacked in a column */
 
 /* make the sidebar fill the available height and be of fixed width */
 .sidebar {
-  width: 300px;
+  width: 100px;
   height: 100%;
   /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
@@ -67,7 +69,7 @@ make the child components lay out using flex, vertically stacked in a column */
 }
 
 .sidebar-item:hover {
-  background-color: #f2f2f2;
+  background-color: gainsboro;
 }
 
 /* make the main fill the remaining width and the full height of the parent */
@@ -141,7 +143,11 @@ make the child components lay out using flex, vertically stacked in a column */
   margin-left: 10px;
   background-color: #000046;
   color: white;
+  cursor:pointer;
+}
 
+.postButton:hover {
+  color: #64dc78;
 }
 
 .post-author {
@@ -165,7 +171,7 @@ make the child components lay out using flex, vertically stacked in a column */
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  color: #000046;
+  color: white;
   font-size:large;
   margin-top: 5px;
   margin-left: auto;
@@ -178,8 +184,16 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 50px;
   border-radius: 50%;
   background-color: #ccc;
-  color: #000046;
+  color: white;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
+}
+
+.profile {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  color: black;
+  border-radius: 5px;
 }
