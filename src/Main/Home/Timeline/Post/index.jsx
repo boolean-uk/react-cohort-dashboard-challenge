@@ -37,7 +37,7 @@ function Post({ post }) {
             {comments.map((comment, index) => (
                 <Comment key={index} comment={comment}/>
             ))}
-            <CommentField />
+            <CommentField post={post}/>
         </div>
     )
 }
