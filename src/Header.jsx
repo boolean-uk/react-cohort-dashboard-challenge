@@ -1,17 +1,21 @@
 import React, { useContext } from 'react'
 import ProfilePicture from './globalComponents/profilePicture'
 import { CurrentUserContext } from './App'
+import { Link } from 'react-router-dom';
 
 function Header() {
   const currentUserContext = useContext(CurrentUserContext)
 
   // Check if currentUser is available before rendering the ProfilePicture
   const renderProfilePicture = currentUserContext.currentUser ? (
+    <Link to={"/profile/1"}>
+
     <ProfilePicture
       firstName={currentUserContext.currentUser.firstName}
       lastName={currentUserContext.currentUser.lastName}
       favouriteColour={currentUserContext.currentUser.favouriteColour}
     />
+    </Link>
   ) : null;
 
   return (
