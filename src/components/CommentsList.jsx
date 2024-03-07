@@ -1,7 +1,10 @@
-import PropTypes from "prop-types"
 import CommentListItem from "./CommentListItem";
+import { useContext } from "react";
+import { CommentContext } from "./Comments";
 
-function CommentsList({ comments, getUserInfo }) {
+function CommentsList() {
+    const { getUserInfo, comments } = useContext(CommentContext);
+
     return (
       <div className="posted-comments">
         <ul className="comments-ul">
@@ -11,11 +14,6 @@ function CommentsList({ comments, getUserInfo }) {
         </ul>
       </div>
     );
-}
-
-CommentsList.propTypes = {
-    comments: PropTypes.array,
-    getUserInfo: PropTypes.func,
 }
 
 export default CommentsList

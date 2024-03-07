@@ -1,7 +1,11 @@
 import Avatar from "react-avatar";
 import PropTypes from "prop-types"
+import { useContext } from "react";
+import { CommentContext } from "./Comments";
 
-function CommentListItem({ getUserInfo, comment }) {
+function CommentListItem({ comment }) {
+    const { getUserInfo } = useContext(CommentContext)
+
     return (
       <li className="comment-item">
         <div className="comment-avatar-container">
@@ -30,7 +34,6 @@ function CommentListItem({ getUserInfo, comment }) {
 
 CommentListItem.propTypes = {
     comment: PropTypes.object,
-    getUserInfo: PropTypes.func,
 }
 
 export default CommentListItem

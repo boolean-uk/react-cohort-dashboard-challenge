@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import Avatar from "react-avatar";
 import { Context } from "../App";
-import PropTypes from "prop-types"
+import { CommentContext } from "./Comments";
 
-function CommentForm({ post, comments, setComments }) {
+function CommentForm() {
+    const { post, comments, setComments } = useContext(CommentContext);
     const initCommentInput = {
       contactId: 10,
       postId: post ? post.id : null,
@@ -59,12 +60,6 @@ function CommentForm({ post, comments, setComments }) {
         </div>
       </form>
     );
-}
-
-CommentForm.propTypes = {
-    post: PropTypes.object,
-    comments: PropTypes.array,
-    setComments: PropTypes.func,
 }
 
 export default CommentForm

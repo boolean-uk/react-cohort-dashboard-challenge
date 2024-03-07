@@ -3,7 +3,7 @@ import { useContext } from "react";
 import Avatar from "react-avatar";
 import { Link } from "react-router-dom";
 import { Context } from "../App";
-import Comments from "./Comments";
+import { Comments } from "./Comments";
 
 function PostListItem({ post }) {
   const { users } = useContext(Context);
@@ -46,9 +46,7 @@ function PostListItem({ post }) {
       <div className="line-container">
         <hr className="line" />
       </div>
-      
       <Comments post={post} getUserInfo={getUserInfo} />
-      
     </li>
   );
 }
@@ -57,4 +55,4 @@ PostListItem.propTypes = {
   post: PropTypes.object,
 };
 
-export default PostListItem;
+export default PostListItem
