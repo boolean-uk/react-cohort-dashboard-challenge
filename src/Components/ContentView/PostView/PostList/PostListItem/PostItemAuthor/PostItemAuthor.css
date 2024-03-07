@@ -10,6 +10,12 @@
     margin-left: 20px;
 }
 
+.post-user-information > span {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .post-title {
     color: var(--post-title-color);
     cursor: pointer;

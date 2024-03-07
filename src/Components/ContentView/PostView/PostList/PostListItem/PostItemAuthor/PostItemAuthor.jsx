@@ -10,7 +10,7 @@ const PostItemAuthor = ({user, post}) => {
         <div className="post-user-information-container">
             <AccountIcon user={user} />
             <div className='post-user-information'>
-            <span>
+            <span onClick={() => navigate(`/profile/${user.id}`)}>
                 {user.firstName} {user.lastName}
             </span> <br/>
             <a 
