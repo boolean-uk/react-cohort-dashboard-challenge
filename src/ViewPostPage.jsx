@@ -2,14 +2,16 @@ import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { PostContext } from "./App"
 import PostDelete from "./Components/PostDelete"
+import CommentItem from "./Components/CommentItem"
 
 export default function ViewPostPage()
 {
     const {id} = useParams()
-    const [comments, setComments] = useState([])
-    const [author, setAuthor] = useState({})
     const {posts} = useContext(PostContext)
-    const post = posts[posts.length - id]
+    const [post, setPost] = useState(undefined)
+    const [author, setAuthor] = useState({})
+    const [comments, setComments] = useState([])
+    const [commentGET, setCommentsGET] = useState([])
 
     const navigate = useNavigate()
 
@@ -18,8 +20,8 @@ export default function ViewPostPage()
     {
         fetch(`https://boolean-api-server.fly.dev/klaand01/post/${id}/comment`)
         .then((response) => response.json())
-        .then((data) => setComments(data))
-    }, [id])
+        .then((data) => setComments(data.reverse()))
+    }, [id, commentGET])
 
     // GET the author
     useEffect(() =>
@@ -32,6 +34,34 @@ export default function ViewPostPage()
         }
     }, [post])
 
+    if (!post)
+    {
+        for (let i = 0; i < posts.length; i++)
+        {
+            if (posts[i].id === parseInt(id))
+            {
+                setPost(posts[i])
+                break   
+            }
+        }
+    }
+
+    const deleteComment = (data) =>
+    {   
+        setCommentsGET(data.commentDelete)
+    }
+
+    const editComment = (data) =>
+    {
+        const tmpComments = comments.map((comment) =>
+        {
+            if (comment.id === data.comment.id) return data.comment
+            return comment
+        })
+
+        setCommentsGET(tmpComments)
+    }
+
     return (
         <>
         <h1 className="postTitle">{post && post.title}</h1>
@@ -39,7 +69,9 @@ export default function ViewPostPage()
         <p>{post && post.content}</p>
         <ul>
             {comments.map((comment, index) => (
-                <li key={index}>{comment.content}</li>
+                <li key={index}>
+                    <CommentItem deleteComment={deleteComment} editComment={editComment} comment={comment}/>
+                </li>
             ))}
         </ul>
         <button onClick={() => navigate("/")}>Go Back</button>

@@ -31,6 +31,8 @@ export default function PostPosts()
         }
         
         fetch("https://boolean-api-server.fly.dev/klaand01/post", postOptions)
+        .then((response) => response.json())
+        .then(() => addPost({newPost}))
     }, [createPost])
 
 
@@ -51,13 +53,11 @@ export default function PostPosts()
     {
         if (newPost.title.length > 0 && newPost.content.length > 0)
         {
-            addPost({newPost})
             setCreatePost(newPost)
             setNewPost(INITIAL_POST)
         }
     }
 
-    
     return (
         <>
             <p onClick={() => navigate("/user/1")}>{initials}</p>

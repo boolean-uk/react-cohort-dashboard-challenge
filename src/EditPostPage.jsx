@@ -7,7 +7,6 @@ export default function EditPostPage()
     const {id} = useParams()
     const navigate = useNavigate()
     const {posts, editPost} = useContext(PostContext)
-    const post = posts[posts.length - id]
     
     const INITIAL_POST =
     {
@@ -15,6 +14,7 @@ export default function EditPostPage()
         content: "",
         contactId: 1
     }
+    const [post, setPost] = useState(undefined)
     const [newPost, setNewPost] = useState(INITIAL_POST)
     const [updatePost, setUpdatePost] = useState(INITIAL_POST)
 
@@ -33,12 +33,25 @@ export default function EditPostPage()
         fetch(`https://boolean-api-server.fly.dev/klaand01/post/${updatePost.id}`, putOptions)
         .then((response) => response.json())
         .then(() => {
-            if (updatePost.id !== undefined) navigate("/")
+            if (updatePost.id !== undefined)
+            {
+                navigate("/")
+                editPost({updatePost})
+            }
         })
     }, [updatePost])
     
     if (!post)
-        return
+    {
+        for (let i = 0; i < posts.length; i++)
+        {
+            if (posts[i].id === parseInt(id))
+            {
+                setPost(posts[i])
+                break
+            }
+        }
+    }
 
     const handleInput = (event) =>
     {
@@ -59,15 +72,14 @@ export default function EditPostPage()
         if (updatedPost.id === undefined)
             updatedPost.id = post.id
         
-        editPost({updatedPost})
         setUpdatePost({...updatedPost})
     }
 
     return (
         <>
         <h1 className="editPost">Edit post</h1>
-        <input type="text" name="title" placeholder={post.title} onChange={handleInput} value={newPost.title}></input>
-        <input type="text" name="content" placeholder={post.content} onChange={handleInput} value={newPost.content}></input>
+        <input type="text" name="title" placeholder={post && post.title} onChange={handleInput} value={newPost.title}></input>
+        <input type="text" name="content" placeholder={post && post.content} onChange={handleInput} value={newPost.content}></input>
         <button onClick={handleClick}>Save</button>
         </>
     )

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 export default function PostComments(props)
 {
     const {initials, addComment, postId} = props
+
     const INITIAL_COMMENT =
     {
         content: "",
@@ -27,6 +28,9 @@ export default function PostComments(props)
         }
         
         fetch(`https://boolean-api-server.fly.dev/klaand01/post/${postId}/comment`, postOptions)
+        .then((response) => response.json())
+        .then(() => addComment({comment}))
+        
     }, [createComment])
 
 
@@ -40,7 +44,6 @@ export default function PostComments(props)
     {
         if (comment.content !== "")
         {   
-            addComment({comment})
             setCreateComment(comment)
             setComment(INITIAL_COMMENT)
         }
@@ -50,7 +53,7 @@ export default function PostComments(props)
         <>
         {initials}
         <input type="text" placeholder="Add a comment..." onChange={handleInput} value={comment.content}></input>
-        <button onClick={handleClick}>Send</button>
+        <button onClick={handleClick}>Comment</button>
         </>
     )
 }

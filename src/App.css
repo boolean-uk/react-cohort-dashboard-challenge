@@ -20,6 +20,10 @@ input {
   transition: border-color 0.25s;
 } 
 
+.commentButton {
+  /* FIX THESE BUTTONS! */
+}
+
 /* CHANGE CLASS NAMES HERE!! */
 
 .postTitle {

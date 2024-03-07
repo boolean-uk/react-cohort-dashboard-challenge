@@ -12,6 +12,7 @@ export const AuthorContext = createContext()
 function App() {
 
   const [posts, setPosts] = useState([])
+  const [postsGET, setPostsGET] = useState([])
   const [authors, setAuthors] = useState([])
 
   // GET the posts
@@ -20,10 +21,11 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/klaand01/post")
     .then((response) => response.json())
     .then((data) => {
-        console.log("POSTS", data)
+        //console.log("POSTS", data)
         setPosts(data.reverse())
     })
-  }, [])
+  }, [postsGET])
+
 
   // GET the authors
   useEffect(() =>
@@ -38,18 +40,18 @@ function App() {
   // POST functions
   const addPost = (data) =>
   {
-    setPosts([data.newPost, ...posts])
+    setPostsGET([data.newPost, ...posts])
   }
 
   const editPost = (data) =>
   {
     const tmpPosts = posts.map((post) =>
     {
-      if (post.id === data.updatedPost.id) return data.updatedPost
+      if (post.id === data.updatePost.id) return data.updatePost
       return post
     })
 
-    setPosts(tmpPosts)
+    setPostsGET(tmpPosts)
   }
 
   const deletePost = (data) =>
@@ -59,12 +61,11 @@ function App() {
       if (post.id !== data.post.id) return post
     })
 
-    console.log("POSTS LEFT", tmpPosts)
-    setPosts(tmpPosts)
+    setPostsGET(tmpPosts)
   }
 
 
-  // Author functions
+  // Author function
   const editAuthor = (data) =>
   {
     const tmpAuthors = authors.map((author) =>

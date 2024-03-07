@@ -8,6 +8,7 @@ export default function PostItem(props)
     const { post } = props;
     const { authors } = useContext(AuthorContext)
     const [comments, setComments] = useState([])
+    const [commentsGET, setCommentsGET] = useState([])
     const [showedComments, setShowedComments] = useState([])
     const navigate = useNavigate()
 
@@ -19,10 +20,10 @@ export default function PostItem(props)
         .then((data) => 
         {
             //console.log("COMMENTS", data)
-            setComments(data)
+            setComments(data.reverse())
             setShowedComments(data.filter((comment, index) => index < 3))
         })
-    }, [post.id])
+    }, [post.id, commentsGET])
     
     if (!authors[post.contactId - 1])
         return
@@ -32,7 +33,7 @@ export default function PostItem(props)
 
     const addComment = (data) =>
     {
-        setComments([...comments, data.comment])
+        setCommentsGET([...comments, data.comment])
     }
     
     const showMoreComments = () =>
