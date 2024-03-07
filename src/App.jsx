@@ -27,7 +27,6 @@ function App() {
     .catch(error => console.error('Error fetching contacts: ', error))
   }
 
-
   useEffect(() => {
     getPostsFromApi()
     getContactsFromApi()

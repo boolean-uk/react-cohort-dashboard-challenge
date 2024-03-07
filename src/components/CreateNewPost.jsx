@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react"
 import { MyContext } from "../App"
+import ProfilePicture from "./ProfilePicture"
 
 export default function CreateNewPost() {
     const context = useContext(MyContext)
@@ -41,9 +42,9 @@ export default function CreateNewPost() {
     return (
         <form onSubmit={handleSubmit}>
         <ul className="card">
-        <img src={contact.profileImage}/>
+        <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
             <li>
-            <label htmlFor="title">Give your post a title </label>
+            <label htmlFor="title">Give your post a title: </label>
             <input
                 type="text"
                 id="title"
@@ -65,9 +66,6 @@ export default function CreateNewPost() {
                 onChange={handleInput}
                 required
             />
-           </li>
-           <br/>
-            <li>
             <button type="submit">Create a new post</button>
             </li>
         </ul>

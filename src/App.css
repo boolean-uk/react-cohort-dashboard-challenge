@@ -3,10 +3,10 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .app {
-  text-decoration: none;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,18 +19,23 @@ body {
   flex-grow: 1;
 }
 
-header {
-  height: 90px;
+.header {
+  height: 60px;
   width: 100vw;
+}
+
+.header .circle{
+  float: right;
 }
 
 .navmenu {
   width: 50px;
   height: 100%;
   max-height: calc(100vh - 90px);
-  padding: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
-
 
 .main {
   width: 50px;
@@ -40,16 +45,13 @@ header {
   background-color:  #F0F5FA;
 }
 
-.main img {
-  float: left;
-  padding-right: 10px;
-  width: 88px;
-  height: 88px;
-}
-
-.comments img {
-  width: 24px;
-  height: 24px;
+.comment-content{
+  background-color: #e6ebf5;
+  margin-left: 64px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 1em;
+  width: 75%;
 }
 
 .post {
@@ -64,18 +66,6 @@ header {
 
 .post h1 {
   color: #64648c;
-}
-
-.post img {
-  float: left;
-  padding-right: 10px;
-  width: 90px;
-  height: 90px;
-}
-
-.post .comments img {
-  width: 24px;
-  height: 24px;
 }
 
 a {
@@ -108,7 +98,7 @@ header {
   background-color: #FFFFFF;
   padding-left: 1em;
   padding-top: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 3em;
   margin-bottom: 1em;
 }
 
@@ -121,18 +111,6 @@ button:hover {
   background-color: #64dc78;
 }
 
-p {
-  color: #000046
-}
-
-h2 {
-  color: #000046
-}
-
-h4 {
-  color: #000046
-}
-
-li {
+p, h2, h4, li {
   color: #000046
 }

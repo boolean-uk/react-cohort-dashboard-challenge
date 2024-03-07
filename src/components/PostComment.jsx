@@ -2,6 +2,7 @@
 
 import { useContext } from "react"
 import { MyContext } from "../App"
+import ProfilePicture from "./ProfilePicture"
 
 export default function PostComment(props){
     const context = useContext(MyContext)
@@ -13,9 +14,11 @@ export default function PostComment(props){
    
     return (
         <div key={comment.id}>
-            <img src={contact.profileImage}/>
-            <h4>{contact.firstName} {contact.lastName}</h4>
-            <p>{comment.content}</p>
+            <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+            <div className="comment-content">
+                <h4>{contact.firstName} {contact.lastName}</h4>
+                <p>{comment.content}</p>
+            </div>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import PostCommentsList from "./PostCommentsList"
 import { MyContext } from "../App"
 import { useContext } from "react"
+import ProfilePicture from "./ProfilePicture"
 
 /* eslint-disable react/prop-types */
 export default function PostsListItem(props) {
@@ -13,7 +14,7 @@ export default function PostsListItem(props) {
 
     return (    
         <li key={index} className="card">
-            <img src={contact.profileImage}/>
+             <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
             <h4>{contact.firstName} {contact.lastName}</h4>
             <h1 className="post--title">
             <Link to={`/posts/${post.id}`}>{post.title}</Link>

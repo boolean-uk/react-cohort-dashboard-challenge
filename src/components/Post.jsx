@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import PostCommentsList from "./PostCommentsList"
 import { MyContext } from "../App"
+import ProfilePicture from "./ProfilePicture"
 
 export default function Post(){
     const context = useContext(MyContext)
@@ -25,7 +26,7 @@ export default function Post(){
         <main className="post">  
             <section>
                 <div className="card">
-                <img src={contact.profileImage}/>
+                <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
                 <h2>{contact.firstName} {contact.lastName}</h2>
                 <h1 className="post--title">{post.title}</h1>
                 <p>{post.content}</p>

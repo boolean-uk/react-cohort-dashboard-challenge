@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react"
 import { MyContext } from "../App"
+import ProfilePicture from "./ProfilePicture"
 
 export default function CreateNewPostComment(props){
     const context = useContext(MyContext)
@@ -42,7 +43,7 @@ export default function CreateNewPostComment(props){
 
     return (
         <form onSubmit={handleSubmit}>
-        <img src={contact.profileImage}/>
+        <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
         <li>
         <input
                 type="textarea"
