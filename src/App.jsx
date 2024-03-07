@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import SideNav from "./components/SideNav";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 
 const UserContext = createContext();
 const PostContext = createContext();
@@ -39,13 +40,15 @@ function App() {
         activeUser: activeUser,
         setActiveUser: setActiveUser,
         users: users,
+        setUsers: setUsers,
       }}>
       <PostContext.Provider value={{ posts: posts, setPosts: setPosts }}>
         <Header />
         <SideNav />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/profile" element={<Dashboard />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/post/:id" element={<Dashboard />} />
         </Routes>
       </PostContext.Provider>
     </UserContext.Provider>

@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
 export default function SideNav() {
+  const { activeUser } = useContext(UserContext);
   const location = useLocation();
   return (
     <nav className="sidenav">
@@ -22,8 +25,11 @@ export default function SideNav() {
           </Link>
         </li>
 
-        <li className={location.pathname === "/profile" ? "selected" : ""}>
-          <Link to="/profile">
+        <li
+          className={
+            location.pathname === `/profile/${activeUser.id}` ? "selected" : ""
+          }>
+          <Link to={`/profile/${activeUser.id}`}>
             <svg
               width="41"
               height="40"

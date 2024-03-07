@@ -7,7 +7,7 @@ export default function PostListItemForm() {
   const [newComment, setNewComment] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newCommentObject = {
+    let newCommentObject = {
       postId: post.id,
       contactId: activeUser.id,
       content: newComment,
@@ -24,9 +24,13 @@ export default function PostListItemForm() {
         },
         body: JSON.stringify(newCommentObject),
       }
-    );
-    setNewComment("");
-    setComments([...comments, newCommentObject]);
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        newCommentObject = { ...newCommentObject, id: data.id };
+        setNewComment("");
+        setComments([...comments, newCommentObject]);
+      });
   };
   return (
     <div className="create-comment">

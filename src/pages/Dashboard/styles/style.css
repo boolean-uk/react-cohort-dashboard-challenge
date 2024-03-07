@@ -179,6 +179,20 @@
   cursor: pointer;
 }
 
+.post-list-item-comment-item input {
+  padding: 15px;
+  width: min-content;
+  border-radius: 8px;
+  border: none;
+  font-family: "Roboto Thin", sans-serif;
+  background-color: #dadce6;
+  margin: 10px;
+  color: black;
+}
+.post-list-item-comment-item input:focus {
+  outline: none;
+}
+
 .post-list-item-comment-item {
   display: flex;
   flex-direction: column;
@@ -189,6 +203,14 @@
   background-color: #e6ebf5;
   border-radius: 5px;
 }
+.post-list-item-comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  width: 100%;
+}
+
 hr {
   width: 98%;
   margin-left: 15px;
@@ -295,4 +317,65 @@ hr {
   background-color: #64dc78;
   color: white;
   cursor: pointer;
+}
+.comment-edit-delete {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-family: "Roboto Thin", sans-serif;
+  font-size: 1em;
+  margin-left: 5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+}
+.comment-edit-delete:hover {
+  background-color: #64dc78;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.post-edit-delete-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+  width: 10%;
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.post-edit-delete {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-family: "Roboto Thin", sans-serif;
+  font-size: 1em;
+  margin-left: auto;
+  width: 50px;
+  height: 50px;
+  text-align: end;
+  display: flex;
+  flex-direction: row;
+}
+.post-edit-delete:hover {
+  background-color: #64dc78;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-list-item > form input {
+  padding: 15px;
+  width: 90%;
+  border-radius: 8px;
+  border: none;
+  font-family: "Roboto Thin", sans-serif;
+  font-size: 1.1em;
+  background-color: #e6ebf5;
+}
+.post-list-item form input:focus {
+  outline: none;
 }

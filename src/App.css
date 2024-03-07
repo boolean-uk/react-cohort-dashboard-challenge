@@ -127,3 +127,15 @@ body {
   transition: 0.5s;
   overflow-y: auto;
 }
+
+/*Scrollbar styling*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f0f5fa;
+}

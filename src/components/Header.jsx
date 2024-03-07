@@ -33,7 +33,7 @@ export default function Header() {
       <div
         className="right-item"
         style={{ backgroundColor: activeUser.favouriteColour }}>
-        <Link to={"/profile"}>
+        <Link to={`/profile/${activeUser.id}`}>
           <h2>
             {activeUser.firstName.charAt(0)}
             {activeUser.lastName.charAt(0)}

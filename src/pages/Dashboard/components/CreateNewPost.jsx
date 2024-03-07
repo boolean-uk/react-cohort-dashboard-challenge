@@ -12,7 +12,7 @@ export default function CreateNewPost() {
     if (newPost === "") return;
     console.log(activeUser);
 
-    const newPostObject = {
+    let newPostObject = {
       contactId: activeUser.id,
       content: newPost,
       title: "Lorem ipsum dolor sit amet",
@@ -25,8 +25,9 @@ export default function CreateNewPost() {
       body: JSON.stringify(newPostObject),
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
         setNewPost("");
+        newPostObject = { ...newPostObject, id: data.id };
         setPosts([...posts, newPostObject]);
       });
   };
@@ -36,7 +37,7 @@ export default function CreateNewPost() {
         <div
           className="create-post-profile"
           style={{ backgroundColor: activeUser.favouriteColour }}>
-          <Link to={"/profile"}>
+          <Link to={`/profile/${activeUser.id}`}>
             <h2>
               {activeUser.firstName.charAt(0)}
               {activeUser.lastName.charAt(0)}
