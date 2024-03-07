@@ -12,7 +12,7 @@ export default function SinglePost({ posts }) {
 
   useEffect(() => {
     fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post.contactId}`
+      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post?.contactId}`
     )
       .then((response) => {
         if (response.ok) {
@@ -26,13 +26,14 @@ export default function SinglePost({ posts }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [setUser, post.contactId]);
+  }, [setUser]);
+  //, post?.contactId
   return (
     <>
       <div className="main-body">
         <div className="post-box">
           <div className="post-header">
-            <div className="post-title">{post.title}</div>
+            <div className="post-title">{post?.title}</div>
             <div className="profile-icon">
               {user.firstName?.charAt(0)}
               {user.lastName?.charAt(0)}
@@ -41,7 +42,7 @@ export default function SinglePost({ posts }) {
               @{user.firstName}_{user.lastName}
             </div>
           </div>
-          <div className="post-body">{post.content}</div>
+          <div className="post-body">{post?.content}</div>
           <Comments post={post} />
         </div>
       </div>

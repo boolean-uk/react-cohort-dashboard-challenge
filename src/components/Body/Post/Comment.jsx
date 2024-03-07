@@ -8,9 +8,7 @@ export default function Comment({ comment }) {
 
   useEffect(() => {
     fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${
-        comment?.contactId ?? 1
-      }`
+      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${comment.contactId}`
     )
       .then((response) => {
         if (response.ok) {
