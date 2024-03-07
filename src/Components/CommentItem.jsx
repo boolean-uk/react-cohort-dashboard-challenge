@@ -9,7 +9,7 @@ export default function CommentItem(props)
     const [commentDelete, setCommentDelete] = useState({})
     const [commentUpdate, setCommentUpdate] = useState({})
 
-    // PUT an updated post
+    // PUT an updated comment
     useEffect(() =>
     {
         const putOptions =

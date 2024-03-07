@@ -55,7 +55,7 @@ export default function ViewPostPage()
     {
         const tmpComments = comments.map((comment) =>
         {
-            if (comment.id === data.comment.id) return data.comment
+            if (comment.id === data.commentUpdate.id) return data.commentUpdate
             return comment
         })
 

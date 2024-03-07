@@ -41,3 +41,5 @@
 # "See Previous Comments" text change to fit better
 
 # Add the function to save the default information in the profile page
+
+# Add the profile image and favorite color
