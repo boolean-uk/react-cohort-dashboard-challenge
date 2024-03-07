@@ -6,6 +6,9 @@ import '../styles/post.css'
 import PostComment from './PostComment';
 import Comment from './Comment';
 
+/**
+ * TODO: re-render on comment
+ */
 const Post = ( props ) => {
   const postId = useParams()
   
@@ -16,6 +19,7 @@ const Post = ( props ) => {
   }
   
   const [comments = [], setComments] = useState()
+  const [expandComments, setExpandComments] = useState(false)
   
   let contact = contacts.find(c => c.id == post.contactId)  
   
@@ -29,6 +33,10 @@ const Post = ( props ) => {
     GetComments()
     setComments(comments.filter(c => c.postId == post.id))
   },[])
+
+  const handleExpandComments = () => {
+    setExpandComments(!expandComments)
+  }
 
   return (
     <div className='post'>
@@ -45,11 +53,11 @@ const Post = ( props ) => {
         </div>
         <p>{post.content}</p>
       </div>
-      {comments.length > 0 ?
+      {comments.length > 2 ?
       (
         <div>
-          <p>See previous comments</p>
-          {comments.map((comment, index) => {
+          <button onClick={() => handleExpandComments()}>See previous comments</button>
+            {comments.slice(0, expandComments ? comments.length : 3).map((comment, index) => {
             return <Comment comment={comment} key={index}/>
           })}
         </div>
