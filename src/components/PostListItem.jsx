@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import Avatar from "react-avatar"
+import Avatar from "react-avatar";
 
 function PostListItem({ post }) {
   const [comments, setComments] = useState([]);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
   const initCommentInput = {
     contactId: 10,
     postId: post ? post.id : null,
@@ -21,11 +21,11 @@ function PostListItem({ post }) {
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/maha897/contact")
       .then((response) => response.json())
-      .then(setUsers)
-  }, [])
+      .then(setUsers);
+  }, []);
 
   function getUserInfo(contactId) {
-    return users.find((user) => user.id === contactId)
+    return users.find((user) => user.id === contactId);
   }
 
   function handleSubmit(event) {
@@ -75,7 +75,21 @@ function PostListItem({ post }) {
             <ul className="comments-ul">
               {comments.map((comment) => (
                 <li key={comment.id}>
-                  User #{comment.contactId}: {comment.content}
+                  <div className="comment-avatar">
+                    <Avatar
+                      name={`${getUserInfo(comment.contactId).firstName} ${
+                        getUserInfo(comment.contactId).lastName
+                      }`}
+                      round={true}
+                    />
+                  </div>
+                  <h3>
+                    {`${getUserInfo(comment.contactId).firstName} ${
+                      getUserInfo(comment.contactId).lastName
+                    }`}
+                    :
+                  </h3>
+                  {comment.content}
                   <br /> <br />
                 </li>
               ))}
