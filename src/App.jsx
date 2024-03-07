@@ -6,6 +6,7 @@ import Home from "./Home";
 import ProfileDetails from "./ProfileDetails";
 import Sidebar from "./Sidebar";
 import FullPost from "./FullPost";
+import EditPost from "./EditPost";
 const PostContext = createContext();
 const ContactContext = createContext();
 const ActiveContext = createContext();
@@ -122,7 +123,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/post/:postId" element={<FullPost />} />
                     <Route path={`/profile/:id`} element={<ProfileDetails />} />
-                    <Route path={`/profile/:id/edit`} element={}/>
+                    <Route path={`/profile/:id/edit`} element={<EditPost/>}/>
                   </Routes>
                 </div>
               </div>
