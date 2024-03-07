@@ -7,12 +7,10 @@ export default function Header() {
   const context = useContext(AppContext);
 
   return (
-    <div>
+    <div className="header-container">
       <header className="header blue">
         <link rel="stylesheet" href="App.css" />
-        <div className="cohort-manager">
-          <img src={cohortManager} />
-        </div>
+
         <div className="profile-icon">
           <Link to={`/profile/${context.user.id}`} className="profile-link">
             <div id="profile-icon-id">
@@ -21,6 +19,9 @@ export default function Header() {
                 context.user.lastName.charAt(0)}
             </div>
           </Link>
+        </div>
+        <div className="cohort-manager">
+          <img className="cohort-image" src={cohortManager} />
         </div>
       </header>
     </div>

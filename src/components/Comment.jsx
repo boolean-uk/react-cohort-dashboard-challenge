@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PostContext } from "./Post";
 
-function Comment({ comment, comments, setComments, contacts }) {
+// comments, setComments, contacts
+function Comment({ comment }) {
+  const postContext = useContext(PostContext);
   const [user, setUser] = useState("");
   const [update, setUpdate] = useState(false);
   const [formData, setFormData] = useState([]);
-  // const [delFlag, setDelFlag] = useState(false);
-
-  useState(() => {
-    setFormData(comment);
-  }, []);
 
   const handleInputChange = (event) => {
-    const { name, type, value } = event.target;
-    // console.log("handleInput", name, type, value);
+    const { name, value } = event.target;
 
     if (name !== undefined) {
       setFormData({ ...formData, [name]: value });
@@ -35,7 +33,7 @@ function Comment({ comment, comments, setComments, contacts }) {
       url: DEL_URL,
     };
 
-    let updatedList = comments.filter((item) => {
+    let updatedList = postContext.comments.filter((item) => {
       if (parseInt(item.id) !== parseInt(id)) return item;
     });
 
@@ -47,7 +45,7 @@ function Comment({ comment, comments, setComments, contacts }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then(() => {
-        setComments([...updatedList]);
+        postContext.setComments([...updatedList]);
       })
       .catch((err) => {
         console.log("error occured: ", err);
@@ -56,7 +54,7 @@ function Comment({ comment, comments, setComments, contacts }) {
 
   // UPDATE
   const handleUpdateComment = (formData) => {
-    let updatedList = comments.map((item) => {
+    let updatedList = postContext.comments.map((item) => {
       if (parseInt(item.id) === parseInt(formData.id)) {
         return { ...item, ...formData };
       }
@@ -78,10 +76,6 @@ function Comment({ comment, comments, setComments, contacts }) {
       body: JSON.stringify(formData),
     };
 
-    console.log("in update comment!");
-    console.log(PUT_URL);
-    console.log(updatedList);
-
     fetch(PUT_URL, putOptions)
       .then((res) => {
         if (res.ok) {
@@ -90,7 +84,7 @@ function Comment({ comment, comments, setComments, contacts }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then(() => {
-        setComments([...updatedList]);
+        postContext.setComments([...updatedList]);
       })
       .catch((err) => {
         console.log("error occured: ", err);
@@ -101,78 +95,85 @@ function Comment({ comment, comments, setComments, contacts }) {
   };
 
   useState(() => {
-    const thisUser = contacts.find(
+    const thisUser = postContext.contacts.find(
       (x) => parseInt(x.id) === parseInt(comment.contactId)
     );
     setUser(thisUser);
   }, [comment]);
 
   useEffect(() => {
-    const thisUser = contacts.find(
+    const thisUser = postContext.contacts.find(
       (x) => parseInt(x.id) === parseInt(comment.contactId)
     );
     setUser(thisUser);
-  }, [contacts, comment, comments]);
+  }, [postContext.contacts, comment, postContext.comments]);
 
   return (
-    <div className="yellow-comment">
+    <div className="comment-container">
       {user === undefined || user === "" ? (
         <p>loading...</p>
       ) : (
-        <div className="comment-background">
-          <button
-            className="del-button"
-            onClick={(e) => {
-              e.preventDefault();
-              handleDeleteComment(comment.id);
-            }}
-          >
-            Delete
-          </button>
-          <button
-            className="modify-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              setUpdate(!update);
-            }}
-          >
-            Modify
-          </button>
-          <div className="profile-icon-contact">
-            <div id="profile-icon-id-contact">
-              {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
-            </div>
+        <div className="profile-icon-contact">
+          <div id="profile-icon-id-contact">
+            {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
           </div>
-          <Link to={`/profile/${user.id}`} className="profile-link">
-            <h4>{user.firstName + " " + user.lastName} </h4>
-          </Link>
-          {update ? (
-            <form
-              className="comment-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleUpdateComment(formData);
-              }}
-            >
-              <button type="submit" className="update-btn">
-                Update
-              </button>
-              <div>
-                <input
-                  id="content"
-                  name="content"
-                  type="text"
-                  placeholder={`${formData.content}`}
-                  value={formData.content ?? ""}
-                  onChange={handleInputChange}
-                ></input>
-              </div>
-            </form>
-          ) : (
-            <p>{comment.content}</p>
-          )}
         </div>
       )}
+      <div className="yellow-comment">
+        {user === undefined || user === "" ? (
+          <p>loading...</p>
+        ) : (
+          <div className="comment-background">
+            <button
+              className="del-button"
+              onClick={(e) => {
+                e.preventDefault();
+                handleDeleteComment(comment.id);
+              }}
+            >
+              Delete
+            </button>
+            <button
+              className="modify-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                setFormData(comment);
+                setUpdate(!update);
+              }}
+            >
+              Modify
+            </button>
+            <Link to={`/profile/${user.id}`} className="profile-link">
+              <h4>{user.firstName + " " + user.lastName} </h4>
+            </Link>
+            {update ? (
+              <form
+                className="comment-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleUpdateComment(formData);
+                }}
+              >
+                <button type="submit" className="update-btn">
+                  Update
+                </button>
+                <div>
+                  <input
+                    id="content"
+                    name="content"
+                    type="text"
+                    placeholder={`${formData.content}`}
+                    value={formData.content ?? ""}
+                    onChange={handleInputChange}
+                  ></input>
+                </div>
+              </form>
+            ) : (
+              <p>{comment.content}</p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

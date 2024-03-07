@@ -17,19 +17,159 @@ make the child components lay out using flex, vertically stacked in a column */
   background-color: #f0f5fa;
 }
 
+.create-post {
+  background-color: white;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 10px;
+  width: 1000px;
+  border-radius: 10px;
+}
+
+/* create comment css */
+textarea {
+  background-color: #e6ebf5;
+  width: 750px;
+}
+
+.create-post input {
+  width: 750px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.create-post textarea {
+  margin-left: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 3px;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+}
+
+.textarea-section {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.create-post .profile-icon-contact {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+/* comment container */
+.comment-container .profile-icon-contact {
+  margin: 30px;
+}
+
+.yellow-comment {
+  background-color: #e6ebf5;
+  margin: 30px;
+  height: 100px;
+  border-width: 1px;
+  border-top: 1px solid #000046;
+  margin-left: 90px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.create-comment {
+  width: 900px;
+}
+
+.create-comment .profile-icon-contact {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.create-comment textarea {
+  margin-left: 30px;
+  border-radius: 10px;
+  width: 650px;
+  border: none;
+  resize: none;
+}
+
+.create-comment button {
+  float: right;
+}
+
+/* Post css */
+.post-content {
+  background-color: white;
+  margin-bottom: 10px;
+  width: 1000px;
+  border-radius: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 10px;
+}
+
+.post-content-div {
+  width: 900px;
+}
+
+.post-content-div .del-button .modify-btn {
+  float: right;
+}
+
+.post-content-div .show-comment-button {
+  margin-left: 25px;
+}
+
 /* Create a container that fills the rest of the screen that is left over */
 /* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  background-color: #f0f5fa;
 }
 
 .dashboard-profile {
   background-color: #f0f5fa;
-  width: 800px;
+  width: 900px;
   margin-left: 20px;
+}
+
+.dashboard-profile .dashboard-title {
   padding: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.dashboard-profile form {
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
+.dashboard-profile label {
+  display: block;
+}
+
+.dashboard-profile input {
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 3px;
+  border: none;
+  resize: none;
+}
+
+.dashboard-profile button {
+  margin-top: 70px;
+}
+
+.dashboard-profile .profile-location-form {
+  float: right;
 }
 
 .profile-link {
@@ -55,10 +195,6 @@ make the child components lay out using flex, vertically stacked in a column */
 }
 
 /* style for the header, it must have a fixed height and full width */
-.header {
-  height: 100px;
-  width: 100vw;
-}
 
 /* make the sidebar fill the available height and be of fixed width */
 .sidebar {
@@ -96,17 +232,13 @@ make the child components lay out using flex, vertically stacked in a column */
 
 .post-article {
   color: #000046;
+  margin-left: 15px;
 }
 
 .show-comment-button {
   padding: 0;
   border: none;
   background: none;
-}
-
-.post-content {
-  background-color: white;
-  margin-bottom: 10px;
 }
 
 .button:hover {
@@ -120,24 +252,7 @@ make the child components lay out using flex, vertically stacked in a column */
   width: 100%;
 }
 
-.yellow-comment {
-  background-color: white;
-  margin: 30px;
-  height: 100px;
-  border-width: 1px;
-  border-top: 1px solid #000046;
-  width: 100%;
-}
-
 .comment-background {
-  background-color: #e6ebf5;
-}
-
-.create-post {
-  background-color: white;
-}
-
-textarea {
   background-color: #e6ebf5;
 }
 
@@ -145,10 +260,18 @@ textarea {
   background-color: #e6ebf5;
 }
 
+/* BUTTONS */
+
 .post-btn {
   float: right;
   color: white;
   background-color: #000046;
+  width: 140px;
+}
+
+.create-post button {
+  margin-top: 2px;
+  margin-right: 15px;
 }
 
 .del-button {
@@ -196,14 +319,15 @@ textarea {
 
 .profile-icon {
   float: right;
-  padding-right: 40px;
+  margin-top: 55px;
+  margin-right: 50px;
 }
 
 #profile-icon-id {
-  height: 40px;
+  height: 45px;
   font-size: 1.5rem;
   text-align: center;
-  width: 40px;
+  width: 45px;
   margin-top: 50px;
   border-radius: 50%;
   background-color: #64dc78;
@@ -212,17 +336,17 @@ textarea {
 
 .profile-icon-contact {
   float: left;
+  margin-top: 10px;
+  margin-right: 5px;
 }
 
 #profile-icon-id-contact {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: center;
-  height: 40px;
+  height: 45px;
   color: #000046;
-  width: 40px;
-  margin-top: 10px;
-  margin-right: 5px;
-  border-radius: 50%;
+  width: 45px;
+  border-radius: 100%;
   background-color: #64dc78;
   object-fit: cover;
 }
@@ -236,10 +360,45 @@ textarea {
   object-fit: inline-block;
 }
 
+.header {
+  height: 180px;
+  width: 100vw;
+}
+
 .cohort-manager {
-  width: 100px;
-  height: 50px;
-  float: left;
-  z-index: -1;
-  position: relative;
+  margin-top: 55px;
+  margin-left: 50px;
+}
+
+.cohort-manager .cohort-image {
+  margin-top: 60px;
+  width: 220px;
+}
+
+.home-icon-div {
+  background-color: white;
+  padding: 5px;
+}
+
+.prof-icon-div {
+  background-color: white;
+  padding: 5px;
+}
+
+.home-icon-div-chosen {
+  background-color: #e6ebf5;
+  padding: 5px;
+}
+
+.prof-icon-div-chosen {
+  background-color: #e6ebf5;
+  padding: 5px;
+}
+
+.sidebar .home-icon {
+  margin: 68px;
+}
+
+.sidebar .prof-icon {
+  margin: 65px;
 }

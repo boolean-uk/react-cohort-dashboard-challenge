@@ -2,18 +2,31 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Comment from "./Comment";
 import CreateComment from "./CreateComment";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../App";
+import { createContext } from "react";
 
-export default function Post({ post, posts, setPosts, contacts, findPost }) {
+const PostContext = createContext();
+
+function Post({ post }) {
+  const context = useContext(AppContext);
+
   const [user, setUser] = useState("");
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
   const [formData, setFormData] = useState([]);
   const [update, setUpdate] = useState(false);
-  const { id } = useParams(); // id of THE POST
 
   const toggleComments = () => {
     setShowAllComments(!showAllComments);
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name !== undefined) {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   useState(() => {
@@ -21,31 +34,21 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
   }, []);
 
   useEffect(() => {
-    if (id !== undefined) {
-      // we have a post id
-      fetch(
-        `https://boolean-api-server.fly.dev/ssuihko/contact/${post.contactId}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setUser(data);
-        });
+    const thisUser = context.contacts.find(
+      (x) => parseInt(x.id) === post.contactId
+    );
+    setUser(thisUser);
 
-      fetch(
-        `https://boolean-api-server.fly.dev/ssuihko/post/${post.id}/comment`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setComments(data);
-        });
-    } else {
-      // console.log("id was null so here!");
-      const thisUser = contacts.find((x) => parseInt(x.id) === post.contactId);
-      // console.log(thisUser);
-      setUser(thisUser);
-    }
-  }, [id, post, contacts]);
+    fetch(`https://boolean-api-server.fly.dev/ssuihko/post/${post.id}/comment`)
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
+      });
+  }, [post, context.contacts]);
 
+  // designed to launch whenever a new comment is posted
+  // rematching comments with correct post after publishing new post
+  // if postId and id do not match
   useEffect(() => {
     if (comments.length > 0) {
       if (post.id !== comments[0].postId) {
@@ -60,26 +63,6 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
     }
   }, [comments, post]);
 
-  useState(() => {
-    if (id === undefined) {
-      fetch(
-        `https://boolean-api-server.fly.dev/ssuihko/contact/${post.contactId}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setUser(data);
-        });
-    }
-  }, [id]);
-
-  useState(() => {
-    fetch(`https://boolean-api-server.fly.dev/ssuihko/post/${post.id}/comment`)
-      .then((response) => response.json())
-      .then((data) => {
-        setComments(data);
-      });
-  }, [id]);
-
   // DELETE
   const handleDeletePost = (id) => {
     const DEL_URL = "https://boolean-api-server.fly.dev/ssuihko/post/" + id;
@@ -89,7 +72,7 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
       url: DEL_URL,
     };
 
-    let updatedList = posts.filter((item) => {
+    let updatedList = context.posts.filter((item) => {
       if (parseInt(item.id) !== parseInt(id)) return item;
     });
 
@@ -133,25 +116,16 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then(() => {
-        setPosts([...updatedList]);
+        context.setPosts([...updatedList]);
       })
       .catch((err) => {
         console.log("error occured: ", err);
       });
   };
 
-  const handleInputChange = (event) => {
-    const { name, type, value } = event.target;
-    // console.log("handleInput", name, type, value);
-
-    if (name !== undefined) {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
-
   // UPDATE
   const handleUpdatePost = (formData) => {
-    let updatedList = posts.map((item) => {
+    let updatedList = context.posts.map((item) => {
       if (parseInt(item.id) === parseInt(formData.id)) {
         return { ...item, ...formData };
       }
@@ -177,7 +151,7 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then(() => {
-        setPosts([...updatedList]);
+        context.setPosts([...updatedList]);
       })
       .catch((err) => {
         console.log("error occured: ", err);
@@ -189,129 +163,123 @@ export default function Post({ post, posts, setPosts, contacts, findPost }) {
 
   return (
     <article className="post-content">
-      {user === undefined || user === "" ? (
-        <p>loading...</p>
-      ) : (
-        <div>
-          <div className="yellow">
-            <button
-              className="del-button"
-              onClick={(e) => {
-                e.preventDefault();
-                handleDeletePost(post.id);
-              }}
-            >
-              Delete
-            </button>
-            <button
-              className="modify-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setUpdate(!update);
-              }}
-            >
-              Modify
-            </button>
-            <div className="profile-icon-contact">
-              <div id="profile-icon-id-contact">
-                {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
-              </div>
-            </div>
-            <Link to={`/profile/${user.id}`} className="profile-link">
-              <h4>{user.firstName + " " + user.lastName} </h4>
-            </Link>
-            {update ? (
-              <form
-                onSubmit={(e) => {
+      <PostContext.Provider
+        value={{
+          post: post,
+          comments: comments,
+          setComments: setComments,
+          contacts: context.contacts,
+        }}
+      >
+        {user === undefined || user === "" ? (
+          <p>loading...</p>
+        ) : (
+          <div className="post-content-div">
+            <div className="yellow">
+              <button
+                className="del-button"
+                onClick={(e) => {
                   e.preventDefault();
-                  handleUpdatePost(formData);
+                  handleDeletePost(post.id);
                 }}
               >
-                <div>
-                  <input
-                    id="title"
-                    name="title"
-                    type="text"
-                    placeholder="Add a title.."
-                    value={formData.title ?? ""}
-                    onChange={handleInputChange}
-                  ></input>
+                Delete
+              </button>
+              <button
+                className="modify-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setUpdate(!update);
+                }}
+              >
+                Modify
+              </button>
+              <div className="profile-icon-contact">
+                <div id="profile-icon-id-contact">
+                  {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
                 </div>
-
-                <button type="submit" className="update-btn">
-                  Update
-                </button>
-
-                <div className="textarea-section">
-                  <textarea
-                    id="content"
-                    name="content"
-                    type="text"
-                    placeholder="Add a comment..."
-                    value={formData.content ?? ""}
-                    onChange={handleInputChange}
-                  ></textarea>
-                </div>
-              </form>
-            ) : (
-              <div className="post-article">
-                <h5
-                  onClick={(e) => {
+              </div>
+              <Link to={`/profile/${user.id}`} className="profile-link">
+                <h4>{user.firstName + " " + user.lastName} </h4>
+              </Link>
+              {update ? (
+                <form
+                  onSubmit={(e) => {
                     e.preventDefault();
-                    findPost(post.id);
+                    handleUpdatePost(formData);
                   }}
                 >
-                  <Link to={`/post/${post.id}`} className="post-title">
-                    {post.title}
-                  </Link>
-                </h5>
-                <p>{post.content}</p>
-              </div>
-            )}
+                  <div>
+                    <input
+                      id="title"
+                      name="title"
+                      type="text"
+                      placeholder="Add a title.."
+                      value={formData.title ?? ""}
+                      onChange={handleInputChange}
+                    ></input>
+                  </div>
+
+                  <button type="submit" className="update-btn">
+                    Update
+                  </button>
+
+                  <div className="textarea-section">
+                    <textarea
+                      id="content"
+                      name="content"
+                      type="text"
+                      placeholder="Add a comment..."
+                      value={formData.content ?? ""}
+                      onChange={handleInputChange}
+                    ></textarea>
+                  </div>
+                </form>
+              ) : (
+                <div className="post-article">
+                  <h5
+                    onClick={(e) => {
+                      e.preventDefault();
+                      context.findPost(post.id);
+                    }}
+                  >
+                    <Link to={`/post/${post.id}`} className="post-title">
+                      {post.title}
+                    </Link>
+                  </h5>
+                  <p>{post.content}</p>
+                </div>
+              )}
+            </div>
+            <button
+              className="show-comment-button"
+              onClick={() => toggleComments()}
+            >
+              See previous comments
+            </button>
+            <div>
+              {showAllComments
+                ? comments
+                    .sort((a, b) => parseInt(b.id) - parseInt(a.id))
+                    .map((comment, index) => (
+                      <Comment comment={comment} key={index} />
+                    ))
+                : comments
+                    .sort((a, b) => parseInt(b.id) - parseInt(a.id))
+                    .slice(0, 3)
+                    .map((comment, index) => (
+                      <Comment comment={comment} key={index} />
+                    ))}
+            </div>
+            <CreateComment />
           </div>
-          <button
-            className="show-comment-button"
-            // id={`button-${post.id}`}
-            onClick={() => toggleComments()}
-          >
-            See previous comments
-          </button>
-          <div>
-            {showAllComments
-              ? comments
-                  .sort((a, b) => parseInt(b.postId) - parseInt(a.postId))
-                  .map((comment, index) => (
-                    <Comment
-                      comment={comment}
-                      comments={comments}
-                      setComments={setComments}
-                      contacts={contacts}
-                      key={index}
-                    />
-                  ))
-              : comments
-                  .slice(0, 3)
-                  .sort((a, b) => parseInt(b.postId) - parseInt(a.postId))
-                  .map((comment, index) => (
-                    <Comment
-                      comment={comment}
-                      comments={comments}
-                      setComments={setComments}
-                      contacts={contacts}
-                      key={index}
-                    />
-                  ))}
-          </div>
-          <CreateComment
-            comments={comments}
-            setComments={setComments}
-            post={post}
-          />
-        </div>
-      )}
+        )}
+      </PostContext.Provider>
     </article>
   );
 }
+
+export { Post as default, PostContext };
 
 Post.propTypes = {
   post: PropTypes.object,

@@ -9,8 +9,6 @@ import { AppContext } from "../App";
 function Dashboard() {
   const context = useContext(AppContext);
 
-  console.log("user: ", context.user);
-
   return (
     <div className="dashboard">
       {context.user === null ? (
@@ -24,16 +22,7 @@ function Dashboard() {
             <div className="container">
               <div className="container-nav-main">
                 <SideBar></SideBar>
-                {context.viewProfile ? (
-                  <Profile></Profile>
-                ) : (
-                  <Posts
-                    posts={context.posts}
-                    setPosts={context.setPosts}
-                    contacts={context.contacts}
-                    findPost={context.findPost}
-                  ></Posts>
-                )}
+                {context.viewProfile ? <Profile></Profile> : <Posts></Posts>}
               </div>
             </div>
           </div>

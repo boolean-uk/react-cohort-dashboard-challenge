@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-// import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
-export default function CreatePost({ posts, setPosts, user }) {
+export default function CreatePost() {
+  const context = useContext(AppContext);
   const [formData, setFormData] = useState([]);
   const [flag, setFlag] = useState(true);
-
-  // const navigate = useNavigate();
 
   const addPost = (formData) => {
     const postOptions = {
@@ -25,7 +25,7 @@ export default function CreatePost({ posts, setPosts, user }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then((newPost) => {
-        setPosts([...posts, newPost]);
+        context.setPosts([...context.posts, newPost]);
       })
       .catch((err) => {
         console.log(err);
@@ -35,9 +35,7 @@ export default function CreatePost({ posts, setPosts, user }) {
   };
 
   const handleInputChange = (event) => {
-    const { name, type, value } = event.target;
-    // console.log("handleInput", name, type, value);
-
+    const { name, value } = event.target;
     if (name !== undefined) {
       setFormData({ ...formData, [name]: value });
     }
@@ -45,10 +43,10 @@ export default function CreatePost({ posts, setPosts, user }) {
 
   useEffect(() => {
     if (flag === true) {
-      setFormData({ contactId: user.id, title: "", content: "" });
+      setFormData({ contactId: context.user.id, title: "", content: "" });
     }
     setFlag(false);
-  }, [flag, user.id]);
+  }, [flag, context.user.id]);
 
   return (
     <div className="create-post">
@@ -64,7 +62,9 @@ export default function CreatePost({ posts, setPosts, user }) {
           >
             <div className="profile-icon-contact">
               <div id="profile-icon-id-contact">
-                {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
+                {context.user.firstName.charAt(0) +
+                  "" +
+                  context.user.lastName.charAt(0)}
               </div>
             </div>
             <div>
@@ -87,7 +87,7 @@ export default function CreatePost({ posts, setPosts, user }) {
                 id="content"
                 name="content"
                 type="text"
-                placeholder="Add a comment..."
+                placeholder="What's on your mind..."
                 value={formData.content ?? ""}
                 onChange={handleInputChange}
               ></textarea>

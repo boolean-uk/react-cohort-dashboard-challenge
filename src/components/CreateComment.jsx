@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import imgDoge from "../assets/images/doge.jpg";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import { PostContext } from "./Post";
 
-export default function CreateComment({ comments, setComments, post }) {
+export default function CreateComment() {
   const [formData, setFormData] = useState([]);
   const context = useContext(AppContext);
+  const postContext = useContext(PostContext);
+  const [flag, setFlag] = useState(true);
 
   const addComment = (formData) => {
+    formData.postId = postContext.post.id;
+
     const postOptions = {
       method: "POST",
       headers: {
@@ -17,10 +21,8 @@ export default function CreateComment({ comments, setComments, post }) {
       body: JSON.stringify(formData),
     };
 
-    console.log(formData);
-
     fetch(
-      `https://boolean-api-server.fly.dev/ssuihko/post/{post.id}/comment`,
+      `https://boolean-api-server.fly.dev/ssuihko/post/${postContext.post.id}/comment`,
       postOptions
     )
       .then((res) => {
@@ -30,16 +32,16 @@ export default function CreateComment({ comments, setComments, post }) {
         throw new Error(`Something went wrong! Status: ${res.status}`);
       })
       .then((newComment) => {
-        setComments([...comments, newComment]);
+        postContext.setComments([...postContext.comments, newComment]);
       })
       .catch((err) => {
         console.log(err);
       });
+    setFlag(true);
   };
 
   const handleInputChange = (event) => {
-    const { name, type, value } = event.target;
-    console.log("handleInput", name, type, value);
+    const { name, value } = event.target;
 
     if (name !== undefined) {
       setFormData({ ...formData, [name]: value });
@@ -47,8 +49,14 @@ export default function CreateComment({ comments, setComments, post }) {
   };
 
   useEffect(() => {
-    setFormData({ contactId: context.user.id, postId: post.id, content: "" });
-  }, []);
+    if (flag === true) {
+      setFormData({
+        contactId: context.user.id,
+        content: "",
+      });
+    }
+    setFlag(false);
+  }, [flag, context.user.id, postContext.post]);
 
   return (
     <div className="create-comment">

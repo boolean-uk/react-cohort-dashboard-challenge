@@ -7,24 +7,27 @@ function Profile() {
   const API_URL = "https://boolean-api-server.fly.dev/ssuihko/contact";
   const context = useContext(AppContext);
   const [formData, setFormData] = useState([]);
+  const [titleUser, setTitleUser] = useState([]);
+  const [updateFlag, setUpdateFlag] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id, context.user.id);
-    if (parseInt(id) === parseInt(context.user.id)) {
-      setFormData(context.user);
-    } else {
-      console.log("profID is: ", id);
-      const newUser = context.contacts.find(
-        (x) => parseInt(x.id) === parseInt(id)
-      );
-      setFormData(newUser);
+    if (updateFlag === false) {
+      if (parseInt(id) === parseInt(context.user.id)) {
+        setFormData(context.user);
+        setTitleUser(context.user);
+      } else {
+        const newUser = context.contacts.find(
+          (x) => parseInt(x.id) === parseInt(id)
+        );
+        setFormData(newUser);
+        setTitleUser(newUser);
+      }
     }
-  }, [context, id]);
+  }, [context, id, updateFlag]);
 
   const handleInputChange = (event) => {
-    const { name, type, value } = event.target;
-    // console.log("handleInput", name, type, value);
+    const { name, value } = event.target;
 
     if (name !== undefined) {
       setFormData({ ...formData, [name]: value });
@@ -32,25 +35,25 @@ function Profile() {
   };
 
   // UPDATE
-  const handleUpdateProfile = (formData) => {
-    formData.longitude = parseFloat(formData.longitude);
-    formData.latitude = parseFloat(formData.latitude);
+  const handleUpdateProfile = (formDataNew) => {
+    formDataNew.longitude = parseFloat(formDataNew.longitude);
+    formDataNew.latitude = parseFloat(formDataNew.latitude);
 
     let updatedList = context.contacts.map((item) => {
-      if (parseInt(item.id) === parseInt(formData.id)) {
-        return { ...item, ...formData };
+      if (parseInt(item.id) === parseInt(formDataNew.id)) {
+        return { ...item, ...formDataNew };
       }
       return item;
     });
 
-    const PUT_URL = API_URL + "/" + formData.id;
+    const PUT_URL = API_URL + "/" + formDataNew.id;
 
     const putOptions = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formDataNew),
     };
 
     fetch(PUT_URL, putOptions)
@@ -67,7 +70,9 @@ function Profile() {
         console.log("error occured: ", err);
       });
 
-    setFormData(formData);
+    setUpdateFlag(true);
+    setFormData(formDataNew);
+    setTitleUser(formDataNew);
   };
 
   return (
@@ -75,17 +80,19 @@ function Profile() {
       <h1>Profile</h1>
       <div className="dashboard-title">
         <div className="profile-icon-contact">
-          {!formData.firstName ? (
+          {!formData.firstName && !titleUser.firstName ? (
             <p></p>
           ) : (
             <div id="profile-icon-id-contact">
-              {formData.firstName.charAt(0) + "" + formData.lastName.charAt(0)}
+              {titleUser.firstName.charAt(0) +
+                "" +
+                titleUser.lastName.charAt(0)}
             </div>
           )}
         </div>
-        <h3 className="profile-title">
-          {formData.firstName + " " + formData.lastName}
-        </h3>
+        <h2 className="profile-title">
+          {titleUser.firstName + " " + titleUser.lastName}
+        </h2>
       </div>
       <form
         className="profile-form"
@@ -94,59 +101,8 @@ function Profile() {
           handleUpdateProfile(formData);
         }}
       >
-        <div>
-          <h3>Account Info</h3>
-          <div>
-            <label>First name*</label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              placeholder={`${formData.firstName}`}
-              value={formData.firstName ?? ""}
-              onChange={handleInputChange}
-            ></input>
-          </div>
-
-          <div>
-            <label>Last name*</label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              placeholder={`${formData.lastName}`}
-              value={formData.lastName ?? ""}
-              onChange={handleInputChange}
-            ></input>
-          </div>
-
-          <div>
-            <label>Gender*</label>
-            <input
-              id="gender"
-              name="gender"
-              type="text"
-              placeholder={`${formData.gender}`}
-              value={`${formData.gender}` ?? ""}
-              onChange={handleInputChange}
-            ></input>
-          </div>
-        </div>
-
-        <div>
-          <label>Email*</label>
-          <input
-            id="email"
-            name="email"
-            type="text"
-            placeholder={`${formData.email}`}
-            value={formData.email ?? ""}
-            onChange={handleInputChange}
-          ></input>
-        </div>
-
-        <div>
-          <h3>Location</h3>
+        <div className="profile-location-form">
+          <h2>Location</h2>
           <div>
             <label>Street*</label>
             <input
@@ -197,7 +153,58 @@ function Profile() {
         </div>
 
         <div>
-          <h3>Other Info</h3>
+          <h2>Account Info</h2>
+          <div>
+            <label>First name*</label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              placeholder={`${formData.firstName}`}
+              value={formData.firstName ?? ""}
+              onChange={handleInputChange}
+            ></input>
+          </div>
+
+          <div>
+            <label>Last name*</label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              placeholder={`${formData.lastName}`}
+              value={formData.lastName ?? ""}
+              onChange={handleInputChange}
+            ></input>
+          </div>
+
+          <div>
+            <label>Gender*</label>
+            <input
+              id="gender"
+              name="gender"
+              type="text"
+              placeholder={`${formData.gender}`}
+              value={`${formData.gender}` ?? ""}
+              onChange={handleInputChange}
+            ></input>
+          </div>
+        </div>
+
+        <div>
+          <label>Email*</label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder={`${formData.email}`}
+            value={formData.email ?? ""}
+            onChange={handleInputChange}
+          ></input>
+        </div>
+
+        <div>
+          <h2>Other Info</h2>
 
           <div>
             <label>Job Title*</label>
@@ -210,6 +217,10 @@ function Profile() {
               onChange={handleInputChange}
             ></input>
           </div>
+
+          <button type="submit" className="post-btn">
+            Save
+          </button>
 
           <div>
             <label>Favorite Color*</label>
@@ -234,10 +245,6 @@ function Profile() {
               onChange={handleInputChange}
             ></input>
           </div>
-
-          <button type="submit" className="post-btn">
-            Save
-          </button>
         </div>
       </form>
     </div>

@@ -1,11 +1,7 @@
 import { useState, useEffect, createContext } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-// import user from "./assets/data/user";
-import Profile from "./components/Profile";
 
 const API_URL = "https://boolean-api-server.fly.dev/ssuihko/";
 const AppContext = createContext();
@@ -18,7 +14,6 @@ function App() {
   const [viewFlag, setViewFlag] = useState(false);
   const [viewProfile, setViewProfile] = useState(false);
 
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -30,21 +25,25 @@ function App() {
       setViewProfile(false);
     } else {
       setViewFlag(true);
-      // setViewProfile(false);
     }
   }, [location.pathname, viewProfile]);
 
-  console.log("app viewPforile: ", viewProfile);
   // call data
   useState(() => {
     fetch(API_URL + "contact")
       .then((response) => response.json())
       .then((data) => {
         setContacts(data);
-        SetUser(data[0]);
         console.log(data);
+        SetUser(data[0]);
       });
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (contacts.length > 0) {
+      SetUser(contacts[0]);
+    }
+  }, [contacts]);
 
   useState(() => {
     fetch(API_URL + "post")
