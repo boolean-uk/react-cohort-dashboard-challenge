@@ -1,12 +1,14 @@
-import { useState} from "react"
+import { useState, useContext} from "react"
 import "./../styles.css"
+import { UserContext } from "../../../App"
 
 function CreateComment({postId, setComments, comments}) {
+  const {loggedInUser} = useContext(UserContext)
 
   const [comment, setComment] = useState({
       postId: postId,
       content: "",
-      contactId: 1
+      contactId: loggedInUser.id
   })
   const handleChange = (event) => {
       event.preventDefault()
@@ -50,7 +52,8 @@ function CreateComment({postId, setComments, comments}) {
             value= {comment.content}
             onChange={handleChange}
             cols="10" 
-            rows="4"></textarea>
+            rows="4"
+            required></textarea>
         </div>
         <button className="submitbtn" type="submit">Comment</button>
     </form>

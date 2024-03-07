@@ -11,14 +11,24 @@ const UserContext = createContext()
 
 function App() {
   const [posts, setPosts] = useState([])
-  const [loggedInUser, setLoggedInUser] = useState(null)
+  const [loggedInUser, setLoggedInUser] = useState({
+    firstName: "Default",
+    lastName: "Default"
+  })
 
   const fetchPosts = () => {
     fetch("https://boolean-api-server.fly.dev/AxelHan/post")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
-      setPosts(data)
+      const idOverNine = []
+      data.forEach(element => {
+          if(element.id > 9){
+            idOverNine.push(element)
+          }
+      });
+      console.log(idOverNine)
+      setPosts(idOverNine)
+
     })
   }
 
@@ -40,12 +50,13 @@ function App() {
       <div className="container">
         <header className='header'>
           <UserContext.Provider value={{loggedInUser: loggedInUser}}>
-          <Header></Header>
+            <Header></Header>
           </UserContext.Provider>
         </header>
         <div className="container-nav-main">
           <Sidebar></Sidebar>
           <main className="main green">
+          <UserContext.Provider value={{loggedInUser: loggedInUser}}>
           <PostContext.Provider value ={{posts: posts, setPosts: setPosts}}>
           <Routes>
               <Route 
@@ -54,6 +65,7 @@ function App() {
               <Route path="/profile" element={<Profile></Profile>}></Route>
           </Routes>
           </PostContext.Provider> 
+          </UserContext.Provider>
           </main>
         </div>
       </div>

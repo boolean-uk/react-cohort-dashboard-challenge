@@ -6,8 +6,8 @@ function PostList({posts}) {
     
   return (
     <div>
-        {reversedPosts.map((post, index) => 
-        <PostItem post={post} key={index}></PostItem>
+        {reversedPosts.map((post) => 
+        <PostItem post={post} key={post.id}></PostItem>
         )}
     </div>
   )

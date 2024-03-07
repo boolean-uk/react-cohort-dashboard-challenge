@@ -1,9 +1,8 @@
 import CreateComment from "./CreateComment"
 import CommentList from "./CommentList"
 import PostContent from "./PostContent"
-import ProfileCircle from "../../Profile/components/ProfileCircle"
-
-import { useEffect, useState } from "react"
+import { useEffect, useState} from "react"
+import PostHeader from "./PostHeader"
 
 
 function PostItem({post}) {
@@ -37,8 +36,8 @@ function PostItem({post}) {
 
 
   return (
-    <div className="yellow">
-        <ProfileCircle user={user}></ProfileCircle>
+    <div className="post-container">
+        <PostHeader user={user} post={post}></PostHeader>
         <PostContent post={post}></PostContent>
         <CommentList comments={comments}></CommentList>
         <CreateComment setComments={setComments} comments={comments} postId={post.id}> </CreateComment>

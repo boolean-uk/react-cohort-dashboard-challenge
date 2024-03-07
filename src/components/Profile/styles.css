@@ -1,6 +1,6 @@
 .profile-circle {
-    width: 60px; /* Adjust the size of the circle */
-    height: 60px; /* Adjust the size of the circle */
+    width: 40px; /* Adjust the size of the circle */
+    height: 40px; /* Adjust the size of the circle */
     border-radius: 50%; /* Makes the element a circle */
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@
   
   .initials {
     color: white; /* Set the text color */
-    font-size: 18px; /* Adjust the font size */
+    font-size: 20px; /* Adjust the font size */
     font-weight: bold; /* Adjust the font weight */
   }
 

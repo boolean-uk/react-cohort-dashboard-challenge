@@ -3,10 +3,11 @@
 
 function PostContent(post) {
   return (
-    <div>
-        <h3>{post.post.title}</h3>
+    <div className="post-content-container">
         <p>{post.post.content}</p>
+        <hr></hr>
     </div>
+   
   )
 }
 

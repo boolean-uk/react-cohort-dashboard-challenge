@@ -6,13 +6,13 @@ import { UserContext } from "../../App"
 
 
 function Header() {
-  const userContext = useContext(UserContext)
+  const {loggedInUser} = useContext(UserContext)
 
   return (
     <div className="header">
       <img className="logo" src={HeaderLogo} alt="head" />
       <div className="profile-icon">
-        <ProfileCircle user={userContext.loggedInUser}></ProfileCircle>
+        <ProfileCircle user={loggedInUser}></ProfileCircle>
       </div>
     </div>
   )

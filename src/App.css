@@ -68,16 +68,3 @@ make the child components lay out using flex, vertically stacked in a column */
   background-color: #F0F5FA;
 }
 
-.yellow {
-  background-color: rgb(255, 255, 255);
-  margin: 10px;
-  height: 200px;
-  width: 100%;
-}
-
-.pink {
-  background-color: rgb(255, 0, 157);
-  margin: 10px;
-  height: 100px;
-  width: 100%;
-}

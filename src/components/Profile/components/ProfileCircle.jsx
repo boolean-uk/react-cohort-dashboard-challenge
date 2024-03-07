@@ -2,7 +2,6 @@ import "./../styles.css"
 
 function ProfileCircle({user}) {
   
-  console.log(user)
   const getInitials = (firstName, lastName) => {
     return (
       (firstName ? firstName[0] : "") +
