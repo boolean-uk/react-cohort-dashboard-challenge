@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { PostContext } from '../App';
 import ProfilePicture from './ProfilePicture';
 import '../styles/post.css'
@@ -6,8 +6,24 @@ import PostComment from './PostComment';
 
 const Post = ({ post }) => {
   const { contacts } = useContext(PostContext)
-
+  const [comments = [], setComments] = useState()
+  
   let contact = contacts.find(c => c.id === post.contactId)  
+  
+  async function GetComments(){
+    const response = await fetch(`https://boolean-api-server.fly.dev/oysteinbjo/post/${post.id}/comment`)
+    const data = await response.json()
+    setComments(data)
+  }
+  
+  useEffect(()=> {
+    GetComments()
+    setComments(comments.filter(c => c.postId == post.id))
+  },[])
+  console.log("🚀 ~ Post ~ comments:", comments)
+  
+  
+
   return (
     <div className='post'>
       <div className='post-content'>
@@ -22,8 +38,19 @@ const Post = ({ post }) => {
           </div>
         </div>
         <p>{post.content}</p>
-        <PostComment/>
       </div>
+      {comments.length > 0 ?
+      (
+        <div>
+          <p>See previous comments</p>
+          {comments.map((comment, index) => {
+            return <p>{comment.content}</p>
+          })}
+        </div>
+      ) : <>
+      </>
+    }
+        <PostComment/>
     </div>
   );
 }

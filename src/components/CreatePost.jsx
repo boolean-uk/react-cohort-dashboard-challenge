@@ -22,17 +22,23 @@ const CreatePost = () => {
             'Content-Type': 'application/json'
           }
         })
-    }
-
+      }
+      
     const handleSubmit = (event) => {
       event.preventDefault()
       PostPost()
     }
 
+    const handleChange = (event) => {
+      setPost({...post, content: event.target.value})
+    }
+  console.log(post.contactId)
+
+
   return (
     <div className='create-post-container'>
       <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"}/>
-      <TextField multiline value={post.content} onChange={(event) => setPost(event.target.value) }/>
+      <TextField multiline value={post.content} onChange={handleChange}/>
       <Button onClick={handleSubmit}>Post</Button>
     </div>
   );
