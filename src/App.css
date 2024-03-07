@@ -37,6 +37,11 @@ make the child components lay out using flex, vertically stacked in a column */
   /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
 }
+.comments {
+  width: 300px;
+  height: 200px;
+  overflow-y: auto;
+}
 
 /* make the main fill the remaining width and the full height of the parent */
 .main {
@@ -62,8 +67,14 @@ make the child components lay out using flex, vertically stacked in a column */
 .yellow {
   background-color: yellow;
   margin: 10px;
-  height: 200px;
+  height: auto;
   width: 100%;
+}
+.purple {
+  background-color: purple;
+  margin: 10px;
+  height: auto;
+  width: 70%;
 }
 .profile-icon img {
   height: 40px;
@@ -82,4 +93,11 @@ make the child components lay out using flex, vertically stacked in a column */
   width: 60px;
   object-fit: cover;
   margin-left: 15px;
+}
+.post-icon img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 200px;
 }

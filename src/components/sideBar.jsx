@@ -1,19 +1,21 @@
 import Home from "../assets/home-icon.svg"
 import { useContext } from "react";
 import { MyContext } from "../App";
+import { useNavigate } from 'react-router-dom'
 
-function sideBar(){
+function SideBar(){
     
-    const context = useContext(MyContext)
+    const context = useContext(MyContext);
+    const navigate = useNavigate();
 
     return (
         <nav className="sidebar red">
             <h1>Side bar</h1>
-            <button className="sidebar-icons">
-                <img src={Home} alt="Home" />
+            <button className="sidebar-icons" onClick={() => navigate('/')}>
+            <img src={Home} alt="Home"/>
             </button>
             <p>
-            <button className="sidebar-icons">
+            <button className="sidebar-icons" onClick={() => navigate('/profile')}>
                 <img src={context.user.profileImage}/>
             </button>
             </p>
@@ -21,4 +23,4 @@ function sideBar(){
         </nav>
     )
 }
-export default sideBar
+export default SideBar

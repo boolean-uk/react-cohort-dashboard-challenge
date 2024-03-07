@@ -1,13 +1,26 @@
+import { useContext, useEffect, useState } from "react"
+import { MyContext } from "../../App"
+import { Post } from './post.jsx'
 
-function body(){
+function Posts(){
+
+  const context = useContext(MyContext)
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    fetch(`${context.baseURL}/post`)
+      .then((response) => response.json())
+      .then((data) => setPosts(data));
+    }, [context.baseURL, setPosts]);
+
     return(
         <main className="main green">
-          <div className="yellow">Hello</div>
-          <div className="yellow">Hello</div>
-          <div className="yellow">Hello1</div>
-          <div className="yellow">Hello2</div>
-          <div className="yellow">Hello3</div>
+            {
+              posts.map((post, index) => (
+                <Post key={index} post={post} baseURL={context.baseURL} />
+              ))
+            }
         </main>
     )
 }
-export default body
+export default Posts
