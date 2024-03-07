@@ -1,4 +1,5 @@
 .dashboard {
-    flex: 11;
+    height: calc(100vh - 70px);
+    width: calc(100vw - 70px);
     background-color: #F0F5FA;
 }

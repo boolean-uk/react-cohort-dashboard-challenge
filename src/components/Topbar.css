@@ -1,10 +1,11 @@
 .topbar {
-    height: 10%;
+    height: 70px;
     background-color: #000046;
     display: flex;
     align-items: center;
 
     .logo { 
+        padding-left: 0.5%;
         height: 80%;
     }
 }
