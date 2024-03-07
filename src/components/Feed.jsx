@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import PostsList from "./PostsList";
 import { Context } from "../App";
+import Avatar from "react-avatar";
 
 const initInput = {
   contactId: 10, 
@@ -37,6 +38,7 @@ function Feed() {
     return (
       <main className="feed">
         <form className="post-form" onSubmit={handleSubmit}>
+          
           <input 
             name="title" 
             placeholder="Title" 

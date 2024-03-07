@@ -30,7 +30,7 @@ function App() {
         <header className="header">
           <HeaderIcon />
         </header>
-
+      
         <div className="content">
           <SideMenu />
 

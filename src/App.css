@@ -33,8 +33,13 @@ ul {
 }
 
 .post-li {
-  border: 1px solid #ddd;
-  padding: 5px;
+  margin-top: 15px;
+  margin-left: 5px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #eee;
 }
 
 .app {
@@ -54,8 +59,8 @@ ul {
 }
 
 .content {
-  margin-top: 60px; 
-  margin-left: 200px; 
+  margin-top: 60px;
+  margin-left: 200px;
 }
 
 .side-menu {
@@ -64,9 +69,10 @@ ul {
   bottom: 0;
   left: 0;
   width: 80px;
-  background-color: #f0f0f0;
+  background-color: #fff;
   padding: 20px;
   overflow-y: auto;
+  border: 1px solid #eee;
 }
 
 .side-menu-ul {
@@ -87,9 +93,37 @@ ul {
 
 .content {
   margin-left: 100px;
+  background-color: #f0f5fa;
 }
 
 .post-view {
   padding-left: 80px;
-  padding-top: 60px;;
+  padding-top: 60px;
+}
+
+.post-form input,
+.post-form textarea {
+  width: calc(100% - 40px);
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+}
+
+.post-form {
+  margin-top: 15px;
+  margin-left: 5px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.post-form button {
+  background-color: #000046;
+  color: #fff;
+  margin-bottom: 15px;
 }

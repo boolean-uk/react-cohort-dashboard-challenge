@@ -20,11 +20,6 @@ function PostListItem({ post }) {
       .then(setComments);
   }, [post.id]);
 
-  function getUserInfo(contactId) {
-    console.log(users)
-    return users.find((user) => Number(user.id) === Number(contactId));
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -43,6 +38,11 @@ function PostListItem({ post }) {
         setComments([...comments, newComment]);
         setCommentInput(initCommentInput);
       });
+  }
+
+  function getUserInfo(contactId) {
+    console.log(users);
+    return users.find((user) => Number(user.id) === Number(contactId));
   }
 
   function handleChange(event) {
