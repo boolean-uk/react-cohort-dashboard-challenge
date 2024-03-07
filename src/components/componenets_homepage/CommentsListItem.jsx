@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getInitials } from "../../utils/getInitials";
 import { fetchDataForComments } from "../../utils/api";
 import { basePostURL } from "../../utils/urls";
 import { postData } from "../../utils/api";
+import UserCircle from "../UserCircle";
 
 function CommentsListItem(props) {
   const { post } = props;
@@ -12,11 +12,9 @@ function CommentsListItem(props) {
   const [users, setUsers] = useState([]);
   const [content, setContent] = useState("");
 
-  const userInitials = getInitials(
-    `${localStorage.getItem("userFirstName")} ${localStorage.getItem(
-      "userLastName"
-    )}`
-  );
+  const userFirstName = localStorage.getItem("userFirstName");
+  const userLastName = localStorage.getItem("userLastName");
+  const userfavouriteColour = localStorage.getItem("favouriteColour");
 
   useEffect(() => {
     fetchDataForComments(post.id).then(({ comments, users }) => {
@@ -57,16 +55,11 @@ function CommentsListItem(props) {
           {comments.map((comment, index) => (
             <li key={comment.id}>
               <div className="comment-card">
-                <div
-                  className="initials-circle"
-                  style={{
-                    backgroundColor: `${users[index]?.favouriteColour}`,
-                  }}
-                >
-                  {getInitials(
-                    `${users[index]?.firstName} ${users[index]?.lastName}`
-                  )}
-                </div>
+                <UserCircle
+                  userFirstName={users[index]?.firstName}
+                  userLastName={users[index]?.lastName}
+                  userfavouriteColour={users[index]?.favouriteColour}
+                />
                 <h4>
                   {users[index]?.firstName} {users[index]?.lastName}
                 </h4>
@@ -76,18 +69,11 @@ function CommentsListItem(props) {
           ))}
         </ul>
         <div id="comment-post-card">
-          {userInitials ? (
-            <div
-              className="initials-circle"
-              style={{
-                backgroundColor: `${localStorage.getItem("favouriteColour")}`,
-              }}
-            >
-              {userInitials}
-            </div>
-          ) : (
-            <div>Loading...</div>
-          )}
+          <UserCircle
+            userFirstName={userFirstName}
+            userLastName={userLastName}
+            userfavouriteColour={userfavouriteColour}
+          />
           <input
             type="text"
             value={content}

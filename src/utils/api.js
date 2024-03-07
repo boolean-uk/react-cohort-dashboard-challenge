@@ -31,7 +31,7 @@ export const fetchFirstContact = async () => {
   }
 };
 
-export const fetchAllContacts = async (URL) => {
+export const fetchAllPosts = async (URL = basePostURL) => {
   try {
     const response = await fetch(URL);
 

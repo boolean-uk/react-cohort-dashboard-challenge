@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CommentsListItem from "./CommentsListItem.jsx";
-import { getInitials } from "../../utils/getInitials";
 import { Link } from "react-router-dom";
 import { fetchDataByContactId } from "../../utils/api.js";
 import UserCircle from "../UserCircle.jsx";

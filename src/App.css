@@ -258,16 +258,25 @@ main > ul {
 
 #comment-post-card {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #comment-post-card > input {
   border: none;
-  width: 92%;
+  width: 93%;
+  height: 50px;
   background-color: var(--clr-backgound);
 }
 
 #comment-post-card > span {
   margin-left: -40px;
   cursor: pointer;
-  margin-top: 1.7%;
+}
+
+#comment-post-card > span:hover {
+  background-color: #7d8da1;
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
 }
