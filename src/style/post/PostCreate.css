@@ -19,6 +19,7 @@
     font-size: 24px;
     margin: 0 1rem;
     width: 100%;
+    box-shadow: 1px 1px 2px 1px darkgrey;
 }
 
 .post-create > .post-btn {

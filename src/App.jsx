@@ -39,7 +39,11 @@ function App() {
     return (
         <div className="app">
             <postContext.Provider
-                value={{ posts: postData, contacts: contactData, user: user }}
+                value={{
+                    posts: postData,
+                    contacts: contactData,
+                    user: user,
+                }}
             >
                 <Layout>
                     <Routes>
