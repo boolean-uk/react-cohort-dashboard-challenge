@@ -1,0 +1,39 @@
+
+Get posts
+Get contacts
+
+Context
+
+HTML elements
+- Header
+- Nav
+- Main
+
+Posts and comments should show the initials of the author in a coloured circle
+
+Routes -- lägg även till i main.jsx
+Navigation
+Links -- link i Post.jsx (se react-hire-router)
+
+GetPosts component
+PostList component
+Post component -- mappa namn till id i comments
+
+ViewPost component
+
+UpdatePost component
+DeletePost component
+
+GetContacts component
+ContactList component   (same as List component?)
+Contact component
+
+Profilbilder = cirkel med initialer
+
+Header ska ha en ikon 
+
+Sidebar ska ha två ikoner
+
+Nya posts och comments ska hamna högst upp
+
+CSS styling
