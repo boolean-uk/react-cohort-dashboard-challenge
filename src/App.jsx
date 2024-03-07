@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import HeaderViewModule from "./components/HeaderViewModule.jsx";
@@ -7,12 +7,21 @@ import HomePage from "./components/HomePage.jsx";
 import ProfilePage from "./components/ProfilePage.jsx";
 import DetailedPostViewPage from "./components/DetailedPostViewPage.jsx";
 import Sidebar from "./components/Sidebar.jsx";
-import { fetchFirstContact } from "./utils/api.js";
+import { fetchLoggedinContact } from "./utils/api.js";
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   // Simulating the current logged in user
   useEffect(() => {
-    fetchFirstContact();
+    const fetchData = async () => {
+      const response = await fetchLoggedinContact();
+      if (response) {
+        setLoggedInUser(response);
+      } else {
+        console.error("OBS!!! Something went wrong getting the logged in user");
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -26,7 +35,10 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
-              <Route path="/profile" element={<ProfilePage />}></Route>
+              <Route
+                path="/profile"
+                element={<ProfilePage loggedInUser={loggedInUser} />}
+              ></Route>
               <Route
                 path="post/view/:id"
                 element={<DetailedPostViewPage />}

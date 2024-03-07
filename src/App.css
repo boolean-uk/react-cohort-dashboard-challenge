@@ -47,10 +47,11 @@ li {
 button {
   font-size: large;
   font-weight: 500;
-  color: #64648c;
+  color: var(--clr-backgound);
   background-color: #000046;
 
   border-radius: 10px;
+  border: none;
 }
 
 button:hover {

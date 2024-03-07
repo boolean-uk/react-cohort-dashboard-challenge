@@ -1,6 +1,6 @@
 import { baseContectURL, basePostURL } from "./urls.js";
 
-export const fetchFirstContact = async () => {
+export const fetchLoggedinContact = async () => {
   try {
     const response = await fetch(baseContectURL);
 

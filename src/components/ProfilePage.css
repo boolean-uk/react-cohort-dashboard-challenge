@@ -1,0 +1,46 @@
+h1 {
+  font-size: 40px;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(132, 139, 200, 0.2);
+}
+
+.form-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+}
+
+.blogpost-card > button {
+  justify-content: right;
+  width: 120px;
+  height: 50px;
+  margin-top: 50px;
+}
+
+.form-form-grid {
+  display: grid;
+  padding: 12px;
+  border-bottom: 1px solid rgba(132, 139, 200, 0.2);
+}
+
+.form-form-grid > input {
+  padding: 10px;
+  margin-bottom: 26px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #e6ebf5;
+
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.form-form-grid > label {
+  font-weight: 600;
+}
