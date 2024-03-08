@@ -1,0 +1,16 @@
+.header {
+    display: grid;
+    align-items: center;
+    background-color: #000046;
+}
+
+.header img {
+    width: 400px;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+

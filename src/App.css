@@ -1,0 +1,17 @@
+.main-page {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+.header { grid-area: 1 / 1 / 2 / 3; }
+.left-side { grid-area: 2 / 1 / 3 / 2; }
+.body { grid-area: 2 / 2 / 3 / 3; }
+
+.body {
+    background-color: #F0F5FA;
+}
+
+    
