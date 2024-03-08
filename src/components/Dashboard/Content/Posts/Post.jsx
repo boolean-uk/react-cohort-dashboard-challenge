@@ -10,21 +10,29 @@ export default function PostComponent({ post }) {
 
     const author = users.get.find(user => user.id == post.contactId)
 
+    if (!author){
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
     return (
         <li className='item'>
             <div className='card'>
                 <header className='header'>
                     <UserIconComponent user={author} />
                     <div className='author-title'>
-                        <text className='author'>{`${author.firstName || ""} ${author.lastName || ""}`}</text>
-                        <text className='title' >{post.title}</text>
+                        <div className='author'>{`${author.firstName} ${author.lastName}`}</div>
+                        <div className='title' >{post.title}</div>
                     </div>
                 </header>
                 <div className='content'>
                     {post.content}
                 </div>
-                <CommentsComponent postId={post.id}/>
-                <CreateCommentComponent postId={post.id}/>
+                <CommentsComponent postId={post.id} />
+                <CreateCommentComponent postId={post.id} />
 
             </div>
         </li>

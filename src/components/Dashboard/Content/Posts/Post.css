@@ -1,16 +1,15 @@
 .item {
     width: 100%;
     margin-bottom: 10px;
+    
 
     .card {
         width: 100%;
         background-color: white;
-        border-radius: 1px;
+        border-radius: 5px;
         padding: 1rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-
-        
 
         .header {
             display: flex;

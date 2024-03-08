@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import './App.css'
 import TopbarComponent from './components/Topbar'
 import SidebarComponent from './components/Sidebar'
@@ -9,17 +9,29 @@ const BASEURL = 'https://boolean-api-server.fly.dev/'
 const GITUSER = 'moph13121'
 export const APIURL = BASEURL + GITUSER
 
+export const loginUserContext = createContext()
+
 export default function App() {
 
-  return (
-    <div className='view'>
-      <TopbarComponent />
-      <div className='page'>
-        <SidebarComponent />
-        <DashboardComponent />
-      </div>
+  const [getLoginUser, setLoginUser] = useState({
+    firstName: "John",
+    lastName: "Userman",
+    favouriteColour: '#f4dc78',
+    id: 16
+  })
+  const loginUser = { get: getLoginUser, set: setLoginUser }
 
-    </div>
+  return (
+    <loginUserContext.Provider value={{loginUser}}>
+      <div className='view'>
+        <TopbarComponent />
+        <div className='page'>
+          <SidebarComponent />
+          <DashboardComponent />
+        </div>
+      </div>
+    </loginUserContext.Provider>
+
   )
 }
 
