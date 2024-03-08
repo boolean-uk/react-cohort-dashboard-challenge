@@ -12,6 +12,7 @@ function Header() {
     return (
         <header className="header blue">
             <img
+                className='header-title'
                 src={titleHeader}
                 alt="title header"
                 onClick={goToMain} />

@@ -13,13 +13,25 @@ ul {
 }
 
 p, h1, h2, h3 {
-  color: #202020; /* Set text color for paragraphs */
+  color: #000046; /* Set text color for paragraphs */
+}
+
+button {
+  background-color: #000046;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #64dc78;
 }
 
 input[type="text"] {
-  background-color: #f5f5f5;
+  background-color: #e6ebf5;
   color: #202020;
   width: 500px;
+  border-radius: 5px;
+  border: none;
+  padding: 7px;
 }
 
 /* Create a root container that fills the screen
@@ -45,10 +57,10 @@ make the child components lay out using flex, vertically stacked in a column */
   align-items: center;
   height: 60px;
   width: 100vw;
-  background-color: rgb(84, 84, 167);
+  background-color: #000046;
 }
 
-.header img {
+.header-title {
   max-height: 80%;
   margin: 10px; /* Adjust the margin as needed for spacing */
 }
@@ -62,13 +74,13 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 100%;
   /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
+  background-color: #fdfdfd;
 }
 
 .sidebar img {
   max-height: 80%;
   margin-top: 20px;
 }
-
 
 /* make the main fill the remaining width and the full height of the parent */
 .main {
@@ -79,31 +91,28 @@ make the child components lay out using flex, vertically stacked in a column */
   max-height: calc(100vh - 60px);
 }
 
-
-.red {
-  background-color: #F0F5FA;
-}
-
-.green {
-  background-color: rgb(182, 178, 206);
-}
-
 .create-post {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 50px;
   padding: 10px;
-  background-color: #e6ebf5;
+  padding-top: 20px;
+  padding-left: 20px;
+  background-color: #fdfdfd;
   border-radius: 10px;
   max-width: 800px;
 }
 
-/* Each <li> post */
+/* Each <li> post and viewpost */
 .post {
-  background-color:  #e6ebf5;
+  background-color:  #fdfdfd;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-  max-width: 800px; /* Set a fixed width for the li */
+  width: 800px;
+}
+
+.post-title {
+  color: #64648c;
 }
 
 .pic-and-name {

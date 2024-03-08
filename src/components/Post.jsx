@@ -49,6 +49,9 @@ function Post({ post }) {
             body: JSON.stringify(newComment)
         })
 
+        //re-rendera comments
+        setComments((comment) => [...comment, newComment]);
+
         //clear input
         setNewComment({ postId: '', content: '', contactId: 0 })
     }
@@ -82,8 +85,9 @@ function Post({ post }) {
                 onChange={handleChange}
             />
             <button
+                className='comment-post-button'
                 onClick={saveComment}>
-                comment
+                    Comment
             </button>
         </li>
     )

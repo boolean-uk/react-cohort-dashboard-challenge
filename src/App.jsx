@@ -38,13 +38,14 @@ function App() {
             <div className="container-nav-main">
               <Nav />
 
-                <Routes>
-                  <Route path="/" element={<Main />} />
-                  <Route path="/posts/:id" element={<ViewPost />} />
-                </Routes>
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/posts/:id" element={<ViewPost />} />
+              </Routes>
 
             </div>
           </div>
+
         </ContactContext.Provider>
       </PostContext.Provider>
     </>
