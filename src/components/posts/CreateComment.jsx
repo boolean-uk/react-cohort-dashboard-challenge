@@ -62,13 +62,15 @@ export default function CreateComment(props) {
         >
           {initials}
         </div>
-        <input
+        <textarea
           type="text"
           name="content"
+          rows={3}
+          cols={40}
           placeholder="Write a comment..."
           onChange={handleChange}
           value={comment.content}
-        ></input>
+        ></textarea>
 
         <input type="submit" value="Comment"></input>
       </form>
