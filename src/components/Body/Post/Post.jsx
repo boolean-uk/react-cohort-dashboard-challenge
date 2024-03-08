@@ -8,22 +8,24 @@ import { Link } from "react-router-dom";
 export default function Post({ post }) {
   const [user, setUser] = useState({});
   useEffect(() => {
-    fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post.contactId}`
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((jsonData) => {
-        setUser(jsonData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setUser, post.contactId]);
+    if (post.contactId !== "" && post.contactId !== undefined)
+      fetch(
+        `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post.contactId}`
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw response;
+        })
+        .then((jsonData) => {
+          setUser(jsonData);
+          //console.log(post, "The user who posted this: ", jsonData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [post.contactId]);
 
   return (
     <>

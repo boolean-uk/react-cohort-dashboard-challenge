@@ -15,7 +15,6 @@ export default function Comments({ post }) {
         if (response.ok) return response.json();
       })
       .then((jsonData) => {
-        //console.log("Fetching comments: ", jsonData);
         setComments(jsonData);
       })
       .catch((err) => {

@@ -7,22 +7,23 @@ export default function Comment({ comment }) {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${comment.contactId}`
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((jsonData) => {
-        setUser(jsonData);
-      })
-      .catch((err) => {
-        console.log("Error in Comment.jsx", err);
-      });
-  }, [setUser]);
+    if (comment.contactId !== "" && comment.contactId !== undefined)
+      fetch(
+        `https://boolean-api-server.fly.dev/VictorAdamson/contact/${comment.contactId}`
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw response;
+        })
+        .then((jsonData) => {
+          setUser(jsonData);
+        })
+        .catch((err) => {
+          console.log("Error in Comment.jsx", err);
+        });
+  }, [comment.contactId, setUser]);
 
   return (
     <>

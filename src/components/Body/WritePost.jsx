@@ -6,6 +6,7 @@ const INITIAL_POST = {
   title: "",
   content: "",
 };
+
 const currentUserId = 1; //This is a placeholder
 export default function WritePost() {
   const { posts, setPosts } = useContext(PostContext);
@@ -18,10 +19,13 @@ export default function WritePost() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Check that newPost is not empty
     if (newPost.content !== "" && newPost.content !== undefined) {
+      // Splitting of the first sentence to become title
       const tempArray = newPost.content.split(".");
       newPost.title = tempArray[0];
       newPost.contactId = currentUserId;
+      // Send a POST-request to api-server
       fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`, {
         method: "POST",
         headers: {
