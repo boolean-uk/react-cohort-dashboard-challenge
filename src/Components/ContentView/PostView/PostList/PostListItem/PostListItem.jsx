@@ -5,6 +5,7 @@ import "./PostListItem.css"
 import PostItemHeader from './PostItemHeader/PostItemHeader.jsx'
 import PostReplyList from './PostReplyList/PostReplyList'
 import { PostsContext, userContext } from '@/Utils/contexts'
+import PostItemUtility from './PostItemUtility/PostItemUtility'
 
 const PostListItem = ({post}) => {
     const [user, setUser] = useState()
@@ -57,24 +58,14 @@ const PostListItem = ({post}) => {
     return (
         <li>
             <div className='post-panel'>
-                {(user?.id === LoggedInUser.id) && <div className='utility-container'>
-                    {!editMode && <>
-                        <img 
-                            src="https://uxwing.com/wp-content/themes/uxwing/download/editing-user-action/pencil-icon.png"
-                            onClick={() => setEditMode(true)}
-                            />
-                        <img 
-                            src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/delete-icon.png"
-                            onClick={() => deletePost(post.id)}
-                        />
-                    </>}
-                    {editMode && 
-                            <>
-                            <button onClick={() => handleFinishEditing(post.id)}>Confirm</button> 
-                            <button onClick={() => setEditMode(false)}>Cancel</button> 
-                            </>
-                        }
-                </div>}
+                {(user?.id === LoggedInUser?.id) && 
+                    <PostItemUtility 
+                        editMode={editMode}
+                        setEditMode={setEditMode}
+                        deletePost={deletePost}
+                        handleFinishEditing={handleFinishEditing}
+                        postID={post.id}
+                />}
                 {user && 
                     <PostItemHeader user={user} post={post}/>
                 }

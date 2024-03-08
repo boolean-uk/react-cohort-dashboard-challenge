@@ -23,32 +23,6 @@
     text-align: left;
 }
 
-
-.utility-container {
-    position: static;
-    display: flex;
-    float: right;
-
-}
-
-.utility-container > button {
-    height: 30px;
-    width: 60px;
-    font-size: 16px;
-    display: flex;
-    left: 20px;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-}
-
-.utility-container > img {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
 .text-like-field {
     width: 100%;
     font-size: 20px;
