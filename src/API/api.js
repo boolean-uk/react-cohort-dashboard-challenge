@@ -70,13 +70,19 @@ const fetchComments = async (postId) => {
 };
 
 const addComment = async (postId, comment) => {
+  // Include postId in the body of the request
+  const requestBody = { ...comment, postId };
+
   const response = await fetch(`${BASE_URL}/post/${postId}/comment`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(comment),
+    body: JSON.stringify(requestBody),
   });
-  if (!response.ok)
-    throw new Error(`Failed to add comment to post ID ${postId}`);
+
+  if (!response.ok) {
+    const errorData = await response.text(); // Changed to text to ensure we can read non-JSON responses as well
+    throw new Error(`Failed to add comment to post ID ${postId}: ${errorData}`);
+  }
   return await response.json();
 };
 

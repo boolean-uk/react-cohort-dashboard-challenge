@@ -1,6 +1,6 @@
 function AuthorCircle({ initials, style }) {
   return (
-    <div className="initials-circle large" style={style}>
+    <div className="initials-circle large author-circle" style={style}>
       {initials}
     </div>
   );

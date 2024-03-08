@@ -1,81 +1,109 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./ProfilePage/ProfilePage";
 import { createContext, useEffect, useState } from "react";
 import Sidebar from "./SideBar";
 import { PostsSection } from "./PostsSection";
-import { addComment, addPost, fetchContactById, fetchPosts } from "./API/api";
+import { addComment, addPost, fetchComments, fetchContactById, fetchPosts } from "./API/api";
 import PostDetails from "./Post/PostDetails";
+import UserProfilePage from "./ProfilePage/UserProfilePage";
 
 export const AppContext = createContext();
 
 function App() {
- const [profile, setProfile] = useState(null);
- const [posts, setPosts] = useState([]);
+  const [profile, setProfile] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
- useEffect(() => {
-   const profileId = 1; // The ID you need to fetch the profile for
-   const fetchInitialData = async () => {
-     try {
-       const fetchedProfile = await fetchContactById(profileId);
-       setProfile(fetchedProfile);
-       const fetchedPosts = await fetchPosts();
-       setPosts(fetchedPosts);
-     } catch (error) {
-       console.error("Failed to fetch initial data:", error);
-     }
-   };
+  const updateProfile = (updatedProfile) => {
+    setProfile(updatedProfile);
+    localStorage.setItem("profileData", JSON.stringify(updatedProfile));
+  };
+   useEffect(() => {
+     const fetchInitialData = async () => {
+       try {
+         const fetchedProfile = await fetchContactById(1); // Assuming profileId is available and is 1
+         const fetchedPosts = await fetchPosts();
 
-   fetchInitialData();
- }, []);
+         const postsWithComments = await Promise.all(
+           fetchedPosts.map(async (post) => {
+             const comments = await fetchComments(post.id);
+             return { ...post, comments };
+           })
+         );
 
- const updateProfile = (updatedProfile) => {
-   setProfile(updatedProfile);
-   localStorage.setItem("profileData", JSON.stringify(updatedProfile));
- };
-  // Functions to manipulate posts and comments
-  const addNewPost = async (newPost) => {
+         setProfile(fetchedProfile);
+         setPosts(postsWithComments);
+       } catch (error) {
+         console.error("Failed to fetch initial data:", error);
+       } finally {
+         setIsLoading(false); // Ensure loading state is updated regardless of fetch outcome
+       }
+     };
+
+     fetchInitialData();
+   }, []);
+
+   if (isLoading) return <div>Loading...</div>;
+
+  // Updated functions
+  const addNewPost = async (newPostData) => {
     try {
-      const addedPost = await addPost(newPost); // Assuming addPost is an API call that adds a post
-      setPosts((prevPosts) => [addedPost, ...prevPosts]);
+      const createdPost = await addPost(newPostData);
+      setPosts([createdPost, ...posts]);
     } catch (error) {
-      console.error("Failed to add new post:", error);
+      console.error("Error adding new post:", error);
     }
   };
-  const addNewComment = async (postId, newComment) => {
+
+  const addNewComment = async (postId, newCommentData) => {
     try {
-      const addedComment = await addComment(postId, newComment); // Assuming addComment is an API call that adds a comment
+      const createdComment = await addComment(postId, newCommentData);
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
           post.id === postId
-            ? { ...post, comments: [...post.comments, addedComment] }
+            ? {
+                ...post,
+                comments: [...(post.comments || []), createdComment],
+              }
             : post
         )
       );
     } catch (error) {
-      console.error(`Failed to add comment to post ID ${postId}:`, error);
+      console.error(`Error adding new comment to post ID ${postId}:`, error);
     }
   };
-  if (!profile) return <div>Loading profile...</div>;
+
+  // Value provided to AppContext.Provider should now also include a method to retrieve comments for a specific post
+  const getCommentsForPost = (postId) => {
+    const post = posts.find((post) => post.id === postId);
+    return post ? post.comments || [] : [];
+  };
+
+
 
   return (
     <>
       <AppContext.Provider
-        value={{ profile, updateProfile, posts, addNewPost, addNewComment }}
+        value={{
+          profile,
+          updateProfile,
+          posts,
+          addNewPost,
+          addNewComment,
+          getCommentsForPost,
+        }}
       >
         <Header />
         <div className="container">
-          {" "}
-          {/* Use a container to layout sidebar and main content */}
           <Sidebar />
           <div className="main-content">
-            {" "}
-            {/* This is where your routed components will render */}
             <Routes>
               <Route path="/" element={<PostsSection />} />
               <Route path="/post/:postId" element={<PostDetails />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/user/:userId" element={<UserProfilePage />} />
             </Routes>
           </div>
         </div>

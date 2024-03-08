@@ -7,12 +7,18 @@ const Header = () => {
   const { profile } = useContext(AppContext);
 
   const getInitials = (firstName, lastName) => {
-    const firstInitial = firstName && firstName.length > 0 ? firstName[0] : "";
-    const lastInitial = lastName && lastName.length > 0 ? lastName[0] : "";
+    // Check if firstName and lastName are provided
+    const firstInitial = firstName ? firstName[0] : "";
+    const lastInitial = lastName ? lastName[0] : "";
     return `${firstInitial}${lastInitial}`;
   };
 
-  const userInitials = getInitials(profile.firstName, profile.lastName);
+  // Provide fallback values for firstName, lastName, and favouriteColour
+  // to avoid trying to access properties of null
+  const userInitials = profile
+    ? getInitials(profile.firstName, profile.lastName)
+    : "";
+  const favouriteColour = profile ? profile.favouriteColour : "#ffffff";
 
   return (
     <nav className="header">
@@ -22,7 +28,7 @@ const Header = () => {
       <div className="user-profile">
         <Link to="/profile" className="profile-icon">
           <div
-            style={{ backgroundColor: profile.favouriteColour }}
+            style={{ backgroundColor: favouriteColour }}
             className="initials-circle"
           >
             {userInitials}

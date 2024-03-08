@@ -6,18 +6,17 @@ function NewCommentForm({ postId }) {
 
   const { addNewComment } = useContext(AppContext);
 
-  const handleCommentSubmit = async (event) => {
-    event.preventDefault();
-    if (!commentText.trim()) return;
+const handleCommentSubmit = async (event) => {
+  event.preventDefault();
+  if (!commentText.trim()) return;
 
-    const newComment = { text: commentText, postId };
-
-    await addNewComment(postId, newComment);
-    setCommentText("");
-  };
+  const newComment = { content: commentText, contactId: 1 };
+  await addNewComment(postId, newComment); // This should update the context and cause a re-render
+  setCommentText("");
+};
 
   return (
-    <form onSubmit={handleCommentSubmit}>
+    <form className="new-comment-form" onSubmit={handleCommentSubmit}>
       <textarea
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}

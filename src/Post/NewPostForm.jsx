@@ -10,7 +10,7 @@ function NewPostForm() {
     event.preventDefault();
     if (!title.trim() || !content.trim()) return;
 
-    const newPost = { title, content };
+    const newPost = { title, content, contactId: 1 };
     await addNewPost(newPost);
     setTitle("");
     setContent("");
@@ -46,4 +46,4 @@ function NewPostForm() {
   );
 }
 
-export default NewPostForm;
+export default NewPostForm

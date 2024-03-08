@@ -20,7 +20,7 @@ function PostItem({ post }) {
     };
 
     fetchData();
-  }, [post.contactId]);
+  }, [post]);
 
   if (!contact) {
     return <div>Loading...</div>;
@@ -28,14 +28,17 @@ function PostItem({ post }) {
 
   return (
     <div className="post-item">
-      <AuthorCircle
-        style={{
-          backgroundColor: contact ? contact.favouriteColour : "#ff0000",
-        }}
-        initials={
-          contact ? getInitials(contact.firstName, contact.lastName) : ""
-        }
-      />
+      <Link to={`/user/${post.contactId}`} className="profile-icon">
+        {/* User's profile icon */}
+        <AuthorCircle
+          style={{
+            backgroundColor: contact ? contact.favouriteColour : "#ff0000",
+          }}
+          initials={
+            contact ? getInitials(contact.firstName, contact.lastName) : ""
+          }
+        />
+      </Link>
       <h2>
         {contact.firstName} {contact.lastName}
       </h2>
@@ -43,7 +46,7 @@ function PostItem({ post }) {
         <Link to={`/post/${post.id}`}>{post.title}</Link>
       </h3>
       <p>{post.body}</p>
-      <CommentList postId={post.id} contact={contact} post={post} />
+      <CommentList postId={post.id} post={post} />
       {showNewCommentForm && <NewCommentForm postId={post.id} />}
       <button onClick={() => setShowNewCommentForm(!showNewCommentForm)}>
         {showNewCommentForm ? "Cancel" : "Add Comment"}
