@@ -4,10 +4,9 @@ import { AuthorContext } from "../App"
 
 export default function ProfileInfo()
 {
-    const { authors, editAuthor } = useContext(AuthorContext)
     const {id} = useParams()
-    const author = authors[id - 1]
-
+    const { authors, editAuthor } = useContext(AuthorContext)
+    
     const INITIAL_AUTHOR =
     {
         firstName: "",
@@ -19,14 +18,13 @@ export default function ProfileInfo()
     }
     const [newAuthor, setNewAuthor] = useState(INITIAL_AUTHOR)
     const [updateAuthor, setUpdateAuthor] = useState(INITIAL_AUTHOR)
-    const initials = author.firstName.charAt(0) + author.lastName.charAt(0)
-
+    
     // PUT an updated author
     useEffect(() =>
     {
         if (!updateAuthor.id)
-            return
-
+        return
+    
         const putOptions =
         {
             method: "PUT",
@@ -35,12 +33,17 @@ export default function ProfileInfo()
             },
             body: JSON.stringify(updateAuthor)
         }
-        
+    
         fetch(`https://boolean-api-server.fly.dev/klaand01/contact/${updateAuthor.id}`, putOptions)
         .then((response) => response.json())
         .then(() => setNewAuthor(INITIAL_AUTHOR))
     }, [updateAuthor])
 
+    if (!authors[0])
+        return
+
+    const author = authors[id - 1]
+    const initials = author.firstName.charAt(0) + author.lastName.charAt(0)
 
     const handleInput = (event) =>
     {
@@ -73,12 +76,18 @@ export default function ProfileInfo()
         setUpdateAuthor(tmpAuthor)
     }
 
+    const style =
+    {
+        backgroundColor: author.favouriteColour
+    }
+
     return (
         <>
         <main className="main">
-            {/* FIX PROFILE IMAGE */}
             <h2>Profile</h2>
-            <h2>{initials} - {author.firstName} {author.lastName}</h2>
+            <h2 style={style} className="circle">{initials}</h2>
+            <h2>{author.firstName} {author.lastName}</h2>
+            <img src={author.profileImage}></img>
             <main className="green">
                 <div className="yellow row1">
                     <h3>Account info</h3>

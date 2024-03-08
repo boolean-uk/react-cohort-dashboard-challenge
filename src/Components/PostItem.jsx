@@ -20,17 +20,14 @@ export default function PostItem(props)
         .then((response) => response.json())
         .then((data) => 
         {
-            //console.log("COMMENTS", data)
             setComments(data.reverse())
             setShowedComments(data.filter((comment, index) => index < 3))
             setShowedCommentsText("See previous comments")
         })
     }, [post.id, commentsGET])
     
-    if (!authors[post.contactId - 1])
-        return
-    
     const authorId = post.contactId - 1
+    const author = authors[authorId]
     const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
 
     const addComment = (data) =>
@@ -52,21 +49,33 @@ export default function PostItem(props)
         }
     }
 
+    const style =
+    {
+        backgroundColor: author.favouriteColour
+    }
+
     return (
         <>
-        <h2 onClick={() => navigate(`/user/${authors[authorId].id}`)}>{authors[authorId].firstName.charAt(0)}{authors[authorId].lastName.charAt(0)} - {authors[authorId].firstName} {authors[authorId].lastName}</h2>
+        <h2 style={style} className="circle" onClick={() => navigate(`/user/${author.id}`)}>{author.firstName.charAt(0)}{author.lastName.charAt(0)}</h2>
+        <h2 onClick={() => navigate(`/user/${author.id}`)}>{author.firstName} {author.lastName}</h2>
+        <img onClick={() => navigate(`/user/${author.id}`)} src={author.profileImage}></img>
         <p onClick={() => navigate(`/post/${post.id}`)} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {showedComments.map((comment, index) => (
                 <li key={index}>
-                    <h4 onClick={() => navigate(`/user/${authors[comment.contactId - 1].id}`)}>{authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)} - {authors[comment.contactId - 1].firstName} {authors[comment.contactId - 1].lastName}</h4>
+                    <h4 
+                        style={{backgroundColor: authors[comment.contactId - 1].favouriteColour}}
+                        className="circle"
+                        onClick={() => navigate(`/user/${authors[comment.contactId - 1].id}`)}>
+                        {authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)}
+                    </h4>
                     {comment.content}
                 </li>
             ))}
             {comments.length > 3 && <button onClick={showMoreComments}>{showedCommentsText}</button>}
         </ul>
-        <PostComments initials={initials} addComment={addComment} postId={post.id}/>
+        <PostComments initials={initials} addComment={addComment} postId={post.id} color={authors[0].favouriteColour}/>
         </>
     )
 }

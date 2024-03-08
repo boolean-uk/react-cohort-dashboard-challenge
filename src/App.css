@@ -1,8 +1,4 @@
-header {
-  background-color: #000046;
-}
-
-button {
+header, button {
   background-color: #000046;
 }
 
@@ -24,29 +20,15 @@ input {
   /* FIX THESE BUTTONS! */
 }
 
-/* CHANGE CLASS NAMES HERE!! */
-
 .postTitle {
   color: #64648c;
 }
 
-h2, h1 {
-  color: black;
+h1 {
+  color: white;
 }
 
-h3 {
-  color: black;
-}
-
-h4 {
-  color: black;
-}
-
-p {
-  color: black;
-}
-
-li {
+h2, h3, h4, p, li {
   color: black;
 }
 
@@ -71,7 +53,6 @@ li {
 }
 
 .yellow {
-  /* background-color: yellow; */
     margin: 10px;
     height: 200px;
     width: 100%;
@@ -98,8 +79,6 @@ li {
   padding-left: 5px;
 }
 
-/* Create a container that fills the rest of the screen that is left over */
-/* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
   display: flex;
   flex-direction: row;
@@ -110,9 +89,6 @@ li {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-}
-
-.iconText {
 }
 
 
@@ -127,10 +103,12 @@ li {
   display: flex;
 }
 
-/* Create a root container that fills the screen
-make the child components lay out using flex, vertically stacked in a column */
 .container {
   width: 95vw;
   display: flex;
   flex-direction: column;
+}
+
+.editPost {
+  color: black;
 }

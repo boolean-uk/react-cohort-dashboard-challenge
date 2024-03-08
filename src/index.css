@@ -46,6 +46,21 @@ h1 {
   font-size: 3.2em;
 }
 
+.circle {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    /*<-- Default color*/
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
 /*
 a {
   font-weight: 500;

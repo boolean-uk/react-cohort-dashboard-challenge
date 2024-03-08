@@ -35,24 +35,18 @@ export default function EditPostPage()
         fetch(`https://boolean-api-server.fly.dev/klaand01/post/${updatePost.id}`, putOptions)
         .then((response) => response.json())
         .then(() => {
-            if (updatePost.id !== undefined)
-            {
-                navigate("/")
-                editPost({updatePost})
-            }
+            editPost({updatePost})
+            navigate("/")
         })
     }, [updatePost])
     
     if (!post)
     {
-        for (let i = 0; i < posts.length; i++)
+        posts.map((post) => 
         {
-            if (posts[i].id === parseInt(id))
-            {
-                setPost(posts[i])
-                break
-            }
-        }
+            if (post.id === parseInt(id))
+                setPost(post)
+        })
     }
 
     const handleInput = (event) =>

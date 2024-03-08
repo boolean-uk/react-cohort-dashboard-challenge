@@ -20,10 +20,7 @@ function App() {
   {
     fetch("https://boolean-api-server.fly.dev/klaand01/post")
     .then((response) => response.json())
-    .then((data) => {
-        //console.log("POSTS", data)
-        setPosts(data.reverse())
-    })
+    .then((data) => setPosts(data.reverse()))
   }, [postsGET])
 
 
@@ -32,12 +29,11 @@ function App() {
   {
     fetch("https://boolean-api-server.fly.dev/klaand01/contact")
     .then((response) => response.json())
-    .then((data) => {
-        setAuthors(data)
-    })
+    .then((data) => setAuthors(data))
   }, [])
 
-  // POST functions
+  
+  // Post functions
   const addPost = (data) =>
   {
     setPostsGET([data.newPost, ...posts])

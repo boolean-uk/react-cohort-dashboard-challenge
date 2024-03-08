@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import { AuthorContext, PostContext } from "../App"
+import { PostContext } from "../App"
 
-export default function PostPosts()
+export default function PostPosts(props)
 {
+    const {author} = props
     const navigate = useNavigate()
     const { addPost } = useContext(PostContext)
-    const { authors } = useContext(AuthorContext)
 
     const INITIAL_POST =
     {
@@ -37,12 +37,8 @@ export default function PostPosts()
         .then((response) => response.json())
         .then(() => addPost({newPost}))
     }, [createPost])
-
-
-    if (!authors[0])
-        return
     
-    const initials = authors[0].firstName.charAt(0) + authors[0].lastName.charAt(0)
+    const initials = author.firstName.charAt(0) + author.lastName.charAt(0)
 
 
     // Helper functions
@@ -63,7 +59,7 @@ export default function PostPosts()
 
     return (
         <>
-            <p onClick={() => navigate("/user/1")}>{initials}</p>
+            <p style={{backgroundColor: author.favouriteColour}} className="circle" onClick={() => navigate("/user/1")}>{initials}</p>
             <input type="text" name="title" placeholder="Title" onChange={handleInput} value={newPost.title}></input>
             <input type="text" name="content" placeholder="What's on your mind?" onChange={handleInput} value={newPost.content}></input>
             <button type="button" onClick={handlePost}>Post</button>

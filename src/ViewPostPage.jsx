@@ -36,14 +36,11 @@ export default function ViewPostPage()
 
     if (!post)
     {
-        for (let i = 0; i < posts.length; i++)
+        posts.map((post) => 
         {
-            if (posts[i].id === parseInt(id))
-            {
-                setPost(posts[i])
-                break   
-            }
-        }
+            if (post.id === parseInt(id))
+                setPost(post)
+        })
     }
 
     const deleteComment = (data) =>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export default function PostComments(props)
 {
-    const {initials, addComment, postId} = props
+    const {initials, addComment, postId, color} = props
 
     const INITIAL_COMMENT =
     {
@@ -52,7 +52,7 @@ export default function PostComments(props)
 
     return (
         <>
-        {initials}
+        <p style={{backgroundColor: color}} className="circle">{initials}</p>
         <input type="text" placeholder="Add a comment..." onChange={handleInput} value={comment.content}></input>
         <button onClick={handleClick}>Comment</button>
         </>

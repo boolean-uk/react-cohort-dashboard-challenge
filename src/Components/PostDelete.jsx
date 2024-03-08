@@ -6,8 +6,8 @@ export default function PostDelete(props)
 {
     const {post} = props
     const {deletePost} = useContext(PostContext)
-    const navigate = useNavigate()
     const [postDelete, setPostDelete] = useState({})
+    const navigate = useNavigate()
 
     // DELETE the post
     useEffect(() =>
@@ -33,15 +33,9 @@ export default function PostDelete(props)
     )
     }, [postDelete])
 
-
-    const handleDelete = () =>
-    {
-        setPostDelete(post)
-    }
-
     return (
         <>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={() => setPostDelete(post)}>Delete</button>
         </>
     )
 }

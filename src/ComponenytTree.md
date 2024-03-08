@@ -35,7 +35,3 @@
   - EditPostPage
     Route: /editPost/:id
     Explanation: Handles the editing of the post
-
-# FURTHER CHANGES!
-
-# Add the profile image and favorite color

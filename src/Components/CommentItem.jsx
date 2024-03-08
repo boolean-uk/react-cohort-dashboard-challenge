@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import { AuthorContext } from "../App";
 
 export default function CommentItem(props)
 {
@@ -8,6 +9,8 @@ export default function CommentItem(props)
     const { deleteComment, editComment, comment } = props;
     const [commentDelete, setCommentDelete] = useState({})
     const [commentUpdate, setCommentUpdate] = useState({})
+    const { authors } = useContext(AuthorContext)
+    const navigate = useNavigate()
 
     // PUT an updated comment
     useEffect(() =>
@@ -50,6 +53,11 @@ export default function CommentItem(props)
     )
     }, [commentDelete])
 
+    if (!authors[0])
+        return
+
+    const author = authors[comment.contactId - 1]
+
     const handleDelete = () =>
     {
         setCommentDelete(comment)
@@ -73,6 +81,11 @@ export default function CommentItem(props)
 
     return (
         <>
+        <h4
+            style={{backgroundColor: author.favouriteColour}}
+            className="circle" onClick={() => navigate(`/user/${author.id}`)}>
+            {author.firstName.charAt(0)}{author.lastName.charAt(0)}
+        </h4>
         {editText === "Edit" && comment.content}
         {editText === "Save" && <input type="text" placeholder={comment.content} onChange={handleInput}></input>}
         <button onClick={handleEdit} className="commentButton">{editText}</button>
