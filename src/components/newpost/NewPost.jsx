@@ -3,6 +3,7 @@ import { PostContext } from '../../pages/DashBoard'
 import { UserContext } from '../../app/App';
 import axios from "axios";
 import { useNavigate} from 'react-router';
+import ProfileIcon from '../profile/ProfileIcon';
 
 function NewPost() {
   const { posts, setPost  } = useContext(PostContext);
@@ -20,9 +21,18 @@ function NewPost() {
   async function handlePost(e) {
     e.preventDefault() 
     await updatePost();
-    // setPost([...posts, newPost])
+    // Updating posts useState
+    setPost([...posts, newPost])
     console.log(newPost);
+    // Reseting the new post
+    setNewPost({title:'',
+    content:'',
+    contactId: 1})
+
+    alert("posting!")
     navigate('/')
+    
+
   }
 
   // Function to put the post to the API
@@ -42,7 +52,9 @@ function NewPost() {
       <form onSubmit={handlePost}>
 
         <div className="newpost-content">
-          <div className="profile-icon"> <img src={user.profileImage}/></div>
+          <div className="profile-icon"> 
+            <ProfileIcon user={user} />
+          </div>
           
         {/* Textholder */}
         <textarea 

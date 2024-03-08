@@ -13,10 +13,13 @@ import { DashBoard } from "../pages/DashBoard";
 
 // User context:
 const UserContext = createContext();
+const AccountContext = createContext();
 
 function App() {
     const [user, setUser] = useState({});
+    const [accounts, setAccount] = useState([])
     const url = `https://boolean-api-server.fly.dev/KantheeK/contact/1`
+    const url2 = `https://boolean-api-server.fly.dev/KantheeK/contact`
 
     // Fetching data
     useEffect(() => {
@@ -29,7 +32,18 @@ function App() {
                 console.log(error)
             }
         }
+        const fetchData2 = async () => {
+            try {
+                const response = await axios.get(url2);
+                // console.log(response.data);
+                setAccount(response.data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
         fetchData();
+        fetchData2();
 
     }, []);
 
@@ -37,7 +51,8 @@ function App() {
   return (
     <div className="app">
 
-      { user && <UserContext.Provider value={{user}} >
+      { user && accounts && <UserContext.Provider value={{user}} >
+        <AccountContext.Provider value={{accounts, setAccount}} > 
             {/* Call layouts */}
             <div className="container">
                 <Header className="Header" />
@@ -59,12 +74,14 @@ function App() {
                 </Routes>
                 
             </div>
+            </AccountContext.Provider>
         </UserContext.Provider>}
+
 
     </div>
   )
 }
 
 
-export { App, UserContext }
+export { App, UserContext,  AccountContext }
 

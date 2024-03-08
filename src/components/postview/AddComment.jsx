@@ -3,6 +3,7 @@ import { useContext, useState,  } from 'react'
 import PropTypes from 'prop-types';
 import axios from "axios";
 import { useNavigate} from 'react-router';
+import ProfileIcon from '../profile/ProfileIcon';
 
 AddComment.propTypes = {
   post: PropTypes.object
@@ -44,7 +45,9 @@ function AddComment(props) {
     <div className="post-addcomment">
       <form onSubmit={handleComment}>
         <div className="addcomment-content">
-          <div className="profile-icon"> <img src={user.profileImage}/></div>
+          <div className="profile-icon"> 
+            <ProfileIcon user={user} />
+          </div>
           <div className="textarea-container">
             <textarea 
             name="comment" 

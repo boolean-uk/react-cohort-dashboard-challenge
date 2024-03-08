@@ -4,12 +4,15 @@ import PostItem from './PostItem'
 
 function PostList() {
     const { posts } = useContext(PostContext)
-    
+
+    // Reverse the order of the posts array
+    const reversedPosts = posts.slice().reverse(); // Create a copy of the array to avoid mutating the original
+
     
   return (
     <div className="postlist">
-        {posts && posts.length > 0 && posts.map((post,index) => (
-            <PostItem post={post} key={index} />
+        {reversedPosts && reversedPosts.length > 0 && reversedPosts.map((post, index) => (
+          <PostItem post={post} key={index} />
         ))}
     </div>
   )

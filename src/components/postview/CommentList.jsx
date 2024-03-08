@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react'
-import { AccountContext } from '../../pages/DashBoard';
+import { AccountContext } from '../../app/App';
 import axios from 'axios';
+import ProfileIcon from '../profile/ProfileIcon';
 
 CommentList.propTypes = {
   post: PropTypes.object
@@ -62,7 +63,9 @@ function CommentList(props) {
         return (
           <article key={comment.id} className="comment-item">
             {/* Render comment content */}
-            <div className="profile-icon"><img src={commenter.profileImage} alt="Profile" /></div>
+            <div className="profile-icon">
+              <ProfileIcon user={commenter} />
+            </div>
             <div className="comment-content">{comment.content}</div>
           </article>
           )

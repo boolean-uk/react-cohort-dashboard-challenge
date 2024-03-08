@@ -1,6 +1,7 @@
 @import '../styles/SideBar.css';
 @import '../styles/DashBoard.css';
 @import '../styles/Comments.css';
+@import '../styles/ProfileCircle.css';
 
 #root {
   font-family: sans-serif;
