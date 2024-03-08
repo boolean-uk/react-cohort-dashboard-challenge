@@ -18,7 +18,6 @@ function Comment({comment, post, comments, setComments}) {
 
     useEffect(() => {
         setCommentingUser(userContext.users.filter((u) => u.id === comment.contactId))
-        console.log(userContext.users)
     }, [])
     
     if(commentingUser[0] === undefined) return <p>Loading user</p>
