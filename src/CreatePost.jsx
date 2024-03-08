@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import CircleAvatar from "./CircleAvatar";
 import { ActiveContext, PostContext } from "./App";
 import "./style/CreatePost.css";
+import { Link } from "react-router-dom";
 
 function CreatePost() {
   const [post, setPost] = useState({ title: "", content: "" });
@@ -23,13 +24,25 @@ function CreatePost() {
   return (
     <div className="create-post">
       {active.firstName && (
-        <CircleAvatar
-          backgroundColor={active.favouriteColour}
-          initials={active.firstName.charAt(0) + active.lastName.charAt(0)}
-        />
+        <Link to={`/profile/${active.id}`}>
+          <CircleAvatar
+            backgroundColor={active.favouriteColour}
+            initials={active.firstName.charAt(0) + active.lastName.charAt(0)}
+          />
+        </Link>
       )}
-      <input name="title" value={post.title} placeholder="Title" onChange={onChange}></input>
-      <input name="content" value={post.content} placeholder="Content "onChange={onChange}></input>
+      <input
+        name="title"
+        value={post.title}
+        placeholder="Title"
+        onChange={onChange}
+      ></input>
+      <input
+        name="content"
+        value={post.content}
+        placeholder="Content "
+        onChange={onChange}
+      ></input>
 
       <button onClick={onPost}>Post</button>
     </div>

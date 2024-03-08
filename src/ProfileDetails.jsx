@@ -1,19 +1,26 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContactContext } from "./App";
 import CircleAvatar from "./CircleAvatar";
 import "./style/ProfileDetails.css";
 import { useParams } from "react-router-dom";
 function ProfileDetails() {
   const context = useContext(ContactContext);
-  const { contacts } = context;
+  const { contacts, editContact } = context;
   const { id } = useParams();
-  const [user, setUser] = useState(contacts.find(u => u.id == id));
+  const [user, setUser] = useState(contacts.find((u) => u.id == id));
 
   function onChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setUser({ ...user, [name]: value });
   }
+  function onSave() {
+    editContact(user);
+  }
+
+  useEffect(() => {
+    setUser(contacts.find((u) => u.id == id));
+  }, [contacts, id]);
   if (user) {
     return (
       <div className="profile-details">
@@ -34,7 +41,7 @@ function ProfileDetails() {
               <div>
                 <p>First name*</p>
                 <input
-                  value={user.firstName}
+                  value={user.firstName ? user.firstName : ""}
                   name="firstName"
                   onChange={onChange}
                 ></input>
@@ -42,7 +49,7 @@ function ProfileDetails() {
               <div>
                 <p>Street</p>
                 <input
-                  value={user.street}
+                  value={user.street ? user.street : ""}
                   name="street"
                   onChange={onChange}
                 ></input>
@@ -50,35 +57,47 @@ function ProfileDetails() {
               <div>
                 <p>Last name*</p>
                 <input
-                  value={user.lastName}
+                  value={user.lastName ? user.lastName : ""}
                   name="lastName"
                   onChange={onChange}
                 />
               </div>
               <div>
                 <p>Suite</p>
-                <input value={user.suite} name="suite" onChange={onChange} />
+                <input
+                  value={user.suite ? user.suite : ""}
+                  name="suite"
+                  onChange={onChange}
+                />
               </div>
               <div>
                 <p>Username*</p>
                 <input
-                  value={user.username}
+                  value={user.username ? user.username : ""}
                   name="username"
                   onChange={onChange}
                 />
               </div>
               <div>
                 <p>City</p>
-                <input value={user.city} name="city" onChange={onChange} />
+                <input
+                  value={user.city ? user.city : ""}
+                  name="city"
+                  onChange={onChange}
+                />
               </div>
               <div>
                 <p>Email</p>
-                <input value={user.email} name="email" onChange={onChange} />
+                <input
+                  value={user.email ? user.email : ""}
+                  name="email"
+                  onChange={onChange}
+                />
               </div>
               <div>
                 <p>Zipcode</p>
                 <input
-                  value={user.zipcode}
+                  value={user.zipcode ? user.zipcode : ""}
                   name="zipcode"
                   onChange={onChange}
                 />
@@ -91,7 +110,7 @@ function ProfileDetails() {
               <div>
                 <p>Phone*</p>
                 <input
-                  value={user.phone}
+                  value={user.phone ? user.phone : ""}
                   name="phone"
                   onChange={onChange}
                 ></input>
@@ -99,7 +118,7 @@ function ProfileDetails() {
               <div>
                 <p>Name</p>
                 <input
-                  value={user.companyName}
+                  value={user.companyName ? user.companyName : ""}
                   name="companyName"
                   onChange={onChange}
                 ></input>
@@ -107,7 +126,7 @@ function ProfileDetails() {
               <div>
                 <p>Website</p>
                 <input
-                  value={user.website}
+                  value={user.website ? user.website : ""}
                   name="website"
                   onChange={onChange}
                 />
@@ -115,8 +134,8 @@ function ProfileDetails() {
               <div>
                 <p>Catch Phrase</p>
                 <input
-                  value={user.companyCatchPhrase}
-                  name="suite"
+                  value={user.companyCatchPhrase ? user.companyCatchPhrase : ""}
+                  name="companyCatchPhrase"
                   onChange={onChange}
                 />
               </div>
@@ -124,18 +143,18 @@ function ProfileDetails() {
               <div>
                 <p>Buisness Statement</p>
                 <input
-                  value={user.buissnessStatement}
+                  value={user.buissnessStatement ? user.buissnessStatement : ""}
                   name="buissnessStatement"
                   onChange={onChange}
                 />
               </div>
             </div>
-            <button>Save</button>
+            <button onClick={onSave}>Save</button>
           </div>
         </div>
       </div>
     );
   }
-  return <></>;
+  return <>Loading...</>;
 }
 export default ProfileDetails;

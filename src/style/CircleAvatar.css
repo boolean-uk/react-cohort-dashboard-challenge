@@ -1,12 +1,15 @@
 .circle-avatar {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.219);
   }
   
   .initials {

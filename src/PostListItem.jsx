@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style/Post.css";
 import CircleAvatar from "./CircleAvatar";
 import { useContext, useState } from "react";
@@ -14,13 +14,18 @@ function PostListItem({ post, user }) {
   const { active } = activeContext;
   const { createComment } = commentContext;
   const { deletePost } = postContext;
+  const navigate = useNavigate()
 
   function onSubmit() {
-    const com = { postId: post.id, content: comment, contactId: user.id };
+    const com = { postId: post.id, content: comment, contactId: active.id };
     createComment(com, post.id);
+    setComment("")
   }
   function onDelete() {
     deletePost(post.id);
+  }
+  function onEdit(){
+navigate(`/post/${post.id}/edit`)
   }
   if (user && post && active) {
     return (
@@ -35,13 +40,15 @@ function PostListItem({ post, user }) {
             </Link>
           </div>
           <div className="post-header-text">
+          <Link to={`/profile/${user.id}`}>
             <h4>{user.firstName + " " + user.lastName}</h4>
+            </Link>
             <Link to={`/post/${post.id}`}>
               <p>{post.title}</p>
             </Link>
           </div>
           <div>
-            <button>Edit</button>
+            <button onClick={onEdit}>Edit</button>
             <button onClick={onDelete}>Delete</button>
           </div>
         </div>

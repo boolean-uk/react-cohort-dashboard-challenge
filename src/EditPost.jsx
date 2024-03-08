@@ -1,31 +1,28 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import CircleAvatar from "./CircleAvatar";
 import { useContext, useEffect, useState } from "react";
-import {
-  ActiveContext,
-  ContactContext,
-  CommentContext,
-  PostContext,
-} from "./App";
+import { ContactContext, PostContext } from "./App";
 
 function EditPost() {
   const { postId } = useParams();
-  const createCommentContext = useContext(CommentContext);
-
   const contactContext = useContext(ContactContext);
-  const activeContext = useContext(ActiveContext);
   const postContext = useContext(PostContext);
   const { contacts } = contactContext;
-  const { posts } = postContext;
-  const { active } = activeContext;
-  const { createComment } = createCommentContext;
-
+  const { posts, editPost } = postContext;
+  const navigate = useNavigate();
   const [post, setPost] = useState(posts.find((p) => p.id == postId));
   const [user, setUser] = useState();
-  const [comment, setComment] = useState("");
-  function onSubmit() {
-    const com = { postId: post.id, content: comment, contactId: user.id };
-    createComment(com, post.id);
+
+  function onSave() {
+    editPost(post);
+    navigate("/");
+  }
+  function onChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    event.target.style.height = 0;
+    event.target.style.height = `${event.target.scrollHeight}px`;
+    setPost({ ...post, [name]: value });
   }
   useEffect(() => {
     if (posts) {
@@ -52,11 +49,21 @@ function EditPost() {
             </div>
             <div className="post-header-text">
               <h4>{user.firstName + " " + user.lastName}</h4>
-              <Link to={`/post/${post.id}`}>
-                <p>{post.title}</p>
-              </Link>
+
+              <input
+                name="title"
+                onChange={onChange}
+                value={post.title}
+              ></input>
             </div>
           </div>
+          <textarea
+            name="content"
+            value={post.content}
+            onChange={onChange}
+            style={{ resize: "none", width: "100%" }}
+          ></textarea>
+          <button onClick={onSave}>Save</button>
           <p>{post.content}</p>
         </div>
       </main>

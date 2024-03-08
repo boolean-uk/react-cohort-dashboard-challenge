@@ -3,12 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import { CommentContext } from "./App";
 import Comment from "./Comment";
 
-function CommentsList({ postId,focus }) {
+function CommentsList({ postId, focus }) {
   const commentsContext = useContext(CommentContext);
   const { comments } = commentsContext;
   const [postComments, setPostComments] = useState([]);
   const [allComments, setAllComents] = useState(false);
-
 
   function onChange() {
     setAllComents(!allComments);
@@ -20,9 +19,10 @@ function CommentsList({ postId,focus }) {
     if (allComments) {
       return (
         <div>
-          <span onClick={onChange}>Less comments</span>
-
-          {postComments.map((comment) => {
+          <div className="toggle-comments">
+            <span onClick={onChange}>Less comments</span>
+          </div>
+          {postComments.slice().reverse().map((comment) => {
             return (
               <div key={comment.id}>
                 <Comment comment={comment} postId={postId} />
@@ -34,8 +34,10 @@ function CommentsList({ postId,focus }) {
     } else {
       return (
         <div>
-          <span onClick={onChange}>More comments</span>
-          {postComments.slice(0, 3).map((comment) => {
+          <div className="toggle-comments">
+            <span onClick={onChange}>More comments</span>
+          </div>
+          {postComments.slice().reverse().slice(0, 3).map((comment) => {
             return (
               <div key={comment.id}>
                 <Comment comment={comment} postId={postId} />
@@ -46,10 +48,10 @@ function CommentsList({ postId,focus }) {
       );
     }
   } else {
-    return postComments.map((comment) => {
+    return postComments.slice().reverse().map((comment) => {
       return (
         <div key={comment.id}>
-                <Comment comment={comment} postId={postId} />
+          <Comment comment={comment} postId={postId} />
         </div>
       );
     });
