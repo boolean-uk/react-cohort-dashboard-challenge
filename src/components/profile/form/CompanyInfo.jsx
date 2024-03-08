@@ -19,17 +19,17 @@ const CompanyInfo = () => {
      <div className="profile-form-content-item">
           <h2>Company Info</h2>
         <input
-            name="userName"
+            name="companyName"
             type="text"
-            placeholder="UserName"
+            placeholder="Company Name"
             className="profileFormItem"
-            value={form.userName}
+            value={form.companyName}
             onChange={(e) => {handleChange(e) } } />
 
         <input
             name="catchPhrase"
             type="text"
-            placeholder="CatchPhrase"
+            placeholder="Catch Phrase"
             className="profileFormItem"
             value={form.catchPhrase}
             onChange={(e) => {handleChange(e) } } />
@@ -37,7 +37,7 @@ const CompanyInfo = () => {
         <input
             name="businessStatement"
             type="text"
-            placeholder="BusinessStatement"
+            placeholder="Business Statement"
             className="profileFormItem"
             value={form.businessStatement}
             onChange={(e) => {handleChange(e) } } />

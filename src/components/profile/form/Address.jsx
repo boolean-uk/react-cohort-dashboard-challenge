@@ -45,7 +45,7 @@ const Address = () => {
             type="zipcode"
             placeholder="Zipcode"
             className="profileFormItem"
-            value={form.email}
+            value={form.zipcode}
             onChange={(e) => {handleChange(e) } } />
         
      </div>
