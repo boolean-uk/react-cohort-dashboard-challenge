@@ -1,9 +1,0 @@
-{
-  "id": 1,
-  "firstName": "firstname",
-  "lastName": "lastname",
-  "username": "username",
-  "email": "email",
-  "catchPhrase": "catchphrase!",
-  "picture": "../assets/person.webp"
-}

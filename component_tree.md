@@ -1,12 +1,25 @@
-## Components
+# Component Tree
+### Syntax
+Indentation determines which components are parents/children
+"-" : Prop
+"=" : State
+"ctx" : Context
+"ctx ->" : Takes Context
+"-> ctx" : Is part of Context
+
+
+### Components
 
 App.jsx
+=currentUser -> ctx
+=users -> ctx
+=posts -> ctx
+ctx AppDataContext
 
   Header.jsx
 
-    Logo.jsx
-
     ProfilePicture.jsx
+    -user
 
   ContainerMainNav.jsx
 
@@ -19,17 +32,17 @@ App.jsx
 
     MainHome.jsx
 
+      MakePost.jsx
+        -user
+        ProfilePicture.jsx
+
+
+
       Posts.jsx
-
-        MakePost.jsx
-
-          ProfilePicture.jsx
-
-          PostForm.jsx
 
         Post.jsx
 
-          PostHeading.jsx
+          PostHead.jsx
 
           PostContent.jsx
 
@@ -38,6 +51,7 @@ App.jsx
             PostComment.jsx
 
               ProfilePicture.jsx
+              -user
 
               CommentContent.jsx
 
