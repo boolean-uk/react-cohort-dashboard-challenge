@@ -1,0 +1,64 @@
+.post-reply-item-container {
+    display: flex;
+    align-items:start;
+}
+
+.post-reply-item {
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.post-reply-content-container {
+    margin-left: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    max-width: calc(100% - 140px);
+    min-width: 220px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 20px;
+    background-color: var(--form-background-color);
+}
+
+.post-reply-content-container > span {
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.post-reply-content-container > p  {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    text-align: left;
+}
+
+
+.modify-post-container {
+    position: relative;
+    display: flex;
+    justify-content: right;
+}
+
+
+.modify-post-container > span {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.modify-post-container > img:hover {
+    background-color: lightcoral;
+}
+
+.post-reply-content-container > .text-like-field {
+    line-height: 1.5;
+    width: calc(100vw - 300px - 150px);
+    resize: vertical;
+    font-size: 18px;
+}

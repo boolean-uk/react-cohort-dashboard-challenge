@@ -1,0 +1,22 @@
+.post-user-information-container {
+    display: flex;
+    width: 100%;
+}
+
+.post-user-information {
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.post-user-information > span {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.post-title {
+    color: var(--post-title-color);
+    cursor: pointer;
+}

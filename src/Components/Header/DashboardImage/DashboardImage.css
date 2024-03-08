@@ -1,0 +1,6 @@
+img {
+    z-index: 3;
+    object-fit:scale-down;
+    height: 70px;
+    cursor: pointer;
+}

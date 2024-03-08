@@ -1,0 +1,20 @@
+.content-view-container {
+    position: fixed;
+    top: 90px;
+    left: 150px;
+    padding: 30px;
+    width: calc(100vw - 200px - 30px);
+    height: calc(100vh - 90px - 50px);
+}
+
+.scroll-container {
+    scrollbar-width: none;
+    overflow: scroll;
+}
+
+@media only screen and (max-width: 600px) {
+    .content-view-container {
+        left: 0px;
+        width: calc(100vw - 50px);
+    }
+}
