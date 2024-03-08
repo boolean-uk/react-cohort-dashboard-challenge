@@ -1,0 +1,241 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f5fa;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #404040;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #010177;
+  height: 100vh;
+  padding: 5px;
+  width: 70px;
+  margin-top: 60px;
+  border-top: 2px solid burlywood;
+  box-shadow: 5px 0px 3px #000094;
+}
+
+.nav-top {
+  display: flex;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color: #000046;
+  border-bottom: 2px solid #000070;
+  box-shadow: 0px 2px 10px 1px #000070;
+}
+.spacer {
+  flex-grow: 1;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 60px;
+  margin-left: 6rem;
+  background-color: #f0f5fa;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(238, 244, 255);
+  box-shadow: 0px 15px 15px rgb(192, 213, 254);
+  overflow-y: auto;
+}
+
+#root > div {
+  display: flex;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  background: #e7e9ff;
+  margin: 2em;
+  box-shadow: 0px 0px 15px 2px rgb(175, 210, 214);
+  border-radius: 2%;
+}
+.postTitle {
+  color: #53545b;
+  text-decoration: none;
+}
+.userinfo {
+  display: flex;
+  width: 80%;
+  justify-content: start;
+  align-items: center;
+  border-bottom: 1px solid rgb(98, 98, 98);
+}
+.userinfo > img {
+  width: 50px;
+  height: auto;
+}
+
+.userinfo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 1vb 1vb;
+  line-height: 1;
+}
+
+.postContent {
+  margin: 5vh 10vh;
+  display: flex;
+  justify-content: flex-start;
+  color: #6c6c6c;
+}
+
+.comment {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(190, 213, 255);
+  color: dimgrey;
+  margin: 10px 5px;
+  box-shadow: 5px 5px 5px rgb(155, 173, 209);
+  border-radius: 5px;
+}
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-wrap: wrap;
+  padding: 5px 10px;
+  width: 60vb;
+}
+
+.initials {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.createPost {
+  display: flex;
+  background-color: #ceced7;
+  border-radius: 5%;
+  width: 60%;
+  margin-top: 10px;
+  border: 5px solid lightgrey;
+}
+.createPost > form {
+  width: 80vb;
+  padding: 5px;
+}
+.createPost > form > div > input {
+  background-color: #e6ebf5;
+  color: black;
+}
+form > div > textarea {
+  background-color: #e6ebf5;
+  color: black;
+  resize: vertical;
+}
+
+.createComment {
+  display: flex;
+  margin: 20px 60px;
+}
+.createComment > form {
+  width: 60vb;
+}
+.button:hover {
+  background-color: #64dc78;
+}
+
+.profileDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 3rem;
+}
+.profileDiv > div > label {
+  margin-right: 1em;
+  color: black;
+}
+.profileItem {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  margin: 1em 0em;
+  border: 1px solid grey;
+}
+.profileItem > input {
+  width: 70%;
+  margin: 0em 1em;
+  background-color: #ebebeb;
+  color: #242424;
+  box-sizing: border-box;
+  border-radius: 5%;
+  overflow: hidden;
+}
