@@ -56,7 +56,7 @@ function App() {
                 <Layout>
                 <Routes>
                         <Route path="/" element={<PostPage />} />
-                        <Route path="/profile" element={<PostPage />} />
+                        <Route path="/profile/:id" element={<h1>My Profile</h1>} />
                         <Route path="/detail/:id" element={<PostDetail />} />
                     </Routes>
                 </Layout>
