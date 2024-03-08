@@ -11,3 +11,10 @@
     scrollbar-width: 5px;
     overflow: scroll;
 }
+
+@media only screen and (max-width: 600px) {
+    .content-view-container {
+        left: 0px;
+        width: calc(100vw - 50px);
+    }
+}

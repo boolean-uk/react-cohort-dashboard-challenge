@@ -38,8 +38,15 @@ button {
     justify-content: left;
     width: calc(100vw - 200px - 270px);
     min-width: 150px;
+    margin-left: 10px;
 }
 
 .create-post-input-container > label > input {
     margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .create-post-input-container {
+        width: calc(100% - 200px);
+    }
 }
