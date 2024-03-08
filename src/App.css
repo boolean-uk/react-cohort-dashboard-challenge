@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%; 
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F0F5FA;
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000046;
+  text-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dce8;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.blurry-text {
+  text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.main {
+  margin-left: 150px;
+  padding: 0;
+}
+
+.header {
+  background-color: #000046;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.header .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #000046;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  position: absolute;
+  right: 100px;
+  font-weight: 600;
+}
+
+.sidebar {
+  position: fixed;
+  width: 150px;
+  height: 100%;
+  top: 90px;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: inherit; 
+  display: block; 
+}
+
+.icon-container {
+  width: 100%; 
+  padding-top: 100%; 
+  position: relative; 
+}
+
+.icon-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #64648C;
+}
+
+.icon-container:hover {
+  background-color: #eee; /* #64dc78 is so ugly... */
+}
+
+.sidebar svg {
+  margin-bottom: 8px; 
+}
+
+.active .icon-container {
+  background-color: #E6EBF5; 
+}
+
+.active .icon-content {
+  color: #000046; 
+}
+
+.post-list-container {
+  overflow-y: auto; /* Enables vertical scrolling within the .main div */
+  height: calc(100vh - 255px); /* Adjusted height for the viewport height minus the header height */
+  position: relative; /* If needed for positioning context */
+  top: 90px;
+  margin-left: 15px;
+}
+
+.post-container {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid #ebf0f6;;
+
+  max-width: calc(100% - 25px);
+  box-sizing: border-box;
+}
+
+.main ul {
+  padding: 0;
+}
+
+.post-container .title-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.post-container .profile-pic {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-weight: 600;
+  background-color: #FFFFFF;
+  color: #000046;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.post-container .title {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.post-container .name {
+  position: absolute;
+  top: 5px;
+  color: #000046;
+  font-size: 17px;
+}
+
+.post-container .title-container .post-title {
+  color: #64648c;
+  font-size: 13px;
+  margin: 0;
+  position: absolute;
+  bottom: 3px;
+
+  white-space: nowrap;
+}
+
+.post-container .content-container {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #ebf0f6;;
+}
+
+.post-container .comment-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-container .comment-container ul {
+  padding: 0;
+}
+
+.post-container .comment-container .full-comment {
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+
+}
+
+.post-container .comment-container .commenter {
+  color: #000046;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.post-container .comment-container .comment {
+  padding-top: 3px;
+}
+
+.post-container .create-comment {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.post-container .comment-input {
+  width: 100%;
+  position: relative;
+}
+
+.post-container .comment-input input{
+  background: #e6ebf5;
+  border: none;
+  outline:none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  padding-left: 11px;
+  padding-right: 45px;
+  width: 100%;
+  height: 22px;
+  max-width: calc(100% - 57px);
+  position: absolute;
+
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000046;
+  text-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.5);
+}
+
+.post-container .comment-input input::placeholder{
+  color: #9d9daa;
+  text-shadow: none;
+}
+
+.post-container .comment-input button{
+  background: none;
+  border: none;
+  height: 80%;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 0.5%;
+  top: 13%;
+}
+
+.create-post-container {
+  height: 100px;
+  position: relative; /* If needed for positioning context */
+  top: 90px;
+  margin-left: 15px;
+}
+
+.create-post {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  position: relative; 
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid #ebf0f6;;
+
+  max-width: calc(100% - 45px);
+  box-sizing: border-box;
+}
+
+.create-post .profile-pic {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-weight: 600;
+  background-color: #FFFFFF;
+  color: #000046;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.create-post .title-input {
+  width: 25%;
+  margin-right: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.create-post .post-input {
+  width: 50%;
+  margin-right: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.create-post input{
+  background: #e6ebf5;
+  border: none;
+  outline:none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  padding-left: 11px;
+  padding-right: 45px;
+  width: 100%;
+  height: 22px;
+  max-width: calc(100% - 57px);
+  position: absolute;
+
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000046;
+  text-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.5);
+}
+
+.create-post input::placeholder{
+  color: #9d9daa;
+  text-shadow: none;
+}
+
+.create-post button{
+  background: #000046;
+  border: none;
+  outline:none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 16%;
+  height: 50px;
+  max-width: calc(100% - 57px);
+  position: relative;
+
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  text-shadow: none;
+  color: white;
+  text-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.create-post button:hover{
+  background: #64dc78;
+}
+
+.single-post-list-container {
+  overflow-y: auto; /* Enables vertical scrolling within the .main div */
+  height: calc(100vh - 90px); /* Adjusted height for the viewport height minus the header height */
+  position: relative; /* If needed for positioning context */
+  top: 90px;
+  margin-left: 15px;
+}
+
+.post-container {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid #ebf0f6;;
+
+  max-width: calc(100% - 25px);
+  box-sizing: border-box;
+}
