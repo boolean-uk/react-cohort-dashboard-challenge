@@ -1,6 +1,4 @@
 body {
-  height: 100vh;
-  width: 100vw;
   margin: 0;
   padding: 0;
   background-color: #F0F5FA;
@@ -27,7 +25,7 @@ body {
 }
 
 input[type=text] {
-  flex-grow: 2;
+  flex-grow: 1;
   height: 37px;
   background-color:rgb(224, 227, 243);
   border-style: none;
@@ -44,3 +42,30 @@ input[type=text] {
   text-justify: center;
   border-radius: 50%;
 }
+
+.profile-pic-big {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 25px;
+  text-align: center;
+  text-justify: center;
+  border-radius: 50%;
+}
+
+button {
+  background-color: #000046;
+  color: white;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 120px;
+  height: 43px;
+
+  border-style: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #64dc78;
+} 

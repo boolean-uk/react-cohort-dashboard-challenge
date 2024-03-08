@@ -2,19 +2,13 @@
     display: flex; 
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
 
     background-color: white;
-
 
     height: 75px;
     padding: 5px;
 }
 
-.comment-field input[type=text] {
-    padding-left: 10px;
-}
-
 .comment-field .profile-pic {
     margin-right: 10px;
-}
+} 

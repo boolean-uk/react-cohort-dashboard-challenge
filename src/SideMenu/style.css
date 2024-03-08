@@ -5,6 +5,9 @@
     max-height: calc(100vh - 60px);
     margin: 0;
     background-color: white;
+
+    display: flex;
+    flex-direction: column;
   }
 
 .side-menu input[type=checkbox] {
@@ -15,6 +18,14 @@
   text-align: center;
   padding: 30%;
   text-decoration: none;
+}
+
+.side-menu input[type=checkbox]:checked + .side-menu label {
+  background-color: gainsboro;
+}
+
+.side-menu label:hover {
+  background-color: gainsboro;
 }
 
 a:link {

@@ -19,8 +19,6 @@ hr {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    padding: 10px;
 }
 
 .top-name-title {
@@ -43,7 +41,6 @@ hr {
     display: none;
 }
 
-
 .see-previous-label {
     color: #444499;
-}
+} 

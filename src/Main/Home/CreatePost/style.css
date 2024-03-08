@@ -2,7 +2,6 @@
     display: flex; 
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
 
     background-color: white;
 
@@ -35,4 +34,4 @@
 
 .create-post button:hover {
     background-color: #64dc78;
-}
+} 
