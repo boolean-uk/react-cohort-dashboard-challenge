@@ -26,6 +26,8 @@ a, p, span, div, input, textarea {
 textarea {
   font-family: inherit;
   font-size: inherit;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 header {

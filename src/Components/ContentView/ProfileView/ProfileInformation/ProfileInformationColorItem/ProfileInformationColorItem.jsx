@@ -11,7 +11,7 @@ const ProfileInformationColorItem = ({label, id, required = false}) => {
                 <span>{required ? label+"*" : label }</span><br/>
                 <input 
                     type="color"
-                    id={id}
+                    id={id+"_picker"}
                     placeholder={label}
                     step="5"
                     value={userData[id]}
@@ -20,7 +20,7 @@ const ProfileInformationColorItem = ({label, id, required = false}) => {
                 />
                 <input 
                     type="text"
-                    id={id}
+                    id={id+"_field"}
                     placeholder={label}
                     value={userData[id]}
                     onChange={(e) => handleFieldChange(e)}

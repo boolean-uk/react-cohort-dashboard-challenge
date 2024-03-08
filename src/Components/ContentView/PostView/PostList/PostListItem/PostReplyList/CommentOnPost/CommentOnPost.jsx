@@ -13,7 +13,7 @@ const CommentOnPost = ({postID}) => {
 
     const handleChange = (e) => {
         localStorage.setItem(`uncommited_comment_${postID}`, e.target.value)
-        setData({...data, [e.target.id]: e.target.value})
+        setData({...data, "commentText": e.target.value})
     }
 
     const handleKeyDown = (e) => {
@@ -53,17 +53,21 @@ const CommentOnPost = ({postID}) => {
                     type="text"
                     className='reply-container-item-content'
                     placeholder='Add a comment...'
-                    id="commentText"
+                    id={`commentText_${postID}`}
                     value={data["commentText"]}
                     onChange={(e) => handleChange(e)}
                     onKeyDown={(e) => handleKeyDown(e)}
                 >
                 </input>
                 <button
+                    aria-label="Submit comment on post"
+                    className="submit-comment-on-post"
                     onClick={(e) => submitPostComment(e)}
                 >
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/sent-icon.png">
-                    </img>
+                    <img 
+                        alt="Send comment"
+                        src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/sent-icon.png"
+                    />
                 </button>
             </div>
         </div>

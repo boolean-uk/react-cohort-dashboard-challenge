@@ -15,7 +15,7 @@ const PostItemHeader = ({user, post}) => {
             </span> <br/>
             <a 
                 className='post-title'
-                onClick={() => navigate(`/post/${post.id}`)}
+                href={`/post/${post.id}`}
             >
                     {post.title}
             </a>

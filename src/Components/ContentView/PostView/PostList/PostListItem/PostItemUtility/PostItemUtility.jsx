@@ -23,10 +23,12 @@ const PostItemUtility = ({editMode, setEditMode, handleFinishEditing, postID}) =
         <div className='utility-container'>
             {!editMode && <>
                 <img 
+                    alt="Edit button"
                     src="https://uxwing.com/wp-content/themes/uxwing/download/editing-user-action/pencil-icon.png"
                     onClick={() => setEditMode(true)}
                     />
                 <img 
+                    alt="Delete button"
                     src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/delete-icon.png"
                     onClick={() => deletePost(postID)}
                 />
