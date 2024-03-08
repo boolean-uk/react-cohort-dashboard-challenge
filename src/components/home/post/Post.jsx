@@ -5,6 +5,7 @@ import { CommentSecton } from './commentSection/CommentSection';
 import { ProfileImage } from '/src/components/ProfileImage.jsx'
 import PropTypes from 'prop-types'
 import { getUser } from '../../../utils/userRequests';
+import { Link } from 'react-router-dom';
 
 export const Post = ({post}) => {
   const [user, setUser] = useState(null);
@@ -18,34 +19,38 @@ export const Post = ({post}) => {
 
   if (!user) {
     return (
-      <div className="post ">
+      <div className="feed-container">
         <p>Loading user...</p>
       </div>
     );
   }
   return (
-    <div className="post">
-      <div className="post-header">
-        <div>
-          <ProfileImage user={user} />
-        </div>
-        <div className="post-right-of-profile">
-          <div className="post-user-name">
-            <p>
-              {user.firstName} {user.lastName}
-            </p>
+
+      <div className="feed-container">
+        <div className="post-header">
+          <div>
+            <ProfileImage user={user} />
           </div>
-          <div className="post-title">
-            <p>{post.title}</p>
+          <div className="post-right-of-profile">
+            <div className="post-user-name">
+              <p>
+                {user.firstName} {user.lastName}
+              </p>
+            </div>
+            <Link to={`/post/${post.id}`}>
+              <div className="post-title">
+                <p>{post.title}</p>
+              </div>
+            </Link>
           </div>
         </div>
+        <div className="post-content">
+          <p>{post.content}</p>
+          <hr className="post-divider-line" />
+        </div>
+        <CommentSecton postId={post.id} />
       </div>
-      <div className="post-content">
-        <p>{post.content}</p>
-        <hr className="post-divider-line" />
-      </div>
-      <CommentSecton postId={post.id} />
-    </div>
+
   );
 }
 

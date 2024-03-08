@@ -7,6 +7,7 @@ import { createContext, useEffect, useState } from 'react';
 import { getPosts, postPost } from '../utils/postRequests.jsx';
 import { getUser } from '../utils/userRequests.jsx';
 import { Route, Routes } from 'react-router-dom';
+import { Post } from './home/post/Post.jsx';
 export const AuthContext = createContext('');
 export const PostsContext = createContext('')
 
@@ -55,6 +56,10 @@ function App() {
               </PostsContext.Provider>
             } />
 
+            {posts.map((post) => (
+              <Route key={post.id} path={`/post/${post.id}`} element={<Post post={post} />} />
+            ))}
+            
             <Route path='/profile/:id' element={<p>Profile will go here</p>} />
           </Routes>
         </div>

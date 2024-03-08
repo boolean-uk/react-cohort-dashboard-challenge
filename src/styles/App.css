@@ -1,10 +1,10 @@
 /* App.css */
 .app-container {
-  font-family: sans-serif;
+
 }
 
 .main-content {
-  margin-top: 78px;
-  margin-left: 100px;
-  display: flex; 
+  position: absolute;
+  top: 78px;
+  left: 100px;
 }

@@ -21,7 +21,7 @@ export const CreatePost = () => {
   }
   
   return (
-    <div className="create-post-container">
+    <div className="create-post feed-container">
       <div className="profile-image-container">
         <ProfileImage user={authUser} />
       </div>

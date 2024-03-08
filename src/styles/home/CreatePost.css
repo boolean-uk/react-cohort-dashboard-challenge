@@ -1,11 +1,5 @@
-.create-post-container {
-    margin: 1rem;
+.create-post{
     display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #e6ebf5;
-    border-radius: 5px;
-    padding: 1rem;
 }
 
 .create-post-input-field {

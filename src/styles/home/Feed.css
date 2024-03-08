@@ -1,5 +1,12 @@
 .feed {
     overflow-y: scroll;
-    width: 100%;
 }
 
+.feed-container {
+    margin: 1rem;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e6ebf5;
+    border-radius: 5px;
+    padding: 1rem;
+}

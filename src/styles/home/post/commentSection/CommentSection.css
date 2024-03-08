@@ -1,6 +1,7 @@
 .see-previous-comments {
     cursor: pointer;
     color: #64648c;
+    font-size: 14px;
 }
 
 .see-previous-comments:hover {
