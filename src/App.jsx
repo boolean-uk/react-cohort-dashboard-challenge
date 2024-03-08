@@ -65,7 +65,7 @@ function App() {
           post.id === postId
             ? {
                 ...post,
-                comments: [...(post.comments || []), createdComment],
+                comments: [createdComment, ...(post.comments || [])],
               }
             : post
         )
