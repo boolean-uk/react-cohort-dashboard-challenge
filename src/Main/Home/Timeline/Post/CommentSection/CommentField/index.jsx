@@ -15,7 +15,7 @@ function CommentField({post, comments, setComments}) {
         setComments([...comments, {
             postId: post.id, 
             content: commentContent, 
-            contactId: userContext.users[0].id
+            contactId: userContext.currentUser.id
         }])
 
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post/${post.id}/comment`, {

@@ -20,7 +20,7 @@ function CommentSection({post}) {
             </>
             }
             {comments.map((comment, index) => !maxThree || index >= comments.length-3 ? (
-                <Comment key={index} comment={comment}/>
+                <Comment key={index} comment={comment} post={post} comments={comments} setComments={setComments}/>
             ) : <div key={index}></div>)}
             <CommentField post={post} comments={comments} setComments={setComments}/>
         </>
