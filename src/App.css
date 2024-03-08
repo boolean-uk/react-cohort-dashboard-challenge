@@ -1,0 +1,126 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+  --background: #000046;
+  --form-input-background: #e6ebf5;
+  --button-hover-color: #64dc78;
+  --post-title-color: #64648c;
+  --body-background-color: #F0F5FA;
+  --white: #ffffff;
+
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--body-background-color);
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 80px;
+  width: 100vw;
+  background: var(--background);
+  color: var(--white);
+}
+.page-content{
+  display: flex;
+}
+.post-list{
+  width: 80%;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  overflow-x: hiden;
+
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0  2rem;
+}
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 20%;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background: var(--white);
+  
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+
+}
+
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.create-post{
+  background: var(--white);
+  margin: 24px 24px;
+  padding: 12px 12px;
+  border-radius: 10px;
+}
+
+button:hover{
+  background: var(--button-hover-color);
+}
+.post-item{
+  background: var(--white);
+  margin: 24px 24px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  word-break: break-word;
+
+}
+textarea{
+  background: var(--form-input-background);
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  height: 40px;
+  resize: none;
+}
+
+textarea::placeholder{
+  padding: 6px 12px;
+}
+
+/*Post*/
+.post-item{
+  
+}
