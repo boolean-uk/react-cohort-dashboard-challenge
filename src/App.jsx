@@ -46,6 +46,7 @@ function App() {
                     posts: postData,
                     setPosts: setPostData,
                     contacts: contactData,
+                    setContacts: setContactData,
                     user: user,
                 }}
             >
