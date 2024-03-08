@@ -119,3 +119,19 @@
   background-color: #64dc78;
 }
 
+/* MODIFY BUTTONS */
+
+.modify-buttons{
+  margin: 10px 0
+}
+
+.delete{
+  background-color: rgb(206, 55, 55);
+  color: #fff;
+  margin-right: 20px;
+}
+
+.update{
+  background-color: #000046;
+  color: #ffffff;
+}

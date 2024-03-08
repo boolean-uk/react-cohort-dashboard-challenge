@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { PostContext } from "../../../App";
 
 function PostList() {
-  const { posts } = useContext(PostContext);
+  const { posts, setPosts } = useContext(PostContext);
   const reversedPosts = [...posts].reverse()
   console.log(posts)
   return (
     <div>
         {reversedPosts.map((post) => 
-        <PostItem post={post} key={post.id}></PostItem>
+        <PostItem post={post} key={post.id} setPosts={setPosts}></PostItem>
         )}
     </div>
   )
@@ -18,7 +18,8 @@ function PostList() {
 
 PostList.propTypes = {
 
-  posts: PropTypes.array
+  posts: PropTypes.array,
+  setPosts: PropTypes.func
 
 }
 
