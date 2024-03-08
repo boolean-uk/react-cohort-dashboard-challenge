@@ -2,11 +2,11 @@
     position: fixed;
     top: 78px;
     left: 0;
-    width: 100px; /* Set fixed width for left menu */
-    height: calc(100vh - 78px); /* Ensure full viewport height */
-    background-color: #fff; /* White background */
+    width: 100px; 
+    height: calc(100vh - 78px); 
+    background-color: #fff; 
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; 
 }
 
 .options {
@@ -14,17 +14,12 @@
     height: 85px;
     display: flex;
     flex-direction: column;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer; 
-    cursor: pointer; 
     font-weight: bold;
     color: #64648c;
-    color: #64648c;
 }
-
-
 
 .options:hover {
     background-color: #64dc78;
@@ -32,9 +27,11 @@
 }
 
 .icon {
-    width: 30px; /* Adjust icon size */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: -10px; /* Adjust margin to reduce space between icon and text */
+    width: 30px; 
+    height: auto; 
+    margin-bottom: -10px; 
 }
 
-
+.active {
+    background-color: #e6ebf5; 
+}
