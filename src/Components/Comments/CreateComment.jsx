@@ -16,7 +16,6 @@ function CreateComment({ id, AddComment }) {
         content: content,
       };
       AddComment(newComment);
-      console.log(id);
     }
   }
   const addTweet = (e) => {
@@ -26,7 +25,6 @@ function CreateComment({ id, AddComment }) {
       contactId: currentUser.id,
       content: content,
     };
-    console.log(newComment);
     AddComment(newComment, id);
   };
   return (

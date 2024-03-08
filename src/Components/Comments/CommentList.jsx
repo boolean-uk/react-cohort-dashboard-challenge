@@ -11,7 +11,6 @@ function CommentList({ id, hide }) {
 
 
   async function AddComment(comment) {
-    console.log(comment)
     const response = await fetch(
       URL,
       {
@@ -36,7 +35,6 @@ function CommentList({ id, hide }) {
     fetch(URL)
       .then((res) => res.json())
       .then((data) => setComments(data));
-    // .then((data) => console.log(data));
   }
   let filteredComments;
   hide

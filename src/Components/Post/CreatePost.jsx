@@ -15,18 +15,6 @@ function CreatePost() {
       contactId: currentUser.id
     }
     AddPost(newPost)
-    // setTweets([
-    //     {
-    //         ...user,
-    //         date: '1m',
-    //         content,
-    //         commentCount: 0,
-    //         retweetCount: 0,
-    //         heartCount: 0,
-    //         analyticsCount: 0
-    //     },
-    //     ...tweets
-    // ])
   };
   return (
     <div className="createPost">  

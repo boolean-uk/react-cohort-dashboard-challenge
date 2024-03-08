@@ -27,7 +27,6 @@ function App() {
     fetch(postURL)
       .then((res) => res.json())
       .then((data) => setPostData(data.reverse()));
-      // .then((data) => console.log(data));
   }
 
   function getContacts() {
@@ -68,7 +67,6 @@ function App() {
   }, [contactData]);
 
   useEffect(() => {
-    // console.log(user)
     if(user !== undefined){
       setCurrentUser(user);
     }

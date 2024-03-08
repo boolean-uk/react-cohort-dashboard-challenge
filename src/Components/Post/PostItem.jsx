@@ -2,9 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TempContext } from "./../../App";
 import CommentList from "../Comments/CommentList";
-import CreateComment from "../Comments/CreateComment";
 
-function PostItem({ post, keydata }) {
+function PostItem({ post }) {
   const [author, setAuthor] = useState({
     firstName: "",
     lastName: "",

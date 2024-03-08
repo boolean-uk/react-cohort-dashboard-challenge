@@ -7,8 +7,6 @@ function Header() {
   const { setCurrentTab, currentUser } = useContext(TempContext);
   const navigate = useNavigate();
 
-
-  // console.log(user);
   return (
     <header className="header">
       {/* <svg className="menu-icon" focusable="false" viewBox="0 0 24 24"></svg> */}

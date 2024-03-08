@@ -9,7 +9,7 @@ function PostList() {
     <div>
       <ul>
         {postData.map((post, index) => (
-          <PostItem key={index} keydata={index} post={post} />
+          <PostItem key={index} post={post} />
         ))}
       </ul>
     </div>

@@ -41,14 +41,13 @@ function AccountInfo() {
       );
     }
 
-    getContacts()
+    getContacts();
   }
 
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     UpdatePerson(contact.id, contact); // Call your UpdatePerson function with the form data
-    //   navigate(`/view/${id}`);
   };
 
   const handleChange = (event) => {
@@ -87,15 +86,20 @@ function AccountInfo() {
   };
   return (
     <div className="pageitem">
-      <div
-        className="profileIcon"
-        style={{ background: contact.favouriteColour }}
-        onClick={() => {
-          setCurrentTab("profile");
-          navigate(`/profile/${id}`);
-        }}
-      >
-        {` ${contact ? `${contact.firstName[0]}${contact.lastName[0]}` : ""}`}
+      <div className="nameSection">
+        <div
+          className="profileIcon"
+          style={{ background: contact.favouriteColour }}
+          onClick={() => {
+            setCurrentTab("profile");
+            navigate(`/profile/${id}`);
+          }}
+        >
+          {` ${contact ? `${contact.firstName[0]}${contact.lastName[0]}` : ""}`}
+        </div>
+        <h1>
+          {contact.firstName} {contact.lastName}
+        </h1>
       </div>
       <section className="survey__form">
         <form className="accountForm" onSubmit={handleSubmit}>

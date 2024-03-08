@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { TempContext } from "./../../App";
 import CommentList from "../Comments/CommentList";
-import CreateComment from "../Comments/CreateComment";
+import { useNavigate } from "react-router-dom";
+
 
 function PostPage() {
   const { id } = useParams();
@@ -16,26 +17,21 @@ function PostPage() {
     lastName: "",
     favouriteColour: "#00FF00",
   });
-  const { contactData, postData } = useContext(TempContext);
+  const { contactData, postData, setCurrentTab } = useContext(TempContext);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     if(postData.find((p) => p.id == id) != undefined){
-      console.log(postData.find((p) => p.id == id))
       setPost(postData.find((p) => p.id == id));
     }
   }, [postData]);
   
   useEffect(() => {
     if(contactData.find((c) => c.id == post.contactId) != undefined){
-      console.log(contactData.find((c) => c.id == post.contactId))
       setAuthor(contactData.find((c) => c.id == post.contactId));
     }
   }, [contactData, post]);
-  
-  useEffect(() => {
-    // console.log("post",post)
-    // console.log("postData",postData.find((p) => p.id == id))
-  }, [post, postData]);
 
   return (
     <li className="createPost">
@@ -44,6 +40,10 @@ function PostPage() {
           <div
             className="profileIcon"
             style={{ background: author.favouriteColour }}
+            onClick={() => {
+              setCurrentTab("profile");
+              navigate(`/profile/${author.id}`);
+            }}
           >
             {author.firstName[0]}
             {author.lastName[0]}
