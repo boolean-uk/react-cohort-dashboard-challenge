@@ -5,7 +5,8 @@ import Posts from "./Components/Posts";
 import Header from "./Components/Header";
 import { useNavigate } from "react-router-dom";
 export const AppContext = createContext();
-
+import Profile from "./Components/Profile";
+import SideBar from "./Components/SideBar";
 export function App() {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ export function App() {
   };
 
   const navigateSingle = (postId) => {
-    navigate(`/${postId}`)
-  }
+    navigate(`/${postId}`);
+  };
 
   const deletePost = async (postId) => {
     fetch(`https://boolean-api-server.fly.dev/Eliassoprani/post/${postId}`, {
@@ -52,16 +53,37 @@ export function App() {
       });
   };
 
+  const deleteComment = async (postId, commentId) => {
+    fetch(
+      `https://boolean-api-server.fly.dev/Eliassoprani/post/${postId}/comment/${commentId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to delete comment");
+        }
+        //setPosts(posts.filter((post) => post.id !== postId));
+      })
+      .catch((error) => {
+        console.error("Error deleting post:", error);
+      });
+  };
   const fetchUser = async (userId) => {
     try {
       const response = await fetch(
         `https://boolean-api-server.fly.dev/Eliassoprani/contact/${userId}`
       );
       const data = await response.json();
+      const { id, ...rest } = data;
       return {
-        id: data.id,
+        id,
         name: data.firstName + " " + data.lastName,
-        favouriteColour: data.favouriteColour,
+        ...rest,
       };
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -71,26 +93,31 @@ export function App() {
   return (
     <>
       <div className="container">
-        <header className="header">
-          <Header />
-        </header>
-        <div className="sidebar">Sidebar</div>
-        <div className="main-content">
-          <AppContext.Provider
-            value={{
-              posts: posts,
-              setPosts: setPosts,
-              loggedInUser: loggedInUser,
-              fetchUser: fetchUser,
-              deletePost: deletePost,
-              navigateSingle: navigateSingle
-            }}>
+        <AppContext.Provider
+          value={{
+            posts: posts,
+            setPosts: setPosts,
+            loggedInUser: loggedInUser,
+            fetchUser: fetchUser,
+            deletePost: deletePost,
+            navigateSingle: navigateSingle,
+            deleteComment: deleteComment,
+          }}
+        >
+          <header className="header">
+            <Header />
+          </header>
+          <div className="sidebar">
+            <SideBar />
+          </div>
+          <div className="main-content">
             <Routes>
               <Route path="/" element={<Posts />} />
               <Route path="/:id" element={<Posts />} />
+              <Route path="/profile/:id" element={<Profile />} />
             </Routes>
-          </AppContext.Provider>
-        </div>
+          </div>
+        </AppContext.Provider>
       </div>
     </>
   );

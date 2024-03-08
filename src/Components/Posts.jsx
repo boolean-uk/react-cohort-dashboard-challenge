@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AppContext } from "../App";
 import Post from "./Post";
 import CreatePost from "./CreatePost";
@@ -12,25 +12,35 @@ function Posts() {
     return <p>loading content...</p>;
   }
 
-  let filteredPosts = posts;
-
-  if (id) {
-    filteredPosts = posts.filter((post) => post.id === id);
-    console.log(filteredPosts);
-  }
-
   return (
     <div className="posts">
       <CreatePost setPosts={setPosts} posts={posts} />
       <ul style={{ padding: "0px" }}>
-        {filteredPosts.map((post) => (
-          <Post
-            key={post.id}
-            postId={post.id}
-            post={post}
-            fetchUser={fetchUser}
-          />
-        ))}
+        {posts.map((post) => {
+          if (id || !isNaN(id)) {
+            if (post.id === Number(id)) {
+              return (
+                <Post
+                  key={post.id}
+                  postId={post.id}
+                  post={post}
+                  fetchUser={fetchUser}
+                  setPosts={setPosts}
+                />
+              );
+            }
+          } else {
+            return (
+              <Post
+                key={post.id}
+                postId={post.id}
+                post={post}
+                fetchUser={fetchUser}
+                setPosts={setPosts}
+              />
+            );
+          }
+        })}
       </ul>
     </div>
   );
