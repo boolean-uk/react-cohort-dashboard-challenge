@@ -13,9 +13,7 @@ export function Comment({ comment }) {
     useEffect(() => {
         setUser(users.find(u => u.id == comment.contactId))
     }, [comment])
-
-    console.log(user)
-
+    
     if( !user) return <h1>Loading ....</h1>
 
     return (

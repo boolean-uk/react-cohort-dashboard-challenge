@@ -12,7 +12,6 @@ export function Post({ postIdAlt }) {
     const {url} = useContext(ConnectionContext);
     const {users, posts } = useContext(UsersContext)
 
-    console.log("ids", postIdAlt, postId)
     const post = posts.find(p => p.id == (postId || postIdAlt))
 
     if ( !post ) return <a>Something else broke!</a>
@@ -65,12 +64,12 @@ export function Post({ postIdAlt }) {
 
                 <p className='content'>{post.content}</p>
 
-                <div className='comment-list'>
+                <ul className='comment-list'>
                     {postIdAlt && <button onClick={() => setHideComments(hc => !hc)} className='comment-list-btn'>{hideComments ? "Show more comments" : "Hide extra commenst"}</button>}
                     {shownComments.map((comment, key) =>
                     <Comment comment={comment} key={key}/> 
                     )}
-                </div>
+                </ul>
                 <PersonalComment post={post} setComments={setComments}/>
             </li>
         </>
