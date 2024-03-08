@@ -42,3 +42,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.text-like-field {
+  display: block;
+  padding: 0;
+  margin: 0;
+  resize: none;
+  border: none;
+  width: 80%;
+  height: fit-content;
+  overflow: scroll;
+  line-height: 1.5;
+  font-family: inherit;
+  background-color: transparent;
+}

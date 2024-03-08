@@ -53,16 +53,9 @@
     background-color: lightcoral;
 }
 
-.text-like-field {
-    display: block;
-    width: auto;
-    padding: 0;
-    margin: 0;
-    resize: none; /* Disable textarea resizing */
-    border: none;
-    overflow: hidden;
+.post-reply-content-container > .text-like-field {
     line-height: 1.5;
-    font-size: 16px;
-    font-family: inherit;
-    background-color: transparent;
+    width: calc(100vw - 300px - 150px);
+    resize: vertical;
+    font-size: 18px;
 }

@@ -4,12 +4,14 @@ import { basePostUrl, baseUserUrl } from '@/Utils/apiUtils'
 import "./PostReplyItem.css"
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
-import { ReplyContext } from "@/Utils/contexts"
+import { ReplyContext, userContext } from "@/Utils/contexts"
 
 const PostReplyItem = ({ reply }) => {
     const [user, setUser] = useState()
+    const [allowEdit, setAllowEdit] = useState(false)
     const navigate = useNavigate()
     const { refetchReplies } = useContext(ReplyContext)
+    const { LoggedInUser } = useContext(userContext)
     const [editField, setEditField] = useState(false)
     const [editedContent, setEditedContent] = useState(reply.content)
 
@@ -57,8 +59,16 @@ const PostReplyItem = ({ reply }) => {
     
     useEffect(() => {
         fetchUserInformation(reply.contactId)
+        setEditedContent(reply.content)
     }, [reply])
 
+    useEffect(() => {
+        setAllowEdit(user?.id === LoggedInUser?.id)
+    }, [user, LoggedInUser])
+
+    if (!user) {
+        return (<div>Loading...</div>)
+    }
 
     return (
         <div className="post-reply-item">
@@ -75,7 +85,7 @@ const PostReplyItem = ({ reply }) => {
                         value={editedContent}
                         onChange={(e) => setEditedContent(e.target.value)}
                     />}
-                    <div className='modify-post-container'> 
+                    {allowEdit && <div className='modify-post-container'> 
                         {editField && 
                             <>
                             <span onClick={() => handleFinishEditing()}>Confirm</span> 
@@ -88,7 +98,7 @@ const PostReplyItem = ({ reply }) => {
                             <span onClick={() => handleDelete()}>Delete</span> 
                             </>
                         }
-                    </div>
+                    </div>}
                 </div>
             </div>}
         </div> 
