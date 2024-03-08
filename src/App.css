@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F0F5FA;
+  color: #000046;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 50px;
+}
+
+input[type=text] {
+  flex-grow: 1;
+  height: 37px;
+  background-color:rgb(224, 227, 243);
+  border-style: none;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-justify: center;
+  border-radius: 50%;
+}
+
+.profile-pic-big {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 25px;
+  text-align: center;
+  text-justify: center;
+  border-radius: 50%;
+}
+
+button {
+  background-color: #000046;
+  color: white;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 120px;
+  height: 43px;
+
+  border-style: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #64dc78;
+} 

@@ -1,0 +1,46 @@
+.post {
+    margin: 10px;
+
+    background-color: white;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:gainsboro;
+
+    padding: 25px;
+}
+
+hr {
+    border: 1px solid gainsboro;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top-name-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1px;
+    padding-left: 10px;
+}
+
+.top-name-title h2 {
+    font-size: 15px;
+}
+
+.top-name-title h4 {
+    font-size: 12px;
+    color: #444499;
+}
+
+.see-previous-checkbox {
+    display: none;
+}
+
+.see-previous-label {
+    color: #444499;
+} 

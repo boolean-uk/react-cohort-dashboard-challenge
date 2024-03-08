@@ -1,0 +1,14 @@
+.comment-field {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+
+    background-color: white;
+
+    height: 75px;
+    padding: 5px;
+}
+
+.comment-field .profile-pic {
+    margin-right: 10px;
+} 

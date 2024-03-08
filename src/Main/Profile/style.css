@@ -1,0 +1,30 @@
+.profile {
+    background-color: white;
+    padding: 10px;
+    margin: 15px;
+
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gainsboro;
+}
+
+.profile-top {
+    padding: 10px;
+    display: flex;
+}
+
+.profile-top .profile-pic-big {
+    margin-right: 10px;
+}
+
+.profile-inputs-row {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-inputs-row-item {
+    padding: 10px;
+    flex-grow: 1;
+}

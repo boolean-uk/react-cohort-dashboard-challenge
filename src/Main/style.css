@@ -1,0 +1,8 @@
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+    flex-grow: 1;
+    /* if contents of main overflow from the height, add a scrollbar on main */
+    overflow-y: auto;
+    /* fix the sidebar to be 100 viewport minus the header */
+    max-height: calc(100vh - 60px);
+  }
