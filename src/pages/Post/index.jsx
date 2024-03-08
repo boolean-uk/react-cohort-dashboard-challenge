@@ -6,17 +6,31 @@ import "./styles.css"
 import PostHeader from "./components/PostHeader"
 import PostAddCommentForm from "./components/PostAddCommentForm"
 import CommentList from "./components/CommentList"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Post() {
-    const { users, posts } = useContext(CohortContext)
+    const { users, posts, setPosts } = useContext(CohortContext)
 
     const [ user, setUser ] = useState(null)
     const [ post, setPost ] = useState(null)
 
+    const navigate = useNavigate()
+
     const [comments, setComments] = useState([])
 
     const { id } = useParams()
+
+    const deletePost = (postId) => {
+        fetch(`https://boolean-api-server.fly.dev/Agatland/contact/${postId}`,{
+            method: "DELETE",
+        })
+        .then(res => {
+            if (res.ok) {
+                setPosts(posts.filter(postToDel => postToDel.id !== postId))
+            }
+        })
+        navigate("/")
+    }
 
     // Finding Post based on id, and user based on posts contactId, and fetch comments for post
     useEffect(() => {
@@ -46,6 +60,7 @@ export default function Post() {
             comments={comments} 
             postId={post.id}
             />
+            <button onClick={() => deletePost(post.id)}>Delete Post</button>
         </div>
     )
 }
