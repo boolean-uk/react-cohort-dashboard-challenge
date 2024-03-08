@@ -50,6 +50,7 @@ function App() {
             <postContext.Provider
                 value={{
                     posts: postData,
+                    setPosts: setPostData,
                     contacts: contactData,
                     user: user,
                 }}

@@ -33,7 +33,7 @@ const Post = ({ post }) => {
 
     useEffect(() => {
         getCommentData();
-    }, [owner]);
+    }, []);
 
     return (
         <li className="list-item">
