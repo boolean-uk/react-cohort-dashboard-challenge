@@ -24,13 +24,16 @@ function Comment({ comment }) {
     return (
         <li className="comment">
             <div className='pic-and-name'>
-                <div className='profile-container'>
-                    <img className='profile-image' src={circle} alt="profile icon" />
-                    <div className="profile-text">{initials}</div>
-                </div>
+            <div className='profile-container'>
+                    <div
+                        className="profile_circle"
+                        style={{ backgroundColor: matchingContact.favouriteColour }}>
+                        <div className="profile-text">{initials}</div>
+                        </div>
+                    </div>
 
-                <h2>{name}</h2>
-            </div>
+                    <h2>{name}</h2>
+                </div>
             <p>{comment.content}</p>
         </li>
     )
