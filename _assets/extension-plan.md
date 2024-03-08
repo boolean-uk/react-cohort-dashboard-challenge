@@ -5,5 +5,5 @@ ProfilePage:
 }
 
 ProfileForm: {
-    subTypes.map(ProfileSubForm)
+    subforms.map(ProfileSubForm)
 }
