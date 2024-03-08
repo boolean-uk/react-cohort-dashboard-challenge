@@ -197,8 +197,7 @@ make the child components lay out using flex, vertically stacked in a column */
   min-height: 10px;
   width: 100%;
   border-radius: 5px;
-  border: 2px solid #000046;
-  background-color: #f2f2f2;;
+  background-color: #ecf0ff;
 }
 
 .commentContent {
