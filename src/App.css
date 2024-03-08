@@ -1,0 +1,478 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f5fa; /* Body background color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  color: #000046;
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align sidebar and main content horizontally */
+  overflow: hidden;
+  min-height: calc(
+    100vh - 60px
+  ); /* Reduce the min-height by the header's height */
+  max-height: calc(
+    100vh - 60px
+  ); /* Prevent the container from exceeding the view height */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #000046; /* Header background color */
+  color: white; /* Header text and icons color */
+}
+
+.initials-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white; /* Initials text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ... existing styles ... */
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Center the header content horizontally */
+  flex-grow: 1; /* Make the header content grow to fill the space */
+}
+
+.header-content span {
+  font-size: 1.5em; /* Increase the font size of the COHORT MANAGER text */
+  text-align: center;
+}
+
+.header-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; /* Set width to 48px */
+}
+
+.main-page {
+  flex-grow: 1; /* Allow the main content area to grow */
+  overflow-y: auto; /* Only this section will be scrollable */
+  background-color: #f0f5fa;
+  padding-left: 20px;
+  padding: 20px;
+}
+
+/* Aligns text to the right */
+.main-page h1 {
+  text-align: left;
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white; /* Sidebar background color */
+  width: 120px; /* Adjust if sidebar width is different */
+  height: 100vh;
+  min-width: 120px;
+}
+
+.home-icon-class img,
+.profile-icon-class img {
+  fill: #000046; /* Icon color to match the header background */
+}
+
+.home-icon-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+}
+.profile-icon-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+}
+
+.home-text,
+.profile-text {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-icon-class:hover,
+.profile-icon-class:hover {
+  background-color: #e6ebf5; /* Button hover background color */
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f0f5fa; /* Match the body background color */
+}
+
+.profile-page {
+  background-color: #f0f5fa;
+  max-width: 768px; /* Or the max width as per your design */
+  margin: 15px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the form */
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 30px;
+  background-color: #f0f5fa;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.profile-info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.initials-circle.large {
+  /* Additional styles for large initials */
+  margin-right: 10px;
+}
+
+.profile-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  min-width: 250px; /* Ensure that columns don't get too narrow */
+}
+
+.profile-section {
+  background: #e6ebf5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px; /* Adds space between sections */
+  flex-grow: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Adds space between each form group */
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Adds space between the label and the input */
+  color: #64648c; /* Color to match your design */
+}
+
+.input-field {
+  width: 80%; /* Full width within the .form-group */
+  padding: 15px 20px;
+  font-size: 1rem;
+  border: 2px solid #e6ebf5;
+  border-radius: 10px;
+  background-color: #e6ebf5;
+  color: #000046;
+}
+
+.input-field:focus {
+  border-color: #64dc78;
+  outline: none;
+}
+
+.save-btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  background-color: #000046;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: bold;
+  width: fit-content; /* Auto width based on content */
+  align-self: flex-end; /* Align to the start of the flex container */
+  margin: 20px 0;
+  margin-right: 52px;
+}
+
+.save-btn:hover {
+  background-color: #64dc78;
+}
+
+.author-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+}
+
+/* POST SECTION */
+
+/* Add this CSS to your global stylesheet or within a <style> tag in your component file */
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f0f5fa; /* Match the body background color */
+}
+
+.new-post-form {
+  background-color: white;
+  border: 1px solid #000046;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-post-form input[type="text"],
+.new-post-form textarea {
+  width: 97%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.new-post-form button {
+  float: left;
+  background-color: #000046;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Clear float */
+.new-post-form::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Styles for the post list */
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #000046;
+}
+
+.post-item h2 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 18px;
+}
+
+.post-item p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Author and comment circle styles */
+.author-circle,
+.comment-item .initials-circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Comment list styles */
+.comment-list {
+  margin-top: 15px;
+}
+
+.comment-item {
+  background: #e9ecef;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+/* Comment form styles */
+.new-comment-form {
+  margin-top: 15px;
+}
+
+.new-comment-form textarea {
+  width: 97%;
+  padding: 12px 15px;
+  border: 1px solid #000046;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.new-comment-form button {
+  background-color: #000046;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Clear float */
+.new-comment-form::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.new-comment-form button:hover,
+.new-post-form button:hover,
+.post-item button:hover {
+  background-color: #64dc78;
+}
+
+.post-item button {
+  margin-bottom: 10px;
+  background-color: #000046;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-list-div {
+  margin-bottom: 10px;
+  color: #000046;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: text-shadow 0.15s ease;
+}
+
+.comment-list-div:hover {
+  text-shadow: 0 0 10px #000046;
+}
+
+.post-list {
+  overflow-x: hidden;
+}
+
+.post-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-title {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: text-shadow 0.15s ease;
+}
+
+.post-title:hover {
+  text-shadow: 0 0 10px #000046;
+}
+
+.profile-name {
+  cursor: pointer;
+  /* Removed the transition property from here */
+}
+
+.profile-name:hover {
+  text-shadow: 0 0 10px #000046;
+  transition: text-shadow 0.15s ease; /* Apply the transition only on hover */
+}
+
+.profile-name .comment-span {
+  text-shadow: none; /* Ensure that the span does not have text-shadow initially */
+  text-decoration: none;
+}
+
+/* This ensures that the transition does not apply to the span element */
+.profile-name:hover .comment-span {
+  text-shadow: none;
+  transition: none; /* No transition for the text-shadow on the span */
+}
+
+
+.post-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment-content {
+  color: black;
+}
