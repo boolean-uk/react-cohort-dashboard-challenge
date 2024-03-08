@@ -36,10 +36,6 @@ function Post({ post, baseURL, user }) {
             </main> 
         </div>
 
-        /* Get comments from post id, 
-        And get contact id for comment from:
-        contactID in comment*/
-
     )
 }
 export default Post

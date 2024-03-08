@@ -108,8 +108,8 @@ function ShowPost(){
                         placeholder="Post Content"
                     />
                     <div>
-                        <button onClick={handleEdit}>Edit Post</button>
-                        <button onClick={handleDelete}>Delete Post</button>
+                        <button onClick={handleEdit} className="submit-comment">Edit Post</button>
+                        <button onClick={handleDelete} className="submit-comment">Delete Post</button>
                     </div>
                 </>
             )}
