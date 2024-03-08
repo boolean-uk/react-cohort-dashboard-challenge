@@ -33,9 +33,10 @@ export default function AddPostForm() {
                 "Content-Type": "application/json",
                 },
             body: JSON.stringify(createdPost),
-            }).then(res => {
-            if (res.ok) {
-                setPosts([...posts, createdPost])
+            }).then(res => res.json())
+            .then(data => {
+            if (data) {
+                setPosts([...posts, data])
             }
             }).catch(error => console.error("Problem with creating post: ", error))
         setUserData(initialPostState)

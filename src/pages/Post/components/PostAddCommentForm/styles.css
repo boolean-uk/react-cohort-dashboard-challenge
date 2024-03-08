@@ -2,14 +2,34 @@
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
 }
 
 .add-comment-form > input[type="text"] {
     outline: none;
     border: none;
     background-color: #e6ebf5;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     padding-left: 10px;
     flex-grow: 1;
+    margin-left: 10px;
+}
+
+.add-comment-form > button {
+    outline: none;
+    border: none;
+    background-color: #e6ebf5;
+    border-radius: 0 5px 5px 0;
+    color: #cdd5e4;
+}
+
+.add-comment-form > button > svg:hover {
+    cursor: pointer;
+}
+
+.add-comment-form > button > svg:hover > g > rect {
+    fill: #000046;
+}
+
+.add-comment-form > button:hover > svg {
+    fill: white;
 }
