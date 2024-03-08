@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import PostPage from './components/post/PostPage';
+import PostDetail from "./components/post/PostDetail";
+
+export const BaseURL = "https://boolean-api-server.fly.dev/malimo326"
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [user, setUser] = useState({
+    id: -1,
+    firstName: "Not",
+    lastName: "Loaded",
+});
+  const [postData, setPostData] = useState([]);
+  const [contactData, setContactData] = useState([]);
+  
+  const getPostData = async () => {
+      const response = await fetch(
+          BaseURL + "/post"
+      );
+      const data = await response.json();
+      console.log(data);
+      setPostData([...data]);
+  };
+  
+  const getContactData = async () => {
+      const response = await fetch(
+          BaseURL + "/contact"
+      );
+      const data = await response.json();
+      console.log(data);
+      setUser({ ...data[0] });
+      setContactData([...data]);
+  };
+  
+  useEffect(() => {
+      getContactData();
+      getPostData();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+       <div className="app">
+            <postContext.Provider
+                value={{
+                    posts: postData,
+                    contacts: contactData,
+                    user: user,
+                }}
+            >
+                <Layout>
+                <Routes>
+                        <Route path="/" element={<PostPage />} />
+                        <Route path="/profile" element={<PostPage />} />
+                        <Route path="/detail/:id" element={<PostDetail />} />
+                    </Routes>
+                </Layout>
+            </postContext.Provider>
+        </div>
     </>
   )
 }
-
+// eslint-disable-next-line react-refresh/only-export-components
+export const postContext = createContext();
 export default App

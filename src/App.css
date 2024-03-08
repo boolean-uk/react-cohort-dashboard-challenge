@@ -40,3 +40,260 @@
 .read-the-docs {
   color: #888;
 }
+.user-icon {
+  width: 4rem;
+  min-width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: aqua;
+  color: navy;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.left-menu {
+  background-color: white;
+  width: 10rem;
+  border: 1px solid lightgray;
+  box-shadow: 0px 0px 2px 1px lightsteelblue;
+}
+
+.left-menu > .page-list {
+  list-style: none;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.left-menu > .page-list > .item {
+  padding: 2.5rem 0rem;
+}
+
+.left-menu > .page-list > .item:hover,
+.left-menu > .page-list > .active {
+  background-color: lightgray;
+  box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.left-menu > .page-list {
+  list-style: none;
+}
+
+.left-menu > .page-list > .item > .nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #64648c;
+}
+
+.left-menu > .page-list > .item:hover > .nav-button,
+.left-menu > .page-list > .active > .nav-button {
+  color: navy;
+}
+
+.left-menu > .page-list > .item > .nav-button > svg > path {
+  fill: #64648c;
+}
+
+.left-menu > .page-list > .item:hover > .nav-button > svg > path,
+.left-menu > .page-list > .active > .nav-button > svg > path {
+  fill: navy;
+}
+.header {
+  background-color: navy;
+}
+
+.header > .main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.header > .main-menu > svg {
+  color: white;
+  height: 4rem;
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout > .main {
+  flex: 1;
+  display: flex;
+}
+
+.layout > .main > .content {
+  flex: 1;
+  max-height: 90vh;
+  overflow: auto;
+}
+.comment-list > .list-item {
+  display: flex;
+  justify-content: left;
+  margin: 1rem 0;
+}
+
+.comment-list > .list-item > .comment-content {
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: 0 1rem;
+  padding: 1rem;
+  box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.comment-list > .list-item > .comment-content > h3,
+.comment-list > .list-item > .comment-content > p {
+  margin: 0;
+}
+.comment-create {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.comment-create > .comment-form {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.comment-create > .comment-form > .comment-bar {
+  background-color: lightgray;
+  color: #64648c;
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  font-size: 24px;
+  margin: 0 0 0 1rem;
+  width: 100%;
+  box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.comment-create > .comment-form > .comment-btn {
+  background-color: darkgray;
+  padding: 1rem 1rem;
+  font-size: 24px;
+  border: none;
+  position: absolute;
+  border-radius: 50%;
+  right: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.comment-create > .comment-form > .comment-btn:hover {
+  background-color: lightgray;
+}
+
+.comment-create > .comment-form > .comment-btn > svg > path {
+  stroke: #64648c;
+}
+
+.comment-create > .comment-form > .comment-btn:hover > svg > path {
+  stroke: navy;
+}
+.comment-list {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.comment-list > .comment-list-btn {
+  background: none;
+  color: #64648c;
+  padding: 0;
+  border: none;
+}
+.post-list > .list-item {
+  margin: 1rem;
+  padding: 1.5rem 2.5rem;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 2px 1px lightsteelblue;
+  color: navy;
+  font-size: 24px;
+}
+
+.post-list > .list-item > .post-owner {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.post-list > .list-item > .post-owner > .owner-info {
+  margin-left: 1rem;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > h2,
+.post-list > .list-item > .post-owner > .owner-info > p {
+  margin: 0;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > p {
+  color: #64648c;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.post-list > .list-item > .post-owner > .owner-info > p:hover {
+  color: navy;
+}
+.post-form {
+  margin: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 2px 1px lightsteelblue;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-create {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.post-create > .post-bar {
+  background-color: lightgray;
+  color: #64648c;
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  font-size: 24px;
+  width: 100%;
+  box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.post-create > .post-btn {
+  color: white;
+  background-color: navy;
+  padding: 1rem 6rem;
+  font-size: 24px;
+  border: none;
+}
+
+.post-create > .post-btn:hover {
+  background-color: lightblue;
+  color: navy;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 1rem;
+}
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
