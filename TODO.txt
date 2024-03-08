@@ -1,0 +1,21 @@
+- Style to match the template
+
+- PostList
+- PostListItem
+- CreatePost
+
+
+- CommentsList
+- CommentsListItem
+- CreateComment
+
+- ProfilePicture
+- ProfilePicturePost
+- ProfileWithID
+
+- Header
+- Sidebar
+
+CONTEXTS:
+- User context
+- Application Context
