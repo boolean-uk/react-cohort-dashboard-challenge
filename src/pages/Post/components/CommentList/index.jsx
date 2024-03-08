@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PropTypes, { object } from 'prop-types';
 import Comment from "./components/Comment"
 
 import "./styles.css"
@@ -25,4 +26,8 @@ export default function CommentList({comments}) {
             </div>
         </div>
     )
+}
+
+CommentList.propTypes = {
+    comments: PropTypes.arrayOf(object)
 }

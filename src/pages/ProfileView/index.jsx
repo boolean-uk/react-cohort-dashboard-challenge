@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CohortContext } from "@/App"
 
 import "./styles.css"
@@ -11,8 +11,6 @@ export default function ProfileView() {
     const { id } = useParams();
 
     const { users, setUsers } = useContext(CohortContext)
-
-    const navigate = useNavigate()
 
     useEffect(() => {
         if (users && id) {

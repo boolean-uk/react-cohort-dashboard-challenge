@@ -2,7 +2,7 @@ import { CohortContext } from "@/App"
 import { useContext } from "react"
 
 import "./styles.css"
-import Post from "./components/Post"
+import Post from "@/pages/Post"
 
 export default function PostList() {
     const { posts } = useContext(CohortContext)

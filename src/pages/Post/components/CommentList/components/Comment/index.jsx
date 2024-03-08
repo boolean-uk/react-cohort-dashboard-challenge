@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { CohortContext } from "@/App"
+import PropTypes from 'prop-types';
 import UserIcon from "@/components/UserIcon"
 
 import "./styles.css"
@@ -25,3 +26,10 @@ export default function Comment({comment}) {
         </div>
     )
 }
+
+Comment.propTypes = {
+    comment: PropTypes.shape({
+      contactId: PropTypes.number,
+      content: PropTypes.string,
+    }),
+  };

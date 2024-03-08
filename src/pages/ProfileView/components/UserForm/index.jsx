@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 import "./styles.css"
 
 export default function UserForm({user, updateUserInfo}) {
@@ -84,3 +85,8 @@ export default function UserForm({user, updateUserInfo}) {
       </form>
     )
 }
+
+UserForm.propTypes = {
+    user: PropTypes.object,
+    updateUserInfo: PropTypes.func,
+  };

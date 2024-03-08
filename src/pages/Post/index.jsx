@@ -1,4 +1,5 @@
 import { CohortContext } from "@/App"
+import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from "react"
 
 import "./styles.css"
@@ -35,3 +36,12 @@ export default function Post({post}) {
         </div>
     )
 }
+
+Post.propTypes = {
+    post: PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      contactId: PropTypes.number,
+    }),
+  };
