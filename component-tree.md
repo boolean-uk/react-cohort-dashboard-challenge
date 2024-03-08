@@ -19,7 +19,7 @@
     - Route: /profile
       - ProfilePage
         - AccountInfoForm
-        - AddressForm
+        - AddressInfoForm
         - ContactInfoForm
         - CompanyInfoForm
     - Route: /{username}/posts/:postId

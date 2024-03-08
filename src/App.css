@@ -1,42 +1,116 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+/* i ul/li {  
+  margin: 30px;
+  padding: 10px;
+} */
+
+
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* style for the header, it must have a fixed height and full width */
+header {
+  height: 60px;
+  width: 100vw;
+  background-color: #000046;
 }
 
-.card {
-  padding: 2em;
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  background-color: #F0F5FA;
+
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.read-the-docs {
-  color: #888;
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  background-color: #e6ebf5;
+
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+
+
+
+.post-body-background {
+  background-color: #F0F5FA;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+.post-content {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+
+.comment-user {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+.comments {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+.comment {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+
+/* Make the title header fill the height of the header */
+.title-header {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* Set the icons in the sidebar to have the same width as the sidebar and the same height as their width */
+.icon {
+  width: 50%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.profile-icon img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
