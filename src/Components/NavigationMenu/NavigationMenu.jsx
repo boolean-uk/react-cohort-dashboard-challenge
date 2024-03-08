@@ -4,6 +4,7 @@ import "./NavigationMenu.css"
 import HomeButton from "@/assets/home-icon.svg"
 import ProfileButton from "@/assets/profile-icon.svg"
 import { userContext } from '@/Utils/contexts'
+import NavigationMenuItem from './NavigationMenuItem/NavigationMenuItem'
 
 const NavigationMenu = () => {
     const navigate = useNavigate()
@@ -34,26 +35,19 @@ const NavigationMenu = () => {
 
     return (
         <div className="navigation-menu">
-            <div 
-                className={activeNavigation === "Home" 
-                    ? "navigation-home-button active" 
-                    : "navigation-home-button"
-                }
-                onClick={() => navigateHome()}
-            >
-                <img src={HomeButton}/>
-                <p>Home</p>
-            </div>
-            <div 
-                className={activeNavigation === "Profile" 
-                    ? "navigation-profile-button active" 
-                    :"navigation-profile-button"
-                }
-                onClick={() => navigate(`/profile/${LoggedInUser.id}`)}
-            >
-                <img src={ProfileButton}/>
-                <p>Profile</p>
-            </div>
+            <NavigationMenuItem 
+                activeNavigation={activeNavigation}
+                onClickFunc={navigateHome}
+                elementIcon={HomeButton}
+                elementText={"Home"}
+            />
+            <NavigationMenuItem 
+                activeNavigation={activeNavigation}
+                onClickFunc={navigate}
+                onClickFuncParams={`/profile/${LoggedInUser.id}`}
+                elementIcon={ProfileButton}
+                elementText={"Profile"}
+            />
         </div>
     )
 }
