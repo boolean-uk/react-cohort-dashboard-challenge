@@ -20,7 +20,6 @@ function App() {
             "https://boolean-api-server.fly.dev/BloodyFM/post"
         );
         const data = await response.json();
-        console.log(data);
         setPostData([...data]);
     };
 
@@ -29,7 +28,6 @@ function App() {
             "https://boolean-api-server.fly.dev/BloodyFM/contact"
         );
         const data = await response.json();
-        console.log(data);
         setUser({ ...data[0] });
         setContactData([...data]);
     };

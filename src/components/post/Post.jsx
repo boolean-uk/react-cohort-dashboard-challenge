@@ -27,7 +27,6 @@ const Post = ({ post }) => {
                 "/comment"
         );
         const data = await response.json();
-        console.log(data);
         setCommentData([...data]);
     };
 

@@ -31,7 +31,6 @@ const PostCreate = () => {
             postApiRequest
         );
         const data = await response.json();
-        console.log(data);
         setPosts([...posts, data]);
         setPostData({ title: "", content: "" });
     };

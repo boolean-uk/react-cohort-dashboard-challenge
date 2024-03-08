@@ -55,7 +55,6 @@ const ProfileForm = ({ owner }) => {
             postApiRequest
         );
         const data = await response.json();
-        console.log(data);
 
         const newContacts = [...contacts];
         const userIndex = contacts.findIndex((c) => c.id === owner.id);
