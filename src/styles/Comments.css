@@ -1,0 +1,35 @@
+.textarea-container {
+    position: relative;
+  }
+  
+  textarea {
+    width: 90%;
+  }
+  
+  .comment-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 50px;
+  }
+
+.addcomment-content > .profile-icon {
+    background-color: bisque;
+    scale: 0.5;
+    
+}
+
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  background-color: chocolate;
+}
+
+.comment-item {
+  display: flex;
+  align-items: start;
+}
+
+.comment-item .profile-icon {
+  scale: 0.5;
+}

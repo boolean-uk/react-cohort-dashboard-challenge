@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="app">
 
-        <UserContext.Provider value={{user}} >
+      { user && <UserContext.Provider value={{user}} >
             {/* Call layouts */}
             <div className="container">
                 <Header className="Header" />
@@ -57,8 +57,9 @@ function App() {
                         element={<PostView/>}
                         />
                 </Routes>
+                
             </div>
-        </UserContext.Provider>
+        </UserContext.Provider>}
 
     </div>
   )

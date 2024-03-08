@@ -12,6 +12,7 @@ function DashBoard() {
     const url1 = `https://boolean-api-server.fly.dev/KantheeK/post`
     const url2 = `https://boolean-api-server.fly.dev/KantheeK/contact`
     const [posts, setPost] = useState([])
+    
     const [accounts, setAccount] = useState([])
 
     // Fetching data

@@ -1,5 +1,6 @@
 @import '../styles/SideBar.css';
 @import '../styles/DashBoard.css';
+@import '../styles/Comments.css';
 
 #root {
   font-family: sans-serif;

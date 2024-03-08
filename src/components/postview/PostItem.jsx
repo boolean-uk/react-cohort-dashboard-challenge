@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AccountContext } from '../../pages/DashBoard';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
@@ -13,16 +13,16 @@ function PostItem(props) {
     const { post } = props
     const { accounts } = useContext(AccountContext)
     const [account, setAccount] = useState('')
+    
     useEffect( () => {
       setAccount(accounts.find((c) => (c.id === post.contactId)))
-    },[])
+    },[post])
   
 
   return (
     <article className="post">
-      Info here: 
 
-     { account && <div className="post-content"> 
+     { post && account && <div className="post-content"> 
         <div className="profile-icon">{account.profileImage && <img src={account.profileImage}/>}</div>
         <h4> {`${account.firstName} ${account.lastName}`} </h4>
         <h5> {post.title} </h5>
@@ -30,10 +30,10 @@ function PostItem(props) {
       </div>}
 
         {/* Comments here */}
-        <CommentList />
+        <CommentList post={post}/>
 
         {/* Add comment here */}
-        {/* <AddComment post={post}/> */}
+        <AddComment post={post}/>
 
    
 

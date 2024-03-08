@@ -8,12 +8,12 @@ function NewPost() {
   const { posts, setPost  } = useContext(PostContext);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
+
   const [ newPost, setNewPost ] = useState({
     title:'',
     content:'',
-    // contactId: 1
-    contactId: user.id
+    contactId: 1
   });
  
 

@@ -18,6 +18,7 @@ function AddComment(props) {
     contactId: user.id
   });
   // Function to handle the comment button
+
   
   async function handleComment(e) {
     e.preventDefault() 
@@ -29,6 +30,7 @@ function AddComment(props) {
   // Fucntion to put the post to the API
   async function submitComment() {
     const url = `https://boolean-api-server.fly.dev/KantheeK/post/${post.id}/comment`
+  
     try {
       const response = await axios.post(url, comment)
       console.log(response.data)
@@ -43,19 +45,24 @@ function AddComment(props) {
       <form onSubmit={handleComment}>
         <div className="addcomment-content">
           <div className="profile-icon"> <img src={user.profileImage}/></div>
+          <div className="textarea-container">
+            <textarea 
+            name="comment" 
+            type="text" 
+            placeholder="Add a comment.." 
+            value={comment.content} 
+            onChange={(e) => setComment({...comment, content: e.target.value})} // Append value from in textarea to newPost
+            cols="50" 
+            rows="1">
+            </textarea>
           
-          <textarea 
-          name="comment" 
-          type="text" 
-          placeholder="Add a comment.." 
-          value={comment.content} 
-          onChange={(e) => setComment({...comment, content: e.target.value})} // Append value from in textarea to newPost
-          cols="50" 
-          rows="1">
-        </textarea>
-        
-
-
+            <button 
+              type="submit" 
+              className="comment-btn"
+              disabled={comment.content === ""}>
+              Send
+            </button>
+        </div>
         </div>
       </form>
     </div>
