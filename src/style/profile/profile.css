@@ -1,0 +1,23 @@
+.profile-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F5FA;
+    text-align: left;
+    justify-content: left;
+    align-self: start;
+  
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    background-color: white;
+    margin-right: 15vw;
+    margin-left: 15vw;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
+    width: 69vw;
+    height: 69vh;
+}

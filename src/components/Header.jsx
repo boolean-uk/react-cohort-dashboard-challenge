@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import '../style/header.css';
-import profileIcon from '../assets/profile-icon.svg';
 import titleHeader from '../assets/title-header.svg';
 import { UserContextAPIContext } from '../contextAPI/UserContextAPI';
 

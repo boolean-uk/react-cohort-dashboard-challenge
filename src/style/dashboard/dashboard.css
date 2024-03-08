@@ -1,21 +1,20 @@
 
 .dashboard-container {
     width: 100vw;
-    height: 100v;
     display: flex;
     flex-direction: column;
     background-color: #F0F5FA;
   
 }
 
-.dashboard-header {
+.header {
     height: 10vh;
     width: 100vw;
     position: fixed;
 
 }
 
-.dashboard-leftNavBar {
+.leftNavBar {
     margin-top: 10vh;
     width: 10vw;
     height: 90vh;

@@ -15,7 +15,7 @@ const Post = () => {
         const fetchData = async () => {
             const response = await axios.get(baseURL);
             console.log(response.data)
-            setPosts(response.data)
+            setPosts([...response.data].reverse())
         }
         
         fetchData();

@@ -5,6 +5,7 @@ import "../../../style/dashboard/singlePost.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { HttpRequestsContextAPIContext } from "../../../contextAPI/HttpRequestsContextAPI";
+import { Link } from "react-router-dom";
 
 const SinglePost = (props) => {
     const {post} = props ?? {};
@@ -36,7 +37,10 @@ const SinglePost = (props) => {
                 <span className="initials">{contact.firstName[0]}{contact.lastName[0]}</span>
             </div>
             <div className="singlePost-title">
-                <h2>{post.title}</h2>
+                <Link to={`/singlePost/${post.id}`}>
+                    <h2>{post.title}</h2>
+                </Link>
+               
                 
             </div>
             <div>

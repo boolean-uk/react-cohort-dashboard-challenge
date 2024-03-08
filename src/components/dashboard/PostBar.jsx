@@ -32,7 +32,7 @@ const PostBar = () => {
             
         }
         fetchData();
-        setPosts((prevList) => [...prevList, inputPost])
+        setPosts((prevList) => [inputPost, ...prevList])
         setInputPost({        
             title : "",
             content: "",
