@@ -33,7 +33,8 @@ function CreateComment({ postId,comments, setComments}) {
 
     return(
         <div>
-            <Avatar className="post-avatar" round={true} name={`${loggedInUser.firstName} ${loggedInUser.lastName}`}/>
+            <Avatar className="post-avatar" round={true} name={`${loggedInUser.firstName} ${loggedInUser.lastName}`}
+              textSizeRatio={2}/>
                 <input className="comment-field" type="text"
                     id="content"
                     name="content"

@@ -39,4 +39,10 @@
     color: white;
     background-color: #64dc78;
   }
+
+
+  .show-more{
+    color: rgb(79, 79, 255);
+    cursor: pointer;
+  }
   
