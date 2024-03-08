@@ -1,0 +1,13 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #000046;
+  align-items: center;
+  padding: 30px;
+  position: sticky; top: 0px;
+}
+
+.title-header {
+  max-width: 300px;
+}

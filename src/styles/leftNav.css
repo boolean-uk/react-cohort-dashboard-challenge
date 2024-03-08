@@ -1,0 +1,17 @@
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid gray;
+  background: white;
+}
+
+.nav-element > img {
+  padding: 1rem;
+}
+
+.nav-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

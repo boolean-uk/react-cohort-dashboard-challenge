@@ -1,0 +1,26 @@
+.post {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: white;
+}
+
+.post-content {
+  border-bottom: 1px solid gray;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 9px;
+}
+.name {
+  margin: 0;
+}
+
+.title {
+  color: #64648c;
+  margin: 0;
+}
