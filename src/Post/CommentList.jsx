@@ -15,15 +15,15 @@ function CommentList({ postId}) {
 
   return (
     <div className="comment-list">
+      {postComments.length > 3 && (
+        <div className="comment-list-div"onClick={() => setShowAllComments(!showAllComments)}>
+          {showAllComments ? "Hide previous comments" : "See previous comments"}
+        </div>
+      )}
       {visibleComments.map((comment) => (
         <CommentItem key={comment.id} comment={comment} />
       ))}
       {/* Toggle button visibility based on the number of comments */}
-      {postComments.length > 3 && (
-        <button onClick={() => setShowAllComments(!showAllComments)}>
-          {showAllComments ? "Hide comments" : "See previous comments"}
-        </button>
-      )}
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import AuthorCircle from "./AuthorCircle";
 import { useState, useEffect } from "react";
 import { fetchContactById } from "../API/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CommentItem = ({ comment }) => {
   const [contact, setContact] = useState(null);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchContact = async () => {
@@ -30,21 +32,31 @@ const getInitials = (firstName, lastName) => {
 
   return (
     <div className="comment-item">
-      <Link to={`/user/${comment.contactId}`} className="profile-icon">
-        {/* User's profile icon */}
-        <AuthorCircle
-          style={{
-            backgroundColor: contact ? contact.favouriteColour : "#ff0000",
-          }}
-          initials={
-            contact ? getInitials(contact.firstName, contact.lastName) : ""
-          }
-        />
-      </Link>
-      <h4>
-        {contact ? `${contact.firstName} ${contact.lastName}` : "Unknown"}
-      </h4>
-      <p>{comment.content}</p>
+      <div className="comment-box">
+        <div className="comment-profile">
+          <Link to={`/user/${comment.contactId}`} className="profile-icon">
+            {/* User's profile icon */}
+            <AuthorCircle
+              style={{
+                backgroundColor: contact ? contact.favouriteColour : "#ff0000",
+              }}
+              initials={
+                contact ? getInitials(contact.firstName, contact.lastName) : ""
+              }
+            />
+          </Link>
+          <h4
+            className="profile-name"
+            onClick={() => navigate(`/user/${comment.contactId}`)}
+          >
+            {contact ? `${contact.firstName} ${contact.lastName}` : "Unknown"}{" "}
+            <span className="comment-span">has commented:</span>
+          </h4>
+        </div>
+        <div className="comment-content">
+          <p>{comment.content}</p>
+        </div>
+      </div>
     </div>
   );
 };

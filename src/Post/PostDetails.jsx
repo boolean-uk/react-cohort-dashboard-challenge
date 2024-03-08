@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchContactById, fetchPostById } from "../API/api";
 import CommentList from "./CommentList";
 import AuthorCircle from "./AuthorCircle";
@@ -10,6 +10,8 @@ function PostDetails() {
   const [post, setPost] = useState(null);
   const [contact, setContact] = useState(null);
     const [showNewCommentForm, setShowNewCommentForm] = useState(false);
+
+    const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -40,7 +42,7 @@ useEffect(() => {
   }
 }, [post]);
 
-  if (!post) return <p>Loading post details...</p>;
+  if (!post || !contact) return <p>Loading post details...</p>;
 
   const getInitials = (firstName, lastName) => {
     return `${firstName?.[0] ?? ""}${lastName?.[0] ?? ""}`.toUpperCase();
@@ -48,19 +50,31 @@ useEffect(() => {
 
   return (
     <div className="post-item">
-      <Link to={`/user/${post.contactId}`} className="profile-icon">
-        {/* User's profile icon */}
-        <AuthorCircle
-          style={{
-            backgroundColor: contact ? contact.favouriteColour : "#ff0000",
-          }}
-          initials={
-            contact ? getInitials(contact.firstName, contact.lastName) : ""
-          }
-        />
-      </Link>
-      <h1 style={{ color: "#64648c" }}>{post.title}</h1>
-      <p>{post.content}</p>
+      <div className="post-profile">
+        <Link to={`/user/${post.contactId}`} className="profile-icon">
+          {/* User's profile icon */}
+          <AuthorCircle
+            style={{
+              backgroundColor: contact ? contact.favouriteColour : "#ff0000",
+            }}
+            initials={
+              contact ? getInitials(contact.firstName, contact.lastName) : ""
+            }
+          />
+        </Link>
+        <h2
+          className="profile-name"
+          onClick={() => navigate(`/user/${post.contactId}`)}
+        >
+          {contact.firstName} {contact.lastName}
+        </h2>
+      </div>
+      <div className="post-details">
+        <h4 className="post-title" onClick={() => navigate(`/post/${post.id}`)}>
+          {post.title}
+        </h4>
+        <p className="post-content">{post.content}</p>
+      </div>
       <CommentList postId={post.id} post={post} />
       {showNewCommentForm && <NewCommentForm postId={post.id} />}
       <button onClick={() => setShowNewCommentForm(!showNewCommentForm)}>
