@@ -1,0 +1,127 @@
+/* make the main fill the remaining width and the full height of the parent */
+.dashboard_layout {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  background-color: #F0F5FA;
+}
+
+.post_layout {
+    background-color: white;
+    color: #64648c;
+    margin: 20px;
+    padding-inline-start: 30px;
+    height: fit-content;
+    width: 94%;
+    border-radius: 8px;
+}
+
+.post_header {
+    display: flex;
+}
+
+.post_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046;
+
+  margin-top: 20px;
+  padding: 2px;
+}
+
+.post_circle_text {
+  margin: auto;
+}
+
+.post_name {
+  color: black;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  font-size: large;
+  display: inline-block;
+}
+
+.post_title {
+  color: #64648c;
+  margin-top: 1px;
+  margin-left: 20px;
+  font-size: medium;
+}
+
+.post_content {
+  color: #000046;
+  margin-left: 5px;
+  font-size: medium;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.post_dividers {
+  border: 1px solid #cdcdcd9f;
+  width: 97%;
+  margin-left: 5px;
+}
+
+.comment_div {
+    display: flex;
+}
+
+.comment_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046;
+
+  margin-top: 17px;
+  margin-left: -40px;
+  padding: 2px;
+}
+
+.comment_circle_text {
+  margin: auto;
+}
+
+.comment_rectangle {
+    background-color: #e6ebf5;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-top: 10px;
+    max-width: 95%;
+    margin-bottom: 5px;
+}
+
+.comment_text {
+  color: #000046;
+  margin-top: -20px;
+  margin-left: 10px;
+  margin-right: 250px;
+  margin-bottom: 10px;
+}
+
+.comment_name_text {
+  color: #000046;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 250px;
+}
+
+.previous_comments_button {
+  background-color: white;
+  color: grey;
+  margin-left: -40px;
+  height: fit-content;
+  width: fit-content;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}

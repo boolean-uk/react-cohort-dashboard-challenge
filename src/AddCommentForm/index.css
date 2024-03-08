@@ -1,0 +1,61 @@
+.create_comment_layout {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.add_comment_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+
+  color:#000046;
+
+  margin-left: -40px;
+  margin-top: 7px;
+}
+
+.add_comment_circle_text {
+  margin: auto;
+}
+
+.input_and_button_div {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.input_and_button_div input {
+    height: 40px;
+    width: 97%;
+    border-radius: 8px;
+    background-color: #e6ebf5;
+    color: rgb(26, 26, 26);
+    border-style: none;
+    padding-left: 10px;
+
+    
+}
+
+.input_and_button_div button {
+    position: absolute;
+    height: 42px;
+    width: fit-content;
+    border-radius: 8px;
+    background-color: #000046;
+    color: white;
+    margin-left: -70px;
+}
+
+.comment_button_text {
+  margin: auto;
+}
+
+.input_and_button_div button:hover {
+    background-color: #64dc78;
+}

@@ -1,0 +1,34 @@
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 150px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  background-color: white;
+  color: black;
+}
+
+.sidebar_icon_container {
+  width: 100%;
+  height: fit-content;
+}
+
+.sidebar_button {
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+}
+
+.sidebar_button:hover {
+    background-color: lightgrey;
+}
+
+.sidebar_image {
+  height: 40px;
+  margin-top: 5px;
+}
+
+.sidebar_text {
+    font-size: medium;
+    color: #000046;
+    margin-top: 0px;
+}
