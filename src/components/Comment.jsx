@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UsersContext } from '../App'
 import ProfilePicture from './ProfilePicture'
 import { Link } from 'react-router-dom'
@@ -8,7 +8,12 @@ export function Comment({ comment }) {
 
     const {users} = useContext(UsersContext)
 
-    const [user, setUser] = useState(users.find(u => u.id == comment.contactId))
+    const [user, setUser] = useState({})
+
+    useEffect(() => {
+        setUser(users.find(u => u.id == comment.contactId))
+    }, [comment])
+
     console.log(user)
 
     if( !user) return <h1>Loading ....</h1>

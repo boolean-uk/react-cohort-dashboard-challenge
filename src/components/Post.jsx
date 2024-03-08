@@ -52,19 +52,19 @@ export function Post({ postIdAlt }) {
                         favouriteColour={user.favouriteColour}/>
                     </Link>
                     <div className='owner-info'>
-                    {postIdAlt && <Link to={`/post/${post.id}`} className='post'>
-                        <div className="name">{user.firstName} {user.lastName}</div>
-                        <p className='title'>{post.title}</p>
-                        <p className='content'>{post.content}</p> 
+                    {postIdAlt && <Link to={`/post/${post.id}`} className='post' id='link'>
+                        <h2>{user.firstName} {user.lastName}</h2>
+                        <p>{post.title}</p>
                         </Link>}
                     {postId && <div className="post">
-                        <div className="name">{user.firstName} {user.lastName}</div>
-                        <p className='title'>{post.title}</p>
-                        <p className='content'>{post.content}</p> 
+                        <h2>{user.firstName} {user.lastName}</h2>
+                        <p>{post.title}</p>
                     </div>}
                     </div>
                 </div>
-            
+
+                <p className='content'>{post.content}</p>
+
                 <div className='comment-list'>
                     {postIdAlt && <button onClick={() => setHideComments(hc => !hc)} className='comment-list-btn'>{hideComments ? "Show more comments" : "Hide extra commenst"}</button>}
                     {shownComments.map((comment, key) =>

@@ -1,6 +1,8 @@
 .left-menu {
     background-color: white;
     width: 10rem;
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 2px 1px lightsteelblue;
 }
 
 .left-menu > .page-list {
@@ -10,26 +12,37 @@
     margin: 0;
 }
 
-.left-menu > .page-list > .item {
-    padding: 3rem 0rem;
+.left-menu > .page-list > .nav-button > .item {
+    padding: 2.5rem 0rem;
 }
 
-.left-menu > .page-list > .item:hover {
-    background-color: lightgray;
-    box-shadow: 0px 0px 2px 0px lightsteelblue;
-}
-
+.left-menu > .page-list > .nav-button > .item:hover,
 .left-menu > .page-list > .active {
     background-color: lightgray;
+    box-shadow: 1px 1px 2px 1px darkgrey;
 }
 
 .left-menu > .page-list {
     list-style: none;
 }
 
-.left-menu > .page-list > .item > .nav-button {
+.left-menu > .page-list > .nav-button > .item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color: #64648c;
+}
+
+.left-menu > .page-list > .item:hover > .nav-button,
+.left-menu > .page-list > .active > .nav-button {
+    color: navy;
+}
+
+.left-menu > .page-list > .nav-button >.item > svg > path {
+    fill: #64648c;
+}
+
+.left-menu > .page-list > .item:hover > .nav-button > svg > path,
+.left-menu > .page-list > .active > .nav-button > svg > path {
+    fill: navy;
 }

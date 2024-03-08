@@ -16,18 +16,18 @@ export function Sidebar() {
     return (
         <nav className="left-menu">
             <ul className="page-list">
-                <li className={"item" }>
-                    <Link to="/" className="nav-button">
+                <Link to="/" className="nav-button">
+                    <li className={"item" }>
                         <HomeIcon />
                         Home
-                    </Link>
-                </li>
-                <li className={"item"}>
-                    <Link to={`/profile/${currentUser.id}`} className="nav-button">
+                    </li>
+                </Link>
+                <Link to={`/profile/${currentUser.id}`} className="nav-button">
+                    <li className={"item"}>
                         <ProfileIcon />
                         Profile
-                    </Link>
-                </li>
+                    </li>
+                </Link>
             </ul>
         </nav>
     )

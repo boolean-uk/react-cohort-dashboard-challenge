@@ -15,6 +15,8 @@
     display: flex;
 }
 
-.layout > .main > .routes{
-    flex-direction: column;
+.layout > .main > .routes {
+    flex: 1;
+    max-height: 90vh;
+    overflow: auto;
 }

@@ -2,6 +2,10 @@
     list-style: none;
 }
 
+.list-item {
+    list-style: none;
+}
+
 .list-item > .comment-list > .comment-list-btn {
     background: none;
     color: #64648c;
@@ -26,12 +30,23 @@
     align-items: center;
 }
 
+
+#link {
+    color: #64648c;
+}
+
+.list-item > .post-owner > .owner-info > Link {
+    color: #64648c;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .list-item > .post-owner > .owner-info {
     margin-left: 1rem;
 }
 
-.list-item > .post-owner > .owner-info > h2,
-.list-item > .post-owner > .owner-info > p {
+.list-item > .post-owner > .owner-info > .post > h2,
+.list-item > .post-owner > .owner-info > .post > p {
     margin: 0;
 }
 
