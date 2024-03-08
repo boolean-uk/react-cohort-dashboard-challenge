@@ -21,7 +21,7 @@ export default function Post() {
     const { id } = useParams()
 
     const deletePost = (postId) => {
-        fetch(`https://boolean-api-server.fly.dev/Agatland/contact/${postId}`,{
+        fetch(`https://boolean-api-server.fly.dev/Agatland/post/${postId}`,{
             method: "DELETE",
         })
         .then(res => {
@@ -31,6 +31,17 @@ export default function Post() {
         })
         navigate("/")
     }
+
+    const deleteComment = (commentId) => {
+        fetch(`https://boolean-api-server.fly.dev/Agatland/post/${post.id}/comment/${commentId}`,{
+            method: "DELETE",
+        })
+        .then(res => {
+            if (res.ok) {
+                setComments(comments.filter(commentToDel => commentToDel.id !== commentId))
+            }
+        })
+      }
 
     // Finding Post based on id, and user based on posts contactId, and fetch comments for post
     useEffect(() => {
@@ -54,7 +65,7 @@ export default function Post() {
         <div className="post-list-item main">
             <PostHeader post={post} user={user} />
             <p>{post.content}</p>
-            <CommentList comments={comments}/>
+            <CommentList comments={comments} deleteComment={deleteComment} />
             <PostAddCommentForm 
             setComments={setComments} 
             comments={comments} 

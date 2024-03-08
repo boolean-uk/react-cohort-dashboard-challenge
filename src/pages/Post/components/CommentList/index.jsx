@@ -4,7 +4,7 @@ import Comment from "./components/Comment"
 
 import "./styles.css"
 
-export default function CommentList({comments}) {
+export default function CommentList({comments, deleteComment}) {
     const [seeAllComments, setSeeAllCommnets] = useState(false)
 
     let commentsToDisplay = comments
@@ -21,7 +21,7 @@ export default function CommentList({comments}) {
             <div className="comment-list">
                 {
                     commentsToDisplay.map(comment => (
-                        <Comment key={comment.id} comment={comment} />
+                        <Comment key={comment.id} comment={comment} deleteComment={deleteComment} />
                     ))
                 }
             </div>
@@ -31,4 +31,5 @@ export default function CommentList({comments}) {
 
 CommentList.propTypes = {
     comments: PropTypes.array,
+    deleteComment: PropTypes.func,
 }

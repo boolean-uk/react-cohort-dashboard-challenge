@@ -6,7 +6,7 @@ import UserIcon from "@/components/UserIcon"
 import "./styles.css"
 import { useNavigate } from "react-router-dom";
 
-export default function Comment({comment}) {
+export default function Comment({comment, deleteComment}) {
     const { users } = useContext(CohortContext)
 
     const navigate = useNavigate()
@@ -23,9 +23,12 @@ export default function Comment({comment}) {
         <div className="comment">
             <UserIcon userToIcon={user}/>
             <div className="comment-content">
-                <h5 onClick={() =>navigate(`/profile/${user.id}`)} >
-                    {user.firstName} {user.lastName}
-                </h5>
+                <div className="comment-content-header">
+                    <h5 onClick={() =>navigate(`/profile/${user.id}`)} >
+                        {user.firstName} {user.lastName}
+                    </h5>
+                    {deleteComment && <button onClick={() => deleteComment(comment.id)}>Delete</button>}
+                </div>
                 <p>{comment.content}</p>
             </div>
         </div>
@@ -34,4 +37,5 @@ export default function Comment({comment}) {
 
 Comment.propTypes = {
     comment: PropTypes.object,
+    deleteComment: PropTypes.func,
   };
