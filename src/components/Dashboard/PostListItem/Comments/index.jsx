@@ -1,20 +1,16 @@
 import { useContext, useEffect, useState } from "react"
-import Avatar from "react-avatar"
 import { AppContext } from "../../../../App"
 import CreateComment from "./CreateComment"
 import CommentListItem from "./CommentListItem"
 import './style.css'
 
-function RenderComments({postId}) {
+function RenderComments({postId, comments, setComments}) {
     const {loggedInUser} = useContext(AppContext)
-    const [comments, setComments] = useState([])
-
-
+    
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/ThomasKva/post/${postId}/comment`)
         .then(response => response.json())
         .then((data) => setComments(data))
-        .then(console.log(comments))
         .catch(error => console.error("No comments found...", error))
     }, [postId])
 
@@ -26,15 +22,16 @@ function RenderComments({postId}) {
                     <div className="devider">
                     --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                     </div>
-                    {comments.map((comment) => (
-                        <div key={comment.id} className="comment">
+                    {comments.map((comment, index) => (
+                        <div key={index} className="comment">
                             <CommentListItem comment={comment}/>
                         </div>
                     ))}
                 </div>
             )}
             <div>
-                <CreateComment comments={comments} setComments={setComments}/>
+                <CreateComment postId={postId} 
+                    comments={comments} setComments={setComments}/>
             </div>
         </>
     )

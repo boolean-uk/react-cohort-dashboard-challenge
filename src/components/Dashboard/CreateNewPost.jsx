@@ -36,17 +36,30 @@ function CreateNewPost(){
     if(!loggedInUser) return
     
     return(
-        <>
-            <Avatar name={`${loggedInUser.firstName} ${loggedInUser.lastName}`} 
-                round={true} textSizeRatio={0.5} className="post-avatar"/>
-            <input type="text"
-                id="content"
-                name="content"
+        <> 
+            <div className="avatar-container">
+                <Avatar name={`${loggedInUser.firstName} ${loggedInUser.lastName}`} 
+                    round={true} textSizeRatio={0.5} className="post-avatar"/>
+            </div>
+            <div className="input-container">
+                <input type="text" 
+                id="title" 
+                name="title" 
                 onChange={handleOnChange}
-                value={newPost.content}
-                placeholder="What's on you mind?"
-            /> 
-            <button onClick={handleClick}>Post</button>
+                value={newPost.title}
+                placeholder="Title..."
+                ></input>
+                <textarea type="text"
+                    id="content"
+                    name="content"
+                    onChange={handleOnChange}
+                    value={newPost.content}
+                    placeholder="What's on you mind?"
+            />
+            </div> 
+            <div className="button-container">
+                <button onClick={handleClick}>Post</button>
+            </div>
         </>
     )
 }

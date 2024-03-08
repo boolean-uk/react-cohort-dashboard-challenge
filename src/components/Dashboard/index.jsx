@@ -1,21 +1,14 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext } from "react"
 import { AppContext } from "../../App"
 import PostListItem from "./PostListItem"
 import CreateNewPost from "./CreateNewPost"
 import './style.css'
 
 function PostList(){
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        fetch("https://boolean-api-server.fly.dev/ThomasKva/post")
-        .then(response => response.json())
-        .then((data) => setPosts(data))
-        .catch(error => 
-            console.error('Could not fetch data...', error))
-        })
-
-        if(posts.length === 0) return <p>Error, try reloading</p>
+    const{posts, setPosts} = useContext(AppContext)
+    
+    if(posts.length === 0) return <p>Error, try reloading</p>
+    
     return(
         <div className="post-list-container">
             <div className="new-post">

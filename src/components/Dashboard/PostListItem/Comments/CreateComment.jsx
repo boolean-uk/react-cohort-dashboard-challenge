@@ -3,21 +3,32 @@ import Avatar from "react-avatar"
 import { AppContext } from "../../../../App"
 
 const initialComment = {
-    postId: 0,
     content: "",
     contactId: 0
 }
 
-function CreateComment({comments, setComments}) {
+function CreateComment({ postId,comments, setComments}) {
 
     const [comment, setComment] = useState(initialComment)
     const {loggedInUser} = useContext(AppContext)
 
     function handleClick(event) {
-        event.preventDefault()
-        setComments([...comments, comment])
-        setComment(initialComment)
-    }
+        event.preventDefault();
+      
+        fetch(`https://boolean-api-server.fly.dev/ThomasKva/post/${postId}/comment`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({...comment, postId: postId}), 
+        })
+          .then((response) => response.json())
+          .then((createComment) => {
+            setComments([...comments, createComment]);
+            setComment(initialComment); 
+          })
+          .catch((error) => console.error("Could not create new comment...", error));
+      }
 
 
     return(

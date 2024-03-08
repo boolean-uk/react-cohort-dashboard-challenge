@@ -25,10 +25,20 @@ body{
 
 main{
     width: 100%;
-    background-color: aliceblue;
+    background-color: #F0F5FA;
     overflow: auto;
 }
 
 main div{
     padding: 15px;
 }
+
+button{
+    background-color: #000046;
+    color: white;
+}
+
+button:hover {
+    color: white;
+    background-color: #64dc78;
+  }

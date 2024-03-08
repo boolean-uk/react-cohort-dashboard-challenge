@@ -4,12 +4,24 @@ import PostList from './components/Dashboard'
 import './App.css'
 import Header from './components/Header'
 import RenderProfile from './components/Profile'
+import SpesificPost from './components/SpesificPost'
 
 const AppContext = createContext()
 
 function App() {
   const [contacts, setContacts] = useState([])
   const [loggedInUser, setLoggedInUser] = useState({})
+  const [posts, setPosts] = useState([])
+  const [comments, setComments] = useState([])
+
+  useEffect(() => {
+      fetch("https://boolean-api-server.fly.dev/ThomasKva/post")
+        .then(response => response.json())
+        .then((data) => setPosts(data.reverse()))
+        .catch(error => 
+            console.error('Could not fetch data...', error))
+      }, [])
+
 
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/ThomasKva/contact")
@@ -17,11 +29,14 @@ function App() {
     .then((data) => setContacts(data))
     .catch(error => 
         console.error('Could not fetch data...', error))
-    })
+    }, [])
 
   useEffect(() => {
     setLoggedInUser(contacts.find((user) => user.id === 1))
   }, [contacts])
+
+  
+
 
   return (
     <>
@@ -45,14 +60,18 @@ function App() {
         </nav>
 
         <main>
-        <AppContext.Provider value={{contacts, setContacts, loggedInUser}}>
+        <AppContext.Provider value={{contacts, setContacts, 
+            loggedInUser, posts, 
+            setPosts, comments, setComments}}>
           <Routes>
             <Route path='/'
               element={<PostList />}/>
 
             <Route path='/profile'
               element={<RenderProfile/>}/>
-            </Routes>
+              <Route path='/post/:id'
+              element={<SpesificPost/>}/>
+          </Routes>
         </AppContext.Provider>        
         </main>
       </div>

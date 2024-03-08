@@ -57,12 +57,10 @@
     margin-top: 5px;
     border: transparent;
     border-radius: 8px;
-    background-color: rgba(197, 208, 217, 0.413);
+    background-color: #e6ebf5;
   }
   
   .profile-button {
-    background-color: rgb(0, 0, 77);
-    color: white;
     margin-left: 70%;
     padding: 10px 50px;
     font-size: 16px;
