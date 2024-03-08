@@ -21,7 +21,6 @@ function Post({ post }) {
             method: 'DELETE'
         })
             .then(response => response.json())
-            .then(response => console.log(response))
         postContext.setPosts(postContext.posts.filter((p) => p.id !== post.id))
     }
 

@@ -25,7 +25,7 @@ function Profile() {
             <div>
                 <ProfileTop currentUser={currentUser} />
                 <hr />
-                <ProfileInput contactId={contactId} />
+                <ProfileInput contactId={contactId} currentUser={currentUser} />
             </div>
         </div>
         </>

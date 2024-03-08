@@ -1,14 +1,13 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 
 import AccountInfo from "./AccountInfo"
 import Address from "./Address"
 import OtherInfo from "./OtherInfo"
 import SaveInfo from "./SaveInfo"
-import { UserContext } from "../../../App"
 
-function ProfileInput({contactId}) {
-    const [formInput, setFormInput] = useState({})
-    const userContext = useContext(UserContext)
+function ProfileInput({contactId, currentUser}) {
+
+    const [formInput, setFormInput] = useState(currentUser || {})
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,11 +30,11 @@ function ProfileInput({contactId}) {
         <div className="profile-inputs">
                 <form onSubmit={handleSubmit}>
                     <div className="profile-inputs-row">
-                        <AccountInfo formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
-                        <Address formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
+                        <AccountInfo user={currentUser} formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
+                        <Address user={currentUser} formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
                     </div>
                     <div className="profile-inputs-row">
-                        <OtherInfo formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
+                        <OtherInfo user={currentUser} formInput={formInput} setFormInput={setFormInput} handleSubmit={handleSubmit} handleChange={handleChange}/>
                         <SaveInfo handleSubmit={handleSubmit} />
                     </div>
                 </form>

@@ -29,9 +29,7 @@ function CommentField({post, comments, setComments}) {
                     contactId: userContext.currentUser.id
                 })
         })
-            .then(response => response.json())
-            .then(response => console.log(response))
-        
+            .then(response => response.json())        
         setCommentContent("")
     }
 
