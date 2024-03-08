@@ -52,6 +52,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<PostPage />} />
                         <Route path="/detail/:id" element={<PostDetail />} />
+                        <Route path="/profile/:id" element={<p>profile</p>} />
                     </Routes>
                 </Layout>
             </postContext.Provider>

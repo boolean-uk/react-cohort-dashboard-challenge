@@ -10,7 +10,7 @@ const MainMenu = () => {
     const nav = useNavigate();
 
     const goToProfile = () => {
-        nav("/profile/");
+        nav("/profile/" + user.id);
     };
     return (
         <header className="header">
