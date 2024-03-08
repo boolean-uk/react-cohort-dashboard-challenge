@@ -11,7 +11,7 @@ function CommentList() {
     }
     return (
         <ul>
-            {(comments.length > 3 && !showAll) && <h1 className="showAllComments" onClick={() => { setShowAll(true) }}>See previous comments</h1>}
+            {(comments.length > 3 && !showAll) && <h1 className="showAllComments" onClick={() => { console.log("Show all comments"); setShowAll(true); }}>See previous comments</h1>}
             {ShownComments.map((comment) => { return (<CommentListItem comment={comment} />) })}
         </ul>
     )

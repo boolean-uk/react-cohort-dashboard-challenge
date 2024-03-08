@@ -36,7 +36,7 @@ function PostListItemText({ post, removePost }) {
     }
 
     return (
-        <div>
+        <div className="postTop">
             <span className="initials postInitials" onClick={() => { navigate(`/profile/${post.contactId}`) }}>{author.firstName[0]}{author.lastName[0]}</span>
             <div>
                 <h1 className="closeButton" onClick={() => removePost(post)}>X</h1>

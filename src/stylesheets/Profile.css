@@ -25,3 +25,15 @@
     position: relative;
     right: 100px
 }
+
+.profileInfo button {
+    background: #000046;
+    color: white;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 64px;
+    font-size: x-large;
+
+}

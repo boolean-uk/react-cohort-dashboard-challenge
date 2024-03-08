@@ -33,8 +33,10 @@ function Profile() {
                 <ProfileHeader user={user} />
                 <div className="profileInfo">
                     <AccountInfo user={user} handleChange={handleChange} />
-                    <Address user={user} handleChange={handleChange} />
-                    <button onClick={handleSubmit}>Save changes</button>
+                    <div>
+                        <Address user={user} handleChange={handleChange} />
+                        <button onClick={handleSubmit}>Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>

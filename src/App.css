@@ -1,5 +1,5 @@
 #root {
-  background: #F0F5FA;
+  background: white;
 }
 
 .container-nav-main {
@@ -21,8 +21,9 @@ span.initials {
 }
 
 span.postInitials {
-  position: absolute;
-  left: 220px;
+  position: relative;
+  top: 80px;
+  margin-left: 10px;
 }
 
 

@@ -7,6 +7,8 @@
     border: 1px solid gray;
 }
 
+
+
 .onlyPost {
     margin-left: 40px;
 }
@@ -50,13 +52,14 @@ h2.postHead {
 }
 
 .comment {
-    background: #e6ebf5;
+    background: hsl(220, 43%, 93%);
     width: fit-content;
     border-radius: 10px;
-    margin: 20px;
     padding: 5px;
     margin-left: 50px;
     padding-right: 20px;
+    position: relative;
+    display: block;
 }
 
 .comment h1 {
@@ -84,11 +87,16 @@ input {
 
 }
 
+.addComment span {
+    position: relative;
+    top: 50px
+}
+
 .addComment img {
     width: 30px;
-    position: absolute;
+    position: relative;
     margin: -50px;
-    margin-top: 10px;
+    bottom: 40px
 }
 
 .addPost {
@@ -96,6 +104,8 @@ input {
     border: 2px solid black;
     padding: 4px;
     margin: 5px;
+    display: grid;
+    width: fit-content;
 }
 
 .postButton {
@@ -107,10 +117,54 @@ input {
     color: gray;
     font-size: large;
     font-weight: 600;
-
 }
 
 .commentButtons {
     display: grid;
     grid-template-columns: max-content max-content
+}
+
+.ownComment div.comment {
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+}
+
+.ownComment span.initials {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    z-index: 1;
+}
+
+.ownCommentInitials {
+    position: relative;
+    top: 20px;
+    right: 10px;
+}
+
+.otherCommentInitials {
+    position: relative;
+    right: 30px;
+    top: 80px
+}
+
+.ownComment {
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-left: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+}
+
+.otherComment {
+    position: relative;
+    height: fit-content;
+}
+
+.postTop {
+    display: grid;
+    margin-top: -60px;
 }

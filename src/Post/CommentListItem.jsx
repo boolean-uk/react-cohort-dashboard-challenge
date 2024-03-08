@@ -42,9 +42,9 @@ function CommentListItem({ comment }) {
     }
 
     return (
-        <div>
-            <span className="initials postInitials" onClick={() => { navigate(`/profile/${comment.contactId}`) }}>{author.firstName[0]}{author.lastName[0]}</span>
-            <div className="comment">
+        <div className={author.id === 1 ? 'ownComment' : 'otherComment'}>
+            <span className={`${author.id === 1 ? 'ownCommentInitials' : 'otherCommentInitials'} initials`} onClick={() => { navigate(`/profile/${comment.contactId}`) }}>{author.firstName[0]}{author.lastName[0]}</span>
+            <div className={`comment`}>
                 <h1 onClick={() => { navigate(`/profile/${comment.contactId}`) }}>{author.firstName} {author.lastName}</h1>
                 {!isEditing && <h2>{comment.content}</h2>}
                 {isEditing && <textarea name="content"
@@ -54,8 +54,8 @@ function CommentListItem({ comment }) {
                     rows='4'
                     onChange={handleChange}></textarea>}
                 <div className="commentButtons">
-                    <h1 onClick={() => removeComment(comment)}>X</h1>
-                    {!isEditing && <h1 onClick={editComment}>Edit</h1>}
+                    {author.id === 1 && <h1 onClick={() => removeComment(comment)}>X</h1>}
+                    {(author.id === 1 && !isEditing) && <h1 onClick={editComment}>Edit</h1>}
                     {isEditing && <h1 onClick={saveComment}>Save</h1>}
                 </div>
 
