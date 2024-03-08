@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import TopbarComponent from './components/Topbar'
 import SidebarComponent from './components/Sidebar'
@@ -14,12 +14,19 @@ export const loginUserContext = createContext()
 export default function App() {
 
   const [getLoginUser, setLoginUser] = useState({
-    firstName: "John",
-    lastName: "Userman",
-    favouriteColour: '#f4dc78',
-    id: 16
+    firstName: "A",
+    lastName: "A",
+    favouriteColour: "",
+    id: 1
   })
+
   const loginUser = { get: getLoginUser, set: setLoginUser }
+
+  useEffect(() => {
+    fetch(`${APIURL}/contact/1`)
+        .then(response => response.json())
+        .then(data => loginUser.set(data))
+}, [])
 
   return (
     <loginUserContext.Provider value={{loginUser}}>

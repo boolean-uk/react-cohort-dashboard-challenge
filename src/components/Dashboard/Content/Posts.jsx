@@ -5,10 +5,7 @@ import { APIURL } from '../../../App'
 
 export const userContext = createContext()
 
-export default function PostsComponent() {
-
-    const [getPosts, setPosts] = useState([])
-    const posts = { get: getPosts, set: setPosts }
+export default function PostsComponent({posts}) {
 
     const [getUsers, setUsers] = useState([])
     const users = { get: getUsers, set: setUsers }
@@ -25,11 +22,6 @@ export default function PostsComponent() {
             .then(response => response.json())
             .then((data) => users.set(data))
     }, [])
-
-
-    useEffect(() => {
-        console.log(users.get)
-    }, [users.get])
 
     return (
         <div className='posts'>

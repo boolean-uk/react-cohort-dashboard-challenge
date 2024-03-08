@@ -8,6 +8,13 @@ export default function CommentComponent({ comment }) {
     const { users } = useContext(userContext)
     const author = users.get.find(user => user.id == comment.contactId)
 
+    if (!author){
+        return(
+            <div>
+            </div>
+        )
+    }
+
     return (
         <li className='comment'>
             <UserIconComponent user={author} />
@@ -17,9 +24,6 @@ export default function CommentComponent({ comment }) {
                     {comment.content}
                 </p>
             </div>
-
-
-
         </li>
     )
 }

@@ -3,16 +3,14 @@ import './Comments.css'
 import CommentComponent from './Comments/Comment'
 import { APIURL } from '../../../../../App'
 
-export default function CommentsComponent({ postId }) {
-
-    const [getComments, setComments] = useState([])
-    const comments = {get:getComments, set:setComments}
+export default function CommentsComponent({ postId, comments }) {
 
     useEffect(() => {
         fetch(`${APIURL}/post/${postId}/comment`)
             .then(response => response.json())
-            .then((data) => comments.set(data.reverse()))
-    }, [])
+            .then(data => comments.set(data))
+    }, [postId])
+
 
 
     return (

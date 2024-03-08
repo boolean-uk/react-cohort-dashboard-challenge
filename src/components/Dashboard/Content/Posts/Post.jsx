@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Post.css'
 import UserIconComponent from '../../../assets/user-icon'
 import { userContext } from '../Posts'
@@ -9,6 +9,9 @@ export default function PostComponent({ post }) {
     const { users } = useContext(userContext)
 
     const author = users.get.find(user => user.id == post.contactId)
+
+    const [getComments, setComments] = useState([])
+    const comments = {get:getComments, set:setComments}
 
     if (!author){
         return (
@@ -31,8 +34,8 @@ export default function PostComponent({ post }) {
                 <div className='content'>
                     {post.content}
                 </div>
-                <CommentsComponent postId={post.id} />
-                <CreateCommentComponent postId={post.id} />
+                <CommentsComponent postId={post.id} comments={comments}/>
+                <CreateCommentComponent postId={post.id} comments={comments}/>
 
             </div>
         </li>
