@@ -44,6 +44,8 @@ const PostComment = ({post}) => {
         className='comment-input'
         value={comment.content}
         onChange={handleChange}
+        variant='filled'
+        size='small'
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>
