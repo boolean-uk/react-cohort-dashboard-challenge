@@ -325,7 +325,13 @@ make the child components lay out using flex, vertically stacked in a column */
 .profileContent > div:nth-child(2) {
   display:flex;
   flex-direction: column;
+  flex: 1;
+}
+.profileContent > div:nth-child(3) {
+  display:flex;
+  flex-direction: column;
   flex: 2;
+  padding-left: 20px;
 }
 .profileTextDetails div{  
   border-radius: 3px;
@@ -339,6 +345,7 @@ make the child components lay out using flex, vertically stacked in a column */
   border-color: #000046;
   color:#000046;
 }
+
 .profileSaveButton {
   display: flex;
   align-items: center;

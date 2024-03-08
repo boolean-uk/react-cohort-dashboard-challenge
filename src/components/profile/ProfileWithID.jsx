@@ -86,11 +86,11 @@ export default function ProfileWithID() {
                 </div>
                 <div>
                   <p>Email:</p>
-                  <input className='profileInput main-background' value={form.email} onChange={handleChangeInput}/>
+                  <input className='profileInput main-background' name='email' value={form.email} onChange={handleChangeInput}/>
                 </div>
                 <div>
                   <p>Job title:</p>
-                  <input className='profileInput main-background' value={form.jobTitle} onChange={handleChangeInput} name='email'></input>
+                  <input className='profileInput main-background' value={form.jobTitle} onChange={handleChangeInput} name='jobTitle'></input>
                 </div>
                 <div>
                   <p>Favourite colour:</p>
@@ -108,11 +108,11 @@ export default function ProfileWithID() {
               <div className='profileTextDetails'>
                 <div>
                   <p>Street:</p>
-                  <input className='profileInput main-background' value={form.street} onChange={handleChangeInput}></input>
+                  <input className='profileInput main-background' value={form.street} onChange={handleChangeInput} name='street' ></input>
                 </div>
                 <div>
                   <p>City:</p>
-                  <input className='profileInput main-background' value={form.city} onChange={handleChangeInput}></input>
+                  <input className='profileInput main-background' value={form.city} onChange={handleChangeInput} name='city' ></input>
                 </div>
               </div>
             </div>
