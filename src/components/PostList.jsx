@@ -5,8 +5,7 @@ import CreatePost from "./CreatePost";
 
 
 function PostList() {
-  const { posts, setPosts } = useContext(AppContext);
-
+  const { posts} = useContext(AppContext);
   const reversePost = [...posts].reverse();
   return (
     <main className="post-list">

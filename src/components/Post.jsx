@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import CreateComment from "./CreateComment";
 import CommentList from "./CommentList";
-import { AppContext, UserCommentContext } from "../App";
+import { AppContext} from "../App";
 import ProfileWithFullText from "./ProfileWithFullText";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Post({ post }) {
   const [comments, setComments] = useState([]);
@@ -12,11 +12,6 @@ function Post({ post }) {
     firstName: "default",
     lastName: "default",
   });
-
-  console.log(post)
-
-  const navigate = useNavigate();
-
   const { posts, setPosts } = useContext(AppContext);
   const [currentPost, setCurrentPost] = useState(null);
  
@@ -26,7 +21,6 @@ function Post({ post }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        /* console.log("Comments", data); */
         setComments(data);
       })
       .catch((error) => console.error("Error fetching comments:", error));
@@ -38,7 +32,6 @@ function Post({ post }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        /* console.log("Post Author", data); */
         setUser(data);
       })
       .catch((error) => console.error("Error fetching comments:", error));

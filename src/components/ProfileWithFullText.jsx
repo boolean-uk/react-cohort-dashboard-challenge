@@ -1,5 +1,4 @@
 import React from "react";
-import Profile from "./Profile";
 import { UserContext } from "../App";
 import { useContext } from "react";
 import { Link, useNavigate} from "react-router-dom";

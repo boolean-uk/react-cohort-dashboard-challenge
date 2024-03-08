@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { RxAvatar } from "react-icons/rx";
-import Profile from "./Profile";
 import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
