@@ -1,8 +1,9 @@
-import Comments from "./components/Comments";
+import Comments from "./components/Comment/Comments";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRequest } from "../API";
 import Users from "./components/Users";
+import NewComment from "./components/Comment/NewComment";
 
 export default function PostPage() {
   const [post, setPost] = useState([]);
@@ -31,7 +32,9 @@ export default function PostPage() {
           <Users userId={post.contactId} />
           <h1>{post.title} </h1>
           <p className="post-content">{post.content}</p>
-          <Comments postId={postId} />
+          <Comments postId={post.id} />
+          <NewComment postId={post.id} />
+
           <button>
             <Link to={`/post/${postId}/modify`}>Modify</Link>
           </button>

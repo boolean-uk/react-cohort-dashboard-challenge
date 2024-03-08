@@ -1,36 +1,31 @@
-import { useEffect, useState } from "react";
-import { getRequest } from "../../API";
+import { useState, useEffect } from "react";
+import GetUser from "./Profile/GetUser";
 
 export default function Users({ userId }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading } = GetUser({ userId });
+  const [formData, setFormData] = useState(user || {});
 
-  // on load: fetch user
   useEffect(() => {
-    const runEffect = async () => {
-      const { data, error } = await getRequest(`/contact/${userId}`);
-      if (error === null) {
-        setUser(data);
-      } else {
-        // display error
-        console.log(error);
-      }
-      setLoading(false);
-    };
-    runEffect();
-  }, [userId]);
+    setFormData(user || {});
+  }, [user]);
 
   return (
     <>
       {loading && <p>Loading...</p>}
       {!loading && user && (
-        <div>
-          <img
-            src={`https://www.gravatar.com/avatar/${user.email}?s=120&d=identicon`}
-          />
-          <p>
-            {user.firstName} {user.lastName}
-          </p>
+        <div className="circle-container">
+          <div
+            className="circle"
+            style={{ backgroundColor: formData.favouriteColour }}
+          >
+            {formData.firstName && formData.firstName.charAt(0)}
+            {formData.lastName && formData.lastName.charAt(0)}
+          </div>
+          <div className="name">
+            <h2>
+              {formData.firstName} {formData.lastName}
+            </h2>
+          </div>
         </div>
       )}
     </>

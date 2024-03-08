@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postRequest } from "../../API";
+import { postRequest } from "../../../API";
 
 export default function NewComment({ postId }) {
   const DEFAULT_POST = {
@@ -43,7 +43,7 @@ export default function NewComment({ postId }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="comment">
+      <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <input
             className="inputBox"

@@ -3,8 +3,8 @@ import Navigations from "./Pages/components/Navigations";
 import HomePage from "./Pages/HomePage";
 import PostPage from "./Pages/PostPage";
 import ProfilePage from "./Pages/ProfilePage";
-import ModifyPost from "./Pages/components/ModifyPost";
-import DeletePost from "./Pages/components/DeletePost";
+import ModifyPost from "./Pages/components/Post/ModifyPost";
+import DeletePost from "./Pages/components/Post/DeletePost";
 import "./App.css";
 
 function App() {

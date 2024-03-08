@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { postRequest } from "../../API";
+import { postRequest } from "../../../API";
 
 const DEFAULT_POST = {
   contactId: 1,
@@ -42,17 +42,6 @@ export default function CreateNewPost() {
       }
     });
   }
-
-  /*
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-*/
 
   return (
     <div className="post-card">

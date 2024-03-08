@@ -1,4 +1,4 @@
-import { getRequest, updateRequest } from "../../API";
+import { getRequest, updateRequest } from "../../../API";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -19,7 +19,6 @@ export default function ModifyPost() {
       if (error === null) {
         setPost(data);
       } else {
-        // display error
         console.log(error);
       }
       setLoading(false);

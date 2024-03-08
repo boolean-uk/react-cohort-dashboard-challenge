@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getRequest } from "../../API";
-import Comments from "./Comments";
-import Users from "./Users";
-import NewComment from "./NewComment";
+import { getRequest } from "../../../API";
+import Comments from "../Comment/Comments";
+import Users from "../Users";
+import NewComment from "../Comment/NewComment";
 
 export default function PostsList() {
   const [post, setPost] = useState([]);

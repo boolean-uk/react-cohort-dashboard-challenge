@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getRequest } from "../../API";
+import { getRequest } from "../../../API";
 import { useParams } from "react-router-dom";
-import Users from "./Users";
+import CommentUser from "./CommentUser";
 
 export default function Comments({ postId }) {
   const [comments, setComments] = useState([]);
@@ -38,8 +38,8 @@ export default function Comments({ postId }) {
           {visibleComments.map((com) => {
             return (
               <div key={com.id}>
-                <Users userId={com.contactId} />
-                <p className="comment">{com.content}</p>
+                <CommentUser userId={com.contactId} />
+                <p className="comment-box ">{com.content}</p>
               </div>
             );
           })}

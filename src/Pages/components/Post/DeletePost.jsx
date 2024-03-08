@@ -1,4 +1,4 @@
-import { deleteRequest } from "../../API";
+import { deleteRequest } from "../../../API";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function DeletePost() {
