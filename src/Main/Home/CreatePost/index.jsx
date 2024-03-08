@@ -18,9 +18,13 @@ function CreatePost() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setPost({title: postTitle !== "" ? postTitle : "No title", content: postContent, contactId: userContext.users[0].id})
-        postContext.setPosts([...postContext.posts, post])
-        
+        postContext.setPosts([...postContext.posts, 
+            {
+                title: postTitle !== "" ? postTitle : "No title", 
+                content: postContent, 
+                contactId: userContext.users[0].id
+        }])
+
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post`, {
             method: 'POST', 
             headers: {
