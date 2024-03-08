@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import PostPage from "./components/post/PostPage";
 import PostDetail from "./components/post/PostDetail";
 import { createContext, useEffect, useState } from "react";
+import ProfilePage from "./components/profile/ProfilePage";
 
 function App() {
     const [user, setUser] = useState({
@@ -52,7 +53,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<PostPage />} />
                         <Route path="/detail/:id" element={<PostDetail />} />
-                        <Route path="/profile/:id" element={<p>profile</p>} />
+                        <Route path="/profile/:id" element={<ProfilePage />} />
                     </Routes>
                 </Layout>
             </postContext.Provider>
