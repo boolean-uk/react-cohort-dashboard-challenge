@@ -4,6 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Header from './components/Header'
 import Home from './components/Home'
 import ProfilePage from './components/ProfilePage'
+import LetteredAvatar from './components/LetteredAvatar';
 
 import TitleHeader from './assets/title-header.svg';
 import HomeIcon from './assets/home-icon.svg';
@@ -26,7 +27,11 @@ function App() {
   const [posts, setPosts] = useState([])
   const [content, setContent] = useState('')
   const [comments, setComments] = useState('')
+  const [contacts, setContacts] = useState([])
 
+
+
+  // Get Posts from API and add empty comments
   useEffect(() => {
     fetch('https://boolean-api-server.fly.dev/noahlenn/post')
       .then(respone => respone.json())
@@ -39,6 +44,15 @@ function App() {
       })  
       .catch(error => console.error("Error fetching contacts fro API: ", error))
   }, [])
+  console.log('Posts: ', posts)
+
+  useEffect(() => {
+    fetch('https://boolean-api-server.fly.dev/noahlenn/contact')
+      .then(respone => respone.json())
+      .then(data => setContacts(data))
+      .catch(error => console.error("Error fetching contacts fro API: ", error))
+  }, [])
+    console.log('Contacts: ', contacts)
 
 
   const addPost = (e) => {
@@ -63,7 +77,30 @@ function App() {
     setComments(updatedComments)
     
   }
+  function getInitials(name) {
+        return `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`;
+      }
 
+      function generateBackground(name) {
+        let hash = 0;
+        let i;
+     
+       for (i = 0; i < name.length; i += 1) {
+         hash = name.charCodeAt(i) + ((hash << 5) - hash);
+       } 
+      // name.charCodeAt() return an int between 0 and 65535
+      // left shift (<<)  operator moves to left by number of specified 
+      // bites after <<. The whole for loop will create a color hash 
+      // based on username length
+       let color = '#';
+     
+       for (i = 0; i < 3; i += 1) {
+         const value = (hash >> (i * 8)) & 0xff;
+         color += `00${value.toString(16)}`.slice(-2);
+       }
+     
+       return color;
+     }
 
   return (
     <>
@@ -87,6 +124,8 @@ function App() {
 
         </nav>
 
+        {/* Problems when making Posts its own component si its in app for now */}
+        
         {/* Posts Component*/}
         <main className="main">
           <Routes>
@@ -97,6 +136,17 @@ function App() {
               path="/profile" 
               element={<ProfilePage />} />
           </Routes>
+
+          {/* Create LetteredAvatar for each Contact */}
+          <div className='contacts'>
+          {contacts.map((contact, index) => (
+                <div key={index} className="contact">
+                  <LetteredAvatar contact={contact} />
+                  <span className="contact-name">{contact.firstName} {contact.lastName}</span>
+                  
+                </div>
+              ))}
+          </div>
 
         {/* CreatePost Component*/}
         <form onSubmit={addPost}>
