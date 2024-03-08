@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { PostContext } from "../../App.jsx";
 import "./Body.css";
-import { useNavigate } from "react-router-dom";
 
 const INITIAL_POST = {
   title: "",
@@ -12,8 +11,6 @@ const currentUserId = 1; //This is a placeholder
 export default function WritePost() {
   const { posts, setPosts } = useContext(PostContext);
   const [newPost, setNewPost] = useState({ title: "", content: "" });
-
-  const navigate = useNavigate();
 
   const handleFormChange = (event) => {
     const { value } = event.target;
