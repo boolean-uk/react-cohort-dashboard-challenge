@@ -7,6 +7,7 @@
     justify-content: left;
     align-items: center;
     width: calc(100% - 30px - 15px);
+    min-width: 330px;
     padding: 30px;
     margin-bottom: 30px;
 }
@@ -16,7 +17,7 @@
     position: relative;
     justify-content: normal;
     border-bottom: solid 1px lightgray;
-    width: 100%;
+    width: calc(100%);
 }
 
 .post-content-container > p {

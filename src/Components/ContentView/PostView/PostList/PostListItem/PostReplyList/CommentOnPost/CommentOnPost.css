@@ -18,8 +18,8 @@
     border-radius: 15px;
     padding: 2px;
     padding-left: 10px;
-    padding-right: 20px;
-    background-color: var(--form-background-color)
+    padding-right: 50px;
+    min-width: 185px;
 }
 
 .reply-container-item > button {
