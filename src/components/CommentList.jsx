@@ -6,7 +6,7 @@ import CommentProfile from "./CommentProfile";
 function CommentList({ comments }) {
   const reverseComments = [...comments].reverse();
 
-  
+
   const [showAllComments, setShowAllComments] = useState(false);
   // displays all comments or the latest three comments based on the showAllComments state
   const showThreeComments = showAllComments
@@ -18,7 +18,7 @@ function CommentList({ comments }) {
   };
 
   return (
-    <div>
+    <div style={{margin:'12px 6px'}}>
       <p onClick={handleShowAllComments} style={{ fontWeight: "bold" }}>
         See previous comments
       </p>

@@ -63,7 +63,7 @@ function CreatePost() {
               required
             />
           </div>
-          <button type="submit">Post</button>
+          <button type="submit" style={{background:'var(--background', color:'var(--white'}}>Post</button>
         </form>
       </div>
     </div>
