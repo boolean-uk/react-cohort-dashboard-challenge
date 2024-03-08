@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.mainbody{
+    display: flex;
+}
+
+.nav{
+    padding: 3%;
+    align-items: center;
+    width: 100px;
+}
+
+.nav div{
+    padding-left: 12px;
+    size: 100%;
+}
+.nav img{
+    max-height: 50px;
+    padding-left: 5px;
+}
+
+
+main{
+    width: 100%;
+    background-color: #F0F5FA;
+    overflow: auto;
+}
+
+main div{
+    padding: 15px;
+}
+
+button{
+    background-color: #000046;
+    color: white;
+}
+
+button:hover {
+    color: white;
+    background-color: #64dc78;
+  }

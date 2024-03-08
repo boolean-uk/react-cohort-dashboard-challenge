@@ -1,0 +1,20 @@
+.header {
+    background-color: rgb(0, 0, 77);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header img {
+    max-height: 60px;
+    margin-left: 75px;
+    margin-top: 12px; 
+  }
+  
+  .header-avatar {
+    margin-right: 80px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    max-width: 50px;
+    max-height: 50px; 
+    max-inline-size: 50px;
+  }
