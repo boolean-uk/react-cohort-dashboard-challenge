@@ -323,3 +323,20 @@ body {
   margin-left: 200px;
 }
 
+.post-view-container {
+  background-color: #fff;
+  margin-right: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 35px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+
+.post-view-container ul {
+  padding-right: 50px;
+  padding-left:0
+}
+
