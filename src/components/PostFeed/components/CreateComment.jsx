@@ -5,14 +5,6 @@ import PropTypes from "prop-types"
 
 function CreateComment({postId, setComments, comments}) {
   const {loggedInUser} = useContext(UserContext)
-
-  console.log(postId , comments)
-
-  if(comments.length > 0){
-    console.log(comments.length)
-    console.log(comments[comments.length-1].id)
-  }
-
   const [comment, setComment] = useState({
       id: "",
       postId: postId,

@@ -12,7 +12,7 @@ function Header() {
     <div className="header">
       <img className="logo" src={HeaderLogo} alt="head" />
       <div className="profile-icon">
-        <Link to="/profile"> <ProfileCircle user={loggedInUser}></ProfileCircle> </Link>
+        <Link to ={`profile/${loggedInUser.id}`}> <ProfileCircle user={loggedInUser}></ProfileCircle> </Link>
       </div>
     </div>
   )

@@ -6,6 +6,8 @@ import Header from './components/Header'
 import PostFeed from './components/PostFeed'
 import Profile from './components/Profile'
 import DetailedPost from './components/PostFeed/components/DetailedPost'
+import ProfileForm from './components/Profile/components/ProfileForm'
+import ProfileInfo from './components/Profile/components/ProfileInfo'
 
 const PostContext = createContext()
 const UserContext = createContext()
@@ -18,7 +20,7 @@ function App() {
   })
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   
-  console.log(isLoading)
+
   const fetchPosts = () => {
     setIsLoading(true)
     fetch("https://boolean-api-server.fly.dev/AxelHan/post")
@@ -55,21 +57,23 @@ function App() {
     <>
       <div className="container">
         <header className='header'>
-          <UserContext.Provider value={{loggedInUser: loggedInUser}}>
+          <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
             <Header></Header>
           </UserContext.Provider>
         </header>
         <div className="container-nav-main">
-          <Sidebar></Sidebar>
+          <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
+            <Sidebar></Sidebar>
+          </UserContext.Provider>
           <main className="main green">
           {isLoading ? (<p>loading...</p>) : (
-            <UserContext.Provider value={{loggedInUser: loggedInUser}}>
+            <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
             <PostContext.Provider value ={{posts: posts, setPosts: setPosts}}>
             <Routes>
                 <Route 
                 path="/" 
                 element={<PostFeed></PostFeed>}></Route>
-                <Route path="/profile" element={<Profile></Profile>}></Route>
+                <Route path="/profile/:id" element={<Profile></Profile>}></Route>
                 <Route path="post/:id" element={<DetailedPost></DetailedPost>}></Route>
             </Routes>
             </PostContext.Provider> 

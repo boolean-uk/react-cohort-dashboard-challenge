@@ -7,7 +7,7 @@ function PostHeader({user, post}) {
   return (
     <div className="post-header-container">
         <div className="profile-image">
-          <Link to="/profile">
+          <Link to={`/profile/${user.id}`}>
             <ProfileCircle user={user}></ProfileCircle>
           </Link>
         </div>

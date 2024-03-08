@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import ProfileCircle from "../../Profile/components/ProfileCircle"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 
 function Comment({comment}) {
   const [user, setUser] = useState({
@@ -25,7 +26,8 @@ function Comment({comment}) {
   return (
     <div className="comment-item">
       <div className="comment-profile">
-        <ProfileCircle user={user} ></ProfileCircle>
+        <Link to={`/profile/${user.id}`}><ProfileCircle user={user} ></ProfileCircle></Link>
+       
       </div>
       <div className="comment-content">
         <p>{comment.content}</p>

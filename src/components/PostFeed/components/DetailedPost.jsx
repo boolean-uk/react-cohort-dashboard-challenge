@@ -10,6 +10,8 @@ function DetailedPost() {
 
     const {id} = useParams()
 
+    console.log(posts)
+
     useEffect(() => {
         if(posts && id){
             setPost(posts.find((post) => Number(post.id) === Number(id)))
