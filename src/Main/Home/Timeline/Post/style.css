@@ -38,3 +38,12 @@ hr {
     font-size: 12px;
     color: #444499;
 }
+/*
+#see-previous-checkbox {
+    display: none;
+}
+*/
+
+.see-previous-label {
+    color: #444499;
+}

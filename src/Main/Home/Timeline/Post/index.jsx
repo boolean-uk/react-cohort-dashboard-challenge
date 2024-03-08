@@ -43,8 +43,8 @@ function Post({ post }) {
             <p>{post.content}</p>
             <hr />
             {comments.length >= 3 && <>
-                <input id="see-previous-checkbox" type="checkbox" onChange={() => setMaxThree(!maxThree)}/>
-                <label htmlFor="see-previous-checkbox">{maxThree ? "See previous comments" : "Hide"}</label>
+                <input id={`see-previous-${post.id}`} type="checkbox" onChange={() => setMaxThree(!maxThree)}/>
+                <label className="see-previous-label" htmlFor={`see-previous-${post.id}`}>{maxThree ? "See previous comments" : "Hide"}</label>
             </>
             }
             {comments.map((comment, index) => !maxThree || index >= comments.length-3 ? (
