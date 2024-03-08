@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import './style.css'
-import { UserContext } from '../../../../../App'
+import { UserContext } from '../../../../../../App'
 import { Link } from 'react-router-dom'
 
 function Comment({comment}) {
