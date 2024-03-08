@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Feed from "./components/Feed";
 import SideMenu from "./components/SideMenu";
 import HeaderIcon from "./components/icons/HeaderIcon";
@@ -37,7 +37,8 @@ function App() {
         <header className="header">
           <HeaderIcon className="img"/>
           <div className="avatar-container">
-            <Avatar className="header-avatar" name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`} round={true} size={50}/>
+            <Link to={"/profile"}><Avatar className="header-avatar" name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`} round={true} size={50}/></Link>
+            
           </div>
         </header>
       

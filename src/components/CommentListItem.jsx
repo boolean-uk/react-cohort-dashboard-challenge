@@ -2,6 +2,7 @@ import Avatar from "react-avatar";
 import PropTypes from "prop-types"
 import { useContext } from "react";
 import { CommentContext } from "./Comments";
+import { Link } from "react-router-dom";
 
 function CommentListItem({ comment }) {
     const { getUserInfo } = useContext(CommentContext)
@@ -19,9 +20,12 @@ function CommentListItem({ comment }) {
         </div>
         <div className="comment-details">
           <div className="comment-user">
-            <b>{`${getUserInfo(comment.contactId).firstName} ${
+            <Link
+              to={`/profile/${comment.contactId}`}
+              state={{ user: getUserInfo(comment.contactId) }}
+            >{`${getUserInfo(comment.contactId).firstName} ${
               getUserInfo(comment.contactId).lastName
-            }`}</b>
+            }`}</Link>
           </div>
           <div className="comment-content">
             <p>{comment.content}</p>
