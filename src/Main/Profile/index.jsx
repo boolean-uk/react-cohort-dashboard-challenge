@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { UserContext } from "../../App"
 import AccountInfo from "./AccountInfo"
 
@@ -10,20 +10,21 @@ import { useParams } from "react-router-dom"
 
 function Profile() {
     const context = useContext(UserContext)
-    const [usersProfile, setUsersProfile] = useState({})
     const [formInput, setFormInput] = useState({})
     const contactId = useParams()
+    const [currentUser, setCurrentUser] = useState(null)
 
-
+    useEffect(() => {
+        const userArr = context.users.filter(user => Number(user.id) === Number(contactId.id))
+        setCurrentUser(userArr[0])
+    }, [])
 
     const handleChange = (e) => {
         setFormInput({...formInput, [e.target.name]: e.target.value })
-        console.log(formInput)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("THIS WAS SUBMITTED :) ", formInput)
 
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/contact/${contactId.id}`,
         {
@@ -35,14 +36,16 @@ function Profile() {
             .then(response => console.log(response))
     }
 
+    if(!currentUser) return <p>Loading user...</p>
+
     return(
         <>
         <h1>Profile</h1>
         <div className="profile">
             <div>
                 <div className="profile-top">
-                    <div className="profile-pic-big" style={{backgroundColor: context.users[0].favouriteColour}} >{context.users[0].firstName[0]}{context.users[0].lastName[0]}</div>
-                    <h2>{context.currentUser.firstName} {context.currentUser.lastName}</h2>
+                    <div className="profile-pic-big" style={{backgroundColor: currentUser.favouriteColour}} >{currentUser.firstName[0]}{currentUser.lastName[0]}</div>
+                    <h2>{currentUser.firstName} {currentUser.lastName}</h2>
                 </div>
                 <hr />
                 <div className="profile-inputs">

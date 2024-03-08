@@ -49,7 +49,7 @@ function Post({ post }) {
             }
             {comments.map((comment, index) => !maxThree || index >= comments.length-3 ? (
                 <Comment key={index} comment={comment}/>
-            ) : <></>)}
+            ) : <div key={index}></div>)}
             <CommentField post={post} comments={comments} setComments={setComments}/>
         </div>
     )

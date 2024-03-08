@@ -20,9 +20,10 @@ function CreatePost() {
 
         postContext.setPosts([...postContext.posts, 
             {
+                id: Math.max(...postContext.posts.map(p => p.id)) +1,
                 title: postTitle !== "" ? postTitle : "No title", 
                 content: postContent, 
-                contactId: userContext.users[0].id
+                contactId: userContext.currentUser.id
         }])
 
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post`, {
@@ -33,14 +34,10 @@ function CreatePost() {
                 {
                     title: postTitle !== "" ? postTitle : "No title", 
                     content: postContent, 
-                    contactId: userContext.users[0].id
+                    contactId: userContext.currentUser.id
                 })
         })
             .then(response => response.json())
-            .then(response => console.log(response))
-
-
-
         setPostContent("")
     }
 
@@ -48,10 +45,10 @@ function CreatePost() {
         <div >
             <form className="create-post" onSubmit={handleSubmit}>
                 <div 
-                    style={{backgroundColor: `${userContext.users[0].favouriteColour}`}}
+                    style={{backgroundColor: `${userContext.currentUser.favouriteColour}`}}
                     className="profile-pic"
                 >
-                        {userContext.users[0].firstName[0]}{userContext.users[0].lastName[0]}
+                        {userContext.currentUser.firstName[0]}{userContext.currentUser.lastName[0]}
                 </div>
                 <input type="text" placeholder="What's on your mind?" onChange={handleChange} value={postContent}/>
                 <button>Post</button>

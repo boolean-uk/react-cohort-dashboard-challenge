@@ -6,6 +6,9 @@ import './style.css'
 import Profile from './Profile'
 import SinglePost from './Home/SinglePost'
 
+/*
+  TODO: Have /profile redirect to main user profile, /profile/1
+*/
 function Main() {
     return(
         <div className="main">

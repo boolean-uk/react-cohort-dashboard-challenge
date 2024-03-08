@@ -26,7 +26,7 @@ function CommentField({post, comments, setComments}) {
                 {
                     postId: post.id, 
                     content: commentContent, 
-                    contactId: userContext.users[0].id
+                    contactId: userContext.currentUser.id
                 })
         })
             .then(response => response.json())
@@ -40,9 +40,9 @@ function CommentField({post, comments, setComments}) {
             <form className="comment-field" onSubmit={handleSubmit}>
                 <div 
                     className="profile-pic" 
-                    style={{backgroundColor: `${userContext.users[0].favouriteColour}`}}
+                    style={{backgroundColor: `${userContext.currentUser.favouriteColour}`}}
                 >
-                    {userContext.users[0].firstName[0]}{userContext.users[0].lastName[0]}
+                    {userContext.currentUser.firstName[0]}{userContext.currentUser.lastName[0]}
                 </div>
                 <input type="text" placeholder="Add a comment..." onChange={handleChange} value={commentContent}/>
                 <button >SEND</button>
