@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { createContext } from "react";
+import PostForm from "./PostForm";
+import Icon from "./Icon";
 
 const PostContext = createContext();
 
@@ -47,7 +49,7 @@ function Post({ post }) {
   }, [post, context.contacts]);
 
   // designed to launch whenever a new comment is posted
-  // rematching comments with correct post after publishing new post
+  // rematching comments with the correct post after publishing new post
   // if postId and id do not match
   useEffect(() => {
     if (comments.length > 0) {
@@ -76,7 +78,7 @@ function Post({ post }) {
       if (parseInt(item.id) !== parseInt(id)) return item;
     });
 
-    // https://boolean-api-server.fly.dev/ssuihko/post/{id}/comment doesn't work so the comments have to be deleted individually...
+    // https://boolean-api-server.fly.dev/ssuihko/post/{id}/comment does not work so the comments have to be deleted individually in a loop...
     comments.forEach((x) => {
       var DEL_URL_COMMENTS =
         "https://boolean-api-server.fly.dev/ssuihko/post/" +
@@ -175,7 +177,7 @@ function Post({ post }) {
           <p>loading...</p>
         ) : (
           <div className="post-content-div">
-            <div className="yellow">
+            <div className="post-buttons-color-div">
               <button
                 className="del-button"
                 onClick={(e) => {
@@ -189,52 +191,22 @@ function Post({ post }) {
                 className="modify-btn"
                 onClick={(e) => {
                   e.preventDefault();
+                  setFormData(post);
                   setUpdate(!update);
                 }}
               >
                 Modify
               </button>
-              <div className="profile-icon-contact">
-                <div id="profile-icon-id-contact">
-                  {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
-                </div>
-              </div>
+              <Icon user={user} />
               <Link to={`/profile/${user.id}`} className="profile-link">
-                <h4>{user.firstName + " " + user.lastName} </h4>
+                <h3>{user.firstName + " " + user.lastName} </h3>
               </Link>
               {update ? (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleUpdatePost(formData);
-                  }}
-                >
-                  <div>
-                    <input
-                      id="title"
-                      name="title"
-                      type="text"
-                      placeholder="Add a title.."
-                      value={formData.title ?? ""}
-                      onChange={handleInputChange}
-                    ></input>
-                  </div>
-
-                  <button type="submit" className="update-btn">
-                    Update
-                  </button>
-
-                  <div className="textarea-section">
-                    <textarea
-                      id="content"
-                      name="content"
-                      type="text"
-                      placeholder="Add a comment..."
-                      value={formData.content ?? ""}
-                      onChange={handleInputChange}
-                    ></textarea>
-                  </div>
-                </form>
+                <PostForm
+                  handleUpdatePost={handleUpdatePost}
+                  formData={formData}
+                  handleInputChange={handleInputChange}
+                />
               ) : (
                 <div className="post-article">
                   <h5
@@ -255,7 +227,9 @@ function Post({ post }) {
               className="show-comment-button"
               onClick={() => toggleComments()}
             >
-              See previous comments
+              {showAllComments
+                ? "Hide previous comments"
+                : "See previous comments"}
             </button>
             <div>
               {showAllComments

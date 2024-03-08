@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
+import Icon from "./Icon";
 
 export default function CreatePost() {
   const context = useContext(AppContext);
@@ -60,13 +61,7 @@ export default function CreatePost() {
               addPost(formData);
             }}
           >
-            <div className="profile-icon-contact">
-              <div id="profile-icon-id-contact">
-                {context.user.firstName.charAt(0) +
-                  "" +
-                  context.user.lastName.charAt(0)}
-              </div>
-            </div>
+            <Icon user={context.user} />
             <div>
               <input
                 id="title"

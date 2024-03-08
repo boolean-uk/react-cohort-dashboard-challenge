@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { PostContext } from "./Post";
+import sendIcon from "../assets/images/sendicon.png";
+import Icon from "./Icon";
 
 export default function CreateComment() {
   const [formData, setFormData] = useState([]);
@@ -64,21 +66,13 @@ export default function CreateComment() {
         <p>loading...</p>
       ) : (
         <form
+          className="create-comment-form"
           onSubmit={(e) => {
             e.preventDefault();
             addComment(formData);
           }}
         >
-          <div className="profile-icon-contact">
-            <div id="profile-icon-id-contact">
-              {context.user.firstName.charAt(0) +
-                "" +
-                context.user.lastName.charAt(0)}
-            </div>
-          </div>
-          <button type="submit" className="post-btn">
-            Post
-          </button>
+          <Icon user={context.user} />
           <div className="textarea-section">
             <textarea
               id="content"
@@ -88,6 +82,9 @@ export default function CreateComment() {
               value={formData.content}
               onChange={handleInputChange}
             ></textarea>
+            <button type="submit" className="img-update-btn">
+              <img className="update-button-img" src={sendIcon} />
+            </button>
           </div>
         </form>
       )}

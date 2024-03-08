@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { PostContext } from "./Post";
+import sendIcon from "../assets/images/sendicon.png";
+import Icon from "./Icon";
 
 // comments, setComments, contacts
 function Comment({ comment }) {
@@ -113,13 +115,9 @@ function Comment({ comment }) {
       {user === undefined || user === "" ? (
         <p>loading...</p>
       ) : (
-        <div className="profile-icon-contact">
-          <div id="profile-icon-id-contact">
-            {user.firstName.charAt(0) + "" + user.lastName.charAt(0)}
-          </div>
-        </div>
+        <Icon user={user} />
       )}
-      <div className="yellow-comment">
+      <div className="div-comment">
         {user === undefined || user === "" ? (
           <p>loading...</p>
         ) : (
@@ -148,17 +146,15 @@ function Comment({ comment }) {
             </Link>
             {update ? (
               <form
-                className="comment-form"
+                className="update-comment-form"
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleUpdateComment(formData);
                 }}
               >
-                <button type="submit" className="update-btn">
-                  Update
-                </button>
-                <div>
+                <div className="update-comment-field">
                   <input
+                    className="update-comment-input"
                     id="content"
                     name="content"
                     type="text"
@@ -166,6 +162,9 @@ function Comment({ comment }) {
                     value={formData.content ?? ""}
                     onChange={handleInputChange}
                   ></input>
+                  <button type="submit" className="img-update-btn">
+                    <img className="update-button-img" src={sendIcon} />
+                  </button>
                 </div>
               </form>
             ) : (

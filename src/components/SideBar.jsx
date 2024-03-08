@@ -9,7 +9,7 @@ function SideBar() {
   const location = useLocation();
 
   return (
-    <nav className="sidebar red">
+    <nav className="sidebar white-background">
       <div
         className={
           location.pathname.includes("profile")

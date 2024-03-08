@@ -10,6 +10,8 @@ MIGHT BE UPDATED AFTER POSSIBLE RESTRUCTURING
       - Posts
         - CreatePost
         - Post
+          - PostForm
           - CreateComment
           - Comment
       - Profile
+      - Icon

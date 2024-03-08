@@ -83,7 +83,10 @@ function Profile() {
           {!formData.firstName && !titleUser.firstName ? (
             <p></p>
           ) : (
-            <div id="profile-icon-id-contact">
+            <div
+              id="profile-icon-id-contact"
+              style={{ backgroundColor: titleUser.favouriteColour }}
+            >
               {titleUser.firstName.charAt(0) +
                 "" +
                 titleUser.lastName.charAt(0)}
