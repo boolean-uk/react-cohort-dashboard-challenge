@@ -13,12 +13,19 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <h2 style={{ color: "black", padding: "2em" }}>Login</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          User ID:
           <input
+            style={{ backgroundColor: "#f0f5f9", color: "black" }}
             type="text"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}

@@ -1,7 +1,7 @@
 import TitleHeader from "../assets/title-header.svg";
 import { useContext } from "react";
 import { UserContext } from "../App";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavTop() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
@@ -28,17 +28,19 @@ function NavTop() {
         Log out
       </button>
       {loggedInUser && (
-        <div
-          className="initials"
-          style={{
-            backgroundColor: loggedInUser.favouriteColour,
-            color: "black",
-            marginRight: "30px",
-          }}
-        >
-          {loggedInUser.firstName[0]}
-          {loggedInUser.lastName[0]}
-        </div>
+        <Link to={`/profile/${loggedInUser.id}`}>
+          <div
+            className="initials"
+            style={{
+              backgroundColor: loggedInUser.favouriteColour,
+              color: "black",
+              marginRight: "30px",
+            }}
+          >
+            {loggedInUser.firstName[0]}
+            {loggedInUser.lastName[0]}
+          </div>
+        </Link>
       )}
     </div>
   );
