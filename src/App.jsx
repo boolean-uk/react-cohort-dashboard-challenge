@@ -3,11 +3,12 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Posts from "./Components/Posts";
 import Header from "./Components/Header";
-
+import { useNavigate } from "react-router-dom";
 export const AppContext = createContext();
 
 export function App() {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState({
     id: 12,
     name: "",
@@ -28,6 +29,10 @@ export function App() {
       setLoggedInUser(data);
     });
   };
+
+  const navigateSingle = (postId) => {
+    navigate(`/${postId}`)
+  }
 
   const deletePost = async (postId) => {
     fetch(`https://boolean-api-server.fly.dev/Eliassoprani/post/${postId}`, {
@@ -78,9 +83,11 @@ export function App() {
               loggedInUser: loggedInUser,
               fetchUser: fetchUser,
               deletePost: deletePost,
+              navigateSingle: navigateSingle
             }}>
             <Routes>
               <Route path="/" element={<Posts />} />
+              <Route path="/:id" element={<Posts />} />
             </Routes>
           </AppContext.Provider>
         </div>

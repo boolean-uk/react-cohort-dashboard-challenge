@@ -4,11 +4,10 @@ import { AppContext } from "../App";
 import Comments from "./Comments";
 import EditIcon from "../assets/edit.svg";
 import DeleteIcon from "../assets/delete.svg";
-
 export const PostContext = createContext();
 
 function Post({ post, fetchUser, key, postId }) {
-  const { loggedInUser, deletePost, newPost, posts } = useContext(AppContext);
+  const { loggedInUser, deletePost, newPost, posts, navigateSingle } = useContext(AppContext);
   const [postComments, setPostComments] = useState([]);
   const [user, setUser] = useState(null);
   useEffect(() => {
@@ -23,10 +22,7 @@ function Post({ post, fetchUser, key, postId }) {
       });
     fetchUsername();
   }, []);
-  const updateComment = (obj) => {
-    setPostComments([...postComments, obj]);
-  };
-  console.log("Postcomments", postComments);
+
   const fetchUsername = async () => {
     try {
       const getuser = await fetchUser(post.contactId);
@@ -39,6 +35,11 @@ function Post({ post, fetchUser, key, postId }) {
   const handleDelete = () => {
     deletePost(post.id);
   };
+
+  const goToSingle = () => {
+    console.log("blahblha");
+    navigateSingle(postId)
+  }
 
   return (
     <div className="post">
@@ -58,7 +59,7 @@ function Post({ post, fetchUser, key, postId }) {
 
           <div>
             <h3>{user && user.name}</h3>
-            <h4>{post.title}</h4>
+            <h4 onClick={goToSingle}>{post.title}</h4>
           </div>
           {loggedInUser && user
             ? loggedInUser.id === user.id && (
