@@ -1,0 +1,11 @@
+.post-list-item {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.post-list-item > p{
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #e6ebf5;
+    padding-bottom: 10px;
+}

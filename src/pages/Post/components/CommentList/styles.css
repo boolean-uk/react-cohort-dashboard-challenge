@@ -1,0 +1,17 @@
+.comment-list-container > p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: #64648C;
+}
+
+.comment-list-container > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

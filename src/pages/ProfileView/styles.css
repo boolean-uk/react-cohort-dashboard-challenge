@@ -1,0 +1,23 @@
+.profile-view-container {
+    width: 100%;
+}
+
+.profile-view-container > h1 {
+    padding-left: 3vw;
+}
+
+.profile-view-info-container {
+    background-color: white;
+    margin: 20px;
+    padding: 10px 20px 20px 20px;
+    border-radius: 10px;
+}
+
+.profile-view-info-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-view-info-header > h1 {
+    margin-left: 15px;
+}

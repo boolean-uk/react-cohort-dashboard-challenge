@@ -1,0 +1,46 @@
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+    width: 120px;
+    height: 100%;
+    /* fix the sidebar to be 100 viewport minus the header */
+    max-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    user-select: none;
+}
+
+.sidebar > div {
+    display: grid;
+    grid-template-rows: 40px 20px;
+    justify-items: center;
+    align-content: center;
+    width: 100%;
+    height: 120px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar > div > p {
+    margin-top: 7px;
+    color: #64648C;
+    transition: color 0.3s ease;
+}
+
+.sidebar > div > svg > path {
+    fill: #64648C;
+    transition: fill 0.3s ease;
+}
+
+.sidebar > div:hover > svg > path {
+    fill: #000046;
+}
+
+.sidebar > div:hover > p {
+    color: #000046;
+}
+
+.sidebar > div:hover {
+    background-color: #e6ebf5;
+    cursor: pointer;
+}

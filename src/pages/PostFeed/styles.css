@@ -1,0 +1,7 @@
+.post-feed {
+    margin: 15px;
+    width: 100vw-30px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}

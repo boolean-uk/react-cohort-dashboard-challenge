@@ -1,0 +1,15 @@
+/* style for the header, it must have a fixed height and full width */
+.header {
+    height: 60px;
+    width: 92vw;
+    background-color: #000046;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 4vw 0 4vw;
+    justify-content: space-between;
+}
+
+.header-logo {
+    height: 40px;
+}
