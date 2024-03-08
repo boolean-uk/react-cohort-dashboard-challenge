@@ -1,13 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./CreatePost.css"
 import { useContext } from 'react'
 import { WebsiteContext } from '../../App'
+import { PostContext } from './Dashboard'
 
 function CreatePost() {
-  const context = useContext(WebsiteContext)
-  const initials = {first: context.profile.firstName.charAt(0).toUpperCase(), second: context.profile.lastName.charAt(0).toUpperCase()}
+  const {profile} = useContext(WebsiteContext)
+  const {fetchPosts} = useContext(PostContext)
+  const initials = {first: profile.firstName.charAt(0).toUpperCase(), second: profile.lastName.charAt(0).toUpperCase()}
+
+  const [postData, setPostData] = useState({
+    title: "",
+    content: "",
+    contactId: profile.id
+  })
+
+  function handleInput(e){
+    const{name, value} = e.target
+    setPostData({...postData, [name]: value})
+}
 
   //Add actual POST functions
+async function postPost(){
+
+  await fetch("https://boolean-api-server.fly.dev/Eddy1108/post", {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(postData)
+            })
+
+  setPostData({
+    title: "",
+    content: "",
+    contactId: profile.id
+  })
+  
+  fetchPosts()
+
+  console.log("POSTED")
+}
 
   return (
     <div className="create-post-container">
@@ -19,13 +50,13 @@ function CreatePost() {
           <div className="initials">NN</div>
         )}
       </div>
-      <div className='create-post-header'><p>What's on your mind {context.profile.firstName} {context.profile.lastName}?</p></div>
+      <div className='create-post-header'><p>What's on your mind {profile.firstName} {profile.lastName}?</p></div>
     </div>
     <div className='post-content'>
-      <input type="text" id="post-title" placeholder="Enter post title"/>
-      <textarea id="post-body" placeholder="Enter post body"></textarea>
+      <input type="text" id="post-title" name='title' placeholder="Enter post title" value={postData.title} onChange={handleInput}/>
+      <textarea id="post-body" name='content' placeholder="Enter post body" value={postData.content} onChange={handleInput}></textarea>
     </div>
-    <button onclick="createPost()">Post</button>
+    <button onClick={postPost}>Post</button>
   </div>
   )
 }

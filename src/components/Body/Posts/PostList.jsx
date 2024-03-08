@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import PostListItem from "./PostListItem"
 import "./PostList.css"
+import { PostContext } from "../Dashboard"
 
 
 function PostList() {
+    const {fetchPosts, allPostData, setAllPostData} = useContext(PostContext)
 
-    const [allPostData, setAllPostData] = useState()
+    // const [allPostData, setAllPostData] = useState()
+
+async function updatePosts(){ 
+    await fetchPosts()
+}
 
 useEffect(() => {
-    fetch("https://boolean-api-server.fly.dev/Eddy1108/post")
-      .then(response => response.json())
-      .then(setAllPostData)
+    updatePosts()
   }, [])
 
   useEffect(() => {console.log(allPostData)}, [allPostData])

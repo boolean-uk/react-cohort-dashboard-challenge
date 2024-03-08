@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react'
+import { useState, createContext, useEffect } from 'react'
 import React from 'react'
 import Header from './components/Header'
 import SideBar from './components/SideBar'
@@ -23,8 +23,15 @@ function App() {
     website: "",
     companyName: "",
     companyCatchPhrase: "",
-    companyBusinessStatement: ""
+    companyBusinessStatement: "",
+    id: 1
   });
+
+  useEffect(() =>{
+  fetch(`https://boolean-api-server.fly.dev/Eddy1108/contact/1`)
+  .then(response => response.json())
+  .then(setProfile)}, []
+  )
 
   return (
     <>
