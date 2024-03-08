@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import PostPage from './components/post/PostPage';
 import PostDetail from "./components/post/PostDetail";
+import Profile from './components/post/Profile';
 
 export const BaseURL = "https://boolean-api-server.fly.dev/malimo326"
 
@@ -56,7 +57,7 @@ function App() {
                 <Layout>
                 <Routes>
                         <Route path="/" element={<PostPage />} />
-                        <Route path="/profile/:id" element={<h1>My Profile</h1>} />
+                        <Route path="/profile/:id" element={<Profile/>} />
                         <Route path="/detail/:id" element={<PostDetail />} />
                     </Routes>
                 </Layout>
