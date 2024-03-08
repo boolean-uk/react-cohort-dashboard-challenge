@@ -10,7 +10,7 @@ function PostItem({ post }) {
   const [contact, setContact] = useState(null);
 
   const navigate = useNavigate()
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,15 +42,16 @@ function PostItem({ post }) {
             }
           />
         </Link>
-        <h2 className="profile-name" onClick={() => navigate(`/user/${post.contactId}`)}>
-          {contact.firstName} {contact.lastName}
+        <h2
+          className="profile-name"
+          onClick={() => navigate(`/user/${post.contactId}`)}
+        >
+          {contact.firstName} {contact.lastName}{" "}
+          <span className="comment-span">has posted:</span>
         </h2>
       </div>
       <div className="post-details">
-        <h4
-          className="post-title"
-          onClick={() => navigate(`/post/${post.id}`)}
-        >
+        <h4 className="post-title" onClick={() => navigate(`/post/${post.id}`)}>
           {post.title}
         </h4>
         <p className="post-content">{post.content}</p>
