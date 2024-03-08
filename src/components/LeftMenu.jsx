@@ -1,10 +1,12 @@
 import { DataContext } from "../App";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function LeftMenu() {
   const navigate = useNavigate();
-  const [currentTab, setCurrentTab] = useState("home")
+  const user = useContext(DataContext).user;
+  const currentTab = useContext(DataContext).currentTab;
+  const setCurrentTab = useContext(DataContext).setCurrentTab;
 
   return (
     <nav className="sidebar red">
@@ -38,7 +40,7 @@ export default function LeftMenu() {
         onClick={(event) => {
           setCurrentTab("profile");
 
-          navigate("/");
+          navigate("profile/" + user.id);
         }}
         style={{
           backgroundColor: currentTab === "profile" ? "#d6dbe1" : "#f0f5fa",

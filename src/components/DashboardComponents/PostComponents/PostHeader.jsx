@@ -1,25 +1,21 @@
 import { DataContext } from "../../../App";
 import { useContext, useState, useEffect } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ProfileAvatar from "../../ProfileAvatar";
 
 export default function PostHeader({ post }) {
   const users = useContext(DataContext).users;
   const posts = useContext(DataContext).posts;
 
-
   return (
     <>
       {post.user && (
         <div className="post">
-          <div
+          <ProfileAvatar
+            user={post.user}
             className="circle header-top post-circle"
-            style={{ background: post.user.favouriteColour }}
-          >
-            {post.user.firstName[0] + post.user.lastName[0]}
-          </div>
-          <div
-            className="post-title-and-user"
-          >
+          />
+          <div className="post-title-and-user">
             <p className="header-name header-top post-user">
               {post.user.firstName + " " + post.user.lastName}
             </p>
@@ -29,7 +25,6 @@ export default function PostHeader({ post }) {
           </div>
         </div>
       )}
-
     </>
   );
 }

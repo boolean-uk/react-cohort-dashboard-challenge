@@ -1,5 +1,6 @@
 import { DataContext } from "../App";
 import { useContext } from "react";
+import ProfileAvatar from "./ProfileAvatar";
 
 export default function Header() {
   const user = useContext(DataContext).user;
@@ -24,12 +25,9 @@ export default function Header() {
             />
           </svg>
 
-{ user &&          <div
-            className="header-circle header-child"
-            style={{ background: user.favouriteColour }}
-          >
-            {user.firstName[0] + user.lastName[0]}
-          </div>}
+          {user && (
+            <ProfileAvatar user={user} className="header-circle header-child" />
+          )}
         </div>
       </header>
     </div>

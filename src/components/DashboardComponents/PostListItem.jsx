@@ -22,7 +22,7 @@ export default function PostListItem({ post }) {
         setComments(data);
       });
   }, [post.id]);
-  
+
   return (
     <div className="post-container">
       <span className="post-child post-header">

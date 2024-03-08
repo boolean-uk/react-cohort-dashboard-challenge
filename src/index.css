@@ -25,7 +25,8 @@ p {
 /* Create a container that fills the rest of the screen that is left over */
 /* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px auto;
   flex-direction: row;
   flex-grow: 1;
 }
@@ -184,6 +185,7 @@ p {
 
 .comment {
   display: flex;
+  
 }
 
 .post-circle {
@@ -191,7 +193,7 @@ p {
 }
 
 .comment-box {
-  max-width: 100%;
+  max-width: 90%;
   border-radius: 5px;
   border: 0.1px solid #d6dbe1;
   margin-left: 10px;
@@ -223,7 +225,7 @@ hr {
 }
 
 .create-post input,
-.post-create-comment input {
+.post-create-comment input, .profile-form input {
   border: none;
   border-radius: 5px;
   background-color: #e6ebf5;
@@ -237,4 +239,65 @@ hr {
 
 .comment-user-name {
   font-weight: bold;
+}
+
+.outer-label-input {
+  margin-top: 30px;
+    display: grid;
+  grid-template-columns: 20% 60% 20%;
+
+
+}
+
+.label-and-input  {
+  margin-top: 10px;
+  display: grid;
+  grid-template-rows: 30px 40px;
+  position: relative;
+}
+.label-and-input input {
+  padding-left: 10px
+}
+
+div.label {
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  font-size: small;
+  color: #64648C;
+}
+
+.profile-form button {
+  margin-top: 20px;
+}
+
+.profile-form {
+  width: calc(100vw - 200px);
+  background-color: #f0f5fa;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin: 10px;
+
+
+}
+
+.profile h2 {
+  text-align: left;
+  text-indent: 20px;
+}
+
+.form-avatar {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+.profile .header  {
+  display: grid;
+  grid-template-columns: 8% 70%;
+  text-align: left;
+}
+
+.profile .header h3 {
+  margin-top: 25px;
 }
