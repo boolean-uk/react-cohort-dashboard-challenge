@@ -49,19 +49,18 @@ export default function Post( { post } ) {
   const color = author.favouriteColour ? author.favouriteColour : 'black'
 
   return (
-    <div className='post'>
+    <div className='post' >
       <div className='post-author'>
         <ProfilePicturePost initials={initials} color={color} author={author} />
         <h3 onClick={() => navigate(`/profile/${author.id}`)}>{author.firstName} {author.lastName}</h3>
       </div>
       <div>
-        <h3>{title}</h3>
+        <h3 style={{cursor:'pointer'}} onClick={() => navigate(`/posts/${id}`)}>{title}</h3>
         <p>{content}</p>
         <hr />
       </div>
       <CommentsList comments={comments} post={post} />
       <CreateComment post={post} />
-      <div onClick={() => console.log(comments)}> COMMENTS</div>
     </div>
   )
 }

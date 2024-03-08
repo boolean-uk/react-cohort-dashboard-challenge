@@ -26,10 +26,16 @@ export default function CommentsListItem({ comment }) {
     <div className='commentContainer'>
       <div className='comment-author'>
         <ProfilePicturePost initials={initials} color={color} author={author} />
-        <h3 onClick={() => navigate(`/profile/${author.id}`)}>{author.firstName} {author.lastName}</h3>
       </div>
       <div className='comment'>
-        <p>{content}</p>
+        <div className='commentContent'>
+          <div className='commentHeader' onClick={() => navigate(`/profile/${author.id}`)}>
+            <h2>{author.firstName} {author.lastName}</h2>
+          </div>
+          <div className='commentText'>
+            <p>{content}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
