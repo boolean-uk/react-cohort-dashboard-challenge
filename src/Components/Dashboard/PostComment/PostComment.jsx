@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ProfilePicture from '../../ProfilePicture/ProfilePicture'
 import PropTypes from "prop-types"
+import "./PostComment.css"
 
 function PostComment({ user, getComments, post }) {
   const [comment, setComment] = useState({})

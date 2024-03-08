@@ -1,0 +1,15 @@
+.comment {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .comment-content {
+    background-color: #e6ebf5;
+    flex-grow: 1;
+  }
+
+  .comment-content p {
+    margin-left: 1rem;
+  }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import homeIcon from '../../../../assets/home-icon.svg'
+import "./HomeButton.css"
 
 function HomeButton() {
   return (

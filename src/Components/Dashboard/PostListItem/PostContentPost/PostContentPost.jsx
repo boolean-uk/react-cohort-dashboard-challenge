@@ -1,6 +1,7 @@
 import ProfilePicture from '../../../ProfilePicture/ProfilePicture'
 import { Link } from 'react-router-dom'
 import PropTypes from "prop-types"
+import "./PostContentPost.css"
 
 function PostContentPost( { contact, post } ) {
   return (
@@ -12,7 +13,7 @@ function PostContentPost( { contact, post } ) {
           <Link to={`/view/${post.id}`}><h4>{post.title}</h4></Link>
         </div>
       </div>
-      <p>{post.content}</p>
+      <p className='post-content-text'>{post.content}</p>
     </div>
   )
 }

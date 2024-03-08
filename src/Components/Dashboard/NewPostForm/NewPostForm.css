@@ -1,0 +1,35 @@
+.new-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    background-color: #fff;
+    margin: 1rem;
+  }
+  
+  .new-post > .profile-picture {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .new-post input {
+    background-color: #e6ebf5;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+  
+  .new-post button {
+    margin-right: 1rem;
+    background-color: #000046;
+    color: #fff;
+    border-radius: 10%;
+    width: 8rem;
+    height: 3rem;
+  }
+
+  button:hover {
+    background-color: #64dc78;
+  }

@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import headerLogo from '../../assets/title-header.svg'
 import ProfilePicture from '../ProfilePicture/ProfilePicture'
 import { UserContext } from '../../App'
+import "./Header.css"
 
 function Header() {
   const { user } = useContext(UserContext)

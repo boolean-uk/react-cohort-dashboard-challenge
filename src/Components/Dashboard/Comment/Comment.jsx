@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import ProfilePicture from "../../ProfilePicture/ProfilePicture"
 import { ContactContext } from "../Dashboard"
 import PropTypes from "prop-types"
+import "./Comment.css"
 
 function Comment({ comment }) {
   const { contacts } = useContext(ContactContext)

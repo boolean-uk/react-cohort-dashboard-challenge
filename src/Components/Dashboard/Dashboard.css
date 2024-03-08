@@ -1,0 +1,8 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .posts {
+    background-color: #F0F5FA;
+  }

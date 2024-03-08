@@ -1,6 +1,7 @@
 import { PostContext } from '../Dashboard'
 import PostListItem from '../PostListItem/PostListItem'
 import { useContext} from 'react'
+import "./PostList.css"
 
 function PostList() {
   const { posts } = useContext(PostContext)

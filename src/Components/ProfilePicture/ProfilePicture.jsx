@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import "./ProfilePicture.css"
 
 function ProfilePicture({ user }) {
 

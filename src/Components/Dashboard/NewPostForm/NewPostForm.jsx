@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import ProfilePicture from "../../ProfilePicture/ProfilePicture"
 import { UserContext } from "../../../App"
 import { PostContext } from "../Dashboard"
+import "./NewPostForm.css"
 
 function NewPostForm() {
   const { user } = useContext(UserContext)

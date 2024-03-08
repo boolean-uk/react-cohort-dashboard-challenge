@@ -1,4 +1,5 @@
 import profileIcon from '../../../../assets/profile-icon.svg'
+import "./ProfileButton.css"
 
 function ProfileButton() {
   return (

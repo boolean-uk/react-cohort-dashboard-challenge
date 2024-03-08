@@ -1,0 +1,18 @@
+.header {
+    background-color: #000046;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.header-logo {
+    height: 5rem;
+    width: 1fr;
+    margin-left: 2rem;
+}
+
+.header > .profile-picture {
+    margin-top: 1rem;
+    margin-right: 1rem;
+}

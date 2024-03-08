@@ -1,0 +1,28 @@
+.post-content-post {
+    border-bottom: 1px solid #000046;
+  }
+  
+  .post-header {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .post-header-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  } 
+  
+  .post-header-info h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-header-info h4 {
+    color: #64648c;
+    margin-top: 0;
+  }
+
+  .post-content-text {
+    margin-left: 1rem;
+  }
