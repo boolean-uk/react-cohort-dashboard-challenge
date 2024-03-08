@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
+import '../../dashboard.css';
 
 
 function NewComment({ user, baseURL, postId }){
@@ -7,7 +8,7 @@ function NewComment({ user, baseURL, postId }){
     const contactId = user.id
 
     const [newComment, setNewComment] = useState({
-        postId: postId,
+        postId: +postId,
         contactId: contactId,
         content: ""
     })
@@ -31,14 +32,16 @@ function NewComment({ user, baseURL, postId }){
 
     return(
         <>
-            <div className="yellow">
+            <div className="new-comment-card">
                 <h3>Comment on Post</h3>
-                <button className="sidebar-icons">
+                <button className="post-icon">
             <img src={user.profileImage}/>
             </button>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="content">content </label>
+            <form onSubmit={handleSubmit} className="new-comment-form">
+            <div className="form-group">
+                <label htmlFor="content" className="form-label" content>Content </label>
                 <textarea
+                    className="form-control"
                     type="text"
                     rows={4} 
                     cols={40}
@@ -47,8 +50,8 @@ function NewComment({ user, baseURL, postId }){
                     onChange={e => setNewComment(prevPost => ({ ...prevPost, [e.target.name]: e.target.value }))}
                     value={newComment.content}
                 />
-                <p></p>
-                <button type="submit">Comment </button>
+                </div>
+                <button type="submit" className="submit-comment">Post Comment </button>
             </form>
             </div>
         </>

@@ -1,4 +1,4 @@
-import './App.css'
+import './dashboard.css'
 import Header from './components/header.jsx'
 import SideBar from './components/sideBar.jsx'
 import Posts from './components/posts/posts.jsx'
@@ -20,11 +20,15 @@ function App() {
     }, [user]);
 
   return (
-    <div className="container">
+    <div className="App">
       <MyContext.Provider value={{ user: user, baseURL: baseURL }} >
+        <div className='header'>
         <Header />
-        <div className="container-nav-main">
+        </div>
+        <div className="sidebar">
         <SideBar  />
+        </div>
+        <div className='content'>
       <Routes>
         <Route
           path='/'

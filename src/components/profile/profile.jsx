@@ -39,82 +39,92 @@ function Profile(){
         });
     }
     return (
-        <main className="main green">
-            <div className="yellow">
-                <article>
+        <div className="profile-edit-container"> 
             <h1>Edit Profile</h1>
-            <button className="sidebar-icons"/* naviger til edit profile pic component (kanskje pop up?) onClick={() => navigate('/profileIcon')} */>
-            <img src={context.user.profileImage}/>
-            </button>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="firstName">First Name </label>
-                <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.firstName}
-                />
-                <p></p>
-                <label htmlFor="lastName">Last Name </label>
-                <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.lastName}
-                />
-                <p></p>
-                <label htmlFor="email">Email </label>
-                <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.email}
-                />
-                <p></p>
-                <label htmlFor="jobTitle">job Title </label>
-                <input
-                    type="text"
-                    id="jobTitle"
-                    name="jobTitle"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.jobTitle}
-                />
-                <p></p>
-                <label htmlFor="street">Street </label>
-                <input
-                    type="text"
-                    id="street"
-                    name="street"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.street}
-                />
-                <p></p>
-                <label htmlFor="city">City </label>
-                <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.city}
-                />
-                <p></p>
-                <label htmlFor="favouriteColour">favourite Colour </label>
-                <input
-                    type="text"
-                    id="favouriteColour"
-                    name="favouriteColour"
-                    onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
-                    value={person.favouriteColour}
-                />
-                <p></p>
-                <button type="submit">Edit</button>
-                </form>
-                </article>
-            </div>
-        </main>
+            <form onSubmit={handleSubmit} className="profile-edit-form">
+                <div className="form-group">
+                    <img src={context.user.profileImage} alt="Profile" className="profile-edit-avatar"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.firstName}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.lastName}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.email}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="jobTitle">Job Title</label>
+                    <input
+                        type="text"
+                        id="jobTitle"
+                        name="jobTitle"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.jobTitle}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="street">Street</label>
+                    <input
+                        type="text"
+                        id="street"
+                        name="street"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.street}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="city">City</label>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.city}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="favouriteColour">Favourite Colour</label>
+                    <input
+                        type="text"
+                        id="favouriteColour"
+                        name="favouriteColour"
+                        className="form-control"
+                        onChange={e => setPerson(prevPerson => ({ ...prevPerson, [e.target.name]: e.target.value }))}
+                        value={person.favouriteColour}
+                    />
+                </div>
+                <button type="submit" className="submit-button">Save Changes</button>
+            </form>
+        </div>
     )
 }
 export default Profile

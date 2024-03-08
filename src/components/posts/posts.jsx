@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { MyContext } from "../../App"
 import Post  from './post.jsx'
 import NewPost from './newPost.jsx'
+import '../../dashboard.css'
 
 function Posts(){
 
@@ -15,7 +16,7 @@ function Posts(){
     }, [context.baseURL, setPosts]);
 
     return(
-        <main className="main green">
+        <main className="content">
           <NewPost user={context.user} baseURL={context.baseURL}/>
             {
               [...posts]

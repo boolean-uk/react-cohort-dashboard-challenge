@@ -2,6 +2,7 @@ import Home from "../assets/home-icon.svg"
 import { useContext } from "react";
 import { MyContext } from "../App";
 import { useNavigate } from 'react-router-dom'
+import '.././dashboard.css'
 
 function SideBar(){
     
@@ -9,13 +10,13 @@ function SideBar(){
     const navigate = useNavigate();
 
     return (
-        <nav className="sidebar red">
+        <nav className="sidebar">
             <h1>Side bar</h1>
-            <button className="sidebar-icons" onClick={() => navigate('/')}>
+            <button className="nav-item" onClick={() => navigate('/')}>
             <img src={Home} alt="Home"/>
             </button>
             <p>
-            <button className="sidebar-icons" onClick={() => navigate('/profile')}>
+            <button className="profile-edit-avatar" onClick={() => navigate('/profile')}>
                 <img src={context.user.profileImage}/>
             </button>
             </p>

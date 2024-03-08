@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from "react";
+import '../../dashboard.css';
 
 function NewPost({ user, baseURL }){
 
-    const id = user.id
+    const id = +user.id
 
     const [newPost, setNewPost] = useState({
         contactId: id,
@@ -23,23 +24,20 @@ function NewPost({ user, baseURL }){
         .then(response => response.json())
         .then(data => {
         console.log('Success:', data);
-        newPost.contactId = "",
-        newPost.title = "",
-        newPost.content = ""
+        setNewPost({ contactId: id, title: "", content: "" });
         })
         navigate(`/`)
     }
 
-
-
     return(
         <>
-            <div className="yellow">
+            <div className="new-post-card">
                 <h2>New Post</h2>
-                <button className="sidebar-icons">
+                <button className="post-icon">
             <img src={user.profileImage}/>
             </button>
             <form onSubmit={handleSubmit}>
+                <div className="form-group">
             <label htmlFor="title">title </label>
                 <input
                     type="text"
@@ -48,7 +46,8 @@ function NewPost({ user, baseURL }){
                     onChange={e => setNewPost(prevPost => ({ ...prevPost, [e.target.name]: e.target.value }))}
                     value={newPost.title}
                 />
-                <p></p>
+                </div>
+                <div className="form-group">
                 <label htmlFor="content">content </label>
                 <textarea
                     type="text"
@@ -59,8 +58,8 @@ function NewPost({ user, baseURL }){
                     onChange={e => setNewPost(prevPost => ({ ...prevPost, [e.target.name]: e.target.value }))}
                     value={newPost.content}
                 />
-                <p></p>
-                <button type="submit">Post</button>
+                </div>
+                <button type="submit" className="submit-comment">Post</button>
             </form>
             </div>
         </>
