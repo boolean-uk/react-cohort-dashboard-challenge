@@ -144,3 +144,9 @@ make the child components lay out using flex, vertically stacked in a column */
   color: white;
   text-align: center;
 }
+
+.profile_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

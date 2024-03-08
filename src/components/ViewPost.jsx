@@ -32,6 +32,7 @@ function ViewPost() {
         return null;
     }
 
+
     //mappa contacts id mot post.contactId
     const matchingContact = contacts.find(contact => Number(contact.id) === Number(post.contactId));
     const name = matchingContact.firstName + ' ' + matchingContact.lastName
@@ -48,7 +49,7 @@ function ViewPost() {
             <div className='pic-and-name'>
                 <div className='profile-container'>
                     <img className='profile-image' src={circle} alt="profile icon" />
-                    <div className="profile-text">{initials}</div>
+                    <div className="profile-text">{initials}</div> 
                 </div>
 
                 <h2>{name}</h2>

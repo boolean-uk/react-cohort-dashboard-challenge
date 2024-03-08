@@ -3,8 +3,8 @@ import { useState, useContext } from "react"
 import { PostContext } from "../App"
 
 function CreatePost() {
-    const [newPost, setNewPost] = useState({ id: 20, contactId: 1, title: '', content: '' })
-    const { posts, setPosts } = useContext(PostContext)
+    const [newPost, setNewPost] = useState({ id: 0, contactId: 1, title: '', content: '' })
+    const { setPosts } = useContext(PostContext)
 
     const handleChange = (e) => {
         const inputName = e.target.name
@@ -22,9 +22,11 @@ function CreatePost() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newPost)
         })
+        //post får sitt id i api. hämtas tillbaka med ett get request.
+        .then(response => response.json())
 
         //uppdatera posts att innehålla den nya posten. funkar re-rendering
-        setPosts((post) => [...post, newPost]);
+        .then(setPosts((post) => [...post, newPost])); 
 
         //cleara input fields
         setNewPost({ id: 20, contactId: 1, title: '', content: '' })

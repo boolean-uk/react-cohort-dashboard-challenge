@@ -5,7 +5,6 @@ import { ContactContext } from '../App.jsx'
 
 import CommentList from './CommentList.jsx';
 
-import circle from '../assets/yellow-and-amber-colored-circles-clipart-1.png'
 
 function Post({ post }) {
     const { contacts } = useContext(ContactContext)
@@ -61,34 +60,37 @@ function Post({ post }) {
         <li className='post'>
             <div className='pic-and-name'>
                 <div className='profile-container'>
-                    <img className='profile-image' src={circle} alt="profile icon" />
-                    <div className="profile-text">{initials}</div>
+                    <div
+                        className="profile_circle"
+                        style={{ backgroundColor: matchingContact.favouriteColour }}>
+                        <div className="profile-text">{initials}</div>
+                        </div>
+                    </div>
+
+                    <h2>{name}</h2>
                 </div>
 
-                <h2>{name}</h2>
-            </div>
+                <Link to={`/posts/${post.id}`}>
+                    <h3 className='post-title'>{post.title}</h3>
+                </Link>
+                <p>{post.content}</p>
+                <hr />
 
-            <Link to={`/posts/${post.id}`}>
-                <h3 className='post-title'>{post.title}</h3>
-            </Link>
-            <p>{post.content}</p>
-            <hr />
+                {comments &&
+                    <CommentList comments={comments} />
+                }
 
-            {comments &&
-                <CommentList comments={comments} />
-            }
-
-            <input
-                type="text"
-                placeholder="Add a comment..."
-                value={newComment.content}
-                onChange={handleChange}
-            />
-            <button
-                className='comment-post-button'
-                onClick={saveComment}>
+                <input
+                    type="text"
+                    placeholder="Add a comment..."
+                    value={newComment.content}
+                    onChange={handleChange}
+                />
+                <button
+                    className='comment-post-button'
+                    onClick={saveComment}>
                     Comment
-            </button>
+                </button>
         </li>
     )
 }
