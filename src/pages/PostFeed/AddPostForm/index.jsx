@@ -6,12 +6,11 @@ import "./styles.css"
 
 const initialPostState = {
     title: "",
-    content: "",
-    contactId: -1
+    content: ""
 }
 
 export default function AddPostForm() {
-    const { loggedInUser } = useContext(LoggedInUserContext)
+    const { loggedInUser, setPosts, posts } = useContext(LoggedInUserContext)
 
     const [userData, setUserData] = useState(initialPostState)
 
@@ -25,8 +24,18 @@ export default function AddPostForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        updateUserInfo(userData)
+        const createdPost = {...userData, contactId: loggedInUser.id}
+        fetch(`https://boolean-api-server.fly.dev/AGatland/post`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                },
+            body: JSON.stringify(createdPost),
+            }).then(res => {
+            if (res.ok) {
+                setPosts([...posts, createdPost])
+            }
+            }).catch(error => console.error("Problem with creating post: ", error))
     };
 
     return (
