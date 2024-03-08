@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import UserIcon from "../../icons/UserIcon";
-import { postContext } from "../../../App";
+import { BaseURL, postContext } from "../../../App";
 import SendIcon from "../../icons/SendIcon";
 
 const CommentCreate = ({ postId, commentData, setCommentData }) => {
@@ -26,7 +26,7 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
         };
 
         const response = await fetch(
-            "https://boolean-api-server.fly.dev/malimo326/post/" +
+            BaseURL + "/post/" +
                 postId +
                 "/comment",
             postApiRequest

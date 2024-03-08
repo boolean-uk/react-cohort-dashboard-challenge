@@ -3,8 +3,8 @@ import UserIcon from "../icons/UserIcon";
 import { useContext, useEffect, useState } from "react";
 import {  BaseURL, postContext } from "../../App";
 import { useNavigate } from "react-router-dom";
-import Comments from "./comment/Comments";
-import CommentCreate from "./comment/CommentCreate";
+import Comments from "./comments/Comments";
+import CommentCreate from "./comments/CommentCreate";
 
 
 const Post = ({ post }) => {

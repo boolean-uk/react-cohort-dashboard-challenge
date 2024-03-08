@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-
+import ProfileUser from "./ProfileUser";
 
 
 const Profile = () => {
@@ -11,7 +11,7 @@ const Profile = () => {
         <div className="profile">
             
             <h1>My Profile</h1>
-         
+            <ProfileUser userId={id} />
           
         </div>
     );
