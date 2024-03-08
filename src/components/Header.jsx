@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import ProfilePicture from "./ProfilePicture";
 import { MyContext } from "../App";
+import { Link } from "react-router-dom";
 
 export default function Header(){
     const context = useContext(MyContext)
@@ -26,7 +27,9 @@ export default function Header(){
                 />
                 </svg>
                 <div className="header-profile">
+                <Link to="/profile/1">
                 <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+                </Link>
                 </div>
         </header>
     )
