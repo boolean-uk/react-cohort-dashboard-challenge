@@ -15,8 +15,8 @@ export default function CommentsList({ comments, post }) {
           <h3 onClick={toggleShowComments}>See previous comments</h3>
         </div>
       )}
-      {comments.slice(0, showAllComments ? comments.length : 3).map((comment, index) => (
-        <CommentsListItem key={index} comment={comment} post={post}/>
+      {comments.slice(showAllComments ? 0 : comments.length - 3, comments.length).map((comment, index) => (
+          <CommentsListItem key={index} comment={comment} post={post} />
       ))}
     </div>
   );

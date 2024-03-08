@@ -3,7 +3,7 @@ import { UserContext } from '../../contexts/UserContext';
 import ProfilePicturePost from '../profile/ProfilePicturePost';
 
 
-export default function CreateComment({ post }) {
+export default function CreateComment({ post, comments, setComments}) {
   const [comment, setComment] = useState('')
   const user  = useContext(UserContext);
   const { id } = post;
@@ -30,6 +30,7 @@ export default function CreateComment({ post }) {
     .then(data => console.log(data))
     .then(() => {
       setComment('');
+      setComments([...comments, {content: comment, contactId: user.id}])
     }).catch(error => console.error('Error posting comment:', error));
   }
   // Current user

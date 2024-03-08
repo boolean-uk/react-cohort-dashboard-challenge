@@ -60,7 +60,7 @@ export default function Post( { post } ) {
         <hr />
       </div>
       <CommentsList comments={comments} post={post} />
-      <CreateComment post={post} />
+      <CreateComment post={post} comments={comments} setComments={setComments} />
     </div>
   )
 }
