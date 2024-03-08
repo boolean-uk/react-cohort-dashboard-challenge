@@ -146,7 +146,7 @@ make the child components lay out using flex, vertically stacked in a column */
 .post {
   background-color: white;
   margin-bottom: 30px;
-
+  border-radius: 10px;
   min-height: 200px;
   width: 85%;
   color: #000046;
@@ -154,4 +154,45 @@ make the child components lay out using flex, vertically stacked in a column */
 }
 .post-title {
   color: #000046;
+}
+.post-top {
+  display: flex;
+  align-items: center;
+}
+.post-content {
+  border-bottom: 1px inset black;
+  width: 90%;
+  margin: 0 auto;
+}
+.post-comment {
+  /* display: flex; */
+  align-items: center;
+  text-decoration: none;
+}
+.create-post {
+  padding-top: 50px;
+}
+.comment {
+  text-decoration: none;
+  align-items: center;
+}
+.comment-topper {
+  display: flex;
+  align-items: center;
+  margin-bottom: -30px;
+  margin-top: 10px;
+}
+.comment-content {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  background-color: #bdbdf7;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 50px;
+}
+.create-comment {
+  display: flex;
+  align-items: center;
 }

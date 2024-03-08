@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../App";
 import CommentListItem from "./CommentListItem";
 import { Link } from "react-router-dom";
+import CreateComment from "./CreateComment";
 
 function PostListItem(props) {
   const { post, postUser } = props;
@@ -16,9 +17,8 @@ function PostListItem(props) {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [post]);
 
-  console.log(comments);
   const context = useContext(MyContext);
 
   const getInitials = (firstName, lastName) => {
@@ -39,13 +39,14 @@ function PostListItem(props) {
           {initials}
         </div>
         <p>
-          {postUser.firstName}
-          {postUser.lastName}
+          {postUser.firstName} {postUser.lastName}
         </p>
-        <p><Link to={`/view/${post.id}`}>{post.title}</Link></p>
       </div>
 
       <div className="post-content">
+        <p>
+          <Link to={`/view/${post.id}`}>{post.title}</Link>
+        </p>
         <p>{post.content}</p>
       </div>
       <div className="post-comment">
@@ -63,6 +64,13 @@ function PostListItem(props) {
             );
           })}
         </ul>
+      </div>
+      <div>
+        <CreateComment
+          comments={comments}
+          setComments={setComments}
+          post={post}
+        />
       </div>
     </div>
   );

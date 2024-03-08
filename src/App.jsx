@@ -14,7 +14,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
   const [contacts, setContacts] = useState([]);
-  
 
   const getUser = () => {
     fetch(`https://boolean-api-server.fly.dev/StevenTPh/contact/1
@@ -57,11 +56,13 @@ function App() {
         {/*Makes sure that the useEffect runs before rendering*/}
         <div className="container-nav-main">
           <Sidebar />
-          <Routes>
-            <Route path="/" element={user && contacts && <Posts />} />
-            <Route path="/profile" element={user && <Profile />} />
-            <Route path="/view/:id" element={user && <UserPost />}/>
-          </Routes>
+          <main className="main">
+            <Routes>
+              <Route path="/" element={user && contacts && <Posts />} />
+              <Route path="/profile" element={user && <Profile />} />
+              <Route path="/view/:id" element={user && <UserPost />} />
+            </Routes>
+          </main>
         </div>
       </MyContext.Provider>
     </div>

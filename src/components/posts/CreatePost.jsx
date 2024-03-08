@@ -31,6 +31,14 @@ export default function CreatePost() {
     e.preventDefault();
     context.setPosts([post, ...context.posts]);
 
+    fetch(`https://boolean-api-server.fly.dev/StevenTPh/post`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post),
+      });
+
     localStorage.clear();
 
     setPost(getInitialPost);
@@ -38,27 +46,28 @@ export default function CreatePost() {
 
   return (
     <div className="post">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
+      <form onSubmit={handleSubmit} className="create-post">
+
           <input
             type="text"
             name="title"
+            placeholder="Title"
             onChange={handleChange}
             value={post.title}
           ></input>
-        </label>
+
         <br />
-        <label>
-          Content:
+       
+          
           <textarea
             name="content"
+            placeholder="What's on your mind?"
             onChange={handleChange}
             value={post.content}
             cols={50}
-            rows={5}
+            rows={3}
           ></textarea>
-        </label>
+        
         <br />
         <input type="submit" value="Post!"></input>
       </form>

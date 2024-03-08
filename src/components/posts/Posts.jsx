@@ -4,9 +4,5 @@ import PostList from "./PostList";
 
 export default function Posts() {
   const context = useContext(MyContext);
-  return (
-    <main className="main">
-      <PostList posts={context.posts} />
-    </main>
-  );
+  return <PostList posts={context.posts} />;
 }
