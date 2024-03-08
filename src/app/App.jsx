@@ -7,8 +7,9 @@ import SideBar from "../layouts/SideBar";
 import DashBoardContainer from "../layouts/DashBoardContainer";
 import PostView from "../pages/PostView";
 import Header from "../layouts/Header";
+import Profile from "../pages/Profile";
 
-import { DashBoard } from "../pages/DashBoard";
+
 
 
 // User context:
@@ -70,6 +71,12 @@ function App() {
                     <Route 
                         path='/view/:id'
                         element={<PostView/>}
+                        />
+
+                    {/* 3. Profile*/}
+                    <Route 
+                        path='/profile/:id'
+                        element={<Profile/>}
                         />
                 </Routes>
                 

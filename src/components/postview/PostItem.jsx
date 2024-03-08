@@ -33,11 +33,10 @@ function PostItem(props) {
         <h4> 
             <Link className='view-link' 
               to={`/view/${post.id}`} 
-              state={{post:post, _accounts:accounts}} > 
+              state={{post:post}} > 
               {post.title} 
             </Link>
         </h4>
-
 
         <p>{post.content}</p>
       </div>}

@@ -25,6 +25,12 @@ function AddComment(props) {
     e.preventDefault() 
     await submitComment();
     alert("Commment is added!")
+    // Resetting
+    setComment({
+      postId: post.id,
+      content: '',
+      contactId: user.id
+    })
     navigate('/')
   }
 
