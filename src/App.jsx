@@ -28,6 +28,6 @@ function App() {
       </PostContext.Provider>
     </BrowserRouter>
   );
-} //posts={posts}
+}
 export default App;
 export { PostContext };

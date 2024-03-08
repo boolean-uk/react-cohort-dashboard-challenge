@@ -2,6 +2,7 @@ import Post from "./Post/Post";
 import "./Body.css";
 import { useContext, useEffect } from "react";
 import { PostContext } from "../../App";
+
 export default function Feed() {
   const { posts, setPosts } = useContext(PostContext);
 
@@ -9,6 +10,7 @@ export default function Feed() {
     fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post`)
       .then((response) => {
         if (response.ok) return response.json();
+        throw response;
       })
       .then((jsonData) => {
         console.log("Fetching posts: ", jsonData);

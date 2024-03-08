@@ -57,7 +57,6 @@ export default function WritePost() {
     } else {
       console.log("Can't create empty post!");
     }
-    navigate("/");
   };
 
   return (

@@ -20,13 +20,13 @@ export default function Post({ post }) {
         })
         .then((jsonData) => {
           setUser(jsonData);
-          //console.log(post, "The user who posted this: ", jsonData);
         })
         .catch((err) => {
           console.log(err);
         });
   }, [post.contactId]);
-
+  // ToDo: Re-fetch the posts somehow to update the feed with all information
+  // Promise.all?
   return (
     <>
       <div className="post-box">
