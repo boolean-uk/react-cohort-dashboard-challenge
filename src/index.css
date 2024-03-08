@@ -26,19 +26,39 @@ make the child components lay out using flex, vertically stacked in a column */
 
 /* style for the header, it must have a fixed height and full width */
 .header {
-  height: 60px;
+  height: 70px;
   width: 100vw;
-  align-items: center;
+  display: flex;
+  align-items: left;
 }
 
 /* make the sidebar fill the available height and be of fixed width */
 .sidebar {
-  width: 100px;
+  width: 15%;
   height: 100%;
-  /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
   background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Arial', sans-serif;
 }
+
+.sidebar ul {
+  padding: 0;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+  padding: 10px; /* Add some padding for better appearance */
+  background-color: #fff; /* Ensure li elements have a white background */
+  border-radius: 5px; /* Add border radius to soften edges */
+}
+
+.sidebar ul li:hover {
+  background-color: #e6ebf5;
+}
+
 
 /* make the main fill the remaining width and the full height of the parent */
 .main {
@@ -69,6 +89,78 @@ make the child components lay out using flex, vertically stacked in a column */
 .post {
   background-color: white;
   margin: 10px;
-  height: 200px;
-  width: 100%;
+  height: 200;
+  width: 90%;
+}
+
+.create-post {
+  background-color: white;
+  margin: 10px;
+  height: 50px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Arial', sans-serif; 
+}
+
+.post-input {
+  background-color: #e6ebf5;
+  color: #000;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+  height: 35px;
+  margin-right: 10px;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.post-button {
+  background-color: #000046;
+  color: white;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: 200px; /* Set a fixed width for the button */
+  height: 50px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.post-button:hover {
+  background-color: #64dc78; /* Change background color on hover */
+}
+
+.comment-input {
+  background-color: #e6ebf5;
+  color: #000;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+  height: 35px;
+  margin-right: 10px;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.comment-button {
+  background-color: #000046;
+  color: white;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: 200px; /* Set a fixed width for the button */
+  height: 50px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
 }

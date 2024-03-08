@@ -8,8 +8,6 @@ export default function Header() {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 356 56"
-        width="100%"
-        height="100%"
       >
         <path
           fill="white"
