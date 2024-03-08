@@ -1,7 +1,24 @@
+import { basePostUrl } from "@/Utils/apiUtils"
 import "./PostItemUtility.css"
 import PropTypes from 'prop-types'
+import { useContext } from "react"
+import { PostsContext } from "@/Utils/contexts"
 
-const PostItemUtility = ({editMode, setEditMode, deletePost, handleFinishEditing, postID}) => {
+const PostItemUtility = ({editMode, setEditMode, handleFinishEditing, postID}) => {
+    const { fetchPosts } = useContext(PostsContext)
+    
+    const deletePost = async (id) => {
+        const request = {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json"
+            }
+        }
+
+        await fetch(`${basePostUrl}/${id}`, request)
+        await fetchPosts()
+    }
+
     return (
         <div className='utility-container'>
             {!editMode && <>

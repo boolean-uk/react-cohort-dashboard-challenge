@@ -20,18 +20,6 @@ const PostListItem = ({post}) => {
             .then((res) => setUser({...res}))
     }
 
-    const deletePost = async (id) => {
-        const request = {
-            method: "DELETE",
-            headers: {
-                "Content-type": "application/json"
-            }
-        }
-
-        await fetch(`${basePostUrl}/${id}`, request)
-        await fetchPosts()
-    }
-
     const handleFinishEditing = async (id) => {
         const request = {
             method: "PUT",
@@ -43,7 +31,6 @@ const PostListItem = ({post}) => {
         await fetch(`${basePostUrl}/${id}`, request)
             .then((res) => res.json())
             .then((res) => post = res)
-            .then(() => console.log(post))
         setEditedContent(post.content)
         setEditMode(false)
         await fetchPosts()
@@ -62,7 +49,6 @@ const PostListItem = ({post}) => {
                     <PostItemUtility 
                         editMode={editMode}
                         setEditMode={setEditMode}
-                        deletePost={deletePost}
                         handleFinishEditing={handleFinishEditing}
                         postID={post.id}
                 />}

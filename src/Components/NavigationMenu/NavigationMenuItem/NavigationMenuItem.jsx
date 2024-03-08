@@ -16,11 +16,11 @@ const NavigationMenuItem = ({ activeNavigation, onClickFunc, onClickFuncParams, 
 }
 
 NavigationMenuItem.propTypes = {
-    activeNavigation: PropTypes.string,
-    onClickFunc: PropTypes.func,
+    activeNavigation: PropTypes.string.isRequired,
+    onClickFunc: PropTypes.func.isRequired,
     onClickFuncParams: PropTypes.string,
-    elementIcon: PropTypes.func,
-    elementText: PropTypes.string,
+    elementIcon: PropTypes.string.isRequired,
+    elementText: PropTypes.string.isRequired,
 }
 
 export default NavigationMenuItem

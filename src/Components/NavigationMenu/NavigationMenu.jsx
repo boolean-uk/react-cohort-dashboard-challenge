@@ -9,17 +9,15 @@ import NavigationMenuItem from './NavigationMenuItem/NavigationMenuItem'
 const NavigationMenu = () => {
     const navigate = useNavigate()
     const location = useLocation()
-    const [activeNavigation, setActiveNavigation] = useState()
+    const [activeNavigation, setActiveNavigation] = useState("Home")
     const { LoggedInUser } = useContext(userContext)
 
     const navigateHome = (useNavigate = true) => {
-        localStorage.setItem("navigationLocation", "Home")
         setActiveNavigation("Home")
         useNavigate && navigate("/")
     }
 
     const navigateProfile = () => {
-        localStorage.setItem("navigationLocation", "Profile")
         setActiveNavigation("Profile")
     }
 
