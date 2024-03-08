@@ -10,6 +10,31 @@
   border-radius: 5px;
 }
 
+.input-container {
+  width: 100%;
+  display: flex;
+  transition: all 0.8s ease; /* Transition for width change */
+}
+
+.title-input {
+  width: 100%;
+  transition: width 0.3s ease; /* Transition for width change */
+}
+
+.title-input.active {
+  width: 45%;
+}
+
+.post-input {
+  width: 45%;
+  margin-left: 15px;
+  transition: opacity 0.3s ease;
+}
+
+.title-input.active + .post-input {
+  opacity: 1;
+}
+
 .create-post-form {
   display: flex;
   flex-direction: row;

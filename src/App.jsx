@@ -26,7 +26,10 @@ function App() {
     fetch("https://boolean-api-server.fly.dev/AlexanderNiklasson/post")
       .then((res) => res.json())
       .then((data) => setPosts(data))
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+        console.log("posts loaded");
+      });
   }, []);
 
   if (isLoading) {
