@@ -68,7 +68,7 @@ const Post = (props) => {
         ) : <>
         </>
       }
-      <PostComment post={post} />
+      <PostComment post={post} comments={comments} setComments={setComments} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { PostContext } from '../App';
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-const PostComment = ({post}) => {
+const PostComment = ({post, comments, setComments}) => {
   const { posts, setPosts } = useContext(PostContext)
   const [comment, setComment] = useState({
     contactId: 1,
@@ -17,7 +17,7 @@ const PostComment = ({post}) => {
 
 
   async function AddComment() {
-    await fetch(postURL
+    const response = await fetch(postURL
       , {
         method: "POST",
         body: JSON.stringify(comment),
@@ -26,6 +26,8 @@ const PostComment = ({post}) => {
           'Content-Type': 'application/json'
         }
       })
+      const data = await response.json()
+      setComments([...comments, data])
   }
 
   const handleChange = (event) => {
@@ -35,6 +37,7 @@ const PostComment = ({post}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     AddComment()
+    setComment({...comment, content: ""})
   }
 
   return (
