@@ -1,0 +1,210 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 100px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: #000046;
+}
+
+.red {
+  background-color: white;
+}
+
+.green {
+  background-color: #f0f5fa;
+}
+
+.dashboard-box {
+  background-color: white;
+  margin: 10px;
+  height: fit-content;
+  width: 97%;
+  border-radius: 4px;
+}
+
+ul {
+  list-style: none;
+  padding: 0%;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background-color: white;
+  transition-duration: 200ms;
+}
+
+.icon:hover {
+  background-color: #e6ebf5;
+}
+
+.icon:active {
+  background-color: #e6ebf5;
+}
+
+.icon-text {
+  color: #64648c;
+}
+
+.input {
+  background-color: #e6ebf5;
+  width: 75%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.comment-input {
+  background-color: #e6ebf5;
+  margin: 20px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.post-button {
+  background-color: #000046;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: none;
+  width: 12%;
+}
+
+.title {
+  color: #000046;
+  margin: 20px;
+}
+
+.profile-form-box {
+  background-color: white;
+  margin: 10px;
+  height: 200px;
+  width: 97%;
+  border-radius: 4px;
+}
+
+.profile-form-input {
+  background-color: #e6ebf5;
+  margin: 20px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.initials {
+  color: #000046;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.header-initials {
+  color: #000046;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 50%;
+  position: absolute;
+  right: 40px;
+  margin: 5px;
+}
+
+.comment-section {
+  margin-left: 2.5%;
+  width: 95%;
+  border-top: 1px solid #64648c;
+}
+
+.post-content-box {
+  margin-left: 2.5%;
+  width: 95%;
+}
+
+.post-content-header {
+  display: flex;
+}
+
+.post-content-header-link {
+  color: #64648c;
+}
+
+.comment {
+  display: block;
+}
+
+.comment-text {
+  background-color: #e6ebf5;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-button {
+  background-color: #000046;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  width: 7%;
+}
