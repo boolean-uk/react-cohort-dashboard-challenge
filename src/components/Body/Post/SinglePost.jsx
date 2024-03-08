@@ -2,49 +2,29 @@
 import { useParams } from "react-router-dom";
 import "../Body.css";
 import { useEffect, useState } from "react";
-import Comments from "./Comments";
-export default function SinglePost({ posts }) {
+import Post from "./Post";
+
+export default function SinglePost() {
+  const [post, setPost] = useState({});
+
   const { id } = useParams();
-  const post = posts.find((post) => post.id === parseInt(id));
-  const [user, setUser] = useState({});
-
-  // if (!post) return <p>Loading...</p>;
-
   useEffect(() => {
-    fetch(
-      `https://boolean-api-server.fly.dev/VictorAdamson/contact/${post?.contactId}`
-    )
+    fetch(`https://boolean-api-server.fly.dev/VictorAdamson/post/${id}`)
       .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
+        if (response.ok) return response.json();
         throw response;
       })
       .then((jsonData) => {
-        setUser(jsonData);
+        setPost(jsonData);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
-  }, [setUser]);
-  //, post?.contactId
+  }, [id]);
   return (
     <>
       <div className="main-body">
-        <div className="post-box">
-          <div className="post-header">
-            <div className="post-title">{post?.title}</div>
-            <div className="profile-icon">
-              {user.firstName?.charAt(0)}
-              {user.lastName?.charAt(0)}
-            </div>
-            <div className="post-user">
-              @{user.firstName}_{user.lastName}
-            </div>
-          </div>
-          <div className="post-body">{post?.content}</div>
-          <Comments post={post} />
-        </div>
+        <Post post={post} />
       </div>
     </>
   );

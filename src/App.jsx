@@ -21,13 +21,13 @@ function App() {
             <Routes>
               <Route path="/*" element={<Body />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/post/:id" element={<SinglePost posts={posts} />} />
+              <Route path="/post/:id" element={<SinglePost />} />
             </Routes>
           </div>
         </div>
       </PostContext.Provider>
     </BrowserRouter>
   );
-}
+} //posts={posts}
 export default App;
 export { PostContext };
