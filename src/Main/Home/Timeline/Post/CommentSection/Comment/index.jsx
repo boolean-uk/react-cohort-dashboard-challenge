@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 function Comment({comment, post, comments, setComments}) {
     const userContext = useContext(UserContext)
+    const [commentingUser, setCommentingUser] = useState({})
 
     const handleClick = (e) => {
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post/${post.id}/comment/${comment.id}`,
@@ -15,11 +16,18 @@ function Comment({comment, post, comments, setComments}) {
         setComments(comments.filter((c) => c.id !== comment.id))
     }
 
+    useEffect(() => {
+        setCommentingUser(userContext.users.filter((u) => u.id === comment.contactId))
+        console.log(userContext.users)
+    }, [])
+    
+    if(commentingUser[0] === undefined) return <p>Loading user</p>
+
     return(
         <div className="comment">
-            <div className="profile-pic" style={{backgroundColor: `${userContext.currentUser.favouriteColour}`}}>{userContext.currentUser.firstName[0]}{userContext.currentUser.lastName[0]}</div>
+            <div className="profile-pic" style={{backgroundColor: `${commentingUser[0].favouriteColour}`}}>{commentingUser[0].firstName[0]}{commentingUser[0].lastName[0]}</div>
             <div className="comment-content">
-                <Link to={`/profile/${userContext.currentUser.id}`}>{userContext.currentUser.firstName} {userContext.currentUser.lastName}</Link>
+                <Link to={`/profile/${commentingUser[0].id}`}>{commentingUser[0].firstName} {commentingUser[0].lastName}</Link>
                 <p>{comment.content}</p>
                 <button onClick={handleClick}>Delete comment</button>
             </div>
