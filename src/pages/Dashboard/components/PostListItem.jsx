@@ -28,6 +28,7 @@ function PostListItem(props) {
       .then((res) => res.json())
       .then((data) => {
         setComments(data);
+        console.log("Comments loaded");
       });
     setIsLoading(false);
   }, []);

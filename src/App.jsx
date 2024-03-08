@@ -21,15 +21,14 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
-        setActiveUser(data[15]);
+        setActiveUser(data[0]);
       });
     fetch("https://boolean-api-server.fly.dev/AlexanderNiklasson/post")
       .then((res) => res.json())
       .then((data) => setPosts(data))
-      .finally(() => setIsLoading(false)); // Set loading to false after fetching data
+      .finally(() => setIsLoading(false));
   }, []);
 
-  // Return JSX with Spinner component when loading
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
@@ -41,7 +40,8 @@ function App() {
         setActiveUser: setActiveUser,
         users: users,
         setUsers: setUsers,
-      }}>
+      }}
+    >
       <PostContext.Provider value={{ posts: posts, setPosts: setPosts }}>
         <Header />
         <SideNav />
