@@ -20,7 +20,7 @@
 
             background-color: #e6ebf5;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
             font-family: Segoe UI;
             font-size: 18px;
             color: #000046;
@@ -30,13 +30,13 @@
             height: 48px;
             width: 192px;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
 
             background-color: #000046;
             transition: background-color 0.3s ease;
 
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             font-family: Segoe UI;
 
             &:hover {
