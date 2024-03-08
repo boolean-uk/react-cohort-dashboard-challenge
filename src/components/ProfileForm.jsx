@@ -1,5 +1,15 @@
 
-function FormSection({ title, fields }) {
+function ProfileForm({ title, fields, inputValues, setInputValues }) {
+    
+    const handleChange = (e) => {
+        const inputValue = e.target.value
+        const inputName = e.target.name
+
+        setInputValues((prevValues) => ({
+            ...prevValues,
+            [inputName]: inputValue,
+        }));
+    }
 
     return (
         <div className="form-section">
@@ -11,7 +21,9 @@ function FormSection({ title, fields }) {
                     <input
                         type="text"
                         name={field.id}
+                        value={inputValues[field.id]}
                         placeholder={field.placeholder}
+                        onChange={handleChange}
                     />
                 </div>
             ))}
@@ -19,4 +31,4 @@ function FormSection({ title, fields }) {
     )
 }
 
-export default FormSection
+export default ProfileForm

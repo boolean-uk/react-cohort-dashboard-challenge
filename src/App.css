@@ -222,3 +222,7 @@ make the child components lay out using flex, vertically stacked in a column */
 .save-button {
   margin-left: 700px;
 }
+
+.link {
+  text-decoration: none;
+}

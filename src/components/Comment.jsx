@@ -24,7 +24,7 @@ function Comment({ comment }) {
     return (
         <li className="comment">
             <div className='pic-and-name'>
-            <Link to={`/profile/${matchingContact.id}`}>
+            <Link className='link' to={`/profile/${matchingContact.id}`}>
                 <div className='pic-and-name'>
                     <ProfileIcon
                         initials={initials}

@@ -60,7 +60,7 @@ function Post({ post }) {
 
     return (
         <li className='post'>
-            <Link to={`/profile/${matchingContact.id}`}>
+            <Link className='link' to={`/profile/${matchingContact.id}`}>
                 <div className='pic-and-name'>
                     <ProfileIcon
                         initials={initials}
@@ -70,7 +70,7 @@ function Post({ post }) {
                 </div>
             </Link>
 
-            <Link to={`/posts/${post.id}`}>
+            <Link className='link' to={`/posts/${post.id}`}>
                 <h3 className='post-title'>{post.title}</h3>
             </Link>
 
