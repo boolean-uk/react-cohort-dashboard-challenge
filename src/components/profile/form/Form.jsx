@@ -30,7 +30,6 @@ function Form() {
   console.log(user)
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Click")
 
     const newUser = {...user, 
       firstName: form.firstName,

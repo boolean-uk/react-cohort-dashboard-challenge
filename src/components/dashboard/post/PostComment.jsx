@@ -37,7 +37,6 @@ const PostComment = (props) => {
                         history : 
                         [...historyItem.history,  response.data]} 
                         : historyItem);
-                console.log(updatedList)
                 setPostsHistory(updatedList)
 
       
