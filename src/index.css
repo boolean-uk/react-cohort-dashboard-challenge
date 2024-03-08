@@ -1,0 +1,157 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #faf7f0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+  background-color: #006cd8;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 100px;
+  width: 100vw;
+  background-color: #000046;
+  align-items: center;
+  margin: 0;
+  display: flex;
+}
+.header-icon {
+  height: 75%;
+  width: 75%;
+  flex: 0;
+  margin-left: 50px;
+}
+.space {
+  flex-grow: 1;
+}
+.header-profile-icon {
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+.profile-initials-circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  min-width: 15%;
+  height: 100%;
+
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background-color: white;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-link {
+  display: block;
+  text-decoration: none;
+  padding-bottom: 30px;
+}
+.sidebar-link:hover {
+  background-color: #64dc78;
+}
+.sidebar-icon {
+  width: 25px;
+  height: 25px;
+  flex: 0;
+}
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background-color: #e6ebf5;
+}
+.profile {
+  color: #000046;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin: 10px;
+  height: 200px;
+  width: 95%;
+}
+.profile-label {
+  display: block;
+  margin-bottom: 10;
+}
+.post {
+  background-color: white;
+  margin-bottom: 30px;
+
+  min-height: 200px;
+  width: 85%;
+  color: #000046;
+  position: relative;
+}
+.post-title {
+  color: #000046;
+}
