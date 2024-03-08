@@ -1,4 +1,5 @@
 import UserIcon from "@/components/UserIcon"
+import PropTypes from 'prop-types';
 
 import "./styles.css"
 import { useNavigate } from "react-router-dom"
@@ -17,3 +18,8 @@ export default function PostHeader({post, user}) {
         </div>
     )
 }
+
+PostHeader.propTypes = {
+    post: PropTypes.object,
+    user: PropTypes.object,
+  };

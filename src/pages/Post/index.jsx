@@ -18,19 +18,21 @@ export default function Post() {
 
     const { id } = useParams()
 
+    // Finding Post based on id, and user based on posts contactId, and fetch comments for post
     useEffect(() => {
         if (users && posts && id) {
-            let postToUse = posts.find(post => Number(post.id) === Number(id))
-            setPost(postToUse)
-
-            setUser(users.find(user => user.id === postToUse.contactId))
-
+          let postToUse = posts.find((post) => Number(post.id) === Number(id));
+      
+          if (postToUse) {
+            setPost(postToUse);
+            setUser(users.find((user) => user.id === postToUse.contactId));
+      
             fetch(`https://boolean-api-server.fly.dev/Agatland/post/${postToUse.id}/comment`)
-            .then(res => res.json())
-            .then(data => setComments(data))
-
+              .then((res) => res.json())
+              .then((data) => setComments(data));
+          }
         }
-    }, [users, posts, id])
+      }, [users, posts, id]);
 
     if (!user || !post) return <div className="post-list-item"></div>
 

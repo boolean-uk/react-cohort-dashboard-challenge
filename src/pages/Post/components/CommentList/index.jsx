@@ -14,6 +14,7 @@ export default function CommentList({comments}) {
 
     return (
         <div className="comment-list-container">
+            {/* Rendering if there are more than 3 comments, and changing text based on if previous is hidden or not */}
             {comments.length > 3 && <p onClick={() => setSeeAllCommnets(!seeAllComments)}>    
                 {seeAllComments ? "Hide" : "See"} prvious comments
             </p>}
@@ -29,5 +30,5 @@ export default function CommentList({comments}) {
 }
 
 CommentList.propTypes = {
-    comments: PropTypes.arrayOf(object)
+    comments: PropTypes.array,
 }

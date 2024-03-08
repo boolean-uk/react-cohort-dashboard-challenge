@@ -13,6 +13,7 @@ export default function UserForm({user, updateUserInfo}) {
         }));
       };
     
+      // Calls method in ProfileView
       const handleSubmit = (e) => {
         e.preventDefault();
         

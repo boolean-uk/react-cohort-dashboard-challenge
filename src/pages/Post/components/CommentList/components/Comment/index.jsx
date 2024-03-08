@@ -23,7 +23,9 @@ export default function Comment({comment}) {
         <div className="comment">
             <UserIcon userToIcon={user}/>
             <div className="comment-content">
-                <h5 onClick={() =>navigate(`/profile/${user.id}`)} >{user.firstName} {user.lastName}</h5>
+                <h5 onClick={() =>navigate(`/profile/${user.id}`)} >
+                    {user.firstName} {user.lastName}
+                </h5>
                 <p>{comment.content}</p>
             </div>
         </div>
@@ -31,8 +33,5 @@ export default function Comment({comment}) {
 }
 
 Comment.propTypes = {
-    comment: PropTypes.shape({
-      contactId: PropTypes.number,
-      content: PropTypes.string,
-    }),
+    comment: PropTypes.object,
   };

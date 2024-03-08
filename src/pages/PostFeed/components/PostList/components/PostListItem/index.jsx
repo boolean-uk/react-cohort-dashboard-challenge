@@ -14,7 +14,7 @@ export default function PostListItem({post}) {
     const [ user, setUser ] = useState(null)
     const [comments, setComments] = useState([])
 
-
+    // Find user based on post contactId, and fetch comments for post
     useEffect(() => {
         setUser(users.find(user => user.id === post.contactId))
 

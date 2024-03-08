@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import "./styles.css"
 import UserIcon from "@/components/UserIcon"
+import PropTypes from 'prop-types';
 import { LoggedInUserContext } from "@/App"
 
 const inititalUserState = {content: ""}
@@ -18,6 +19,7 @@ export default function PostAddCommentForm({postId, setComments, comments}) {
         }));
     };
 
+    // Updating API and local state with new comment
     const handleSubmit = (e) => {
         e.preventDefault();
         const createdComment = {...userData, contactId: loggedInUser.id, postId: postId}
@@ -50,3 +52,9 @@ export default function PostAddCommentForm({postId, setComments, comments}) {
         </form>
     )
 }
+
+PostAddCommentForm.propTypes = {
+    postId: PropTypes.number,
+    setComments: PropTypes.func,
+    comments: PropTypes.array,
+  };

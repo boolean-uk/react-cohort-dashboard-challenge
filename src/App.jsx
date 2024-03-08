@@ -7,7 +7,9 @@ import PostFeed from './pages/PostFeed'
 import ProfileView from './pages/ProfileView'
 import Post from './pages/Post'
 
+// Context for logged in user info
 const LoggedInUserContext = createContext()
+// Context for posts and users states
 const CohortContext = createContext()
 
 const initialUserState = {firstName:"",lastName:"",gender:"",email:"",jobTitle:"",street:"",city:"",latitude:0,longitude:0,favouriteColour:"",profileImage:"",id:-1}
@@ -18,6 +20,7 @@ function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
 
+  // Fetch users and posts from API
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/Agatland/contact")
     .then(res => res.json())
@@ -28,7 +31,7 @@ function App() {
     .then(data => setPosts(data))
   }, [])
 
-  // Should probably find a better way to do this: maybe change way to access loggedInUser?
+  // Updates the logged in user
   useEffect(() => {
     if (users !== undefined && users.length !== 0 && users !== null)
       setLoggedInUser(users.find(user => user.id === 1))

@@ -12,12 +12,14 @@ export default function ProfileView() {
 
     const { users, setUsers } = useContext(CohortContext)
 
+    // Find user based on id
     useEffect(() => {
         if (users && id) {
           setUser(users.find((user) => Number(user.id) === Number(id)));
         }
     }, [users, id]);
 
+    // Update user in API and local state with new userInfo
     const updateUserInfo = (userInfo) => {
         fetch(`https://boolean-api-server.fly.dev/Agatland/contact/${userInfo.id}`, {
         method: "PUT",
