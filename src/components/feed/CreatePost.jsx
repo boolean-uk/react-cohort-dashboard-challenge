@@ -1,7 +1,7 @@
 // CreatePost.jsx
 import { useContext, useState } from 'react';
 import { ProfileImage } from '../ProfileImage'
-// import '/src/styles/Feed/CreatePost.css'
+
 import '/src/styles/Feed/CreatePost.css'
 import { AuthContext, PostsContext } from '../App';
 
@@ -16,6 +16,7 @@ export const CreatePost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setInput('');
     writePost("test Title", input) //TODO: Add title input
   }
   
@@ -29,7 +30,7 @@ export const CreatePost = () => {
         placeholder="What`s on your mind?"
         value={input}
         onChange={handleChange}
-        className="feed-input-field" // Apply styles using class
+        className="create-post-input-field"
       />
       <div className="post-button">
         <button 

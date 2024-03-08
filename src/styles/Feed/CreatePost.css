@@ -1,18 +1,26 @@
 .create-post-container {
     margin: 1rem;
-    display: flex; /* Allow side-by-side positioning */
-    align-items: center; /* Align items vertically */
+    display: flex;
+    align-items: center;
     background-color: white;
     border: 1px solid #e6ebf5;
     border-radius: 5px;
     padding: 1rem;
 }
 
-.profile-image-container {
-    margin-right: 0.5rem;
+.create-post-input-field {
+    background-color: #e6ebf5;
+    color: black;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: none;
+    width: 100%;
 }
-
 
 .post-button {
     margin-left: 1rem;
+}
+
+.post-button-text {
+    width: 10rem
 }

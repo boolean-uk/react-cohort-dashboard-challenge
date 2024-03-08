@@ -19,7 +19,7 @@ export const postPost = async (post, setPosts) => {
             "https://boolean-api-server.fly.dev/olemarkusroland/post", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json' // Set content type header
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(post)
         })

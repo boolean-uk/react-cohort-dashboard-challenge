@@ -20,7 +20,6 @@
 
 .post-right-of-profile {
     margin-top: -13px;
-    margin-left: 0.8rem; 
 }
 
 .post-user-name {
@@ -45,4 +44,5 @@
 
 .post-divider-line {
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }

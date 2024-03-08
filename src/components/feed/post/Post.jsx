@@ -7,17 +7,18 @@ import PropTypes from 'prop-types'
 
 export const Post = ({post}) => {
   const [user, setUser] = useState(null);
+  
 
   useEffect(() => {
     getUser(post.contactId).then((data) => {
       setUser(data);
     });
-  }, []);
+  }, [post.contactId]);
 
   if (!user) {
     return (
       <div className="post-container">
-        <p>User not found</p>
+        <p>Loading user...</p>
       </div>
     );
   }
@@ -25,7 +26,9 @@ export const Post = ({post}) => {
     <div className="post">
       <div className="post-container">
         <div className="post-header">
-          <ProfileImage user={user} />
+          <div>
+            <ProfileImage user={user} />  
+          </div>
           <div className="post-right-of-profile">
             <div className="post-user-name">
               <p>

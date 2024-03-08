@@ -9,8 +9,7 @@
 
 .comment-content {
     flex-direction: column;
-    margin-bottom: 1rem;
-    margin-left: 0.8rem; 
+    margin-bottom: 12px;
     background-color: #e6ebf5;
     border-radius: 5px;
     padding-left: 1rem;

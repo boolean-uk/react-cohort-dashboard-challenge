@@ -32,7 +32,7 @@ function App() {
     {
       title: title,
       content: content,
-      contactId: 1, //TODO: Set logged in user
+      contactId: authUser.id,
     }
     console.log(newPost)
     postPost(newPost, setPosts)
@@ -41,17 +41,17 @@ function App() {
   if (!authUser) return (<p>not logged in</p>)
   return (
     <AuthContext.Provider value={authUser}>
-    <div className="app-container">
-      <Header />
+      <div className="app-container">
+        <Header />
 
-      <PostsContext.Provider value={{posts: posts, writePost: writePost}}>
-      <div className="main-content">
-        <LeftMenu />
-        <Feed />
-      </div>
-      </PostsContext.Provider>
+        <div className="main-content">
+          <LeftMenu />
       
-    </div>
+          <PostsContext.Provider value={{ posts: posts, writePost: writePost }}>
+            <Feed />
+          </PostsContext.Provider>
+        </div>
+      </div>
     </AuthContext.Provider>
   );
 }

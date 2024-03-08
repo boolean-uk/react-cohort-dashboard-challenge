@@ -1,5 +1,6 @@
 /* Header.css */
 .header {
+  z-index: 9999;
   background-color: #000046;
   padding: 1rem;
   position: fixed;
@@ -17,11 +18,11 @@
 }
 
 .header-logo {
-  margin-left: 1%;
+  margin-left: calc(0.5% + 1.5rem);
   cursor: pointer;
   width: 290px;
 }
 
 .header-profile {
-  margin-right: 3%;
+  margin-right: calc(1.5% + 2rem);
 }

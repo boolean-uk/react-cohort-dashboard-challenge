@@ -1,0 +1,43 @@
+/* CreateComment.css */
+.create-comment {
+  display: flex;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100vw
+}
+
+.create-comment-input-field {
+  flex: 1;
+  background-color: #e6ebf5;
+  color: black;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  border: none;
+}
+
+.send-comment-container {
+  position: relative;
+  right: 35px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #C6D3E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-comment-container:hover {
+  background-color: #a7b3cc; 
+}
+
+.send-comment {
+  transform: rotate(45deg);
+  width: 20px;
+  height: 20px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
