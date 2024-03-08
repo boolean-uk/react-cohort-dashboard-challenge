@@ -1,0 +1,33 @@
+- App
+  - PostContext
+    - posts
+    - createPost()
+    - deletePost()
+    - editPost()
+  - ContactContext
+    - contacts
+    - editContact()
+  - ActiveContext
+    - active
+  - CommentContext
+    - comments
+    - createComment()
+    - deleteComment()
+    - editComment()
+- Home
+  - CreatePost
+    - post
+  - PostList
+    - PostListItem
+      - post
+      - user
+        - contact
+- FullPost
+  - CommentsList
+    - Comment
+  - CreateComment
+    - comment
+- ProfileDetails
+  - user
+    - contact
+- Sidebar
