@@ -1,35 +1,53 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ProfilePicture from './ProfilePicture';
 import '../styles/profile.css'
 import { Button, TextField } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { PostContext } from '../App';
 
 const Profile = () => {
+  const profileId = useParams()
+
+  const {contacts, getContacts } = useContext(PostContext)
+
+  const contact = contacts.find(contact => contact.id == profileId.id)
 
   const [profileForm, setProfileForm] = useState({
-    firstName: JSON.parse(localStorage.getItem("firstName")) || "",
-    lastName: JSON.parse(localStorage.getItem("lastName")) || "",
-    userName: JSON.parse(localStorage.getItem("userName")) || "",
-    email: JSON.parse(localStorage.getItem("email")) || "",
-    street: JSON.parse(localStorage.getItem("street")) || "",
-    suite: JSON.parse(localStorage.getItem("suite")) || "",
-    city: JSON.parse(localStorage.getItem("city")) || "",
-    zipCode: JSON.parse(localStorage.getItem("zipCode")) || "",
-    phoneNo: JSON.parse(localStorage.getItem("phoneNo")) || 0,
-    website: JSON.parse(localStorage.getItem("website")) || "",
-    companyName: JSON.parse(localStorage.getItem("companyName")) || "",
-    catchPhrase: JSON.parse(localStorage.getItem("catchPhrase")) || "",
-    statement: JSON.parse(localStorage.getItem("statement")) || "",
+    firstName: contact.firstName,
+    lastName: contact.lastName, 
+    gender: contact.gender,
+    email: contact.email,
+    street: contact.street,
+    city: contact.city,
+    latitude: contact.latitude,
+    longtitude: contact.longitude,
+    favouriteColour: contact.favouriteColour,
   })
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    localStorage.setItem(name, JSON.stringify(value))
     setProfileForm(values => ({ ...values, [name]: value }))
+  }
+
+
+
+  async function UpdateProfile() {
+    await fetch(`https://boolean-api-server.fly.dev/oysteinbjo/contact/${contact.id}`
+      , {
+        method: "PUT",
+        body: JSON.stringify(profileForm),
+        headers: {
+          'accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    UpdateProfile()
+    getContacts()
   }
 
   return (
@@ -37,13 +55,13 @@ const Profile = () => {
       <h1>Profile</h1>
       <div className='profile-container'>
         <div className='profile-header'>
-          <ProfilePicture firstName={"Øystein"} lastName={"Haugen"} favouriteColour={"Green"} />
+          <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
           <h2>{profileForm.firstName} {profileForm.lastName}</h2>
         </div>
         <div className='profile-form'>
           <div className='profile-form-group'>
             <hr />
-            <h1>Account info</h1>
+            <h1>Personal info</h1>
             <div className='account-form'>
               <TextField
                 required
@@ -68,9 +86,9 @@ const Profile = () => {
               <TextField
                 required
                 id="filled-required"
-                label="Username"
-                name='userName'
-                value={profileForm.userName}
+                label="Gender"
+                name='gender'
+                value={profileForm.gender}
                 onChange={handleChange}
                 size='small'
                 fullWidth
@@ -102,16 +120,6 @@ const Profile = () => {
               />
               <TextField
                 id="filled"
-                label="Suite"
-                name='suite'
-                defaultValue={profileForm.suite}
-                value={profileForm.suite}
-                onChange={handleChange}
-                size='small'
-                fullWidth
-              />
-              <TextField
-                id="filled"
                 label="City"
                 name='city'
                 value={profileForm.city}
@@ -121,9 +129,18 @@ const Profile = () => {
               />
               <TextField
                 id="filled"
-                label="Zipcode"
-                name='zipCode'
-                value={profileForm.zipCode}
+                label="Latitude"
+                name='latitude'
+                value={profileForm.latitude}
+                onChange={handleChange}
+                size='small'
+                fullWidth
+              />
+              <TextField
+                id="filled"
+                label="Longtitude"
+                name='longtitude'
+                value={profileForm.longtitude}
                 onChange={handleChange}
                 size='small'
                 fullWidth
@@ -132,65 +149,23 @@ const Profile = () => {
           </div>
           <div className='profile-form-group'>
             <hr />
-            <h1>Contact Info</h1>
+            <h1>Misc Info</h1>
             <div className='contact-form'>
               <TextField
                 required
                 id="filled-required"
-                label="Phone"
-                name='phoneNo'
-                value={profileForm.phoneNo}
-                onChange={handleChange}
-                size='small'
-                fullWidth
-              />
-              <TextField
-                id="filled"
-                label="Website"
-                name='website'
-                value={profileForm.website}
+                label="Favorite Color"
+                name='favouriteColour'
+                value={profileForm.favouriteColour}
                 onChange={handleChange}
                 size='small'
                 fullWidth
               />
             </div>
           </div>
-          <div className='profile-form-group'>
-            <hr />
-            <h1>Company info</h1>
-            <div className='company-form'>
-              <TextField
-                id="filled"
-                label="Name"
-                name='companyName'
-                value={profileForm.companyName}
-                onChange={handleChange}
-                size='small'
-                fullWidth
-              />
-              <TextField
-                id="filled"
-                label="Catch Phrase"
-                name='catchPhrase'
-                value={profileForm.catchPhrase}
-                onChange={handleChange}
-                size='small'
-                fullWidth
-              />
-              <TextField
-                id="filled"
-                label="Business Statement"
-                name='statement'
-                value={profileForm.statement}
-                onChange={handleChange}
-                size='small'
-                fullWidth
-              />
-            </div>
-          </div>
-        </div>
         <div className='form-footer'>
-          <Button onSubmit={handleSubmit}>Save</Button>
+          <Button onClick={handleSubmit}>Save</Button>
+        </div>
         </div>
       </div>
     </div>

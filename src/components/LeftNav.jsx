@@ -16,7 +16,7 @@ const LeftNav = () => {
       </div>
       <div className='nav-element'>
       <img src={profile_icon}/>
-        <Link to={'/profile'}>Profile</Link>
+        <Link to={'/profile/1'}>Profile</Link>
       </div>
     </div>
   );

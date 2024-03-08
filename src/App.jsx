@@ -38,6 +38,7 @@ function App() {
                           contacts:contacts, 
                           setContacts: setContacts,
                           getPosts:getPosts,
+                          getContacts: getContacts,
                           }}>
       <div className='app-container'>
         <Header />
