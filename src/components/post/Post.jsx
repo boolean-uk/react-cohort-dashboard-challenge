@@ -20,10 +20,9 @@ function Post(props) {
   }
 
   const user = getUserById(post.contactId)
-  
   return (
     <article className="post weak-shadow" >
-      <PostHead postTitle={post.title} postedBy={user}/>
+      <PostHead postTitle={post.title} postedBy={user} postId={post.id}/>
       <PostContent postContent={post.content}/>
       <PostComments postId={post.id}/>
     </article>

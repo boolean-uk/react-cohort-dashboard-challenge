@@ -72,7 +72,7 @@ body {
 .profile-picture-container {
   background-color: black;
   width: 100px;
-  grid-area: "pic";
+  grid-area: pic";
 }
 
 
