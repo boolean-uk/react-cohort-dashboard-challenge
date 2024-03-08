@@ -5,7 +5,6 @@ import Posts from './components/posts/Posts'
 import Sidebar from './components/Sidebar'
 import { useState, useEffect, createContext } from 'react'
 import UserProvider from './contexts/UserContext'
-import MyProfile from './components/profile/MyProfile';
 import ProfileWithID from './components/profile/ProfileWithID';
 import PostDetails from './components/posts/PostDetails';
 
@@ -25,7 +24,7 @@ function App() {
   useEffect( () => {
     fetch('https://boolean-api-server.fly.dev/giarreh/contact')
     .then(response => response.json())
-    .then((data) => { setContacts(data); console.log(data) })
+    .then((data) => { setContacts(data)})
   }, [])
 
 
@@ -45,7 +44,6 @@ function App() {
               <Route path="/" element={<Posts />} />
               <Route path="/posts" element={<Posts />} />
               <Route path="/posts/:id" element={<PostDetails />} ></Route>
-              <Route path="/profile" element={<MyProfile />} />
               <Route path="/profile/:id" element={<ProfileWithID />} />
             </Routes>
             </main>

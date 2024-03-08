@@ -52,7 +52,7 @@ export default function Post( { post } ) {
     <div className='post' >
       <div className='post-author'>
         <ProfilePicturePost initials={initials} color={color} author={author} />
-        <h3 onClick={() => navigate(`/profile/${author.id}`)}>{author.firstName} {author.lastName}</h3>
+        <h3 style={{cursor:'pointer'}} onClick={() => navigate(`/profile/${author.id}`)}>{author.firstName} {author.lastName}</h3>
       </div>
       <div>
         <h3 style={{cursor:'pointer'}} onClick={() => navigate(`/posts/${id}`)}>{title}</h3>

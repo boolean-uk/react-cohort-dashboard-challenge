@@ -3,7 +3,6 @@ import CommentsListItem from './CommentsListItem';
 
 export default function CommentsList({ comments, post }) {
   const [showAllComments, setShowAllComments] = useState(false);
-  const [details, setDetails] = useState(true);
 
   const toggleShowComments = () => {
     setShowAllComments(!showAllComments);
@@ -17,7 +16,7 @@ export default function CommentsList({ comments, post }) {
         </div>
       )}
       {comments.slice(0, showAllComments ? comments.length : 3).map((comment, index) => (
-        <CommentsListItem key={index} comment={comment} post={post} details={details}/>
+        <CommentsListItem key={index} comment={comment} post={post}/>
       ))}
     </div>
   );

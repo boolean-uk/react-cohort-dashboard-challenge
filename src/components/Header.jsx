@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from 'react'
 import title_header from '../assets/title-header.svg'
 import ProfilePicture from './profile/ProfilePicture'
 import { UserContext } from '../contexts/UserContext'
+import { Link, useNavigate } from 'react-router-dom'
 export default function Header() {
   const user = useContext(UserContext)
   const [color, setColor] = useState('green');
   const [initials, setInitials] = useState('UN');
+  const { navigate } = useNavigate()
 
   useEffect(() => {
     if(user.favouriteColour){
@@ -19,7 +21,9 @@ export default function Header() {
   return (
   <div className='header-container'>
     <div className="header darkBlue">
-      <img className='titleImg' src={title_header} alt="home icon" />
+      <Link to='/'>
+      <img onClick={() => navigate("/")} className='titleImg' src={title_header} alt="home icon" />
+      </Link>
     </div>
     
     <div className="header darkBlue">

@@ -13,14 +13,13 @@ export default function UserProvider({children}) {
         const userData = await response.json();
         setUser(userData);
         setLoading(false);
-        if(!loading) console.log('UseRRRRr:', user);
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={user}>

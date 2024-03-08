@@ -14,10 +14,6 @@ export default function CommentsListItem({ comment }) {
       .catch(error => console.error('Error fetching author:', error));
   }, [contactId]);
 
-  useEffect(() => {
-    console.log(author);
-  }, [author]);
-
   // Author of post
   const initials = author.firstName && author.lastName ? `${author.firstName[0]}${author.lastName[0]}` : '??';
   const color = author.favouriteColour ? author.favouriteColour : 'black';
