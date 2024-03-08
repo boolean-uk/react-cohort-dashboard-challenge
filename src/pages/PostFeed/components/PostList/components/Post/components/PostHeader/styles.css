@@ -1,0 +1,23 @@
+.post-list-item-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.post-list-item-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-list-item-header-text > h5 {
+    margin: 0;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.post-list-item-header-text > p {
+    margin: 0;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #64648C;
+}

@@ -1,4 +1,5 @@
-import AddPostForm from "./AddPostForm"
+import AddPostForm from "./components/AddPostForm"
+import PostList from "./components/PostList"
 import "./styles.css"
 
 export default function PostFeed() {
@@ -7,9 +8,7 @@ export default function PostFeed() {
     return (
         <main className="post-feed main">
             <AddPostForm />
-            <div className="yellow"></div>
-            <div className="yellow"></div>
-            <div className="yellow"></div>
+            <PostList />
         </main>
     )
 }

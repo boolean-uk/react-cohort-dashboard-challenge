@@ -1,0 +1,15 @@
+.add-comment-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.add-comment-form > input[type="text"] {
+    outline: none;
+    border: none;
+    background-color: #e6ebf5;
+    border-radius: 5px;
+    padding-left: 10px;
+    flex-grow: 1;
+}

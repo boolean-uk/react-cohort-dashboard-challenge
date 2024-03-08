@@ -18,9 +18,13 @@ function App() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    fetch("https://boolean-api-server.fly.dev/AGatland/contact")
+    fetch("https://boolean-api-server.fly.dev/Agatland/contact")
     .then(res => res.json())
     .then(data => {setUsers(data); setLoggedInUser(data.find(user => user.id === 1)) })
+
+    fetch("https://boolean-api-server.fly.dev/Agatland/post")
+    .then(res => res.json())
+    .then(data => setPosts(data))
   }, [])
 
   // Should probably find a better way to do this: maybe change way to access loggedInUser?

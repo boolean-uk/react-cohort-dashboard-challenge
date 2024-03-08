@@ -1,3 +1,6 @@
 .post-feed {
     padding: 15px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }

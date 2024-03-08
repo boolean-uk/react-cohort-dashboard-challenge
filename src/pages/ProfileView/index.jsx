@@ -21,7 +21,7 @@ export default function ProfileView() {
     }, [users, id]);
 
     const updateUserInfo = (userInfo) => {
-        fetch(`https://boolean-api-server.fly.dev/AGatland/contact/${userInfo.id}`, {
+        fetch(`https://boolean-api-server.fly.dev/Agatland/contact/${userInfo.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
