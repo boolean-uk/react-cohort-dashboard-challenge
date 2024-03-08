@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
 import { PostContext } from '../App';
 import ProfilePicture from './ProfilePicture';
-import '../styles/comment.css'
+import styled from 'styled-components';
+
+const CommentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 9px;
+`
 
 const Comment = ({ comment }) => {
   const {contacts} = useContext(PostContext)
   let contact = contacts.find(c => c.id === comment.contactId)  
 
   return (
-    <div className='comment-container'>
+    <CommentContainer>
       <ProfilePicture firstName={
         contact ? contact.firstName : "Bill"}
         lastName={contact ? contact.lastName : "Clinton"}
@@ -16,9 +22,9 @@ const Comment = ({ comment }) => {
         height={"28px"}
         width={"28px"}
         profileId={contact.id}/>
-        <p>{comment.content}</p>
+        <div>{comment.content}</div>
 
-    </div>
+    </CommentContainer>
   );
 }
 

@@ -11,15 +11,17 @@ const ListContainer = styled.div`
 
 
 const PostList = () => {
-  const {posts = [], setPosts} = useContext(PostContext)
+  const {posts, setPosts, isLoading} = useContext(PostContext)
+  if(isLoading) {
+    return (
+      <ListContainer>
+        {posts && posts.toReversed().map((post, index) => {
+          return <Post post={post} key={index}/>
+        })}
+      </ListContainer>
+    );
 
-  return (
-    <ListContainer>
-      {posts.toReversed().map((post, index) => {
-        return <Post post={post} key={index}/>
-      })}
-    </ListContainer>
-  );
+  }
 }
 
 export default PostList;

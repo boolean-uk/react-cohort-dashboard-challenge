@@ -8,7 +8,7 @@ import { PostContext } from '../App';
 const Profile = () => {
   const profileId = useParams()
 
-  const {contacts, getContacts } = useContext(PostContext)
+  const {contacts, setContacts } = useContext(PostContext)
 
   const contact = contacts.find(contact => contact.id == profileId.id)
 
@@ -33,7 +33,7 @@ const Profile = () => {
 
 
   async function UpdateProfile() {
-    await fetch(`https://boolean-api-server.fly.dev/oysteinbjo/contact/${contact.id}`
+    const response = await fetch(`https://boolean-api-server.fly.dev/oysteinbjo/contact/${contact.id}`
       , {
         method: "PUT",
         body: JSON.stringify(profileForm),
@@ -42,12 +42,13 @@ const Profile = () => {
           'Content-Type': 'application/json'
         }
       })
+      const data = await response.json()
+      setContacts([...contacts, contacts[contact.id] = data])
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
     UpdateProfile()
-    getContacts()
   }
 
   return (
