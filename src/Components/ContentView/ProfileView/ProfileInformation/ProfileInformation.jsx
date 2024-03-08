@@ -104,7 +104,9 @@ const ProfileInformation = ({ id }) => {
             {allowEdit && <button   className='submit-changed-profile-button'
             onClick={(e) => submitUserData(e)}
             >
-                Submit
+                <span>
+                    Submit
+                </span>
             </button>}
             </ProfileEditContext.Provider>
         </div>
