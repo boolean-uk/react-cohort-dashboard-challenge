@@ -121,7 +121,7 @@ function App() {
           </Routes>
 
           {/* Create LetteredAvatar for each Contact */}
-          <div className='contacts'>
+          {/* <div className='contacts'>
           {contacts.map((contact, index) => (
                 <div key={index} className="contact">
                   <LetteredAvatar contact={contact} />
@@ -129,7 +129,7 @@ function App() {
                   
                 </div>
               ))}
-          </div>
+          </div> */}
 
         {/* CreatePost Component*/}
         <form onSubmit={addPost}>
