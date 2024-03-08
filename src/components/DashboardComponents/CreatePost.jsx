@@ -10,10 +10,11 @@ export default function CreatePost() {
   const [newPost, setNewPost] = useState(initState); //TODO: change this to be correct
 
   useEffect(() => {
-
-    newPost.user = user
-if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.contactId);
-    if (postUser) setNewPost({ ...newPost, user: postUser });}
+    newPost.user = user;
+    if (!newPost.user) {
+      const postUser = users.find((u) => u.id === newPost.contactId);
+      if (postUser) setNewPost({ ...newPost, user: postUser });
+    }
   }, [users]);
 
   function handleChange(event) {
@@ -42,7 +43,7 @@ if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.co
 
   return (
     <div className="create-post">
-      <form  onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         {user && (
           <div
             className="circle header-top"
@@ -51,11 +52,12 @@ if(!newPost.user)    {    const postUser = users.find((u) => u.id === newPost.co
             {user.firstName[0] + "" + user.lastName[0]}
           </div>
         )}
-        <label htmlFor="title"> Title: </label>
+
         <input
           type="text"
           id="title"
           name="title"
+          placeholder="Title"
           onChange={handleChange}
           value={newPost.title}
         />

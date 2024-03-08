@@ -15,18 +15,24 @@ export default function CommentListItem({ comment }) {
   if (!comment) return <p>Loading...</p>;
 
   return (
-    <div className="comment">
+    <>
       {commentUser && (
-        <div
-          className="circle header-top post-circle"
-          style={{ background: commentUser.favouriteColour }}
-        >
-          {commentUser.firstName[0] + commentUser.lastName[0]}
+        <div className="comment">
+          <div
+            className="circle header-top post-circle"
+            style={{ background: commentUser.favouriteColour }}
+          >
+            {commentUser.firstName[0] + commentUser.lastName[0]}
+          </div>
+
+          <div className="comment-box">
+            <p className="comment-user-name">
+              {commentUser.firstName + " "+ commentUser.lastName}
+            </p>
+            <p>{comment.content}</p>{" "}
+          </div>
         </div>
       )}
-      <div className="comment-box">
-        <p>{comment.content}</p>{" "}
-      </div>
-    </div>
+    </>
   );
 }

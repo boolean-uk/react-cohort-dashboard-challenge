@@ -13,7 +13,13 @@ make the child components lay out using flex, vertically stacked in a column */
   width: 100vw;
   height: 100vh;
   display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  color:  #000046;
   flex-direction: column;
+}
+
+p {
+  font: times;
 }
 
 /* Create a container that fills the rest of the screen that is left over */
@@ -109,8 +115,6 @@ make the child components lay out using flex, vertically stacked in a column */
   display: inline-block;
 }
 
-
-
 .home {
   color: #000046;
   font-weight: bold;
@@ -145,61 +149,92 @@ make the child components lay out using flex, vertically stacked in a column */
   padding: 10px;
   display: flex;
   text-align: left;
-  
 }
 
 .post-commentlist {
   display: block;
   float: left;
-  width: 90%
+  width: 90%;
 }
 
 .post-create-comment {
-  width: 90%
+  width: 90%;
 }
 
 .post-content {
-  margin-left: 20px
+  margin-left: 20px;
 }
 
 .post-title-and-user {
-  width:80%;
-  margin-left: 10px
+  width: 80%;
+  margin-left: 10px;
 }
 
 .post {
-  display: flex
+  display: flex;
 }
 
 .post-user {
-  width: 100%
+  width: 100%;
 }
 
 .post-title {
-  width: 100%
+  width: 100%;
 }
 
 .comment {
-  display: flex
+  display: flex;
 }
 
 .post-circle {
-  margin-top:  7px;
+  margin-top: 7px;
 }
 
 .comment-box {
-  width: 100%;
-    border-radius: 5px;
+  max-width: 100%;
+  border-radius: 5px;
   border: 0.1px solid #d6dbe1;
   margin-left: 10px;
   margin-top: 10px;
-  background-color: #bebecb
+  background-color: #e6ebf5;
 }
 
 .comment-box p {
-  margin-left: 10px
+  margin-left: 10px;
+  margin-right: 50px;
 }
 
 hr {
-  width: 90%
+  width: 98%;
+  border-color: #e6ebf5;
+}
+
+.post-create-comment input {
+  margin-left: 10px;
+}
+
+.create-post form {
+  padding: 10px;
+}
+
+.create-post input,
+.create-post button {
+  margin-left: 10px;
+}
+
+.create-post input,
+.post-create-comment input {
+  border: none;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+  height: 40px;
+}
+
+.create-post input#content {
+  width: 70%;
+}
+
+
+.comment-user-name {
+  font-weight: bold;
 }

@@ -12,7 +12,6 @@ export default function PostListItem({ post }) {
 
   useEffect(() => {
     // Get comments
-
     fetch(
       "https:boolean-api-server.fly.dev/pkekkonen/post/" + post.id + "/comment"
     )
