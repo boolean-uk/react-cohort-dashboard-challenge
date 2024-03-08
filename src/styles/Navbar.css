@@ -1,0 +1,48 @@
+.navbar {
+  position: fixed; /* Set the position to fixed */
+  top: 100px; /* Stick the navbar below the header */
+    width: 7rem;
+    height: 100%;
+    grid-area: menu;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-right: 1px solid #f0f0f0;
+    z-index: 9;
+    user-select: none;
+  }
+  
+  .navbar-buttons {
+    width: 7rem;
+    height: 100%;
+  }
+  
+  .active {
+    background-color: #e4e4e4; /* Change background color for active button */
+    border-right: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
+  }
+
+.navbar-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.navbar-button > p {
+  margin: 0;
+}
+
+.navbar-button > a {
+  text-decoration: none;
+}
+/*
+.navbar-button:hover img {
+  filter: brightness(0.4);
+  transform: scale(1.05);
+}
+*/
