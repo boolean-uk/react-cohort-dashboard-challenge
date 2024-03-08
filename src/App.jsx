@@ -10,25 +10,31 @@ const PostContext = createContext()
 function App() {
   const [posts, setPosts] = useState()
   const [contacts, setContacts] = useState()
+  const [isLoading, setIsLoading] = useState(false) 
 
   const userName = "oysteinbjo"
   const baseURL = `https://boolean-api-server.fly.dev/${userName}/`
 
-  async function getPosts() {
-    const response = await fetch(baseURL + 'post')
-    const data = await response.json()
-    setPosts(data)
+  function getPosts(){
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(fetch(baseURL + 'post').then(data => data.json()))
+      })
+    }, 1000)
   }
 
-  async function getContacts() {
-    const response = await fetch(baseURL + 'contact')
-    const data = await response.json()
-    setContacts(data)
+  function getContacts(){
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(fetch(baseURL + 'contact').then(data => data.json()))
+      })
+    }, 1000)
   }
 
   useEffect(() => {
-    getPosts()
-    getContacts()
+    getPosts().then(data => setPosts(data))
+    getContacts().then(data => setContacts(data))
+    setIsLoading(true)
   }, [])
   
   return (
@@ -39,6 +45,7 @@ function App() {
                           setContacts: setContacts,
                           getPosts:getPosts,
                           getContacts: getContacts,
+                          isLoading: isLoading
                           }}>
       <div className='app-container'>
         <Header />
