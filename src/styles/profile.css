@@ -18,8 +18,20 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 8px;
+  gap: 10px;
 }
 
 .profile-form-group {
-  padding: 4px;
+  padding: 10px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-footer {
+  align-self: center;
+  justify-self: center;
 }

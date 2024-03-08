@@ -62,7 +62,7 @@ const Profile = () => {
           <div className='profile-form-group'>
             <hr />
             <h1>Personal info</h1>
-            <div className='account-form'>
+            <div className='form'>
               <TextField
                 required
                 id="filled-required"
@@ -71,6 +71,7 @@ const Profile = () => {
                 value={profileForm.firstName}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -81,6 +82,7 @@ const Profile = () => {
                 value={profileForm.lastName}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -91,6 +93,7 @@ const Profile = () => {
                 value={profileForm.gender}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -101,6 +104,7 @@ const Profile = () => {
                 value={profileForm.email}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
             </div>
@@ -108,7 +112,7 @@ const Profile = () => {
           <div className='profile-form-group'>
             <hr />
             <h1>Address</h1>
-            <div className='address-form'>
+            <div className='form'>
               <TextField
                 id="filled"
                 label="Street"
@@ -116,6 +120,7 @@ const Profile = () => {
                 value={profileForm.street}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -125,6 +130,7 @@ const Profile = () => {
                 value={profileForm.city}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -134,6 +140,7 @@ const Profile = () => {
                 value={profileForm.latitude}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
               <TextField
@@ -143,6 +150,7 @@ const Profile = () => {
                 value={profileForm.longtitude}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
             </div>
@@ -150,7 +158,7 @@ const Profile = () => {
           <div className='profile-form-group'>
             <hr />
             <h1>Misc Info</h1>
-            <div className='contact-form'>
+            <div className='form'>
               <TextField
                 required
                 id="filled-required"
@@ -159,12 +167,22 @@ const Profile = () => {
                 value={profileForm.favouriteColour}
                 onChange={handleChange}
                 size='small'
+                variant='filled'
                 fullWidth
               />
             </div>
           </div>
         <div className='form-footer'>
-          <Button onClick={handleSubmit}>Save</Button>
+          <Button 
+            onClick={handleSubmit}
+              variant='contained'
+              sx={{
+                background: '#000046',
+                ":hover": {
+                  background: '#64dc78'
+                }
+              }}
+            >Save</Button>
         </div>
         </div>
       </div>
