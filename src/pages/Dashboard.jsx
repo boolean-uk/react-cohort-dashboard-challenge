@@ -19,8 +19,7 @@ const Dashboard = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(baseURLContact + `/${1}`);
-
+                const response = await axios.get(baseURLContact + "/1");
                 if(response) {
                     setUser(response.data);
                 }
@@ -31,6 +30,7 @@ const Dashboard = () => {
         }
       fetchData();
     }, []);
+
     return(
         <div className="dashboard-container">
 

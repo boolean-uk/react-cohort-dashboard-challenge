@@ -7,10 +7,10 @@
 .singlePost-postHistory {
     border: solid black 1px;
     margin-top: 5vh;
+    background-color: #F0F5FA ;
 }
 
 .singlePost-header {
-    border: solid blue 1px;
 }
 
 .singlePost-title {

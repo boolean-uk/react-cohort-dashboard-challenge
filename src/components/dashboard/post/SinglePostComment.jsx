@@ -9,12 +9,12 @@ const SinglePostComment = (props) => {
 
     const [contact, setContact] = useState();
 
-    const {baserURLContact} = useContext(HttpRequestsContextAPIContext)
+    const {baseURLContact} = useContext(HttpRequestsContextAPIContext)
 
     useEffect(() => {
 
         const fetchData = async () => {
-            const contactResponse = await axios.get(baserURLContact + `/${comment.contactId}`)
+            const contactResponse = await axios.get(baseURLContact + `/${comment.contactId}`)
             setContact(contactResponse.data)
         }
         fetchData();

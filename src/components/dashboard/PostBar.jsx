@@ -3,6 +3,7 @@ import '../../style/dashboard/postBar.css';
 import { PostContextAPIContext } from "../../contextAPI/PostContextAPI";
 import axios from "axios";
 import { HttpRequestsContextAPIContext } from "../../contextAPI/HttpRequestsContextAPI";
+import { UserContextAPIContext } from "../../contextAPI/UserContextAPI";
 
 const PostBar = () => {
 
@@ -14,6 +15,7 @@ const PostBar = () => {
 
     const {setPosts} = useContext(PostContextAPIContext)
     const {baseURL} = useContext(HttpRequestsContextAPIContext)
+    const {user} = useContext(UserContextAPIContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,11 +41,16 @@ const PostBar = () => {
     }
 
 
+
+    if(!user) {
+      return <div>Loading</div>
+    }
+
     return(
         <>
-        <div className="circle">
-            <span className="initials">AB</span>
-        </div>
+      <div className="circle " style={{backgroundColor: user.favouriteColour}}>
+        <span className="initials">{user.firstName[0]}{user.lastName[0]}</span>
+      </div>
         <form onSubmit={handleSubmit} className="postBar-form">
                 <input
                     name="postBar"

@@ -11,7 +11,6 @@
 .dashboard-header {
     height: 10vh;
     width: 100vw;
-    border: solid black 1px;
     position: fixed;
 
 }
@@ -20,7 +19,6 @@
     margin-top: 10vh;
     width: 10vw;
     height: 90vh;
-    border: solid black 1px;
     position: fixed;
     background-color: white;
 
@@ -28,7 +26,6 @@
 
 .dashboard-postbar {
     display: flex;
-    border: solid black 1px;
     margin-top: 10vh;
     height: 10vh;
     justify-content: center;
@@ -40,12 +37,9 @@
 
 .dashboard-content {
     margin-left: 15vw;
-    height: 100vh;
     background-color: #F0F5FA;
 }
 .dashboard-post {
-    border: solid black 1px;
-    border-radius: 1%;
     align-items: center;
     margin-top: 2vh;
     background-color: white;
