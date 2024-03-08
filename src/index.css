@@ -17,11 +17,6 @@ make the child components lay out using flex, vertically stacked in a column */
   color:  #000046;
   flex-direction: column;
 }
-
-p {
-  font: times;
-}
-
 /* Create a container that fills the rest of the screen that is left over */
 /* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
@@ -92,6 +87,8 @@ p {
   height: 80px;
   width: 360px;
   margin-left: 20px;
+
+  margin-bottom: 10px
 }
 
 .header-circle {
@@ -104,7 +101,7 @@ p {
   font-weight: bold;
   color: #000046;
   text-align: center;
-  margin-left: 60vw;
+  margin-left: 70vw;
   margin-top: 7px;
 }
 
@@ -163,7 +160,7 @@ p {
 }
 
 .post-content {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .post-title-and-user {
@@ -173,6 +170,7 @@ p {
 
 .post {
   display: flex;
+width: 70vw
 }
 
 .post-user {
@@ -201,7 +199,7 @@ p {
   background-color: #e6ebf5;
 }
 
-.comment-box p {
+.comment-box p, input#comment {
   margin-left: 10px;
   margin-right: 50px;
 }
@@ -269,6 +267,7 @@ div.label {
 
 .profile-form button {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .profile-form {
@@ -300,4 +299,42 @@ div.label {
 
 .profile .header h3 {
   margin-top: 25px;
+}
+
+input#comment {
+  border-style: none;
+  background-color: #e6ebf5;
+
+}
+
+a {
+  
+  color: inherit; 
+  text-decoration: inherit;
+
+}
+
+
+input#post, input#comment {
+  max-width: 90%;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #e6ebf5;
+
+}
+
+.comment-buttons {
+  display: grid;
+  grid-template-rows: auto 20px 20px auto;
+  border: none;
+}
+
+.comment button, .post-create-comment button , .post-header button  {
+padding: 0, ;
+border: none;
+background: none;
+text-align: left;
+color: #757575
 }

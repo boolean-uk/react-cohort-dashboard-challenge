@@ -7,8 +7,11 @@ import CreateComment from "./CreateComment";
 
 export default function PostListItem({ post }) {
   const user = useContext(DataContext).user;
+  const setPosts = useContext(DataContext).setPosts;
   const posts = useContext(DataContext).posts;
   const [comments, setComments] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [editedPost, setEditedPost] = useState(null);
 
   useEffect(() => {
     // Get comments
@@ -26,14 +29,26 @@ export default function PostListItem({ post }) {
   return (
     <div className="post-container">
       <span className="post-child post-header">
-        <PostHeader post={post} />
+        <PostHeader
+          post={post}
+          editing={editing}
+          setEditing={setEditing}
+          editedPost={editedPost}
+          setEditedPost={setEditedPost}
+        />
       </span>
       <span className="post-child post-content">
-        <PostContent post={post} />
+        <PostContent post={post} editing={editing} editedPost={editedPost} setEditedPost={setEditedPost}/>
       </span>
       <hr></hr>
       <span className="post-child post-commentlist">
-        {comments && <CommentList post={post} comments={comments} />}
+        {comments && (
+          <CommentList
+            post={post}
+            comments={comments}
+            setComments={setComments}
+          />
+        )}
       </span>
       <span className="post-child post-create-comment">
         <CreateComment

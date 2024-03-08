@@ -78,7 +78,7 @@ export default function ViewProfile() {
               <div />
             </div>
           ))}
-          <button type="submit">Post</button>
+          <button type="submit">Save</button>
         </form>
       )}{" "}
     </div>

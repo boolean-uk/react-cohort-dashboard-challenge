@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -42,5 +40,5 @@
 }
 
 .create-post input#content {
-  width: 75%
+  width: 75%;
 }

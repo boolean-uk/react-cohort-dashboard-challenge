@@ -2,7 +2,7 @@ import { DataContext } from "../../App";
 import { useContext, createContext, useState } from "react";
 import CommentListItem from "./CommentListItem";
 
-export default function CommentList({ post, comments }) {
+export default function CommentList({ post, comments, setComments }) {
   const user = useContext(DataContext).user;
   const posts = useContext(DataContext).posts;
   const [viewAll, setViewAll] = useState(false)
@@ -17,7 +17,7 @@ export default function CommentList({ post, comments }) {
     <>
       {comments.length > 3 && <button onClick={() => setViewAll(!viewAll)}>{viewAll? "Hide previous comments":"See previous comments"}</button>}
       {filteredComments.map((comment, index) => (
-        <CommentListItem key={index} comment={comment} />
+        <CommentListItem key={index} comment={comment} setComments={setComments} comments={comments}/>
       ))}
     </>
   );
