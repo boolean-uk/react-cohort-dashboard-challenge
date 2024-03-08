@@ -6,6 +6,7 @@ import { ProfileImage } from '/src/components/ProfileImage.jsx'
 import PropTypes from 'prop-types'
 import { getUser } from '../../../utils/userRequests';
 import { Link } from 'react-router-dom';
+import { UserName } from '../../UserName';
 
 export const Post = ({post}) => {
   const [user, setUser] = useState(null);
@@ -17,26 +18,14 @@ export const Post = ({post}) => {
     });
   }, [post.contactId]);
 
-  if (!user) {
-    return (
-      <div className="feed-container">
-        <p>Loading user...</p>
-      </div>
-    );
-  }
   return (
-
       <div className="feed-container">
         <div className="post-header">
           <div>
             <ProfileImage user={user} />
           </div>
           <div className="post-right-of-profile">
-            <div className="post-user-name">
-              <p>
-                {user.firstName} {user.lastName}
-              </p>
-            </div>
+            <UserName user={user}/>
             <Link to={`/post/${post.id}`}>
               <div className="post-title">
                 <p>{post.title}</p>

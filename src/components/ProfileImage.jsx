@@ -18,7 +18,7 @@ export const ProfileImage = ({user}) => {
         for (let i = 0; i < str.length; i++) {
             const char = str.charCodeAt(i);
             hash = ((hash << 5) - hash) + char;
-            hash |= 0; // Convert to 32bit integer
+            hash |= 0;
         }
         return hash;
     };
@@ -29,6 +29,9 @@ export const ProfileImage = ({user}) => {
         return colors[index];
     };
 
+    if (!user) {
+        return <div className="profile-image">??</div>;
+    }
     return (
         <Link
             to={`/profile/${user.id}`} 
@@ -42,7 +45,8 @@ export const ProfileImage = ({user}) => {
 
 ProfileImage.propTypes = {
     user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
         firstName: PropTypes.string.isRequired,
         lastName: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
 };
