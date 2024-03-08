@@ -177,6 +177,15 @@ make the child components lay out using flex, vertically stacked in a column */
   filter: brightness(0.9);
 }
 
+.top-right-icon {
+  margin-left: 700px;
+  margin-bottom: 12px;
+}
+
+.top-right-icon .profile-text {
+  margin-top: 10px;
+}
+
 .profile-page {
   margin-top: 20px;
   margin-left: 50px;

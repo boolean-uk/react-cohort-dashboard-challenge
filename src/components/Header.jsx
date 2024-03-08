@@ -24,7 +24,6 @@ function Header() {
     }
 
     const goToProfilePage = () => {
-        console.log("navigating to profile")
         navigate('/profile/1')
     }
 
@@ -35,11 +34,14 @@ function Header() {
                 src={titleHeader}
                 alt="title header"
                 onClick={goToMain} />
-            <ProfileIcon
-                className='top-right-icon'
-                initials={initials}
-                matchingContact={matchingContact} 
-                onClick={goToProfilePage}/>
+
+            <div className='top-right-icon'
+                onClick={goToProfilePage}>
+                <ProfileIcon
+                    initials={initials}
+                    matchingContact={matchingContact}
+                />
+            </div>
         </header>
     )
 }

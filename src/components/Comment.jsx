@@ -1,8 +1,8 @@
 import { useContext } from "react"
-//hämta contacts
 import { ContactContext } from "../App"
+import { Link } from 'react-router-dom';
+import ProfileIcon from './ProfileIcon.jsx';
 
-import circle from '../assets/yellow-and-amber-colored-circles-clipart-1.png'
 
 function Comment({ comment }) {
     const { contacts } = useContext(ContactContext)
@@ -17,23 +17,23 @@ function Comment({ comment }) {
     if (!matchingContact) {
         return null; // or handle the case when matchingContact is undefined
     }
-    
+
     const name = matchingContact.firstName + ' ' + matchingContact.lastName
     const initials = matchingContact.firstName.charAt(0) + matchingContact.lastName.charAt(0);
 
     return (
         <li className="comment">
             <div className='pic-and-name'>
-            <div className='profile-container'>
-                    <div
-                        className="profile_circle"
-                        style={{ backgroundColor: matchingContact.favouriteColour }}>
-                        <div className="profile-text">{initials}</div>
-                        </div>
-                    </div>
+            <Link to={`/profile/${matchingContact.id}`}>
+                <div className='pic-and-name'>
+                    <ProfileIcon
+                        initials={initials}
+                        matchingContact={matchingContact} />
 
                     <h2>{name}</h2>
                 </div>
+            </Link>
+            </div>
             <p>{comment.content}</p>
         </li>
     )
