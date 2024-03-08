@@ -9,7 +9,7 @@ import { PostContext } from '../App';
  * - refresh data on CreatePost
  */
 const CreatePost = () => {
-  const { getPosts } = useContext(PostContext)
+  const { getPosts,posts, setPosts } = useContext(PostContext)
   const [post, setPost] = useState({
     title: "Title",
     content: "",
@@ -19,7 +19,7 @@ const CreatePost = () => {
   const postURL = "https://boolean-api-server.fly.dev/oysteinbjo/post"
 
   async function PostPost() {
-    await fetch(postURL
+    const response = await fetch(postURL
       , {
         method: "POST",
         body: JSON.stringify(post),
@@ -28,12 +28,14 @@ const CreatePost = () => {
           'Content-Type': 'application/json'
         }
       })
+      const data = await response.json()
+      setPosts([...posts, data])
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
     PostPost()
-    getPosts()
+    setPost({...post, content:""})
   }
 
   const handleChange = (event) => {
