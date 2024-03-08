@@ -1,0 +1,31 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    grid-area: content;
+    gap: 10px;
+    width: 85%;
+    padding-top: 7rem;
+    padding-left: 9.5rem;
+  }
+  .cm-input {
+    border-radius: 0.6em;
+    width: 100%;
+    background-color: #e6ebf5;
+    padding: 10px;
+    border: none;
+    font-size: medium;
+  }
+  
+  .cm-input-label {
+    opacity: 0.8;
+  }
+  
+  .cm-button {
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    background-color: var(--primary);
+    width: 200px;
+    border: none;
+    border-radius: 0.6em;
+  }

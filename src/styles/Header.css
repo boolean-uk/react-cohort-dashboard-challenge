@@ -1,0 +1,34 @@
+.header {
+  position: fixed; /* Set the position to fixed */
+  top: 0; /* Stick the header to the top of the page */
+    display: flex;
+    width: 100%;
+    height: 80px;
+    color: #FFF;
+    grid-area: header;
+    padding: 10px;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .header-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: auto;
+  }
+  
+  .header-logo {
+    cursor: pointer;
+    width: 300px;
+  }
+
+  .header-logo:hover{
+    transform: scale(1.04);
+  }
+  
+  .header,
+  .header > button {
+    background-color: #000046;
+  }

@@ -1,0 +1,18 @@
+.card .post-input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+  }
+
+  .cm-input:focus{
+      background-color: rgb(255, 255, 255);
+      border: 1px solid black;
+      transition: 0.5s;
+  }
+
+  .bi-chat-text-fill:hover{
+    fill: var(--secondary);
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
