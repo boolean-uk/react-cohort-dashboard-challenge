@@ -33,6 +33,7 @@ function CreatePost() {
         console.error('Error updating post:', error);
       }
       fetchData('https://boolean-api-server.fly.dev/KonWritesCode/post', dataContext.setPosts)
+      
       // Clear 
       setPostData({...postData, 'content': ""})
     };
