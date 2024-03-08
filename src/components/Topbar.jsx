@@ -24,7 +24,7 @@ export default function TopbarComponent() {
                 />
             </svg>
             <div className='usericon'>
-                <UserIconComponent user={loginUser.get}/>
+                <UserIconComponent user={loginUser.get} />
             </div>
         </div>
     )

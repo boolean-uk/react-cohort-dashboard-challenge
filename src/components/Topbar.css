@@ -3,7 +3,7 @@
     width: 100vw;
     background-color: #000046;
     display: grid;
-    grid-template-columns: auto 1fr auto; /* Three columns: auto, 1fr (flexible), auto */
+    grid-template-columns: auto 1fr auto;
     align-items: center;
 
     .logo {
@@ -12,7 +12,7 @@
     }
 
     .usericon {
-        justify-self: end; /* Align to the end of the grid cell */
+        justify-self: end; 
         margin-right: 0.8rem;
     }
 }
