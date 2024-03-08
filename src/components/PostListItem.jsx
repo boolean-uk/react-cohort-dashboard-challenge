@@ -35,8 +35,7 @@ function PostListItem({ post }) {
             to={`/post/${post.id}`}
             state={{
               firstName: getUserInfo(post.contactId).firstName,
-              lastName: getUserInfo(post.contactId).lastName,
-              getUserInfo: getUserInfo
+              lastName: getUserInfo(post.contactId).lastName
             }}
           >
             {post.title}

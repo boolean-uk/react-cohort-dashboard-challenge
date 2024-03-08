@@ -12,7 +12,7 @@ function SideMenu() {
           </li>
           <li className="menu-item">
             <ProfileIcon />
-            Profile
+            <Link to={"/profile"}>Profile</Link>
           </li>
         </ul>
       </nav>

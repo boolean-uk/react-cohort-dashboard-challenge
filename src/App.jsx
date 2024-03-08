@@ -6,6 +6,7 @@ import SideMenu from "./components/SideMenu";
 import HeaderIcon from "./components/icons/HeaderIcon";
 import PostView from "./components/PostView";
 import Avatar from "react-avatar";
+import ProfileForm from "./components/ProfileForm";
 
 const Context = createContext();
 
@@ -30,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <Context.Provider value={{ posts, setPosts, users, userLoggedIn }}>
+    <Context.Provider value={{ posts, setPosts, users, setUsers, userLoggedIn }}>
       <div className="app">
         <header className="header">
           <HeaderIcon className="img"/>
@@ -45,6 +46,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Feed />} />
             <Route path="/post/:id" element={<PostView />} />
+            <Route path="/profile" element={<ProfileForm />} />
           </Routes>
         </div>
       </div>

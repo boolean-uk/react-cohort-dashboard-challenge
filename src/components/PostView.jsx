@@ -34,7 +34,12 @@ function PostView() {
       <ul>
         {comments.map((comment) => (
           <li key={comment.id}>
-            <Avatar name={`${getUserInfo(comment.contactId).firstName} ${getUserInfo(comment.contactId).lastName}`} round={true}/>
+            <Avatar
+              name={`${getUserInfo(comment.contactId).firstName} ${
+                getUserInfo(comment.contactId).lastName
+              }`}
+              round={true}
+            />
             {comment.content}
           </li>
         ))}
