@@ -37,7 +37,6 @@ function Feed() {
     return (
       <main className="feed">
         <form className="post-form" onSubmit={handleSubmit}>
-          
           <input 
             name="title" 
             placeholder="Title" 

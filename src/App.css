@@ -229,7 +229,9 @@ ul {
   padding: 10px;
 }
 
-.profile-form {
+.profile-form, 
+.profile-page {
   margin-left: 80px;
   margin-top: 80px;
 }
+

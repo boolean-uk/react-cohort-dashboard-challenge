@@ -25,17 +25,18 @@ function PostListItem({ post }) {
           />
         </div>
         <div className="post-details">
-          <b>
-            {`${getUserInfo(post.contactId).firstName} ${
-              getUserInfo(post.contactId).lastName
-            }`}
-          </b>{" "}
+          <Link
+            to={`/profile/${post.contactId}`}
+            state={{ user: getUserInfo(post.contactId) }}
+          >{`${getUserInfo(post.contactId).firstName} ${
+            getUserInfo(post.contactId).lastName
+          }`}</Link>
           <br />
           <Link
             to={`/post/${post.id}`}
             state={{
               firstName: getUserInfo(post.contactId).firstName,
-              lastName: getUserInfo(post.contactId).lastName
+              lastName: getUserInfo(post.contactId).lastName,
             }}
           >
             {post.title}

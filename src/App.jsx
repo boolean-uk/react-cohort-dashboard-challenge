@@ -7,6 +7,7 @@ import HeaderIcon from "./components/icons/HeaderIcon";
 import PostView from "./components/PostView";
 import Avatar from "react-avatar";
 import ProfileForm from "./components/ProfileForm";
+import ProfilePage from "./components/ProfilePage";
 
 const Context = createContext();
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="/" element={<Feed />} />
             <Route path="/post/:id" element={<PostView />} />
             <Route path="/profile" element={<ProfileForm />} />
+            <Route path="/profile/:id" element={<ProfilePage />} />
           </Routes>
         </div>
       </div>
