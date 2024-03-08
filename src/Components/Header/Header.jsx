@@ -3,7 +3,6 @@ import headerLogo from '../../assets/title-header.svg'
 import ProfilePicture from '../ProfilePicture/ProfilePicture'
 import { UserContext } from '../../App'
 import "./Header.css"
-import { Link } from 'react-router-dom'
 
 function Header() {
   const { user } = useContext(UserContext)

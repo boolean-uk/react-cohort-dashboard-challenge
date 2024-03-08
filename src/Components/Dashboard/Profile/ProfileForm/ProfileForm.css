@@ -1,0 +1,31 @@
+.profile-content-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+input {
+    background-color: #e6ebf5;
+    height: 1.5rem;
+}
+
+.save-button {
+    margin: 1rem;
+    width: 10rem;
+    background-color: #000046;
+    color: #fff;
+    margin-left: auto;
+}

@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react"
 import LeftMenu from "./LeftMenu/LeftMenu"
-import NewPostForm from "./NewPostForm/NewPostForm"
 import Content from "./Content/Content"
 import "./Dashboard.css"
 export const PostContext = createContext()
