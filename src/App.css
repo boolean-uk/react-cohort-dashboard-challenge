@@ -55,7 +55,6 @@ header {
 /* make the main fill the remaining width and the full height of the parent */
 .main {
   background-color: #e6ebf5;
-
   flex-grow: 1;
   /* if contents of main overflow from the height, add a scrollbar on main */
   overflow-y: auto;
@@ -68,9 +67,11 @@ header {
 
 .post-body-background {
   background-color: #F0F5FA;
-  margin: 10px;
-  height: 200px;
-  width: 100%;
+  border-radius: 25px;
+  height: 300px;
+  width: 80%;
+  margin: 30px 30px 30px 120px;
+  padding: 15px;
 }
 
 .post-content {
@@ -113,4 +114,17 @@ header {
   width: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.post-header {
+  /* border: solid black 1px; */
+  display: flex;
+  color: black;
+  align-items:flex-start;
+}
+
+.comment-post input {
+  background-color: #F0F5FA;
+  color: black;
+  
 }

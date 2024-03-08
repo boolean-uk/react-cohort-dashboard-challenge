@@ -19,7 +19,8 @@ export default function LetteredAvatar ({ contact }) {
         borderRadius: "100px",
         color: "white",
         background: color,
-        margin: "auto"
+        margin: "15px"
+        
     }
 
     return (

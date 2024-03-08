@@ -1,5 +1,5 @@
 import { useEffect, useState, createContext } from 'react'
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
 
 import Header from './components/Header'
 import Home from './components/Home'
@@ -28,6 +28,8 @@ function App() {
   const [content, setContent] = useState('')
   const [comments, setComments] = useState('')
   const [contacts, setContacts] = useState([])
+
+ 
 
 
 
@@ -77,30 +79,11 @@ function App() {
     setComments(updatedComments)
     
   }
-  function getInitials(name) {
-        return `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`;
-      }
 
-      function generateBackground(name) {
-        let hash = 0;
-        let i;
-     
-       for (i = 0; i < name.length; i += 1) {
-         hash = name.charCodeAt(i) + ((hash << 5) - hash);
-       } 
-      // name.charCodeAt() return an int between 0 and 65535
-      // left shift (<<)  operator moves to left by number of specified 
-      // bites after <<. The whole for loop will create a color hash 
-      // based on username length
-       let color = '#';
-     
-       for (i = 0; i < 3; i += 1) {
-         const value = (hash >> (i * 8)) & 0xff;
-         color += `00${value.toString(16)}`.slice(-2);
-       }
-     
-       return color;
-     }
+  const getPostContact = (post) => {
+    return contacts.find(aContact => aContact.id === post.contactId)
+  }
+  
 
   return (
     <>
@@ -125,13 +108,13 @@ function App() {
         </nav>
 
         {/* Problems when making Posts its own component si its in app for now */}
-        
+
         {/* Posts Component*/}
         <main className="main">
           <Routes>
             <Route 
               path="/" 
-              element={<Home />} />
+              element={<Home user={user}/>} />
             <Route 
               path="/profile" 
               element={<ProfilePage />} />
@@ -181,7 +164,20 @@ function App() {
 
           {posts.map((post, index) => (
               <div key={index} className="post-body-background">
-                <h3 className="post-content">{post.name}</h3>
+                <div className="post-header">
+                  
+                  <LetteredAvatar contact={getPostContact(post)}/>
+                  <div>
+                  <span className="post-author">
+                    {getPostContact(post)?.firstName} {getPostContact(post)?.lastName}
+                  </span>
+                  <br />
+                  <h3 className="post-content">{post.title}</h3>
+                  </div>
+     
+                </div>
+                
+                
                 <p className="post-content">{post.content}</p>
 
                 {/* Comments */}
@@ -200,7 +196,7 @@ function App() {
                 </div>
                 
                   {/* Comment Form */}
-                <div>
+                <div className='comment-post'>
                   <input
                     type="text"
                     value={comments[index]}
