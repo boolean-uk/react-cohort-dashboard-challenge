@@ -1,7 +1,7 @@
 import { DataContext } from "../../App";
 import { useContext, useState, useEffect } from "react";
 
-const initState = { content: "", contactId: 2, user: null };
+const initState = { content: "" };
 export default function CreateComment({post, setComments, comments}) {
   const users = useContext(DataContext).users;
   const user = useContext(DataContext).user;
@@ -9,14 +9,6 @@ export default function CreateComment({post, setComments, comments}) {
   const setPosts = useContext(DataContext).setPosts;
   const [newComment, setNewComment] = useState(initState); //TODO: change this to be correct
 
-  useEffect(() => {
-    setNewComment({...newComment, postId: post.id})
-    newComment.user = user;
-    if (!newComment.user) { //TODO: fix this
-      const postUser = users.find((u) => u.id === newComment.contactId);
-      if (postUser) setNewComment({ ...newComment, user: postUser });
-    }
-  }, [users]);
 
   function handleChange(event) {
     setNewComment({ ...newComment, [event.target.name]: event.target.value });
@@ -25,6 +17,10 @@ export default function CreateComment({post, setComments, comments}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    newComment.contactId = user.id
+    newComment.postId = post.id;
+
+    console.log(newComment)
     fetch("https://boolean-api-server.fly.dev/pkekkonen/post/" + post.id + "/comment", {
       method: "POST",
       headers: {
@@ -36,7 +32,8 @@ export default function CreateComment({post, setComments, comments}) {
         return response.json();
       })
       .then((responseData) => {
-        setComments([...comments, newComment])
+        responseData.user = user
+        setComments([...comments, responseData]);
       });
 
     setNewComment(initState);

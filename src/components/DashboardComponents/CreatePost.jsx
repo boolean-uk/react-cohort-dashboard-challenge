@@ -1,7 +1,7 @@
 import { DataContext } from "../../App";
 import { useContext, useState, useEffect } from "react";
 
-const initState = { title: "", content: "", contactId: 2, user: null };
+const initState = { title: "", content: ""};
 export default function CreatePost() {
   const users = useContext(DataContext).users;
   const user = useContext(DataContext).user;
@@ -9,13 +9,6 @@ export default function CreatePost() {
   const setPosts = useContext(DataContext).setPosts;
   const [newPost, setNewPost] = useState(initState); //TODO: change this to be correct
 
-  useEffect(() => {
-    newPost.user = user;
-    if (!newPost.user) {
-      const postUser = users.find((u) => u.id === newPost.contactId);
-      if (postUser) setNewPost({ ...newPost, user: postUser });
-    }
-  }, [users]);
 
   function handleChange(event) {
     setNewPost({ ...newPost, [event.target.name]: event.target.value });
@@ -24,6 +17,8 @@ export default function CreatePost() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log(user)
+    newPost.contactId = user.id;
     fetch("https://boolean-api-server.fly.dev/pkekkonen/post/", {
       method: "POST",
       headers: {
@@ -35,6 +30,8 @@ export default function CreatePost() {
         return response.json();
       })
       .then((responseData) => {
+              responseData.user = user;
+
         setPosts([...posts, responseData]);
       });
 

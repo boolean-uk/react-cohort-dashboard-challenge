@@ -21,7 +21,8 @@ export default function PostListItem({ post }) {
       .then((data) => {
         setComments(data);
       });
-  }, []);
+  }, [post.id]);
+  
   return (
     <div className="post-container">
       <span className="post-child post-header">

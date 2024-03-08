@@ -29,12 +29,7 @@ export default function PostHeader({ post }) {
           </div>
         </div>
       )}
-      {!post.user && (
-        <div className="post">
-          <p>anonymous</p>
-          <p>{post.title}</p>
-        </div>
-      )}
+
     </>
   );
 }

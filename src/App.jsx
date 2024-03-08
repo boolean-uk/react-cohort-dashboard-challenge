@@ -32,8 +32,8 @@ function App() {
               ...data,
               user: userData.find((u) => u.id === data.contactId),
             }));
-
             setUser(userData[3]); //TODO: fix so not hardcoded
+
             setPosts(postDataWithUsers);
           });
       });
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <DataContext.Provider value={{ posts, setPosts, user, setUser, users }}>
+      <DataContext.Provider value={{ posts, setPosts, user, users }}>
           <div className="container">
             <Header />
             <div className="container-nav-main">
