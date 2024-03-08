@@ -1,28 +1,18 @@
 import "../../style/profile/ProfileForm.css";
 import PropTypes from "prop-types";
 import ProfileSubForm from "./ProfileSubForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const ProfileForm = ({ profileId }) => {
+const ProfileForm = ({ owner }) => {
     const submitProfile = async (event) => {
         event.preventDefault();
     };
 
-    const [userData, setUserData] = useState({
-        city: "North Arvilla",
-        email: "Giles6@yahoo.com",
-        favouriteColour: "#3da4d0",
-        firstName: "Brando",
-        gender: "Female to male",
-        id: 1,
-        jobTitle: "Principal Brand Planner",
-        lastName: "Roberts",
-        latitude: -83.4676,
-        longitude: -45.6291,
-        profileImage:
-            "https://www.gravatar.com/avatar/Giles6@yahoo.com?s=120&d=identicon",
-        street: "Muller Points",
-    });
+    const [userData, setUserData] = useState(owner);
+
+    useEffect(() => {
+        setUserData(owner);
+    }, [owner]);
 
     const subforms = [
         {
@@ -64,5 +54,5 @@ const ProfileForm = ({ profileId }) => {
 
 export default ProfileForm;
 ProfileForm.propTypes = {
-    profileId: PropTypes.number.isRequired,
+    owner: PropTypes.object.isRequired,
 };

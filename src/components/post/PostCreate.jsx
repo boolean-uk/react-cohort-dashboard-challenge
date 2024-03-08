@@ -2,6 +2,7 @@ import "../../style/post/PostCreate.css";
 import UserIcon from "../../components/icons/UserIcon";
 import { useContext, useState } from "react";
 import { postContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const PostCreate = () => {
     const { user, posts, setPosts } = useContext(postContext);
@@ -35,10 +36,17 @@ const PostCreate = () => {
         setPostData({ title: "", content: "" });
     };
 
+    const nav = useNavigate();
+
+    const goToProfile = () => {
+        nav("/profile/" + user.id);
+    };
+
     return (
         <form className="post-form" onSubmit={submitPost}>
             <div className="post-create">
                 <UserIcon
+                    onClick={goToProfile}
                     color={user.favouriteColour}
                     firstName={user.firstName}
                     lastName={user.lastName}

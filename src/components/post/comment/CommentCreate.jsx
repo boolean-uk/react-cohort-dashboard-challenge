@@ -4,6 +4,7 @@ import "../../../style/post/comment/CommentCreate.css";
 import UserIcon from "../../icons/UserIcon";
 import { postContext } from "../../../App";
 import SendIconSvg from "../../icons/SendIconSvg";
+import { useNavigate } from "react-router-dom";
 
 const CommentCreate = ({ postId, commentData, setCommentData }) => {
     const { user } = useContext(postContext);
@@ -37,9 +38,16 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
         setInput("");
     };
 
+    const nav = useNavigate();
+
+    const goToProfile = () => {
+        nav("/profile/" + user.id);
+    };
+
     return (
         <div className="comment-create">
             <UserIcon
+                onClick={goToProfile}
                 color={user.favouriteColour}
                 firstName={user.firstName}
                 lastName={user.lastName}

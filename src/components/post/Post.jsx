@@ -35,10 +35,15 @@ const Post = ({ post }) => {
         getCommentData();
     }, [owner]);
 
+    const goToProfile = () => {
+        nav("/profile/" + owner.id);
+    };
+
     return (
         <li className="list-item">
             <div className="post-owner">
                 <UserIcon
+                    onClick={goToProfile}
                     color={owner.favouriteColour}
                     firstName={owner.firstName}
                     lastName={owner.lastName}

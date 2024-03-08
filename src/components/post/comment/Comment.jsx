@@ -3,6 +3,7 @@ import "../../../style/post/comment/Comment.css";
 import { useContext } from "react";
 import { postContext } from "../../../App";
 import UserIcon from "../../icons/UserIcon";
+import { useNavigate } from "react-router-dom";
 
 const Comment = ({ comment }) => {
     const { contacts } = useContext(postContext);
@@ -13,9 +14,16 @@ const Comment = ({ comment }) => {
             lastName: "User",
         };
 
+    const nav = useNavigate();
+
+    const goToProfile = () => {
+        nav("/profile/" + owner.id);
+    };
+
     return (
         <li className="list-item">
             <UserIcon
+                onClick={goToProfile}
                 color={owner.favouriteColour}
                 firstName={owner.firstName}
                 lastName={owner.lastName}

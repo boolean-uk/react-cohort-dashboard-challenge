@@ -14,6 +14,16 @@ const ProfilePage = () => {
             id: -1,
             firstName: "Unknown",
             lastName: "User",
+            city: "Unknown City",
+            email: "Unknown Email",
+            favouriteColour: "#3da4d0",
+            gender: "Unknown Gender",
+            jobTitle: "Unknown Job Title",
+            latitude: 0.0,
+            longitude: 0.0,
+            profileImage:
+                "https://www.gravatar.com/avatar/Giles6@yahoo.com?s=120&d=identicon",
+            street: "Unknown Street",
         };
 
     return (
@@ -28,7 +38,7 @@ const ProfilePage = () => {
                     />
                     <h2>{owner.firstName + " " + owner.lastName}</h2>
                 </div>
-                <ProfileForm profileId={parseInt(id)} />
+                <ProfileForm owner={owner} />
             </div>
         </div>
     );
