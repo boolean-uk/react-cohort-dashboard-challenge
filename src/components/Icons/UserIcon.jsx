@@ -18,8 +18,8 @@ function UserIcon({image, contactInitials}) {
 }
 
 UserIcon.propTypes = { 
-	image: PropTypes.string.isRequired,
-    contactInitials: PropTypes.string.isRequired,
+	image: PropTypes.string,
+  contactInitials: PropTypes.string.isRequired,
 }
 
 export default UserIcon

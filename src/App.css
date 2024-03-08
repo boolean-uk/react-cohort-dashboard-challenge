@@ -127,6 +127,7 @@ header {
 
     .post-content {
       padding-left: 12px;
+      flex: 1;
     }
 
     .post-input {

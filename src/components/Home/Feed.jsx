@@ -6,8 +6,6 @@ import { DataContext } from '../../App'
 function Feed() {
   const dataContext = useContext(DataContext)
 
-  console.log(dataContext)
-
   function getContact(post) {
     const result = dataContext.contacts.find(
         contact => contact.id === post.contactId)
@@ -21,10 +19,10 @@ function Feed() {
   return (
     <section className='feed'>
       <CreatePost/>
-      {dataContext.posts.map((post, index) => (
+      {dataContext.posts.toReversed().map((post, index) => (
         <Post 
-          key={index} 
-          data={post} 
+          key={index}
+          data={post}
           contact={getContact(post)}
         />))
       }

@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import UserIcon from '../Icons/UserIcon'
 import CommentSection from './CommentSection'
 import PropTypes from "prop-types"
 import CommentBar from './CommentBar'
+import fetchData from '../../service/FetchData'
 
 function Post({ data, contact }) {
+  const [comments, setComments] = useState([])
+
+  useEffect(() => {
+      fetchData(`https://boolean-api-server.fly.dev/KonWritesCode/post/${data.id}/comment`, setComments)
+      }, [data] )
+
   return ( 
     <div className='post'>
       <div className='post-content'>
@@ -19,8 +26,8 @@ function Post({ data, contact }) {
           {data.content}
         </div>
         <div className='comment-container'>
-          <CommentSection postId={data.id}/>
-          <CommentBar />
+          <CommentSection comments={comments} setComments={setComments} postId={data?.id}/>
+          <CommentBar setComments={setComments} postId={data?.id}/>
         </div>
       </div>
     </div>

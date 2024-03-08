@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react'
 import PropTypes from "prop-types"
 import Comment from './Comment';
+import fetchData from '../../service/FetchData';
 
-function CommentSection({postId = -1}) {
-    const [comments, setComments] = useState([])
+
+
+function CommentSection({comments, setComments, postId = -1}) {
 
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch(`https://boolean-api-server.fly.dev/KonWritesCode/post/${postId}/comment`)
-            const data = await response.json()
-            setComments(data)
-          } catch (error) {
-            console.error('Error fetching data:', error)
-          }
-        }
-        fetchData()
+        fetchData(`https://boolean-api-server.fly.dev/KonWritesCode/post/${postId}/comment`, setComments)
         }, [] )
+
+        useEffect(() => {
+            fetchData(`https://boolean-api-server.fly.dev/KonWritesCode/post/${postId}/comment`, setComments)
+            }, [] )
 
     if(comments.length === 0)
       return (<div/>);
@@ -35,7 +32,9 @@ function CommentSection({postId = -1}) {
 }
 
 CommentSection.propTypes = { 
-	postId: PropTypes.array, 
+	postId: PropTypes.number, 
+    comments: PropTypes.array,
+    setComments: PropTypes.func,
 }
 
 
