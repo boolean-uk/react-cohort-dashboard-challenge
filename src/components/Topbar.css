@@ -1,11 +1,21 @@
 .topbar {
     height: 70px;
+    width: 100vw;
     background-color: #000046;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Three columns: auto, 1fr (flexible), auto */
     align-items: center;
 
-    .logo { 
-        padding-left: 0.5%;
+    .logo {
+        padding-left: 0.8rem;
         height: 80%;
     }
+
+    .usericon {
+        justify-self: end; /* Align to the end of the grid cell */
+        margin-right: 0.8rem;
+    }
 }
+
+
+
