@@ -1,9 +1,9 @@
 import './style.css'
 
-function SaveInfo() {
+function SaveInfo({handleSubmit}) {
     return(
         <div className="profile-inputs-row-item save-button">
-            <button >Save changes</button>
+            <button onClick={handleSubmit}>Save changes</button>
         </div>
     )
 }

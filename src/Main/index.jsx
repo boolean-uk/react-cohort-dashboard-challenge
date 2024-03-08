@@ -19,7 +19,7 @@ function Main() {
             element={<SinglePost />}
           />
           <Route
-            path="/profile"
+            path="/profile/:id"
             element={<Profile />}
           />
         </Routes>

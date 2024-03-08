@@ -16,7 +16,7 @@ function SideMenu() {
 
             <label htmlFor="profile-checkbox">
                 <input type="checkbox" id="profile-checkbox" />
-                <Link id="side-button" to="/profile">
+                <Link id="side-button" to="/profile/1">
                     <svg
                         width="41"
                         height="40"
