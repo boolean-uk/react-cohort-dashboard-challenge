@@ -1,4 +1,4 @@
-import '/src/styles/Feed/post/commentSection/CommentSection.css';
+import '/src/styles/home/post/commentSection/CommentSection.css';
 
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';

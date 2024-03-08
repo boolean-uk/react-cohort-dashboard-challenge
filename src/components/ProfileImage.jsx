@@ -1,4 +1,5 @@
 // ProfileImage.jsx
+import { Link } from 'react-router-dom';
 import '../styles/ProfileImage.css'; // Corrected import path
 import PropTypes from 'prop-types';
 
@@ -29,9 +30,13 @@ export const ProfileImage = ({user}) => {
     };
 
     return (
-        <div className="profile-image" style={{ backgroundColor: getColor(user.firstName, user.lastName) }}>
+        <Link
+            to={`/profile/${user.id}`} 
+            className="profile-image" 
+            style={{ backgroundColor: getColor(user.firstName, user.lastName) }}
+        >
             {getInitials(user.firstName, user.lastName)}
-        </div>
+        </Link>
     );
 };
 

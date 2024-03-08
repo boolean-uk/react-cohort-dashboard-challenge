@@ -7,23 +7,24 @@
     background-color: #fff; /* White background */
     display: flex;
     flex-direction: column; /* Stack content vertically */
-    color: #64648c;
 }
 
 .options {
     padding-top: 1rem;
     height: 85px;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer; /* Add cursor pointer on hover */
+    cursor: pointer; 
     font-weight: bold;
+    color: #64648c;
 }
 
+
 .options:hover {
-    background-color: #eae9fa;
-    filter: brightness(1); /* Invert the icon color on hover */
+    background-color: #64dc78;
+    color: #64648c;
 }
 
 .icon {

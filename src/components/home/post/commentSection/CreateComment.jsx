@@ -1,5 +1,5 @@
 // CreateComment.jsx
-import "/src/styles/Feed/post/commentSection/CreateComment.css"
+import "/src/styles/home/post/commentSection/CreateComment.css"
 
 import PropTypes from 'prop-types';
 import { useContext, useState } from "react"

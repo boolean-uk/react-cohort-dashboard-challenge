@@ -4,6 +4,7 @@ import titleHeader from '../assets/title-header.svg';
 import { ProfileImage } from './ProfileImage';
 import { useContext } from 'react';
 import { AuthContext } from './App';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const authUser  = useContext(AuthContext)
@@ -11,11 +12,13 @@ export const Header = () => {
   return (
     <nav className="header">
       <div className="header-group">
-        <img
-          className="header-logo"
-          src={titleHeader}
-          alt="cohort-manager-logo"
-        />
+        <Link to="/">
+          <img
+            className="header-logo"
+            src={titleHeader}
+            alt="cohort-manager-logo"
+          />
+        </Link>
         <div className="header-profile">
           <ProfileImage user={authUser} />
         </div>

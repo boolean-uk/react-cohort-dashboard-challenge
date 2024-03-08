@@ -1,9 +1,9 @@
 // CreatePost.jsx
-import { useContext, useState } from 'react';
-import { ProfileImage } from '../ProfileImage'
+import '/src/styles/home/CreatePost.css'
 
-import '/src/styles/Feed/CreatePost.css'
+import { useContext, useState } from 'react';
 import { AuthContext, PostsContext } from '../App';
+import { ProfileImage } from '../ProfileImage';
 
 export const CreatePost = () => {
   const authUser = useContext(AuthContext)
