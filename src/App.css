@@ -1,0 +1,357 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+  /* Set the font family to be used in the whole app */
+  font-family: 'Roboto', sans-serif;
+  color:#000046;
+  background-color: #F0F5FA;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+  padding: 5px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* This will separate the children to the sides */
+  align-items: center; /* This will center items vertically */  
+}
+
+.left {
+  justify-content: flex-start; /* Aligns the title to the left */
+}
+
+.right {
+  justify-content: flex-end; /* Aligns the profile picture to the right */
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 100px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background-color: white;
+}
+
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 25px;
+}
+
+.sidebar-item:hover {
+  background-color: gainsboro;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.darkBlue {
+  background-color: #000046
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.main-background {
+  background-color: #f2f2f2;
+
+}
+
+.post {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  color: black;
+  border-radius: 5px;
+}
+
+.create-post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  margin: 30px;
+  color: black;
+  border-radius: 5px;
+}
+
+.postInput {
+  padding: 10px;
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
+  flex: 8;
+}
+
+.postButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #000046;
+  border-color: #000046;
+  color:#000046;
+  height: 1rem;
+  margin-left: 10px;
+  background-color: #000046;
+  color: white;
+  cursor:pointer;
+}
+
+.postButton:hover {
+  color: #64dc78;
+}
+
+.post-author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #000046;
+}
+.postAddComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #000046;
+}
+.postAddCommentInput {
+  padding: 10px;
+  margin-left: 8px;
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
+  flex: 8;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #000046;
+  padding: 8px;
+}
+
+.comment-author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  color: #000046;
+  padding-right: 10px;
+  flex: 1;
+}
+
+.comment {
+  display: flex;
+  min-height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #ecf0ff;
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  color: #000046;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: x-small;
+  cursor:pointer;
+}
+
+.commentText {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  padding-left: 10px;
+  padding-top: -10px;
+  color: #000046;
+  font-size: small;
+}
+
+.showComments {
+  padding-left: 20px;
+  font-size: small;
+}
+
+.showComments:hover {
+  cursor:pointer;
+}
+
+
+.titleImg {
+  max-width: 100%;
+  max-height: 100%;
+  color: white;
+}
+
+.profile-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size:large;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: 20px;
+  cursor:pointer;
+}
+
+.profile-picture-post {
+  display:flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  cursor:pointer;
+}
+
+.profile-picture-comment {
+  display:flex;
+  align-self: flex-start;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  cursor:pointer;
+}
+
+.profileHeader {
+  margin-left: 30px;
+  font-size: xx-large;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  color: black;
+  border-radius: 5px;
+}
+.profileTop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profileTopText {
+  margin-left: 20px;
+  font-size: xx-small;
+  color: #000046;
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+}
+.profileContent > div {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.profileContent > div:nth-child(2) {
+  display:flex;
+  flex-direction: column;
+  flex: 2;
+}
+.profileTextDetails div{  
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
+}
+.profileInput {
+  padding: 10px;
+  width: 50%;
+  border-radius: 3px;
+  border-color: #000046;
+  color:#000046;
+}
+.profileSaveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #000046;
+  border-color: #000046;
+  color:#000046;
+  height: 1rem;
+  width: 20%;
+  background-color: #000046;
+  color: white;
+  cursor:pointer;
+}
