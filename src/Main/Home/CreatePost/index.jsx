@@ -19,7 +19,8 @@ function CreatePost() {
         e.preventDefault()
 
         setPost({title: postTitle !== "" ? postTitle : "No title", content: postContent, contactId: userContext.users[0].id})
-
+        postContext.setPosts([...postContext.posts, post])
+        
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post`, {
             method: 'POST', 
             headers: {
@@ -34,7 +35,7 @@ function CreatePost() {
             .then(response => response.json())
             .then(response => console.log(response))
 
-        postContext.setPosts([...postContext.posts, post])
+
 
         setPostContent("")
     }

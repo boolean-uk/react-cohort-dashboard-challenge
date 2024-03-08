@@ -2,10 +2,9 @@ import { useContext, useState } from "react"
 import { UserContext } from "../../../../../App"
 import './style.css'
 
-function CommentField({post}) {
+function CommentField({post, comments, setComments}) {
     const userContext = useContext(UserContext)
     const [commentContent, setCommentContent] = useState('')
-    const [commentObj, setCommentObj] = useState({})
 
     const handleChange = (e) => {
         setCommentContent(e.target.value)
@@ -13,7 +12,12 @@ function CommentField({post}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setCommentObj()
+        setComments([...comments, {
+            postId: post.id, 
+            content: commentContent, 
+            contactId: userContext.users[0].id
+        }])
+
         fetch(`https://boolean-api-server.fly.dev/nora-hansen/post/${post.id}/comment`, {
             method: 'POST', 
             headers: {
@@ -27,6 +31,7 @@ function CommentField({post}) {
         })
             .then(response => response.json())
             .then(response => console.log(response))
+        
         setCommentContent("")
     }
 
