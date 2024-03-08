@@ -5,6 +5,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import ShowPost from './Dashboard/components/ShowPost';
 import LeftMenu from './LeftMenu';
+import ShowProfile from './ShowProfile'
 
 const PostContext = createContext()
 const UserContext = createContext();
@@ -40,6 +41,7 @@ function App() {
               <Routes>
                 <Route path="/view_post/:id" element={<ShowPost />} />
                 <Route exact path="/" element={<Dashboard />} />
+                <Route path="/view_profile/:id" element={<ShowProfile />} />
               </Routes>
             </div>
           </div>

@@ -1,31 +1,44 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import "./index.css";
+import profileIcon from "../assets/profile-icon.svg";
+import homeIcon from "../assets/home-icon.svg";
+import { UserContext } from "../App";
 
 export default function LeftMenu() {
     const navigate = useNavigate();
+
+    const userContext = useContext(UserContext);
 
     const goToHomePage = () => {
         navigate("/");
     };
 
+    let mainUser = userContext.users.find(
+      (user) => user.id === userContext.mainUserId
+    );
+    if (!mainUser) return <div></div>;
+
+    const goToProfile = () => {
+      navigate(`/view_profile/${mainUser.id}`);
+    };
+
     return (
       <nav className="sidebar">
-        <button className="button" onClick={goToHomePage}>
-          <svg
-            className="sidebar_icon .action:hover"
-            width="33"
-            height="36"
-            viewBox="0 0 33 36"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.5 36V12L16.6 0L32.5 12V36H20.8V21.75H12.15V36H0.5Z"
-              fill="#64648C"
-            />
-          </svg>
-          <p>Home</p>
-        </button>
+        <div className="sidebar_icon_container">
+          <button className="sidebar_button" onClick={goToHomePage}>
+            <img className="sidebar_image" src={homeIcon} />
+            <p className="sidebar_text">Home</p>
+          </button>
+        </div>
+
+
+        <div className="sidebar_icon_container">
+          <button className="sidebar_button" onClick={goToProfile}>
+            <img className="sidebar_image" src={profileIcon} />
+            <p className="sidebar_text">Profile</p>
+          </button>
+        </div>
       </nav>
     );
 }

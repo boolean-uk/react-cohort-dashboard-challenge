@@ -1,21 +1,19 @@
 import { useState, useContext } from "react";
 import { PostContext, UserContext } from "../App";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
-
-const emptyPost = (userId) => {
-  const emptyPost = {
-    title: "",
-    content: "",
-    contactId: userId,
-  };
-  return emptyPost
-};
 
 export default function CreatePostForm() {
   const postContext = useContext(PostContext);
   const userContext = useContext(UserContext);
 
-  const [newPost, setNewPost] = useState(emptyPost(userContext.mainUserId));
+  const navigate = useNavigate();
+
+  const [newPost, setNewPost] = useState({
+    title: "",
+    content: "",
+    contactId: userContext.mainUserId,
+  });
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -31,16 +29,16 @@ export default function CreatePostForm() {
 
   const handlePost = (event) => {
     event.preventDefault();
-    console.log("Handle POST a new Post");
 
     fetch("https://boolean-api-server.fly.dev/svennas/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPost),
-    });
+    })
+      .then((resp) => resp.json())
+      .then((postNew) => postContext.setPosts((post) => [...post, postNew]));
 
-    postContext.setPosts((post) => [...post, newPost]);
-    setNewPost(emptyPost);
+    setNewPost({ ...newPost, title: "", content: "" });
   };
 
   let mainUser = userContext.users.find(
@@ -48,15 +46,23 @@ export default function CreatePostForm() {
   );
   if (!mainUser) return <div></div>;
 
+  const goToProfile = () => {
+    navigate(`/view_profile/${mainUser.id}`);
+  };
+
   return (
     <form className="create_post_layout">
       <div className="icon_div">
-        <div className=" circle">
-          <p className=" circle_text">
+        <button
+          className=" poster_circle_button"
+          style={{ backgroundColor: mainUser.favouriteColour }}
+          onClick={goToProfile}
+        >
+          <p className=" poster_circle_text">
             {mainUser.firstName.charAt(0)}
             {mainUser.lastName.charAt(0)}
           </p>
-        </div>
+        </button>
       </div>
       <div className="insertion_div ">
         <input

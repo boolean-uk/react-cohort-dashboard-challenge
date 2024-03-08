@@ -19,9 +19,11 @@ make the child components lay out using flex, vertically stacked in a column */
 /* Create a container that fills the rest of the screen that is left over */
 /* The children inside this container must be laid out using flex as a row, from left to right */
 .container-nav-main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px auto;
   flex-direction: row;
   flex-grow: 1;
+  background-color: #F0F5FA;
 }
 
 ul {

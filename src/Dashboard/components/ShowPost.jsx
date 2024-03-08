@@ -11,6 +11,8 @@ export default function ShowPost() {
 
     const [post, setPost] = useState(null);
 
+    console.log(id)
+
     useEffect(() => {
       setPost(postContext.posts.find((post) => Number(post.id) === Number(id)));
     }, [postContext.posts, id]);

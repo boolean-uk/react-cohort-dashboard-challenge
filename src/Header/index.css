@@ -18,16 +18,15 @@
   margin-bottom: 20px;
 }
 
-.header_circle {
+.header_circle_button {
   height: 50px;
   width: 50px;
-  background-color: lightgreen;
   border-radius: 50%;
   display: flex;
   color:#000046;
-  
+  padding: 2px;
 }
 
 .header_circle_text {
-  margin: auto;
+  margin:auto;
 }

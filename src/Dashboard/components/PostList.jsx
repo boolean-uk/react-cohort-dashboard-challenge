@@ -6,8 +6,6 @@ export default function PostList() {
     const postContext = useContext(PostContext);
     const userContext = useContext(UserContext);
 
-    //console.log(postContext.users)
-
     return (
       <>
         {[...postContext.posts].reverse().map((post, index) => (
