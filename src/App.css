@@ -1,0 +1,151 @@
+header, button {
+  background-color: #000046;
+}
+
+input {
+  background-color: #e6ebf5;
+  height: 15px;
+  color: black;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: border-color 0.25s;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.firstButton {
+  margin: 5px;
+  padding: 0;
+  height: 30px;
+  width: 50px;
+}
+
+.secondButton {
+  margin: 5px;
+  padding: 0;
+  height: 30px;
+  width: 70px;
+}
+
+.postTitle {
+  color: #64648c;
+}
+
+h1 {
+  color: white;
+}
+
+h2, h3, h4, p, li {
+  color: black;
+}
+
+.headerSVG {
+  width: 500px;
+  padding-right: 600px;
+}
+
+.homeIcon {
+  padding-left: 5px;
+}
+
+.homeButton {
+  width: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 40px;
+}
+
+.homeButton:hover {
+  background-color: lightblue;
+}
+
+.postInfos {
+  margin: 5px;
+}
+
+.information {
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  display: inline;
+}
+
+.profileButton {
+  width: 100px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 40px;
+}
+
+.profileButton:hover {
+  background-color: lightblue;
+}
+
+.profileIcon {
+  padding-left: 5px;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.profilePage {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.profileInfo {
+  margin: 10px;
+  height: 450px;
+  width: 300px;
+  display: flex;
+}
+
+.container {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.editPost {
+  color: black;
+}
+
+.commentItem h4, .commentItem p {
+  display: inline;
+  line-height: 35px;
+  height: 50px;
+  width: 50px;
+}
+
+.postPost p, .postPost input, .postPost button {
+  margin: 5px;
+}
+
+.postPost p {
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.postCommStyle {
+  margin: 10px;
+}
