@@ -17,8 +17,7 @@ const CommentOnPost = ({postID}) => {
     }
 
     const handleKeyDown = (e) => {
-        // 13 is keyCode for "enter" button
-        if (e.keyCode === 13) {
+        if (e.key === "Enter") {
             submitPostComment(e)
         }
     }
