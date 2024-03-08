@@ -11,6 +11,11 @@
 
 .profile-top {
     padding: 10px;
+    display: flex;
+}
+
+.profile-top .profile-pic-big {
+    margin-right: 10px;
 }
 
 .profile-inputs-row {
