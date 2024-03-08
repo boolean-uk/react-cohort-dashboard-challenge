@@ -8,7 +8,7 @@
 }
 
 .scroll-container {
-    scrollbar-width: 5px;
+    scrollbar-width: none;
     overflow: scroll;
 }
 

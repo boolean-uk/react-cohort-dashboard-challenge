@@ -62,6 +62,7 @@ const PostListItem = ({post}) => {
                             className="text-like-field"
                             value={editedContent}
                             onChange={(e) => setEditedContent(e.target.value)}
+                            onKeyDown={(e) => (e.key === "Enter") && handleFinishEditing(post.id)}
                         >
                             {post?.content}
                         </textarea>
