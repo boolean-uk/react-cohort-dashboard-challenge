@@ -166,7 +166,7 @@ function RenderProfile() {
                 </div>
                 <div></div>
                 <div>
-                    <button type="submit">Save</button>
+                    <button className="profile-button" type="submit">Save</button>
                 </div>
             </form>
           </div>

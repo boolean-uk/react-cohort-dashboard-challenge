@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../../App"
 import Avatar from "react-avatar"
-import RenderComments from "./CommentList"
+import RenderComments from "./Comments"
 
 function PostListItem({post}) {
     const {contacts, loggedInUser} = useContext(AppContext)
