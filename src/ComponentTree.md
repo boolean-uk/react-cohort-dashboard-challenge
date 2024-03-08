@@ -1,0 +1,12 @@
+# Component Tree Diagram
+- App
+  - NavigationBar
+  - Header
+  - Home Page
+    - profile picture
+    - ListPosts
+    - NewPost
+    - Author(post)
+  - Post Page
+    - Comments(post)
+    - - NewComment(post)
