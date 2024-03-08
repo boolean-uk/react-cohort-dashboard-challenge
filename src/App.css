@@ -1,0 +1,130 @@
+
+/* i ul/li {  
+  margin: 30px;
+  padding: 10px;
+} */
+
+
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+header {
+  height: 60px;
+  width: 100vw;
+  background-color: #000046;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  background-color: #F0F5FA;
+
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  background-color: #e6ebf5;
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+
+
+
+.post-body-background {
+  background-color: #F0F5FA;
+  border-radius: 25px;
+  height: 300px;
+  width: 80%;
+  margin: 30px 30px 30px 120px;
+  padding: 15px;
+}
+
+.post-content {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+
+.comment-user {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+.comments {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+.comment {
+  color: #000046; /* Change 'blue' to the desired color */
+}
+
+/* Make the title header fill the height of the header */
+.title-header {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* Set the icons in the sidebar to have the same width as the sidebar and the same height as their width */
+.icon {
+  width: 50%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.profile-icon img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-header {
+  /* border: solid black 1px; */
+  display: flex;
+  color: black;
+  align-items:flex-start;
+}
+
+.comment-post input {
+  background-color: #F0F5FA;
+  color: black;
+  
+}
