@@ -34,20 +34,15 @@ function Dashboard() {
 
   return (
     <PostContext.Provider value={{ posts: posts, setPosts:setPosts, getPosts: getPosts}}>
-      <ContactContext.Provider value={{ contacts: contacts, setContacts: setContacts}}>
+      <ContactContext.Provider value={{ contacts: contacts, setContacts: setContacts, getContacts: getContacts }}>
         <LoadingContext.Provider value={{ loading: loading, setLoading: setLoading }}>
           <div className='dashboard'>
             {contacts &&
               <LeftMenu />
             }
-            <div className='posts'>
-              {contacts &&
-                <NewPostForm />
-              }
-              {(posts && contacts) &&
-                <Content />
-              }
-            </div>
+            {(!loading && posts && contacts) &&
+              <Content />
+            }
           </div>
         </LoadingContext.Provider>
       </ContactContext.Provider>

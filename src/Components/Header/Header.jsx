@@ -3,6 +3,7 @@ import headerLogo from '../../assets/title-header.svg'
 import ProfilePicture from '../ProfilePicture/ProfilePicture'
 import { UserContext } from '../../App'
 import "./Header.css"
+import { Link } from 'react-router-dom'
 
 function Header() {
   const { user } = useContext(UserContext)
@@ -10,7 +11,7 @@ function Header() {
   return (
     <header className='header'>
       <img className="header-logo" src={headerLogo} alt='Title header logo'/>
-        <ProfilePicture user={user}/>
+      <ProfilePicture user={user}/>
   </header>
   )
 }
