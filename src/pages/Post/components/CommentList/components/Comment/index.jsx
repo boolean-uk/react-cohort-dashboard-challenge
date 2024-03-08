@@ -27,6 +27,7 @@ export default function Comment({comment, deleteComment}) {
                     <h5 onClick={() =>navigate(`/profile/${user.id}`)} >
                         {user.firstName} {user.lastName}
                     </h5>
+                    {/* Only render delete button when on Post page */}
                     {deleteComment && <button onClick={() => deleteComment(comment.id)}>Delete</button>}
                 </div>
                 <p>{comment.content}</p>
