@@ -1,0 +1,128 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /*text-align: center;*/
+}
+
+/* Header background, button & font color */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000046;
+  padding: 10px 20px;
+}
+
+.logo-and-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-and-title h1 {
+  color: white;
+  margin: 0;
+  margin-left: 10px; /* Adjust the margin as needed to separate the logo and text */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: 500px;
+  margin-left: 100px;
+}
+
+
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.left-menu {
+  width: 5%; /* Adjust as needed */
+}
+
+.content {
+  width: 95%; /* Adjust as needed */
+}
+
+
+/* Form input background color */
+input {
+  background-color: #e6ebf5;
+}
+
+/* Button hover color */
+button:hover {
+  background-color: #64dc78;
+}
+
+/* Post title color */
+.post-title {
+  color: #64648c;
+}
+
+.body {
+  background-color: #F0F5FA;
+}
+
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.menu-item svg {
+  margin-bottom: 5px;
+  transition: filter 0.1s ease; /* Add transition for smooth effect */
+}
+
+.menu-item:hover svg {
+  filter: brightness(0.5); /* Darken the logo on hover */
+}
+
+.menu-item span {
+  color: #64648c;
+}
+
+.menu-item:hover {
+  background-color: #64648c;
+}
+
+.menu-item:hover span {
+  color: white;
+}
+
+.avatar {
+  display: inline-block;
+}
+
+.avatar-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #64DC78; /* Fill color */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.initials {
+  color: white;
+  font-size: 20px;
+}
