@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { PostContext } from '../App';
 import ProfilePicture from './ProfilePicture';
 import '../styles/post.css'
@@ -11,7 +11,7 @@ import Comment from './Comment';
  */
 const Post = (props) => {
   const postId = useParams()
-
+  const nav = useNavigate()
   let { post } = props
   const { contacts, posts } = useContext(PostContext)
   if (post == undefined) {
@@ -48,8 +48,8 @@ const Post = (props) => {
             favouriteColour={contact ? contact.favouriteColour : "Green"} 
             profileId={contact.id}/>
           <div>
-            <p><b>{contact ? contact.firstName : "Bill"} {contact ? contact.lastName : "Clinton"}</b></p>
-            <Link to={`/post/${post.id}`}>{post.title}</Link>
+            <p className='name'><b>{contact ? contact.firstName : "Bill"} {contact ? contact.lastName : "Clinton"}</b></p>
+            <p className="title" onClick={() => nav(`/post/${post.id}`)}>{post.title}</p>
           </div>
         </div>
         <p>{post.content}</p>

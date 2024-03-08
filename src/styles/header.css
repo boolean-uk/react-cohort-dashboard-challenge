@@ -5,6 +5,7 @@
   background-color: #000046;
   align-items: center;
   padding: 30px;
+  position: sticky; top: 0px;
 }
 
 .title-header {
