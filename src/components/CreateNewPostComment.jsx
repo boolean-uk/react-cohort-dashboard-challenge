@@ -2,6 +2,7 @@
 import { useContext, useState } from "react"
 import { MyContext } from "../App"
 import ProfilePicture from "./ProfilePicture"
+import { Link } from "react-router-dom"
 
 export default function CreateNewPostComment(props){
     const context = useContext(MyContext)
@@ -43,7 +44,11 @@ export default function CreateNewPostComment(props){
 
     return (
         <form onSubmit={handleSubmit}>
-        <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+        <div className="submit-profile">
+            <Link to={`/profile/${contact.id}`}>
+            <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+            </Link>
+        </div>
         <li>
         <input
                 type="textarea"

@@ -20,29 +20,53 @@ body {
 }
 
 .header {
-  height: 60px;
-  width: 100vw;
+  background-color: #000046;
+  color: #ffffff; /* Font color */
+  width: 100%; /* width to 100% of viewport width */
+  position: fixed;
+  top: 0;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
 }
 
-.header .circle{
-  float: right;
+.header svg {
+  width: 400px;
+  height: 60px;
+}
+
+.header-profile{
+  position:absolute;
+  right: 0px;
 }
 
 .navmenu {
   width: 50px;
   height: 100%;
   max-height: calc(100vh - 90px);
-  padding-top: 1em;
+  padding-top: 8em;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+.navmenu svg {
+  width: 40px;
+  padding-left: 4px;
 }
 
 .main {
   width: 50px;
   flex-grow: 1;
+  padding-top: 6em;
   overflow-y: auto;
   max-height: calc(100vh - 90px);
   background-color:  #F0F5FA;
+}
+
+.comment-profile{
+  float: left;
+  padding-top: 0.5em;
 }
 
 .comment-content{
@@ -61,7 +85,12 @@ body {
   max-height: calc(100vh - 90px);
   background-color:  #F0F5FA;
   padding-left: 1em;
-  padding-top: 1em;
+  padding-top: 7em;
+}
+
+.post-profile{
+  float: left;
+  padding-top: 0.5em;
 }
 
 .post h1 {
@@ -81,6 +110,11 @@ input {
   background-color: #e6ebf5;
 }
 
+.submit-profile{
+  float: left;
+  padding-top: 0.5em;
+}
+
 input#content {
   height: auto;
   width: 70%;
@@ -88,6 +122,23 @@ input#content {
 
 input#title {
   width: 20%;
+}
+
+.profile {
+  display: flex;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info input{
+  width: 60%
+}
+
+.profile-image{
+  float: left;
+  padding-top: 0.5em;
 }
 
 header {

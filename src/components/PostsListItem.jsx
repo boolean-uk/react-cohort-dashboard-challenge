@@ -14,8 +14,13 @@ export default function PostsListItem(props) {
 
     return (    
         <li key={index} className="card">
-             <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
-            <h4>{contact.firstName} {contact.lastName}</h4>
+            <div className="post-profile">
+                <Link to={`/profile/${contact.id}`}>
+                <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+                </Link>
+            </div>
+            <Link to={`/profile/${contact.id}`}>
+            <h4>{contact.firstName} {contact.lastName}</h4></Link>
             <h1 className="post--title">
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
             </h1>

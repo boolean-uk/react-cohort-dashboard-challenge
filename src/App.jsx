@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Post from './components/Post'
 import Header from './components/Header'
 import NavMenu from './components/NavMenu'
+import ProfilePage from './components/ProfilePage'
 
 const MyContext = createContext()
 
@@ -30,7 +31,7 @@ function App() {
   useEffect(() => {
     getPostsFromApi()
     getContactsFromApi()
-  },[])
+  },[posts])
 
   return (
       <div className='app'>
@@ -41,6 +42,7 @@ function App() {
             <Routes>
               <Route path="/" element={<PostsList />}/>
               <Route path="/posts/:id" element={<Post />}/>
+              <Route path="/profile/:id" element={<ProfilePage />}/>
             </Routes>
           </div>
         </MyContext.Provider>

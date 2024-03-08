@@ -2,6 +2,7 @@
 import { useContext, useState } from "react"
 import { MyContext } from "../App"
 import ProfilePicture from "./ProfilePicture"
+import { Link } from "react-router-dom"
 
 export default function CreateNewPost() {
     const context = useContext(MyContext)
@@ -26,6 +27,7 @@ export default function CreateNewPost() {
         event.preventDefault()
         console.log(postForm)
         postToDB()
+        setPostForm(newPost)
     }
 
     const postToDB = async () => {
@@ -42,7 +44,11 @@ export default function CreateNewPost() {
     return (
         <form onSubmit={handleSubmit}>
         <ul className="card">
-        <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+        <div className="submit-profile">
+            <Link to={`/profile/${contact.id}`}>
+            <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+            </Link>
+        </div>
             <li>
             <label htmlFor="title">Give your post a title: </label>
             <input

@@ -26,14 +26,22 @@ export default function Post(){
         <main className="post">  
             <section>
                 <div className="card">
-                <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
-                <h2>{contact.firstName} {contact.lastName}</h2>
+                <div className="post-profile">
+                    <Link to={`/profile/${contact.id}`}>
+                    <ProfilePicture firstName={contact.firstName} lastName={contact.lastName} favouriteColour={contact.favouriteColour} />
+                    </Link>
+                </div>
+                <Link to={`/profile/${contact.id}`}>
+                <h4>{contact.firstName} {contact.lastName}</h4>
+                </Link>
                 <h1 className="post--title">{post.title}</h1>
                 <p>{post.content}</p>
             
                 <PostCommentsList post={post}/>
-                </div>
+                <br/>
+                <br/>
                 <Link to={`/`}><button>Return to post feed</button></Link>
+                </div>
             </section> 
         </main>
     )

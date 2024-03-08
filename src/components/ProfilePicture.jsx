@@ -12,7 +12,6 @@ export default function ProfilePicture({firstName, lastName, favouriteColour}){
         borderRadius: '50%',
         backgroundColor: favouriteColour || '#000046',
         display: 'flex',
-        float: 'left',
         alignItems: 'center',
         justifyContent: 'center',
         color: '#111111',
