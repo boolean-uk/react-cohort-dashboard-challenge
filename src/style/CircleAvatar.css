@@ -1,0 +1,20 @@
+.circle-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.219);
+  }
+  
+  .initials {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.486);
+  }
+  
