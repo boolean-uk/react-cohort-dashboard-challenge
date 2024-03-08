@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 import AccountInfo from "./AccountInfo"
 import Address from "./Address"
 import OtherInfo from "./OtherInfo"
 import SaveInfo from "./SaveInfo"
+import { UserContext } from "../../../App"
 
 function ProfileInput({contactId}) {
     const [formInput, setFormInput] = useState({})
+    const userContext = useContext(UserContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -18,7 +20,7 @@ function ProfileInput({contactId}) {
             body: JSON.stringify(formInput)
         })
             .then(response => response.json())
-            .then(response => console.log(response))
+        setFormInput({})
     }
 
     const handleChange = (e) => {
