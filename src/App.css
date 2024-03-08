@@ -285,6 +285,17 @@ input {
   padding-bottom: 10px;
 }
 
+.profile-page {
+  width: 100%;
+  padding-right: 100%;
+  background-color: #f0f5fa;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  padding-top: 60px;
+  margin-top: 10px;
+  text-align: left;
+}
+
 .profile-form-button-div {
   text-align: right;
   padding-right: 60px;
@@ -297,3 +308,18 @@ body {
 .profile-details {
   text-align: center;
 }
+
+.post-li p{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.profile-details-container {
+  background-color: #fff;
+  padding: 70px;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  margin-left: 200px;
+}
+
