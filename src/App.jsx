@@ -8,8 +8,8 @@ import AppRouter from './components/AppRouter'
 const PostContext = createContext()
 
 function App() {
-  const [posts, setPosts] = useState()
-  const [contacts, setContacts] = useState()
+  const [posts, setPosts] = useState([])
+  const [contacts, setContacts] = useState([])
   const [isLoading, setIsLoading] = useState(false) 
 
   const userName = "oysteinbjo"
@@ -32,8 +32,8 @@ function App() {
   }
 
   useEffect(() => {
-    getPosts().then(data => setPosts(data))
-    getContacts().then(data => setContacts(data))
+    getPosts().then(data => setPosts([...data]))
+    getContacts().then(data => setContacts([...data]))
     setIsLoading(true)
   }, [])
   
