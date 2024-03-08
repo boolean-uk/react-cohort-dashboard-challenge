@@ -3,7 +3,7 @@ import HeaderLogo from './../../assets/title-header.svg'
 import ProfileCircle from "../Profile/components/ProfileCircle"
 import { useContext } from "react"
 import { UserContext } from "../../App"
-
+import { Link } from "react-router-dom"
 
 function Header() {
   const {loggedInUser} = useContext(UserContext)
@@ -12,7 +12,7 @@ function Header() {
     <div className="header">
       <img className="logo" src={HeaderLogo} alt="head" />
       <div className="profile-icon">
-        <ProfileCircle user={loggedInUser}></ProfileCircle>
+        <Link to="/profile"> <ProfileCircle user={loggedInUser}></ProfileCircle> </Link>
       </div>
     </div>
   )

@@ -1,11 +1,20 @@
 import { useState, useContext} from "react"
 import "./../styles.css"
 import { UserContext } from "../../../App"
+import PropTypes from "prop-types"
 
 function CreateComment({postId, setComments, comments}) {
   const {loggedInUser} = useContext(UserContext)
 
+  console.log(postId , comments)
+
+  if(comments.length > 0){
+    console.log(comments.length)
+    console.log(comments[comments.length-1].id)
+  }
+
   const [comment, setComment] = useState({
+      id: "",
       postId: postId,
       content: "",
       contactId: loggedInUser.id
@@ -42,23 +51,28 @@ function CreateComment({postId, setComments, comments}) {
   }
   return (
     <div className="create-comment-container">
-    <form onSubmit={addComment}>
-        <div>
-            <textarea 
-            className="create-comment-input" 
-            name="content" 
-            id="content" 
-            placeholder="Comment"
-            value= {comment.content}
-            onChange={handleChange}
-            cols="10" 
-            rows="4"
-            required></textarea>
-        </div>
+    <form onSubmit={addComment} className="create-comment-form">
+        <input 
+        className="create-comment-input"
+        name="content" 
+        id="content" 
+        placeholder="Comment"
+        value= {comment.content}
+        onChange={handleChange}
+        required></input>
         <button className="submitbtn" type="submit">Comment</button>
     </form>
     </div>
   )
 }
+
+CreateComment.propTypes = {
+
+    setComments: PropTypes.func,
+    comments: PropTypes.array,
+    postId: PropTypes.number
+  
+  }
+  
 
 export default CreateComment

@@ -6,31 +6,29 @@
 }
 
 .create-post-container{
-  width:100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-
+  align-items: left;
+  justify-content: space-between;
 }
 
-.post-list{
-  width:100%;
+.post-list, .create-post-container, .single-post-container{
+  margin: 0 auto;
+  width: 90%;
 }
-
-
 
 /*POST Item */
-.post-container {
-  overflow: auto;
+.post-container, .create-post-container {
   display: flex;
-  flex-direction: column;
-  align-items: left;
   max-width: 1200px;
-  width: 90%;
   border-radius: 10px;
   padding: 20px;
   margin: 20px auto;
   background-color: rgb(255, 255, 255);
+}
+
+.post-container{
+  flex-direction: column;
 }
 
 /* POST CONTENT */
@@ -93,24 +91,28 @@
 }
 
 
-/* CREATE POST */
+/* CREATE POST & COMMENT*/
 
-.create-post-form{
-  width: 100%;
+.create-post-form, .create-comment-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.create-post-input {
-  padding: 10px;
+.create-comment-input, .create-post-form >  input {
+  flex: 1;
+  padding: 0px 20px;
+  justify-content: left;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 8px;
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
   font-size: 16px;
+  margin-right: 2rem;
 }
 
 .submitbtn{
   color: #f0ffff;
-  background-color: #000046
+  background-color: #000046;
 }
+
+

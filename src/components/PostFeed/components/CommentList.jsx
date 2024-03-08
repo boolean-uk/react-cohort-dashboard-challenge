@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Comment from "./Comment"
+import PropTypes from "prop-types"
 
 function CommentList({comments}) {
   const [limitComments, setLimitComments] = useState(true)
@@ -12,7 +13,6 @@ function CommentList({comments}) {
       return "Show only top comments"
   }
 
-  console.log(limitComments)
 
   const handleLimitComments = () =>{
     setLimitComments(!limitComments)
@@ -32,5 +32,12 @@ function CommentList({comments}) {
     
   )
 }
+
+CommentList.propTypes = {
+
+  comments: PropTypes.array
+
+}
+
 
 export default CommentList

@@ -9,9 +9,9 @@ function PostFeed() {
 
   return (
     <div className="postfeed-container">
-        <div className="create-post-container">
+        
           <CreatePost setPosts={setPosts} posts={posts}></CreatePost>
-        </div>
+        
         <div className="post-list">
           <PostList posts={posts}> </PostList>
         </div>

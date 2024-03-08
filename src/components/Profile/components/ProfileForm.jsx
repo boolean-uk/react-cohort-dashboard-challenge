@@ -1,6 +1,6 @@
 function ProfileForm() {
   return (
-    <div>ProfileForm</div>
+    <div>form</div>
   )
 }
 

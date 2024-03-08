@@ -1,6 +1,7 @@
 function Profile() {
+  console.log()
     return (
-      <div>Profile</div>
+      <div>{/* {user.firstName} */}hej</div>
     )
   }
   

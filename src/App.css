@@ -40,13 +40,12 @@ make the child components lay out using flex, vertically stacked in a column */
 
 /* make the sidebar fill the available height and be of fixed width */
 
-.sidebar {
+/* .sidebar {
   width: 200px;
   height: 100%;
-  /* fix the sidebar to be 100 viewport minus the header */
   max-height: calc(100vh - 60px);
 }
-
+ */
 /* make the main fill the remaining width and the full height of the parent */
 .main {
   flex-grow: 1;

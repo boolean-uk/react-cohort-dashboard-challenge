@@ -3,10 +3,12 @@ import CommentList from "./CommentList"
 import PostContent from "./PostContent"
 import { useEffect, useState} from "react"
 import PostHeader from "./PostHeader"
+import PropTypes from "prop-types"
 
 
 function PostItem({post}) {
   const [comments, setComments] = useState([])
+
   const [user, setUser] = useState({
     firstName: "default",
     lastName: "default"
@@ -44,5 +46,12 @@ function PostItem({post}) {
     </div>
   )
 }
+
+PostItem.propTypes = {
+
+  post: PropTypes.object
+  
+}
+
 
 export default PostItem

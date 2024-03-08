@@ -1,4 +1,5 @@
 import "./../styles.css"
+import PropTypes from "prop-types"
 
 function ProfileCircle({user}) {
   
@@ -20,6 +21,13 @@ function ProfileCircle({user}) {
       </span>
     </div>
   )
+}
+
+
+ProfileCircle.propTypes = {
+
+  user: PropTypes.object
+
 }
 
 export default ProfileCircle

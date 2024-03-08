@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import ProfileCircle from "../../Profile/components/ProfileCircle"
+import PropTypes from "prop-types"
 
 function Comment({comment}) {
   const [user, setUser] = useState({
@@ -31,6 +32,13 @@ function Comment({comment}) {
       </div>
     </div>
   )
+}
+
+
+Comment.propTypes = {
+
+  comment: PropTypes.object
+
 }
 
 export default Comment
