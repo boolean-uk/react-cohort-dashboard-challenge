@@ -6,7 +6,7 @@ import { DataContext } from "../App"
 
 function SideMenu() {
   //const dataContext = useContext(DataContext)
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState('home');
 
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -28,7 +28,7 @@ function SideMenu() {
           onClick={() => handleClick('home')}
         >
           <HomeIcon active={hoveredButton('home')}/>
-          Home
+          <div className='menu-button-text'>Home</div>
         </button>
         </Link>
         <Link className='link' to="/profile">
@@ -37,7 +37,7 @@ function SideMenu() {
           onClick={() => handleClick('profile')}
         >
           <ProfileIcon active={hoveredButton('profile')}/>
-          Profile
+          <div className='menu-button-text'>Profile</div>
         </button>
         </Link>
       </div>
