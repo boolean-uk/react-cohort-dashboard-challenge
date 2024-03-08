@@ -6,7 +6,7 @@ const PostList = () => {
   const {posts = [], setPosts} = useContext(PostContext)
 
   return (
-    <div>
+    <div className='list-container'>
       {posts.toReversed().map((post, index) => {
         return <Post post={post} key={index}/>
       })}
