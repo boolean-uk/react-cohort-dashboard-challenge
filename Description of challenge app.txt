@@ -1,0 +1,8 @@
+Description of challenge app:
+
+The left menu will be two Links to dashboard and profile, where we use Route to redirect the user to the page. 
+
+Create a dashboard where you are currently logged into a user by id. The user-useState is retrieved from the people-useState, where we retrieve users from the API. In the dashboard we retrieve all posts (another useState) and apply a commentfield on them. The user can post a comment (yet another useState) which then gets saved to the API, and gets retrieved when the page refreshes. 
+
+
+The profile is a form with different input fields for the attribute of the user, which is a useState. Here we use the id of the current user, and apply data to the form when it gets loaded. The user can update the fields, and click "Save" which then updates the data in the API through a PUT request.
