@@ -1,0 +1,32 @@
+.profile-form-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+.profile-form-content-item {
+    display: flex;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    flex-direction: column;
+}
+.profile-form-form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 65vh;
+}
+
+.form-submitButton {
+    height: 3vh;
+    width: 10%;
+    border-radius: 10%;
+    margin-left: 60vw;
+}
+
+.profileFormItem {
+    margin-top: 2.5vh;
+    height: 2.5vh;
+    width: 28.5vw;
+}

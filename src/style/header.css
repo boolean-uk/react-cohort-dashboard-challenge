@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background-color:  #000046;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+.header-text {
+
+}
+
+.header-img {
+    width: 20%;
+}
+
+.header-profile {
+    margin-left: 60vw;
+    text-align: center;
+}

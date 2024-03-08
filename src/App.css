@@ -1,0 +1,43 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  height: 200vh;
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+button {
+  background-color: #000046;
+  color: white;
+}
+
+form input {
+  background-color: #e6ebf5;
+}
+
+body html {
+  background-color: #F0F5FA;
+  color: #000046;
+}
+
+
+
+
+.circle {
+  width: 60px;
+  height: 60px; 
+  border-radius: 50%; 
+  background-color: #007bff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  font-size: 24px; 
+  font-weight: bold; 
+}
+
+.initials {
+  text-transform: uppercase; 
+}

@@ -1,0 +1,13 @@
+.postBar {
+    width: 100%;
+    border-radius:  10px;
+    font-size: large;
+}
+
+.postBar-form {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 60%;
+
+}
