@@ -1,0 +1,49 @@
+.comment-create {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.comment-create > .comment-form {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.comment-create > .comment-form > .comment-bar {
+    background-color: lightgray;
+    color: #64648c;
+    border-radius: 10px;
+    border: none;
+    padding: 1rem;
+    font-size: 24px;
+    margin: 0 0 0 1rem;
+    width: 100%;
+    box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.comment-create > .comment-form > .comment-btn {
+    background-color: darkgray;
+    padding: 1rem 1rem;
+    font-size: 24px;
+    border: none;
+    position: absolute;
+    border-radius: 50%;
+    right: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.comment-create > .comment-form > .comment-btn:hover {
+    background-color: lightgray;
+}
+
+.comment-create > .comment-form > .comment-btn > svg > path {
+    stroke: #64648c;
+}
+
+.comment-create > .comment-form > .comment-btn:hover > svg > path {
+    stroke: navy;
+}

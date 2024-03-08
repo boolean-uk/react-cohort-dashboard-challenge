@@ -1,0 +1,11 @@
+.comment-list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.comment-list > .comment-list-btn {
+    background: none;
+    color: #64648c;
+    padding: 0;
+    border: none;
+}
