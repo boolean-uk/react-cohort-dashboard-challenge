@@ -1,0 +1,8 @@
+.profile-picture {
+    height: 3rem;
+    width: 3rem;
+    color: #000046;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+  }

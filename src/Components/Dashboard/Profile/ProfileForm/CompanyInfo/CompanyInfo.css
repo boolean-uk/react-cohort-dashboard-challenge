@@ -1,0 +1,7 @@
+.company-info {
+    border-top: 1px solid #000046;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

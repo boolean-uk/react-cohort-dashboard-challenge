@@ -1,0 +1,12 @@
+.profile-button {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+  }
+  
+.profile-button:hover {
+    background-color: #64dc78;
+}

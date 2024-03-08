@@ -1,0 +1,22 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 1rem;
+    background-color: #F0F5FA;
+}
+
+.profile-content {
+    background-color: #fff;
+    margin: 1rem;
+}
+
+.profile-content-header {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.profile-content-header .profile-picture {
+    margin-right: 1rem;
+}
