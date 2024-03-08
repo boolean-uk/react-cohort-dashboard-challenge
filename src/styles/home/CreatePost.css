@@ -24,3 +24,7 @@
 .post-button-text {
     width: 10rem
 }
+
+.post-button-text:hover {
+    color: #64dc78;
+}

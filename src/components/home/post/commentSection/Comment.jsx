@@ -1,5 +1,5 @@
 // Comment.jsx
-import '/src/styles/Feed/post/commentSection/Comment.css'
+import '/src/styles/home/post/commentSection/Comment.css'
 
 import PropTypes from 'prop-types';
 import { useEffect, useState } from "react"

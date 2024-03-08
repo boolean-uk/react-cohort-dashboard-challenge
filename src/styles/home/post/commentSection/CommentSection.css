@@ -3,6 +3,10 @@
     color: #64648c;
 }
 
+.see-previous-comments:hover {
+    color: #64dc78;
+}
+
 .no-comments {
     margin: 1.5rem;
 }

@@ -1,11 +1,12 @@
 // App.jsx
-import '../styles/App.css'; 
+import '../styles//App.css'; 
 import { Header } from './Header.jsx';
 import { LeftMenu } from './LeftMenu.jsx';
-import { Feed } from './Feed/Feed.jsx';
+import { Feed } from './home/Feed.jsx';
 import { createContext, useEffect, useState } from 'react';
 import { getPosts, postPost } from '../utils/postRequests.jsx';
 import { getUser } from '../utils/userRequests.jsx';
+import { Route, Routes } from 'react-router-dom';
 export const AuthContext = createContext('');
 export const PostsContext = createContext('')
 
@@ -46,10 +47,16 @@ function App() {
 
         <div className="main-content">
           <LeftMenu />
-      
-          <PostsContext.Provider value={{ posts: posts, writePost: writePost }}>
-            <Feed />
-          </PostsContext.Provider>
+
+          <Routes>
+            <Route path='/' element={
+              <PostsContext.Provider value={{ posts: posts, writePost: writePost }}>
+                <Feed />
+              </PostsContext.Provider>
+            } />
+
+            <Route path='/profile/:id' element={<p>Profile will go here</p>} />
+          </Routes>
         </div>
       </div>
     </AuthContext.Provider>
