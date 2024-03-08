@@ -56,26 +56,29 @@ export default function PostItem(props)
 
     return (
         <>
-        <h2 style={style} className="circle" onClick={() => navigate(`/user/${author.id}`)}>{author.firstName.charAt(0)}{author.lastName.charAt(0)}</h2>
+        <h2
+            style={style}
+            className="circle normal" onClick={() => navigate(`/user/${author.id}`)}>
+            {author.firstName.charAt(0)}{author.lastName.charAt(0)}
+        </h2>
         <h2 onClick={() => navigate(`/user/${author.id}`)}>{author.firstName} {author.lastName}</h2>
-        <img onClick={() => navigate(`/user/${author.id}`)} src={author.profileImage}></img>
         <p onClick={() => navigate(`/post/${post.id}`)} className="postTitle">{post.title}</p>
         <p>{post.content}</p>
         <ul>
             {showedComments.map((comment, index) => (
-                <li key={index}>
+                <li className="commentItem" key={index}>
                     <h4 
                         style={{backgroundColor: authors[comment.contactId - 1].favouriteColour}}
-                        className="circle"
+                        className="circle comment"
                         onClick={() => navigate(`/user/${authors[comment.contactId - 1].id}`)}>
                         {authors[comment.contactId - 1].firstName.charAt(0)}{authors[comment.contactId - 1].lastName.charAt(0)}
                     </h4>
-                    {comment.content}
+                    <p> - {comment.content}</p>
                 </li>
             ))}
             {comments.length > 3 && <button onClick={showMoreComments}>{showedCommentsText}</button>}
         </ul>
-        <PostComments initials={initials} addComment={addComment} postId={post.id} color={authors[0].favouriteColour}/>
+        <PostComments addComment={addComment} postId={post.id}/>
         </>
     )
 }

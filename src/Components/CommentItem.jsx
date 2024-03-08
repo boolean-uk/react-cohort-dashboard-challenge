@@ -83,13 +83,13 @@ export default function CommentItem(props)
         <>
         <h4
             style={{backgroundColor: author.favouriteColour}}
-            className="circle" onClick={() => navigate(`/user/${author.id}`)}>
+            className="circle comment" onClick={() => navigate(`/user/${author.id}`)}>
             {author.firstName.charAt(0)}{author.lastName.charAt(0)}
         </h4>
-        {editText === "Edit" && comment.content}
+        {editText === "Edit" && <p>{comment.content}</p>}
         {editText === "Save" && <input type="text" placeholder={comment.content} onChange={handleInput}></input>}
-        <button onClick={handleEdit} className="commentButton">{editText}</button>
-        <button onClick={handleDelete} className="commentButton">Delete</button>
+        <button onClick={handleEdit} className="firstButton">{editText}</button>
+        <button onClick={handleDelete} className="secondButton">Delete</button>
         </>
     )
 }

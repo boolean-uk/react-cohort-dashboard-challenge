@@ -61,9 +61,15 @@ export default function ViewPostPage()
 
     return (
         <>
+        <div className="postInfos">
+
         <h1 className="postTitle">{post && post.title}</h1>
         <h2>{author && author.firstName} {author && author.lastName}</h2>
         <p>{post && post.content}</p>
+        <button className="postInfos" onClick={() => navigate("/")}>Go Back</button>
+        <button className="postInfos" onClick={() => navigate(`/editPost/${post.id}`)}>Edit</button>
+        <PostDelete post={post}/>
+        </div>
         <ul>
             {comments.map((comment, index) => (
                 <li key={index}>
@@ -71,9 +77,6 @@ export default function ViewPostPage()
                 </li>
             ))}
         </ul>
-        <button onClick={() => navigate("/")}>Go Back</button>
-        <button onClick={() => navigate(`/editPost/${post.id}`)}>Edit</button>
-        <PostDelete post={post}/>
         </>
     )
 }

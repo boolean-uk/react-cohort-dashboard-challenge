@@ -35,7 +35,7 @@ export default function PostDelete(props)
 
     return (
         <>
-        <button onClick={() => setPostDelete(post)}>Delete</button>
+        <button className="postInfos" onClick={() => setPostDelete(post)}>Delete</button>
         </>
     )
 }

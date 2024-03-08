@@ -32,7 +32,7 @@ export default function HomePage()
                         d="M36.068 22.934H13.07c-.618 0-1.122.505-1.122 1.122v1.122c0 .617.504 1.122 1.121 1.122h23c.616 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.122-1.122-1.122ZM19.38 19.568h10.378c.617 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.121-1.122-1.121H19.38c-.617 0-1.122.505-1.122 1.122v1.121c0 .617.505 1.122 1.122 1.122Zm10.378 10.097H19.38c-.617 0-1.122.505-1.122 1.122v1.122c0 .617.505 1.122 1.122 1.122h10.378c.617 0 1.121-.505 1.121-1.122v-1.122c0-.617-.505-1.122-1.122-1.122Z"
                         />
                     </svg>
-                    <h1 style={style} className="circle" onClick={(() => navigate("/user/1"))}>{initials}</h1>
+                    <h1 style={style} className="circle profile" onClick={(() => navigate("/user/1"))}>{initials}</h1>
                 </header>
 
                 <div className="container-nav-main">
@@ -53,7 +53,7 @@ export default function HomePage()
                         </div>
                     </nav>
                     
-                    <div className="postPosts">
+                    <div className="">
                         <PostPosts author={authors[0]}/>
                         <ul>
                             {posts.map((post, index) => (

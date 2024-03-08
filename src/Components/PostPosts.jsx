@@ -59,10 +59,12 @@ export default function PostPosts(props)
 
     return (
         <>
-            <p style={{backgroundColor: author.favouriteColour}} className="circle" onClick={() => navigate("/user/1")}>{initials}</p>
+        <div className="postPost">
+            <p style={{backgroundColor: author.favouriteColour}} className="circle user" onClick={() => navigate("/user/1")}>{initials}</p>
             <input type="text" name="title" placeholder="Title" onChange={handleInput} value={newPost.title}></input>
             <input type="text" name="content" placeholder="What's on your mind?" onChange={handleInput} value={newPost.content}></input>
             <button type="button" onClick={handlePost}>Post</button>
+        </div>
         </>
     )
 }

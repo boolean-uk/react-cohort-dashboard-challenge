@@ -84,23 +84,21 @@ export default function ProfileInfo()
     return (
         <>
         <main className="main">
-            <h2>Profile</h2>
-            <h2 style={style} className="circle">{initials}</h2>
+            <h2 style={style} className="circle profile">{initials}</h2>
             <h2>{author.firstName} {author.lastName}</h2>
-            <img src={author.profileImage}></img>
-            <main className="green">
-                <div className="yellow row1">
+            <main className="profileInfo">
+                <div className="information row1">
                     <h3>Account info</h3>
                     <p>First Name*</p>
                     <input type="text" name="firstName" placeholder={author.firstName} value={newAuthor.firstName} onChange={handleInput}></input>
-                    <p>Last Name*</p>
+                    <p>Last Name*</p>            
                     <input type="text" name="lastName" placeholder={author.lastName} value={newAuthor.lastName} onChange={handleInput}></input>
                     <p>Email*</p>
                     <input type="text" name="email" placeholder={author.email} value={newAuthor.email} onChange={handleInput}></input>
                     <p>Job Title</p>
                     <input type="text" name="jobTitle" placeholder={author.jobTitle} value={newAuthor.jobTitle} onChange={handleInput}></input>
                 </div>
-                <div className="yellow row2">
+                <div className="information row2">
                     <h3>Address</h3>
                     <p>Street*</p>
                     <input type="text" name="street" placeholder={author.street} value={newAuthor.street} onChange={handleInput}></input>
