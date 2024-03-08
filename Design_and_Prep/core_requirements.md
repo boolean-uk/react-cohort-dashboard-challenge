@@ -12,7 +12,7 @@ DONE
 Posts and comments should show the initials of the author in a coloured circle.
 DONE
 
-Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You must use a route for this, not an array filter.
+Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You must use a route for this, not an array filter. DONE
 
 You must use this style guide to implement the colour scheme.
 Pretty accurate
