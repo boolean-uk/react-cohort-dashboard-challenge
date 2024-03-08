@@ -21,6 +21,10 @@ const ContentView = () => {
         fetchPosts()
     },[])
 
+    if (!posts) {
+        return (<div>Loading...</div>)
+    }
+
     return (
         <PostsContext.Provider
             value={{posts: posts, setPosts: setPosts, fetchPosts: fetchPosts}}

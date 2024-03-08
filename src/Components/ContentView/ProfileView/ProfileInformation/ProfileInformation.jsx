@@ -34,9 +34,12 @@ const ProfileInformation = ({ id }) => {
     }
 
     const handleFieldChange = (e) => {
-        setUser({...user, [e.target.id]: e.target.value})
+        if (e.target.id.includes("favouriteColour")) {
+            setUser({...user, "favouriteColour": e.target.value})
+        } else {
+            setUser({...user, [e.target.id]: e.target.value})
+        }
     }
-
 
     useEffect(() => {
         setAllowEdit(LoggedInUser.id == id)

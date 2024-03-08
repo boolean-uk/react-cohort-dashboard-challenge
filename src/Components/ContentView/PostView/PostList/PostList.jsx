@@ -7,6 +7,7 @@ const PostList = () => {
     const [elementLimit, setElementLimit] = useState(undefined)
 
     const { posts } = useContext(PostsContext)
+    
     return (
         <div>
             <ul>

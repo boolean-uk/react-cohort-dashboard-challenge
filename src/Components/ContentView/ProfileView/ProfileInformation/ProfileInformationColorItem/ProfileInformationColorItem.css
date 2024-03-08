@@ -10,13 +10,11 @@
 }
 
 .grid-item-color-selector > label > input[type="color"] {
-    appearance: none;
     background-color: transparent;
     height: 50px;
     width: 50px;
 
     margin-left: 0px;
     vertical-align: middle;
-    box-sizing: border-box;
     border: none;
 }
