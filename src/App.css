@@ -33,7 +33,8 @@ make the child components lay out using flex, vertically stacked in a column */
   /* if contents of main overflow from the height, add a scrollbar on main */
   overflow-y: auto;
   /* fix the sidebar to be 100 viewport minus the header */
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 80px);
+  max-width: calc(100vw - 150px);
 }
 
 h1 {

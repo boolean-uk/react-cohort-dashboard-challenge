@@ -6,25 +6,36 @@ import "./styles.css"
 import PostHeader from "./components/PostHeader"
 import PostAddCommentForm from "./components/PostAddCommentForm"
 import CommentList from "./components/CommentList"
+import { useParams } from "react-router-dom";
 
-export default function Post({post}) {
-    const { users } = useContext(CohortContext)
+export default function Post() {
+    const { users, posts } = useContext(CohortContext)
 
     const [ user, setUser ] = useState(null)
+    const [ post, setPost ] = useState(null)
+
     const [comments, setComments] = useState([])
 
+    const { id } = useParams()
+
     useEffect(() => {
-        setUser(users.find(user => user.id === post.contactId))
+        if (users && posts && id) {
+            let postToUse = posts.find(post => Number(post.id) === Number(id))
+            setPost(postToUse)
 
-        fetch("https://boolean-api-server.fly.dev/Agatland/post")
-        .then(res => res.json())
-        .then(data => setComments(data))
-    }, [users])
+            setUser(users.find(user => user.id === postToUse.contactId))
 
-    if (!user) return <div className="post-list-item"></div>
+            fetch(`https://boolean-api-server.fly.dev/Agatland/post/${postToUse.id}/comment`)
+            .then(res => res.json())
+            .then(data => setComments(data))
+
+        }
+    }, [users, posts, id])
+
+    if (!user || !post) return <div className="post-list-item"></div>
 
     return (
-        <div className="post-list-item">
+        <div className="post-list-item main">
             <PostHeader post={post} user={user} />
             <p>{post.content}</p>
             <CommentList comments={comments}/>
@@ -38,7 +49,7 @@ export default function Post({post}) {
 }
 
 Post.propTypes = {
-    post: PropTypes.shape({
+    postInserted: PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
       content: PropTypes.string,

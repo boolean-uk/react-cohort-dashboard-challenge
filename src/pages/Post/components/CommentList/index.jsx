@@ -9,14 +9,14 @@ export default function CommentList({comments}) {
 
     let commentsToDisplay = comments
     if (!seeAllComments) {
-        commentsToDisplay = commentsToDisplay.slice(Math.max(commentsToDisplay.length - 3, 1))
+        commentsToDisplay = commentsToDisplay.slice(Math.max(commentsToDisplay.length - 3, 0))
     }
 
     return (
         <div className="comment-list-container">
-            <p onClick={() => setSeeAllCommnets(!seeAllComments)}>    
+            {comments.length > 3 && <p onClick={() => setSeeAllCommnets(!seeAllComments)}>    
                 {seeAllComments ? "Hide" : "See"} prvious comments
-            </p>
+            </p>}
             <div className="comment-list">
                 {
                     commentsToDisplay.map(comment => (

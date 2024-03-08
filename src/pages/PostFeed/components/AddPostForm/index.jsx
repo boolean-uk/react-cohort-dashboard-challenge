@@ -35,7 +35,7 @@ export default function AddPostForm() {
             body: JSON.stringify(createdPost),
             }).then(res => {
             if (res.ok) {
-                setPosts([createdPost, ...posts])
+                setPosts([...posts, createdPost])
             }
             }).catch(error => console.error("Problem with creating post: ", error))
         setUserData(initialPostState)

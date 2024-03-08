@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import PostFeed from './pages/PostFeed'
 import ProfileView from './pages/ProfileView'
+import Post from './pages/Post'
 
 const LoggedInUserContext = createContext()
 const CohortContext = createContext()
@@ -43,6 +44,7 @@ function App() {
           <Routes>
               <Route path="/" element={<PostFeed />} />
               <Route path="/profile/:id" element={<ProfileView />} />
+              <Route path="/post/:id" element={<Post />} />
           </Routes>
         </CohortContext.Provider>
       </div>

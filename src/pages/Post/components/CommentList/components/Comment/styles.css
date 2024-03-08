@@ -20,3 +20,8 @@
     font-size: 12px;
     font-weight: 500;
 }
+
+.comment-content > h5:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -21,3 +21,13 @@
     font-size: 11px;
     color: #64648C;
 }
+
+.post-list-item-header-text > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.post-list-item-header-text > h5:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import UserIcon from "@/components/UserIcon"
 
 import "./styles.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Comment({comment}) {
     const { users } = useContext(CohortContext)
+
+    const navigate = useNavigate()
 
     const [user, setUser] = useState(null)
 
@@ -20,7 +23,7 @@ export default function Comment({comment}) {
         <div className="comment">
             <UserIcon userToIcon={user}/>
             <div className="comment-content">
-                <h5>{user.firstName} {user.lastName}</h5>
+                <h5 onClick={() =>navigate(`/profile/${user.id}`)} >{user.firstName} {user.lastName}</h5>
                 <p>{comment.content}</p>
             </div>
         </div>
