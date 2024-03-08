@@ -1,0 +1,61 @@
+.list-item > .comment-list {
+    list-style: none;
+}
+
+.list-item {
+    list-style: none;
+}
+
+.list-item > .comment-list > .comment-list-btn {
+    background: none;
+    color: #64648c;
+    padding: 0;
+    border: none;
+}
+
+.list-item {
+    margin: 1rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 2px 1px lightsteelblue;
+    color: navy;
+    font-size: 24px;
+}
+
+.list-item > .post-owner {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
+#link {
+    color: #64648c;
+}
+
+.list-item > .post-owner > .owner-info > Link {
+    color: #64648c;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.list-item > .post-owner > .owner-info {
+    margin-left: 1rem;
+}
+
+.list-item > .post-owner > .owner-info > .post > h2,
+.list-item > .post-owner > .owner-info > .post > p {
+    margin: 0;
+}
+
+.list-item > .post-owner > .owner-info > p {
+    color: #64648c;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.list-item > .post-owner > .owner-info > p:hover {
+    color: navy;
+}
