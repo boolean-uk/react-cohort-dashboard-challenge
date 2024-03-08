@@ -15,6 +15,9 @@ const fields = [
 export default function ViewProfile() {
   const [currentUser, setCurrentUser] = useState(null);
   const users = useContext(DataContext).users;
+  const setUsers = useContext(DataContext).setUsers;
+  const setPosts = useContext(DataContext).setPosts;
+  const posts = useContext(DataContext).posts;
 
   const { id } = useParams();
 
@@ -45,10 +48,12 @@ export default function ViewProfile() {
         return response.json();
       })
       .then((responseData) => {
-        console.log("RESPONSE DATA          ");
+        setUsers(users.map((u) => u.id === responseData.id? responseData: u))
+        setPosts(
+          posts.map((p) => (p.contactId === responseData.id ? {...p, user: responseData} : p))
+        );
 
-        console.log(responseData);
-      });
+    });
   };
 
   return (
@@ -65,7 +70,7 @@ export default function ViewProfile() {
               <div />
               <div className="label-and-input">
                 <div className="label">
-                  <label htmlFor={field}>{field} </label>{" "}
+                  <label htmlFor={field}>{field} </label>
                 </div>
                 <input
                   type="text-area"

@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <DataContext.Provider
-        value={{ posts, setPosts, user, users, currentTab, setCurrentTab }}
+        value={{ posts, setPosts, user, users, currentTab, setCurrentTab, setUsers }}
       >
         <div className="container">
           <Header />
