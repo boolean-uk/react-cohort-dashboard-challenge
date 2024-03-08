@@ -10,13 +10,22 @@ function Nav() {
         navigate('/');
     }
 
+    const goToProfilePage = () => {
+        navigate('/profile/1')
+    }
+
     return (
-        <nav className="sidebar red">
+        <nav className="sidebar">
             <img
+                className='home-icon'
                 src={homeIcon}
                 alt="home icon"
                 onClick={goToMain} />
-            <img src={profileIcon} alt="profile icon" />
+            <img
+                className='profile-icon'
+                src={profileIcon}
+                alt="profile icon"
+                onClick={goToProfilePage} />
         </nav>
     )
 }

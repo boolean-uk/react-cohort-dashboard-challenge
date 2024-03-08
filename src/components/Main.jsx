@@ -4,7 +4,7 @@ import CreatePost from "./CreatePost"
 
 function Main() {
   return (
-    <main className="main green">
+    <main className="main">
       <CreatePost/>
       <PostList />
     </main>

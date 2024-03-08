@@ -19,6 +19,12 @@ p, h1, h2, h3 {
 button {
   background-color: #000046;
   margin: 10px;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 button:hover {
@@ -32,6 +38,18 @@ input[type="text"] {
   border-radius: 5px;
   border: none;
   padding: 7px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.input-container input {
+  width: 350px;
 }
 
 /* Create a root container that fills the screen
@@ -94,12 +112,12 @@ make the child components lay out using flex, vertically stacked in a column */
 .create-post {
   margin-top: 20px;
   margin-left: 50px;
-  padding: 10px;
   padding-top: 20px;
   padding-left: 20px;
+  padding-bottom: 10px;
   background-color: #fdfdfd;
   border-radius: 10px;
-  max-width: 800px;
+  width: 800px;
 }
 
 /* Each <li> post and viewpost */
@@ -149,4 +167,49 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+
+.home-icon:hover, .profile-icon:hover {
+  filter: brightness(2);
+}
+
+.header-title:hover {
+  filter: brightness(0.9);
+}
+
+.profile-page {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.profile-page label{
+  color: #4b4b50;
+  font-size: 80%;
+  margin-left: 10px;
+}
+
+.profile-title {
+  margin: 30px;
+}
+
+.profile-four-areas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  grid-template-rows: repeat(2, 1fr);    /* Two rows with equal height */
+  gap: 10px; /* Adjust the gap between grid items */
+}
+
+.input-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.save-button {
+  margin-left: 700px;
 }

@@ -6,6 +6,7 @@ import Header from './components/Header.jsx'
 import Nav from './components/Nav.jsx'
 import Main from './components/Main'
 import ViewPost from './components/ViewPost.jsx';
+import ProfilePage from './components/ProfilePage.jsx';
 
 const PostContext = createContext()
 const ContactContext = createContext()
@@ -41,6 +42,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/posts/:id" element={<ViewPost />} />
+                <Route path='/profile/:id' element={<ProfilePage/>}></Route>
               </Routes>
 
             </div>
