@@ -1,0 +1,50 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 8rem;
+    height: 100%;
+    /* fix the sidebar to be 100 viewport minus the header */
+    max-height: calc(100vh - 60px);
+    max-width: 20vh;
+  }
+
+.sidebar-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    text-decoration: none;
+    padding-top: 4px;
+}
+
+.sidebar-list-item:hover {
+    background-color: #64648c;
+}
+
+.sidebar-list-item:hover .sidebar-list-content > h3  {
+    color: #000046;
+}
+
+.sidebar-list-content{ 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+    text-align: center;
+}
+
+.sidebar-list-content > img{ 
+    max-width: 50%;
+}
+
+.sidebar-list-content > h3{ 
+    color: #64648c;
+    font-size: 12px;
+    margin: 0;
+}
+
+
+

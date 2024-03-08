@@ -1,0 +1,25 @@
+/* style for the header, it must have a fixed height and full width */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100vw;
+    background-color: #000046;
+
+  }
+  
+  .logo, .profile-icon{
+    padding: 20px
+  }
+
+  .logo {
+    max-width: 150px; 
+    height: auto; 
+  }
+  
+  .profile-icon {
+    color: aliceblue;
+  }
+  
+  

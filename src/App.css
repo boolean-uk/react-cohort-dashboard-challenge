@@ -1,0 +1,69 @@
+button{
+  color: #000046
+}
+
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100vw;
+  background-color: #000046
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+
+/* .sidebar {
+  width: 200px;
+  height: 100%;
+  max-height: calc(100vh - 60px);
+}
+ */
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: rgb(255, 255, 255);
+}
+
+.green {
+  background-color: #F0F5FA;
+}
+

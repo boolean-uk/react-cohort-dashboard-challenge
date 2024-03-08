@@ -1,0 +1,137 @@
+.postfeed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-post-container{
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: space-between;
+}
+
+.post-list, .create-post-container, .single-post-container{
+  margin: 0 auto;
+  width: 90%;
+}
+
+/*POST Item */
+.post-container, .create-post-container {
+  display: flex;
+  max-width: 1200px;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: rgb(255, 255, 255);
+}
+
+.post-container{
+  flex-direction: column;
+}
+
+/* POST CONTENT */
+
+/* .post-content-container{
+  display: flex;
+} */
+
+/* POST HEADER */
+
+.post-header-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.post-title, .user-name{
+  padding-left: 20px;
+  margin: 2px;
+}
+
+.post-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #64648c;
+}
+
+.user-name {
+
+  color: #555;
+  font-size: 14px;
+}
+
+/* COMMENT_LIST */
+.comment-list-container {
+  padding: 16px;
+
+
+}
+
+/* COMMENT_Item */
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.comment-profile {
+  
+  margin: 10px;
+}
+
+.comment-content {
+  background-color: #e6ebf5;
+  border-radius: 5px;
+  margin: 8px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+
+/* CREATE POST & COMMENT*/
+
+.create-post-form, .create-comment-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.create-comment-input, .create-post-form >  input {
+  flex: 1;
+  padding: 0px 20px;
+  justify-content: left;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 2rem;
+}
+
+.submitbtn{
+  color: #f0ffff;
+  background-color: #000046;
+}
+
+.submitbtn:hover{
+  background-color: #64dc78;
+}
+
+/* MODIFY BUTTONS */
+
+.modify-buttons{
+  margin: 10px 0
+}
+
+.delete{
+  background-color: rgb(206, 55, 55);
+  color: #fff;
+  margin-right: 20px;
+}
+
+.update{
+  background-color: #000046;
+  color: #ffffff;
+}
