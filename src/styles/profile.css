@@ -4,6 +4,7 @@
 .profile-container{
   border: 1px solid gray;
   border-radius: 3px;
+  background: white;
 }
 
 .profile-header {
