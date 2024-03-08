@@ -1,24 +1,38 @@
 import { useState, useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { MyContext } from "../App";
 export default function Profile() {
 
     const {contacts, setContacts} = useContext(MyContext)
-    console.log("contacts",contacts)
-    const user1 = contacts.length > 0 ? contacts[0] : {};
+    const { contactId } = useParams();
+    const contact = contacts.find((contact) => contact.id === parseInt(contactId));
+    console.log("contact",contact)
+    
+
+    if (!contact) {
+      return <div>Contact not found</div>;
+    }
 
     const [formData, setFormData] = useState({
-      firstName: user1.firstName || "",
-      lastName: user1.lastName || "",
-      street: user1.street || "",
-      city: user1.city || "",
-      email: user1.email || "",
-      jobTitle: user1.jobTitle || "",
+      firstName: contact.firstName || "",
+      lastName: contact.lastName || "",
+      street: contact.street || "",
+      city: contact.city || "",
+      email: contact.email || "",
+      jobTitle: contact.jobTitle || "",
     });
 
     useEffect(() => {
-        const storedData = JSON.parse(localStorage.getItem("profileFormData")) || {};
-        setFormData((prevData) => ({ ...prevData, ...storedData }));
-      }, []);
+      
+      setFormData({
+        firstName: contact.firstName || "",
+        lastName: contact.lastName || "",
+        street: contact.street || "",
+        city: contact.city || "",
+        email: contact.email || "",
+        jobTitle: contact.jobTitle || "",
+      });
+    }, [contact]);
 
       const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,7 +47,7 @@ export default function Profile() {
         try {
             
           const response = await fetch(
-            `https://boolean-api-server.fly.dev/hassanhussa1n/contact/1`,
+            `https://boolean-api-server.fly.dev/hassanhussa1n/contact/${contactId}`,
             {
               method: "PUT",
               headers: {

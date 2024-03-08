@@ -46,7 +46,7 @@ export default function Post({ post }) {
   }
 
 
-
+  
 
   useEffect(() => {
     const fetchData = () => {
@@ -64,9 +64,12 @@ export default function Post({ post }) {
 
   return (
     <>
+      <Link to={`/profile/${poster.id}`} className="profile-circle-link">
       <div className="profile-circle" style={{ backgroundColor: getRandomColor() }}>
         {getInitials(poster)}
       </div>
+      </Link>
+      
       <h3>{postAuthor().firstName} {postAuthor().lastName}</h3>
       <Link to={`/posts/${post.id}`} className="post-title-link">
         <h5>{post.title}</h5>
@@ -77,9 +80,11 @@ export default function Post({ post }) {
       <h4>Comments</h4>
       {displayedComments.map((comment, index) => (
   <div className="comment" key={comment.id}>
+    <Link to={`/profile/${commenters[index].id}`} className="profile-circle-link">
     <div className="profile-circle" style={{ backgroundColor: getRandomColor() }}>
             {getInitials(commenters[index])}
           </div>
+          </Link>
     <h6>{commentAuthors()[index].firstName} {commentAuthors()[index].lastName}</h6>
     <p>{comment.content}</p>
     {commentUsers[index] && (

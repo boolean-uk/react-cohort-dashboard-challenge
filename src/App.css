@@ -187,8 +187,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 150vh; /* Adjust as needed */
-  margin: 0 auto; /* Center horizontally */
+  height: auto; 
+  margin: 0 auto; 
+  overflow: auto; 
 }
 
 .rounded-box button:hover {
@@ -202,18 +203,18 @@ body {
   background-color: whitesmoke;
   border-style: solid;
   color: black;
-
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
-  
-  bottom: 0; 
-  width: 90%; 
+  bottom: 0;
+  width: 90%;
+  max-width: 600px; 
+  margin: 5px auto; 
 }
 
 .comment {
   background-color: darkcyan;
-  color: white;
+  color: black;
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
@@ -224,7 +225,7 @@ body {
 
 
 .comment p {
-  color: white;
+  color: black;
 }
 
 .rounded-post + .rounded-post {

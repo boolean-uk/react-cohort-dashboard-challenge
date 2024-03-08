@@ -62,7 +62,7 @@ function App() {
 
   console.log(contacts);
   console.log(posts);
-  
+
   function getRandomColor() {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -82,7 +82,7 @@ function App() {
             <img src={cmlogo} alt="Cohort Manager Logo" className="logo" />
             <h3 className='skada'>Cohort Manager</h3>
           </div>
-          <Link to="/profile" className="profile-link">
+          <Link to={`profile/1`} className="profile-link">
           <div className="profile-icon-container" style={{ backgroundColor: "white"}}>
             {getInitials(contacts[0])}
           </div>
@@ -96,7 +96,7 @@ function App() {
                 Home
               </button>
             </Link>
-            <Link to="/profile">
+            <Link to="/profile/1">
               <button className="nav-button">
                 <img src={profileLogo} alt="Profile" />
                 Profile
@@ -110,7 +110,7 @@ function App() {
                   <CreatePost />
                   <Posts />
                 </>} />
-                <Route path="/profile" element={<Profile/>} />
+                <Route path="/profile/:contactId" element={<Profile/>} />
                 <Route path="/posts/:postId" element={<DisplayPost />} />
               </Routes>
             </MyContext.Provider>
