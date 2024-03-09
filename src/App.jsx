@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect, createContext } from "react";
+import "./App.css";
+import Dashboard from "./Dashboard";
+import Header from "./Header";
+import LeftMenu from "./LeftMenu";
+const URL = "https://boolean-api-server.fly.dev/alexanderell/contact";
+export const UsersContext = createContext();
+export const CurrentUserContext = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    fetch(URL)
+      .then((res) => res.json())
+      .then(setUsers);
+  }, []);
+
+  useEffect(() => {
+    setCurrentUser(users.find((user) => user.id === 1));
+  }, [users]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <CurrentUserContext.Provider
+        value={{ currentUser: currentUser, setCurrentUser: setCurrentUser }}
+      >
+        <Header />
+        <div className="content-container">
+          <LeftMenu />
+          <UsersContext.Provider value={{ users: users, setUsers: setUsers }}>
+            <Dashboard />
+          </UsersContext.Provider>
+        </div>
+      </CurrentUserContext.Provider>
+    </div>
+  );
 }
 
-export default App
+export default App;

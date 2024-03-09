@@ -3,10 +3,10 @@
 * Left menu
 * Header
 * Home Page
-* Comment
+* Profile picture
+* View
 * Post
-* Post comment page
-* Post page
-* View comment page
-* Clicked post view
-* Profile page
+* List of comments
+* Profile
+* Comment
+* Create post
