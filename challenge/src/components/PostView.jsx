@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { MyContext } from '../App';
+import '../style/dash.css';
 
-function PostView({ data, contacts }) {
+function PostView() {
+const {data, contacts} = useContext(MyContext);
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
@@ -30,12 +33,13 @@ function PostView({ data, contacts }) {
   }
 
   return (
-    <div>
-      <h2>Author: {author ? `${author.firstName} ${author.lastName}` : 'Unknown'}</h2>
+    <div className='post-card'>
+      <h2>{author ? `${author.firstName} ${author.lastName}` : 'Unknown'}</h2>
       <h3>{post.title}</h3>
       <p>{post.content}</p>
-      <h4>Comments:</h4>
-      {comments.length > 0 ? (
+      <div className='commentBoks'>
+        <h4>Comments:</h4>
+        {comments.length > 0 ? (
         comments.map((comment, index) => (
           <div key={index}>
             <p>{comment.content}</p>
@@ -44,6 +48,8 @@ function PostView({ data, contacts }) {
       ) : (
         <p>No comments.</p>
       )}
+      </div>
+     
     </div>
   );
 }

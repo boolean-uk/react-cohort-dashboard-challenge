@@ -6,9 +6,10 @@ import {Link, Route, Routes } from 'react-router-dom';
 import Profile from './components/Profile';
 import { Dash } from './components/Dash';
 import PostView from './components/PostView'; 
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, createContext} from 'react';
+export const MyContext = createContext();
 function App() {
+
   const [data, setData] = useState([]);
   const [contacts, setContacts] = useState([]);
 
@@ -48,11 +49,14 @@ function App() {
               </li>
             </ul>
           </nav>
-          <Routes>
-            <Route path="/" element={<Dash data={data} setData={setData} contacts={contacts} />} />
-            <Route path="/profile" element={<Profile contacts={contacts} data={data} setData={setData} setContacts={setContacts} />} />
-            <Route path="/post/:postId" element={<PostView contacts={contacts} data={data} setData={setData} setContacts={setContacts}/>} />
+          <MyContext.Provider value={{data, setData, contacts, setContacts}}>
+            <Routes>
+            <Route path="/" element={<Dash />} />
+            <Route path="/profile" element={<Profile/>} />
+            <Route path="/post/:postId" element={<PostView/>} />
           </Routes>
+          </MyContext.Provider>
+          
         </div>
       </div>
   );

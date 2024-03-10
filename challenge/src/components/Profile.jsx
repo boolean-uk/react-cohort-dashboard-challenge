@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import '../style/dash.css';
+import { MyContext } from '../App';
 
 const updateContact = async (contactId, updatedInfo) => {
   try {
@@ -22,7 +23,8 @@ const updateContact = async (contactId, updatedInfo) => {
   }
 };
 
-export default function Profile({ contacts, setContacts }) {
+export default function Profile() {
+const { contacts, setContacts} = useContext(MyContext);
   const [contactInfo, setContactInfo] = useState({
     id: '', 
     firstName: '',

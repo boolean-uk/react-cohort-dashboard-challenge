@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import '../style/dash.css';
 import { Link } from 'react-router-dom';
+import { MyContext } from '../App';
 
 const getInitials = (contact) => {
   if (contact && contact.firstName && contact.lastName) {
@@ -24,7 +25,8 @@ const initialFormData = {
   comments: []
 };
 
-export function Dash({ data, setData, contacts }) {
+export function Dash() {
+    const {data, setData, contacts, } = useContext(MyContext);
   const [post, setPost] = useState(initialFormData);
   const [nextId, setNextId] = useState(data.length + 1);
   const [nextId2, setNextId2] = useState(1);

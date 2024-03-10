@@ -1,3 +1,4 @@
+
 body {
     /* Make the body fill all the size of viewport */
     width: 100vw;
@@ -176,4 +177,22 @@ li:hover{
 .comments-section{
     background-color: white;
     transform: translateX(50px) translateY(0px);
+}
+.post-card{
+    background-color: white;
+    color: black;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.commentBoks{
+    border: solid black;
+    padding: 15px;
+}
+.commentBoks p{
+    border-bottom: solid 1px;
+}
+body{
+    background-color: #F0F5FA;
 }
