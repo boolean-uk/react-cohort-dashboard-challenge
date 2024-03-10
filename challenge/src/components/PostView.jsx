@@ -8,7 +8,6 @@ function PostView({ data, contacts }) {
   const [author, setAuthor] = useState(null);
 
   useEffect(() => {
-    // Find the post and its author
     const foundPost = data.find(item => item.id.toString() === postId);
     if (foundPost) {
       setPost(foundPost);
@@ -18,12 +17,11 @@ function PostView({ data, contacts }) {
   }, [data, contacts, postId]);
 
   useEffect(() => {
-    // Fetch comments for the post
     if (postId) {
       fetch(`https://boolean-api-server.fly.dev/ateeb020301/post/${postId}/comment`)
         .then(response => response.json())
         .then(setComments)
-        .catch(console.error); // Ideally, handle this error appropriately
+        .catch(console.error);
     }
   }, [postId]);
 
