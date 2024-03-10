@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import UserIcon from "../../icons/UserIcon";
 import { BaseURL, postContext } from "../../../App";
 import SendIcon from "../../icons/SendIcon";
+import { useNavigate } from "react-router-dom";
 
 const CommentCreate = ({ postId, commentData, setCommentData }) => {
     const { user } = useContext(postContext);
@@ -35,6 +36,11 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
         setCommentData([...commentData, data]);
         setInput("");
     };
+    const nav = useNavigate();
+
+    const visitProfile = () => {
+        nav("/profile/" + user.id);
+    };
 
     return (
         <div className="comment-create">
@@ -42,6 +48,7 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
                 color={user.favouriteColour}
                 firstName={user.firstName}
                 lastName={user.lastName}
+                onClick={visitProfile}
             />
             <form className="comment-form" onSubmit={submitComment}>
                 <input
@@ -57,7 +64,9 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
                 <button type="submit" className="comment-btn">
                     <SendIcon />
                 </button>
+                
             </form>
+            
         </div>
     );
 };

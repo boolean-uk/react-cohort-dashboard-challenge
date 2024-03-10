@@ -45,13 +45,13 @@
   min-width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: aqua;
   color: navy;
   font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
 }
 .left-menu {
   background-color: white;
@@ -149,6 +149,7 @@
 .comment-list > .list-item > .comment-content > h3,
 .comment-list > .list-item > .comment-content > p {
   margin: 0;
+  text-align: left;
 }
 .comment-create {
   display: flex;
@@ -329,4 +330,46 @@
 .profile-user li:hover {
   background-color: #e9ecef;
   cursor: pointer;
+}
+.profile-form > .parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 0px;
+}
+
+
+
+.profile-form > .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 0px;
+}
+
+.profile-form > .parent > .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+.profile-form > .parent > .div2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.profile-form > .button-container {
+    display: flex;
+    justify-content: right;
+}
+
+.profile-form > .button-container > button {
+    color: white;
+    background-color: navy;
+    padding: 1rem 6rem;
+    font-size: 24px;
+    border: none;
+}
+
+.profile-form > .button-container > button:hover {
+    background-color: lightblue;
+    color: navy;
 }

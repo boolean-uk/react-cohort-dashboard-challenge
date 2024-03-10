@@ -33,7 +33,11 @@ const Post = ({ post }) => {
 
     useEffect(() => {
         getCommentData();
-    }, []);
+    }, [owner]);
+
+    const goToProfile = () => {
+        nav("/profile/" + owner.id);
+    };
 
     return (
         <li className="list-item">
@@ -42,6 +46,7 @@ const Post = ({ post }) => {
                     color={owner.favouriteColour}
                     firstName={owner.firstName}
                     lastName={owner.lastName}
+                    onClick={goToProfile}
                 />
                 <div className="owner-info">
                     <h2>{owner.firstName + " " + owner.lastName}</h2>

@@ -1,6 +1,7 @@
 import UserIcon from "../../components/icons/UserIcon";
 import { useContext, useState } from "react";
 import { BaseURL, postContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const PostCreate = () => {
 
@@ -32,11 +33,16 @@ const PostCreate = () => {
             postApiRequest
         );
         const data = await response.json();
-        setPosts([data, ...posts]);
+        setPosts([...posts, data]);
         setPostData({ title: "", content: "" });
     };
     
-    
+    const nav = useNavigate();
+
+    const visitProfile = () => {
+        nav("/profile/" + user.id);
+    };
+
 
     return (
         <form className="post-form" onSubmit={handleSubmit}>
@@ -45,6 +51,7 @@ const PostCreate = () => {
                     color={user.favouriteColour}
                     firstName={user.firstName}
                     lastName={user.lastName}
+                    onClick={visitProfile}
                 />
                 <input
                     type="text"

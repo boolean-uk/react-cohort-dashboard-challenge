@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { postContext } from "../../../App";
 import UserIcon from "../../icons/UserIcon";
+import { useNavigate } from "react-router-dom";
 
 const Comment = ({ comment }) => {
     const { contacts } = useContext(postContext);
@@ -12,12 +13,19 @@ const Comment = ({ comment }) => {
             lastName: "User",
         };
 
+        const nav = useNavigate();
+
+        const visitProfile = () => {
+            nav("/profile/" + user.id);
+        };
+    
     return (
         <li className="list-item">
             <UserIcon
                 color={user.favouriteColour}
                 firstName={user.firstName}
                 lastName={user.lastName}
+                onClick={visitProfile}
             />
             <div className="comment-content">
                 <h3>{user.firstName + " " + user.lastName}</h3>

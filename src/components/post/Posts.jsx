@@ -6,8 +6,8 @@ const Posts = () => {
     const { posts } = useContext(postContext);
     return (
         <ul className="post-list">
-            {posts.map((post, i) => (
-                <Post key={i} post={post}/>
+            {posts.toReversed().map((post, i) => (
+                <Post key={i} post={post} />
             ))}
         </ul>
     );

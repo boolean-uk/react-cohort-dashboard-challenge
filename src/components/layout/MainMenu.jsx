@@ -8,7 +8,7 @@ const MainMenu = () => {
     const { user } = useContext(postContext);
     const nav = useNavigate();
 
-    const goToProfile = () => {
+    const visitProfile = () => {
         nav("/profile/" + user.id);
     };
     return (
@@ -19,7 +19,8 @@ const MainMenu = () => {
                 <UserIcon
                     firstName={user.firstName}
                     lastName={user.lastName}
-                    onClick={goToProfile}
+                    color ={user.favouriteColour}
+                    onClick={visitProfile}
                 />
             </div>
         </header>

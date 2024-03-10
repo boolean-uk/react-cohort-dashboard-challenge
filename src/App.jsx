@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import PostPage from './components/post/PostPage';
 import PostDetail from "./components/post/PostDetail";
-import Profile from './components/post/Profile';
+import Profile from './components/post/profile/Profile';
 
 export const BaseURL = "https://boolean-api-server.fly.dev/malimo326"
 
