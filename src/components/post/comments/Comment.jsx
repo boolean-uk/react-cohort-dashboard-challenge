@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Comment = ({ comment }) => {
-    const { contacts, comments, setComments} = useContext(postContext);
+    const { contacts} = useContext(postContext);
     let user = contacts.find((c) => c.id === comment.contactId);
     if (user === undefined)
         user = {
@@ -47,7 +47,7 @@ const Comment = ({ comment }) => {
         };
 
         const [editing, setEditing] = useState(false);
-    const [editedComment, setEditedComment] = useState(comment);
+        const [editedComment, setEditedComment] = useState(comment);
 
     const editComment = () => {
         setEditing(true);

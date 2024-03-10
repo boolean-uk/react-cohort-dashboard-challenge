@@ -19,6 +19,8 @@ const Post = ({ post }) => {
         };
 
     const [commentData, setCommentData] = useState([]);
+    const [editing, setEditing] = useState(false);
+    const [editedPost, setEditedPost] = useState(post);
 
     const getCommentData = async () => {
         const response = await fetch(
@@ -39,6 +41,41 @@ const Post = ({ post }) => {
         nav("/profile/" + owner.id);
     };
 
+    const deletePost = () => {
+        fetch( BaseURL + "/post/" + post.id, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            return response.json();
+          })
+          
+      };
+    
+      const edit = () => {
+        setEditing(true);
+        setEditedPost(post);
+      };
+    
+      const save = () => {
+        setEditing(false);
+        fetch(
+         BaseURL + "/post/" + editedPost.id,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(editedPost),
+          }
+        )
+          .then((response) => {
+            return response.json();
+          })
+         
+      };
     
     
     return (
@@ -59,9 +96,39 @@ const Post = ({ post }) => {
                     >
                         {post.title}
                     </p>
+                    
+            {editing && (
+              <input
+                type="text"
+                id="post"
+                name="post"
+                onChange={(event) =>
+                  setEditedPost({
+                    ...editedPost,
+                    title: event.target.value,
+                  })
+                }
+                value={editedPost.title}
+              />
+            )}
                 </div>
             </div>
             <p>{post.content}</p>
+            
+            <div>
+
+            {editing && (
+            <div>
+              <button onClick={save}>Save</button>
+            </div>
+          )}
+          {!editing && (
+            <div>
+              <button onClick={edit}>Edit</button>
+              <button onClick={deletePost}>Delete</button>
+            </div>
+          )}
+            </div>
             <hr />
             <Comments comments={commentData} />
             <CommentCreate
