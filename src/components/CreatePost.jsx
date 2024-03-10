@@ -4,11 +4,11 @@ import { useNavigate } from "react-router";
 export default function CreatePost(props) {
   const { setDataFetched } = props;
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ 
+  const [formData, setFormData] = useState({
     contactId: 1,
-	title: "Some Title ...",
-    content: ""
-    });
+    title: "Some Title ...",
+    content: "",
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -54,7 +54,7 @@ export default function CreatePost(props) {
     <div className="create-post">
       <form className="form-container" onSubmit={handleSubmit}>
         <label>
-        <div className="circle" style={circleStyle}>
+          <div className="circle" style={circleStyle}>
             NK
           </div>
           <input
@@ -66,7 +66,9 @@ export default function CreatePost(props) {
             placeholder="What's on your mind?"
           />
         </label>
-        <button type="submit" className="post-button">Post</button>
+        <button type="submit" className="post-button">
+          Post
+        </button>
       </form>
     </div>
   );

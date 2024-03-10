@@ -164,3 +164,29 @@ make the child components lay out using flex, vertically stacked in a column */
   font-family: Arial, sans-serif; /* Match font type with other elements */
   font-size: 16px;
 }
+
+.grey-line {
+  border-top: 1px solid rgba(128, 128, 128, 0.5); /* Grey line with 50% opacity */
+  padding-bottom: 15px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start; /* Adjust alignment as needed */
+  padding-bottom: 10px;
+}
+
+.comment .comment-content {
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  padding: 10px;
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+}
+
+.comment .comment-content .content {
+  margin-top: 5px; /* Adjust margin as needed */
+}
+
+.comment .comment-content p {
+  margin: 0; /* Remove default margin */
+}

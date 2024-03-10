@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import PersonProfile from "./components/PersonProfile";
+import PostListItem from "./components/PostListItem";
 
 const MyContext = createContext();
 
@@ -21,7 +22,14 @@ function App() {
         const postsWithNames = postsData.map(post => {
           const matchingContact = contactsData.find(contact => contact.id === post.contactId);
           if (matchingContact) {
-            return { ...post, firstName: matchingContact.firstName, lastName: matchingContact.lastName, favouriteColour: matchingContact.favouriteColour };
+            return { 
+              ...post,
+              firstName: matchingContact.firstName, 
+              lastName: matchingContact.lastName, 
+              favouriteColour: matchingContact.favouriteColour,
+              // comments: [{contactId: 1, content: "test"}, {contactId: 1, content: "yolk"}] 
+              comments: [] 
+            };
           } else {
             return post;
           }
@@ -41,12 +49,13 @@ function App() {
     <>
         <div className="container">
           <Header />
-          <Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched}/>
-        </div>
-        <Routes>
-          {/* <Route path="/" element={<Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched}/>} /> */}
-          <Route path="/view/:id" element={<PersonProfile/>} />
+          <Routes>
+            {/* <Route path="/" element={<Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched}/>} /> */}
+            <Route path="/" element={<Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched} />} />
+            <Route path="/view/post/:postId" element={<PostListItem setDataFetched={setDataFetched} posts={posts} setPosts={setPosts} />} />
+            <Route path="/view/:id" element={<PersonProfile/>} />
         </Routes>
+        </div>
     </>
   );
 }
