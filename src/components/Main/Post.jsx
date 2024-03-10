@@ -1,10 +1,10 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../App"
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Post(){    
-    const { user } = useContext(AppContext)
-    const [data, setData] = useState({"title": "", "content": "", "contactId": user}) 
+    const { user, getPosts } = useContext(AppContext)
+    const [data, setData] = useState({"title": "", "content": "", "contactId": user ? user.id : undefined}) 
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -13,7 +13,7 @@ export default function Post(){
             [name]: value
         }))
     }    
-
+    console.log("user fra post: " + data.contactId)
     const submit = () => {        
         if (!data.contactId){return}
         fetch("https://boolean-api-server.fly.dev/louisshr/post", {
@@ -31,17 +31,34 @@ export default function Post(){
                     title: "",
                     content: ""
                 }))
+                getPosts()
             }
         })        
         .catch(error => {
             console.log("error: " + error)
         })
     }
+
+    const GetInitals = () => {
+        let intials = ""
+        const firstName = user.firstName.trim()
+        const lastName = user.lastName.trim()
+        if (firstName !== "") intials += firstName.charAt(0)
+        if (lastName !== "") intials += lastName.charAt(0)
+        return intials
+    }
+
+    useEffect(() => {
+        setData(prevData => ({
+            ...prevData,
+            contactId: user ? user.id : undefined
+        }))
+    }, [user])
     
     return(
         <div className='create-post-container'>
-            <div className='profile-icon-default'>
-                <p className='font-paragraph'>AW</p>
+            <div className='profile-icon-default' style={{backgroundColor: user ? user.favouriteColour : 'black'}}>
+                {user && <p className='font-paragraph'>{GetInitals()}</p>}
             </div>
 
             <div className="post-input-container">                

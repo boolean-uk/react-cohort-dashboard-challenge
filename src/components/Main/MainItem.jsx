@@ -1,21 +1,25 @@
 import sendIcon from '../../assets/sendIcon.png'
 import { useState, useContext, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from "../../App"
 import toast, { Toaster } from 'react-hot-toast';
-
-// components
 import Comment from './Comment'
 
-export default function MainItem({post}){
-    const { user } = useContext(AppContext)
-    const {firstName, lastName, favouriteColour, title, content, comments, postId} = post   
-    const [hide, setHide] = useState(true)
-    const [commentList, setCommentList] = useState([])
+export default function MainItem(props){
+    const { user, getPosts } = useContext(AppContext)
+    const navigate = useNavigate()
+    const {firstName, lastName, favouriteColour, title, content, comments, postId, contactId} = props.post   
+    const [hide, setHide] = useState(props.hide)
+    const [commentList, setCommentList] = useState(() => {
+        setHide(!hide)
+        return hide ? comments.slice(0, 3) : comments
+
+    })
     const [data, setData] = useState({
         "postId": postId,
         "content": "",
-        "contactId": user
-    })
+        "contactId": contactId
+    })    
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -38,6 +42,7 @@ export default function MainItem({post}){
         .then(response => {
             if (response.ok){
                 toast("Your comment is published!")
+                getPosts()
             }
             else{
                 console.log("bad")
@@ -46,21 +51,30 @@ export default function MainItem({post}){
     }
 
     const handleHideComments = () => {
-        if (hide){
-            const s = comments.slice(0, 3)
-            setCommentList(s)
-            setHide(prevHide => !prevHide)                
-        }
-        else{
-            console.log("inne")
-            setCommentList(comments)
-            setHide(prevHide => !prevHide)
-        }
+        const commentsState = hide ? comments.slice(0, 3) : comments
+        setCommentList(commentsState)
+        setHide(!hide)       
     }
 
-    useEffect(() => {
-        handleHideComments()
-    }, [])
+    const handleClick = () => {
+        navigate('/profile', {
+            state:{
+                id: contactId
+            }
+        })
+    }
+
+    const GetInitals = () => {
+        let intials = ""
+        const firstName = user.firstName.trim()
+        const lastName = user.lastName.trim()
+        if (firstName !== "") intials += firstName.charAt(0)
+        if (lastName !== "") intials += lastName.charAt(0)
+        return intials
+      }
+
+    useEffect(() => {              
+    }, [getPosts])
 
     
 
@@ -69,12 +83,12 @@ export default function MainItem({post}){
             <div className='post-container'>
             <div className='post-header-container'>
                 <div className='post-header-split'>
-                <div style={{backgroundColor: favouriteColour}} className='profile-icon-default'>
+                <div onClick={handleClick} style={{backgroundColor: favouriteColour}} className='profile-icon-default'>
                     <p className='font-paragraph'>{`${firstName.charAt(0)}${lastName.charAt(0)}`}</p>
                 </div>
                 <div className='post-header-text'>
-                    <b><p className='font-paragraph post-font-person'>{`${firstName} ${lastName}`}</p></b>
-                    <p className='post-title'>{title}</p>
+                    <b><p onClick={handleClick} className='font-paragraph post-font-person'>{`${firstName} ${lastName}`}</p></b>
+                    <Link to={`/postview/${postId}`}><p className='post-title'>{title}</p></Link>
                 </div>
                 </div>
 
@@ -87,8 +101,8 @@ export default function MainItem({post}){
                 { commentList.map((c, index) => <Comment key={index} comment={c} />)}
 
                 <div className='add-comment-split'>
-                    <div className='profile-icon-default'>
-                        <p className='font-paragraph'>DL</p>
+                    <div className='profile-icon-default' style={{backgroundColor: user?.favouriteColour}}>
+                        <p className='font-paragraph'>{user ? GetInitals() : ""}</p>
                     </div>
                     <div className='add-comment-container'>
                         <input
