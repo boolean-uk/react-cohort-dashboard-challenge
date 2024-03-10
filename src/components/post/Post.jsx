@@ -39,6 +39,8 @@ const Post = ({ post }) => {
         nav("/profile/" + owner.id);
     };
 
+    
+    
     return (
         <li className="list-item">
             <div className="post-owner">

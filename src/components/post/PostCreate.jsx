@@ -8,7 +8,7 @@ const PostCreate = () => {
     const { user, posts, setPosts } = useContext(postContext);
     const [postData, setPostData] = useState({ title: "", content: "" });
     
-    // Submit the form data to create a new post.
+   
     const handleSubmit = async (event) => {
         event.preventDefault();
          // If postData is empty, do not submit

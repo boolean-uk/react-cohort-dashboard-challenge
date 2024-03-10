@@ -62,7 +62,7 @@ const CommentCreate = ({ postId, commentData, setCommentData }) => {
                     }}
                 />
                 <button type="submit" className="comment-btn">
-                    <SendIcon />
+                    <SendIcon/>
                 </button>
                 
             </form>

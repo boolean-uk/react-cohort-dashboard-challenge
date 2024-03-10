@@ -2,7 +2,7 @@ const SendIcon = () => {
     return (
        
        // eslint-disable-next-line react/no-unknown-property
-       <svg fill="#000000" height="1rem" width="1rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+       <svg fill="#000000" height="1rem" width="1rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
 // eslint-disable-next-line no-mixed-spaces-and-tabs
      viewBox="0 0 512.652 512.652" xmlSpace="preserve">
 <g>
