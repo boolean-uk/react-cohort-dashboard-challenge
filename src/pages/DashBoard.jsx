@@ -29,12 +29,14 @@ function DashBoard() {
  
   return (
     <PostContext.Provider value={{posts, setPost}} > 
-        {posts && <main className="dashboard">
+         {posts && (
+        <main className="dashboard">
             <NewPost />
-            NEW POST HERE
-            <PostList />    
-            POST LIST EHRE 6666
-        </main>}
+            <div className="postlist-container">
+                <PostList />
+            </div>   
+        </main>
+    )}
     </PostContext.Provider>
   )
 }

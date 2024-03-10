@@ -8,18 +8,18 @@ import { UserContext } from '../app/App'
 function SideBar() {
   const { user } = useContext(UserContext);
   return (
-    <aside>
+    <aside className='sidebar'>
       <div className="sidebar-item">
-      <a href="/"> 
+        <a href="/" className='sidebar-link'> 
             <HomeIcon />
-            <i className="icon home"> HOME</i>
-          </a>
+            <span className="icon-text">Home</span>
+        </a>
       </div>
       
       <div className="sidebar-item">
-          <a href={`/profile/:${user.id}`}> 
+          <a href={`/profile/:${user.id}`} className='sidebar-link'> 
             <ProfileIcon />
-            <i className="icon profile"> PROFILE</i>
+            <span className="icon-text">Profile</span>
           </a>
       </div>
       

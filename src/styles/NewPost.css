@@ -1,0 +1,53 @@
+
+.newpost {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    flex-direction: row;
+    align-items: stretch; /* Stretch items vertically */
+  
+}
+
+
+textarea {
+  background-color: #f0f0f0; /* Grey background */
+  width: 100%; /* Fill parent container's width */
+}
+
+.newpost-container {
+    display: flex;
+    gap: 10px;
+    flex: 1; /* Take up remaining space */
+    align-items: center; /* Stretch items vertically to match heights */
+    margin: 20px;
+}
+
+.newpost-content, .newpost-action {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    gap: 10px; /* Adjust the gap between items */
+    
+}
+
+
+.newpost-content > textarea {
+ background-color: #e6ebf5;
+  width: auto;
+  padding: 15px;
+  border-radius: 0.6em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 600px;
+  }
+
+  .post-btn {
+    background-color: #000046;
+    color: #e6ebf5;
+    border-radius: 0.6em;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+  }
+
+

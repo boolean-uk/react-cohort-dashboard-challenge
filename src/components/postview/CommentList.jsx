@@ -13,10 +13,13 @@ function CommentList(props) {
   const { post } = props;
   const url = `https://boolean-api-server.fly.dev/KantheeK/post/${post.id}/comment`
   
- 
   const [ comments, setComment ] = useState([])
+
   const [displayedComments, setDisplayedComments] = useState([]);
+
   const [displayLimit, setDisplayLimit] = useState(3);
+
+  
   const [showMoreClicked, setShowMoreClicked] = useState(false);  // controlling show less / show more
 
   // Fetcher to get comments for the post:

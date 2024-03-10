@@ -56,35 +56,34 @@ function App() {
         <AccountContext.Provider value={{accounts, setAccount}} > 
             {/* Call layouts */}
             <div className="container">
-                <Header className="Header" />
-                <SideBar className="SideBar"/>
+                <Header className="_header" />
+                <SideBar className="_sidebar"/>
                 {/* <DashBoardContainer /> */}
 
                 {/* Setting up routes references: */}
-                <Routes>
-                {/* 1. Dashboard: */}
-                    <Route 
-                        path='/'
-                        element={<DashBoardContainer />}
-                        />
-                    {/* 2. PostView*/}
-                    <Route 
-                        path='/view/:id'
-                        element={<PostView/>}
-                        />
+                <div className="routes-container">
+                    <Routes>
+                    {/* 1. Dashboard: */}
+                        <Route 
+                            path='/'
+                            element={<DashBoardContainer />}
+                            />
+                        {/* 2. PostView*/}
+                        <Route 
+                            path='/view/:id'
+                            element={<PostView/>}
+                            />
 
-                    {/* 3. Profile*/}
-                    <Route 
-                        path='/profile/:id'
-                        element={<Profile/>}
-                        />
-                </Routes>
-                
+                        {/* 3. Profile*/}
+                        <Route 
+                            path='/profile/:id'
+                            element={<Profile/>}
+                            />
+                    </Routes>
+                </div>
             </div>
             </AccountContext.Provider>
         </UserContext.Provider>}
-
-
     </div>
   )
 }

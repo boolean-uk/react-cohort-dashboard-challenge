@@ -9,7 +9,6 @@ function NewPost() {
   const { posts, setPost  } = useContext(PostContext);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  // console.log(user);
 
   const [ newPost, setNewPost ] = useState({
     title:'',
@@ -21,14 +20,15 @@ function NewPost() {
   async function handlePost(e) {
     e.preventDefault() 
     await updatePost();
+
     // Updating posts useState
     setPost([...posts, newPost])
     console.log(newPost);
+
     // Reseting the new post
     setNewPost({title:'',
     content:'',
     contactId: 1})
-
     alert("posting!")
     navigate('/')
     
@@ -49,36 +49,35 @@ function NewPost() {
 
   return (
     <div className={"newpost"}>
-      <form onSubmit={handlePost}>
-
+      <form onSubmit={handlePost} className='newpost-container'>
         <div className="newpost-content">
           <div className="profile-icon"> 
             <ProfileIcon user={user} />
           </div>
           
-        {/* Textholder */}
-        <textarea 
-          name="title" 
-          type="text" 
-          placeholder="What's is the title" 
-          value={newPost.title} 
-          onChange={(e) => setNewPost({...newPost, title: e.target.value})} // Append value from in textarea to newPost
-          cols="50" 
-          rows="1">
-        </textarea>
+          {/* Textholder */}
+          <textarea 
+            name="title" 
+            type="text" 
+            placeholder="What's is the title" 
+            value={newPost.title} 
+            onChange={(e) => setNewPost({...newPost, title: e.target.value})} // Append value from in textarea to newPost
+            // cols="20" 
+            // rows="5"
+            >
+          </textarea>
 
-        <textarea 
-          name="content" 
-          type="text" 
-          placeholder="What's on your mind?" 
-          value={newPost.content} 
-          onChange={(e) => setNewPost({...newPost, content: e.target.value})} // Append value from in textarea to newPost
-          cols="50" 
-          rows="10">
-        </textarea>
+          <textarea 
+            name="content" 
+            type="text" 
+            placeholder="What's on your mind?" 
+            value={newPost.content} 
+            onChange={(e) => setNewPost({...newPost, content: e.target.value})} // Append value from in textarea to newPost
+            // cols="20" 
+            // rows="5"
+            >
+          </textarea>
         </div>
-
-
 
         <div className="newpost-action">
           <button type="submit"
@@ -88,7 +87,6 @@ function NewPost() {
           </button>
         </div>
       </form>
-      
     </div>
   )
 }

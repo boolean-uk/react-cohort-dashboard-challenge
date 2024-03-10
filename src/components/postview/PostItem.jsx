@@ -25,30 +25,35 @@ function PostItem(props) {
     <article className="post">
 
      { post && account && <div className="post-content"> 
+      <div className='profile-items'> 
+
         <div className="profile-icon">
           <ProfileIcon user={account} />
         </div>
-        
-        <h3> {`${account.firstName} ${account.lastName}`} </h3>
-        <h4> 
-            <Link className='view-link' 
-              to={`/view/${post.id}`} 
-              state={{post:post}} > 
-              {post.title} 
-            </Link>
-        </h4>
+      
+        <div className='profile-info'> 
+          <h3> {`${account.firstName} ${account.lastName}`} </h3>
+          <h4> 
+              <Link className='view-link' 
+                to={`/view/${post.id}`} 
+                state={{post:post}} > 
+                {post.title} 
+              </Link>
+          </h4>
+        </div>
 
+      </div>
+      
         <p>{post.content}</p>
-      </div>}
+    </div>}
 
-        {/* Comments here */}
-        <CommentList post={post}/>
+        <div className='comment-container'>
+          {/* Comments here */}
+          <CommentList post={post}/>
 
-        {/* Add comment here */}
-        <AddComment post={post}/>
-
-   
-
+          {/* Add comment here */}
+          <AddComment post={post}/>
+        </div>
     </article>
   )
 }
