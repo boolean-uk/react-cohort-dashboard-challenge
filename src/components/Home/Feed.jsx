@@ -7,14 +7,10 @@ function Feed() {
   const dataContext = useContext(DataContext)
 
   function getContact(post) {
-    const result = dataContext.contacts.find(
-        contact => contact.id === post.contactId)
-        
-    if(result)
-        return result
-    else
-        return ({firstName: "User", lastName: "Name", profileImage: ''})
-  } 
+    const result = dataContext.contacts.find(contact => contact.id === post.contactId)
+
+    return result ?? {firstName: "User", lastName: "Name", profileImage: ''}
+  }
 
   return (
     <section className='feed'>

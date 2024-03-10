@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import UserIcon from '../Icons/UserIcon'
 import CommentSection from './CommentSection'
 import PropTypes from "prop-types"
@@ -19,7 +20,9 @@ function Post({ data, contact }) {
           <UserIcon image={contact.profileImage} contactInitials={(contact.firstName.at(0) + contact.lastName.at(0)).toUpperCase()}/>
           <div className='info'>
             <div className='username'>{contact.firstName + ' ' + contact.lastName}</div>
-            <div className='post-title'>{data.title}</div>
+            <Link className="link" to={`/posts/${data.id}`}>
+              <div className='post-title'>{data.title}</div>
+            </Link>
           </div>
         </div>
         <div className='post-body'>

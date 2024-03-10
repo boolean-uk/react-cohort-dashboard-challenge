@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import Profile from './pages/Profile';
 import fetchData from './service/FetchData';
+import PostProfile from './pages/PostProfile';
 
 export const DataContext = createContext();
 
@@ -29,6 +30,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/posts/:id" element={<PostProfile />}/>
             </Routes>
         </DataContext.Provider>}
       </div>
