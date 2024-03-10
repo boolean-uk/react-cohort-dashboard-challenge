@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../style/dash.css';
+import { Link } from 'react-router-dom';
 
-// Helper function to get initials from a contact object
 const getInitials = (contact) => {
   if (contact && contact.firstName && contact.lastName) {
     return `${contact.firstName[0]}${contact.lastName[0]}`.toUpperCase();
@@ -27,10 +27,11 @@ const initialFormData = {
 export function Dash({ data, setData, contacts }) {
   const [post, setPost] = useState(initialFormData);
   const [nextId, setNextId] = useState(data.length + 1);
-  const [nextId2, setNextId2] = useState(1); // Initialize with correct next comment ID
+  const [nextId2, setNextId2] = useState(1);
   const [newComment, setNewComment] = useState(initialComment);
   const [commentsByPostId, setCommentsByPostId] = useState({});
-  const [visibleComments, setVisibleComments] = useState({});
+  const [commentsVisibility, setCommentsVisibility] = useState({});
+  const [visibleCommentCount, setVisibleCommentCount] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -41,6 +42,8 @@ export function Dash({ data, setData, contacts }) {
       if (!response.ok) throw new Error('Network response was not ok');
       const comments = await response.json();
       setCommentsByPostId((prevComments) => ({ ...prevComments, [postId]: comments }));
+      setCommentsVisibility(prev => ({ ...prev, [postId]: false }));
+      setVisibleCommentCount(prev => ({ ...prev, [postId]: 3 }));
     } catch (error) {
       console.error("Fetching error: ", error);
       setError('Failed to fetch comments.');
@@ -57,71 +60,68 @@ export function Dash({ data, setData, contacts }) {
     }
   }, [data]);
 
-const handleCommentChange = (postId) => (event) => {
-  setNewComment({
-    ...newComment,
-    content: event.target.value,
-    postId,
-  });
-};
-
-const handleSubmitComment = (postId) => async (event) => {
-  event.preventDefault();
-  const newPostComment = {
-    ...newComment,
-    id: nextId2,
-    postId,
+  const handleCommentChange = (postId) => (event) => {
+    setNewComment({
+      ...newComment,
+      content: event.target.value,
+      postId,
+    });
   };
 
-  // Assuming comments are stored in an array in commentsByPostId[postId]
-  const updatedComments = commentsByPostId[postId]
-    ? [...commentsByPostId[postId], newPostComment]
-    : [newPostComment];
+  const handleSubmitComment = (postId) => async (event) => {
+    event.preventDefault();
+    const newPostComment = {
+      ...newComment,
+      id: nextId2,
+      postId,
+    };
 
-  setCommentsByPostId({
-    ...commentsByPostId,
-    [postId]: updatedComments,
-  });
+    const updatedComments = commentsByPostId[postId]
+      ? [...commentsByPostId[postId], newPostComment]
+      : [newPostComment];
 
-  // Update nextId2 for next comment's ID
-  setNextId2(nextId2 + 1);
-  // Reset newComment to initial state or clear the text area
-  setNewComment({ ...initialComment, content: '', postId });
-  // Optionally, you might want to send this new comment to the backend
-};
+    setCommentsByPostId({
+      ...commentsByPostId,
+      [postId]: updatedComments,
+    });
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const newPost = {
-    ...post,
-    id: nextId, // Assuming nextId is correctly set to be unique
+    setNextId2(nextId2 + 1);
+    setNewComment({ ...initialComment, content: '', postId });
   };
 
-  // Update your data (posts) state with the new post
-  setData((prevData) => [...prevData, newPost]);
-  
-  // Update nextId for the next post
-  setNextId(nextId + 1);
-  
-  // Reset post form to initial state
-  setPost(initialFormData);
-};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newPost = {
+      ...post,
+      id: nextId,
+    };
 
-const handleChange = (event) => {
-  const { value } = event.target;
-  setPost({
-    ...post,
-    content: value,
-  });
-};
+    setData((prevData) => [...prevData, newPost]);
+    setNextId(nextId + 1);
+    setPost(initialFormData);
+  };
 
-const toggleCommentsVisibility = (postId) => {
-  setVisibleComments((prevState) => ({
-    ...prevState,
-    [postId]: !prevState[postId],
-  }));
-};
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setPost({
+      ...post,
+      content: value,
+    });
+  };
 
+  const toggleCommentsVisibility = (postId) => {
+    setCommentsVisibility((prevState) => ({
+      ...prevState,
+      [postId]: !prevState[postId],
+    }));
+  };
+
+  const toggleCommentCount = (postId) => {
+    setVisibleCommentCount((prevState) => ({
+      ...prevState,
+      [postId]: prevState[postId] > 3 ? 3 : 9999,
+    }));
+  };
 
   const findContactById = (contactId) => contacts.find((contact) => contact.id === contactId);
 
@@ -142,20 +142,26 @@ const toggleCommentsVisibility = (postId) => {
           {data.slice().reverse().map((postItem, index) => {
             const contact = findContactById(postItem.contactId);
             const initials = getInitials(contact);
+            const style = {
+              backgroundColor: contact ? contact.favouriteColour : 'grey'
+            };
 
             return (
               <div key={index} className='yellow'>
                 <div className="post-header">
-                  <div className="initials-circle">{initials}</div>
+                  <div className="initials-circle" style={style}>{initials}</div>
                   <div>
-                    <h3>{postItem.title}</h3>
+                    <p>{contact ? `${contact.firstName} ${contact.lastName}` : 'Unknown Author'}</p>
+                    <Link to={`/post/${postItem.id}`}>
+                        <h3 style={{cursor: 'pointer'}}>{postItem.title}</h3>
+                    </Link>
                     <p>{postItem.content}</p>
                   </div>
                 </div>
                 <button onClick={() => toggleCommentsVisibility(postItem.id)} className="toggle-comments-btn">
-                  {visibleComments[postItem.id] ? 'Hide Comments' : 'Show Comments'}
+                  {commentsVisibility[postItem.id] ? 'Hide Comments' : 'Show Comments'}
                 </button>
-                {visibleComments[postItem.id] && (
+                {commentsVisibility[postItem.id] && (
                   <div className='comments-section'>
                     <form className='createComment' onSubmit={handleSubmitComment(postItem.id)}>
                       <textarea
@@ -166,15 +172,22 @@ const toggleCommentsVisibility = (postId) => {
                       />
                       <button type='submit' id='commentBtn'>Comment</button>
                     </form>
-                    {commentsByPostId[postItem.id] && commentsByPostId[postItem.id].map((comment, commentIndex) => {
-                      const commentContact = findContactById(comment.contactId);
-                      return (
-                        <div key={commentIndex} className='comment'>
-                          <div className="initials-circle">{getInitials(commentContact)}</div>
-                          <p>{comment.content}</p>
-                        </div>
-                      );
-                    })}
+                    {commentsByPostId[postItem.id] && commentsByPostId[postItem.id]
+                      .slice(0, visibleCommentCount[postItem.id])
+                      .map((comment, commentIndex) => {
+                        const commentContact = findContactById(comment.contactId);
+                        return (
+                          <div key={commentIndex} className='comment'>
+                            <div className="initials-circle" style={{...style, backgroundColor: commentContact ? commentContact.favouriteColour : 'grey'}}>{getInitials(commentContact)}</div>
+                            <p>{comment.content}</p>
+                          </div>
+                        );
+                      })}
+                    {commentsByPostId[postItem.id] && commentsByPostId[postItem.id].length > 3 && (
+                      <button onClick={() => toggleCommentCount(postItem.id)} className="show-more-comments-btn">
+                        {visibleCommentCount[postItem.id] > 3 ? 'Show Less' : 'Show More'}
+                      </button>
+                    )}
                   </div>
                 )}
                 {error && <div className="error">{error}</div>}
