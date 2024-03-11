@@ -1,5 +1,5 @@
 import { useNavigate, useParams, useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ViewPost({posts, getPosts}) {
     const [viewPost, setViewPost] = useState(undefined)
@@ -11,20 +11,18 @@ export default function ViewPost({posts, getPosts}) {
 
     const {id} = useParams()
 
-    // console.log(postComments)
 
     // useEffect(() => {      
     // }, [id, posts])
+    
     if (posts && id && !viewPost && posts.length !== 0) {
         const findPost = posts.find(post => Number(post.id) === Number(id))
         setViewPost(findPost)
         // console.log("findPost", findPost)
     }
-
-
     
     useEffect(() => {
-        if (viewPost) {
+        if (postUser) {
             const postUserId = Number(viewPost?.contactId)
             fetch(`https://boolean-api-server.fly.dev/ilham-saleh/contact/${postUserId}`)
             .then(res => res.json())

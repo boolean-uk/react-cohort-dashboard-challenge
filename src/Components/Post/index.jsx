@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import {Link, Route, Routes} from 'react-router-dom'
 import Comments from "../Comments"
 import CommentForm from "../CommentForm"
 
-export default function Post({post}) {
+const PostContext = createContext()
+
+ export default function Post({post}) {
     const [user, setUser] = useState(null)
     
     const [comments, setComments] = useState([])
