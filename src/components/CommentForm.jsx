@@ -9,7 +9,7 @@ const CommentForm = ({ postId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       const response = await axios.get(
-        `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`
+        `https://boolean-api-server.fly.dev/krzysztofmmm/post/1/comment`
       );
       setComments(response.data);
     };
@@ -18,45 +18,56 @@ const CommentForm = ({ postId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await axios.post(
-      `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment`,
-      { content, postId: Number(postId), contactId: 42 } // i set 42 just for tests,update in future if needed
+    await axios.post(
+      `https://boolean-api-server.fly.dev/krzysztofmmm/post/2/comment`,
+      {
+        content,
+        postId: Number(postId),
+        contactId: 1,
+      }
     );
-    setComments([...comments, response.data]);
     setContent("");
+    window.location.reload();
   };
 
   const handleDelete = async (commentId) => {
-    await axios.delete(
-      `https://boolean-api-server.fly.dev/krzysztofmmm/post/${postId}/comment/${commentId}`
-    );
-    setComments(comments.filter((comment) => comment.id !== commentId));
+    await axios
+      .delete(
+        `https://boolean-api-server.fly.dev/krzysztofmmm/post/1/comment/1`
+      )
+      .then((response) => {
+        console.log("Comment deleted:", response.data);
+        setComments(comments.filter((comment) => comment.id !== commentId));
+      })
+      .catch((error) => {
+        console.error("Error deleting comment:", error);
+      });
   };
 
   return (
     <div>
-      {comments.map((comment) => (
-        <div key={comment.id}>
-          <p>{comment.content}</p>
-          <button onClick={() => handleDelete(comment.id)}>Delete</button>
-        </div>
-      ))}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Add a comment"
+          required
         />
         <button type="submit">Comment</button>
       </form>
+      {comments.map((comment) => (
+        <div key={comment.id}>
+          <p>{comment.content}</p>
+          <button onClick={() => handleDelete(comment.id)}>Delete</button>
+        </div>
+      ))}
     </div>
   );
 };
 
 CommentForm.propTypes = {
-  postId: PropTypes.string.isRequired,
+  postId: PropTypes.number.isRequired,
 };
 
 export default CommentForm;

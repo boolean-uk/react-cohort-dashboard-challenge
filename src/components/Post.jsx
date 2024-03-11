@@ -1,22 +1,38 @@
+import axios from "axios";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
-import CommentForm from "./CommentForm";
 
 const Post = ({ post }) => {
-  if (!post) {
-    return null;
-  }
+  const { postId } = useParams();
+
+  const handleDelete = async () => {
+    await axios.delete(`/{username}/post/${postId}`);
+    window.location.href = "/"; // Redirect to home after deletion
+  };
+
+  const handleUpdate = async () => {
+    const updatedPost = { ...post, content: "Updated Content" };
+    await axios.put(`/{username}/post/${postId}`, updatedPost);
+    window.location.reload();
+  };
+
+  if (!post) return null;
 
   return (
     <div>
       <h2>{post.title}</h2>
       <p>{post.content}</p>
-      <CommentForm postId={post.id.toString()} />
+      <button onClick={handleUpdate}>Update Post</button>
+      <button onClick={handleDelete}>Delete Post</button>
     </div>
   );
 };
 
 Post.propTypes = {
-  post: PropTypes.object,
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Post;

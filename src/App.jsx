@@ -1,19 +1,20 @@
-import Header from "./components/Header";
-import PostForm from "./components/PostForm";
-import Post from "./components/Post";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { DataProvider } from "./DataContext";
 import Posts from "./components/Posts";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PostDetails from "./components/PostDetails";
+import UserProfile from "./components/UserProfile";
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<PostForm />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/post/:postId" element={<Post />} />
-      </Routes>
-    </Router>
+    <DataProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Posts />} />
+          <Route path="/post/:postId" element={<PostDetails />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Routes>
+      </Router>
+    </DataProvider>
   );
 };
 

@@ -1,44 +1,44 @@
 import { useState } from "react";
 import axios from "axios";
-import useLocalStorageState from "use-local-storage-state";
-import Post from "./Post";
 
 const PostForm = () => {
-  const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
-  const [posts, setPosts] = useLocalStorageState("posts", []);
+  const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.post(
       "https://boolean-api-server.fly.dev/krzysztofmmm/post",
-
-      { title, content, contactId: 42 } // Add contactId here
+      {
+        title,
+        content,
+        contactId: 1, // Adjust according to your requirements
+      }
     );
-    setPosts([response.data, ...posts]);
+    // Handle response or state update
+    console.log(response.data);
     setTitle("");
     setContent("");
+    // Optionally, redirect or fetch posts again to update the UI
   };
 
   return (
-    <div>
-      {Array.isArray(posts) &&
-        posts.map((post) => <Post key={post.id} post={post} />)}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="What's on your mind?"
-        />
-        <button type="submit">Post</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
+        required
+      />
+      <textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="Content"
+        required
+      />
+      <button type="submit">Create Post</button>
+    </form>
   );
 };
 
