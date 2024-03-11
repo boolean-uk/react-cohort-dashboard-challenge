@@ -21,6 +21,10 @@ form input {
 button {
   background-color: #000046;
   color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  margin-right: 640px;
+  margin-top: 10px;
   
 }
 
@@ -41,6 +45,7 @@ button:hover {
 
 .content-container {
   display: flex;
+  
 }
 
 
