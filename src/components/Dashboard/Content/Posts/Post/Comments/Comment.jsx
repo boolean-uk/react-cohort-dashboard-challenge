@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import UserIconComponent from '../../../../../assets/user-icon'
-import { userContext } from '../../../Posts'
 import './Comment.css'
+import { userContext } from '../../../../../../App'
 
 export default function CommentComponent({ comment }) {
 

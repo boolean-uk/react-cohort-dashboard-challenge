@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react'
 import UserIconComponent from '../../assets/user-icon'
 import './CreatePost.css'
 import { APIURL, loginUserContext } from '../../../App.jsx'
+import { postContext } from '../../Dashboard.jsx'
 
-export default function CreatePostComponent({posts}) {
-
+export default function CreatePostComponent() {
+    const { posts } = useContext(postContext)
     const { loginUser } = useContext(loginUserContext)
 
     const [getPost, setPost] = useState({
@@ -15,7 +16,7 @@ export default function CreatePostComponent({posts}) {
     const post = { get: getPost, set: setPost }
 
     const onChange = (e) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
         post.set({
             ...post.get,
             [name]: value
@@ -48,8 +49,8 @@ export default function CreatePostComponent({posts}) {
         <div className='createpost'>
             <div className='card'>
                 <UserIconComponent user={loginUser.get} />
-                <input name="title" className='textbox' placeholder='Title' value={post.get.title} onChange={onChange}/>
-                <input name="content" className='textbox' placeholder='Share your thoughts' value={post.get.content} onChange={onChange}/>
+                <input name="title" className='textbox' placeholder='Title' value={post.get.title} onChange={onChange} />
+                <input name="content" className='textbox' placeholder='Share your thoughts' value={post.get.content} onChange={onChange} />
                 <button className='button' onClick={postComment}>Post</button>
             </div>
         </div>

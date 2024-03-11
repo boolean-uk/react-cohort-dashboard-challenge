@@ -1,15 +1,14 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import './Posts.css'
 import PostComponent from './Posts/Post'
-import { APIURL } from '../../../App'
+import { APIURL, userContext } from '../../../App'
+import { postContext } from '../../Dashboard'
 
-export const userContext = createContext()
 
-export default function PostsComponent({posts}) {
 
-    const [getUsers, setUsers] = useState([])
-    const users = { get: getUsers, set: setUsers }
-
+export default function PostsComponent() {
+    const { posts } = useContext(postContext)
+    const { users } = useContext(userContext)
 
     useEffect(() => {
         fetch(`${APIURL}/post`)
@@ -25,13 +24,11 @@ export default function PostsComponent({posts}) {
 
     return (
         <div className='posts'>
-            <userContext.Provider value={{ users }}>
-                <ul className='list'>
-                    {posts.get.map((post, index) => (
-                        <PostComponent key={index} post={post} />
-                    ))}
-                </ul>
-            </userContext.Provider>
+            <ul className='list'>
+                {posts.get.map((post, index) => (
+                    <PostComponent key={index} post={post} />
+                ))}
+            </ul>
         </div>
     )
 }
