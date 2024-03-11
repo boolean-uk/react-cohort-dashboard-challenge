@@ -1,12 +1,13 @@
 import { useContext, useState } from "react"
 import ProfilePicture from "../../ProfilePicture/ProfilePicture"
 import { UserContext } from "../../../App"
-import { PostContext } from "../Dashboard"
+import { LoadingContext, PostContext } from "../Dashboard"
 import "./NewPostForm.css"
 
 function NewPostForm() {
   const { user } = useContext(UserContext)
   const { posts, setPosts } = useContext(PostContext)
+  const { setLoading } = useContext(LoadingContext)
   const [post, setPost] = useState({ title: "", content: ""})
 
   function handleChange(event) {
@@ -25,7 +26,9 @@ function NewPostForm() {
         },
         body: JSON.stringify({...post, contactId: user.id})
     }
+    setLoading(true)
     await fetch("https://boolean-api-server.fly.dev/kristianverduin/post", postRequest).then(res => res.json()).then(res => setPosts([res, ...posts]))
+    setLoading(false)
   }
 
   return (
