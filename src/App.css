@@ -6,47 +6,7 @@ body {
   font-family: 'Lexend Deca', sans-serif;
   font-weight: 400;
 }
-/*
 
-#root {
-  color-scheme: light dark;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}*/
 
 /* HEADER */
 /* Header styles */
@@ -89,7 +49,6 @@ header {
 /* Button styles */
 button {
   background-color: #000046;
-  color: #ffffff; /* Button font color */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -127,7 +86,7 @@ input[type="text"]:focus, textarea:focus {
   margin-left: 15%;
   margin-right: 3%;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* To add a shadow effect */
   margin-top: 10%;
 }
 
@@ -193,15 +152,6 @@ ul{
   padding: 10px;
 }
 
-
-/*SIDEBAR ICONS*/
-/* home icon .home-icon {
-  padding: 25px; 
-  margin-top: 20px;
-}
-*/
-
-
 .sidebar .home-icon,
 .sidebar .create-post-icon,
 .sidebar .profile-icon {
@@ -237,8 +187,6 @@ ul{
 .form-control#content:focus {
   background-color: #ffffff;
 }
-
-
 
 
 /*COMMENTFORM CSS*/
