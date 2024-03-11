@@ -1,0 +1,34 @@
+.sidebar {
+    width: 150px; /* Set the width of the sidebar */
+    height: 100%; /* Take up full height of the viewport */
+    background-color: #ffffff;
+    position: fixed;
+    top: 72px; /* Adjust as needed to position it below the header */
+    left: 0;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  .sidebar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .sidebar a svg {
+    height: 50px;
+    }
+  
+  .sidebar a:hover {
+    background-color: #64dc78;
+  }

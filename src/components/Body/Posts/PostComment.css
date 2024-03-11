@@ -1,0 +1,66 @@
+.comment-post-container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+
+  .comment-post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add some space between the header and content */
+  }
+
+  .comment-post-container input[type="text"],
+  .comment-post-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+  }
+
+  .comment-post-container textarea {
+    height: 100px;
+    font-family: Arial, sans-serif;
+    resize: none;
+
+  }
+
+  .comment-profile-picture-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+  .initials {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .comment-post-header{
+    font-size: 20px;
+    flex: 1;
+  }
+
+  .comment-post-header p {
+    margin: 0;
+    font-weight: bold; 
+  }
+
+  .comment-post-content {
+    margin-bottom: 10px; 
+  }

@@ -1,0 +1,40 @@
+.header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000046; 
+  z-index: 1000; 
+}
+
+.header-top {
+    width: 400px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    padding-left: 60px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .initials {
+    font-size: 18px;
+    color: #fff;
+  }
+  
+
+
