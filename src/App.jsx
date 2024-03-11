@@ -20,7 +20,7 @@ function App() {
   if(!user) return <p> Loading ... </p>
 
   return (
-    <UserContext.Provider value={{ user: user, getUser: getUser }}>
+    <UserContext.Provider value={{ user: user, setUser: setUser, getUser: getUser }}>
       <div className='app'>
         <Header />
         <Dashboard />

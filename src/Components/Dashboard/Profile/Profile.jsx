@@ -4,11 +4,13 @@ import "./Profile.css"
 import { ContactContext } from "../Dashboard"
 import { useParams } from "react-router-dom"
 import ProfileForm from "./ProfileForm/ProfileForm"
+import { UserContext } from "../../../App"
 
 function Profile() {
   const { contacts } = useContext(ContactContext)
+  const { user } = useContext(UserContext)
   const { id } = useParams()
-  const [user, setUser] = useState(contacts.find(c => c.id == id))
+  const [formUser, setFormUser] = useState(contacts.find(c => c.id == id))
 
   return (
     <div className='profile'>
@@ -20,7 +22,7 @@ function Profile() {
             <ProfilePicture user={user} />
             <h2>{user.firstName} {user.lastName}</h2>
         </div>
-        <ProfileForm user={user} setUser={setUser}/>
+        <ProfileForm formUser={formUser} setFormUser={setFormUser}/>
       </div>
     </div>
   )

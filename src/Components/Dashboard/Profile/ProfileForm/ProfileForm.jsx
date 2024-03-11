@@ -9,11 +9,10 @@ import CompanyInfo from './CompanyInfo/CompanyInfo'
 import PropTypes from "prop-types"
 import "./ProfileForm.css"
 
-function ProfileForm({ user, setUser }) {
-    const { getContacts } = useContext(ContactContext)
-    const { getUser } = useContext(UserContext)
+function ProfileForm({ formUser, setFormUser }) {
+    const { contacts, setContacts } = useContext(ContactContext)
+    const { setUser } = useContext(UserContext)
     const navigate = useNavigate()
-
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -23,29 +22,29 @@ function ProfileForm({ user, setUser }) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(formUser)
         }
     
-        await fetch("https://boolean-api-server.fly.dev/kristianverduin/contact/" + user.id, putRequest)
-        await getContacts()
-        await getUser()
+        let result = await fetch("https://boolean-api-server.fly.dev/kristianverduin/contact/" + formUser.id, putRequest).then(res => res.json())
+        setUser(result)
+        setContacts([result, ...contacts])
         navigate("/")
       }
     
       function handleChange(event) {
         const { name, value } = event.target
-        setUser({...user, [name]: value})
+        setFormUser({...formUser, [name]: value})
       }
 
   return (
     <form className="profile-content-form" onSubmit={handleSubmit}>
     <div className="top-row">
-      <AccountInfo user={user} handleChange={handleChange} />
-      <Address user={user} handleChange={handleChange} />
+      <AccountInfo user={formUser} handleChange={handleChange} />
+      <Address user={formUser} handleChange={handleChange} />
     </div>
     <div className="bottom-row">
-      <ContactInfo user={user} handleChange={handleChange} />
-      <CompanyInfo user={user} handleChange={handleChange} />
+      <ContactInfo user={formUser} handleChange={handleChange} />
+      <CompanyInfo user={formUser} handleChange={handleChange} />
     </div>
     <button className="save-button" type="submit">Save</button>
 </form>
@@ -53,8 +52,8 @@ function ProfileForm({ user, setUser }) {
 }
 
 ProfileForm.propTypes = {
-    user: PropTypes.object.isRequired,
-    setUser: PropTypes.func.isRequired
+    formUser: PropTypes.object.isRequired,
+    setFormUser: PropTypes.func.isRequired
 }
 
 export default ProfileForm

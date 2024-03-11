@@ -6,7 +6,7 @@ import "./NewPostForm.css"
 
 function NewPostForm() {
   const { user } = useContext(UserContext)
-  const { getPosts } = useContext(PostContext)
+  const { posts, setPosts } = useContext(PostContext)
   const [post, setPost] = useState({ title: "", content: ""})
 
   function handleChange(event) {
@@ -25,8 +25,7 @@ function NewPostForm() {
         },
         body: JSON.stringify({...post, contactId: user.id})
     }
-    await fetch("https://boolean-api-server.fly.dev/kristianverduin/post", postRequest)
-    getPosts()
+    await fetch("https://boolean-api-server.fly.dev/kristianverduin/post", postRequest).then(res => res.json()).then(res => setPosts([res, ...posts]))
   }
 
   return (
