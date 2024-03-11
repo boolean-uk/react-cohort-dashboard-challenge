@@ -16,8 +16,6 @@ export default function CommentList() {
     setShowAllComments(true)
   }
 
-  console.log(commentContext.comments.length)
-
   if (!commentContext.comments) return <div></div>;
 
   return (

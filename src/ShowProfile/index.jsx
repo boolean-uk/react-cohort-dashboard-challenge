@@ -9,9 +9,7 @@ export default function ShowPost() {
   const { id } = useParams();
 
   const [user, setUser] = useState(null);
-
-  console.log(id);
-
+  
   useEffect(() => {
     setUser(userContext.users.find((user) => Number(user.id) === Number(id)));
   }, [userContext.users, id]);

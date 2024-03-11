@@ -25,6 +25,8 @@ export default function AddCommentForm() {
   const handlePost = (event) => {
     event.preventDefault();
 
+    console.log("PAAAAAAAAAAANDA", newComment.postId)
+
     fetch(
       `https://boolean-api-server.fly.dev/svennas/post/${commentContext.post.id}/comment`,
       {
@@ -35,7 +37,7 @@ export default function AddCommentForm() {
     )
       .then((resp) => resp.json())
       .then((commentNew) =>
-        commentContext.setComments((post) => [...post, commentNew])
+        commentContext.setComments((comment) => [...comment, commentNew])
       );
 
     setNewComment({ ...newComment, content: "" });
