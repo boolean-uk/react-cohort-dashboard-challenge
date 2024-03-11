@@ -19,7 +19,8 @@ export default function Feed() {
       .catch((err) => {
         console.log(err);
       });
-  }, [setPosts]);
+  }, [posts, setPosts]);
+
   return (
     <>
       <div>
