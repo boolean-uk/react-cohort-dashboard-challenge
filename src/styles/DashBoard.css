@@ -1,0 +1,29 @@
+@import '../styles/NewPost.css';
+@import '../styles/Post.css';
+@import '../styles/Comments.css';
+
+/* Style the main area: */
+.container > .routes-container {
+    flex: 1;
+    margin-left: 50px;
+    margin-top: 90px; 
+    
+}
+.dashboard {
+background-color: white;
+}
+   
+.postlist{
+    background-color: white;
+   
+}
+
+.dashboard > .postlist-container {
+    /* margin-top: 20px; Space between NewPost and PostList */
+    background-color: #F0F5FA;
+    padding-top: 20px;
+    
+}
+
+
+

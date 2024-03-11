@@ -1,0 +1,120 @@
+.container {
+    
+    display: flex;
+    flex-direction: column; /* Main axis is vertical */
+    gap: 20px;
+    align-items: stretch;
+    
+    
+}
+
+
+.Header {
+  
+    flex: 1; /* Take remaining space */
+  
+}
+  
+.SideBar {
+   
+    width: 200px; /* Fixed width for the sidebar */
+ 
+}
+
+
+/* Side bar item: */
+.sidebar-item {
+    display: block;
+    font-weight: 200;
+    font-size: 1.4rem;
+    margin: 4px;
+}
+
+.sidebar-item i {
+    width: 28px;
+    margin-right: 20px;
+}
+
+.sidebar-item a {
+    padding: 15px 30px 15px 15px;
+    background-color: var(--white);
+    color: var(--black);
+    text-decoration: none;
+    border-radius: 100px;
+    display: inline-flex;
+    place-items: center;
+    transition: 100ms;
+}
+
+.sidebar-item a:hover {
+    background-color: var(--primary-transparent-more);
+}
+
+/* .sidebar-item.active a {
+    font-weight: 600;
+} */
+
+
+
+
+
+
+
+
+
+
+.dashboard-container {
+    /* background-color: aqua; */
+    
+    max-width: 1800px;
+    border-left: solid 1px var(--border);
+    border-right: solid 1px var(--border);
+    /* position: absolute; */
+    margin-left: 300px;
+    
+}
+
+.dashboard-container > main {
+    /* background-color: rgb(62, 189, 24); */
+   
+}
+
+
+
+
+
+.textarea-container {
+    position: relative;
+  }
+  
+  textarea {
+    width: 90%;
+  }
+  
+  .comment-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 50px;
+  }
+
+.addcomment-content > .profile-icon {
+    background-color: bisque;
+    scale: 0.5;
+    
+}
+
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  background-color: chocolate;
+}
+
+.comment-item {
+  display: flex;
+  align-items: start;
+}
+
+.comment-item .profile-icon {
+  scale: 0.5;
+}

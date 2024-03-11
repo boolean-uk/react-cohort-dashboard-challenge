@@ -1,0 +1,57 @@
+@import '../styles/SideBar.css';
+@import '../styles/DashBoard.css';
+@import '../styles/Comments.css';
+@import '../styles/ProfileCircle.css';
+
+#root {
+  font-family: sans-serif;
+  max-width: 1280px;
+  /* margin: 0 auto; */
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: center;
+  
+  /* Front color */
+  color: #000046;
+  --primary:  color: #000046;
+  /* --primary-transparent-more: rgba(241, 241, 6, 0.514); */
+  
+}
+
+
+body {
+  color: var(--black);
+  min-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #F0F5FA;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+
+

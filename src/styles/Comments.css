@@ -1,0 +1,61 @@
+/* Style comments: */
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.comment-item > .comment-content {
+  background-color: #e6ebf5;
+  width: auto;
+  padding: 15px;
+  border-radius: 0.6em;
+}
+
+.comments-container button {
+  width: 100px;
+  border-radius: 0.6em;
+  background-color: #e6ebf5;
+}
+
+.post-addcomment{
+  margin-bottom: 100px;
+}
+.post-addcomment .addcomment-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+ }
+
+.textarea-container {
+  background-color: #e6ebf5;
+  width: auto;
+  padding: 15px;
+  border-radius: 0.6em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.textarea-container textarea {
+  background-color: #e6ebf5;
+  width: auto;
+  padding: 15px;
+  border-radius: 0.6em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}

@@ -1,0 +1,38 @@
+
+/* STyling post: */
+.post {
+    margin: 10px; /* Add margin around the post */
+  }
+  
+.post .post-content {
+    display: flex;  
+    flex-direction: column;
+    align-items: start;
+}
+
+.profile-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-icon {
+    margin-right: 20px; 
+}
+ 
+.profile-info {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    align-items: start; /* Vertically center items */
+    flex-direction: column;
+}
+
+.profile-info h3,
+.profile-info h4 {
+  margin: 0;
+}
+
+.post-content p {
+    text-align: start; /* Align text to the start */
+    margin-left: 5px;
+}
