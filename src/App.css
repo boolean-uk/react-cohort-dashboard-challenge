@@ -1,0 +1,22 @@
+.post .name {
+    font-weight: bold;
+}
+
+.post .title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.post .content {
+    /* Add any additional styling for the content here */
+}
+
+.post {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    font-family: 'Arial', sans-serif; /* Replace 'Arial' with your preferred font */
+    overflow: auto;
+}
+

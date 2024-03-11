@@ -1,0 +1,192 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  align-items: left;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 15%;
+  height: 100%;
+  max-height: calc(100vh - 60px);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Arial', sans-serif;
+}
+
+.sidebar ul {
+  padding: 0;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+  padding: 10px; /* Add some padding for better appearance */
+  background-color: #fff; /* Ensure li elements have a white background */
+  border-radius: 5px; /* Add border radius to soften edges */
+}
+
+.sidebar ul li:hover {
+  background-color: #e6ebf5;
+}
+
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background-color: #F0F5FA;
+}
+
+.blue {
+  background-color:#000046;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.post {
+  background-color: white;
+  margin: 10px;
+  height: 200;
+  width: 90%;
+}
+
+.create-post {
+  background-color: white;
+  margin: 10px;
+  height: 50px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Arial', sans-serif; 
+}
+
+.post-input {
+  background-color: #e6ebf5;
+  color: #000;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+  height: 35px;
+  margin-right: 10px;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.post-button {
+  background-color: #000046;
+  color: white;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: 200px; /* Set a fixed width for the button */
+  height: 50px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.post-button:hover {
+  background-color: #64dc78; /* Change background color on hover */
+}
+
+.comment-input {
+  background-color: #e6ebf5;
+  color: #000;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+  height: 35px;
+  margin-right: 10px;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.comment-button {
+  background-color: #000046;
+  color: white;
+  padding: 8px; /* Add padding similar to post divs */
+  margin-bottom: 16px; /* Add margin bottom similar to post divs */
+  width: 200px; /* Set a fixed width for the button */
+  height: 50px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px; /* Add rounded corners */
+  font-family: Arial, sans-serif; /* Match font type with other elements */
+  font-size: 16px;
+}
+
+.grey-line {
+  border-top: 1px solid rgba(128, 128, 128, 0.5); /* Grey line with 50% opacity */
+  padding-bottom: 15px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start; /* Adjust alignment as needed */
+  padding-bottom: 10px;
+}
+
+.comment .comment-content {
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  padding: 10px;
+  width: calc(100% - 300px); /* Adjust the width based on the total width of the button and margin */
+}
+
+.comment .comment-content .content {
+  margin-top: 5px; /* Adjust margin as needed */
+}
+
+.comment .comment-content p {
+  margin: 0; /* Remove default margin */
+}
