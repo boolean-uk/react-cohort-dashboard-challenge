@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
 import PersonProfile from "./components/PersonProfile";
 import PostListItem from "./components/PostListItem";
+import SinglePost from "./components/SinglePost";
 
 const MyContext = createContext();
 
@@ -50,10 +51,10 @@ function App() {
         <div className="container">
           <Header />
           <Routes>
-            {/* <Route path="/" element={<Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched}/>} /> */}
             <Route path="/" element={<Dashboard posts={posts} setPosts={setPosts} setDataFetched={setDataFetched} />} />
-            <Route path="/view/post/:postId" element={<PostListItem setDataFetched={setDataFetched} posts={posts} setPosts={setPosts} />} />
-            <Route path="/view/:id" element={<PersonProfile/>} />
+            <Route path="/view/post/:postId" element={<SinglePost posts={posts} setPosts={setPosts}/>} />
+            <Route path="/view/profile/:id" element={<PersonProfile/>} />
+            {/* <Route path="/view/post/:postId" element={<PostListItem setDataFetched={setDataFetched} posts={posts} setPosts={setPosts} />} /> */}
         </Routes>
         </div>
     </>

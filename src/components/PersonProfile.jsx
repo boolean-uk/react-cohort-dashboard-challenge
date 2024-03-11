@@ -1,5 +1,5 @@
 export default function PersonProfile() {
     return (
-        <div></div>
+        <div>HEJ FABIAN</div>
     )
 }
