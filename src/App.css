@@ -1,0 +1,60 @@
+body {
+  background-color: #f0f5fa;
+  color: #000046;
+  
+}
+
+
+header {
+  background-color: #000046;
+}
+
+
+
+form input {
+  background-color: #e6ebf5;
+  color: #000046;
+}
+
+
+
+button {
+  background-color: #000046;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  margin-right: 640px;
+  margin-top: 10px;
+  
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+
+
+.post-title {
+  color: #64648c;
+}
+
+.author-circle {
+  background-color: #000046;
+  color: #ffffff;
+}
+
+.content-container {
+  display: flex;
+  
+}
+
+
+.left-menu {
+  width: 100px;
+
+}
+
+
+.dashboard-component {
+  flex-grow: 1;
+}
