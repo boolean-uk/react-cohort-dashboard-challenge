@@ -14,7 +14,7 @@ make the child components lay out using flex, vertically stacked in a column */
   height: 100vh;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
-  color:  #000046;
+  color: #000046;
   flex-direction: column;
 }
 /* Create a container that fills the rest of the screen that is left over */
@@ -88,7 +88,7 @@ make the child components lay out using flex, vertically stacked in a column */
   width: 360px;
   margin-left: 20px;
 
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .header-circle {
@@ -170,7 +170,7 @@ make the child components lay out using flex, vertically stacked in a column */
 
 .post {
   display: flex;
-width: 70vw
+  width: 70vw;
 }
 
 .post-user {
@@ -183,7 +183,6 @@ width: 70vw
 
 .comment {
   display: flex;
-  
 }
 
 .post-circle {
@@ -199,7 +198,8 @@ width: 70vw
   background-color: #e6ebf5;
 }
 
-.comment-box p, input#comment {
+.comment-box p,
+input#comment {
   margin-left: 10px;
   margin-right: 50px;
 }
@@ -223,7 +223,8 @@ hr {
 }
 
 .create-post input,
-.post-create-comment input, .profile-form input {
+.post-create-comment input,
+.profile-form input {
   border: none;
   border-radius: 5px;
   background-color: #e6ebf5;
@@ -234,27 +235,24 @@ hr {
   width: 70%;
 }
 
-
 .comment-user-name {
   font-weight: bold;
 }
 
 .outer-label-input {
   margin-top: 30px;
-    display: grid;
+  display: grid;
   grid-template-columns: 20% 60% 20%;
-
-
 }
 
-.label-and-input  {
+.label-and-input {
   margin-top: 10px;
   display: grid;
   grid-template-rows: 30px 40px;
   position: relative;
 }
 .label-and-input input {
-  padding-left: 10px
+  padding-left: 10px;
 }
 
 div.label {
@@ -262,7 +260,7 @@ div.label {
   top: -20px;
   left: 5px;
   font-size: small;
-  color: #64648C;
+  color: #64648c;
 }
 
 .profile-form button {
@@ -276,65 +274,94 @@ div.label {
   border-radius: 5px;
   border: 0.1px solid #d6dbe1;
   margin: 10px;
-
-
 }
 
-.profile h2 {
+.profile h1 {
   text-align: left;
   text-indent: 20px;
 }
 
 .form-avatar {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
-
-.profile .header  {
+.profile .header {
   display: grid;
-  grid-template-columns: 8% 70%;
+  grid-template-columns: 5% 80%;
   text-align: left;
 }
 
-.profile .header h3 {
-  margin-top: 25px;
+.profile .header h2 {
+  margin-top: 35px;
+  margin-left: 10px;
 }
 
 input#comment {
   border-style: none;
   background-color: #e6ebf5;
-
 }
 
 a {
-  
-  color: inherit; 
+  color: inherit;
   text-decoration: inherit;
-
 }
 
-
-input#post, input#comment {
+input#post,
+input#comment {
   max-width: 90%;
   border-radius: 5px;
   border: 0.1px solid #d6dbe1;
   margin-left: 10px;
   margin-top: 10px;
   background-color: #e6ebf5;
-
 }
 
 .comment-buttons {
   display: grid;
   grid-template-rows: auto 20px 20px auto;
   border: none;
+  margin-left: 10px;
 }
 
-.comment button, .post-create-comment button , .post-header button  {
-padding: 0, ;
-border: none;
-background: none;
-text-align: left;
-color: #757575
+.comment button,
+.post-create-comment button,
+.post-header button,
+.hide-show-comments {
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #757575;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  margin-top: 50px;
+}
+
+.first-column,
+.second-column {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  margin-left: 50px;
+}
+
+.second-row {
+  margin-top: 100px;
+}
+
+.grid h3 {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.delete {
+  margin-left: 10px;
+}
+
+.comment-buttons-editing,
+.post-comment {
+  margin-left: 10px;
 }

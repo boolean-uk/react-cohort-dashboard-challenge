@@ -15,7 +15,7 @@ export default function CommentList({ post, comments, setComments }) {
 
   return (
     <>
-      {comments.length > 3 && <button onClick={() => setViewAll(!viewAll)}>{viewAll? "Hide previous comments":"See previous comments"}</button>}
+      {comments.length > 3 && <button className="hide-show-comments" onClick={() => setViewAll(!viewAll)}>{viewAll? "Hide previous comments":"See previous comments"}</button>}
       {filteredComments.map((comment, index) => (
         <CommentListItem key={index} comment={comment} setComments={setComments} comments={comments}/>
       ))}

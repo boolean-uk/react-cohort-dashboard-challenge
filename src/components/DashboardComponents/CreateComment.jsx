@@ -7,8 +7,7 @@ export default function CreateComment({post, setComments, comments}) {
   const user = useContext(DataContext).user;
   const posts = useContext(DataContext).posts;
   const setPosts = useContext(DataContext).setPosts;
-  const [newComment, setNewComment] = useState(initState); //TODO: change this to be correct
-
+  const [newComment, setNewComment] = useState(initState); 
 
   function handleChange(event) {
     setNewComment({ ...newComment, [event.target.name]: event.target.value });
@@ -57,7 +56,7 @@ export default function CreateComment({post, setComments, comments}) {
         onChange={handleChange}
         value={newComment.content}
       />
-      <button type="submit">Post</button>
+      <button className="post-comment" type="submit">Post</button>
     </form>
   );
 }

@@ -94,8 +94,12 @@ export default function PostHeader({
           )}
           {!editing && (
             <div>
-              <button onClick={edit}>Edit</button>
-              <button onClick={deletePost}>Delete</button>
+              <button className="edit" onClick={edit}>
+                Edit
+              </button>
+              <button className="delete"  onClick={deletePost}>
+                Delete
+              </button>
             </div>
           )}
         </div>

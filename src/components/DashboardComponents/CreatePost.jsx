@@ -7,7 +7,7 @@ export default function CreatePost() {
   const user = useContext(DataContext).user;
   const posts = useContext(DataContext).posts;
   const setPosts = useContext(DataContext).setPosts;
-  const [newPost, setNewPost] = useState(initState); //TODO: change this to be correct
+  const [newPost, setNewPost] = useState(initState); 
 
 
   function handleChange(event) {
