@@ -1,0 +1,47 @@
+.createpost {
+    .card {
+        background-color: white;
+        border: 0px rgb(204, 204, 204) solid;
+        border-radius: 5px;
+        padding: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        display: flex;
+
+        .textbox {
+            height: 48px;
+            width: 100%;
+            padding: 0;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+
+            background-color: #e6ebf5;
+            border: none;
+            border-radius: 5px;
+            font-family: Segoe UI;
+            font-size: 18px;
+            color: #000046;
+        }
+
+        .button {
+            height: 48px;
+            width: 192px;
+            border: none;
+            border-radius: 5px;
+
+            background-color: #000046;
+            transition: background-color 0.3s ease;
+
+            color: white;
+            font-size: 18px;
+            font-family: Segoe UI;
+
+            &:hover {
+                background-color: #64dc78
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.topbar {
+    height: 70px;
+    width: 100vw;
+    background-color: #000046;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    .logo {
+        padding-left: 0.8rem;
+        height: 80%;
+    }
+
+    .usericon {
+        justify-self: end; 
+        margin-right: 0.8rem;
+    }
+}
+
+
+
