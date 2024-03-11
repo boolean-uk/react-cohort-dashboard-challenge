@@ -1,0 +1,367 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000046;
+  flex-direction: column;
+}
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: grid;
+  grid-template-columns: 200px auto;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: #000046;
+}
+.red {
+  background-color: #f0f5fa;
+}
+
+.green {
+  background-color: #e6ebf5;
+}
+
+.post img {
+  width: 20px;
+}
+
+.create-post {
+  background-color: #f0f5fa;
+  margin: 10px;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000046;
+  text-align: center;
+  background: #ffffff;
+}
+
+.header-logo {
+  height: 80px;
+  width: 360px;
+  margin-left: 20px;
+
+  margin-bottom: 10px;
+}
+
+.header-circle {
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000046;
+  text-align: center;
+  margin-left: 70vw;
+  margin-top: 7px;
+}
+
+.header-name {
+  font-weight: bold;
+}
+
+.header-top {
+  display: inline-block;
+}
+
+.home {
+  color: #000046;
+  font-weight: bold;
+}
+
+.home-icon {
+  margin-top: 20px;
+}
+
+.header-div {
+  display: flex;
+}
+
+.current-tab {
+  background: #d6dbe1;
+}
+
+.post-container {
+  background-color: #f0f5fa;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin: 10px;
+  height: fit-content;
+  min-height: 200px;
+  width: 100%;
+  overflow: auto;
+  display: block;
+  position: relative;
+}
+
+.post-child {
+  padding: 10px;
+  display: flex;
+  text-align: left;
+}
+
+.post-commentlist {
+  display: block;
+  float: left;
+  width: 90%;
+}
+
+.post-create-comment {
+  width: 90%;
+}
+
+.post-content {
+  margin-left: 10px;
+}
+
+.post-title-and-user {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.post {
+  display: flex;
+  width: 70vw;
+}
+
+.post-user {
+  width: 100%;
+}
+
+.post-title {
+  width: 100%;
+}
+
+.comment {
+  display: flex;
+}
+
+.post-circle {
+  margin-top: 7px;
+}
+
+.comment-box {
+  max-width: 90%;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #e6ebf5;
+}
+
+.comment-box p,
+input#comment {
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+hr {
+  width: 98%;
+  border-color: #e6ebf5;
+}
+
+.post-create-comment input {
+  margin-left: 10px;
+}
+
+.create-post form {
+  padding: 10px;
+}
+
+.create-post input,
+.create-post button {
+  margin-left: 10px;
+}
+
+.create-post input,
+.post-create-comment input,
+.profile-form input {
+  border: none;
+  border-radius: 5px;
+  background-color: #e6ebf5;
+  height: 40px;
+}
+
+.create-post input#content {
+  width: 70%;
+}
+
+.comment-user-name {
+  font-weight: bold;
+}
+
+.outer-label-input {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.label-and-input {
+  margin-top: 10px;
+  display: grid;
+  grid-template-rows: 30px 40px;
+  position: relative;
+}
+.label-and-input input {
+  padding-left: 10px;
+}
+
+div.label {
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  font-size: small;
+  color: #64648c;
+}
+
+.profile-form button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  width: calc(100vw - 200px);
+  background-color: #f0f5fa;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin: 10px;
+}
+
+.profile h1 {
+  text-align: left;
+  text-indent: 20px;
+}
+
+.form-avatar {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.profile .header {
+  display: grid;
+  grid-template-columns: 5% 80%;
+  text-align: left;
+}
+
+.profile .header h2 {
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
+input#comment {
+  border-style: none;
+  background-color: #e6ebf5;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+input#post,
+input#comment {
+  max-width: 90%;
+  border-radius: 5px;
+  border: 0.1px solid #d6dbe1;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: #e6ebf5;
+}
+
+.comment-buttons {
+  display: grid;
+  grid-template-rows: auto 20px 20px auto;
+  border: none;
+  margin-left: 10px;
+}
+
+.comment button,
+.post-create-comment button,
+.post-header button,
+.hide-show-comments {
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #757575;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  margin-top: 50px;
+}
+
+.first-column,
+.second-column {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  margin-left: 50px;
+}
+
+.second-row {
+  margin-top: 100px;
+}
+
+.grid h3 {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.delete {
+  margin-left: 10px;
+}
+
+.comment-buttons-editing,
+.post-comment {
+  margin-left: 10px;
+}
