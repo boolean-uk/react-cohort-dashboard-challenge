@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+body {
+  margin: 0;
+
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 400;
+}
+/*
+
+#root {
+  color-scheme: light dark;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}*/
+
+/* HEADER */
+/* Header styles */
+header {
+  background-color: #000046;
+  color: #ffffff; /* Font color */
+  width: 100%; /* width to 100% of viewport width */
+  position: fixed;
+  top: 0;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+.header svg {
+  width: 400px; /* Adjust the width of the SVG as needed */
+  height: 60px; /* Allows the SVG to scale proportionally */
+
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #000046;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background-color: #64dc78;
+  font-weight: bold;
+}
+
+.header .profile-picture {
+  position: absolute;
+  right: 100px;
+}
+
+/* Button styles */
+button {
+  background-color: #000046;
+  color: #ffffff; /* Button font color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*Button hover styles*/
+button:hover {
+  background-color: #64dc78;
+}
+
+
+/* Form input styles */
+input[type="text"], textarea {
+  background-color: #e6ebf5;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+
+/* Input focus style */
+input[type="text"]:focus, textarea:focus {
+  background-color: #ffffff;
+}
+
+
+
+/* CARD */
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: -80px;
+  margin-left: 15%;
+  margin-right: 3%;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+  margin-top: 10%;
+}
+
+.card h3 {
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666666;
+  line-height: 1.5;
+}
+.card:last-child {
+  margin-bottom: 20px;
+
+}
+
+/* SIDEBAR*/
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 133px;
+  position: fixed;
+  top: 10%;
+  padding-top: 20px;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+
+}
+
+/* Sidebar links */
+.sidebar a {
+  padding: 10px;
+  text-decoration: none;
+  color: #000046; /* Link font color */
+  display: block;
+}
+
+/* Change the color of the active link */
+.sidebar a.active {
+  background-color: #ffffff;
+  color: #000046; /* Active link font color */
+}
+
+.selected {
+  background-color: #333; 
+  color: #fff; 
+}
+
+ul{
+  list-style: none;
+}
+
+.sidebar ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+
+/*SIDEBAR ICONS*/
+/* home icon .home-icon {
+  padding: 25px; 
+  margin-top: 20px;
+}
+*/
+
+
+.sidebar .home-icon,
+.sidebar .create-post-icon,
+.sidebar .profile-icon {
+  display: flex;
+  align-items: center;
+}
+
+/*---------CREATE_POST--------------------------------*/
+/* custom-styles.css this is for the Create Post*/
+
+.container.custom-container {
+  padding-top: 120px;
+}
+
+/* Override Bootstrap button styles */
+.btn-primary {
+  background-color: #000046;
+  color: #ffffff;
+  border: none;
+}
+
+/* Add hover effect to Bootstrap buttons */
+.btn-primary:hover {
+  background-color: #64dc78;
+}
+
+/* Style for content textarea */
+.form-control#content {
+  background-color: #e6ebf5;
+}
+
+/* Change background color when textarea is focused */
+.form-control#content:focus {
+  background-color: #ffffff;
+}
+
+
+
+
+/*COMMENTFORM CSS*/
+.comment-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.comment-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.comment-list li {
+  background-color: #e6ebf5; /* Background color for each comment */
+  padding: 10px; /* Padding around each comment */
+  margin-bottom: 10px; /* Spacing between comments */
+  border-radius: 8px; /* Rounded corners for each comment */
+}
+
+/* Add this CSS to your existing CSS file or create a new one */
+
+.comment-list {
+  list-style: none; /* Remove default list styles */
+  padding: 0;
+}
+
+.comment-list li {
+  display: block; /* Display each comment on a new line */
+  margin-right: 10px; /* Add some spacing between comments */
+}
+
+.comment-text {
+  background-color: #e6ebf5; /* Background color for comment text */
+  border-radius: 8px; /* Rounded corners for comment text */
+  width: auto;
+}
+
+
+
+/*PROFILE FORM*/
+
+/* Custom CSS for styling the form */
+
+.container {
+  padding-top: 50px; /* Add space from the top */
+  position: absolute;
+  right: 1%;
+
+}
+
+.account-info,
+.contact-info,
+.address-info,
+.company-info {
+  margin-bottom: 20px; /* Add space between sections */
+}
+
+form h3 {
+  margin-bottom: 15px; /* Add space below section headings */
+}
+
+.form-group label {
+  font-weight: bold; /* Make labels bold */
+}
+
+.btn-primary {
+  margin-top: 20px; /* Add space above the save button */
+}
+
+/* Align input fields on the same line */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Adjust the width of input fields */
+.form-row input {
+  width: 48%; /* Adjust as needed */
+}
+
+/* Set white background for the form */
+form.row {
+  background-color: #fff;
+  padding: 20px; /* Add padding for better readability */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+a {
+  text-decoration: none;
+}
+
+.full-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.title-wrapper {
+  margin-left: 10px;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.title-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+}
