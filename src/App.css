@@ -1,0 +1,228 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+  background-color: #F0F5FA;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p, h1, h2, h3 {
+  color: #000046; /* Set text color for paragraphs */
+}
+
+button {
+  background-color: #000046;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+input[type="text"] {
+  background-color: #e6ebf5;
+  color: #202020;
+  width: 500px;
+  border-radius: 5px;
+  border: none;
+  padding: 7px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.input-container input {
+  width: 350px;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100vw;
+  background-color: #000046;
+}
+
+.header-title {
+  max-height: 80%;
+  margin: 10px; /* Adjust the margin as needed for spacing */
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  background-color: #fdfdfd;
+}
+
+.sidebar img {
+  max-height: 80%;
+  margin-top: 20px;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.create-post {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  width: 800px;
+}
+
+/* Each <li> post and viewpost */
+.post {
+  background-color:  #fdfdfd;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 800px;
+}
+
+.post-title {
+  color: #64648c;
+}
+
+.pic-and-name {
+  display: flex;
+}
+
+.comment {
+  width: 600px;
+}
+
+.profile-container {
+  position: relative;
+  transform: translate(0%, 15%);  /* få cirkel i mitten av profilnamn*/
+}
+
+.profile-image {
+  width: 50px; /* Set the width as needed */
+  height: 50px; /* Set the height as needed */
+  border-radius: 50%; /* Make it a circle */
+}
+
+.profile-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);  /* få text i mitten av cirkel*/
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.profile_circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.home-icon:hover, .profile-icon:hover {
+  filter: brightness(2);
+}
+
+.header-title:hover {
+  filter: brightness(0.9);
+}
+
+.top-right-icon {
+  margin-left: 700px;
+  margin-bottom: 12px;
+}
+
+.top-right-icon .profile-text {
+  margin-top: 10px;
+}
+
+.profile-page {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.profile-page label{
+  color: #4b4b50;
+  font-size: 80%;
+  margin-left: 10px;
+}
+
+.profile-title {
+  margin: 30px;
+}
+
+.profile-four-areas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  grid-template-rows: repeat(2, 1fr);    /* Two rows with equal height */
+  gap: 10px; /* Adjust the gap between grid items */
+}
+
+.input-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.save-button {
+  margin-left: 700px;
+}
+
+.link {
+  text-decoration: none;
+}
