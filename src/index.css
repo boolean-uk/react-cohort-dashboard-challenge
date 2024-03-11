@@ -1,0 +1,40 @@
+:root {
+--inoffensive-blue: #000046;
+--paper-grey: #e6ebf5;
+--click-me-green: #64dc78;
+--purpose-purple: #64648c;
+--sky-blue: #F0F5FA;
+}
+
+#root, body, html, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--inoffensive-blue);
+}
+
+body {
+  background-color: var(--sky-blue);
+}
+
+.window, button, input {
+  border: none;
+  border-radius: 10px;
+}
+
+.window {
+  background-color: white;
+}
+
+button {
+  color: white;
+  background-color: var(--inoffensive-blue);
+}
+
+button:hover {
+  background-color: var(--click-me-green);
+}
+
+input, textarea {
+  background-color: var(--paper-grey);
+}
