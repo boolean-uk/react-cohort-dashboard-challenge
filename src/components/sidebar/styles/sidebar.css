@@ -1,0 +1,36 @@
+.sidebar-container {
+    color: #000046;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000046;
+}
+
+.item-container:hover {
+    background-color: #64dc78;
+}
+
+.active {
+    background-color: #e6ebf5;
+}

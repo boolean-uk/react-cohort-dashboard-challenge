@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000046;
+    padding: 1rem 3rem;
+}
+
+svg {
+    height: 2rem;
+}
