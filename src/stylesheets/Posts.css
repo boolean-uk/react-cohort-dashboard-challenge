@@ -1,0 +1,170 @@
+.post {
+    background: white;
+    width: 750px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 50px;
+    border: 1px solid gray;
+}
+
+
+
+.onlyPost {
+    margin-left: 40px;
+}
+
+.closeButton {
+    text-align: right;
+    margin-right: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+}
+
+.editButton {
+    text-align: right;
+    margin-right: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.postHead {
+    margin-left: 90px;
+    height: 20px;
+    position: relative;
+    top: -100px;
+}
+
+h1.postHead {
+    font-size: 30px;
+    font-weight: 1000;
+    width: fit-content;
+}
+
+h2.postHead {
+    font-size: 15px;
+}
+
+.postText {
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: gray solid 1px;
+    margin-top: -50px;
+}
+
+.comment {
+    background: hsl(220, 43%, 93%);
+    width: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 50px;
+    padding-right: 20px;
+    position: relative;
+    display: block;
+}
+
+.comment h1 {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.comment h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+input {
+    background-color: #e6ebf5;
+    border: none;
+    height: 50px;
+    width: 630px;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 10px;
+    font-size: large;
+
+}
+
+.addComment span {
+    position: relative;
+    top: 50px
+}
+
+.addComment img {
+    width: 30px;
+    position: relative;
+    margin: -50px;
+    bottom: 40px
+}
+
+.addPost {
+    background: white;
+    border: 2px solid black;
+    padding: 4px;
+    margin: 5px;
+    display: grid;
+    width: fit-content;
+}
+
+.postButton {
+    background: #000046;
+    color: white
+}
+
+.showAllComments {
+    color: gray;
+    font-size: large;
+    font-weight: 600;
+}
+
+.commentButtons {
+    display: grid;
+    grid-template-columns: max-content max-content
+}
+
+.ownComment div.comment {
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+}
+
+.ownComment span.initials {
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    z-index: 1;
+}
+
+.ownCommentInitials {
+    position: relative;
+    top: 20px;
+    right: 10px;
+}
+
+.otherCommentInitials {
+    position: relative;
+    right: 30px;
+    top: 80px
+}
+
+.ownComment {
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-left: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+}
+
+.otherComment {
+    position: relative;
+    height: fit-content;
+}
+
+.postTop {
+    display: grid;
+    margin-top: -60px;
+}

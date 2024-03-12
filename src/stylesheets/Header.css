@@ -1,0 +1,19 @@
+.header {
+    background: #000046
+}
+
+.headerImage {
+    width: 500px;
+    height: 80px;
+}
+
+.header span {
+    height: 60px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    width: 60px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    display: inline-block;
+}

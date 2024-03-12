@@ -1,0 +1,17 @@
+    APP
+*Header
+*Navigation bar
+--Route
+*PostList   "/"
+*Post "post/:id"
+*Profile "/profile"
+--Route
+
+    POSTLIST
+*CreatePostForm
+*List of PostsListItems (Get posts)
+
+    POSTLISTITEMS
+*PostText       
+*List of Comments
+*Commentbar

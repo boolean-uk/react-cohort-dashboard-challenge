@@ -1,0 +1,40 @@
+#root {
+  background: white;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+span.initials {
+  height: 60px;
+  width: 60px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 35px;
+  text-align: center;
+  line-height: 60px;
+
+}
+
+span.postInitials {
+  position: relative;
+  top: 80px;
+  margin-left: 10px;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  color: #000046
+}
+
+h2 {
+  color: #000046
+}

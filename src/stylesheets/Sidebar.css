@@ -1,0 +1,25 @@
+.sidebar {
+    width: 150px;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    background: white;
+}
+
+.sidebar div {
+
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid lightgray
+}
+
+.sidebar div svg {
+
+    width: 80px;
+    height: max-content;
+    margin-right: auto;
+}
+
+.sidebar div.selected {
+    background: #e6ebf5;
+}
