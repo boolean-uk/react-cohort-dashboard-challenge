@@ -1,0 +1,23 @@
+.main {
+    display: grid;
+    grid-template-columns: 0.175fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+}
+    
+.left-bar { 
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: #fff;
+    height: 100%;
+}
+.content { 
+    grid-area: 1 / 2 / 2 / 3;
+    overflow: scroll;
+    padding: 1.5rem;
+}
+
+button:hover {
+    background-color: #64dc78;
+}

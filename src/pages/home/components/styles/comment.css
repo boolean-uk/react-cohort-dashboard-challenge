@@ -1,0 +1,17 @@
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.comment-text {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px; 
+    background-color: #e6ebf5;
+    max-width: 80%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

@@ -1,0 +1,20 @@
+.post-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000046;
+}
+.post-header-title {
+    cursor: pointer;
+}
+
+h3 {
+    margin: 0;
+}
