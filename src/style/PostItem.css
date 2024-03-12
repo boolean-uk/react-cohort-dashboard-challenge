@@ -1,0 +1,14 @@
+.postItem {
+    background-color: white;
+    border-radius: 4%;
+    margin-top: 30px;
+}
+
+.profileImage {
+    width: 30px;
+    margin-left: 20px;
+}
+
+.comments {
+    margin-top: 40px;
+}
