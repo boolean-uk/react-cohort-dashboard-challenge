@@ -1,0 +1,19 @@
+.header {
+    height: 60px;
+    width: 100%;
+    background-color:darkblue;
+}
+
+.titleIcon {
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+
+}
+
+.profileIcon {
+    height: 45px;
+    margin-top: 7px;
+    margin-right: 50px;
+    float: right;
+}
