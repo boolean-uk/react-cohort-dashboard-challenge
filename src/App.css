@@ -1,0 +1,538 @@
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f5fa;
+}
+
+.create-post {
+  background-color: white;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 10px;
+  height: 100px;
+  width: 1000px;
+  border-radius: 10px;
+}
+
+.update-post-form input {
+  width: 750px;
+  margin-right: 20px;
+  border-radius: 10px;
+  width: 650px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  padding: 3px;
+  border: none;
+  resize: none;
+}
+
+.update-post-form textarea {
+  margin-top: 3px;
+  margin-left: 35px;
+  margin-top: 5px;
+  font-size: 1rem;
+  width: 650px;
+  line-height: 1.7;
+  height: 90px;
+  padding: 3px;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+}
+
+.update-post-form .update-btn {
+  float: right;
+}
+
+/* create comment css */
+textarea {
+  background-color: #e6ebf5;
+  width: 750px;
+}
+
+.create-post input {
+  width: 750px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  padding: 3px;
+  border: none;
+  resize: none;
+}
+
+.create-post textarea {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 3px;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+}
+
+.textarea-section {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.create-comment .textarea-section {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  background-color: #e6ebf5;
+  margin-left: 90px;
+  width: 820px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.create-post .profile-icon-contact {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+/* comment container */
+.comment-container .profile-icon-contact {
+  margin: 30px;
+}
+
+.comment-container input {
+  border-radius: 10px;
+  width: 470px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  resize: none;
+}
+
+.div-comment {
+  background-color: #e6ebf5;
+  margin: 30px;
+  height: 100px;
+  border-width: 1px;
+  border-top: 1px solid #000046;
+  margin-left: 90px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.create-comment {
+  width: 900px;
+}
+
+.create-comment .profile-icon-contact {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.create-comment-form textarea {
+  margin-left: 30px;
+  border-radius: 10px;
+  margin-top: 5px;
+  height: 45px;
+  width: 700px;
+  outline: none;
+  border-color: none;
+  border: none;
+  resize: none;
+}
+
+.create-comment button {
+  float: right;
+}
+
+/* Post css */
+.post-content {
+  background-color: white;
+  margin-bottom: 10px;
+  width: 1000px;
+  border-radius: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 10px;
+}
+
+.post-content-div {
+  width: 900px;
+}
+
+.post-content-div .del-button .modify-btn {
+  float: right;
+}
+
+.post-content-div .show-comment-button {
+  margin-left: 25px;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  background-color: #f0f5fa;
+}
+
+.dashboard-profile {
+  background-color: #f0f5fa;
+  width: 900px;
+  margin-left: 20px;
+}
+
+.dashboard-profile .dashboard-title {
+  padding: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.dashboard-profile form {
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
+.dashboard-profile label {
+  display: block;
+}
+
+.dashboard-profile input {
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 3px;
+  border: none;
+  resize: none;
+}
+
+.dashboard-profile button {
+  margin-top: 70px;
+}
+
+.dashboard-profile .profile-location-form {
+  float: right;
+}
+
+.profile-link {
+  color: #000046;
+}
+
+.post-buttons-color-div .profile-link h3 {
+  position: relative;
+  top: 2px;
+  left: 12px;
+}
+
+.profile-form {
+  background-color: white;
+  padding: 10px;
+}
+
+.profile-form input {
+  background-color: #e6ebf5;
+}
+
+.dashboard-title {
+  background-color: white;
+}
+
+.dashboard-title {
+  padding-bottom: 10px;
+  text-align: inherit;
+}
+
+/* style for the header, it must have a fixed height and full width */
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: #000046;
+  font-size: 30px;
+  color: #000046;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-left: 60px;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.ligth-blue-background {
+  background-color: #f0f5fa;
+}
+
+.post-article {
+  color: #000046;
+  margin-left: 15px;
+}
+
+.show-comment-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.button:hover {
+  background-color: #64dc78; /* Green */
+}
+
+.comment-background {
+  background-color: #e6ebf5;
+}
+
+#title {
+  background-color: #e6ebf5;
+}
+
+/* BUTTONS */
+
+.post-buttons-color-div {
+  background-color: white;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+.post-btn {
+  float: right;
+  color: white;
+  background-color: #000046;
+  width: 140px;
+}
+
+.create-post button {
+  margin-top: 2px;
+  margin-right: 15px;
+}
+
+.del-button {
+  margin-top: 10px;
+  float: right;
+  color: white;
+  background-color: maroon;
+}
+
+.modify-btn {
+  margin-top: 10px;
+  float: right;
+  color: white;
+  background-color: darkorange;
+}
+
+.update-btn {
+  display: inline-block;
+  color: white;
+  background-color: #000046;
+}
+
+.update-button-img {
+  height: 25px;
+  width: 25px;
+  filter: saturate(500%) contrast(700%) brightness(600%) invert(30%) sepia(70%)
+    hue-rotate(150deg);
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.update-comment-input {
+  display: inline-block;
+  width: 100px;
+}
+
+.update-comment-field button {
+  background-color: #e6ebf5;
+}
+
+.update-comment-field {
+  margin: -10px;
+}
+
+.post-btn:hover {
+  background-color: #64dc78; /* Green */
+}
+
+.update-btn:hover {
+  background-color: #64dc78; /* Green */
+}
+
+.update-comment-field .img-update-btn {
+  background-color: #cfcee6;
+}
+
+.img-update-btn:hover {
+  background-color: #ffffff; /* Green */
+}
+
+.del-button:hover {
+  background-color: red; /* Green */
+}
+
+.modify-btn:hover {
+  background-color: orange; /* Green */
+}
+
+.post-title {
+  color: #64648c;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile-icon {
+  float: right;
+  margin-top: 55px;
+  margin-right: 50px;
+}
+
+.header-container #profile-icon-id-contact {
+  height: 45px;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 42px;
+  width: 45px;
+  margin-top: 45px;
+  border-radius: 50%;
+  background-color: #64dc78;
+  object-fit: inline-block;
+}
+
+.img-update-btn {
+  position: relative;
+  margin-left: 5px;
+  top: -4px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.profile-icon img {
+  height: 40px;
+  width: 40px;
+  margin-top: 50px;
+  border-radius: 50%;
+  background-color: #64dc78;
+  object-fit: inline-block;
+}
+
+.header {
+  height: 180px;
+  width: 100vw;
+}
+
+.cohort-manager {
+  margin-top: 55px;
+  margin-left: 50px;
+}
+
+.cohort-manager .cohort-image {
+  margin-top: 60px;
+  width: 220px;
+}
+
+.home-icon-div {
+  background-color: white;
+  padding: 5px;
+}
+
+.prof-icon-div {
+  background-color: white;
+  padding: 5px;
+}
+
+.home-icon-div-chosen {
+  background-color: #e6ebf5;
+  padding: 5px;
+}
+
+.prof-icon-div-chosen {
+  background-color: #e6ebf5;
+  padding: 5px;
+}
+
+.sidebar .home-icon {
+  margin: 68px;
+}
+
+.sidebar .prof-icon {
+  margin: 65px;
+}
+
+.create-comment-form button {
+  position: relative;
+  margin-top: 13px;
+  margin-right: 10px;
+}
+
+.profile-icon-contact {
+  float: left;
+  margin-top: 10px;
+  margin-right: 5px;
+  position: relative;
+}
+
+#profile-icon-id-contact {
+  top: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 42px;
+  height: 45px;
+  color: #000046;
+  width: 45px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.post-content-div .post-title {
+  position: relative;
+  margin-left: 13px;
+  bottom: 10px;
+}
+
+.dashboard-profile .profile-title {
+  position: relative;
+  left: 10px;
+  bottom: 7px;
+}
