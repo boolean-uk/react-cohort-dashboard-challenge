@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { PostContext } from "./Post";
@@ -7,7 +6,7 @@ import sendIcon from "../assets/images/sendicon.png";
 import Icon from "./Icon";
 
 export default function CreateComment() {
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
   const context = useContext(AppContext);
   const postContext = useContext(PostContext);
   const [flag, setFlag] = useState(true);
@@ -91,10 +90,3 @@ export default function CreateComment() {
     </div>
   );
 }
-
-CreateComment.propTypes = {
-  comments: PropTypes.array,
-  setComments: PropTypes.func,
-  post: PropTypes.object,
-  user: PropTypes.object,
-};

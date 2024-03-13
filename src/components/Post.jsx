@@ -17,7 +17,7 @@ function Post({ post }) {
   const [user, setUser] = useState("");
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
   const [update, setUpdate] = useState(false);
 
   const toggleComments = () => {
@@ -257,8 +257,4 @@ export { Post as default, PostContext };
 
 Post.propTypes = {
   post: PropTypes.object,
-  posts: PropTypes.array,
-  setPosts: PropTypes.func,
-  contacts: PropTypes.array,
-  findPost: PropTypes.func,
 };

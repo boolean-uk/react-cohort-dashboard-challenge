@@ -2,7 +2,6 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 import Profile from "./Profile";
 import Posts from "./Posts";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
 
@@ -31,12 +30,5 @@ function Dashboard() {
     </div>
   );
 }
-
-Dashboard.propTypes = {
-  posts: PropTypes.array,
-  setPosts: PropTypes.func,
-  contacts: PropTypes.array,
-  findPost: PropTypes.func,
-};
 
 export default Dashboard;

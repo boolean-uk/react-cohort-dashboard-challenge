@@ -8,7 +8,7 @@ const AppContext = createContext();
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [user, SetUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
   const [viewPost, setViewPost] = useState([]);
   const [viewFlag, setViewFlag] = useState(false);
@@ -29,28 +29,28 @@ function App() {
   }, [location.pathname, viewProfile]);
 
   // call data
-  useState(() => {
+  useEffect(() => {
     fetch(API_URL + "contact")
       .then((response) => response.json())
       .then((data) => {
         setContacts(data);
-        console.log(data);
-        SetUser(data[0]);
+        //console.log(data);
+        setUser(data[0]);
       });
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (contacts.length > 0) {
-      SetUser(contacts[0]);
+      setUser(contacts[0]);
     }
   }, [contacts]);
 
-  useState(() => {
+  useEffect(() => {
     fetch(API_URL + "post")
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
-        console.log(data);
+        //console.log(data);
       });
   }, []);
 

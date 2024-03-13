@@ -11,7 +11,7 @@ function Comment({ comment }) {
   const postContext = useContext(PostContext);
   const [user, setUser] = useState("");
   const [update, setUpdate] = useState(false);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -96,19 +96,12 @@ function Comment({ comment }) {
     setUpdate(false);
   };
 
-  useState(() => {
-    const thisUser = postContext.contacts.find(
-      (x) => parseInt(x.id) === parseInt(comment.contactId)
-    );
-    setUser(thisUser);
-  }, [comment]);
-
   useEffect(() => {
     const thisUser = postContext.contacts.find(
       (x) => parseInt(x.id) === parseInt(comment.contactId)
     );
     setUser(thisUser);
-  }, [postContext.contacts, comment, postContext.comments]);
+  }, [postContext.contacts, comment.contactId]);
 
   return (
     <div className="comment-container">
@@ -181,7 +174,4 @@ export default Comment;
 
 Comment.propTypes = {
   comment: PropTypes.object,
-  comments: PropTypes.array,
-  setComments: PropTypes.func,
-  contacts: PropTypes.array,
 };

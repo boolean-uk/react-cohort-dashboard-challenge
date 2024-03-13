@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import Icon from "./Icon";
 
 export default function CreatePost() {
   const context = useContext(AppContext);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
   const [flag, setFlag] = useState(true);
 
   const addPost = (formData) => {
@@ -93,9 +92,3 @@ export default function CreatePost() {
     </div>
   );
 }
-
-CreatePost.propTypes = {
-  posts: PropTypes.array,
-  setPosts: PropTypes.func,
-  user: PropTypes.object,
-};

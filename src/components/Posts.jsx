@@ -1,7 +1,6 @@
 // import CreatePost from "./CreatePost";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
-import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AppContext } from "../App";
 
@@ -27,10 +26,3 @@ function Posts() {
 }
 
 export default Posts;
-
-Posts.propTypes = {
-  posts: PropTypes.array,
-  setPosts: PropTypes.func,
-  contacts: PropTypes.array,
-  findPost: PropTypes.func,
-};
