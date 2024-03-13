@@ -1,0 +1,33 @@
+.box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.box-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+.headerBox {
+  background-color: #000046;
+  width: 100vw;
+  height: 60px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.sideBar {
+  background-color: #ffffff;
+  border: 0.5px solid #e6ebf5;
+  width: 100px;
+  height: 100%;
+  max-height: calc(100vh - 60px);
+}
+.sideBar-Button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+.sideBar-Button:hover {
+  background-color: #e7e7e7;
+}

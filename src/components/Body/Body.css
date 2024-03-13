@@ -1,0 +1,94 @@
+.post-box {
+  background-color: #ffffff;
+  border: 0.5px solid #e6ebf5;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 85vw;
+}
+.post-body {
+  border-bottom: 1.5px solid #e6ebf5;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.post-title {
+  font-weight: bold;
+  position: absolute;
+  left: 5%;
+  top: 0%;
+}
+.post-header {
+  position: relative;
+}
+.post-user {
+  color: #64648c;
+  font-weight: 300;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+}
+.main-body {
+  background-color: #f0f5fa;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 85px);
+  padding: 10px;
+}
+.form-input {
+  background-color: #e6ebf5;
+  border: 0.5px solid #c1c6ce;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 83%;
+  height: 25px;
+  padding: 0.6em 1.2em;
+}
+.profile-icon {
+  background-color: #5386ec;
+  border: 0.5px solid #c1c6ce;
+  border-radius: 100%;
+  padding: 0.6em;
+  font-weight: bold;
+  width: 22px;
+}
+.comment-input {
+  background-color: #e6ebf5;
+  border: 0.5px solid #c1c6ce;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 83%;
+  height: 25px;
+  padding: 0.6em 1.2em;
+}
+.comment {
+  position: relative;
+}
+.comment-icon {
+  background-color: #5386ec;
+  border: 0.5px solid #c1c6ce;
+  border-radius: 100%;
+  padding: 0.4em;
+  font-size: 11px;
+  width: 15px;
+  position: absolute;
+}
+.comment-box {
+  background-color: #e6ebf5;
+  border: 0px solid #c1c6ce;
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 3px;
+  font-size: 12px;
+  width: 95%;
+  margin-left: 30px;
+}
+.sideBar-title {
+  color: #64648c;
+  text-align: center;
+}
+.to-post {
+  color: #000000;
+  text-decoration: none;
+}

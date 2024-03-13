@@ -1,0 +1,48 @@
+Components:
+App /
+---- Header /
+---- SideBar /
+---- SinglePost /
+---- Body /
+-------- WritePost /
+-------- Feed /
+-------- Post /
+------------ PostHeader /
+------------ Comments /
+---------------- Commment /
+------------ AddComment /
+
+Routes:
+Home
+Profile
+1 for each Post
+States:
+Posts
+Comments for each Post
+NewPost
+
+PostStructure:
+{
+--"id": auto,
+--"contactId": X,
+--"title": "",
+--"content": ""
+},
+
+CommentStructure:
+[
+--{
+----"id": auto,
+----"postId": X,
+----"content": "",
+----"contactId": X
+--},
+]
+
+- Users should be able to create a new post. The new post should be displayed at the top of the post feed. ✔
+
+- Users should be able to comment on existing posts. ✔
+
+- Posts and comments should show the initials of the author in a coloured circle. ✔
+
+- Clicking a posts title (under the author name) should take the user to a separate route that shows only that post and all of its comments. You must use a route for this, not an array filter. ✔
