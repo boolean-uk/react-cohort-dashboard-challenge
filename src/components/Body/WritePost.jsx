@@ -10,7 +10,10 @@ const INITIAL_POST = {
 const currentUserId = 1; //This is a placeholder
 export default function WritePost() {
   const { posts, setPosts } = useContext(PostContext);
-  const [newPost, setNewPost] = useState({ title: "", content: "" });
+  const [newPost, setNewPost] = useState({
+    title: "",
+    content: "",
+  });
 
   const handleFormChange = (event) => {
     const { value } = event.target;

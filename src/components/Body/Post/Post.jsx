@@ -26,7 +26,6 @@ export default function Post({ post }) {
         });
   }, [post.contactId]);
   // ToDo: Re-fetch the posts somehow to update the feed with all information
-  // Promise.all?
   return (
     <>
       <div className="post-box">

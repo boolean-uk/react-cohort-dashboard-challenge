@@ -19,7 +19,7 @@ export default function Feed() {
       .catch((err) => {
         console.log(err);
       });
-  }, [posts, setPosts]);
+  }, [setPosts]);
 
   return (
     <>
