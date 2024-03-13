@@ -1,0 +1,19 @@
+.postListItem-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .postListItem {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Adjust as needed */
+  }
+  
+  h3, h4 {
+    margin: 5px 0;
+  }
+  
+  .view-post-link {
+    margin-top: 10px; /* Adjust as needed */
+  }
