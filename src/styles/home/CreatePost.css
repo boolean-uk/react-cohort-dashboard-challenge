@@ -1,0 +1,25 @@
+.create-post{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.create-post-input-field {
+    background-color: #e6ebf5;
+    color: black;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: none;
+    width: 100%;
+}
+
+.post-button {
+    margin-left: 1rem;
+}
+
+.post-button-text {
+    width: 10rem
+}
+
+.post-button-text:hover {
+    color: #64dc78;
+}
