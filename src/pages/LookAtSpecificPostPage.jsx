@@ -5,7 +5,7 @@ import Post from "../components/Post";
 import { getAPostByID } from "../Api";
 
 function LookAtSpecificPostPage() {
-  const [currentPost, setCurrentPost] = useState([]);
+  const [currentPost, setCurrentPost] = useState({});
 
   const { postId } = useParams();
 
@@ -35,9 +35,7 @@ function LookAtSpecificPostPage() {
           </button>
         </nav>
         <main className="main background">
-          {currentPost.map((postData, index) => (
-            <Post key={index} postData={postData} simulatedUserID={1} />
-          ))}
+          <Post postData={currentPost} simulatedUserID={1} />
         </main>
       </div>
     </div>

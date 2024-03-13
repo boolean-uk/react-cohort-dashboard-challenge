@@ -7,7 +7,7 @@ import {
   getAllComments,
   postNewCommentToAPI,
 } from "../Api.js";
-import GetInitalsFromNames from "../GetInitialsFromNames";
+import getInitalsFromNames from "../GetInitialsFromNames";
 import { Link } from "react-router-dom";
 
 const initialCommentData = "";
@@ -89,7 +89,7 @@ function Post(props) {
         <div className="post-head-circle">
           {posterInformation && (
             <p className="text">
-              {GetInitalsFromNames(
+              {getInitalsFromNames(
                 posterInformation.firstName,
                 posterInformation.lastName
               )}
@@ -112,10 +112,10 @@ function Post(props) {
       </div>
       <div className="post-box-comments">
         <p className="post-comments-header">Comments:</p>
-        {commentsList.map((comment, index) => {
+        {commentsList.map((comment) => {
           return (
             <CommentElement
-              key={index}
+              key={comment.id}
               comment={comment}
               posterInformation={posterInformation}
             />

@@ -64,11 +64,11 @@ export function getAllComments(
 
 export function makeNewPostToAPI(postRequestOption, setPostsData, postsData) {
   fetch("https://boolean-api-server.fly.dev/MackanPalm/post", postRequestOption)
-    .then((responce) => {
-      if (responce.ok) {
-        return responce.json();
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
       }
-      throw responce;
+      throw response;
     })
     .then((data) => {
       setPostsData([...postsData, data]);
@@ -113,7 +113,7 @@ export function getAPostByID(postId, setCurrentPost) {
       throw responce;
     })
     .then((data) => {
-      setCurrentPost([data]);
+      setCurrentPost(data);
     })
     .catch((err) => {
       console.log(err);

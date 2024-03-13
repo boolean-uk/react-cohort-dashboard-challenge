@@ -1,6 +1,6 @@
 import "../App.css";
 import PropTypes from "prop-types";
-import GetInitalsFromNames from "../GetInitialsFromNames";
+import getInitalsFromNames from "../GetInitialsFromNames";
 import { useEffect, useState } from "react";
 import { getAContactByID } from "../Api";
 function CommentElement(props) {
@@ -14,7 +14,7 @@ function CommentElement(props) {
       <div className="post-comment-circle">
         {posterInformation && (
           <p className="comment-circle-text">
-            {GetInitalsFromNames(
+            {getInitalsFromNames(
               posterInformation.firstName,
               posterInformation.lastName
             )}

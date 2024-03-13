@@ -8,16 +8,18 @@ import {
   HomePageIcon,
   MainPageIcon,
 } from "../components/images.jsx";
-import GetInitalsFromNames from "../GetInitialsFromNames.jsx";
+import getInitalsFromNames from "../GetInitialsFromNames.jsx";
 
-const InitialPostData = "";
+const initialPostData = "";
 
 function CohortManagerMainPage() {
   const [simulatedUserData, setSimulatedUserData] =
     useState(null); /* simulating a user with id 1 for posting  */
 
   const { postsData, setPostsData } = useContext(PostContext);
-  const [newPostData, setNewPostData] = useState(InitialPostData);
+  const [newPostData, setNewPostData] = useState(initialPostData);
+
+  const [canSubmit, setIsButtonEnabled] = useState(false);
 
   //Controls whether the post button should be disabled or not.
   useEffect(() => {
@@ -36,10 +38,12 @@ function CohortManagerMainPage() {
       !newPostData.includes("|")
     ) {
       console.log("you are not allowed to make an empty post");
-      document.getElementById("submit-button").disabled = "disabled";
+
+      setIsButtonEnabled(false);
     } else {
       console.log("enable button");
-      document.getElementById("submit-button").removeAttribute("disabled");
+
+      setIsButtonEnabled(true);
     }
   }, [newPostData]);
 
@@ -56,7 +60,7 @@ function CohortManagerMainPage() {
 
     MakeAPIPostRequest(postRequestData);
 
-    setNewPostData(InitialPostData); // this resets the text box
+    setNewPostData(initialPostData); // this resets the text box
   };
 
   //Splits the input text to the title and content and puts them in a postRequestBody object
@@ -103,7 +107,7 @@ function CohortManagerMainPage() {
             <div className="circle">
               {simulatedUserData && (
                 <p className="text">
-                  {GetInitalsFromNames(
+                  {getInitalsFromNames(
                     simulatedUserData.firstName,
                     simulatedUserData.lastName
                   )}
@@ -122,7 +126,7 @@ function CohortManagerMainPage() {
               <button
                 id="submit-button"
                 className="post-bar-button"
-                disabled="disabled"
+                disabled={!canSubmit}
               >
                 Post
               </button>
