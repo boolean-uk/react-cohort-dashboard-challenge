@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    color: white;
+    padding: 10px;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .header-collection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: auto;
+  }
+  
+  .header-icon {
+    cursor: pointer;
+    width: 300px;
+  }
+  
+  .header,
+  .header > button {
+    background-color: #000046;
+  }

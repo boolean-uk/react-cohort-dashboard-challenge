@@ -1,0 +1,15 @@
+.left-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100;
+    left: 0;
+    width: 5vw; /* Adjust the width as needed */
+    height: 800vh; /* Takes full height of the viewport */
+    background-color: #f0f0f0; /* Example background color */
+  }
+  
+  .routes {
+    margin-left: 60px; /* Width of the left menu */
+  }
