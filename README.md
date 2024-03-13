@@ -1,6 +1,7 @@
 # React Cohort Dashboard Challenge
 
 ## Learning Objectives
+
 - Use ReactJS to build an implementation of a provided application design
 - Use HTTP requests to interact with a RESTful API
 - Use routing to allow navigation between pages in a React app
@@ -8,6 +9,7 @@
 In this challenge, you'll create a social media style post feed. There is no boilerplate code provided - you'll be building this from scratch using the designs and specifications provided.
 
 ## Setting up React with Vite
+
 - Fork and clone the repository
 
 \-------------------------------------------------------------------------------------------------------
