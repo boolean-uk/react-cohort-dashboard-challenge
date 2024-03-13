@@ -1,13 +1,16 @@
 // App.jsx
 import '../styles//App.css'; 
+
+import { createContext, useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Header } from './Header.jsx';
 import { LeftMenu } from './LeftMenu.jsx';
 import { Feed } from './home/Feed.jsx';
-import { createContext, useEffect, useState } from 'react';
+import { Post } from './home/post/Post.jsx';
+import { Profile } from './profile/Profile.jsx';
 import { getPosts, postPost } from '../utils/postRequests.jsx';
 import { getUser } from '../utils/userRequests.jsx';
-import { Route, Routes } from 'react-router-dom';
-import { Post } from './home/post/Post.jsx';
+
 export const AuthContext = createContext('');
 export const PostsContext = createContext('')
 
@@ -60,7 +63,7 @@ function App() {
               <Route key={post.id} path={`/post/${post.id}`} element={<Post post={post} />} />
             ))}
             
-            <Route path='/profile/:id' element={<p>Profile will go here</p>} />
+            <Route path='/profile/:id' element={<Profile user={authUser}/>} />
           </Routes>
         </div>
       </div>

@@ -1,5 +1,6 @@
 .create-post{
     display: flex;
+    margin-top: 1rem;
 }
 
 .create-post-input-field {

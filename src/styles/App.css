@@ -5,6 +5,16 @@
 
 .main-content {
   position: absolute;
-  top: 78px;
-  left: 100px;
+  top: calc(78px);
+  left: calc(100px + 1rem);
+}
+
+.default-container {
+  width: calc(100vw - 181px);
+  margin-bottom: 10px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #e6ebf5;
+  border-radius: 5px;
+  padding: 1rem;
 }

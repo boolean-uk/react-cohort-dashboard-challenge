@@ -19,7 +19,7 @@ export const Post = ({post}) => {
   }, [post.contactId]);
 
   return (
-      <div className="feed-container">
+      <div className="default-container">
         <div className="post-header">
           <div>
             <ProfileImage user={user} />
