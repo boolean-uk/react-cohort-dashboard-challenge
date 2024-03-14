@@ -1,29 +1,26 @@
 import React from 'react'
-import '../styles/LeftSide.css'
-import HomeIcon from '../assets/leftside-home.svg'
-import ProfileIcon from '../assets/leftside-profile.svg'
+import '../../styles/LeftSide.css'
+import HomeIcon from '../../assets/leftside-home.svg'
+import ProfileIcon from '../../assets/leftside-profile.svg'
+import { UsersContext } from '../../App'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 
 function LeftSide() {
-
-    const handleHomeClick = () => {
-        console.log("Home says hi")
-    }
-    
-    const handleProfileClick = () => {
-        console.log("Profile says hi")
-    }
+    const {currentUser} = useContext(UsersContext)
+    if ( !currentUser ) return <h1>Loading ...</h1>
 
     return (
         <div className="left-side">
-            <button className="icon-box" onClick={handleHomeClick}>
+            <Link to="/" className='icon-box'>
                 <img src={HomeIcon} alt="Home" />
                 <p><b>Home</b></p>
-            </button>
-            <button className="icon-box" onClick={handleProfileClick}>
+            </Link>
+            <Link to={`/profile/${currentUser.id}`} className='icon-box'>
                 <img src={ProfileIcon} alt="Profile" />
                 <p><b>Profile</b></p>
-            </button>
+            </Link>
         </div>
     )
 }

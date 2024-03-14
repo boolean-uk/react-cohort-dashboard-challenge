@@ -1,6 +1,9 @@
 .header {
-    display: grid;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
     background-color: #000046;
 }
 
@@ -9,8 +12,10 @@
     margin-left: 5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+
 }
 
+.profile-picture {
+    margin-right: 5rem; 
 
-
-
+}
