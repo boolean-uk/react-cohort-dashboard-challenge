@@ -1,0 +1,33 @@
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .post-header div {
+    margin-right: 10px;
+  }
+  
+  .post-header p {
+    margin: 0;
+  }
+  
+  .post-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comments {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
