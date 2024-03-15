@@ -1,0 +1,17 @@
+
+- create get, post, put delete functions in app.jsx for posts API
+- Hardcode maincomponents: Dashboard, postview
+- Split into smaller components while updating contextfiles
+- navigation
+- styling
+
+
+ + Create new post
+ - print post sorted from newest-oldest
+ - create new comment
+
+- coloured circle with initials on each post and comment
+- Post-title under authorname
+- Link on post-title to /post/:id => view onlye that post with comments
+- Follow style guide
+- Get close to the design of the pictures

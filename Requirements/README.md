@@ -1,3 +1,33 @@
+# React Cohort Dashboard Challenge
+
+## Learning Objectives
+- Use ReactJS to build an implementation of a provided application design
+- Use HTTP requests to interact with a RESTful API
+- Use routing to allow navigation between pages in a React app
+
+In this challenge, you'll create a social media style post feed. There is no boilerplate code provided - you'll be building this from scratch using the designs and specifications provided.
+
+## Setting up React with Vite
+- Fork and clone the repository
+
+\-------------------------------------------------------------------------------------------------------
+
+MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS
+
+\-------------------------------------------------------------------------------------------------------
+
+- In the project root directory, run `npm create vite@latest . -- --template react`
+  - Be 100% sure that your current directory is this repo project root directory, as the command will HARD DELETE all existing files and folders in the current directory. This cannot be undone or restored easily.
+- When it asks you: `? Current directory is not empty. Remove existing files and continue? » (y/N)`
+  - re-read the warning above to check you are in the correct directory
+  - type the letter `y` and press `Enter`
+  - This will completely replace this existing repo on your machine with the Vite React project scaffold - this is expected
+  - To reference the original documentation/images provided in this repo, just go to the original online repo on the Boolean UK GitHub account
+- Run `npm install`
+- `npm run dev` to run the application
+
+The steps above will create a fresh React app using Vite. From this point on, it's up to you to decide how you want to structure your code. Try to stay organised :)
+
 ## Instructions
 
 [Implement this design](./_assets/dashboard.png) using, as a minimum, the below listed technologies. Note: you may need to open the file directly on your machine to view it properly.
@@ -10,7 +40,22 @@
 
 ## Core Requirements
 
+
+
+
+
+
+
+
+
+
+||--------------------------------------------------------------------------------------------------------------------------------------------------------------
 - Everything that *can* be its own component, *should* be its own component. You **must** provide evidence of planning what components you are going to create - this could be a component tree diagram, a bullet point list, a wireframe, whatever you like. Include your plan as a file in this repository.
+
+
+
+
+||--------------------------------------------------------------------------------------------------------------------------------------------------------------
 - Users should be able to create a new post. The new post should be displayed at the top of the post feed.
 - Users should be able to comment on existing posts.
 - Posts and comments should show the initials of the author in a coloured circle.
@@ -18,10 +63,33 @@
 - You must use [this style guide](./STYLE_GUIDE.md) to implement the colour scheme.
 - The layout does not need to be mobile responsive, nor does it need to be pixel perfect. Get as close as you can, but your main focus should be on React - not CSS.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Extension Requirements
 
 - Use the Context API to reduce prop drilling of state
-- Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them. => create variable toggle when clicked. If()=> pass in all or 3 comments
+- Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
     - Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
     - The fields should be automatically populated with the correct data when loading any user profile.
