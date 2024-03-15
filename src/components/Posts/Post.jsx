@@ -1,30 +1,34 @@
 import { useContext, useState, useEffect } from 'react'
 import { MetaContext } from '../../App'
+import { Link } from 'react-router-dom'
 import Avatar from '../common/Avatar'
 import Comments from '../Comments/Comments'
 import PropTypes from 'prop-types'
+import PostComment from '../Comments/PostComment'
 
-function Post ({ index }) {
-    const {posts} = useContext(MetaContext)
-    const {contacts} = useContext(MetaContext) 
-    const post = posts[index]
-    const [comments, setComments] = useState([])
+function Post({ post, showAllComments }) {
+    const { contacts } = useContext(MetaContext);
+    const [comments, setComments] = useState([]);
+    const [latestComment, setLatestComment] = useState({});
 
     useEffect(() => {
-        getComments()
-    }, [])
+        if (post) {
+            getComments();
+        }
+    }, [post, comments, latestComment]);
 
     function getComments() {
         fetch(`https://boolean-api-server.fly.dev/Hjaldrgud/post/${post.id}/comment`)
             .then((response) => response.json())
-            .then((data) => setComments(data))
-      }
+            .then((data) => {
+                setComments(data);
+            })
+            .catch((error) => console.error("Error fetching comments:", error));
+    }
 
-
-    //Ensure stuff loads in time
     const contact = contacts.find((c) => c.id === post.contactId);
     if (!contact) {
-    return null
+        return <p>Loading...</p>;
     }
 
     return (
@@ -36,7 +40,9 @@ function Post ({ index }) {
 
                 <div>
                     <h3 style={{ marginBottom: '0px' }}>{contact.firstName + " " + contact.lastName}</h3>
-                    <h5 style={{ marginTop: '5px', color: '#64648c' }}>{post.title}</h5>
+                    <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <h5  style={{ marginTop: '5px', color: '#64648c' }}>{post.title}</h5>
+                    </Link>
                 </div>
             </div>
             <div>
@@ -44,14 +50,15 @@ function Post ({ index }) {
             </div>
             <hr />
             <div>
-                <Comments comments={comments} />
+                <Comments comments={comments} showAllComments={showAllComments} /> {/* Pass showAllComments prop */}
+                <PostComment postId={post.id} setLatestComment={setLatestComment} />
             </div>
         </div>
-    )
+    );
 }
 
 Post.propTypes = {
-    index: PropTypes.number.isRequired
+    post: PropTypes.object.isRequired
 }
 
-export default Post
+export default Post;

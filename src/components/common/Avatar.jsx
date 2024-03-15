@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { MetaContext } from "../../App"
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 function Avatar({contactId}) {
   const {contacts, loggedIn} = useContext(MetaContext)
@@ -30,11 +31,13 @@ function Avatar({contactId}) {
   }
 
     return (
-      <div className="avatar">
-        <div className="avatar-circle" style={{ backgroundColor: colour }}>
-          <span className="initials">{initials}</span>
+      <Link to={`/profile/${contactId}`}>
+        <div className="avatar">
+          <div className="avatar-circle" style={{ backgroundColor: colour }}>
+            <span className="initials">{initials}</span>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   }
 
