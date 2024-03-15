@@ -53,20 +53,29 @@ body {
 }
 
 .home {
-  background-color: white;
   padding: 20%;
   margin-bottom: 2%;
   font-size: 1.5em;
-  border:0px;
+  border: 0;
+  background-color: #ffffff; 
 }
 
 .profile {
-  background-color: #e6ebf5;
   padding: 20%;
   margin-bottom: 2%;
   font-size: 1.5em;
-  border:0px;
+  border: 0;
+  background-color: #ffffff;
   color: #000046;
+}
+
+.home.active {
+  background-color: #e6ebf5; /
+}
+
+.profile.active {
+  background-color: #e6ebf5; 
+  
 }
 
 .home, .profile {
@@ -225,4 +234,18 @@ body {
   font-weight: bold;
   font-size: 1.2em;
   word-wrap: break-word;
+}
+
+.comment-container {
+  padding: 1%;
+  padding-right: 5%;
+  background-color: #F0F5FA;
+}
+
+.seeprev {
+  text-decoration: none;
+  color: grey;
+  margin: 3%;
+  cursor: pointer;
+  font-size: 1.3em; 
 }

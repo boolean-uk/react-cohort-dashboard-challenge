@@ -9,7 +9,7 @@ export default function Header({currentUser}) {
   return (
     <div className="header">
       <img className="header-logo" src={header} alt="Header Logo" /><br></br>
-      <div className="profile-icon-header" style={{ background: currentUser.favouriteColour }}>
+      <div className="profile-icon-header" style={{ background: favouriteColour }}>
       {firstInitial} {lastInitial}
       </div>
 
