@@ -23,7 +23,7 @@ function PostDetails(props) {
         const matchingPost = posts.find((post) => (post.id) === (postId));
         console.log("matching post", matchingPost);
         setPost(matchingPost);
-    }, [id, post])
+    }, [postId, post])
 
     useEffect(() => {
         fetch(GET_COMMENTS)
@@ -31,7 +31,7 @@ function PostDetails(props) {
         .then((responseData) => {
         setComments(responseData)
         });
-    }, []);
+    }, [id]);
 
     //add new comments in the detailed postPage
     const handleAddComments = (newComment) => {
@@ -43,7 +43,7 @@ function PostDetails(props) {
     return (
         <article>
         <h2>
-            {post.title} {}
+            {post.title}
         </h2>
         {post.content}
         <CommentList comments={comments} contacts={contacts} onAddComment={handleAddComments} postId={postId}/>

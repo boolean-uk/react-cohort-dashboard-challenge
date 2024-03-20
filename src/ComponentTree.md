@@ -25,5 +25,3 @@
             <ProfileForm/>
             
 </App>
-
-Implementera postDetails

@@ -14,29 +14,51 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [contacts, setContacts] = useState([]);
 
-  //fetch posts
-  useEffect(() => {
-    fetch(GET_POSTS)
-    .then((response) => response.json())
-    .then((responseData) => {
-      setPosts(responseData)
-    });
-  }, []);
+  // //fetch posts
+  // useEffect(() => {
+  //   console.log('running fetch: ', GET_POSTS);
+  //   fetch(GET_POSTS)
+  //   .then((response) => response.json())
+  //   .then((responseData) => {
+  //     setPosts(responseData)
+  //     console.log('post data',responseData);
+  //   });
+  // }, []);
 
-  //fetch contacts
+
+  // //fetch contacts
+  // useEffect(() => {
+  //   console.log('fetching contacts', GET_CONTACTS)
+  //   fetch(GET_CONTACTS)
+  //   .then((response) => response.json())
+  //   .then((responseData) => {
+  //     console.log('Posts fetched:', responseData);
+  //     setContacts(responseData)
+  //   });
+  // }, []);
+
   useEffect(() => {
-    fetch(GET_CONTACTS)
-    .then((response) => response.json())
-    .then((responseData) => {
-      setContacts(responseData)
-    });
+    console.log('Fetching data...');
+    
+    Promise.all([
+      fetch(GET_POSTS).then(response => response.json()),
+      fetch(GET_CONTACTS).then(response => response.json())
+    ])
+    .then(([postsData, contactsData]) => {
+      console.log('Posts fetched:', postsData);
+      console.log('Contacts fetched:', contactsData);
+      setPosts(postsData);
+      setContacts(contactsData);
+    })
+    .catch(error => console.error('Error fetching data:', error));
   }, []);
   
+  console.log('contacts: ', contacts);
+  console.log('posts: ', posts);
   //set default user to have ID = 1
   const currentUser = contacts.find((contact) => 
   contact.id === 1);
-  //initials of user
-  const userInitials = currentUser.firstName[0] + currentUser.lastName[0]
+  console.log('user: ', currentUser);
 
   //update when new posts are created
   const handleAddPosts = (newPost) => {
@@ -46,8 +68,10 @@ function App() {
   return (
     <>
       <header>
-        <div className="initials-circle">{userInitials}</div>
-        <img src= {header} alt='headerIcon'></img>
+        {currentUser && (
+            <div className="initials-circle">{currentUser.firstName[0]} {currentUser.lastName[0]}</div>
+          )}
+        <img src={header} alt='headerIcon'></img>
       </header>
       <Routes>
         <Route path="/" element={<Dashboard posts = {posts} contacts = {contacts} onAddPost={handleAddPosts}/>}/>
