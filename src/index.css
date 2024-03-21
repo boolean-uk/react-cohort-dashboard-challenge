@@ -1,0 +1,50 @@
+:root {
+--brand-blue: #000046;
+--paper-grey: #e6ebf5;
+--click-me-green: #64dc78;
+--purpose-purple: #64648c;
+--sky-blue: #F0F5FA;
+--header-height: 5rem;
+--sidebar-width: 8rem;
+}
+
+#root, body, html, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--brand-blue);
+}
+
+body {
+  background-color: var(--sky-blue);
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.panel, button, input {
+  border: none;
+  border-radius: 10px;
+}
+
+.panel {
+  background-color: white;
+}
+
+button {
+  color: white;
+  background-color: var(--brand-blue);
+}
+
+button:hover {
+  background-color: var(--click-me-green);
+}
+
+input, textarea {
+  background-color: var(--paper-grey);
+  border: 0;
+  border-radius: 5px;
+}
