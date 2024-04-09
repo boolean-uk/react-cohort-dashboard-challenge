@@ -36,7 +36,7 @@ The steps above will create a fresh React app using Vite. From this point on, it
 - React Router DOM version 6.4 or above (Run `npm install react-router-dom` to install this)
 - A RESTful API
 
-[Use this REST API](https://boolean-api-server.fly.dev/api-docs/#/post) as your data source. Use the **post** endpoints, which contains routes for posts and comments. Each of these routes has GET, POST, PUT and DELETE methods available. Post and comment authors are linked to the contacts retrieved from the **contact** endpoints via a `contactId` property, which will allow you to retrieve information about post and comment authors.
+[Use this REST API](https://boolean-uk-api-server.fly.dev/api-docs/#/post) as your data source. Use the **post** endpoints, which contains routes for posts and comments. Each of these routes has GET, POST, PUT and DELETE methods available. Post and comment authors are linked to the contacts retrieved from the **contact** endpoints via a `contactId` property, which will allow you to retrieve information about post and comment authors.
 
 ## Core Requirements
 
