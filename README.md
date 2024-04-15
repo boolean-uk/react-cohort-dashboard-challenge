@@ -1,8 +1,19 @@
-# React + Vite
+# Cohort Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Cohort Dashboard! This dashboard provides a platform for managing posts and comments within a cohort or community setting.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Post Creation**: Users can create new posts to share updates, questions, or discussions within the cohort.
+- <p align="center"><img src="![2024-04-10](https://github.com/LAVINIABENZAR/react-cohort-dashboard-challenge/assets/112485176/51c24e58-5589-4a51-9fb4-1fa1d7d8f939)
+"/></p>
+  
+- **Comments**: Users can comment on posts to engage in conversations and discussions.
+
+- **Deletion of Comments**: Users have the ability to delete their own comments if needed.
+
+## Technologies used 
+(*this is an only frontend application*)
+- **React**
+- **CSS**
+- **JavaScript**
