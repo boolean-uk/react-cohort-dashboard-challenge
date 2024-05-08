@@ -5,7 +5,7 @@ Welcome to the Cohort Dashboard! This dashboard provides a platform for managing
 ## Features
 
 - **Post Creation**: Users can create new posts to share updates, questions, or discussions within the cohort.
-![](assets/create-post.png)
+![Create Post](assets/create-post.png)
   
 - **Comments**: Users can comment on posts to engage in conversations and discussions.
 
