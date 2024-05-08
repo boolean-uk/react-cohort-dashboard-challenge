@@ -8,6 +8,7 @@ Welcome to the Cohort Dashboard! This dashboard provides a platform for managing
 ![Create Post](src/assets/createpost.png)
   
 - **Comments**: Users can comment on posts to engage in conversations and discussions.
+![Comments](src/assets/comments.png)
 
 - **Deletion of Comments**: Users have the ability to delete their own comments if needed.
 
