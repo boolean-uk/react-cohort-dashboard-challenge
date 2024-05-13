@@ -1,0 +1,93 @@
+.feed {
+    display: grid;
+    grid-area: 'main';
+    grid-template-rows: 10rem;
+    background-color: #F0F5FA;
+}
+
+.post-container {
+    margin: 2rem;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
+
+}
+
+.post-header {
+    gap: 0.5rem;
+}
+
+.post-form {
+    display: grid;
+    grid-template-columns: 5rem 1fr 12rem;
+    padding: 0.5rem;
+    gap: 1.4rem;
+    height: 80%;
+    background-color: white;
+}
+
+.profile-initials {
+    border: 1px solid green;
+    border-radius: 50px;
+    background-color: green;
+    place-content: center;
+}
+
+.profile-initials p {
+    justify-self: center;
+    font-weight: bold;
+}
+
+#post-btn {
+    height: 100%;
+    width: 100%;
+    background-color: #000046;
+    color: white;
+}
+
+.text-input-container input{
+    width: 100%;
+    height: 80%;
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: medium;
+}
+
+.text-input-container input::placeholder {
+    color: rgb(153, 153, 153);
+}
+
+.post-header {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+}
+
+#post-title {
+    color: #64648c;
+    font-size: small;
+    font-weight: bold;
+}
+
+.post-body {
+    padding: 1rem;
+}
+
+.comment-section {
+    border-top: 1px solid #e6ebf5;
+}
+
+.comment-section-form {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+#profile-name {
+    color: #000046;
+}
+

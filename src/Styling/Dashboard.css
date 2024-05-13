@@ -1,0 +1,23 @@
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #000046;
+    place-content: center;
+}
+
+#profile-icon-header {
+    place-self: end;
+}
+
+.left-side {
+    display: grid;
+    grid-area: left;
+    background-color: #ffff;
+    grid-template-rows: 5rem 5rem;
+    gap: 2rem;
+}
+
+.left-side .container {
+    padding: 2rem;
+}
