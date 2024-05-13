@@ -6,6 +6,11 @@ export default function PostLi({ post, loggedInUser }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
     const [showMore, setShowMore] = useState(false)
+    const [addComment, setAddComment] = useState({
+        postId: '',
+        content: '',
+        contactId: ''
+    })
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`)
@@ -24,6 +29,48 @@ export default function PostLi({ post, loggedInUser }) {
     function handleClick() {
         setShowMore(!showMore)
     }
+
+    function handleChange(e) {
+        const {name, value} = e.target
+        setAddComment({
+            ...addComment,
+            [name] : value,
+            postId: post.id,
+            contactId: 1
+        })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        async function addNewComment() {
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(addComment),
+                headers: {
+                    'Content-type': 'application/json',
+                },
+            }
+
+            const response = await fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`, options)
+            const data = await response.json()
+
+            setPostComments([
+                ...postComments,
+                data
+            ])
+        }
+
+        addNewComment()
+        
+        setAddComment({
+            postId: '',
+            content: '',
+            contactId: ''
+        })
+    }
+
+    console.log(postComments)
 
     return (
         <>
@@ -60,14 +107,14 @@ export default function PostLi({ post, loggedInUser }) {
                             </ul>
                             <div className="add-comment-container">
                                 <ProfileImage loggedInUser={loggedInUser}/>
-                                <div className="add-comment">
-                                    <input type="text" placeholder="Add a comment..." className="comment-input" />
+                                <form className="add-comment" onSubmit={handleSubmit}>
+                                    <input type="text" placeholder="Add a comment..." className="comment-input" name="content" value={addComment.content} onChange={handleChange}/>
                                     <div className="send-button-container">
                                         <button className="send-button">
                                             <img src="src\assets\send-icon.svg" alt="Send icon" />
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </>
                     </section>
