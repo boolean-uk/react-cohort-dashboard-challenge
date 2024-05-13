@@ -1,6 +1,9 @@
 import "./index.css";
 import Header from "./Components/Header";
 import NavAside from "./Components/NavAside";
+import Feed from "./Components/Feed";
+import Profile from "./Components/Profile";
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
@@ -9,6 +12,10 @@ function App() {
       <Header />
       <NavAside />
       <main>
+      <Routes>
+        <Route path={'/'} element={<Feed />} />
+        <Route path={'/profile'} element={<Profile />} />
+      </Routes>
         
       </main>
     </div>
