@@ -1,12 +1,18 @@
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 
-export default function Feed() {
+export default function Feed(props) {
+    const { randomAuthor, posts, authors } = props
+
     return (
         <main>
-            <CreatePost />
+            <CreatePost randomAuthor={randomAuthor} />
 
-            <Post />
+            <Post 
+                posts={posts}
+                authors={authors}
+                randomAuthor={randomAuthor}
+            />
         </main>
     )
 }

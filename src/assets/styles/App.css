@@ -20,6 +20,7 @@ input {
 
 input::placeholder {
     color: #64648c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Header */
@@ -51,7 +52,7 @@ main figure {
     background-color: #64dc78;
 }
 
-header figcaption {
+figcaption {
     font-weight: bold;
 }
 
@@ -60,8 +61,6 @@ header figcaption {
 nav {
     display: grid;
     grid-area: nav;
-    justify-content: center;
-    align-items: center;
     background-color: white;
     grid-template-rows: repeat(2, 8rem);
     padding-top: 1rem;
@@ -69,13 +68,23 @@ nav {
 
 nav figure {
     display: grid;
+    grid-template-rows: 2.5rem 2rem;
+    align-items: center;
+    align-content: center;
     justify-items: center;
-    gap: 0.5rem;
+}
+
+nav figure:hover {
+    background-color: #e6ebf5;
 }
 
 nav figure img {
     width: 2rem;
     height: 2rem;
+}
+
+nav figcaption {
+    font-weight: lighter;
 }
 
 /* Main */
@@ -86,7 +95,7 @@ main {
     grid-template: 
         'section' min-content
         'article' 16rem;
-    margin: 1rem 1rem 0 0;
+    margin: 1rem;
     gap: 1rem;
 }
 
@@ -110,7 +119,8 @@ main section form button {
     border-radius: 0.25rem;
     align-self: self-end;
     height: 3rem;
-    color: #e6ebf5;   
+    color: #e6ebf5; 
+    font-size: 1rem;  
 }
 
 main section form div {
@@ -120,10 +130,16 @@ main section form div {
 
 main article {
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, 1fr);
     padding: 1rem;
     background-color: white;
     align-items: center;
+    gap: 1rem;
+}
+
+main article #separator {
+    height: 0.05rem;
+    background-color: #e6ebf5;
 }
 
 main article div.author {

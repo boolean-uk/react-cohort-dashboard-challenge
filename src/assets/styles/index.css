@@ -17,7 +17,6 @@ html {
     display: grid;
     height: 100vh;
     grid-template: 
-        'header header' min-content
+        'header header' 5rem
         'nav main' / 8rem minmax(8rem, 1fr);
-    column-gap: 1rem;
 }

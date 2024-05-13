@@ -1,29 +1,37 @@
-export default function CreatePost() {
+export default function CreatePost(props) {
+    const { randomAuthor } = props
+
     return (
         <section>
-            <figure>
-                <figcaption>LS</figcaption>
-            </figure>
+            {randomAuthor &&
+                <>
+                    <figure>
+                        <figcaption>
+                            {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
+                        </figcaption>
+                    </figure>
 
-            <form action="">
-                <div>
-                    <input 
-                        type="text" 
-                        name="" 
-                        id="" 
-                        placeholder="Title"
-                    />
+                    <form action="">
+                        <div>
+                            <input 
+                                type="text" 
+                                name="" 
+                                id="" 
+                                placeholder="Title"
+                            />
 
-                    <input 
-                        type="text" 
-                        name="" 
-                        id="" 
-                        placeholder="What's on your mind?"
-                    />
-                </div>
+                            <input 
+                                type="text" 
+                                name="" 
+                                id="" 
+                                placeholder="What's on your mind?"
+                            />
+                        </div>
 
-                <button type="submit">Post</button>
-            </form>
+                        <button type="submit">Post</button>
+                    </form>
+                </>
+            }
         </section>
     )
 }

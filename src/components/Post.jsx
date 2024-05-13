@@ -1,14 +1,25 @@
 import AddComment from "./AddComment";
 import Author from "./Author";
 
-export default function Post() {
+export default function Post(props) {
+    const { randomAuthor, posts, authors } = props
+
     return (
-        <article>
-            <Author />
+        <>
+            {posts.map(post => 
+                <article key={post.id}>
+                    <Author
+                        post={post} 
+                        authors={authors}
+                    />
 
-            <p>Até agora, gostando muito dessa rede social</p>
+                    <p>{post.content}</p>
 
-            <AddComment />
-        </article>
+                    <div id="separator"></div>
+
+                    <AddComment randomAuthor={randomAuthor} />
+                </article>
+            )}
+        </>
     )
 }

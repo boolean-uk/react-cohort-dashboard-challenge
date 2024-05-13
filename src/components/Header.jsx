@@ -1,17 +1,25 @@
 import titleHeader from '../assets/images/title-header.svg'
 
-export default function Header() {
+export default function Header(props) {
+    const { randomAuthor } = props
+
     return (
         <header>
-            <img 
-                id='title-header'
-                src={titleHeader} 
-                alt="Cohort Manager" 
-            />
+            {randomAuthor &&
+                <>
+                    <img 
+                        id='title-header'
+                        src={titleHeader} 
+                        alt="Cohort Manager" 
+                    />
 
-            <figure>
-                <figcaption>LS</figcaption>
-            </figure>
+                    <figure>
+                        <figcaption>
+                            {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
+                        </figcaption>
+                    </figure>
+                </>
+            }
         </header>
     )
 }
