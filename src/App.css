@@ -229,3 +229,10 @@ main {
     place-content: center;
     padding-right: 10px;
 }
+
+.see-more-button {
+    border: none;
+    background-color: white;
+    color: #64648c;
+    font-size: 1rem;
+}

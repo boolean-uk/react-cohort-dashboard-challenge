@@ -5,6 +5,7 @@ import ProfileImage from "./ProfileImage"
 export default function PostLi({ post, loggedInUser }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
+    const [showMore, setShowMore] = useState(false)
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`)
@@ -17,6 +18,12 @@ export default function PostLi({ post, loggedInUser }) {
         .then(response => response.json())
         .then(setPostContact)
     }, [post.contactId])
+
+    const firstThreeComments = postComments.slice(-3)
+
+    function handleClick() {
+        setShowMore(!showMore)
+    }
 
     return (
         <>
@@ -38,22 +45,31 @@ export default function PostLi({ post, loggedInUser }) {
                     </section>
                     
                     <section className="comments-container">
-                        <ul className="comments-ul">
-                            {postComments.map((comment, index) => {
-                                return <CommentLi key={index} comment={comment} />
-                            })}
-                        </ul>
-                        <div className="add-comment-container">
-                            <ProfileImage loggedInUser={loggedInUser}/>
-                            <div className="add-comment">
-                                <input type="text" placeholder="Add a comment..." className="comment-input" />
-                                <div className="send-button-container">
-                                    <button className="send-button">
-                                        <img src="src\assets\send-icon.svg" alt="Send icon" />
-                                    </button>
+                        <>
+                            <div className="see-more-button-container">
+                                {postComments.length > 3 && <button onClick={handleClick} className="see-more-button">See previous comments</button>}
+                            </div>
+                            <ul className="comments-ul">
+                                {showMore && postComments.map((comment, index) => {
+                                    return <CommentLi key={index} comment={comment}/>
+                                })}
+
+                                {!showMore && firstThreeComments.map((comment, index) => {
+                                    return <CommentLi key={index} comment={comment}/>
+                                })}
+                            </ul>
+                            <div className="add-comment-container">
+                                <ProfileImage loggedInUser={loggedInUser}/>
+                                <div className="add-comment">
+                                    <input type="text" placeholder="Add a comment..." className="comment-input" />
+                                    <div className="send-button-container">
+                                        <button className="send-button">
+                                            <img src="src\assets\send-icon.svg" alt="Send icon" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </>
                     </section>
                 </li>
             }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function CommentLi({ comment }) {
+export default function CommentLi({ comment}) {
     const [commentContact, setCommentContact] = useState(null)
 
     useEffect(() => {
