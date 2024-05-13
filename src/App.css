@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    font-family: sans-serif;
 }
 
 #root {
@@ -27,6 +28,25 @@ header {
 .logo {
     display: grid;
     align-items: center;
+}
+
+.profile-image-container {
+    display: grid;
+    place-content: center;
+}
+
+.profile-image {
+    background-color: #64DC78;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.profile-image p {
+    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 /* Aside */
