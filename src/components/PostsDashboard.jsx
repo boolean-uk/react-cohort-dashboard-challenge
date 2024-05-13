@@ -18,11 +18,12 @@ export default function PostsDashboard({ loggedInUser }) {
 
     function handleChange(e) {
         const {name, value} = e.target
+        const title = value.split(' ').slice(0, 5).join(' ')
 
         setAddPost({
             ...addPost,
             [name] : value,
-            title: 'Will add later',
+            title: title,
             contactId: loggedInUser.id
         })
     }
