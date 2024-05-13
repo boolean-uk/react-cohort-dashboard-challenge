@@ -86,3 +86,40 @@ main {
     grid-area: main;
     background-color: #F0F5FA;
 }
+
+/* Main - Posts dashboard */
+.posts-dashboard {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    padding: 20px;
+}
+
+.new-post-container {
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 20px;
+    gap: 1rem;
+}
+
+.new-post-input {
+    border: none;
+    background-color: #E6EBF5;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: #64648c;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+
+.post-button {
+    width: 200px;
+    background-color: #000046;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.3rem;
+}

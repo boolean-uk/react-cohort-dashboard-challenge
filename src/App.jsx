@@ -28,7 +28,7 @@ function App() {
     <>
       <Header loggedInUser={loggedInUser}/>
       <Aside />
-      <MainComponent />
+      <MainComponent loggedInUser={loggedInUser}/>
     </>
   )
 }
