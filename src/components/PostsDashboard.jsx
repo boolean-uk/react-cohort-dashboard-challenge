@@ -1,6 +1,18 @@
+import { useEffect, useState } from "react";
 import ProfileImage from "./ProfileImage";
+import ProfileLi from "./ProfileLi";
 
 export default function PostsDashboard({ loggedInUser }) {
+    const [postData, setPostData] = useState([])
+
+    useEffect(() => {
+        fetch('https://boolean-api-server.fly.dev/MyrtheDullaart/post')
+        .then(response => response.json())
+        .then(setPostData)
+    }, [])
+
+    console.log(postData)
+
     return (
         <div className="posts-dashboard">
             <section className="new-post-container">
@@ -10,7 +22,11 @@ export default function PostsDashboard({ loggedInUser }) {
             </section>
 
             <section className="posts-container">
-
+                <ul className="posts-ul">
+                    {postData.map((post, index) => {
+                        return <ProfileLi key={index} post={post}/>
+                    })}
+                </ul>
             </section>
         </div>
     )
