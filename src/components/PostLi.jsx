@@ -9,7 +9,7 @@ export default function PostLi({ post, loggedInUser }) {
     const [addComment, setAddComment] = useState({
         postId: '',
         content: '',
-        contactId: ''
+        contactId: 0
     })
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function PostLi({ post, loggedInUser }) {
             ...addComment,
             [name] : value,
             postId: post.id,
-            contactId: 1
+            contactId: loggedInUser.id
         })
     }
 
@@ -69,8 +69,6 @@ export default function PostLi({ post, loggedInUser }) {
             contactId: ''
         })
     }
-
-    console.log(postComments)
 
     return (
         <>

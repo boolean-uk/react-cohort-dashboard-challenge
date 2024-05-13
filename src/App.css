@@ -126,10 +126,17 @@ main {
     font-size: 1.3rem;
 }
 
+.new-post-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+}
+
 .posts-ul {
     list-style: none;
     padding: 0px;
-    display: grid;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 20px;
 }
 
