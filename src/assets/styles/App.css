@@ -1,0 +1,39 @@
+/* Post title colour: #64648c */ 
+
+header,
+button {
+    background-color: #000046;
+}
+
+button:hover {
+    background-color: #64dc78;
+}
+
+form input {
+    background-color: #e6ebf5;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: 1rem;
+}
+
+#title-header {
+    width: 20rem;
+}
+
+figure {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-self: right;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1.6rem;
+    background-color: #64dc78;
+}
+
+figcaption {
+    font-weight: bold;
+}
