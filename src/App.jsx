@@ -28,10 +28,7 @@ function App() {
     <>
       <Header loggedInUser={loggedInUser}/>
       <Aside />
-
-      <Routes>
-        <Route path='/' element={<MainComponent />}/>
-      </Routes>
+      <MainComponent />
     </>
   )
 }
