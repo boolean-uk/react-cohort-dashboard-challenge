@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+}
+
+#root {
+    height: 100vh;
+    display: grid;
+    grid-template: 
+    'header header' 100px
+    'aside main' 1fr /
+    180px 1fr;
+}
+
+/* Header */
+header {
+    background-color: #000046;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    padding: 0px 70px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo {
+    display: grid;
+    align-items: center;
+}
+
+/* Aside */
+aside {
+    grid-area: aside;
+    background-color: red;
+}
+
+/* Main */
+main {
+    grid-area: main;
+    background-color: aqua;
+}
