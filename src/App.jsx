@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import Dashboard from './Components/Dashboard'
 import Feed from './Components/Feed'
+import loggedInUser from '../src/assets/user'
 export const UsersContext = createContext()
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   }, [setUsers])
 
   return (
-    <UsersContext.Provider value={{users}}>
+    <UsersContext.Provider value={{users, loggedInUser}}>
       <section className='app-container'>
         <Dashboard />
         <Feed />

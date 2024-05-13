@@ -3,13 +3,14 @@ import { UsersContext } from "../../App"
 
 export default function CreatePost() {
 
-    const {users} = useContext(UsersContext)
+    const {loggedInuser} = useContext(UsersContext)
+    console.log('user', loggedInuser)
 
     return (
         <section className="post-container">
             <form className="post-form">
                 <div className="profile-initials">
-                    <p></p>
+                    <p>{}</p>
                 </div>
                 <div className="text-input-container">
                     <input type="text" name="post" placeholder="What's on your mind?"></input>

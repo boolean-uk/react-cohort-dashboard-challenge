@@ -91,3 +91,29 @@
     color: #000046;
 }
 
+/* .sendBtn-container {
+    position: relative;
+    left: 94%;
+    bottom: 79%;
+    border: 1px solid #b0b5bd;
+    border-radius: 90%;
+    background-color: #b0b5bd;
+    width: 50px;
+    padding: 0.5rem;
+    place-content: center;
+} */
+
+#send {
+    width: 20px;
+}
+
+.submit {
+    position: relative;
+    left: 96%;
+    bottom: 80%;
+    outline: none;
+    background-color: #b0b5bd;
+    border-radius: 100%;
+    width: 50px;
+    place-content: center;
+}
