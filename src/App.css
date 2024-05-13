@@ -1,6 +1,7 @@
 * {
     margin: 0;
     font-family: sans-serif;
+    color: #000046;
 }
 
 #root {
@@ -168,4 +169,18 @@ main {
     background-color: #E6EBF5;
     border-radius: 10px;
     padding: 20px;
+}
+
+.poster-name {
+    font-weight: bold;
+}
+
+.name {
+    font-size: 1.2rem;
+}
+
+.post-title {
+    color: #64648c;
+    font-weight: bold;
+    font-size: 0.9rem;
 }

@@ -17,34 +17,36 @@ export default function ProfileLi({ post }) {
         .then(setPostContact)
     }, [post.contactId])
 
-    console.log(postComments)
-    console.log(postContact)
 
     return (
-        <li className="post-li">
-            <section className="post-content-container">
-                <div className="poster-information">
-                    <div className="profile-image" style={{backgroundColor:`${postContact.favouriteColour}`}}>
-                        <p>{`${postContact.firstName[0]}${postContact.lastName[0]}`}</p>
-                    </div>
+        <>
+            {postContact && 
+                <li className="post-li">
+                    <section className="post-content-container">
+                        <div className="poster-information">
+                            <div className="profile-image" style={{backgroundColor:`${postContact.favouriteColour}`}}>
+                                <p>{`${postContact.firstName[0]}${postContact.lastName[0]}`}</p>
+                            </div>
 
-                    <div>
-                        <p>{`${postContact.firstName} ${postContact.lastName}`}</p>
-                        <p>{post.title}</p>
-                    </div>
-                </div>
+                            <div>
+                                <p className="poster-name name">{`${postContact.firstName} ${postContact.lastName}`}</p>
+                                <p className="post-title">{post.title}</p>
+                            </div>
+                        </div>
 
-                <div>{post.content}</div>
-            </section>
-            
-            <section className="comments-container">
-                <ul className="comments-ul">
-                    {postComments.map((comment, index) => {
-                        return <CommentLi key={index} comment={comment} />
-                    })}
-                </ul>
+                        <div>{post.content}</div>
+                    </section>
+                    
+                    <section className="comments-container">
+                        <ul className="comments-ul">
+                            {postComments.map((comment, index) => {
+                                return <CommentLi key={index} comment={comment} />
+                            })}
+                        </ul>
 
-            </section>
-        </li>
+                    </section>
+                </li>
+            }
+        </>
     )
 }
