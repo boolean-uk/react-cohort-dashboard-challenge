@@ -1,4 +1,4 @@
-import InitialIcon from "./InitialIcon"
+import InitialIcon from "../Subcomponents/InitialIcon"
 import { Link } from "react-router-dom"
 
 export default function Header () {

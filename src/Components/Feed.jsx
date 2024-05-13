@@ -1,5 +1,9 @@
+import NewPost from "../Subcomponents/NewPost"
+
 export default function Feed () {
     return (
-        <p>This is where the feed will go</p>
+        <div className="m-5">
+        <NewPost />
+        </div>
     )
 }
