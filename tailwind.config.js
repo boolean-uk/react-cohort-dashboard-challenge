@@ -2,7 +2,7 @@
 export default {
   content: [
     './src/*.jsx',
-    './src/Components/*.jsx'
+    './src/Components/*.jsx',
   ],
   theme: {
     colors: {cohortBlue: '#000046',
