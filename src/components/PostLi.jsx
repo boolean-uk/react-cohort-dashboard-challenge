@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import CommentLi from "./CommentLi"
+import ProfileImage from "./ProfileImage"
 
-export default function ProfileLi({ post }) {
+export default function PostLi({ post, loggedInUser }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
 
@@ -16,7 +17,6 @@ export default function ProfileLi({ post }) {
         .then(response => response.json())
         .then(setPostContact)
     }, [post.contactId])
-
 
     return (
         <>
@@ -43,7 +43,17 @@ export default function ProfileLi({ post }) {
                                 return <CommentLi key={index} comment={comment} />
                             })}
                         </ul>
-
+                        <div className="add-comment-container">
+                            <ProfileImage loggedInUser={loggedInUser}/>
+                            <div className="add-comment">
+                                <input type="text" placeholder="Add a comment..." className="comment-input" />
+                                <div className="send-button-container">
+                                    <button className="send-button">
+                                        <img src="src\assets\send-icon.svg" alt="Send icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </li>
             }

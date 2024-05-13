@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileImage from "./ProfileImage";
-import ProfileLi from "./ProfileLi";
+import PostLi from "./PostLi";
 
 export default function PostsDashboard({ loggedInUser }) {
     const [postData, setPostData] = useState([])
@@ -24,7 +24,7 @@ export default function PostsDashboard({ loggedInUser }) {
             <section className="posts-container">
                 <ul className="posts-ul">
                     {postData.map((post, index) => {
-                        return <ProfileLi key={index} post={post}/>
+                        return <PostLi key={index} post={post} loggedInUser={loggedInUser}/>
                     })}
                 </ul>
             </section>

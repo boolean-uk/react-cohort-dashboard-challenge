@@ -156,7 +156,8 @@ main {
 .comments-ul {
     list-style: none;
     padding: 0px;
-    display: grid;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 20px;
 }
 
@@ -183,4 +184,48 @@ main {
     color: #64648c;
     font-weight: bold;
     font-size: 0.9rem;
+}
+
+.add-comment-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+}
+
+.comments-container {
+    display: grid;
+    gap: 20px;
+}
+
+.add-comment {
+    background-color: #E6EBF5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-radius: 10px;
+}
+
+.comment-input {
+    border: none;
+    background-color:#E6EBF5;
+    border-radius: 10px;
+}
+
+.send-button img {
+    height: 25px;
+}
+
+.send-button {
+    background-color: #C8D2E6;
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-content: center;
+}
+
+.send-button-container {
+    display: grid;
+    place-content: center;
+    padding-right: 10px;
 }
