@@ -243,3 +243,7 @@ main {
     color: #64648c;
     font-size: 1rem;
 }
+
+.single-post {
+    margin: 20px;
+}

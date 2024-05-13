@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import CommentLi from "./CommentLi"
 import ProfileImage from "./ProfileImage"
-import { Link } from "react-router-dom"
 
-export default function PostLi({ post, loggedInUser, showMore, setShowMore, addComment, setAddComment }) {
+export default function SinglePost({ postData, showMore, setShowMore, loggedInUser, addComment, setAddComment }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
+    const params = useParams()
+
+    const post = postData.find(p => p.id === Number(params.id))
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`)
@@ -21,10 +24,6 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
 
     const firstThreeComments = postComments.slice(-3)
 
-    function handleClick() {
-        setShowMore(!showMore)
-    }
-
     function handleChange(e) {
         const {name, value} = e.target
         setAddComment({
@@ -33,6 +32,10 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
             postId: post.id,
             contactId: loggedInUser.id
         })
+    }
+
+    function handleClick() {
+        setShowMore(!showMore)
     }
 
     function handleSubmit(e) {
@@ -68,7 +71,7 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
     return (
         <>
             {postContact && 
-                <li className="post-li">
+                <div className="post-li single-post">
                     <section className="post-content-container">
                         <div className="poster-information">
                             <div className="profile-image" style={{backgroundColor:`${postContact.favouriteColour}`}}>
@@ -77,7 +80,7 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
 
                             <div>
                                 <p className="poster-name name">{`${postContact.firstName} ${postContact.lastName}`}</p>
-                                <Link to={`/post/${post.id}`}><p className="post-title">{post.title}</p></Link>
+                                <p className="post-title">{post.title}</p>
                             </div>
                         </div>
 
@@ -104,15 +107,16 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
                                     <input type="text" placeholder="Add a comment..." className="comment-input" name="content" value={addComment.content} onChange={handleChange}/>
                                     <div className="send-button-container">
                                         <button className="send-button">
-                                            <img src="src\assets\send-icon.svg" alt="Send icon" />
+                                            <img src="../src/assets/send-icon.svg" alt="Send icon" />
                                         </button>
                                     </div>
                                 </form>
                             </div>
                         </>
                     </section>
-                </li>
+                </div>
             }
-        </>
+            
+                </>
     )
 }

@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProfileImage from "./ProfileImage";
 import PostLi from "./PostLi";
 
-export default function PostsDashboard({ loggedInUser }) {
-    const [postData, setPostData] = useState([])
+export default function PostsDashboard({ loggedInUser, postData, setPostData, showMore, setShowMore, addComment, setAddComment }) {
     const [addPost, setAddPost] = useState({
         title: '',
         content: '',
         contactId: 0
     })
-
-    useEffect(() => {
-        fetch('https://boolean-api-server.fly.dev/MyrtheDullaart/post')
-        .then(response => response.json())
-        .then(setPostData)
-    }, [])
 
     function handleChange(e) {
         const {name, value} = e.target
@@ -58,8 +51,6 @@ export default function PostsDashboard({ loggedInUser }) {
         })
     }
 
-    console.log(addPost)
-
     return (
         <div className="posts-dashboard">
             <section className="new-post-container">
@@ -73,7 +64,7 @@ export default function PostsDashboard({ loggedInUser }) {
             <section className="posts-container">
                 <ul className="posts-ul">
                     {postData.map((post, index) => {
-                        return <PostLi key={index} post={post} loggedInUser={loggedInUser}/>
+                        return <PostLi key={index} post={post} loggedInUser={loggedInUser} showMore={showMore} setShowMore={setShowMore} addComment={addComment} setAddComment={setAddComment}/>
                     })}
                 </ul>
             </section>
