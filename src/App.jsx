@@ -4,6 +4,7 @@ import Aside from './components/Aside'
 import Header from './components/Header'
 import MainComponent from './components/MainComponent'
 import { useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const [contacts, setContacts] = useState([])
@@ -27,7 +28,10 @@ function App() {
     <>
       <Header loggedInUser={loggedInUser}/>
       <Aside />
-      <MainComponent />
+
+      <Routes>
+        <Route path='/' element={<MainComponent />}/>
+      </Routes>
     </>
   )
 }

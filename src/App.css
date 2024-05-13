@@ -21,6 +21,11 @@ header {
     padding: 0px 70px;
 }
 
+header a {
+    display: grid;
+    align-items: center;
+}
+
 .logo img {
     height: 60px;
 }
@@ -52,11 +57,11 @@ header {
 /* Aside */
 aside {
     grid-area: aside;
-    background-color: red;
+    background-color: white;
 }
 
 /* Main */
 main {
     grid-area: main;
-    background-color: aqua;
+    background-color: #F0F5FA;
 }
