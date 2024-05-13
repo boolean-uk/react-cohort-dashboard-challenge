@@ -1,4 +1,4 @@
-/* Post title colour: #64648c */ 
+/* Style guide */
 
 header,
 button {
@@ -6,34 +6,146 @@ button {
 }
 
 button:hover {
+    color: #000046;
     background-color: #64dc78;
 }
 
-form input {
+input {
+    border: none;
+    border-radius: 0.25rem;
+    max-height: 3rem;
+    padding: 1rem;
     background-color: #e6ebf5;
 }
 
+input::placeholder {
+    color: #64648c;
+}
+
+/* Header */
+
 header {
     display: grid;
+    grid-area: header;
+    align-items: center;
     grid-template-columns: repeat(2, auto);
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 3rem;
 }
 
 #title-header {
     width: 20rem;
 }
 
-figure {
+header figure {
+    justify-self: right;
+}
+
+header figure,
+main figure {
     display: grid;
     align-items: center;
     justify-content: center;
-    justify-self: right;
     width: 3.2rem;
     height: 3.2rem;
     border-radius: 1.6rem;
     background-color: #64dc78;
 }
 
-figcaption {
+header figcaption {
     font-weight: bold;
+}
+
+/* Nav */
+
+nav {
+    display: grid;
+    grid-area: nav;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    grid-template-rows: repeat(2, 8rem);
+    padding-top: 1rem;
+}
+
+nav figure {
+    display: grid;
+    justify-items: center;
+    gap: 0.5rem;
+}
+
+nav figure img {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Main */
+
+main {
+    display: grid;
+    grid-area: main;
+    grid-template: 
+        'section' min-content
+        'article' 16rem;
+    margin: 1rem 1rem 0 0;
+    gap: 1rem;
+}
+
+main section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+main section form {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) 10rem;
+    gap: 1rem;
+}
+
+main section form button {
+    border: none;
+    border-radius: 0.25rem;
+    align-self: self-end;
+    height: 3rem;
+    color: #e6ebf5;   
+}
+
+main section form div {
+    display: grid;
+    gap: 0.25rem;
+}
+
+main article {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    padding: 1rem;
+    background-color: white;
+    align-items: center;
+}
+
+main article div.author {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+main article div.author .name-title {
+    display: grid;
+    justify-content: left;
+    gap: 0.7rem;
+}
+
+main article div.author .name-title b {
+    color: #64648c;
+    font-size: 14px;
+}
+
+main article div.add-comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
 }
