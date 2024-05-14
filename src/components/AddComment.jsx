@@ -1,24 +1,54 @@
+import { useState } from "react"
+
 export default function AddComment(props) {
-    const { randomAuthor } = props
+    const [newComment, setNewComment] = useState({ content: '' })
+    const { randomAuthor, post } = props
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/post/${post.id}/comment`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ 
+                content: newComment.content,
+                postId: post.id,
+                contactId: randomAuthor.id
+            })
+        }).then(() => {
+            setNewComment({ content: '' })
+        })
+    }
+
+    const handleChange = (e) => {
+        const { value } = e.target
+
+        setNewComment({
+            ...newComment,
+            content: value
+        })
+    }
 
     return (
-        <div className="add-comment">
+        <>
             {randomAuthor &&
-                <>
-                    <figure>
+                <form onSubmit={handleSubmit} className="add-comment">
+                    <figure style={{ backgroundColor: `${randomAuthor.favouriteColour}` }}>
                         <figcaption>
                             {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
                         </figcaption>
                     </figure>
-
+                    
                     <input 
                         type="text" 
-                        name="" 
-                        id="" 
+                        name="comment"  
                         placeholder="Add a comment..."
+                        value={newComment.content}
+                        onChange={handleChange}
+                        required
                     />
-                </>
+                </form>
             }
-        </div>
+        </>
     )
 }

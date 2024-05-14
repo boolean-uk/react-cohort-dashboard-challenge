@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Author(props) {
     const { post, authors } = props
 
@@ -7,7 +9,7 @@ export default function Author(props) {
         <div className="author">
             {authorFound &&
                 <>
-                    <figure>
+                    <figure style={{ backgroundColor: `${authorFound.favouriteColour}` }}>
                         <figcaption>
                             {authorFound.firstName[0]}{authorFound.lastName[0]}
                         </figcaption>
@@ -17,8 +19,8 @@ export default function Author(props) {
                         <h4>
                             {authorFound.firstName} {authorFound.lastName}
                         </h4>
-
-                        <b>{post.title}</b>
+                        
+                        <Link to={`/${post.id}`}><b>{post.title}</b></Link>
                     </div>
                 </>
             }    

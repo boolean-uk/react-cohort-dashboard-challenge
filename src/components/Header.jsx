@@ -13,7 +13,7 @@ export default function Header(props) {
                         alt="Cohort Manager" 
                     />
 
-                    <figure>
+                    <figure style={{ backgroundColor: `${randomAuthor.favouriteColour}` }}>
                         <figcaption>
                             {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
                         </figcaption>
