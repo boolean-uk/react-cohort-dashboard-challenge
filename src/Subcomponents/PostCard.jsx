@@ -6,6 +6,7 @@ export default function PostCard({ post, users }) {
     return user.id === post.contactId;
   });
 
+  
 
   return (
     <article className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
