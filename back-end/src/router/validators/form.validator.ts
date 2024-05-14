@@ -36,12 +36,11 @@ export const validatePassword: ValidatorCallback = (data) => {
 	const isInvalid = isInvalidType(data, "string");
 	if (isInvalid) return isInvalid;
 
-	if (/[A-Z]+/i.test(data))
+	if (/[A-Z]+/.test(data))
 		return { message: "Requires at least one uppercase letter" };
-	if (/[a-z]+/i.test(data))
+	if (/[a-z]+/.test(data))
 		return { message: "Requires at least one lowercase letter" };
-	if (/[\s]+/i.test(data))
-		return { message: "Requires at least one special character" };
+	if (/[0-9]+/.test(data)) return { message: "Requires at least one number" };
 
 	return { message: undefined };
 };
