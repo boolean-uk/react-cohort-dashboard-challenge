@@ -94,7 +94,7 @@ main {
     grid-area: main;
     grid-template: 
         'section' min-content
-        'article' 16rem;
+        'article' 1fr;
     margin: 1rem;
     gap: 1rem;
 }
@@ -117,7 +117,7 @@ main section form {
 main section form button {
     border: none;
     border-radius: 0.25rem;
-    align-self: self-end;
+    align-self: center;
     height: 3rem;
     color: #e6ebf5; 
     font-size: 1rem;  
@@ -130,7 +130,7 @@ main section form div {
 
 main article {
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     padding: 1rem;
     background-color: white;
     align-items: center;
@@ -164,4 +164,19 @@ main article div.add-comment {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1rem;
+}
+
+main article div.comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    justify-items: left;
+}
+
+main article div.comment div#author-comment {
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    background-color: #e6ebf5;
 }
