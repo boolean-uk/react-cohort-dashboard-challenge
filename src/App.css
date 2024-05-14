@@ -67,21 +67,25 @@ li{
     flex-direction: row;
     gap: 20px;
     margin-top: 15px;
+    flex: 2 1 auto;
+    height: 100%;
 }
-.create-post form input {
-    width: 70%;
-}
+
 
 .create-post{
   display: flex;
-  gap: 10%
-}
-.create-post form{
-  flex: 2 1 auto
+  gap: 10%;
+  align-items: center;
 }
 
-.create-post form input{
+.create-post button{
+  width: 75px;
+}
+
+.create-post form input, .create-post form textarea{
+  width: 100%;
   background-color:  #e6ebf5;
+  resize: none;
 }
 
 .profile-image {

@@ -1,14 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useParams } from 'react-router-dom'
 import CreatePost from './CreatePost'
 import Post from './Post'
 
-export default function Card(props) {
+export default function Card({cardType, id}) {
+    const urlParams = useParams()
+    
     function cardCheck() {
-        switch (props.cardType) {
+        switch (cardType) {
+            case urlParams :
+                return <Post id={urlParams.id}/>
             case 'CreatePost':
                 return <CreatePost />
             case 'Post':
-                return <Post props={props}/>
+                return <Post id={id}/>
         }
     }
 
