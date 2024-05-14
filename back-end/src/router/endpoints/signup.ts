@@ -32,17 +32,6 @@ export async function signUpHandler(
 		mongoClient.getCollection("users").insertOne(user);
 		return res.status(200).json({ message: "Created new user" });
 	}
-
-	//get user data
-	//send token + data
-	const DUMMY_USER = {
-		name: "Borat",
-		username: "kazacs_great_journalist",
-		email: "kazacs-news@paper.kz",
-		role: "admin",
-	};
-
-	return res.status(200).json({ token: "123", user: DUMMY_USER });
 }
 
 export function validateSignUpParams(
