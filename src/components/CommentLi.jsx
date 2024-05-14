@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ProfileImage from "./ProfileImage"
 
 export default function CommentLi({ comment}) {
     const [commentContact, setCommentContact] = useState(null)
@@ -13,9 +14,7 @@ export default function CommentLi({ comment}) {
         <>
             {commentContact && 
                 <li className="comment-li">
-                    <div className="profile-image" style={{backgroundColor:`${commentContact.favouriteColour}`}}>
-                        {commentContact && <p>{`${commentContact.firstName[0]}${commentContact.lastName[0]}`}</p>}
-                    </div>
+                    <ProfileImage loggedInUser={commentContact}/>
 
                     <div className="comment-container">
                         <p className="poster-name">{`${commentContact.firstName} ${commentContact.lastName}`}</p>
