@@ -1,6 +1,7 @@
 import NewPost from "../Subcomponents/NewPost";
 import PostCard from "../Subcomponents/PostCard";
 import { useState, useEffect } from "react";
+import { BarLoader } from "react-spinners";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
@@ -30,7 +31,7 @@ export default function Feed() {
     return (
     <div className="m-5 flex flex-col gap-3">
     <NewPost />
-    <p>Loading...</p>
+    <BarLoader color="#000046" className="place-self-center"/>
     </div>
     )
   }
