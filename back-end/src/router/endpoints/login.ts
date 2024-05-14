@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
-import { validateParams } from "../validators/params.validator";
-import { log } from "console";
+import { mongoClient } from "../..";
 import { validateEmail, validatePassword } from "../validators/form.validator";
+import { validateParams } from "../validators/params.validator";
 import { ValidatorCallback } from "../validators/validator.type";
 
 type LOGIN_PARAMS = {
@@ -10,8 +10,19 @@ type LOGIN_PARAMS = {
 	password: string;
 };
 
-export function loginHandler(req: Request, res: Response, next: NextFunction) {
+export async function loginHandler(
+	req: Request,
+	res: Response,
+	next: NextFunction
+) {
 	//validate login
+	const { email, password }: { email: string; password: string } = req.body;
+
+	for await (const user of mongoClient.find("users", { email })) {
+		if (user.password === password)
+			return res.status(200).json({ token: "123", user: req.body.name });
+		else return res.status(401).json({ message: "Invalid Password" });
+	}
 
 	//get user data
 	//send token + data
