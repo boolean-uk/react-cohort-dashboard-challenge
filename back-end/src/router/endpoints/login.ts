@@ -16,7 +16,7 @@ export async function loginHandler(
 	next: NextFunction
 ) {
 	//validate login
-	const { email, password }: { email: string; password: string } = req.body;
+	const { email, password }: LOGIN_PARAMS = req.body;
 
 	for await (const user of mongoClient.find("users", { email })) {
 		if (user.password === password)
