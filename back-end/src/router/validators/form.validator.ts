@@ -17,7 +17,7 @@ export const validateName: ValidatorCallback = (data) => {
 	const isInvalid = isInvalidType(data, "string");
 	if (isInvalid) return isInvalid;
 
-	if (/^[A-z]$/i.test(data)) return { message: undefined };
+	if (/^[A-z]+$/i.test(data)) return { message: undefined };
 	else
 		return {
 			message: "Invalid set of characters. Only supports [A-z]",
