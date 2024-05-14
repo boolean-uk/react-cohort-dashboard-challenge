@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
-import { validateParams } from "../validators/params-validator";
+import { validateParams } from "../validators/params.validator";
 import { log } from "console";
+import { validateEmail, validatePassword } from "../validators/form.validator";
+import { ValidatorCallback } from "../validators/validator.type";
 
 type LOGIN_PARAMS = {
 	email: string;
@@ -28,6 +30,13 @@ export function validateLoginParams(
 	res: Response,
 	next: NextFunction
 ) {
-	const requiredFields = ["email", "password"];
+	const requiredFields: {
+		param: string;
+		validator: ValidatorCallback;
+	}[] = [
+		{ param: "email", validator: validateEmail },
+		{ param: "password", validator: validatePassword },
+	];
+
 	validateParams(requiredFields, req, res, next);
 }
