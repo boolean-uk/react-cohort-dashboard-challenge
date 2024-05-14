@@ -17,6 +17,10 @@ a {
     text-decoration: none;
 }
 
+ input:focus {
+    outline: none;
+}
+
 /* Header */
 header {
     background-color: #000046;
@@ -270,6 +274,23 @@ main {
     margin: 20px;
 }
 
+.delete-button-container {
+    display: grid;
+    justify-content: right;
+}
+
+.delete-button-container button {
+    background-color:#64DC78;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+}
+
+.delete-button-container button:hover {
+    background-color:#000046;
+}
+
 /* Main - Profile */
 .profile-container {
     padding: 20px;
@@ -281,6 +302,8 @@ main {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
+    display: grid;
+    gap: 20px;
 }
 
 .profile-title {
@@ -294,8 +317,48 @@ main {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .profile-ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile-ul div {
     display: grid;
+    gap: 5px;
+}
+
+.profile-ul div label {
+    padding-left: 10px;
+    color: #64648c;
+}
+
+.profile-ul input {
+    background-color: #E6EBF5;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 8px;
+    color: #64648c;
+}
+
+.profile-form-container button {
+    height: 60px;
+}
+
+.profile-form-container {
+    display: grid;
+    gap: 20px;
+}
+
+.save-button-container {
+    display: grid;
+    justify-content: right;
+}
+
+.profile-ul input:focus {
+    color:#000046;
 }
