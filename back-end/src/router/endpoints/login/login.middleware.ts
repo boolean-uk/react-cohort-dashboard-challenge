@@ -1,16 +1,12 @@
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
-import { mongoClient } from "../..";
-import { validateEmail, validatePassword } from "../validators/form.validator";
-import { validateParams } from "../validators/params.validator";
-import { ValidatorCallback } from "../validators/validator.type";
+import { mongoClient } from "../../..";
+import { validateString } from "../../validators/form.validator";
+import { validateParams } from "../../validators/validate.params.middleware";
+import { ValidatorCallback } from "../../validators/validator.type";
+import { LOGIN_PARAMS } from "./login.params";
 
-type LOGIN_PARAMS = {
-	email: string;
-	password: string;
-};
-
-export async function loginHandler(
+export default async function loginMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
@@ -34,20 +30,4 @@ export async function loginHandler(
 	};
 
 	return res.status(200).json({ token: "123", user: DUMMY_USER });
-}
-
-export function validateLoginParams(
-	req: Request,
-	res: Response,
-	next: NextFunction
-) {
-	const requiredFields: {
-		param: keyof LOGIN_PARAMS;
-		validator: ValidatorCallback;
-	}[] = [
-		{ param: "email", validator: validateEmail },
-		{ param: "password", validator: validatePassword },
-	];
-
-	validateParams(requiredFields, req, res, next);
 }

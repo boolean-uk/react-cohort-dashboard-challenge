@@ -13,6 +13,11 @@ const isInvalidType = (data: any, ...types: string[]) =>
 		message: `Received: [${typeof data}] instead of types: [${types}]`,
 	};
 
+export const validateString: ValidatorCallback = (data) => {
+	const isInvalid = isInvalidType(data, "string");
+	return isInvalid ? isInvalid : { message: undefined };
+};
+
 export const validateName: ValidatorCallback = (data) => {
 	const isInvalid = isInvalidType(data, "string");
 	if (isInvalid) return isInvalid;
@@ -36,11 +41,12 @@ export const validatePassword: ValidatorCallback = (data) => {
 	const isInvalid = isInvalidType(data, "string");
 	if (isInvalid) return isInvalid;
 
-	if (/[A-Z]+/.test(data))
+	if (!/[A-Z]+/.test(data))
 		return { message: "Requires at least one uppercase letter" };
-	if (/[a-z]+/.test(data))
+	if (!/[a-z]+/.test(data))
 		return { message: "Requires at least one lowercase letter" };
-	if (/[0-9]+/.test(data)) return { message: "Requires at least one number" };
+	if (!/[0-9]+/.test(data))
+		return { message: "Requires at least one number" };
 
 	return { message: undefined };
 };
