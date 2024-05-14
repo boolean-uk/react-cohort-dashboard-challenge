@@ -1,11 +1,13 @@
 import InitialIcon from "./InitialIcon";
 import CommentSection from "./CommentSection";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { loggedInUser } from "../App";
 
 
 export default function PostCard({ post }) {
     const [currentUser, setCurrentUser] = useState()
+    const user = useContext(loggedInUser)
   
   useEffect(() => {
         getUser()
@@ -35,7 +37,7 @@ export default function PostCard({ post }) {
       <hr className="h-px bg-inputGrey mx-2 border-0" />
       <CommentSection post={post}/>
       <section className="flex gap-2 p-2 rounded-md bg-white">
-        <InitialIcon />
+        <InitialIcon user={user}/>
         <input
           className="bg-inputGrey p-2 flex-1 rounded-md"
           name="newPost"

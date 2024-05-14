@@ -1,10 +1,12 @@
 import NewPost from "../Subcomponents/NewPost";
 import PostCard from "../Subcomponents/PostCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { BarLoader } from "react-spinners";
+import { loggedInUser } from "../App";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
+  const user = useContext(loggedInUser)
 
   useEffect(() => {
     getPosts();
@@ -20,9 +22,10 @@ export default function Feed() {
 
 
   if (posts.length === 0) {
+   
     return (
     <div className="m-5 flex flex-col gap-3">
-    <NewPost />
+    <NewPost user={user} />
     <BarLoader color="#000046" className="my-10 place-self-center"/>
     </div>
     )
@@ -30,7 +33,7 @@ export default function Feed() {
 
   return (
     <ul className="m-5 flex flex-col gap-3">
-    <NewPost />
+    <NewPost user={user} />
     {posts.map((post, index) => {
         return(
             <PostCard post={post} key={index}/>
