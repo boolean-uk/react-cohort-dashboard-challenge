@@ -31,7 +31,7 @@ export default function Feed() {
     return (
     <div className="m-5 flex flex-col gap-3">
     <NewPost />
-    <BarLoader color="#000046" className="place-self-center"/>
+    <BarLoader color="#000046" className="my-10 place-self-center"/>
     </div>
     )
   }
