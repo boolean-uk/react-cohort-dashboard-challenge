@@ -326,6 +326,10 @@ main {
     font-size: 1rem;
 }
 
+.comment-content-textarea {
+    background-color: #E6EBF5;
+}
+
 /* Main - Profile */
 .profile-container {
     padding: 20px;

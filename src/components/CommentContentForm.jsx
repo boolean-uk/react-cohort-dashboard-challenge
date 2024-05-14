@@ -44,7 +44,7 @@ export default function CommentContentForm({ comment, commentUpdate, setCommentU
 
     return (
         <form className="post-content-form" onSubmit={handleSubmit}>
-            <textarea name="content" id="post-content-textarea" value={updateComment.content} onChange={handleChange}></textarea>
+            <textarea name="content" id="post-content-textarea" className="comment-content-textarea" value={updateComment.content} onChange={handleChange}></textarea>
             <div>
                 <button>Save</button>
             </div>
