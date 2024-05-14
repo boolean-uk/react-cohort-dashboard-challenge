@@ -24,6 +24,7 @@ function App() {
   console.log(contacts)
   return (
     <>
+    
       <Header loggedInUser={loggedInUser}/>
       <Aside />
       <MainComponent loggedInUser={loggedInUser}/>

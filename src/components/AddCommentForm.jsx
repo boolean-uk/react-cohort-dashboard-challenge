@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { PostContext } from "./PostLi"
 
-export default function AddCommentForm({ loggedInUser, post, postComments, setPostComments }) {
+export default function AddCommentForm({ loggedInUser }) {
+    const { postComments, setPostComments, post } = useContext(PostContext)
     const [addComment, setAddComment] = useState({
         postId: '',
         content: '',

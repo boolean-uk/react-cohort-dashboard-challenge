@@ -1,13 +1,17 @@
 import ProfileImage from "./ProfileImage";
 import PostLi from "./PostLi";
 import NewPostForm from "./NewPostForm";
+import { useContext } from "react";
+import { DataContext } from "./MainComponent";
 
-export default function PostsDashboard({ loggedInUser, postData, setPostData }) {
+export default function PostsDashboard({ loggedInUser }) {
+    const { postData } = useContext(DataContext)
+
     return (
         <div className="posts-dashboard">
             <section className="new-post-container">
                 <ProfileImage loggedInUser={loggedInUser}/>
-                <NewPostForm loggedInUser={loggedInUser} postData={postData} setPostData={setPostData}/>
+                <NewPostForm loggedInUser={loggedInUser}/>
             </section>
 
             <section className="posts-container">

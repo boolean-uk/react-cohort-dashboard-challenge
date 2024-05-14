@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import PostsDashboard from "./PostsDashboard";
 import SinglePost from "./SinglePost";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
+export const DataContext = createContext()
 
 export default function MainComponent({ loggedInUser }) {
     const [postData, setPostData] = useState([])
@@ -13,14 +15,16 @@ export default function MainComponent({ loggedInUser }) {
     }, [])
 
     return (
-        <main>
-            <Routes >
+        <DataContext.Provider value={{ postData, setPostData }} >
+            <main>
+                <Routes >
 
-                <Route path="/" element={<PostsDashboard loggedInUser={loggedInUser} postData={postData} setPostData={setPostData}/>}/>
+                    <Route path="/" element={<PostsDashboard loggedInUser={loggedInUser} />}/>
 
-                <Route path="/post/:id" element={<SinglePost postData={postData} loggedInUser={loggedInUser}/>}/>
+                    <Route path="/post/:id" element={<SinglePost loggedInUser={loggedInUser}/>}/>
 
-            </Routes>
-        </main>
+                </Routes>
+            </main>
+        </DataContext.Provider>
     )
 }

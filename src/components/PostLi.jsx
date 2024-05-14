@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import CommentLi from "./CommentLi"
 import ProfileImage from "./ProfileImage"
 import { Link } from "react-router-dom"
 import AddCommentForm from "./AddCommentForm"
 
+export const PostContext = createContext()
+
 export default function PostLi({ post, loggedInUser }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
     const [showMore, setShowMore] = useState(false)
-   
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`)
@@ -26,6 +27,12 @@ export default function PostLi({ post, loggedInUser }) {
 
     function handleClick() {
         setShowMore(!showMore)
+    }
+
+    const value = {
+        postComments,
+        setPostComments,
+        post
     }
 
     return (
@@ -62,7 +69,9 @@ export default function PostLi({ post, loggedInUser }) {
                             </ul>
                             <div className="add-comment-container">
                                 <ProfileImage loggedInUser={loggedInUser}/>
-                                <AddCommentForm loggedInUser={loggedInUser} post={post} postComments={postComments} setPostComments={setPostComments}/>
+                                <PostContext.Provider value={value}>
+                                    <AddCommentForm loggedInUser={loggedInUser}/>
+                                </PostContext.Provider>
                             </div>
                         </>
                     </section>

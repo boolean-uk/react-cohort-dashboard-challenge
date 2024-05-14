@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { DataContext } from "./MainComponent"
 
-export default function NewPostForm({ loggedInUser, postData, setPostData }) {
+export default function NewPostForm({ loggedInUser }) {
+    const { postData, setPostData } = useContext(DataContext)
     const [addPost, setAddPost] = useState({
         title: '',
         content: '',
