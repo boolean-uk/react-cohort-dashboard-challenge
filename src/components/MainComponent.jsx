@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import PostsDashboard from "./PostsDashboard";
 import SinglePost from "./SinglePost";
 import { createContext, useEffect, useState } from "react";
+import Profile from "./Profile";
 
 export const DataContext = createContext()
 
@@ -22,6 +23,8 @@ export default function MainComponent({ loggedInUser }) {
                     <Route path="/" element={<PostsDashboard loggedInUser={loggedInUser} />}/>
 
                     <Route path="/post/:id" element={<SinglePost loggedInUser={loggedInUser}/>}/>
+
+                    <Route path="/profile" element={<Profile/>}/>
 
                 </Routes>
             </main>

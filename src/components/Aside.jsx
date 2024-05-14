@@ -13,12 +13,14 @@ export default function Aside() {
                     </li>
                 </NavLink>
 
-                <li>
-                    <div>
-                        <img src="src\assets\profile-icon.svg" alt="Profile icon" />
-                    </div>
-                    <p>Profile</p>
-                </li>
+                <NavLink to='/profile'>
+                    <li>
+                        <div>
+                            <img src="src\assets\profile-icon.svg" alt="Profile icon" />
+                        </div>
+                        <p>Profile</p>
+                    </li>
+                </NavLink>
             </ul>
         </aside>
     )
