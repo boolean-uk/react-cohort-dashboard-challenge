@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import ProfileImage from "./ProfileImage"
+import { PostContext } from "./PostLi"
 
-export default function CommentLi({ comment, post, postComments, setPostComments}) {
+export default function CommentLi({ comment }) {
     const [commentContact, setCommentContact] = useState(null)
+    const { post, postComments, setPostComments } = useContext(PostContext)
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/contact/${comment.contactId}`)

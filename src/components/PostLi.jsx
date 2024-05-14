@@ -4,6 +4,7 @@ import ProfileImage from "./ProfileImage"
 import { Link } from "react-router-dom"
 import AddCommentForm from "./AddCommentForm"
 import { DataContext } from "./MainComponent"
+import PostContentForm from "./PostContentForm"
 
 export const PostContext = createContext()
 
@@ -12,6 +13,7 @@ export default function PostLi({ post, loggedInUser }) {
     const [postContact, setPostContact] = useState(null)
     const [showMore, setShowMore] = useState(false)
     const { postData, setPostData } = useContext(DataContext)
+    const [update, setUpdate] = useState(false)
     
     const postToDelete = {
         title: post.title,
@@ -40,7 +42,9 @@ export default function PostLi({ post, loggedInUser }) {
     const value = {
         postComments,
         setPostComments,
-        post
+        post,
+        setUpdate,
+        update
     }
 
     function handleDelete() {
@@ -64,50 +68,69 @@ export default function PostLi({ post, loggedInUser }) {
         deletePost()
     }
 
+    function handleUpdate() {
+        setUpdate(!update)
+    }
+
     return (
         <>
             {postContact && 
-                <li className="post-li">
-                    <section className="post-content-container">
-                        <div className="poster-information">
-                            <ProfileImage loggedInUser={postContact}/>
-                            <div>
-                                <p className="poster-name name">{`${postContact.firstName} ${postContact.lastName}`}</p>
-                                <Link to={`/post/${post.id}`}><p className="post-title">{post.title}</p></Link>
+                <PostContext.Provider value={value}>
+                    <li className="post-li">
+                        <section className="post-content-container">
+                            <div className="poster-information">
+                                <ProfileImage loggedInUser={postContact}/>
+                                <div>
+                                    <p className="poster-name name">{`${postContact.firstName} ${postContact.lastName}`}</p>
+                                    <Link to={`/post/${post.id}`}><p className="post-title">{post.title}</p></Link>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="post-content">
-                            {post.content}
-                        </div>
-                    </section>
-                    
-                    <section className="comments-container">
-                        <>
+                            {!update && 
+                                <div className="post-content">
+                                    {post.content}
+                                </div>
+                            }
+
+                            {update && 
+                                <PostContentForm />
+                            }
+
+                        </section>
+                        
+                        <section className="comments-container">
                             <div className="see-more-button-container">
                                 {postComments.length > 3 && <button onClick={handleClick} className="see-more-button">See previous comments</button>}
                             </div>
                             <ul className="comments-ul">
                                 {showMore && postComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment} post={post} postComments={postComments} setPostComments={setPostComments}/>
+                                    return <CommentLi key={index} comment={comment} />
                                 })}
 
                                 {!showMore && firstThreeComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment} post={post} postComments={postComments} setPostComments={setPostComments}/>
+                                    return <CommentLi key={index} comment={comment} />
                                 })}
                             </ul>
                             <div className="add-comment-container">
                                 <ProfileImage loggedInUser={loggedInUser}/>
-                                <PostContext.Provider value={value}>
+                                
                                     <AddCommentForm loggedInUser={loggedInUser}/>
-                                </PostContext.Provider>
                             </div>
-                        </>
-                    </section>
-                    <div className="delete-button-container">
-                            <button onClick={handleDelete}>Delete</button>
-                    </div>
-                </li>
+                        </section>
+                        {post.contactId === loggedInUser.id && 
+                            <section className="buttons-container">
+                                <div className="delete-button-container">
+                                        <button onClick={handleDelete}>Delete</button>
+                                </div>
+                                <div className="delete-button-container">
+                                        <button onClick={handleUpdate}>Update</button>
+                                </div>
+                            </section>
+                        }
+
+
+                    </li>
+                </PostContext.Provider>
             }
         </>
     )

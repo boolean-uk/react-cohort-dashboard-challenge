@@ -292,6 +292,40 @@ main {
     background-color:#000046;
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+}
+
+.post-content-form {
+    display: grid;
+}
+
+.post-content-form button {
+    background-color: #000046;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.post-content-form button:hover {
+    background-color: #64DC78;
+}
+
+.post-content-form div {
+    display: grid;
+    justify-content: right;
+}
+
+#post-content-textarea {
+    resize: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
 /* Main - Profile */
 .profile-container {
     padding: 20px;
