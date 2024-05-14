@@ -16,13 +16,15 @@ export default function Feed () {
         const json = await data.json()
         setPosts(json)
     }
-
     const getUsers = async () => {
+        try {
         const data = await fetch('https://boolean-api-server.fly.dev/MrStashy/contact')
         const json = await data.json()
-        setUsers(json)
+        setUsers(json) } catch (error) {
+            console.log(error)
+        }
     }
-
+   
     return (
         <div className="m-5 flex flex-col gap-3">
         <NewPost />
@@ -31,7 +33,6 @@ export default function Feed () {
                 <PostCard post={post} users={users} key={index}/>
             )
         })}
-        
         </div>
     )
 }
