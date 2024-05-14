@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    color: #000046;
+}
+
+#root {
+    height: 100vh;
+    display: grid;
+    grid-template: 
+    'header header' 100px
+    'aside main' 1fr /
+    140px 1fr;
+}
+
+a {
+    text-decoration: none;
+}
+
+ input:focus {
+    outline: none;
+}
+
+/* Header */
+header {
+    background-color: #000046;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    padding: 0px 70px;
+}
+
+header a {
+    display: grid;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.logo {
+    display: grid;
+    align-items: center;
+}
+
+.profile-image-container {
+    display: grid;
+    place-content: center;
+}
+
+.profile-image {
+    background-color: #64DC78;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.profile-image p {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Aside */
+aside {
+    grid-area: aside;
+    background-color: white;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0px;
+}
+
+aside ul li {
+    height: 140px;
+    display: grid;
+    place-content: center;
+    gap: 0.5rem;
+}
+
+aside ul li div {
+    display: grid;
+    place-content: center;
+}
+
+aside p {
+    font-size: 1.1rem;
+    color: #64648c;
+    font-weight: bolder;
+}
+
+.aside-ul a.active li {
+    background-color: #E6EBF5;
+}
+
+.aside-ul a.active p {
+    color: #000046;
+}
+
+.aside-ul a.active img {
+    filter: brightness(0) saturate(100%) invert(6%) sepia(68%) saturate(5086%) hue-rotate(241deg) brightness(80%) contrast(120%);
+}
+
+/* Main */
+main {
+    grid-area: main;
+    background-color: #F0F5FA;
+}
+
+/* Main - Posts dashboard */
+.posts-dashboard {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    padding: 20px;
+    gap: 20px;
+}
+
+.new-post-container {
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 20px;
+    gap: 1rem;
+}
+
+.new-post-input {
+    border: none;
+    background-color: #E6EBF5;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: #64648c;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+
+.post-button {
+    width: 200px;
+    background-color: #000046;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
+
+.post-button:hover {
+    background-color:#64dc78;
+}
+
+.new-post-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+}
+
+.posts-ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.post-li {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 40px;
+    display: grid;
+    gap: 2rem;
+}
+
+.poster-information {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.post-content-container {
+    display: grid;
+    gap: 20px;
+}
+
+.comments-ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.comment-li {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.comment-container {
+    background-color: #E6EBF5;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.poster-name {
+    font-weight: bold;
+}
+
+.name {
+    font-size: 1.2rem;
+}
+
+.post-title {
+    color: #64648c;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.add-comment-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+}
+
+.comments-container {
+    display: grid;
+    gap: 20px;
+}
+
+.add-comment {
+    background-color: #E6EBF5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-radius: 10px;
+}
+
+.comment-input {
+    border: none;
+    background-color:#E6EBF5;
+    border-radius: 10px;
+}
+
+.send-button img {
+    height: 25px;
+}
+
+.send-button {
+    background-color: #C8D2E6;
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-content: center;
+}
+
+.send-button-container {
+    display: grid;
+    place-content: center;
+    padding-right: 10px;
+}
+
+.see-more-button {
+    border: none;
+    background-color: white;
+    color: #64648c;
+    font-size: 1rem;
+}
+
+.single-post {
+    margin: 20px;
+}
+
+.delete-button-container {
+    display: grid;
+    justify-content: right;
+}
+
+.delete-button-container button {
+    background-color:#64DC78;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+}
+
+.delete-button-container button:hover {
+    background-color:#000046;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+}
+
+.post-content-form {
+    display: grid;
+}
+
+.post-content-form button {
+    background-color: #000046;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.post-content-form button:hover {
+    background-color: #64DC78;
+}
+
+.post-content-form div {
+    display: grid;
+    justify-content: right;
+}
+
+#post-content-textarea {
+    resize: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.comment-content-textarea {
+    background-color: #E6EBF5;
+}
+
+/* Main - Profile */
+.profile-container {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+}
+
+.profile-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+}
+
+.profile-title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.profile-ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.profile-ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile-ul div {
+    display: grid;
+    gap: 5px;
+}
+
+.profile-ul div label {
+    padding-left: 10px;
+    color: #64648c;
+}
+
+.profile-ul input {
+    background-color: #E6EBF5;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 8px;
+    color: #64648c;
+}
+
+.profile-form-container button {
+    height: 60px;
+}
+
+.profile-form-container {
+    display: grid;
+    gap: 20px;
+}
+
+.save-button-container {
+    display: grid;
+    justify-content: right;
+}
+
+.profile-ul input:focus {
+    color:#000046;
+}
