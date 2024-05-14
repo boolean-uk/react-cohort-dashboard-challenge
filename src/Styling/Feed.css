@@ -46,7 +46,7 @@
     color: white;
 }
 
-.text-input-container input{
+.text-input-container input {
     width: 100%;
     height: 80%;
     background-color: #e6ebf5;
@@ -72,15 +72,17 @@
     font-weight: bold;
 }
 
+#profile-name {
+    color: #000046;
+}
+
 .post-body {
     padding: 1rem;
 }
 
-.comment-section {
-    border-top: 1px solid #e6ebf5;
-}
 
 .comment-section-form {
+    border-top: 1px solid #e6ebf5;
     display: grid;
     grid-template-columns: 5rem 1fr;
     gap: 0.5rem;
@@ -90,18 +92,6 @@
 #profile-name {
     color: #000046;
 }
-
-/* .sendBtn-container {
-    position: relative;
-    left: 94%;
-    bottom: 79%;
-    border: 1px solid #b0b5bd;
-    border-radius: 90%;
-    background-color: #b0b5bd;
-    width: 50px;
-    padding: 0.5rem;
-    place-content: center;
-} */
 
 #send {
     width: 20px;
@@ -116,4 +106,21 @@
     border-radius: 100%;
     width: 50px;
     place-content: center;
+}
+
+.comment-box {
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: medium;
+    width: fit-content;
+}
+
+.comment {
+    display:  grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
 }

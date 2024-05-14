@@ -4,7 +4,6 @@ import { UsersContext } from "../../App"
 export default function CreatePost() {
 
     const {loggedInuser} = useContext(UsersContext)
-    console.log('user', loggedInuser)
 
     return (
         <section className="post-container">

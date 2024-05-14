@@ -17,7 +17,7 @@ function Feed() {
     return (
         <section className="feed">
             <CreatePost />
-            <Posts posts={posts}/>
+            <Posts posts={posts} setPosts={setPosts}/>
         </section>
     )
 }

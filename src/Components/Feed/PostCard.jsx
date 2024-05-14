@@ -1,28 +1,54 @@
 /* eslint-disable react/prop-types */
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UsersContext } from "../../App";
-import sendBtn from '../../assets/svg/sendBtn.svg'
 
-function PostCard({ post }) {
+import Comment from "./Comment";
+import CommentForm from "./CommentForm";
+
+
+
+function PostCard({ post, setPosts, posts }) {
   const { users, loggedInUser } = useContext(UsersContext);
-  const [content, setContent] = useState('')
-  const [comment, setComment] = useState({});
+  const [singlePost, setSinglePost] = useState({})
+
+  const [comments, setComments] = useState([])
 
   const user = users.find((user) => {
-    if (user.id === post.id) return user;
+    if (user.id === post.contactId) return user;
   });
 
-  const postComment = (event) => {
-    event.preventDefault()
-    setComment([{
-      ...loggedInUser,
-      content
-    }])
-    setContent('')
-  }
-  console.log(comment)
 
+  const handleChange = (e) => {
+    const {value} = event.target
+
+    setCommentForm({
+      commentContent: value,
+      ...loggedInUser,
+      postId: post.id,
+      contactId: post.contactId
+    })
+  }
+
+  
+  const updateAPI = (e) => {
+    e.preventDefault()
+    
+    // fetch(`https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(commentForm)
+    // })
+    //   .then(response => response.json())
+    //   .then(json => setSinglePost({...post, json}))
+    //   .then(setPosts([...posts, singlePost]))
+
+    // setCommentForm({
+    //   commentContent: ''
+    // })
+  }
 
   return (
     <section className="post-container">
@@ -44,34 +70,8 @@ function PostCard({ post }) {
         <p>{post.content}</p>
       </div>
       <div className="comment-section">
-        {post.comment && (
-          <section className="comment">
-            <div className="profile-initials">
-              <p>
-                {post.comment.firstName[0]}
-                {post.comment.lastName[0]}
-              </p>
-            </div>
-            <div>
-              <p>{post.comment.content}</p>
-            </div>
-          </section>
-        )}
-        <form className="comment-section-form" onSubmit={(event) => postComment(event)}>
-          <div className="profile-initials">
-            <p>{loggedInUser.firstName[0]}{loggedInUser.lastName[0]}</p>
-          </div>
-          <div className="text-input-container">
-            <input  
-              type="text"
-              name="commentContent"
-              placeholder="Add a comment..."
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <button className="submit"><img src={sendBtn} className="icon" id="send"/></button>
-          </div>
-        </form>
+       <Comment post={post} comments={comments} setComments={setComments} user={user} posts={posts} users={users}/>
+       <CommentForm loggedInUser={loggedInUser}/>
       </div>
     </section>
   );
