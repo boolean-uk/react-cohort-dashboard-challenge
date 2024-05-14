@@ -33,7 +33,7 @@ function App() {
           <main className="bg-inputGrey">
             <Routes>
               <Route path={"/"} element={<Feed />} />
-              <Route path={"/profile"} element={<Profile />} />
+              <Route path={"/profile/:id"} element={<Profile />} />
               <Route path={"/posts/:id"} element={<SinglePost />} />
             </Routes>
           </main>
