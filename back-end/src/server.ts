@@ -1,6 +1,6 @@
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
-import router from "./router";
+import router from "./router/router";
 //
 const app = express();
 
