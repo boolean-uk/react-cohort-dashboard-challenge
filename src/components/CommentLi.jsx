@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react"
 import ProfileImage from "./ProfileImage"
 import { PostContext } from "./PostLi"
+import CommentContentForm from "./CommentContentForm"
 
-export default function CommentLi({ comment }) {
+export default function CommentLi({ comment, loggedInUser }) {
     const [commentContact, setCommentContact] = useState(null)
     const { post, postComments, setPostComments } = useContext(PostContext)
+    const [commentUpdate, setCommentUpdate] = useState(false)
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/contact/${comment.contactId}`)
@@ -39,6 +41,10 @@ export default function CommentLi({ comment }) {
         deleteComment()
     }
 
+    function handleUpdate() {
+        setCommentUpdate(!commentUpdate)
+    }
+
     return (
         <>
             {commentContact && 
@@ -47,12 +53,30 @@ export default function CommentLi({ comment }) {
 
                     <div className="comment-container">
                         <p className="poster-name">{`${commentContact.firstName} ${commentContact.lastName}`}</p>
-                        <p>{comment.content}</p>
+
+                        {!commentUpdate && 
+                            <div className="post-content">
+                                <p>{comment.content}</p>
+                            </div>
+                        }
+
+                            {commentUpdate && 
+                                <CommentContentForm comment={comment} commentUpdate={commentUpdate} setCommentUpdate={setCommentUpdate} />
+                            }
+                        
                     </div>
 
-                    <div className="delete-button-container">
-                            <button onClick={handleDelete}>Delete</button>
-                    </div>
+                    {comment.contactId === loggedInUser.id && 
+                        <section className="buttons-container">
+                            <div className="delete-button-container">
+                                <button onClick={handleDelete}>Delete</button>
+                            </div>
+                            <div className="delete-button-container">
+                                <button onClick={handleUpdate}>Update</button>
+                            </div>
+                        </section>
+                    }
+
                 </li>
             }
         </>

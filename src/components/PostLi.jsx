@@ -104,19 +104,19 @@ export default function PostLi({ post, loggedInUser }) {
                             </div>
                             <ul className="comments-ul">
                                 {showMore && postComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment} />
+                                    return <CommentLi key={index} comment={comment} loggedInUser={loggedInUser}/>
                                 })}
 
                                 {!showMore && firstThreeComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment} />
+                                    return <CommentLi key={index} comment={comment} loggedInUser={loggedInUser}/>
                                 })}
                             </ul>
                             <div className="add-comment-container">
                                 <ProfileImage loggedInUser={loggedInUser}/>
-                                
-                                    <AddCommentForm loggedInUser={loggedInUser}/>
+                                <AddCommentForm loggedInUser={loggedInUser}/>
                             </div>
                         </section>
+
                         {post.contactId === loggedInUser.id && 
                             <section className="buttons-container">
                                 <div className="delete-button-container">
@@ -127,8 +127,6 @@ export default function PostLi({ post, loggedInUser }) {
                                 </div>
                             </section>
                         }
-
-
                     </li>
                 </PostContext.Provider>
             }
