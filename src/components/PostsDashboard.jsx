@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProfileImage from "./ProfileImage";
 import PostLi from "./PostLi";
 
-export default function PostsDashboard({ loggedInUser, postData, setPostData, showMore, setShowMore, addComment, setAddComment }) {
+export default function PostsDashboard({ loggedInUser, postData, setPostData }) {
     const [addPost, setAddPost] = useState({
         title: '',
         content: '',
@@ -64,7 +64,7 @@ export default function PostsDashboard({ loggedInUser, postData, setPostData, sh
             <section className="posts-container">
                 <ul className="posts-ul">
                     {postData.map((post, index) => {
-                        return <PostLi key={index} post={post} loggedInUser={loggedInUser} showMore={showMore} setShowMore={setShowMore} addComment={addComment} setAddComment={setAddComment}/>
+                        return <PostLi key={index} post={post} loggedInUser={loggedInUser} />
                     })}
                 </ul>
             </section>

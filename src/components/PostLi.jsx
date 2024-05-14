@@ -3,9 +3,15 @@ import CommentLi from "./CommentLi"
 import ProfileImage from "./ProfileImage"
 import { Link } from "react-router-dom"
 
-export default function PostLi({ post, loggedInUser, showMore, setShowMore, addComment, setAddComment }) {
+export default function PostLi({ post, loggedInUser }) {
     const [postComments, setPostComments] = useState([])
     const [postContact, setPostContact] = useState(null)
+    const [showMore, setShowMore] = useState(false)
+    const [addComment, setAddComment] = useState({
+        postId: '',
+        content: '',
+        contactId: 0
+    })
 
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/MyrtheDullaart/post/${post.id}/comment`)
@@ -104,7 +110,7 @@ export default function PostLi({ post, loggedInUser, showMore, setShowMore, addC
                                     <input type="text" placeholder="Add a comment..." className="comment-input" name="content" value={addComment.content} onChange={handleChange}/>
                                     <div className="send-button-container">
                                         <button className="send-button">
-                                            <img src="src\assets\send-icon.svg" alt="Send icon" />
+                                            <img src="../src/assets/send-icon.svg" alt="Send icon" />
                                         </button>
                                     </div>
                                 </form>
