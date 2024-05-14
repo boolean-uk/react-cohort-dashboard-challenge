@@ -1,7 +1,10 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { StateContext } from "../App"
 
 export default function Author(props) {
-    const { post, authors } = props
+    const { post } = props
+    const { authors } = useContext(StateContext)
 
     const authorFound = authors.find(author => author.id === post.contactId)
 

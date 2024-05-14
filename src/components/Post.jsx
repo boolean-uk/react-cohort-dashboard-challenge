@@ -2,38 +2,33 @@ import { useLocation, useParams } from "react-router-dom";
 import AddComment from "./AddComment";
 import Author from "./Author";
 import Comment from "./Comment";
+import { useContext } from "react";
+import { StateContext } from "../App";
 
-export default function Post(props) {
-    const { randomAuthor, posts, authors } = props
+export default function Post() {
+    const { posts } = useContext(StateContext)
+    
+    const sortedPosts = [...posts].sort((a, b) => b.id - a.id)
 
     const { id } = useParams()
 
     const location = useLocation()
 
-    const postFound = id ? posts.find(post => post.id === Number(id)) : null
+    const postFound = id ? sortedPosts.find(post => post.id === Number(id)) : null
     
     if (postFound) {
         return (
             <main>
                 <article key={postFound.id}>
-                    <Author
-                        post={postFound} 
-                        authors={authors}
-                    />
+                    <Author post={postFound} />
 
                     <p>{postFound.content}</p>
 
                     <div id="separator"></div>
 
-                    <Comment 
-                        post={postFound} 
-                        authors={authors}
-                    />
+                    <Comment post={postFound} />
                 
-                    <AddComment 
-                        post={postFound} 
-                        randomAuthor={randomAuthor} 
-                    />
+                    <AddComment post={postFound} />
                 </article>
             </main>
         )
@@ -48,26 +43,17 @@ export default function Post(props) {
     } else {
         return (
             <>
-                {posts && posts.map(post => 
+                {sortedPosts && sortedPosts.map(post => 
                     <article key={post.id}>
-                        <Author
-                            post={post} 
-                            authors={authors}
-                        />
+                        <Author post={post} />
     
                         <p>{post.content}</p>
     
                         <div id="separator"></div>
     
-                        <Comment 
-                            post={post} 
-                            authors={authors}
-                        />
+                        <Comment post={post} />
     
-                        <AddComment 
-                            post={post} 
-                            randomAuthor={randomAuthor} 
-                        />
+                        <AddComment post={post} />
                     </article>
                 )}
             </>

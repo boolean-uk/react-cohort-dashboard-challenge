@@ -1,7 +1,9 @@
+import { useContext } from 'react'
 import titleHeader from '../assets/images/title-header.svg'
+import { StateContext } from '../App'
 
-export default function Header(props) {
-    const { randomAuthor } = props
+export default function Header() {
+    const { randomAuthor } = useContext(StateContext)
 
     return (
         <header>

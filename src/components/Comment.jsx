@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { StateContext } from "../App"
 
 export default function Comment(props) {
     const [comments, setComments] = useState([])
-    const { post, authors  } = props
+    const { post } = props
+    const { authors } = useContext(StateContext)
 
     useEffect(() => {
         fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/post/${post.id}/comment`)

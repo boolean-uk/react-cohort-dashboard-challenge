@@ -1,11 +1,13 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { StateContext } from "../App"
 
-export default function CreatePost(props) {
+export default function CreatePost() {
     const [newPost, setNewPost] = useState({
         title: '',
         content: ''
     })
-    const { randomAuthor, loadedPosts } = props
+    
+    const { loadedPosts, randomAuthor } = useContext(StateContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()

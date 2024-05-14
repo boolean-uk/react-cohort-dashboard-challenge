@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { StateContext } from "../App"
 
 export default function AddComment(props) {
     const [newComment, setNewComment] = useState({ content: '' })
-    const { randomAuthor, post } = props
+    const { post } = props
+    const { randomAuthor } = useContext(StateContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()

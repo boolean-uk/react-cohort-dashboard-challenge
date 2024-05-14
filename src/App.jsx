@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './assets/styles/App.css'
 import Feed from './components/Feed'
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Post from './components/Post'
+
+export const StateContext = createContext()
 
 export default function App() {
   const [posts, setPosts] = useState([])
@@ -35,31 +37,22 @@ export default function App() {
   }
 
   return (
-    <>
-      <Header randomAuthor={randomAuthor} />
+    <StateContext.Provider value={ { posts, authors, loadedPosts, randomAuthor } }>
+      <Header />
 
       <Nav />
 
       <Routes>
         <Route 
           path='/'
-          element={<Feed 
-            posts={posts}
-            authors={authors}
-            loadedPosts={loadedPosts}
-            randomAuthor={randomAuthor}
-          />}
+          element={<Feed />}
         />
 
         <Route 
           path='/:id'
-          element={<Post 
-              posts={posts} 
-              authors={authors}
-              randomAuthor={randomAuthor}
-            />}
+          element={<Post />}
         />
       </Routes>
-    </>
+    </StateContext.Provider>
   )
 }
