@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Comment from "./Comment"
 
-export default function CommentSection ({post, users}) {
+export default function CommentSection ({post}) {
     const [comments, setComments] = useState([])
     const url = `https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`
 
@@ -20,7 +20,7 @@ export default function CommentSection ({post, users}) {
         <section className="flex flex-col gap-2 m-2">
         {comments.map((comment, index) => {
             return (
-                <Comment key={index} comment={comment} users={users}/>
+                <Comment key={index} comment={comment}/>
             )
         })}
         </section>

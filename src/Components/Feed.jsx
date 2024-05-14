@@ -5,10 +5,8 @@ import { BarLoader } from "react-spinners";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUsers();
     getPosts();
   }, []);
 
@@ -19,15 +17,9 @@ export default function Feed() {
     const json = await data.json();
     setPosts(json);
   };
-  const getUsers = async () => {
-    const data = await fetch(
-      "https://boolean-api-server.fly.dev/MrStashy/contact"
-    );
-    const json = await data.json();
-    setUsers(json);
-  };
 
-  if (users.length === 0 && posts.length === 0) {
+
+  if (posts.length === 0) {
     return (
     <div className="m-5 flex flex-col gap-3">
     <NewPost />
@@ -41,7 +33,7 @@ export default function Feed() {
     <NewPost />
     {posts.map((post, index) => {
         return(
-            <PostCard post={post} users={users} key={index}/>
+            <PostCard post={post} key={index}/>
         )
     })}
     </div>

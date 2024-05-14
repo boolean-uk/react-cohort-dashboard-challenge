@@ -1,10 +1,21 @@
 import InitialIcon from "./InitialIcon";
 import CommentSection from "./CommentSection";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-export default function PostCard({ post, users }) {
-  let currentUser = users.find((user) => {
-    return user.id === post.contactId;
-  });
+
+export default function PostCard({ post }) {
+    const [currentUser, setCurrentUser] = useState()
+  
+  useEffect(() => {
+        getUser()
+  }, [])
+
+  const getUser = async () => {
+    const data = await fetch(`https://boolean-api-server.fly.dev/MrStashy/contact/${post.contactId}`)
+    const json = await data.json()
+    setCurrentUser(json)
+  }
 
   return (
     <article className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
@@ -17,12 +28,12 @@ export default function PostCard({ post, users }) {
                 `${currentUser.firstName} ${currentUser.lastName}`}
             </strong>
           </p>
-          <p>{post.title}</p>
+          <Link to={`/posts/${post.id}`}><p>{post.title}</p></Link>
         </div>
       </header>
       <p className="ml-2">{post.content}</p>
       <hr className="h-px bg-inputGrey mx-2 border-0" />
-      <CommentSection post={post} users={users} />
+      <CommentSection post={post}/>
       <section className="flex gap-2 p-2 rounded-md bg-white">
         <InitialIcon />
         <input

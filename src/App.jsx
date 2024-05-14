@@ -3,7 +3,9 @@ import Header from "./Components/Header";
 import NavAside from "./Components/NavAside";
 import Feed from "./Components/Feed";
 import Profile from "./Components/Profile";
+import PostCard from "./Subcomponents/PostCard";
 import { Routes, Route } from 'react-router-dom'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Feed />} />
         <Route path={'/profile'} element={<Profile />} />
+        <Route path={'/posts/:id'} element={<PostCard />}/>
       </Routes>
         
       </main>
