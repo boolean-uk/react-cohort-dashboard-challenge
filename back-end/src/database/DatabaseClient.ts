@@ -1,3 +1,4 @@
+import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 export default class DatabaseClient {
@@ -21,6 +22,11 @@ export default class DatabaseClient {
 
 	find(collection: string, filters: any) {
 		return this.getCollection(collection).find(filters);
+	}
+
+	async has(collection: string, filters: any) {
+		if (await this.find(collection, filters).hasNext()) return true;
+		else return false;
 	}
 
 	async connect() {
