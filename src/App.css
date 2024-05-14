@@ -82,6 +82,24 @@ aside ul li div {
     place-content: center;
 }
 
+aside p {
+    font-size: 1.1rem;
+    color: #64648c;
+    font-weight: bolder;
+}
+
+.aside-ul a.active li {
+    background-color: #E6EBF5;
+}
+
+.aside-ul a.active p {
+    color: #000046;
+}
+
+.aside-ul a.active img {
+    filter: brightness(0) saturate(100%) invert(6%) sepia(68%) saturate(5086%) hue-rotate(241deg) brightness(80%) contrast(120%);
+}
+
 /* Main */
 main {
     grid-area: main;
@@ -124,6 +142,10 @@ main {
     color: white;
     border-radius: 10px;
     font-size: 1.3rem;
+}
+
+.post-button:hover {
+    background-color:#64dc78;
 }
 
 .new-post-form {

@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Aside() {
     return (
         <aside>
-            <ul>
-                <Link to='/'>
+            <ul className="aside-ul">
+                <NavLink to='/'>
                     <li>
                         <div>
                             <img src="src\assets\home-icon.svg" alt="Home icon" />
                         </div>
                         <p>Home</p>
                     </li>
-                </Link>
+                </NavLink>
 
                 <li>
                     <div>
