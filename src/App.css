@@ -15,9 +15,57 @@
         'nav main';
 }
 
+.card{
+  padding: 32px;
+}
+
+button{
+  background-color: #000046;
+  color: white;
+  border-radius: 10px;
+}
+
 li{
   text-decoration: none;
 }
+
+.post-header,.post-body{
+  padding: 20px 0px;
+}
+
+.post-header p{
+  color:#64648c ;
+}
+
+hr{
+  background-color: lightgray;
+}
+
+.comment{
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.comment>article{
+  background-color: #e6ebf5;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.comment-form input{
+  background-color: #e6ebf5;
+  width: 500px;
+}
+
+.comment-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
 
 .header {
     grid-area: header;
@@ -65,7 +113,7 @@ li{
 .create-post form {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     margin-top: 15px;
     flex: 2 1 auto;
     height: 100%;
@@ -79,7 +127,9 @@ li{
 }
 
 .create-post button{
-  width: 75px;
+  width: 300px;
+  height: 40px;
+  border: none;
 }
 
 .create-post form input, .create-post form textarea{
@@ -98,13 +148,16 @@ li{
     border-radius: 100%;
     align-items: center;
     justify-content: center;
+    margin:5px;
 }
 
 .post-header{
   display: flex;
 }
 
-.comment{
+.comments{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
 }

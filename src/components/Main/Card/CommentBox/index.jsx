@@ -20,9 +20,9 @@ export default function CommentBox(props) {
                 })}
             </ul>
 
-            <div>
+            <div className='comment-form'> 
                 <ProfileImage />
-                <form>
+                <form >
                     <input type="text" placeholder='Write a Comment'/>
                     <button type="submit">
                         {'>'}

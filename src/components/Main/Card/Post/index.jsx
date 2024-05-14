@@ -1,12 +1,10 @@
 import { createContext, useEffect, useState } from 'react'
 import CommentBox from '../CommentBox'
 import PostTitle from './PostTitle'
-import { useParams } from 'react-router-dom'
 
 export const PostContext = createContext()
 
 export default function Post({ id }) {
-    const urlParams = useParams()
 
 
     const [author, setAuthor] = useState({})
@@ -31,7 +29,8 @@ export default function Post({ id }) {
     return (
         <article>
             <PostTitle author={author} title={postData.title} />
-            <p>{postData.content}</p>
+            <p className='post-body'>{postData.content}</p>
+            <hr/>
             <CommentBox author={author} title={postData.title} id={id} />
         </article>
     )
