@@ -89,11 +89,11 @@ export default function PostLi({ post, loggedInUser }) {
                             </div>
                             <ul className="comments-ul">
                                 {showMore && postComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment}/>
+                                    return <CommentLi key={index} comment={comment} post={post} postComments={postComments} setPostComments={setPostComments}/>
                                 })}
 
                                 {!showMore && firstThreeComments.map((comment, index) => {
-                                    return <CommentLi key={index} comment={comment}/>
+                                    return <CommentLi key={index} comment={comment} post={post} postComments={postComments} setPostComments={setPostComments}/>
                                 })}
                             </ul>
                             <div className="add-comment-container">
