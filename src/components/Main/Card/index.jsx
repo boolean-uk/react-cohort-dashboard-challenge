@@ -2,13 +2,13 @@
 import CreatePost from './CreatePost'
 import Post from './Post'
 
-export default function Card({ cardType }) {
+export default function Card(props) {
     function cardCheck() {
-        switch (cardType) {
+        switch (props.cardType) {
             case 'CreatePost':
                 return <CreatePost />
             case 'Post':
-                return <Post />
+                return <Post props={props}/>
         }
     }
 

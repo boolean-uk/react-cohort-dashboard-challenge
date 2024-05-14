@@ -1,19 +1,23 @@
-import ProfileImage from "../../../../ProfileImage"
+import { useState, useEffect } from 'react'
+import ProfileImage from '../../../../ProfileImage'
 
-export default function Comment(){
-    return(
-        <li className='comment'>
-                    <ProfileImage />
-                    <article>
-                        <h5>Name Lastname</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Molestias consequatur, repudiandae quam
-                            similique quasi temporibus ducimus at nisi nam
-                            numquam. Totam enim iste eaque adipisci? Fugit
-                            similique odio reprehenderit vel.
-                        </p>
-                    </article>
-                </li>
+export default function Comment({ authorId, body }) {
+    const [author, setAuthor] = useState({})
+
+    
+    useEffect(() => {
+        fetch(`https://boolean-api-server.fly.dev/angustownsley/contact/${authorId}`)
+        .then(response => response.json())
+        .then(json => setAuthor({...json}))
+    }, [])
+
+    return (
+        <li className="comment">
+            <ProfileImage author={author} />
+            <article>
+                <h5>{author.firstName + ' ' + author.lastName}</h5>
+                <p>{body}</p>
+            </article>
+        </li>
     )
 }

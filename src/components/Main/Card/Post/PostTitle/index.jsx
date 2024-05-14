@@ -1,11 +1,14 @@
 import ProfileImage from "../../../../ProfileImage"
 
-export default function PostTitle({author, title}) {
+export default function PostTitle(props) {
+    const {author, title} = props
+
+   
     return(
         <div className="post-header">
-        <ProfileImage/>
+        <ProfileImage author={author}/>
         <div>
-            <h3>{author}</h3>
+            <h3>{author && Object.keys(author).length > 0  ? author.firstName + " " + author.lastName : ""}</h3>
             <p>{title}</p>
         </div>
         </div>
