@@ -42,7 +42,7 @@ export function validateLoginParams(
 	next: NextFunction
 ) {
 	const requiredFields: {
-		param: string;
+		param: keyof LOGIN_PARAMS;
 		validator: ValidatorCallback;
 	}[] = [
 		{ param: "email", validator: validateEmail },
