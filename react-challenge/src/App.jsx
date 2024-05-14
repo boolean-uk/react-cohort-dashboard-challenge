@@ -1,11 +1,13 @@
 import {Routes, Route } from 'react-router-dom'
-import { Profile } from './pages/Profile'
-import { Home } from './pages/Home'
+import  Home  from './pages/Home'
+import  Profile  from './pages/Profile'
+
 import './App.css'
 
 function App() {
   
-<Home />
+
+
   return (
       
    
