@@ -29,13 +29,13 @@ export default function Feed() {
   }
 
   return (
-    <div className="m-5 flex flex-col gap-3">
+    <ul className="m-5 flex flex-col gap-3">
     <NewPost />
     {posts.map((post, index) => {
         return(
             <PostCard post={post} key={index}/>
         )
     })}
-    </div>
+    </ul>
 )
 }

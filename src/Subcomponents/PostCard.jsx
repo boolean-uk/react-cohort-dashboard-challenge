@@ -18,7 +18,7 @@ export default function PostCard({ post }) {
   }
 
   return (
-    <article className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
+    <li className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
       <header className="flex place-items-center gap-2 m-2">
         <InitialIcon user={currentUser} />
         <div className="heading">
@@ -42,6 +42,6 @@ export default function PostCard({ post }) {
           placeholder="Add a comment..."
         ></input>
       </section>
-    </article>
+    </li>
   );
 }
