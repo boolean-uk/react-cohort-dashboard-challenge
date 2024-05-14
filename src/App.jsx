@@ -21,13 +21,12 @@ function App() {
     .then(setLoggedInUser)
   }, [])
 
-  console.log(contacts)
   return (
     <>
     
       <Header loggedInUser={loggedInUser}/>
       <Aside />
-      <MainComponent loggedInUser={loggedInUser}/>
+      <MainComponent loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
     </>
   )
 }

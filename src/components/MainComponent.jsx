@@ -6,7 +6,7 @@ import Profile from "./Profile";
 
 export const DataContext = createContext()
 
-export default function MainComponent({ loggedInUser }) {
+export default function MainComponent({ loggedInUser, setLoggedInUser }) {
     const [postData, setPostData] = useState([])
     
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function MainComponent({ loggedInUser }) {
 
                     <Route path="/post/:id" element={<SinglePost loggedInUser={loggedInUser}/>}/>
 
-                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/profile" element={<Profile loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
 
                 </Routes>
             </main>

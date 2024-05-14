@@ -269,3 +269,33 @@ main {
 .single-post {
     margin: 20px;
 }
+
+/* Main - Profile */
+.profile-container {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+}
+
+.profile-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile-title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.profile-ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile-ul li {
+    display: grid;
+}
