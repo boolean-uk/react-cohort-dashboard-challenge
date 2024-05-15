@@ -24,8 +24,9 @@ function verifyAccessToken(token: string) {
 		throw new Error("Can't verify token without secret code");
 	try {
 		const res = jwt.verify(token, process.env.JTW_ACCESS_CODE);
+
+		return { message: "Authorized", status: 200, payload: res };
 	} catch (error) {
-		console.log(error);
 		//IMPROVE: implement better handling
 
 		//LOOKUP: https://stackoverflow.com/a/36698015/22510505
@@ -33,8 +34,6 @@ function verifyAccessToken(token: string) {
 
 		return { message: "Invalid Token", status: 400 };
 	}
-
-	return { message: "Authorized", status: 0 };
 }
 
 const auth = {

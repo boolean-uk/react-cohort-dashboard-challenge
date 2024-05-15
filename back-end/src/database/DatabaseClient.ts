@@ -1,5 +1,6 @@
 import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
+import { DB_COLLECTIONS } from "./collections.enum";
 
 /**
  * A wrapper for working with any database
@@ -20,21 +21,7 @@ export default class DatabaseClient {
 		this._database = db;
 	}
 
-	getCollection(collection: string) {
-		return this._client.db(this._database).collection(collection);
-	}
-
-	find(collection: string, filters: any) {
-		return this.getCollection(collection).find(filters);
-	}
-	findOne(collection: string, filters: any) {
-		return this.getCollection(collection).findOne(filters);
-	}
-
-	async has(collection: string, filters: any) {
-		return (await this.findOne(collection, filters)) ? true : false;
-	}
-
+	//== CONNECTION
 	async connect() {
 		this._client.connect();
 		try {
@@ -48,5 +35,33 @@ export default class DatabaseClient {
 
 	async close() {
 		await this._client.close();
+	}
+	//== INSERT
+	async insert(collection: DB_COLLECTIONS, data: any) {
+		await this.getCollection(collection).insertOne(data);
+	}
+	//== DELETE
+	async delete(collection: DB_COLLECTIONS, filter: any) {
+		await this.getCollection(collection).findOneAndDelete(filter);
+	}
+	//== UPDATE
+	async update(collection: DB_COLLECTIONS, filter: any, data: any) {
+		await this.getCollection(collection).findOneAndReplace(filter, data);
+	}
+	//== SEARCH
+	find(collection: string, filters: any) {
+		return this.getCollection(collection).find(filters);
+	}
+	async findOne(collection: string, filters: any) {
+		return await this.getCollection(collection).findOne(filters);
+	}
+
+	async has(collection: string, filters: any) {
+		return (await this.findOne(collection, filters)) ? true : false;
+	}
+
+	// ==
+	private getCollection(collection: string) {
+		return this._client.db(this._database).collection(collection);
 	}
 }

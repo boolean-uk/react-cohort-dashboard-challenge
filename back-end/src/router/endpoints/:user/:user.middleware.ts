@@ -1,21 +1,28 @@
 import { NextFunction, Request, Response } from "express";
-import auth from "../../auth/auth";
+import { dbClient } from "../../..";
+import { DB_COLLECTIONS } from "../../../database/collections.enum";
+import { PUBLIC_USER_DATA_SCHEMA } from "../../../database/models/public_user_data.schema";
+import { ObjectId } from "mongodb";
 
-export default function userMiddleware(
+export default async function userMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
-	const cookie = req.headers?.cookie?.split("=")[1];
-	console.log("Cookie", cookie);
-	console.log(req.params);
+	console.log(req.params.id);
 
-	if (!cookie) res.status(401).json({ message: "Missing access token" });
+	const targetUserData = (await dbClient.findOne(
+		DB_COLLECTIONS.PUBLIC_USER_DATA,
+		{
+			_id: new ObjectId(req.params.id),
+		}
+	)) as PUBLIC_USER_DATA_SCHEMA | null;
 
-	const isValid = auth.verifyAccessToken(cookie as string);
-	if (isValid.status !== 0) {
-		res.status(isValid.status).json({ message: isValid.message });
+	//== User was not found
+	if (!targetUserData) {
+		return res.status(404).json({ message: "User not found" });
 	}
 
-	res.status(200).json({ message: "access granted" });
+	//== User WAS found
+	return res.status(200).json({ data: targetUserData });
 }

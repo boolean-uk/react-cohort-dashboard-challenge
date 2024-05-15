@@ -1,6 +1,6 @@
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
-import router from "./router/router";
+import router from "./router/main.router";
 import cookieParser from "cookie-parser";
 //== Setup express
 const server = express();
