@@ -2,7 +2,7 @@
 import InitialIcon from "./InitialIcon";
 import { useState } from "react";
 
-export default function NewPost({ user, setPosts, posts }) {
+export default function NewPost({ user, getPosts }) {
   const [postContent, setPostContent] = useState({
     contactId: "",
     content: "",
@@ -27,16 +27,15 @@ export default function NewPost({ user, setPosts, posts }) {
     e.preventDefault();
     submitPost();
     setPostContent({
-        contactId: "",
-        content: "",
-        title: "",
-      })
-     
+      contactId: "",
+      content: "",
+      title: "",
+    });
+
   }
 
   const submitPost = async () => {
-    // eslint-disable-next-line no-unused-vars
-    const data = await fetch(
+    const postData = await fetch(
       "https://boolean-uk-api-server.fly.dev/MrStashy/post",
       {
         method: "POST",
@@ -46,7 +45,7 @@ export default function NewPost({ user, setPosts, posts }) {
         body: JSON.stringify(postContent),
       }
     );
-    setPosts({...posts})
+    getPosts()
   };
 
   return (

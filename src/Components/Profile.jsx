@@ -21,9 +21,7 @@ export default function Profile() {
   };
 
   if (!userToUpdate) {
-    return (<BarLoader />)
+    return <BarLoader />;
   }
-  return (
-    <UpdateProfileForm userToUpdate={userToUpdate}/>
-  );
+  return <UpdateProfileForm userToUpdate={userToUpdate} />;
 }

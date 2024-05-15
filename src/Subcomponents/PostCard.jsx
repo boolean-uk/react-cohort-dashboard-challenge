@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { loggedInUser } from "../App";
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, getPosts }) {
   const [poster, setPoster] = useState();
   const [comment, setComment] = useState({
     contactId: 0,
@@ -16,6 +16,7 @@ export default function PostCard({ post }) {
 
   const user = useContext(loggedInUser);
 
+ 
   useEffect(() => {
     const getUser = async () => {
       const data = await fetch(
@@ -51,13 +52,20 @@ export default function PostCard({ post }) {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setComment({
       contactId: user.id,
       content: e.target.value,
       postId: post.id,
     });
   };
+
+  const handleDelete = async () => {
+    const deletePost = await fetch(`https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/`, {
+        method: 'DELETE'
+    })
+    getPosts()
+  }
 
   return (
     <li className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
@@ -74,9 +82,13 @@ export default function PostCard({ post }) {
           </Link>
         </div>
       </header>
-      <div className="flex flex-row gap-2">
-        <p className="ml-2">{post.content}</p>
-        <img className="h-5 place-self-center" src="/assets/pencil.svg" />
+      <div className="flex flex-row justify-between">
+      <p className="ml-2 max-w-3xl">{post.content}</p>
+       {user?.id === poster?.id ? 
+        <div className="icons flex flex-row place-items-end">
+        <img className="h-4 mb-1" src="/assets/pencil.svg" />
+        <img onClick={handleDelete} className="cursor-pointer h-6" src="/assets/delete.svg" />
+        </div> : null}
       </div>
       <hr className="h-px bg-inputGrey mx-2 border-0" />
       <CommentSection post={post} comment={comment} />
