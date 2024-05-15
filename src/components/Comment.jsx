@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { StateContext } from "../App"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import trashIcon from '../assets/images/trash-icon.svg'
+import editIcon from '../assets/images/edit-icon.svg'
 
 export default function Comment(props) {
     const [comments, setComments] = useState([])
@@ -10,11 +12,19 @@ export default function Comment(props) {
 
     const location = useLocation()
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/post/${post.id}/comment`)
             .then(response => response.json())
             .then(setComments)
     }, [post])
+
+    const loadedComments = () => {
+        fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/post/${post.id}/comment`)
+            .then(response => response.json())
+            .then(setComments)
+    }
 
     const handleClick = () => {
         setShowPreviousComments(true)
@@ -51,6 +61,24 @@ export default function Comment(props) {
                                         {commentAuthor.firstName} {commentAuthor.lastName}
                                     </h5>
                                 </Link>
+
+                                <div>
+                                    <img 
+                                        src={editIcon} 
+                                        onClick={() => navigate(`/comment/update/${comment.id}`)}
+                                    />
+
+                                    <img 
+                                        src={trashIcon} 
+                                        onClick={() => {
+                                            fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/post/${post.id}/comment/${comment.id}`, {
+                                                method: 'DELETE'
+                                            }).then(() => {
+                                                loadedComments()
+                                            })
+                                        }}
+                                    />
+                                </div>
     
                                 <p>{comment.content}</p>
                             </div>

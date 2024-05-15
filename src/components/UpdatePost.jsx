@@ -17,6 +17,8 @@ export default function UpdatePost() {
 
     const findAuthor = authors.find(author => author.id === Number(id))
 
+    console.log(findAuthor) /* undefined if it's a new post */
+
     const updatedPost = posts.find(post => post.id === Number(id))
 
     const navigate = useNavigate()

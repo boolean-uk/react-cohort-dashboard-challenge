@@ -15,6 +15,10 @@ button {
     cursor: pointer;
 }
 
+img {
+    cursor: pointer; 
+}
+
 button:hover {
     color: #000046;
     background-color: #64dc78;
@@ -82,7 +86,6 @@ nav {
     grid-area: nav;
     background-color: white;
     grid-template-rows: repeat(2, 8rem);
-    padding-top: 1rem;
 }
 
 nav figure {
@@ -139,12 +142,13 @@ main section#create-post {
 
 main section form#form-post {
     display: grid;
-    grid-template-columns: minmax(11rem, 1fr) 11rem;
+    grid-template-columns: minmax(10rem, 1fr) 10rem;
     gap: 1rem;
 }
 
 main section form#form-post div {
     display: grid;
+    grid-template-columns: repeat(2, auto);
     gap: 0.25rem;
 }
 
@@ -161,6 +165,7 @@ main#not-found article {
     display: grid;
     grid-template-rows: 1fr;
     align-items: center;
+    margin: 1rem;
 }
 
 #separator {
@@ -170,7 +175,7 @@ main#not-found article {
 
 main article div.author {
     display: grid;
-    grid-template-columns: auto 1fr 5rem 5rem;
+    grid-template-columns: auto 1fr 1.5rem 1.5rem;
     align-items: center;
     gap: 1rem;
 }
@@ -207,11 +212,31 @@ main article div.comment {
 
 main article div.comment div#author-comment {
     display: grid;
-    gap: 0.5rem;
+    grid-template:
+        'h5 div' auto
+        'p p' auto / auto 1fr;
+    gap: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
     padding: 1rem;
     background-color: #e6ebf5;
+}
+
+main article div.comment div#author-comment div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: right;
+    gap: 0.5rem;
+    grid-area: div;
+}
+
+main article div.comment div#author-comment img {
+    cursor: pointer;
+    height: 1rem;
+}
+
+main article div.comment div#author-comment p {
+    grid-area: p;
 }
 
 div.profile-container {
@@ -276,11 +301,13 @@ main#author-profile div#section-info section div.form-number summary {
 
 /* Form */
 
-form.update-post {
+form.update-post,
+form.update-comment {
     margin: 1rem;
 }
 
-form.update-post section {
+form.update-post section,
+form.update-comment section  {
     display: grid;
     padding: 1rem;
     gap: 1rem;
@@ -288,7 +315,8 @@ form.update-post section {
     margin-top: 1rem;
 }
 
-form.update-post section div {
+form.update-post section div,
+form.update-comment section div {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 1rem;

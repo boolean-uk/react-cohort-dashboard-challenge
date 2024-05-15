@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { StateContext } from "../App"
+import trashIcon from '../assets/images/trash-icon.svg'
+import editIcon from '../assets/images/edit-icon.svg'
 
 export default function Author(props) {
     const { post } = props
@@ -42,9 +44,15 @@ export default function Author(props) {
                         </Link>
                     </div>
 
-                    <button onClick={() => navigate(`/post/update/${post.id}`)}>Update</button>
+                    <img 
+                        src={editIcon}
+                        onClick={() => navigate(`/post/update/${post.id}`)} 
+                    />
 
-                    <button onClick={handleClick}>Delete</button>
+                    <img 
+                        src={trashIcon}
+                        onClick={handleClick} 
+                    />
                 </>
             }    
         </div>

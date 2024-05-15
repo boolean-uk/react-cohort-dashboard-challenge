@@ -1,10 +1,12 @@
 import { useContext } from 'react'
 import titleHeader from '../assets/images/title-header.svg'
 import { StateContext } from '../App'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Header() {
     const { randomAuthor } = useContext(StateContext)
+
+    const navigate = useNavigate()
 
     return (
         <header>
@@ -14,6 +16,7 @@ export default function Header() {
                         id='title-header'
                         src={titleHeader} 
                         alt="Cohort Manager" 
+                        onClick={() => navigate('/')}
                     />
 
                     <Link to={`/contact/${randomAuthor.id}`}>
