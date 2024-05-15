@@ -1,5 +1,6 @@
 /**
  * A set of functions that validate data from forms
+ * This file works as a wrapper for any kind of library that may be installed later
  */
 
 import { ValidatorCallback as ValidatorCallback } from "./validator.type";

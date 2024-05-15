@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
-import { mongoClient } from "../../..";
-import { validateString } from "../../validators/form.validator";
-import { validateParams } from "../../validators/validate.params.middleware";
-import { ValidatorCallback } from "../../validators/validator.type";
-import { LOGIN_PARAMS } from "./login.params";
+import { dbClient } from "../../..";
+import { validateString } from "../../../validators/form.validator";
+import { validateParams } from "../../../validators/params.validator.middleware";
+import { ValidatorCallback } from "../../../validators/validator.type";
+import { LOGIN_PARAMS } from "./login.params.schema";
 
 export default async function loginMiddleware(
 	req: Request,
@@ -14,7 +14,7 @@ export default async function loginMiddleware(
 	//validate login
 	const { email, password }: LOGIN_PARAMS = req.body;
 
-	for await (const user of mongoClient.find("users", { email })) {
+	for await (const user of dbClient.find("users", { email })) {
 		if (user.password === password)
 			return res.status(200).json({ token: "123", user: req.body.name });
 		else return res.status(401).json({ message: "Invalid Password" });

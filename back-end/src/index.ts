@@ -1,19 +1,21 @@
+//== Setup ENV VARS
 import dotenv from "dotenv";
 dotenv.config();
+const port = process.env.PORT || 3000;
 const uri = process.env.DB_URI as string;
 const DB_NAME = process.env.DB_NAME as string;
 
-import app from "./server";
+//== Setup db connection
 import DatabaseClient from "./database/DatabaseClient";
+export const dbClient = new DatabaseClient(uri, DB_NAME);
+dbClient.connect();
 
-const port = process.env.PORT || 3000;
+//close db connection
+process.on("SIGINT", dbClient.close);
+process.on("SIGTERM", dbClient.close);
 
-export const mongoClient = new DatabaseClient(uri, DB_NAME);
-//
-mongoClient.connect();
-process.on("SIGINT", mongoClient.close);
-process.on("SIGTERM", mongoClient.close);
-//
+//== Setup server
+import app from "./server";
 app.listen(port, () => {
 	console.log(`[server]: server is running on port ${port}`);
 });

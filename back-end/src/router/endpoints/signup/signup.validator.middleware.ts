@@ -3,10 +3,10 @@ import {
 	validateEmail,
 	validateName,
 	validatePassword,
-} from "../../validators/form.validator";
-import { validateParams } from "../../validators/validate.params.middleware";
-import { ValidatorCallback } from "../../validators/validator.type";
-import { SIGNUP_PARAMS } from "./signup.params";
+} from "../../../validators/form.validator";
+import { validateParams } from "../../../validators/params.validator.middleware";
+import { ValidatorCallback } from "../../../validators/validator.type";
+import { SIGNUP_PARAMS } from "./signup.params.schema";
 
 export default function validateSignUpParamsMiddleware(
 	req: Request,

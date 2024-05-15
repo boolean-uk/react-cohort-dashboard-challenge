@@ -1,6 +1,10 @@
 import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
 
+/**
+ * A wrapper for working with any database
+ * Currently set up with mongoDB only
+ */
 export default class DatabaseClient {
 	private _client: MongoClient;
 	private _database: string;
@@ -34,7 +38,7 @@ export default class DatabaseClient {
 		try {
 			await this._client.db(this._database).command({ ping: 1 });
 		} catch (error) {
-			console.log(error);
+			console.log(error); //FIX: This error should be handled
 			return false;
 		}
 		return true;

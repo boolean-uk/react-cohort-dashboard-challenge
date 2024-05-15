@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { LOGIN_PARAMS } from "./login.params";
-import { ValidatorCallback } from "../../validators/validator.type";
-import { validateString } from "../../validators/form.validator";
-import { validateParams } from "../../validators/validate.params.middleware";
+import { LOGIN_PARAMS } from "./login.params.schema";
+import { ValidatorCallback } from "../../../validators/validator.type";
+import { validateString } from "../../../validators/form.validator";
+import { validateParams } from "../../../validators/params.validator.middleware";
 
 export default function validateLoginParamsMiddleware(
 	req: Request,
