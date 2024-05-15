@@ -9,7 +9,7 @@ export default function Comment({ authorId, body }) {
         fetch(`https://boolean-uk-api-server.fly.dev/angustownsley/contact/${authorId}`)
         .then(response => response.json())
         .then(json => setAuthor({...json}))
-    }, [])
+    }, [authorId])
 
     return (
         <li className="comment">

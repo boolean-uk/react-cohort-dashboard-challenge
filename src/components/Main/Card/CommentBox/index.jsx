@@ -30,6 +30,8 @@ export default function CommentBox(props) {
         .then(json => setComments([...comments, json]))
         .catch(err => console.err(err))
 
+        setFormState({comment:""})
+
     }
 
     useEffect(() => {
@@ -37,7 +39,7 @@ export default function CommentBox(props) {
         .then(response => response.json())
         .then(json => setComments([...json]))
     }, [id])
-    
+
     return (
         <>
             <ul className='comments'>
