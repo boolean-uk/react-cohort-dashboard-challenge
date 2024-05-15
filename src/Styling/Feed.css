@@ -94,18 +94,18 @@
 }
 
 #send {
-    width: 20px;
+    width: 18px;
 }
 
 .submit {
     position: relative;
-    left: 96%;
+    left: 97%;
     bottom: 80%;
     outline: none;
     background-color: #b0b5bd;
     border-radius: 100%;
-    width: 50px;
-    place-content: center;
+    width: 18px;
+    justify-content: center;
 }
 
 .comment-box {
