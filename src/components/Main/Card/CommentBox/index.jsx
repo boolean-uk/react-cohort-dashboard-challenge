@@ -36,7 +36,7 @@ export default function CommentBox(props) {
         fetch(`https://boolean-uk-api-server.fly.dev/angustownsley/post/${id}/comment`)
         .then(response => response.json())
         .then(json => setComments([...json]))
-    }, [])
+    }, [id])
     
     return (
         <>

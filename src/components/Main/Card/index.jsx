@@ -3,7 +3,9 @@ import CreatePost from './CreatePost'
 import Post from './Post'
 
 export default function Card({cardType, id}) {
-    
+
+
+
     function cardCheck() {
         switch (cardType) {
             case 'CreatePost':

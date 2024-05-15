@@ -14,7 +14,7 @@ export default function Post({ id }) {
         fetch(`https://boolean-uk-api-server.fly.dev/angustownsley/post/${id}`)
             .then((response) => response.json())
             .then((json) => setPostData({ ...json }))
-    }, [])
+    }, [id])
 
     useEffect(() => {
         if (postData.contactId) {

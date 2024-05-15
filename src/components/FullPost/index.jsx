@@ -5,6 +5,6 @@ export default function FullPost() {
     const urlParams = useParams()
     
     return(
-        <Card cardType={"post"} id={urlParams.id}/>
+        <Card cardType={"Post"} id={urlParams.id}/>
     )
 }

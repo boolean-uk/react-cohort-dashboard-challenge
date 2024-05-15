@@ -1,5 +1,5 @@
-import { act, useState } from 'react'
 import NavItem from './NavItem'
+import { Link } from 'react-router-dom'
 
 export default function NavBar({active}) {
 
@@ -7,7 +7,7 @@ export default function NavBar({active}) {
     return (
         
         <ul className="nav-bar">
-            <NavItem
+            <Link to={"/"}><NavItem
                 svg={
                     <svg
                         width="33"
@@ -27,6 +27,7 @@ export default function NavBar({active}) {
 
                 active={active}
             />
+            </Link>
             <NavItem
                 svg={
                     <svg
