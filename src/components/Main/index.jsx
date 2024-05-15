@@ -1,27 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useContext} from 'react'
 import Card from './Card'
+import { PostsContext } from '../../App'
+
 
 export default function Main() {
-    const [posts, setPosts] = useState([])
 
-    useEffect(() => {
-        fetch('https://boolean-api-server.fly.dev/angustownsley/post')
-            .then((response) => response.json())
-            .then((json) => setPosts([...json]))
-    }, [])
+   const {posts} = useContext(PostsContext)
 
     return (
         <main className="main">
             <Card cardType={'CreatePost'} />
 
-            {posts.map((e, index) => {
+            {posts.sort((a,b) => {return b.id-a.id}).map((e, index) => {
+                console.log(e)
+                
                 return (
                     <Card
                         key={index}
                         cardType={'Post'}
-                        title={e.title}
-                        body={e.content}
-                        authorId={e.contactId}
                         id={e.id}
                     />
                 )

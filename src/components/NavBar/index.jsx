@@ -1,7 +1,11 @@
+import { act, useState } from 'react'
 import NavItem from './NavItem'
 
-export default function NavBar() {
+export default function NavBar({active}) {
+
+    
     return (
+        
         <ul className="nav-bar">
             <NavItem
                 svg={
@@ -20,6 +24,8 @@ export default function NavBar() {
                 }
 
                 itemName={"Home"}
+
+                active={active}
             />
             <NavItem
                 svg={
@@ -37,6 +43,8 @@ export default function NavBar() {
                     </svg>
                 }
                 itemName={"Profile"}
+
+                active={active}
             />
         </ul>
     )

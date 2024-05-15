@@ -1,6 +1,6 @@
-export default function NavItem({svg, itemName}) {
+export default function NavItem({svg, itemName, active}) {
     return (
-        <li>
+        <li className={active.toUpperCase() === itemName.toUpperCase() ? "active"  : ""}>
             {svg}
             <p>{itemName}</p>
         </li>

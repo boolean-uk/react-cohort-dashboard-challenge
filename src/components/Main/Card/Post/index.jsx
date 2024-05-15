@@ -11,7 +11,7 @@ export default function Post({ id }) {
     const [postData, setPostData] = useState({})
 
     useEffect(() => {
-        fetch(`https://boolean-api-server.fly.dev/angustownsley/post/${id}`)
+        fetch(`https://boolean-uk-api-server.fly.dev/angustownsley/post/${id}`)
             .then((response) => response.json())
             .then((json) => setPostData({ ...json }))
     }, [])
@@ -19,7 +19,7 @@ export default function Post({ id }) {
     useEffect(() => {
         if (postData.contactId) {
             fetch(
-                `https://boolean-api-server.fly.dev/angustownsley/contact/${postData.contactId}`
+                `https://boolean-uk-api-server.fly.dev/angustownsley/contact/${postData.contactId}`
             )
                 .then((response) => response.json())
                 .then((json) => setAuthor({ ...json }))

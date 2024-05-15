@@ -6,7 +6,7 @@ export default function Comment({ authorId, body }) {
 
     
     useEffect(() => {
-        fetch(`https://boolean-api-server.fly.dev/angustownsley/contact/${authorId}`)
+        fetch(`https://boolean-uk-api-server.fly.dev/angustownsley/contact/${authorId}`)
         .then(response => response.json())
         .then(json => setAuthor({...json}))
     }, [])
