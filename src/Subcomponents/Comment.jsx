@@ -7,7 +7,7 @@ export default function Comment({ comment }) {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [comment]);
 
   const getUser = async () => {
     const data = await fetch(

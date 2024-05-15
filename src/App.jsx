@@ -24,6 +24,7 @@ function App() {
     setLoggedUser(json);
   };
 
+
   return (
     <>
       <div className="container h-full max-w-full grid grid-cols-[100px,_auto] grid-rows-[60px,_auto]">
