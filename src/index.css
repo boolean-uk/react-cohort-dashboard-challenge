@@ -69,7 +69,7 @@ header {
   height: 50px;
   min-width: 50px;
   border-radius: 50%;
-
+  background-color: #1b9a59;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,51 +194,103 @@ a {
 }
 
 /* ******************************** */
+
+.profile-container {
+  padding: 20px;
+  padding-right: 40px;
+}
+
 .profile {
-  width: 90%;
-  height: 80vh;
   display: grid;
   grid-template-rows: 80px 1fr;
+
+  border-radius: 10px;
+  background-color: light-dark(#fff, #2c2c2c);
+
+  padding: 10px;
+}
+
+.profile > * {
+}
+
+.profile-heading {
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .profile-header {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
-  border: 1px solid #000046;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid light-dark(#e6ebf5, #4d4b4b);
+
+  padding: 10px;
+}
+
+.profile-header h2 {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .profile-form {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
-  border: 1px solid #000046;
 
   display: grid;
   grid-template-rows: auto auto 80px;
   grid-template-columns: 1fr 1fr;
 }
 
+.profile-form > * {
+  padding: 10px;
+}
+
+.profile-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.profile-form label {
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 10px;
+  color: light-dark(#64648c, #b1b1b1);
+}
+
+.profile-form h2 {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
 .account-info {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
-  border: 1px solid #000046;
 }
 
 .address {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  border: 1px solid #000046;
 }
 
 .contact-info {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
-  border: 1px solid #000046;
 }
 
 .save {
   grid-row: 3 / 4;
   grid-column: 1 / 3;
-  border: 1px solid #000046;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /* *************************** */
@@ -248,6 +300,7 @@ a {
   gap: 20px;
 
   padding: 20px;
+  padding-right: 40px;
 }
 
 .post-feed > * {
@@ -364,7 +417,7 @@ a {
 /* ******* Loader ***** */
 .spinner {
   margin-left: 45%;
-  background-color: #f0f5fa;
+  background-color: light-dark(#f0f5fa, #1c1c1c);
 }
 
 @keyframes rotator {

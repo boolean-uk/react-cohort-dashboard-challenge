@@ -45,6 +45,7 @@ export default function CreatePost() {
       <form className="create-post" onSubmit={handleFormSubmit}>
         <Avatar>{user}</Avatar>
         <TextInput
+          type="text"
           name="newPost"
           placeholder="What's on your mind?"
           value={content}

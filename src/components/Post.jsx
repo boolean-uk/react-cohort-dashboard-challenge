@@ -43,7 +43,7 @@ export default function Post(props) {
                 {`${contact?.firstName} ${contact?.lastName}`}
               </h3>
               <p className="post-title">
-                <Link to={`/clicked-post/${post?.id}`}>{post?.title}</Link>
+                <Link to={`/post/${post?.id}`}>{post?.title}</Link>
               </p>
             </div>
           </div>

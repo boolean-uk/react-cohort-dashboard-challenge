@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { DataContext } from "../App";
+
 export default function Loader() {
+  const { mode } = useContext(DataContext);
+
   return (
     <svg
-      className="spinner"
+      className={`spinner ${mode}`}
       width="65px"
       height="65px"
       viewBox="0 0 66 66"

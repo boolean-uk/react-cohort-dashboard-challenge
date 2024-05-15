@@ -129,7 +129,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<PostFeed />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/clicked-post/:id" element={<ClickedPost />} />
+            <Route path="/post/:id" element={<ClickedPost />} />
           </Routes>
         </DataContext.Provider>
       </main>
