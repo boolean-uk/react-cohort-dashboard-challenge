@@ -1,6 +1,6 @@
 import './App.css'
 import { createContext, useEffect, useState } from 'react'
-import { Routes, Route, Router } from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 import FullPost from './components/FullPost'
 import Main from './components/Main'
 import Header from './components/Header'
@@ -16,10 +16,14 @@ function App() {
 
     const [navActive, setNavActive] = useState("Home")
 
+    function getPosts() {
+      fetch('https://boolean-uk-api-server.fly.dev/angustownsley/post')
+      .then((response) => response.json())
+      .then((json) => setPosts([...json]))
+    }
+
     useEffect(() => {
-        fetch('https://boolean-uk-api-server.fly.dev/angustownsley/post')
-            .then((response) => response.json())
-            .then((json) => setPosts([...json]))
+      getPosts()
     }, [])
     
     useEffect(() => {
@@ -30,7 +34,7 @@ function App() {
 
     return (
             <UserContext.Provider value={{ user }}>
-                <PostsContext.Provider value={{ posts, setPosts }}>
+                <PostsContext.Provider value={{ posts, setPosts, getPosts }}>
                     <Header />
                     <NavBar active={navActive}/>
 

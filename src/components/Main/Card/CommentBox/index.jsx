@@ -41,8 +41,8 @@ export default function CommentBox(props) {
     return (
         <>
             <ul className='comments'>
-                {comments.map((e, index) => {
-                   return <Comment key={index} authorId={e.contactId} body={e.content} id={id}/>
+                {comments.map((e) => {
+                   return <Comment key={`post-${id}-comment-${e.id}`} authorId={e.contactId} body={e.content} id={id}/>
                 })}
             </ul>
 

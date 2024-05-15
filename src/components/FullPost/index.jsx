@@ -1,13 +1,10 @@
-import Header from "../Header";
+import { useParams } from "react-router-dom";
 import Card from "../Main/Card";
-import NavBar from "../NavBar";
 
 export default function FullPost() {
-    // return(
-    //    <>
-    //     <Header/>
-    //     <NavBar/>
-    //     <Card/>
-    //     </> 
-    // )
+    const urlParams = useParams()
+    
+    return(
+        <Card cardType={"post"} id={urlParams.id}/>
+    )
 }

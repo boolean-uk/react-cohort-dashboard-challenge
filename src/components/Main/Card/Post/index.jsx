@@ -28,7 +28,7 @@ export default function Post({ id }) {
 
     return (
         <article>
-            <PostTitle author={author} title={postData.title} />
+            <PostTitle author={author} title={postData.title} id={id}/>
             <p className='post-body'>{postData.content}</p>
             <hr/>
             <CommentBox author={author} title={postData.title} id={id} />

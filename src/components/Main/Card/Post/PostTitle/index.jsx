@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom"
 import ProfileImage from "../../../../ProfileImage"
 
 export default function PostTitle(props) {
-    const {author, title} = props
+    const {author, title, id} = props
 
    
     return(
@@ -9,7 +10,7 @@ export default function PostTitle(props) {
         <ProfileImage author={author}/>
         <div>
             <h3>{author && Object.keys(author).length > 0  ? author.firstName + " " + author.lastName : ""}</h3>
-            <p>{title}</p>
+            <Link to={`/post/${id}`}><p>{title}</p></Link>
         </div>
         </div>
     )

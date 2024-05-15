@@ -11,12 +11,12 @@ export default function Main() {
         <main className="main">
             <Card cardType={'CreatePost'} />
 
-            {posts.sort((a,b) => {return b.id-a.id}).map((e, index) => {
-                console.log(e)
+            {posts.sort((a,b) => {return b.id-a.id}).map((e) => {
+                
                 
                 return (
                     <Card
-                        key={index}
+                        key={`post-card-${e.id}`}
                         cardType={'Post'}
                         id={e.id}
                     />

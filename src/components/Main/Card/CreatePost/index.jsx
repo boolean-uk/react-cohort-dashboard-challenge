@@ -3,7 +3,7 @@ import { PostsContext, UserContext } from "../../../../App";
 import { useContext, useState } from "react";
 export default function CreatePost() {
     const {user} = useContext(UserContext)
-    const {posts , setPosts} = useContext(PostsContext)
+    const {getPosts} = useContext(PostsContext)
 
 
     const[formState, setFormState] = useState({
@@ -32,7 +32,7 @@ export default function CreatePost() {
           
           fetch('https://boolean-uk-api-server.fly.dev/angustownsley/post', options)
             .then(response => response.json())
-            .then(newPost => setPosts([newPost, ...posts]))
+            .then(() => getPosts())
             .catch(err => console.error(err))
 
             setFormState({
