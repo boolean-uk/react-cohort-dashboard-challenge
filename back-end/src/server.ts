@@ -9,7 +9,7 @@ server.use(cookieParser());
 // server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 
-//== Setup routes
+//== Setup routes 
 // Root route
 server.get("/", (_req: Request, res: Response) => {
 	res.status(200).json({ message: "API server is running" });
