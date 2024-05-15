@@ -73,7 +73,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-size: 20px;
   font-weight: 700;
   color: #000046;
 }
@@ -293,6 +293,17 @@ a {
   align-items: center;
 }
 
+.required {
+  font-size: 12px;
+  font-weight: 500;
+  color: light-dark(#64648c, #b1b1b1);
+}
+
+.validation-message {
+  font-size: 14px;
+  font-weight: 500;
+  color: red;
+}
 /* *************************** */
 .post-feed {
   display: grid;
@@ -323,6 +334,10 @@ a {
 
 .user-name {
   font-weight: 700;
+  font-size: 20px;
+}
+
+.user-name a {
   font-size: 20px;
 }
 

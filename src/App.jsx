@@ -88,7 +88,7 @@ export default function App() {
           alt="logo"
         />
         <div className="header-right">
-          <Link to="/profile" className="user-avatar">
+          <Link to="/profile/1" className="user-avatar">
             <Avatar>{user}</Avatar>
           </Link>
           <button className="change-theme" onClick={() => setIsDark(!isDark)}>
@@ -113,7 +113,7 @@ export default function App() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile" className={`nav-links ${getClassName}`}>
+            <NavLink to="/profile/1" className={`nav-links ${getClassName}`}>
               <img
                 className="svg"
                 src="./src/assets/icons/profile.svg"
@@ -129,6 +129,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<PostFeed />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/post/:id" element={<ClickedPost />} />
           </Routes>
         </DataContext.Provider>

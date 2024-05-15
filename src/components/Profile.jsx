@@ -1,9 +1,11 @@
 import { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { DataContext } from "../App";
 import Avatar from "./Avatar";
 import TextInput from "./TextInput";
 
 export default function Profile() {
+  const [user, setUser] = useState();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -11,11 +13,73 @@ export default function Profile() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
+  const [validation, setValidation] = useState("");
 
-  const { mode } = useContext(DataContext);
+  const { mode, contacts, setContacts } = useContext(DataContext);
+  const params = useParams();
+  const contactId = params.id;
+  const url = `https://boolean-api-server.fly.dev/Hamada-AB/contact/${contactId}`;
+
+  console.log({ firstName, validation });
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && !data.error) {
+          setUser(data);
+          setFirstName(data.firstName);
+          setLastName(data.lastName);
+          setGender(data.gender ? data.gender : "Not available");
+          setJobTitle(data.jobTitle ? data.jobTitle : "Not available");
+          setStreet(data.street);
+          setCity(data.city);
+          setEmail(data.email ? data.email : "Not available");
+        }
+      })
+      .catch((error) => console.error(error));
+  }, [url, contacts]);
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    if (!firstName) {
+      setValidation("First Name is required.");
+      return;
+    } else if (!lastName) {
+      setValidation("Last Name is required.");
+      return;
+    } else if (!street) {
+      setValidation("Street is required.");
+      return;
+    } else if (!city) {
+      setValidation("City is required.");
+      return;
+    } else {
+      setValidation("");
+    }
+
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        jobTitle: jobTitle,
+        street: street,
+        city: city,
+        email: email,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && !data.error) {
+          setContacts([...contacts, data]);
+        }
+      })
+      .catch((error) => console.error(error));
   }
 
   return (
@@ -24,8 +88,8 @@ export default function Profile() {
 
       <div className="profile">
         <div className={`profile-header ${mode}`}>
-          <Avatar />
-          <h2>User Name</h2>
+          <Avatar>{user}</Avatar>
+          <h2>{user?.firstName + " " + user?.lastName}</h2>
         </div>
 
         <form action="" className="profile-form" onSubmit={handleFormSubmit}>
@@ -96,6 +160,8 @@ export default function Profile() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <p className={`required ${mode}`}>*Required</p>
+            <p className="validation-message">{validation}</p>
           </div>
 
           <div className="save">

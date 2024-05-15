@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Avatar from "./Avatar";
+import { Link } from "react-router-dom";
 export default function Comment(props) {
   const [commenter, setCommenter] = useState();
   const { comment, contacts } = props;
@@ -15,11 +16,16 @@ export default function Comment(props) {
 
   return (
     <div className="comment">
-      <Avatar>{commenter}</Avatar>
+      <Link to={`/profile/${commenter?.id}`}>
+        <Avatar>{commenter}</Avatar>
+      </Link>
       <div className="comment-details">
-        <h3 className="commenter-name">
-          {commenter && `${commenter.firstName} ${commenter.lastName}`}
-        </h3>
+        <Link to={`/profile/${commenter?.id}`}>
+          <h3 className="commenter-name">
+            {commenter && `${commenter.firstName} ${commenter.lastName}`}
+          </h3>
+        </Link>
+
         <p className="comment-content">{comment?.content}</p>
       </div>
     </div>

@@ -37,10 +37,14 @@ export default function Post(props) {
       <section>
         <article className="post">
           <div className="post-info">
-            <Avatar>{contact}</Avatar>
+            <Link to={`/profile/${contact?.id}`}>
+              <Avatar>{contact}</Avatar>
+            </Link>
             <div className="user-data">
               <h3 className="user-name">
-                {`${contact?.firstName} ${contact?.lastName}`}
+                <Link
+                  to={`/profile/${contact?.id}`}
+                >{`${contact?.firstName} ${contact?.lastName}`}</Link>
               </h3>
               <p className="post-title">
                 <Link to={`/post/${post?.id}`}>{post?.title}</Link>

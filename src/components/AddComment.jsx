@@ -47,6 +47,7 @@ export default function AddComment(props) {
           type="text"
           className="comment-input"
           value={content}
+          placeholder="Add a comment"
           onChange={(e) => setContent(e.target.value)}
         />
         <button className={className} disabled={content === ""}>
