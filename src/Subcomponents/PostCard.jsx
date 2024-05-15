@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import CommentSection from "./CommentSection";
+import EditPostSection from "./EditPostSection";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { loggedInUser } from "../App";
@@ -13,10 +14,10 @@ export default function PostCard({ post, getPosts }) {
     content: "",
     postId: 0,
   });
+  const [editMode, setEditMode] = useState(false);
 
   const user = useContext(loggedInUser);
 
- 
   useEffect(() => {
     const getUser = async () => {
       const data = await fetch(
@@ -31,7 +32,6 @@ export default function PostCard({ post, getPosts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     submitComment();
-
   };
 
   const submitComment = async () => {
@@ -52,7 +52,7 @@ export default function PostCard({ post, getPosts }) {
     });
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setComment({
       contactId: user.id,
       content: e.target.value,
@@ -61,11 +61,18 @@ export default function PostCard({ post, getPosts }) {
   };
 
   const handleDelete = async () => {
-    const deletePost = await fetch(`https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/`, {
-        method: 'DELETE'
-    })
-    getPosts()
-  }
+    const deletePost = await fetch(
+      `https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/`,
+      {
+        method: "DELETE",
+      }
+    );
+    getPosts();
+  };
+
+  const handleEdit = () => {
+    setEditMode(!editMode);
+  };
 
   return (
     <li className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
@@ -82,14 +89,27 @@ export default function PostCard({ post, getPosts }) {
           </Link>
         </div>
       </header>
-      <div className="flex flex-row justify-between">
-      <p className="ml-2 max-w-3xl">{post.content}</p>
-       {user?.id === poster?.id ? 
-        <div className="icons flex flex-row place-items-end">
-        <img className="h-4 mb-1" src="/assets/pencil.svg" />
-        <img onClick={handleDelete} className="cursor-pointer h-6" src="/assets/delete.svg" />
-        </div> : null}
-      </div>
+      
+        {editMode ? (
+          <EditPostSection post={post} setEditMode={setEditMode} getPosts={getPosts}/>
+        ) : (
+          <p className="ml-2 max-w-3xl">{post.content}</p>
+        )}
+    
+      {user?.id === poster?.id ? (
+          <div className="icons ml-2 flex flex-row place-items-end">
+            <img
+              onClick={handleEdit}
+              className="cursor-pointer h-4 mb-1"
+              src="/assets/pencil.svg"
+            />
+            <img
+              onClick={handleDelete}
+              className="cursor-pointer h-6"
+              src="/assets/delete.svg"
+            />
+          </div>
+        ) : null}
       <hr className="h-px bg-inputGrey mx-2 border-0" />
       <CommentSection post={post} comment={comment} />
       <form
