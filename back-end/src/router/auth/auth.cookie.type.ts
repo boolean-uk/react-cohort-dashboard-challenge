@@ -1,4 +1,4 @@
-import { USER_ROLES } from "../../database/models/user.schema";
+import { USER_ROLES } from "../../database/models/user-roles.enum";
 
 export type AuthCookie = {
 	id: string;

@@ -14,9 +14,7 @@ export default async function getPostsMiddleware(
 	try {
 		const data = [];
 		let i = 0;
-		const collection = dbClient
-			.getCollection(DB_COLLECTIONS.POSTS)
-			.find({ filters });
+		const collection = dbClient.find(DB_COLLECTIONS.POSTS, { filters });
 		// RETURN FIRST 50 POSTS
 		do {
 			if (await collection.hasNext()) data.push(collection.next());
