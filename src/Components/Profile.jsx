@@ -5,12 +5,11 @@ import UpdateProfileForm from "../Subcomponents/UpdateProfileForm";
 export default function Profile() {
   const [userToUpdate, setUserToUpdate] = useState({});
 
-
   const userID = useParams().id;
 
   useEffect(() => {
     getUser();
-  }, [userID]);
+  }, []);
 
   const getUser = async () => {
     const data = await fetch(

@@ -63,7 +63,7 @@ export default function PostCard({ post }) {
         <InitialIcon user={poster} />
         <div className="heading">
           <p>
-            <strong>
+            <strong className="capitalize">
               {poster && `${poster.firstName} ${poster.lastName}`}
             </strong>
           </p>

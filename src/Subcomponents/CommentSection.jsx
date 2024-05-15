@@ -30,7 +30,7 @@ export default function CommentSection({ post, comment }) {
         ) : null}
         <section className="flex flex-col gap-2 m-2">
           {comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} />;
+            return <Comment key={index} comment={comment} post={post} getComments={getComments}/>;
           })}
         </section>
       </>
@@ -45,7 +45,7 @@ export default function CommentSection({ post, comment }) {
       </p>
       <section className="flex flex-col gap-2 m-2">
         {latestThreeComments.map((comment, index) => {
-          return <Comment key={index} comment={comment} />;
+          return <Comment key={index} comment={comment} post={post} getComments={getComments}/>;
         })}
       </section>
     </>
