@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 import Post from './components/Post'
 import AuthorProfile from './components/AuthorProfile'
+import UpdatePost from './components/UpdatePost'
 
 export const StateContext = createContext()
 
@@ -57,6 +58,11 @@ export default function App() {
         <Route 
           path='/contact/:id'
           element={<AuthorProfile />}
+        />
+
+        <Route 
+          path='/post/update/:id'
+          element={<UpdatePost />}
         />
       </Routes>
     </StateContext.Provider>
