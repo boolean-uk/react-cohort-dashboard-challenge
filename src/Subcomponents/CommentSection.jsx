@@ -37,14 +37,14 @@ export default function CommentSection({ post, comment }) {
     );
   }
 
-  const firstThreeComments = comments.slice(0, 3);
+  const latestThreeComments = comments.slice(comments.length -3, comments.length);
   return (
     <>
       <p onClick={handleClick} className="cursor-pointer ml-2 mt-2 text-inputGrey">
         See previous comments
       </p>
       <section className="flex flex-col gap-2 m-2">
-        {firstThreeComments.map((comment, index) => {
+        {latestThreeComments.map((comment, index) => {
           return <Comment key={index} comment={comment} />;
         })}
       </section>

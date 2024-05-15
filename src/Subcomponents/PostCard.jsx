@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import CommentSection from "./CommentSection";
@@ -67,7 +68,7 @@ export default function PostCard({ post }) {
             </strong>
           </p>
           <Link to={`/posts/${post.id}`}>
-            <p>{post.title}</p>
+            <p className="text-postTitle">{post.title}</p>
           </Link>
         </div>
       </header>

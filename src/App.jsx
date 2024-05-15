@@ -30,7 +30,7 @@ function App() {
         <loggedInUser.Provider value={loggedUser}>
           <Header />
           <NavAside />
-          <main className="bg-inputGrey">
+          <main className="bg-bodyBackground">
             <Routes>
               <Route path={"/"} element={<Feed />} />
               <Route path={"/profile/:id"} element={<Profile />} />
