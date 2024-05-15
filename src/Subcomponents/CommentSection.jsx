@@ -2,17 +2,16 @@
 import { useEffect, useState } from "react";
 import Comment from "./Comment";
 
-export default function CommentSection({ post }) {
+export default function CommentSection({ post, comment }) {
   const [comments, setComments] = useState([]);
   const [seeAll, setSeeAll] = useState(false);
-  const url = `https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`;
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [comment]);
 
   const getComments = async () => {
-    const data = await fetch(url);
+    const data = await fetch(`https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`);
     const json = await data.json();
     setComments(json);
   };

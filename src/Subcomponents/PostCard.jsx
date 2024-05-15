@@ -10,7 +10,7 @@ export default function PostCard({ post }) {
   const [comment, setComment] = useState({
     contactId: 0,
     content: "",
-    postID: 0,
+    postId: 0,
   });
 
   const user = useContext(loggedInUser);
@@ -26,26 +26,33 @@ export default function PostCard({ post }) {
     getUser();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-
-    // const submit = await fetch(
-    //   `https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(comment),
-    //   }
-    // );
+    submitComment()
   };
+
+  const submitComment = async () => {
+    const submit = await fetch(
+        `https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(comment),
+        })
+    setComment({
+        contactId: 0,
+        content: "",
+        postId: 0,
+      })
+  }
 
   const handleChange = (e) => {
     setComment({
       contactId: user.id,
       content: e.target.value,
-      postID: post.id,
+      postId: post.id,
     });
   };
 
@@ -66,7 +73,7 @@ export default function PostCard({ post }) {
       </header>
       <p className="ml-2">{post.content}</p>
       <hr className="h-px bg-inputGrey mx-2 border-0" />
-      <CommentSection post={post} />
+      <CommentSection post={post} comment={comment} />
       <form
         onSubmit={handleSubmit}
         className="flex gap-2 p-2 rounded-md bg-white"
