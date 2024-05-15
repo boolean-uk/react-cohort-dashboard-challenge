@@ -3,7 +3,7 @@ import Post from "./Post";
 
 export default function Feed() {
     return (
-        <main>
+        <main className="post">
             <CreatePost />
 
             <Post />

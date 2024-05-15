@@ -18,7 +18,7 @@ export default function Post() {
     
     if (postFound) {
         return (
-            <main>
+            <main className="post-found">
                 <article key={postFound.id}>
                     <Author post={postFound} />
 
