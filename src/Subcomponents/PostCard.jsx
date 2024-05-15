@@ -89,27 +89,31 @@ export default function PostCard({ post, getPosts }) {
           </Link>
         </div>
       </header>
-      
-        {editMode ? (
-          <EditPostSection post={post} setEditMode={setEditMode} getPosts={getPosts}/>
-        ) : (
-          <p className="ml-2 max-w-3xl">{post.content}</p>
-        )}
-    
+
+      {editMode ? (
+        <EditPostSection
+          post={post}
+          setEditMode={setEditMode}
+          getPosts={getPosts}
+        />
+      ) : (
+        <p className="ml-2 max-w-3xl">{post.content}</p>
+      )}
+
       {user?.id === poster?.id ? (
-          <div className="icons ml-2 flex flex-row place-items-end">
-            <img
-              onClick={handleEdit}
-              className="cursor-pointer h-4 mb-1"
-              src="/assets/pencil.svg"
-            />
-            <img
-              onClick={handleDelete}
-              className="cursor-pointer h-6"
-              src="/assets/delete.svg"
-            />
-          </div>
-        ) : null}
+        <div className="icons ml-2 flex flex-row place-items-end ">
+          <img
+            onClick={handleEdit}
+            className="cursor-pointer h-4 mb-1"
+            src="/assets/pencil.svg"
+          />
+          <img
+            onClick={handleDelete}
+            className="cursor-pointer h-6"
+            src="/assets/delete.svg"
+          />
+        </div>
+      ) : null}
       <hr className="h-px bg-inputGrey mx-2 border-0" />
       <CommentSection post={post} comment={comment} />
       <form
