@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UpdateProfileForm from "../Subcomponents/UpdateProfileForm";
@@ -21,7 +22,7 @@ export default function Profile() {
   };
 
   if (!userToUpdate) {
-    return <BarLoader />;
+    return <></>;
   }
   return <UpdateProfileForm userToUpdate={userToUpdate} />;
 }

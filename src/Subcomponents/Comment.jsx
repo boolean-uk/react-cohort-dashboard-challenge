@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import EditCommentSection from "./EditCommentSection";
@@ -39,9 +41,16 @@ export default function Comment({ comment, post, getComments }) {
     <article className="flex flex-row gap-3 place-items-center">
       <InitialIcon user={user} />
       {editMode ? (
-        <EditCommentSection comment={comment} post={post} setEditMode={setEditMode} getComments={getComments}/>
+        <EditCommentSection
+          comment={comment}
+          post={post}
+          setEditMode={setEditMode}
+          getComments={getComments}
+        />
       ) : (
-        <p className="bg-inputGrey p-2 rounded-md max-w-xl">{comment.content}</p>
+        <p className="bg-inputGrey p-2 rounded-md max-w-xl">
+          {comment.content}
+        </p>
       )}
 
       {loggedUser.id === user?.id && !editMode ? (

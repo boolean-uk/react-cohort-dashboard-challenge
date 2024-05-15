@@ -12,20 +12,18 @@ export default function Feed() {
     getPosts();
   }, []);
 
-
   const getPosts = async () => {
     const data = await fetch(
       "https://boolean-uk-api-server.fly.dev/MrStashy/post"
     );
     const json = await data.json();
-    setPosts([...json])
+    setPosts([...json]);
   };
-
 
   if (posts.length === 0) {
     return (
       <div className="m-5 flex flex-col gap-3">
-        <NewPost user={user} getPosts={getPosts}/>
+        <NewPost user={user} getPosts={getPosts} />
         <BarLoader color="#000046" className="my-10 place-self-center" />
       </div>
     );
@@ -34,9 +32,15 @@ export default function Feed() {
   const sortedPosts = posts.sort((a, b) => b.id - a.id);
   return (
     <ul className="m-5 flex flex-col gap-3">
-      <NewPost user={user} getPosts={getPosts}/>
+      <NewPost user={user} getPosts={getPosts} />
       {sortedPosts.map((post) => {
-        return <PostCard post={post} key={`PostCard-${post.id}`} getPosts={getPosts}/>;
+        return (
+          <PostCard
+            post={post}
+            key={`PostCard-${post.id}`}
+            getPosts={getPosts}
+          />
+        );
       })}
     </ul>
   );

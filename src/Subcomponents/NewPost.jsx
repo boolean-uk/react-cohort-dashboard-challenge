@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import { useState } from "react";
@@ -40,9 +41,8 @@ export default function NewPost({ user, getPosts }) {
       content: "",
       title: "",
     });
-    getPosts()
+    getPosts();
   }
-
 
   return (
     <form
