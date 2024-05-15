@@ -19,7 +19,7 @@ export default function PostCard({ post }) {
   useEffect(() => {
     const getUser = async () => {
       const data = await fetch(
-        `https://boolean-api-server.fly.dev/MrStashy/contact/${post.contactId}`
+        `https://boolean-uk-api-server.fly.dev/MrStashy/contact/${post.contactId}`
       );
       const json = await data.json();
       setPoster(json);
@@ -34,7 +34,7 @@ export default function PostCard({ post }) {
 
   const submitComment = async () => {
     const submit = await fetch(
-        `https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
+        `https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
         {
           method: "POST",
           headers: {

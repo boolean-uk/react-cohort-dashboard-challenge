@@ -18,7 +18,7 @@ function App() {
 
   const logUserIn = async () => {
     const data = await fetch(
-      "https://boolean-api-server.fly.dev/MrStashy/contact/1"
+      "https://boolean-uk-api-server.fly.dev/MrStashy/contact/1"
     );
     const json = await data.json();
     setLoggedUser(json);

@@ -11,7 +11,7 @@ export default function CommentSection({ post, comment }) {
   }, [comment]);
 
   const getComments = async () => {
-    const data = await fetch(`https://boolean-api-server.fly.dev/MrStashy/post/${post.id}/comment`);
+    const data = await fetch(`https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/comment`);
     const json = await data.json();
     setComments(json);
   };

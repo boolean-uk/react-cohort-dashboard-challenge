@@ -13,7 +13,7 @@ export default function SinglePost() {
 
   const getPost = async () => {
     const data = await fetch(
-      `https://boolean-api-server.fly.dev/MrStashy/post/${params}`
+      `https://boolean-uk-api-server.fly.dev/MrStashy/post/${params}`
     );
     const json = await data.json();
     setPost(json);

@@ -11,7 +11,7 @@ export default function Comment({ comment }) {
 
   const getUser = async () => {
     const data = await fetch(
-      `https://boolean-api-server.fly.dev/MrStashy/contact/${comment.contactId}`
+      `https://boolean-uk-api-server.fly.dev/MrStashy/contact/${comment.contactId}`
     );
     const json = await data.json();
     setUser(json);

@@ -37,7 +37,7 @@ export default function NewPost({ user, getPosts }) {
   const submitPost = async () => {
     // eslint-disable-next-line no-unused-vars
     const data = await fetch(
-      "https://boolean-api-server.fly.dev/MrStashy/post",
+      "https://boolean-uk-api-server.fly.dev/MrStashy/post",
       {
         method: "POST",
         headers: {

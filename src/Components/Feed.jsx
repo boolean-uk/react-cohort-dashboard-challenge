@@ -14,7 +14,7 @@ export default function Feed() {
 
   const getPosts = async () => {
     const data = await fetch(
-      "https://boolean-api-server.fly.dev/MrStashy/post"
+      "https://boolean-uk-api-server.fly.dev/MrStashy/post"
     );
     const json = await data.json();
     setPosts(json);
