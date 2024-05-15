@@ -12,18 +12,24 @@ export default function Author(props) {
         <div className="author">
             {authorFound &&
                 <>
-                    <figure style={{ backgroundColor: `${authorFound.favouriteColour}` }}>
-                        <figcaption>
-                            {authorFound.firstName[0]}{authorFound.lastName[0]}
-                        </figcaption>
-                    </figure>
+                    <Link to={`/contact/${authorFound.id}`}>
+                        <figure style={{ backgroundColor: `${authorFound.favouriteColour}` }}>
+                            <figcaption>
+                                {authorFound.firstName[0]}{authorFound.lastName[0]}
+                            </figcaption>
+                        </figure>
+                    </Link>
 
                     <div className="name-title">
-                        <h4>
-                            {authorFound.firstName} {authorFound.lastName}
-                        </h4>
+                        <Link to={`/contact/${authorFound.id}`}>
+                            <h4>
+                                {authorFound.firstName} {authorFound.lastName}
+                            </h4>
+                        </Link>
                         
-                        <Link to={`/${post.id}`}><b>{post.title}</b></Link>
+                        <Link to={`/post/${post.id}`}>
+                            <b>{post.title}</b>
+                        </Link>
                     </div>
                 </>
             }    

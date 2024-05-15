@@ -39,7 +39,7 @@ export default function CreatePost() {
     }
 
     return (
-        <section>
+        <section id="create-post">
             {randomAuthor &&
                 <>
                     <figure style={{ backgroundColor: `${randomAuthor.favouriteColour}` }}>
@@ -48,7 +48,7 @@ export default function CreatePost() {
                         </figcaption>
                     </figure>
 
-                    <form onSubmit={handleSubmit}>
+                    <form id="form-post" onSubmit={handleSubmit}>
                         <div>
                             <input 
                                 type="text" 

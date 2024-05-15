@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { StateContext } from "../App"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 export default function Comment(props) {
     const [comments, setComments] = useState([])
@@ -37,16 +37,20 @@ export default function Comment(props) {
                 } else {
                     return (
                         <div key={comment.id} className="comment">
-                            <figure style={{ backgroundColor: `${commentAuthor.favouriteColour}` }}>
-                                <figcaption>
-                                    {commentAuthor.firstName[0]}{commentAuthor.lastName[0]}
-                                </figcaption>
-                            </figure>
+                            <Link to={`/contact/${commentAuthor.id}`}>
+                                <figure style={{ backgroundColor: `${commentAuthor.favouriteColour}` }}>
+                                    <figcaption>
+                                        {commentAuthor.firstName[0]}{commentAuthor.lastName[0]}
+                                    </figcaption>
+                                </figure>
+                            </Link>
     
                             <div id="author-comment">
-                                <h5>
-                                    {commentAuthor.firstName} {commentAuthor.lastName}
-                                </h5>
+                                <Link to={`/contact/${commentAuthor.id}`}>
+                                    <h5>
+                                        {commentAuthor.firstName} {commentAuthor.lastName}
+                                    </h5>
+                                </Link>
     
                                 <p>{comment.content}</p>
                             </div>

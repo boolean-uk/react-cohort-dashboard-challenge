@@ -5,6 +5,7 @@ import Feed from './components/Feed'
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Post from './components/Post'
+import AuthorProfile from './components/AuthorProfile'
 
 export const StateContext = createContext()
 
@@ -37,7 +38,7 @@ export default function App() {
   }
 
   return (
-    <StateContext.Provider value={ { posts, authors, loadedPosts, randomAuthor } }>
+    <StateContext.Provider value={ { posts, authors, loadedPosts, randomAuthor, setAuthors } }>
       <Header />
 
       <Nav />
@@ -49,8 +50,13 @@ export default function App() {
         />
 
         <Route 
-          path='/:id'
+          path='/post/:id'
           element={<Post />}
+        />
+
+        <Route 
+          path='/contact/:id'
+          element={<AuthorProfile />}
         />
       </Routes>
     </StateContext.Provider>

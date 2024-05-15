@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import titleHeader from '../assets/images/title-header.svg'
 import { StateContext } from '../App'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     const { randomAuthor } = useContext(StateContext)
@@ -15,11 +16,13 @@ export default function Header() {
                         alt="Cohort Manager" 
                     />
 
-                    <figure style={{ backgroundColor: `${randomAuthor.favouriteColour}` }}>
-                        <figcaption>
-                            {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
-                        </figcaption>
-                    </figure>
+                    <Link to={`/contact/${randomAuthor.id}`}>
+                        <figure style={{ backgroundColor: `${randomAuthor.favouriteColour}` }}>
+                            <figcaption>
+                                {randomAuthor.firstName[0]}{randomAuthor.lastName[0]}
+                            </figcaption>
+                        </figure>
+                    </Link>
                 </>
             }
         </header>
