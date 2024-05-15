@@ -10,7 +10,7 @@ export default function Feed() {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  }, []);
 
   const getPosts = async () => {
     const data = await fetch(
@@ -18,6 +18,7 @@ export default function Feed() {
     );
     const json = await data.json();
     setPosts(json);
+    console.log('data retrieved')
   };
 
   if (posts.length === 0) {

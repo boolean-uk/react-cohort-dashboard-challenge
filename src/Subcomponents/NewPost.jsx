@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import { useState } from "react";
 
@@ -30,10 +31,11 @@ export default function NewPost({ user, getPosts }) {
         content: "",
         title: "",
       })
-    getPosts()
+     
   }
 
   const submitPost = async () => {
+    // eslint-disable-next-line no-unused-vars
     const data = await fetch(
       "https://boolean-api-server.fly.dev/MrStashy/post",
       {
@@ -44,6 +46,7 @@ export default function NewPost({ user, getPosts }) {
         body: JSON.stringify(postContent),
       }
     );
+    getPosts()
   };
 
   return (

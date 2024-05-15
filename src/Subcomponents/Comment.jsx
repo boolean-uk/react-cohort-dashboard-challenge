@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import InitialIcon from "./InitialIcon";
 import { useState, useEffect } from "react";
 
