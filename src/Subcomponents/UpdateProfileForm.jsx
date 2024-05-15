@@ -1,24 +1,8 @@
-import { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
 export default function UpdateProfileForm({ userToUpdate }) {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-    email: "",
-    gender: "",
-    jobTitle: "",
-    latitude: "",
-    longitude: "",
-    favouriteColour: "",
-    profileImage: "",
-    id: ""
-  })
-
-  useEffect(() => {
-    setFormData(userToUpdate);
-  }, [userToUpdate]);
+  const [formData, setFormData] = useState(userToUpdate)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +22,6 @@ export default function UpdateProfileForm({ userToUpdate }) {
       }
     );
   };
-
 
   return (
     <form

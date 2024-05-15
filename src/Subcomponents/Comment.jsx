@@ -27,7 +27,6 @@ export default function Comment({ comment, post, getComments }) {
   }
 
 
-
   return (
     <article className="flex flex-row gap-3 place-items-center">
       <InitialIcon user={user} />

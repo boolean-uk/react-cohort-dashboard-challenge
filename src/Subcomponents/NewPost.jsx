@@ -2,7 +2,7 @@
 import InitialIcon from "./InitialIcon";
 import { useState } from "react";
 
-export default function NewPost({ user, getPosts }) {
+export default function NewPost({ user, setPosts, posts }) {
   const [postContent, setPostContent] = useState({
     contactId: "",
     content: "",
@@ -46,7 +46,7 @@ export default function NewPost({ user, getPosts }) {
         body: JSON.stringify(postContent),
       }
     );
-    getPosts()
+    setPosts({...posts})
   };
 
   return (

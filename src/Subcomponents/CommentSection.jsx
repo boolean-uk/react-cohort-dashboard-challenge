@@ -8,7 +8,7 @@ export default function CommentSection({ post, comment }) {
 
   useEffect(() => {
     getComments();
-  }, [comment]);
+  }, [comment, post]);
 
   const getComments = async () => {
     const data = await fetch(`https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/comment`);

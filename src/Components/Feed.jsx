@@ -32,7 +32,7 @@ export default function Feed() {
   const sortedPosts = posts.sort((a, b) => b.id - a.id);
   return (
     <ul className="m-5 flex flex-col gap-3">
-      <NewPost user={user} getPosts={getPosts}/>
+      <NewPost user={user} setPosts={getPosts}/>
       {sortedPosts.map((post, index) => {
         return <PostCard post={post} key={index} />;
       })}

@@ -27,27 +27,29 @@ export default function PostCard({ post }) {
     getUser();
   }, []);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    submitComment()
+    submitComment();
+
   };
 
   const submitComment = async () => {
     const submit = await fetch(
-        `https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(comment),
-        })
+      `https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(comment),
+      }
+    );
     setComment({
-        contactId: 0,
-        content: "",
-        postId: 0,
-      })
-  }
+      contactId: 0,
+      content: "",
+      postId: 0,
+    });
+  };
 
   const handleChange = (e) => {
     setComment({
@@ -59,7 +61,7 @@ export default function PostCard({ post }) {
 
   return (
     <li className="text-cohortBlue h-auto gap-2 p-3 rounded-md bg-white">
-      <header className="flex place-items-center gap-2 m-2">
+      <header className="flex flex-row place-items-center gap-2 m-2">
         <InitialIcon user={poster} />
         <div className="heading">
           <p>
@@ -72,7 +74,10 @@ export default function PostCard({ post }) {
           </Link>
         </div>
       </header>
-      <p className="ml-2">{post.content}</p>
+      <div className="flex flex-row gap-2">
+        <p className="ml-2">{post.content}</p>
+        <img className="h-5 place-self-center" src="/assets/pencil.svg" />
+      </div>
       <hr className="h-px bg-inputGrey mx-2 border-0" />
       <CommentSection post={post} comment={comment} />
       <form

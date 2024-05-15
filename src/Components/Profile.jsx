@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UpdateProfileForm from "../Subcomponents/UpdateProfileForm";
+import { BarLoader } from "react-spinners";
 
 export default function Profile() {
-  const [userToUpdate, setUserToUpdate] = useState({});
+  const [userToUpdate, setUserToUpdate] = useState(null);
 
   const userID = useParams().id;
 
@@ -19,6 +20,9 @@ export default function Profile() {
     setUserToUpdate(json);
   };
 
+  if (!userToUpdate) {
+    return (<BarLoader />)
+  }
   return (
     <UpdateProfileForm userToUpdate={userToUpdate}/>
   );
