@@ -18,7 +18,7 @@ export default function Feed() {
       "https://boolean-uk-api-server.fly.dev/MrStashy/post"
     );
     const json = await data.json();
-    setPosts(json);
+    setPosts([...json])
   };
 
 
@@ -35,8 +35,8 @@ export default function Feed() {
   return (
     <ul className="m-5 flex flex-col gap-3">
       <NewPost user={user} getPosts={getPosts}/>
-      {sortedPosts.map((post, index) => {
-        return <PostCard post={post} key={index} getPosts={getPosts}/>;
+      {sortedPosts.map((post) => {
+        return <PostCard post={post} key={`PostCard-${post.id}`} getPosts={getPosts}/>;
       })}
     </ul>
   );

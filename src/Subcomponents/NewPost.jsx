@@ -23,18 +23,8 @@ export default function NewPost({ user, getPosts }) {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    submitPost();
-    setPostContent({
-      contactId: "",
-      content: "",
-      title: "",
-    });
-
-  }
-
-  const submitPost = async () => {
     const postData = await fetch(
       "https://boolean-uk-api-server.fly.dev/MrStashy/post",
       {
@@ -45,8 +35,14 @@ export default function NewPost({ user, getPosts }) {
         body: JSON.stringify(postContent),
       }
     );
+    setPostContent({
+      contactId: "",
+      content: "",
+      title: "",
+    });
     getPosts()
-  };
+  }
+
 
   return (
     <form

@@ -29,8 +29,8 @@ export default function CommentSection({ post, comment }) {
           </p>
         ) : null}
         <section className="flex flex-col gap-2 m-2">
-          {comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} post={post} getComments={getComments}/>;
+          {comments.map((comment) => {
+            return <Comment key={`comment-${comment.id}`} comment={comment} post={post} getComments={getComments}/>;
           })}
         </section>
       </>
@@ -44,8 +44,8 @@ export default function CommentSection({ post, comment }) {
         See previous comments
       </p>
       <section className="flex flex-col gap-2 m-2">
-        {latestThreeComments.map((comment, index) => {
-          return <Comment key={index} comment={comment} post={post} getComments={getComments}/>;
+        {latestThreeComments.map((comment) => {
+          return <Comment key={`comment-${comment.id}`} comment={comment} post={post} getComments={getComments}/>;
         })}
       </section>
     </>
