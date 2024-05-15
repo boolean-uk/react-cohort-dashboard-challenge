@@ -27,10 +27,12 @@ export default class DatabaseClient {
 	find(collection: string, filters: any) {
 		return this.getCollection(collection).find(filters);
 	}
+	findOne(collection: string, filters: any) {
+		return this.getCollection(collection).findOne(filters);
+	}
 
 	async has(collection: string, filters: any) {
-		if (await this.find(collection, filters).hasNext()) return true;
-		else return false;
+		return (await this.findOne(collection, filters)) ? true : false;
 	}
 
 	async connect() {

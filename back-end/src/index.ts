@@ -15,7 +15,7 @@ process.on("SIGINT", dbClient.close);
 process.on("SIGTERM", dbClient.close);
 
 //== Setup server
-import app from "./server";
-app.listen(port, () => {
+import server from "./server";
+server.listen(port, () => {
 	console.log(`[server]: server is running on port ${port}`);
 });

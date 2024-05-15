@@ -4,6 +4,7 @@ import { dbClient } from "../../..";
 import { USER_ROLES, USER_SCHEMA } from "../../../database/user.schema";
 
 import { SIGNUP_PARAMS } from "./signup.params.schema";
+import auth from "../../auth/auth";
 
 export default async function signUpMiddleware(
 	req: Request,
@@ -15,9 +16,10 @@ export default async function signUpMiddleware(
 	if (await dbClient.has("users", { email })) {
 		return res.status(401).json({ message: "Email already exists" });
 	} else {
+		const hashedPassword = await auth.encryptString(password);
 		const user: USER_SCHEMA = {
 			email,
-			password,
+			password: hashedPassword,
 			name,
 			username,
 			role: USER_ROLES.BASIC,
