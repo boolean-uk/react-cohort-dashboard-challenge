@@ -4,19 +4,19 @@ import AddComment from "./AddComment";
 import Avatar from "./Avatar";
 import Comment from "./Comment";
 import { DataContext } from "../App";
+import EditPost from "./EditPost";
 
 export default function Post(props) {
-  const { contacts, posts, user } = useContext(DataContext);
-
+  const { contacts, posts, user, setPosts } = useContext(DataContext);
   const [comments, setComments] = useState();
   const [contact, setContact] = useState();
+  const [showEditBox, setShowEditBox] = useState(false);
 
   const { post } = props;
+  const baseUrl = "https://boolean-api-server.fly.dev/Hamada-AB/post/";
 
   useEffect(() => {
-    fetch(
-      `https://boolean-api-server.fly.dev/Hamada-AB/post/${post?.id}/comment`
-    )
+    fetch(`${baseUrl}${post?.id}/comment`)
       .then((response) => response.json())
       .then((data) => {
         if (data && !data.error) {
@@ -32,28 +32,77 @@ export default function Post(props) {
     });
   }, [contacts, post, posts]);
 
+  function handleDeleteClick() {
+    const isConfirmed = confirm(
+      `❌ Are you sure you want to delete this post❓`
+    );
+
+    if (isConfirmed) {
+      fetch(`${baseUrl}${post?.id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setPosts(posts.filter((post) => post.id !== data.id));
+        });
+    }
+  }
+
+  function handleEditClick() {
+    setShowEditBox(true);
+  }
+
   return (
     <>
       <section>
         <article className="post">
-          <div className="post-info">
-            <Link to={`/profile/${contact?.id}`}>
-              <Avatar>{contact}</Avatar>
-            </Link>
-            <div className="user-data">
-              <h3 className="user-name">
-                <Link
-                  to={`/profile/${contact?.id}`}
-                >{`${contact?.firstName} ${contact?.lastName}`}</Link>
-              </h3>
-              <p className="post-title">
-                <Link to={`/post/${post?.id}`}>{post?.title}</Link>
-              </p>
+          <div className="post-header">
+            <div className="post-info">
+              <Link to={`/profile/${contact?.id}`}>
+                <Avatar>{contact}</Avatar>
+              </Link>
+              <div className="user-data">
+                <h3 className="user-name">
+                  <Link
+                    to={`/profile/${contact?.id}`}
+                  >{`${contact?.firstName} ${contact?.lastName}`}</Link>
+                </h3>
+                <p className="post-title">
+                  <Link to={`/post/${post?.id}`}>{post?.title}</Link>
+                </p>
+              </div>
+            </div>
+            <div className="post-btns">
+              {contact?.id == 1 && (
+                <button
+                  title="Delete Post"
+                  className="delete-btn"
+                  onClick={handleDeleteClick}
+                >
+                  <img src="../src/assets/icons/delete.svg" alt="trash icon" />
+                </button>
+              )}
+              {contact?.id == 1 && (
+                <button
+                  title="Edit Post"
+                  className="edit-btn"
+                  onClick={handleEditClick}
+                >
+                  <img src="../src/assets/icons/edit.svg" alt="pen icon" />
+                </button>
+              )}
             </div>
           </div>
           <p className="post-content">{post?.content}</p>
+          {showEditBox && (
+            <EditPost
+              setShowEditBox={setShowEditBox}
+              showEditBox={showEditBox}
+              post={post}
+            />
+          )}
         </article>
-
+        {/* ------------------------------------------------------------- */}
         <article className="comments">
           {comments &&
             comments.map((comment) => {

@@ -5,18 +5,24 @@ import Comment from "./Comment";
 import { DataContext } from "../App";
 
 export default function ClickedPost() {
-  const { contacts, posts } = useContext(DataContext);
+  const { contacts } = useContext(DataContext);
   const [comments, setComments] = useState();
   const [contact, setContact] = useState();
+  const [post, setPost] = useState();
   const params = useParams();
   const { id } = params;
 
-  const post = posts.find((post) => post.id == id);
-
   useEffect(() => {
-    fetch(
-      `https://boolean-api-server.fly.dev/Hamada-AB/post/${post?.id}/comment`
-    )
+    fetch(`https://boolean-api-server.fly.dev/Hamada-AB/post/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && !data.error) {
+          setPost(data);
+        }
+      })
+      .catch((error) => console.error(error));
+
+    fetch(`https://boolean-api-server.fly.dev/Hamada-AB/post/${id}/comment`)
       .then((response) => response.json())
       .then((data) => {
         if (data && !data.error) {
@@ -30,7 +36,7 @@ export default function ClickedPost() {
         setContact(contact);
       }
     });
-  }, [contacts, post, posts]);
+  }, [contacts, post, id]);
 
   return (
     <>

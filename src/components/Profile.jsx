@@ -14,6 +14,7 @@ export default function Profile() {
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [validation, setValidation] = useState("");
+  const [showSaveBtn, setShowSaveBtn] = useState(false);
 
   const { mode, contacts, setContacts } = useContext(DataContext);
   const params = useParams();
@@ -38,6 +39,8 @@ export default function Profile() {
         }
       })
       .catch((error) => console.error(error));
+
+    setShowSaveBtn(false);
   }, [url, contacts]);
 
   function handleFormSubmit(event) {
@@ -88,8 +91,17 @@ export default function Profile() {
 
       <div className="profile">
         <div className={`profile-header ${mode}`}>
-          <Avatar>{user}</Avatar>
-          <h2>{user?.firstName + " " + user?.lastName}</h2>
+          <div className="avatar-name-div">
+            <Avatar>{user}</Avatar>
+            <h2>{user?.firstName + " " + user?.lastName}</h2>
+          </div>
+          <button
+            className="edit-profile-btn"
+            onClick={() => setShowSaveBtn(true)}
+            title="Edit Profile"
+          >
+            <img src="../src/assets/icons/edit.svg" alt="pen icon" />
+          </button>
         </div>
 
         <form action="" className="profile-form" onSubmit={handleFormSubmit}>
@@ -165,7 +177,7 @@ export default function Profile() {
           </div>
 
           <div className="save">
-            <button>Save</button>
+            {showSaveBtn && <button className="edit-save-btn">Save</button>}
           </div>
         </form>
       </div>
