@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import "./index.css";
 import Header from "./Components/Header";
 import NavAside from "./Components/NavAside";

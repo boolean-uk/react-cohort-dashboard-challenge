@@ -61,7 +61,7 @@ export default function NewPost({ user, getPosts }) {
       ></textarea>
       <button
         type="submit"
-        className="w-28 rounded-md text-white bg-cohortBlue hover:bg-buttonHover"
+        className="w-28 h-10 rounded-md text-white place-self-center bg-cohortBlue hover:bg-buttonHover"
       >
         Post
       </button>
