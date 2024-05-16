@@ -29,7 +29,6 @@ export default function EditPost({ post, showEditBox, setShowEditBox }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setPosts([...posts, data]);
       });
 

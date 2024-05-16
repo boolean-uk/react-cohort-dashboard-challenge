@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+import Avatar from "./Avatar";
+import EditComment from "./EditComment";
+
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
-import Avatar from "./Avatar";
-import { Link } from "react-router-dom";
-import Edit from "./EditPost";
-import EditComment from "./EditComment";
 
 export default function Comment(props) {
   const [commenter, setCommenter] = useState();

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import clsx from "clsx";
 import { DataContext } from "../App";
+
 import Avatar from "./Avatar";
 import sendIcon from "../assets/icons/send.svg";
 

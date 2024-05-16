@@ -18,15 +18,15 @@ export default function EditComment({
     event.preventDefault();
 
     fetch(
-      `https://boolean-api-server.fly.dev/Hamada-AB/post/${post.id}/comment/${comment.id}`,
+      `https://boolean-api-server.fly.dev/Hamada-AB/post/${postId}/comment/${comment?.id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          contactId,
           postId,
+          contactId,
           content,
         }),
       }

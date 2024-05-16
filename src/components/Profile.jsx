@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { DataContext } from "../App";
+
 import Avatar from "./Avatar";
 import TextInput from "./TextInput";
 import editIcon from "../assets/icons/edit.svg";
@@ -14,12 +15,14 @@ export default function Profile() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
+
   const [validation, setValidation] = useState("");
   const [showSaveBtn, setShowSaveBtn] = useState(false);
 
   const navigate = useNavigate();
 
   const { mode, contacts, setContacts } = useContext(DataContext);
+
   const params = useParams();
   const contactId = params.id;
   const url = `https://boolean-api-server.fly.dev/Hamada-AB/contact/${contactId}`;

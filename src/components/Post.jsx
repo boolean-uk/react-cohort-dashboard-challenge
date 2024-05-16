@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from "../App";
+
 import AddComment from "./AddComment";
 import Avatar from "./Avatar";
 import Comment from "./Comment";
-import { DataContext } from "../App";
 import EditPost from "./EditPost";
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
@@ -40,11 +41,12 @@ export default function Post(props) {
     );
 
     if (isConfirmed) {
-      fetch(`${baseUrl}${post?.id}`, {
+      fetch(`${baseUrl}${post.id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           setPosts(posts.filter((post) => post.id !== data.id));
         });
     }
