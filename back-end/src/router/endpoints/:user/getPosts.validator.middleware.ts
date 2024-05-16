@@ -22,7 +22,7 @@ export default function validateGetPostsParamsMiddleware(
 					: validateRegExp(data),
 		},
 		{
-			param: "id",
+			param: "_id",
 			validator: (data) =>
 				data === undefined
 					? { message: undefined }
