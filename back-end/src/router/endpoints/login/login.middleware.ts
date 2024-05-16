@@ -51,10 +51,12 @@ export default async function loginMiddleware(
 			role: user.role,
 		};
 
-		const token = auth.generateAccessToken(cookieData, "5m");
+		const cookieExpire = { text: "1m", value: 60 * 1000 };
+
+		const token = auth.generateAccessToken(cookieData, cookieExpire.text);
 
 		const options: CookieOptions = {
-			maxAge: 60 * 1000,
+			maxAge: cookieExpire.value,
 			httpOnly: true,
 			secure: true,
 			sameSite: "strict",
