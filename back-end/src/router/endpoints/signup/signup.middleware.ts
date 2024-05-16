@@ -16,8 +16,10 @@ export default async function signUpMiddleware(
 ) {
 	const { email, password, name, username }: SIGNUP_PARAMS = req.body.data;
 
-	if (await dbClient.has("users", { email })) {
+	if (await dbClient.has(DB_COLLECTIONS.USERS, { email })) {
 		return res.status(401).json({ message: "Email already exists" });
+	} else if (await dbClient.has(DB_COLLECTIONS.USERS, { username })) {
+		return res.status(401).json({ message: "Username already exists" });
 	} else {
 		//== Create new user
 		const user: USER_SCHEMA = {
@@ -26,6 +28,7 @@ export default async function signUpMiddleware(
 			username,
 			role: USER_ROLES.BASIC,
 		};
+
 		const db_response = await dbClient.insertUser(user, password);
 
 		return res.status(db_response.status).json(db_response.message);
