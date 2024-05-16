@@ -23,6 +23,7 @@ function App() {
     );
     const json = await data.json();
     setLoggedUser(json);
+    console.log('triggered')
   };
 
 
@@ -35,7 +36,7 @@ function App() {
           <main className="bg-bodyBackground">
             <Routes>
               <Route path={"/"} element={<Feed />} />
-              <Route path={"/profile/:id"} element={<Profile />} />
+              <Route path={"/profile/:id"} element={<Profile logUserIn={logUserIn} />} />
               <Route path={"/posts/:id"} element={<SinglePost />} />
             </Routes>
           </main>

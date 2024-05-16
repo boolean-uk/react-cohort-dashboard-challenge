@@ -1,15 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function UpdateProfileForm({ userToUpdate }) {
+export default function UpdateProfileForm({ userToUpdate, logUserIn }) {
   const [formData, setFormData] = useState(userToUpdate)
 
-  const handleChange = (e) => {
+
+  const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const submitData = await fetch(
       `https://boolean-uk-api-server.fly.dev/MrStashy/contact/${userToUpdate.id}`,
@@ -21,7 +23,9 @@ export default function UpdateProfileForm({ userToUpdate }) {
         body: JSON.stringify(formData),
       }
     );
+    logUserIn()
   };
+
 
   return (
     <form

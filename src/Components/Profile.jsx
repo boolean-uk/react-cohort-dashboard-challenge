@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import UpdateProfileForm from "../Subcomponents/UpdateProfileForm";
 import { BarLoader } from "react-spinners";
 
-export default function Profile() {
+export default function Profile( {logUserIn} ) {
   const [userToUpdate, setUserToUpdate] = useState(null);
 
   const userID = useParams().id;
@@ -13,6 +13,8 @@ export default function Profile() {
   useEffect(() => {
     getUser();
   }, []);
+
+ 
 
   const getUser = async () => {
     const data = await fetch(
@@ -25,5 +27,5 @@ export default function Profile() {
   if (!userToUpdate) {
     return <></>;
   }
-  return <UpdateProfileForm userToUpdate={userToUpdate} />;
+  return <UpdateProfileForm logUserIn={logUserIn} userToUpdate={userToUpdate} />;
 }
