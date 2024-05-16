@@ -6,11 +6,13 @@ import validateSignUpParamsMiddleware from "./endpoints/signup/signup.validator.
 import userMiddleware from "./endpoints/:user/:user.middleware";
 import userRouter from "./endpoints/:user/:user.router";
 import feedRouter from "./endpoints/feed/feed.router";
+import logoutMiddleware from "./endpoints/logout/logout.middleware";
 
 const router = express.Router();
 
-router.post("/login", validateLoginParamsMiddleware, loginMiddleware);
 router.post("/signup", validateSignUpParamsMiddleware, signUpMiddleware);
+router.post("/login", validateLoginParamsMiddleware, loginMiddleware);
+router.get("/logout", logoutMiddleware);
 router.use("/feed", feedRouter);
 //dont forget to load this as last!
 router.use("/:id", userRouter);
