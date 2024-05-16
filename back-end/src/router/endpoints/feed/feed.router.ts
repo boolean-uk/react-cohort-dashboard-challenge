@@ -6,13 +6,21 @@ import validatePostDataMiddleware from "../common/validators/posts/postData.vali
 import postNewPostMiddleware from "./postNewPost.middleware";
 import editPostMiddleware from "./editPost.middleware";
 import deletePostMiddleware from "./deletePost.middleware";
+import verifyPostOwnershipMiddleware from "../common/validators/posts/verifyPostOwnership.validator.middleware";
+import validatePostOwnershipParamsMiddleware from "../common/validators/posts/validatePostOwnershipParams.validator.middleware";
 
 const router = express.Router();
 router.use(authenticateCookieMiddleware);
 
 router.get("/", getFeedPostsMiddleware);
 router.post("/", validatePostDataMiddleware, postNewPostMiddleware);
-router.put("/", validatePostDataMiddleware, editPostMiddleware);
+router.put(
+	"/",
+	validatePostOwnershipParamsMiddleware,
+	verifyPostOwnershipMiddleware,
+	validatePostDataMiddleware,
+	editPostMiddleware
+);
 router.delete("/", validatePostDataMiddleware, deletePostMiddleware);
 
 export default router;

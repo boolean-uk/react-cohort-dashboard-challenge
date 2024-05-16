@@ -14,26 +14,6 @@ export default async function deletePostMiddleware(
 	next: NextFunction
 ) {
 	const postData = req.body.data as POST_SCHEMA;
-	const { id, role } = req.body.jwtPayload as AuthCookie;
-	//NOTE: I know i only need the id to delete the post, but this way is much
-	//faster than requesting only the id...fetching a document with that id...
-	//checking the attributes...etc etc
-	console.log(
-		postData.authorID,
-		id,
-		role !== USER_ROLES.ADMIN,
-		!new ObjectId(postData.authorID).equals(new ObjectId(id))
-	);
-
-	if (
-		!(new ObjectId(postData.authorID).equals(new ObjectId(id)) ||
-		role !== USER_ROLES.ADMIN)
-	) {
-		return res.status(403).json({
-			message:
-				"Access forbidden. You don't have permissions to delete this resource",
-		});
-	}
 
 	try {
 		//NOTE: This try catch is probably not doing anything since the only function that can throw is insertPost...and it already has a trycatch
