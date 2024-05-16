@@ -10,11 +10,9 @@ export default function Comment({ post }) {
       `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
     )
       .then((response) => response.json())
-      .then((json) => setComments(json));
+      .then(json => setComments(json));
   }, [setComments]);
 
-  console.log('comments', comments)
-  console.log('postID', post.id)
 
   const getComment = comments.find((commentor) => commentor.contactId);
 
@@ -22,15 +20,14 @@ export default function Comment({ post }) {
     if (commentor.id === comments.contactId) return commentor;
   });
 
-    const getCommentForPost = comments.map((comment) => comment.id === post.id)
-    console.log(getCommentForPost)
+    // const getCommentForPost = comments.map((comment) => comment.id === post.id)
 
   return (
     <>
       {comments && (
-        <>
+        <ul>
           {comments.map((comment) => (
-            <section className="comment" key={comment.id}>
+            <li className="comment" key={comment.id}>
               <div className="profile-initials">
                 {commentor && (
                   <p className="initials">
@@ -47,9 +44,9 @@ export default function Comment({ post }) {
                 )}
                 <p>{comment.content}</p>
               </div>
-            </section>
+            </li>
           ))}
-        </>
+        </ul>
       )}
     </>
   );

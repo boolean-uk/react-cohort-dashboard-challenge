@@ -6,11 +6,11 @@ function Posts() {
     const{posts} = useContext(PostsContext)
 
     return (
-        <section className="posts-container">
-            {posts.map((post) =>
+        <ul className="posts-container">
+            {posts.toReversed().map((post) =>
             <PostCard key={post.id} post={post} />
         )}
-        </section>
+        </ul>
     )
 }
 export default Posts

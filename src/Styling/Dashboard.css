@@ -1,8 +1,8 @@
 .header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: end;
+    grid-template-columns: 1fr 4.7rem;
+    padding: 0.5rem;
     background-color: hsl(240, 100%, 14%);
 }
 
