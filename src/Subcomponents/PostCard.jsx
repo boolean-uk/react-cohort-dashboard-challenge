@@ -98,7 +98,7 @@ export default function PostCard({ post, getPosts }) {
           getPosts={getPosts}
         />
       ) : (
-        <p className="ml-2 max-w-8xl">{post.content}</p>
+        <p className="ml-2 mb-1 max-w-8xl">{post.content}</p>
       )}
 
       {user?.id === poster?.id ? (
