@@ -6,7 +6,7 @@ import { POSTS_FILTERS_SCHEMA } from "../common/models/postsFilters.schema";
 import { JwtPayload } from "jsonwebtoken";
 import { POST_SCHEMA } from "../../../database/models/post.schema";
 
-export default async function getFeedPostsMiddleware(
+export default async function getPostsListMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
