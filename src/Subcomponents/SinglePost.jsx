@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
 import { useEffect, useState } from "react";

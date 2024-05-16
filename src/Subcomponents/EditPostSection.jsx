@@ -5,12 +5,12 @@ import { useState } from "react";
 export default function EditPostSection({ post, setEditMode, getPosts }) {
   const [postContent, setPostContent] = useState(post);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setPostContent({ ...postContent, content: e.target.value });
     console.log(postContent);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const updatePost = await fetch(
       `https://boolean-uk-api-server.fly.dev/MrStashy/post/${post.id}`,
