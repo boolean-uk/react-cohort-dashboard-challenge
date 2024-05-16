@@ -9,7 +9,7 @@ import {
 	validateListString,
 	validateObjectId,
 } from "../../../../../validators/misc.validator";
-import { validateParams } from "../../../../../validators/params.validator.middleware";
+import { validateParamsMiddleware } from "../../../../../validators/params.validator.middleware";
 import { ValidateCondition } from "../../../../../validators/validateCondition.type";
 
 export default function validatePostDataMiddleware(
@@ -56,5 +56,5 @@ export default function validatePostDataMiddleware(
 		},
 	];
 
-	validateParams(requiredFields, req, res, next);
+	validateParamsMiddleware(requiredFields, req, res, next);
 }

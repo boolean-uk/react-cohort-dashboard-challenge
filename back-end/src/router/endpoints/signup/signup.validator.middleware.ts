@@ -4,7 +4,7 @@ import {
 	validateName,
 	validatePassword,
 } from "../../../validators/form.validator";
-import { validateParams } from "../../../validators/params.validator.middleware";
+import { validateParamsMiddleware } from "../../../validators/params.validator.middleware";
 import { ValidatorCallback } from "../../../validators/validator.type";
 import { SIGNUP_PARAMS } from "./signup.params.schema";
 
@@ -23,5 +23,5 @@ export default function validateSignUpParamsMiddleware(
 		{ param: "password", validator: validatePassword },
 	];
 
-	validateParams(requiredFields, req, res, next);
+	validateParamsMiddleware(requiredFields, req, res, next);
 }

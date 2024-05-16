@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { LOGIN_PARAMS } from "./login.params.schema";
 import { ValidatorCallback } from "../../../validators/validator.type";
 import { validateString } from "../../../validators/form.validator";
-import { validateParams } from "../../../validators/params.validator.middleware";
+import { validateParamsMiddleware } from "../../../validators/params.validator.middleware";
 
 export default function validateLoginParamsMiddleware(
 	req: Request,
@@ -20,5 +20,5 @@ export default function validateLoginParamsMiddleware(
 		},
 	];
 
-	validateParams(requiredFields, req, res, next);
+	validateParamsMiddleware(requiredFields, req, res, next);
 }

@@ -4,7 +4,7 @@ import {
 	validateObjectId,
 	validateRegExp,
 } from "../../../../../validators/misc.validator";
-import { validateParams } from "../../../../../validators/params.validator.middleware";
+import { validateParamsMiddleware } from "../../../../../validators/params.validator.middleware";
 import { ValidateCondition } from "../../../../../validators/validateCondition.type";
 import { POSTS_FILTERS_SCHEMA } from "../../models/postsFilters.schema";
 import { POST_SCHEMA } from "../../../../../database/models/post.schema";
@@ -58,5 +58,5 @@ export default function validatePostFiltersMiddleware(
 		},
 	];
 
-	validateParams(requiredFields, req, res, next);
+	validateParamsMiddleware(requiredFields, req, res, next);
 }

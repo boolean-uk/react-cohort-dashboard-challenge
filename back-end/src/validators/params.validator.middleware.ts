@@ -6,13 +6,14 @@ import { ValidateCondition } from "./validateCondition.type";
  * Given a list of required params, and their respective validators, validates request params and  returns feedback to the client app.
  * If everything checks, next() is called
  */
-export function validateParams(
+export function validateParamsMiddleware(
 	conditions: ValidateCondition<string>[],
 	req: Request,
 	res: Response,
-	next: NextFunction
+	next: NextFunction,
+	allowConditionsParamsOnly: boolean = true
 ) {
-	if (!req.body?.data) {
+	if (!req.body?.data || typeof req.body.data !== "object") {
 		return res
 			.status(400)
 			.json({ message: "Please wrap payload in a data object" });
@@ -22,13 +23,15 @@ export function validateParams(
 	const feedback: Record<string, string> = {};
 
 	//Check for extra fields! they should not be present
-	const conditionKeys = conditions.map((e) => e.param);
-	for (const key of bodyParams) {
-		if (!conditionKeys.includes(key)) {
-			//Param was detected but should not be present
-			return res
-				.status(400)
-				.json({ message: `Property ${key} should not be included` });
+	if (allowConditionsParamsOnly) {
+		const conditionKeys = conditions.map((e) => e.param);
+		for (const key of bodyParams) {
+			if (!conditionKeys.includes(key)) {
+				//Param was detected but should not be present
+				return res.status(400).json({
+					message: `Property ${key} should not be included`,
+				});
+			}
 		}
 	}
 

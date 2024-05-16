@@ -7,21 +7,19 @@ import { POST_SCHEMA } from "../../../database/models/post.schema";
 import { JwtPayload } from "jsonwebtoken";
 import { AuthCookie } from "../../auth/auth.cookie.type";
 import { USER_ROLES } from "../../../database/models/user-roles.enum";
+import { FEED_CONTENT_SCHEMA } from "../../../database/models/feedContent.schema";
+import { FEED_CONTENT_OWNERSHIP_SCHEMA } from "../common/models/feedContentOwnership.schema";
 
 export default async function deletePostMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
-	const postData = req.body.data as POST_SCHEMA;
+	const { _id } = req.body.data as FEED_CONTENT_OWNERSHIP_SCHEMA;
 
 	try {
-		//NOTE: This try catch is probably not doing anything since the only function that can throw is insertPost...and it already has a trycatch
-		//Set the timestamp to "now"
-		postData.timestamp = new Date().toJSON();
-
 		const { status, ...db_data } = await dbClient.deletePost({
-			_id: new ObjectId(postData._id),
+			_id: new ObjectId(_id),
 		});
 		return res.status(status).json(db_data);
 	} catch (error) {

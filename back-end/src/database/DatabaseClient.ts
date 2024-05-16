@@ -1,14 +1,11 @@
-import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
-import { DB_COLLECTIONS } from "./collections.enum";
-import { USER_SCHEMA } from "./models/user.schema";
-import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
 import auth from "../router/auth/auth.crypto";
+import { DB_COLLECTIONS } from "./collections.enum";
+import { DatabaseResponse } from "./database.response.type";
 import { CREDENTIALS_SCHEMA } from "./models/credentials.schema";
 import { POST_SCHEMA } from "./models/post.schema";
-import { DatabaseResponse } from "./database.response.type";
-import { dbClient } from "..";
-import { AuthCookie } from "../router/auth/auth.cookie.type";
+import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
+import { USER_SCHEMA } from "./models/user.schema";
 
 /**
  * A wrapper for working with any database
@@ -66,7 +63,6 @@ export default class DatabaseClient {
 
 			return { message: "Inserted successfuly", status: 200 };
 		} catch (error) {
-			console.log(error);
 			return {
 				error: error,
 				message: `Error while inserting user into ${collection} collection from ${this._database} database`,
@@ -135,11 +131,17 @@ export default class DatabaseClient {
 			if (!db_response.acknowledged) {
 				throw new Error();
 			}
+			if (db_response.deletedCount === 0)
+				return {
+					message: `Could not find resource to delete from ${collection} collection from ${this._database}`,
+					status: 404,
+				};
+
 			return { message: "Deleted successfully", status: 200 };
 		} catch (error) {
 			return {
 				error,
-				message: `Could not delete resquested data: ${filters} from ${collection} collection from ${this._database}`,
+				message: `Could not delete requested data: ${filters} from ${collection} collection from ${this._database}`,
 				status: 502,
 			};
 		}
@@ -158,7 +160,6 @@ export default class DatabaseClient {
 		data: any
 	): Promise<DatabaseResponse> {
 		try {
-			console.log(await dbClient.findOne(collection, filter));
 			const { _id, ...documentData } = data;
 			const db_response = await this.getCollection(collection).replaceOne(
 				filter,

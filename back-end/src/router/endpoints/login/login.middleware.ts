@@ -2,7 +2,7 @@ import { CookieOptions, Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
 import { dbClient } from "../../..";
 import { validateString } from "../../../validators/form.validator";
-import { validateParams } from "../../../validators/params.validator.middleware";
+import { validateParamsMiddleware } from "../../../validators/params.validator.middleware";
 import { ValidatorCallback } from "../../../validators/validator.type";
 import { LOGIN_PARAMS } from "./login.params.schema";
 import auth from "../../auth/auth.crypto";
