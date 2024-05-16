@@ -7,14 +7,14 @@ export default function posts() {
                 <input id="post-input" type="text" value='' placeholder="What's on your mind" />
                 <button className="post-btn">Post</button>
             </div>
-            <div className="list-posts">
-                <li>
-                    <div>
+            <div className="posts">
+                <li className="list-posts">
+                    <div className="post-publisher">
                         <div className="user">SF</div>
-                        <div><strong>firstName lastName</strong><p>title</p></div>
+                        <div><p>firstName lastName</p><p>title</p></div>
                     </div>
                     <div className="post-content">paragraph</div>
-                    <div>
+                    <div className="comment-section">
                         <p className="logged-user">ML</p>
                         <div>
                             <input id="post-input" type="text" value='' placeholder="Add a comment..." />
