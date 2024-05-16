@@ -1,0 +1,2 @@
+-   how to test this whole code?
+    -   how to test database operations?
