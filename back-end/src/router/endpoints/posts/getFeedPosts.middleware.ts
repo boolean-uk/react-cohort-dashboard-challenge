@@ -19,6 +19,7 @@ export default async function getFeedPostsMiddleware(
 		const collection = dbClient.find(DB_COLLECTIONS.POSTS, {});
 		/*IMPROVE: RETURN FIRST 50 POSTS MAX
 			Include start index on req.params to continue retrieving new posts
+			mongodb supports indexed search i think
 		*/
 		do {
 			if (await collection.hasNext()) data.push(await collection.next());
