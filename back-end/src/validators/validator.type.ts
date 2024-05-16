@@ -16,5 +16,5 @@ export enum VALIDATOR_ERR_CODES_ENUM {
 
 export type ValidatorFeedback = {
 	message: string | undefined;
-	// code?:VALIDATOR_ERR_CODES_ENUM | "other validator type err codes"
+	status?: number;
 };

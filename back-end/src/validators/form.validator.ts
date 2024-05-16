@@ -14,6 +14,9 @@ const isInvalidType = (data: any, ...types: string[]) =>
 		message: `Received: [${typeof data}] instead of types: [${types}]`,
 	};
 
+/*
+ * IMPROVE: write jdocs for validators
+ */
 export const validateString: ValidatorCallback = (data) => {
 	const isInvalid = isInvalidType(data, "string");
 	return isInvalid ? isInvalid : { message: undefined };
