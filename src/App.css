@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+}
+
+.app-container {
+  display: grid;
+  grid-template: 
+  'header header' 6rem
+  'left main' 1fr/
+  7rem 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+.icon {
+  width: 40px;
+}
+
+#logo {
+  width: 500px;
+  place-self: end;
+}
+
+ul{
+  list-style: none;
+}

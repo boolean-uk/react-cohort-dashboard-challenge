@@ -1,0 +1,150 @@
+.feed {
+    display: grid;
+    grid-area: 'main';
+    grid-template-rows: 10rem;
+    background-color: #F0F5FA;
+}
+
+.post-background {
+    background-color: #F0F5FA;
+}
+
+#createPost-container {
+    height: 6rem;
+}
+
+.post-container {
+    margin: 1.5rem;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
+}
+
+.posts-container {
+    margin-left: -3.3%;
+}
+
+
+.post-header {
+    gap: 0.5rem;
+}
+
+.post-form {
+    display: grid;
+    grid-template-columns: 4.7rem 1fr 12rem;
+    padding: 0.5rem;
+    gap: 1.4rem;
+    height: 80%;
+    background-color: white;
+}
+
+.profile-initials {
+    border-radius: 50px;
+    height: 4.7rem;
+    place-content: center;
+}
+
+.profile-initials p {
+    justify-self: center;
+    font-weight: bold;
+}
+
+#post-btn {
+    height: 100%;
+    width: 100%;
+    background-color: #000046;
+    color: white;
+}
+
+.text-input-container input {
+    width: 100%;
+    height: 80%;
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: medium;
+}
+
+.text-input-container input::placeholder {
+    color: rgb(153, 153, 153);
+}
+
+.post-header {
+    display: grid;
+    grid-template-columns: 4.7rem 1fr;
+}
+
+#post-title {
+    color: #64648c;
+    font-size: small;
+    font-weight: bold;
+}
+
+#profile-name {
+    color: #000046;
+}
+
+.post-body {
+    padding: 1rem;
+}
+
+
+.comment-section-form {
+    border-top: 1px solid #e6ebf5;
+    display: grid;
+    grid-template-columns: 4.7rem 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+#profile-name {
+    color: #000046;
+    justify-self: center;
+}
+
+.initials {
+    justify-self: center;
+    padding-left: 34%;
+}
+
+#send {
+    width: 18px;
+}
+
+.submit {
+    position: relative;
+    left: 97%;
+    bottom: 80%;
+    outline: none;
+    background-color: #b0b5bd;
+    border-radius: 100%;
+    width: 10px;
+    justify-content: center;
+}
+
+.comment-box {
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: medium;
+    width: fit-content;
+}
+
+#commentor-name {
+    font-weight: bold;
+    color: #000046;
+
+}
+
+.comment {
+    display:  grid;
+    grid-template-columns: 4.7rem 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: #000046;
+}
