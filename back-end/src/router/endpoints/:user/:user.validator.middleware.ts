@@ -1,9 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { GET_POSTS_PARAMS } from "../common/models/postsFilters.schema";
-import { ValidatorCallback } from "../../../validators/validator.type";
-import { validateString } from "../../../validators/form.validator";
-import { validateParams } from "../../../validators/params.validator.middleware";
-import { validateRegExp } from "../../../validators/misc.validator";
 import { ObjectId } from "mongodb";
 
 export default function validateUserParamsMiddleware(
@@ -11,6 +6,7 @@ export default function validateUserParamsMiddleware(
 	res: Response,
 	next: NextFunction
 ) {
+	//LINK: https://www.mongodb.com/community/forums/t/bsontypeerror-argument-passed-in-must-be-a-string-of-12-bytes-or-a-string-of-24-hex-characters-or-an-integer/188466/3
 	if (!ObjectId.isValid(req.params?.id)) {
 		return res.status(400).json({ message: "Invalid id format" });
 	}
