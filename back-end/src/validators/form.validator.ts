@@ -54,3 +54,15 @@ export const validatePassword: ValidatorCallback = (data) => {
 
 	return { message: undefined };
 };
+
+export const validateNumber: ValidatorCallback = (data) => {
+	if (/^\d+$/i.test(data)) return { message: undefined };
+	else
+		return {
+			message: "Field should be a number, or a string representing one",
+		};
+};
+//FIX: how to validate???
+export const validateTimestamp: ValidatorCallback = (data) => {
+	return { message: undefined };
+};
