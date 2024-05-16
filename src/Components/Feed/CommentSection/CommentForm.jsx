@@ -1,4 +1,4 @@
-import { CommentsContext, UsersContext } from "../../../App";
+import { CommentsContext, PostsContext, UsersContext } from "../../../App";
 import sendBtn from "../../../assets/svg/sendBtn.svg";
 import { useContext, useState } from "react";
 
@@ -17,13 +17,12 @@ export default function CommentForm({ post}) {
     setCommentForm({
       content: value,
       postId: post.id,
-      contactId: loggedInUser.contactId
+      contactId: loggedInUser.id
     });
   };
 
   const updateAPI = (e) => {
     e.preventDefault();
-
 
     fetch(`https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`, {
       method: 'POST',
@@ -33,21 +32,24 @@ export default function CommentForm({ post}) {
       body: JSON.stringify(commentForm)
     })
       .then(response => response.json())
-      .then(json => setComments({...comments, json}))
+      .then(json => setComments([...comments, json]))
 
     setCommentForm({
-      commentContent: ''
+      content: ''
     })
   };
 
   return (
-    <form className="comment-section-form" onSubmit={(e) => updateAPI(e)}>
+    <>
+    {loggedInUser && 
+      <form className="comment-section-form" onSubmit={(e) => updateAPI(e)}>
+      {loggedInUser && 
       <div className="profile-initials" style={{backgroundColor: loggedInUser.favouriteColour}}>
         <p className="initials">
           {loggedInUser.firstName[0]}
           {loggedInUser.lastName[0]}
         </p>
-      </div>
+      </div>}
       <div className="text-input-container">
         <input
           type="text"
@@ -61,5 +63,7 @@ export default function CommentForm({ post}) {
         </button>
       </div>
     </form>
-  );
+  }
+    </>
+    )
 }

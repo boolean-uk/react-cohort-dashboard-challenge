@@ -35,7 +35,7 @@ function App() {
             <Dashboard />
 
             <Routes>
-              <Route path="/home" element={<Feed />} />
+              <Route path="/" element={<Feed />} />
               <Route path="/post/:id" element={<Post />} />
             </Routes>
           </section>

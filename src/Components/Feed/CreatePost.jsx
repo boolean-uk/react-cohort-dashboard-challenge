@@ -43,34 +43,37 @@ export default function CreatePost() {
   };
 
   return (
+    <>
+    {loggedInUser && 
     <section className="post-container" id="createPost-container">
-      <form className="post-form" onSubmit={(e) => addPost(e)}>
-        <div className="profile-initials" >
-          <p className="initials">{loggedInUser.firstName[0]}{loggedInUser.lastName[0]}</p>
-        </div>
-        <div className="text-input-container" id="create-post-input">
-          {postForm.content.length >= 1 && (
-            <input
-              type="text"
-              name="title"
-              placeholder="Post Title"
-              value={postForm.title}
-              onChange={(e) => handleChange(e)}
-              className="post-title-input"
-            />
-          )}
+    <form className="post-form" onSubmit={(e) => addPost(e)}>
+      <div className="profile-initials" style={{backgroundColor: loggedInUser.favouriteColour}}>
+        <p className="initials">{loggedInUser.firstName[0]}{loggedInUser.lastName[0]}</p>
+      </div>
+      <div className="text-input-container" id="create-post-input">
+        {postForm.content.length >= 1 && (
           <input
             type="text"
-            name="content"
-            placeholder="What's on your mind?"
-            value={postForm.content}
+            name="title"
+            placeholder="Post Title"
+            value={postForm.title}
             onChange={(e) => handleChange(e)}
+            className="post-title-input"
           />
-        </div>
-        <div className="button-container">
-          <button id="post-btn">Post</button>
-        </div>
-      </form>
-    </section>
+        )}
+        <input
+          type="text"
+          name="content"
+          placeholder="What's on your mind?"
+          value={postForm.content}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="button-container">
+        <button id="post-btn">Post</button>
+      </div>
+    </form>
+  </section>}
+    </>
   );
 }

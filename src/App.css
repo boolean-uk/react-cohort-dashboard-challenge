@@ -5,7 +5,7 @@
 .app-container {
   display: grid;
   grid-template: 
-  'header header' 5rem
+  'header header' 6rem
   'left main' 1fr/
   7rem 1fr;
   height: 100vh;
