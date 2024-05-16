@@ -1,0 +1,323 @@
+/* Style guide */
+
+header,
+button {
+    background-color: #000046;
+}
+
+button {
+    border: none;
+    border-radius: 0.25rem;
+    align-self: center;
+    height: 3rem;
+    color: #e6ebf5; 
+    font-size: 1rem;  
+    cursor: pointer;
+}
+
+img {
+    cursor: pointer; 
+}
+
+button:hover {
+    color: #000046;
+    background-color: #64dc78;
+}
+
+a {
+    color: #000046;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+input {
+    border: none;
+    border-radius: 0.25rem;
+    max-height: 3rem;
+    padding: 1rem;
+    background-color: #e6ebf5;
+}
+
+input::placeholder {
+    color: #64648c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Header */
+
+header {
+    display: grid;
+    grid-area: header;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+#title-header {
+    width: 20rem;
+}
+
+header a {
+    justify-self: right;
+}
+
+header figure,
+main figure {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1.6rem;
+    background-color: #64dc78;
+}
+
+figcaption {
+    font-weight: bold;
+}
+
+/* Nav */
+
+nav {
+    display: grid;
+    grid-area: nav;
+    background-color: white;
+    grid-template-rows: repeat(2, 8rem);
+}
+
+nav figure {
+    display: grid;
+    grid-template-rows: 2.5rem 2rem;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+nav figure:hover {
+    background-color: #e6ebf5;
+}
+
+nav figure img {
+    width: 2rem;
+    height: 2rem;
+}
+
+nav figcaption {
+    font-weight: lighter;
+}
+
+/* Main */
+
+main.post {
+    display: grid;
+    grid-area: main;
+    grid-template: 
+        'section' min-content
+        'article' 1fr;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+main.post-found {
+    display: grid;
+    grid-area: main;
+    grid-template: 
+        'section' min-content
+        'article' 1fr;
+    margin: 1rem;
+}
+
+main section#create-post {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+main section form#form-post {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) 10rem;
+    gap: 1rem;
+}
+
+main section form#form-post div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.25rem;
+}
+
+main article {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 1rem;
+    background-color: white;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+main#not-found article {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    margin: 1rem;
+}
+
+#separator {
+    height: 0.05rem;
+    background-color: #e6ebf5;
+}
+
+main article div.author {
+    display: grid;
+    grid-template-columns: auto 1fr 1.5rem 1.5rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+main article div.author .name-title {
+    display: grid;
+    justify-content: left;
+    gap: 0.5rem;
+}
+
+main b {
+    color: #64648c;
+    font-size: 14px;
+}
+
+main article div.author .name-title b:hover {
+    color: #000046;
+}
+
+main article form.add-comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+main article div.comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    justify-items: left;
+}
+
+main article div.comment div#author-comment {
+    display: grid;
+    grid-template:
+        'h5 div' auto
+        'p p' auto / auto 1fr;
+    gap: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    background-color: #e6ebf5;
+}
+
+main article div.comment div#author-comment div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: right;
+    gap: 0.5rem;
+    grid-area: div;
+}
+
+main article div.comment div#author-comment img {
+    cursor: pointer;
+    height: 1rem;
+}
+
+main article div.comment div#author-comment p {
+    grid-area: p;
+}
+
+div.profile-container {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+main#author-profile {
+    display: grid;
+    gap: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+main#author-profile form {
+    display: grid;
+    gap: 1rem;
+}
+
+main#author-profile section.name {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+main#author-profile div#section-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+main#author-profile form div#section-info section {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 1rem;
+}
+
+main#author-profile div#section-info section form {
+    display: grid;
+    gap: 1rem;
+}
+
+main#author-profile div#section-info section div.form-text {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+main#author-profile div#section-info section div.form-number {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1rem;
+}
+
+main#author-profile div#section-info section div.form-number summary {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+/* Form */
+
+form.update-post,
+form.update-comment {
+    margin: 1rem;
+}
+
+form.update-post section,
+form.update-comment section  {
+    display: grid;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: white;
+    margin-top: 1rem;
+}
+
+form.update-post section div,
+form.update-comment section div {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
