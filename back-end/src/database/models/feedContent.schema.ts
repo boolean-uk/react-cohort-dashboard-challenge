@@ -6,5 +6,5 @@ export interface FEED_CONTENT_SCHEMA extends IDENTITY_SCHEMA {
 	content: string;
 	authorID: ObjectId;
 	authorName: string;
-	timestamp: Date;
+	timestamp: string;
 }
