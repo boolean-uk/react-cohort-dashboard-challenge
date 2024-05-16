@@ -3,19 +3,21 @@ import { ObjectId } from "mongodb";
 import { dbClient } from "../../..";
 import { DB_COLLECTIONS } from "../../../database/collections.enum";
 import { POSTS_FILTERS_SCHEMA } from "../common/models/postsFilters.schema";
+import { JwtPayload } from "jsonwebtoken";
+import { POST_SCHEMA } from "../../../database/models/post.schema";
 
-export default async function getUserPostsMiddleware(
+export default async function getFeedPostsMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
 	const filters = req.body.data as POSTS_FILTERS_SCHEMA;
-
+	//NOTE: This is not the same as GetUserPostsMiddleware! Here we retrieve only the first 50 posts
+	// On the GetUserPostsMiddleware we only get the :user posts
 	try {
 		const data = [];
 		let i = 0;
 		const collection = dbClient.find(DB_COLLECTIONS.POSTS, {
-			_id: new ObjectId(req.params.id),
 			filters,
 		});
 		/*IMPROVE: RETURN FIRST 50 POSTS MAX

@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { validateString } from "./form.validator";
 import { ValidatorCallback } from "./validator.type";
 
@@ -33,10 +34,8 @@ export const validateListString: ValidatorCallback = (data) => {
 	}
 	return { message: undefined };
 };
-
-export const validateOptionalData: ValidatorCallback = (
-	data,
-	validator: ValidatorCallback
-) => {
-	return data === undefined ? validator(data) : { message: undefined };
+export const validateObjectId: ValidatorCallback = (data) => {
+	return ObjectId.isValid(data)
+		? { message: undefined }
+		: { message: "Invalid id format" };
 };

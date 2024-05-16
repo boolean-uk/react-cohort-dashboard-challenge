@@ -1,24 +1,26 @@
 import { NextFunction, Request, Response } from "express";
+import { POST_SCHEMA } from "../../../../../database/models/post.schema";
 import {
-	validateListRegExp,
+	validateNumber,
+	validateString,
+	validateTimestamp,
+} from "../../../../../validators/form.validator";
+import {
+	validateListString,
 	validateObjectId,
-	validateRegExp,
 } from "../../../../../validators/misc.validator";
 import { validateParams } from "../../../../../validators/params.validator.middleware";
 import { ValidateCondition } from "../../../../../validators/validateCondition.type";
-import { POSTS_FILTERS_SCHEMA } from "../../models/postsFilters.schema";
-import { POST_SCHEMA } from "../../../../../database/models/post.schema";
 
-export default function validatePostFiltersMiddleware(
+export default function validatePostDataMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
-	const requiredFields: ValidateCondition<keyof POSTS_FILTERS_SCHEMA>[] = [
+	const requiredFields: ValidateCondition<keyof POST_SCHEMA>[] = [
 		{
 			param: "title",
-			validator: validateRegExp,
-			optional: true,
+			validator: validateString,
 		},
 		{
 			param: "_id",
@@ -28,32 +30,28 @@ export default function validatePostFiltersMiddleware(
 		{
 			param: "authorID",
 			validator: validateObjectId,
-			optional: true,
 		},
 		{
 			param: "authorName",
-			validator: validateRegExp,
-			optional: true,
+			validator: validateString,
 		},
 
 		{
 			param: "content",
-			validator: validateRegExp,
-			optional: true,
+			validator: validateString,
 		},
 		{
 			param: "likes",
-			validator: validateRegExp,
-			optional: true,
+			validator: validateNumber,
 		},
 		{
 			param: "timestamp",
-			validator: validateRegExp,
+			validator: validateTimestamp,
 			optional: true,
 		},
 		{
 			param: "tags",
-			validator: validateListRegExp,
+			validator: validateListString,
 			optional: true,
 		},
 	];

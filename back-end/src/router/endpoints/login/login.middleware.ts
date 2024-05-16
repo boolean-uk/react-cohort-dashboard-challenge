@@ -17,7 +17,7 @@ export default async function loginMiddleware(
 	next: NextFunction
 ) {
 	//validate login
-	const { email, password }: LOGIN_PARAMS = req.body;
+	const { email, password }: LOGIN_PARAMS = req.body.data;
 
 	const user = (await dbClient.findOne(DB_COLLECTIONS.USERS, {
 		email,

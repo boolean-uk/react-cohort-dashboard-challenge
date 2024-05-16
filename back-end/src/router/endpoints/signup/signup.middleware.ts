@@ -14,7 +14,7 @@ export default async function signUpMiddleware(
 	res: Response,
 	next: NextFunction
 ) {
-	const { email, password, name, username }: SIGNUP_PARAMS = req.body;
+	const { email, password, name, username }: SIGNUP_PARAMS = req.body.data;
 
 	if (await dbClient.has("users", { email })) {
 		return res.status(401).json({ message: "Email already exists" });
