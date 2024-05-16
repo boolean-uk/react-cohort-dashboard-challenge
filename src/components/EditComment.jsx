@@ -1,36 +1,40 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../App";
 
-export default function EditPost({ post, showEditBox, setShowEditBox }) {
-  const { user, posts, setPosts } = useContext(DataContext);
-  const [content, setContent] = useState(post?.content);
-  const [title, setTitle] = useState("");
+export default function EditComment({
+  post,
+  comment,
+  comments,
+  setComments,
+  setShowEditBox,
+}) {
+  const [content, setContent] = useState(comment?.content);
+  const { user } = useContext(DataContext);
 
-  const subContent = content[0]?.toUpperCase() + content.substring(1, 20);
   const contactId = user?.id;
-
-  useEffect(() => {
-    setTitle(subContent);
-  }, [content, subContent]);
+  const postId = post?.id;
 
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    fetch(`https://boolean-api-server.fly.dev/Hamada-AB/post/${post?.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contactId,
-        title,
-        content,
-      }),
-    })
+    fetch(
+      `https://boolean-api-server.fly.dev/Hamada-AB/post/${post.id}/comment/${comment.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contactId,
+          postId,
+          content,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setPosts([...posts, data]);
+        setComments([...comments, data]);
       });
 
     setShowEditBox(false);

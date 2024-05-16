@@ -61,15 +61,15 @@ header {
   height: 50px;
 }
 
-.svg {
-  height: 50px;
+.arrow-icon {
+  height: 35px;
+  margin-right: 10px;
 }
 
 .avatar {
   height: 50px;
   min-width: 50px;
   border-radius: 50%;
-  background-color: #1b9a59;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,6 +295,7 @@ a {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 15px;
 }
 
 .required {
@@ -372,10 +373,12 @@ a {
 
 .edit-save-btn,
 .edit-cancel-btn {
-  width: 90px;
+  width: 85px;
   background-color: #7be28d;
   color: #000046;
   transition: background-color 300ms;
+  font-weight: 500;
+  padding: 10px;
 }
 .edit-save-btn:hover {
   background-color: #38d252;
@@ -402,10 +405,6 @@ a {
   gap: 10px;
 }
 
-.save-btn-div button {
-  /*  */
-}
-
 .post-info {
   display: flex;
   align-items: center;
@@ -423,9 +422,8 @@ a {
 }
 
 .post-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  color: #64648c;
 }
 
 .post-content {
@@ -448,15 +446,32 @@ a {
 
   background-color: light-dark(#e6ebf5, #3c3c3c);
   border-radius: 10px;
+
+  position: relative;
 }
 
 .commenter-name {
   font-weight: 700;
   font-size: 19px;
 }
+
+.comment-edit-btns-div {
+  position: absolute;
+  bottom: -7px;
+  right: 5px;
+}
+.comment-edit-btns-div > button {
+  width: 25px;
+  margin-left: 2px;
+}
+#small-trash-pen {
+  width: 17px;
+}
+
 .comment-content {
   font-weight: 500;
   font-size: 17px;
+  padding-bottom: 10px;
 }
 
 .add-comment {
@@ -475,12 +490,6 @@ a {
 
 .comment-text:focus-within {
   border: 1px solid light-dark(#000046, #e6ebf5);
-}
-
-.send-icon {
-  height: 30px;
-  fill: light-dark(#64648c, #64dc78);
-  transition: fill-opacity 300ms;
 }
 
 .send-comment {

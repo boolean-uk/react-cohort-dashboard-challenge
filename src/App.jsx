@@ -1,13 +1,23 @@
 import { NavLink, Routes, Route, Link } from "react-router-dom";
 import { createContext, useState, useEffect } from "react";
+
+// components
 import Avatar from "./components/Avatar";
 import PostFeed from "./components/PostFeed";
 import Profile from "./components/Profile";
 import ClickedPost from "./components/ClickedPost";
 
+// icons
+import logoIcon from "./assets/icons/header-logo.svg";
+import profileIcon from "./assets/icons/profile.svg";
+import homeIcon from "./assets/icons/home.svg";
+import light from "./assets/icons/light.svg";
+import dark from "./assets/icons/dark.svg";
+
+// to get the active link in the nav bar
 function getClassName({ isActive }) {
   if (isActive) {
-    return "active";
+    return "active"; // => CSS calss
   }
 }
 
@@ -20,12 +30,16 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDark, setIsDark] = useState(getItem);
 
+  // change CSS color-scheme class based on the selected mode
   const mode = isDark ? "dark" : "light";
+  // change the icon on the header based on the selected mode
+  const modeIcon = isDark ? dark : light;
 
   useEffect(() => {
     localStorage.setItem("isDark", isDark);
   }, [isDark]);
 
+  // the fn to get the item only once (when the app starts) not every time it re-renders
   function getItem() {
     return localStorage.getItem("isDark") === "true";
   }
@@ -82,18 +96,14 @@ export default function App() {
   return (
     <>
       <header className={mode}>
-        <img
-          className="logo"
-          src="./src/assets/icons/header-logo.svg"
-          alt="logo"
-        />
+        <img className="logo" src={logoIcon} alt="logo" />
         <div className="header-right">
           <Link to="/profile/1" className="user-avatar">
             <Avatar>{user}</Avatar>
           </Link>
           <button className="change-theme" onClick={() => setIsDark(!isDark)}>
             <img
-              src={`./src/assets/icons/${mode}.svg`}
+              src={modeIcon}
               alt="change theme icon"
               className="theme-icon"
             />
@@ -105,20 +115,12 @@ export default function App() {
         <ul>
           <li>
             <NavLink to="/" className={`nav-links ${getClassName}`}>
-              <img
-                className="svg"
-                src="./src/assets/icons/home.svg"
-                alt="home icon"
-              />
+              <img className="svg" src={homeIcon} alt="home icon" />
             </NavLink>
           </li>
           <li>
             <NavLink to="/profile/1" className={`nav-links ${getClassName}`}>
-              <img
-                className="svg"
-                src="./src/assets/icons/profile.svg"
-                alt="profile icon"
-              />
+              <img className="svg" src={profileIcon} alt="profile icon" />
             </NavLink>
           </li>
         </ul>

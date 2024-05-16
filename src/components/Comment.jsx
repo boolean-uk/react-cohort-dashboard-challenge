@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
-
+import editIcon from "../assets/icons/edit.svg";
+import deleteIcon from "../assets/icons/delete.svg";
 import Avatar from "./Avatar";
 import { Link } from "react-router-dom";
+import Edit from "./EditPost";
+import EditComment from "./EditComment";
+
 export default function Comment(props) {
   const [commenter, setCommenter] = useState();
-  const { comment, contacts } = props;
+  const [showEditBox, setShowEditBox] = useState(false);
+  const { comment, contacts, baseUrl, comments, setComments, post } = props;
 
   useEffect(() => {
     contacts.find((contact) => {
@@ -14,8 +19,28 @@ export default function Comment(props) {
     });
   }, [comment, contacts]);
 
+  function handleDeleteClick() {
+    const isConfirmed = confirm(
+      `⛔ Are you sure you want to delete this comment❓`
+    );
+
+    if (isConfirmed) {
+      fetch(`${baseUrl}${post?.id}/comment/${comment.id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setComments(comments.filter((comment) => comment.id !== data.id));
+        });
+    }
+  }
+
+  function handleEditClick() {
+    setShowEditBox(true);
+  }
+
   return (
-    <div className="comment">
+    <section className="comment">
       <Link to={`/profile/${commenter?.id}`}>
         <Avatar>{commenter}</Avatar>
       </Link>
@@ -26,8 +51,40 @@ export default function Comment(props) {
           </h3>
         </Link>
 
-        <p className="comment-content">{comment?.content}</p>
+        <article className="comment-content">
+          <p>{comment?.content}</p>
+        </article>
+
+        <div className="comment-edit-btns-div">
+          {commenter?.id == 1 && (
+            <button
+              title="Delete Post"
+              className="delete-btn"
+              onClick={handleDeleteClick}
+            >
+              <img src={deleteIcon} alt="trash icon" id="small-trash-pen" />
+            </button>
+          )}
+          {commenter?.id == 1 && (
+            <button
+              title="Edit Post"
+              className="edit-btn"
+              onClick={handleEditClick}
+            >
+              <img src={editIcon} alt="pen icon" id="small-trash-pen" />
+            </button>
+          )}
+        </div>
+        {showEditBox && (
+          <EditComment
+            setShowEditBox={setShowEditBox}
+            post={post}
+            comment={comment}
+            comments={comments}
+            setComments={setComments}
+          />
+        )}
       </div>
-    </div>
+    </section>
   );
 }

@@ -5,9 +5,11 @@ import Avatar from "./Avatar";
 import Comment from "./Comment";
 import { DataContext } from "../App";
 import EditPost from "./EditPost";
+import editIcon from "../assets/icons/edit.svg";
+import deleteIcon from "../assets/icons/delete.svg";
 
 export default function Post(props) {
-  const { contacts, posts, user, setPosts } = useContext(DataContext);
+  const { contacts, posts, user, setPosts, mode } = useContext(DataContext);
   const [comments, setComments] = useState();
   const [contact, setContact] = useState();
   const [showEditBox, setShowEditBox] = useState(false);
@@ -30,11 +32,11 @@ export default function Post(props) {
         setContact(contact);
       }
     });
-  }, [contacts, post, posts]);
+  }, [contacts, post, posts, comments]);
 
   function handleDeleteClick() {
     const isConfirmed = confirm(
-      `❌ Are you sure you want to delete this post❓`
+      `⛔ Are you sure you want to delete this post❓`
     );
 
     if (isConfirmed) {
@@ -67,7 +69,7 @@ export default function Post(props) {
                     to={`/profile/${contact?.id}`}
                   >{`${contact?.firstName} ${contact?.lastName}`}</Link>
                 </h3>
-                <p className="post-title">
+                <p className={`post-title ${mode}`}>
                   <Link to={`/post/${post?.id}`}>{post?.title}</Link>
                 </p>
               </div>
@@ -79,7 +81,7 @@ export default function Post(props) {
                   className="delete-btn"
                   onClick={handleDeleteClick}
                 >
-                  <img src="../src/assets/icons/delete.svg" alt="trash icon" />
+                  <img src={deleteIcon} alt="trash icon" />
                 </button>
               )}
               {contact?.id == 1 && (
@@ -88,7 +90,7 @@ export default function Post(props) {
                   className="edit-btn"
                   onClick={handleEditClick}
                 >
-                  <img src="../src/assets/icons/edit.svg" alt="pen icon" />
+                  <img src={editIcon} alt="pen icon" />
                 </button>
               )}
             </div>
@@ -102,6 +104,7 @@ export default function Post(props) {
             />
           )}
         </article>
+
         {/* ------------------------------------------------------------- */}
         <article className="comments">
           {comments &&
@@ -111,6 +114,10 @@ export default function Post(props) {
                   key={comment.id}
                   comment={comment}
                   contacts={contacts}
+                  baseUrl={baseUrl}
+                  comments={comments}
+                  setComments={setComments}
+                  post={post}
                 />
               );
             })}

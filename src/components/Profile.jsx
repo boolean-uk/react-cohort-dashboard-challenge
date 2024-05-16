@@ -1,8 +1,9 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { DataContext } from "../App";
 import Avatar from "./Avatar";
 import TextInput from "./TextInput";
+import editIcon from "../assets/icons/edit.svg";
 
 export default function Profile() {
   const [user, setUser] = useState();
@@ -15,6 +16,8 @@ export default function Profile() {
   const [email, setEmail] = useState("");
   const [validation, setValidation] = useState("");
   const [showSaveBtn, setShowSaveBtn] = useState(false);
+
+  const navigate = useNavigate();
 
   const { mode, contacts, setContacts } = useContext(DataContext);
   const params = useParams();
@@ -100,7 +103,7 @@ export default function Profile() {
             onClick={() => setShowSaveBtn(true)}
             title="Edit Profile"
           >
-            <img src="../src/assets/icons/edit.svg" alt="pen icon" />
+            <img src={editIcon} alt="pen icon" />
           </button>
         </div>
 
@@ -178,6 +181,11 @@ export default function Profile() {
 
           <div className="save">
             {showSaveBtn && <button className="edit-save-btn">Save</button>}
+            {showSaveBtn && (
+              <button className="edit-cancel-btn" onClick={() => navigate("/")}>
+                Cancel
+              </button>
+            )}
           </div>
         </form>
       </div>
