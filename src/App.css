@@ -9,6 +9,7 @@
     font-style: normal;
     --avatar-radius: 50%;
     --avatar-padding: 10px;
+    --radius: 0.5em
 }
 /* .mulish-uniquifier {
     font-family: "Mulish", sans-serif;
@@ -65,7 +66,7 @@ section {
     color: #010146;
     
     div:first-child {
-        background-color: #e6ebf7;
+        background-color: #e8edf8;
         width: 120px;
         height: 120px;
         display: flex;
@@ -92,7 +93,7 @@ section {
 
 main {
     grid-area: main;
-    background-color: #f1f4fa;
+    background-color: #e5e9f1;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -110,6 +111,7 @@ main {
         justify-content: space-between;
         padding: 0 20px;
         gap: 10px;
+        border-radius: var(--radius);
         
         .logged-user{
             align-self: center;
@@ -124,6 +126,7 @@ main {
             padding: 10px;
             border: none;
             background-color: #e6ebf5;
+            border-radius: var(--radius);
         }
         .post-btn{
             width: 15rem;
@@ -138,12 +141,14 @@ main {
 
     .posts{
         width: 100%;
-        padding: 15px 30px;
+        padding: 15px 35px;
         background-color: #ffffff;
+        border-radius: var(--radius);
     }
     .list-posts{
         list-style: none;
         display: grid;
+        align-items: center;
         grid-template-areas: 
             'publisher'
             'content'
@@ -181,15 +186,54 @@ main {
 
     .post-content{
         grid-area: content;
-        margin-top: 20px;
+        margin-top: 5px;
     }
 
     .comment-section{
         grid-area: comment;
-        margin-top: 30px;
+        margin-top: 25px;
         display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
         gap: 10px;
+        .logged-user{
+            align-self: center;
+            border: 1px solid black;
+            border-radius: var(--avatar-radius);
+            padding: var(--avatar-padding);
+            background: yellow; 
+        }
+        .comment-input{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            height: 2.5rem;
+            background-color: #e6ebf5;
+            border-radius: var(--radius);
+        }  
+        #input-comment{
+            width: 100%;
+            background-color: #e6ebf5;
+            border: none;
+            border-radius: var(--radius);
+            padding-left: 10px;
+        }
+        button{
+            border-radius: 50%;
+            border: none;
+            background-color: #c1c9da;
+            color: #64648C;
+            margin: 3px;
+        }
+        
     }
 }
 
-
+.home:hover, .profile:hover, .logged-user:hover, .user:hover, button:hover, .post-title:hover, .user-avatar:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+input:hover {
+    opacity: 70%;
+}
