@@ -24,6 +24,7 @@
     grid-area: left;
     background-color: #ffff;
     grid-template-rows: 7rem 7rem;
+    gap: 1.7rem;
 }
 
 .dashboard-container {
@@ -36,7 +37,7 @@
     font-weight: 500;
 }
 
-.dashboard-container:focus {
+.dashboard-container:focus, .dashboard-container:active {
     color: #000046;
     background-color: #e6ebf5;
     cursor: pointer;

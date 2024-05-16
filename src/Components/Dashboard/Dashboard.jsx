@@ -26,13 +26,13 @@ export default function Dashboard() {
         </header>
         <section className="left-side">
             <Link to='/'>
-            <div className='dashboard-container'>
+            <div className='dashboard-container' tabIndex='1'>
                 <img src={home} alt='home icon' className='icon'/>
                 <p>Home</p>
             </div>
             </Link>
             <Link to='/profile'>
-            <div className='dashboard-container'>
+            <div className='dashboard-container' tabIndex='1'>
                 <img src={profile} alt='profile icon' className='icon'/>
                 <p>Profile</p>
             </div>

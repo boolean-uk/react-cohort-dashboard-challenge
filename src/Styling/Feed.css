@@ -12,6 +12,9 @@
 #createPost-container {
     height: 6rem;
 }
+.post-title-input{
+    border: 1px solid black;
+}
 
 .post-container {
     margin: 1.5rem;
@@ -34,7 +37,7 @@
     display: grid;
     grid-template-columns: 4.7rem 1fr 12rem;
     padding: 0.5rem;
-    gap: 1.4rem;
+    gap: 1.6rem;
     height: 80%;
     background-color: white;
 }
@@ -51,14 +54,23 @@
 }
 
 #post-btn {
-    height: 100%;
+    height: 80%;
     width: 100%;
     background-color: #000046;
     color: white;
 }
 
+#post-btn:hover, .submit:hover {
+    background-color: #64dc78;
+}
+
+#create-post-input {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
 .text-input-container input {
-    width: 100%;
+    width: 99%;
     height: 80%;
     background-color: #e6ebf5;
     border-radius: 10px;
@@ -96,7 +108,7 @@
     border-top: 1px solid #e6ebf5;
     display: grid;
     grid-template-columns: 4.7rem 1fr;
-    gap: 0.5rem;
+    gap: 1.6rem;
     padding: 0.5rem;
 }
 
@@ -115,11 +127,12 @@
 }
 
 .submit {
+    display: flex;
     position: relative;
-    left: 97%;
+    left: 96%;
     bottom: 80%;
     outline: none;
-    background-color: #b0b5bd;
+    background-color: #d6dae3;
     border-radius: 100%;
     width: 10px;
     justify-content: center;
@@ -144,6 +157,7 @@
 .comment {
     display:  grid;
     grid-template-columns: 4.7rem 1fr;
+    margin-left: -5%;
     gap: 0.5rem;
     padding: 0.5rem;
     color: #000046;

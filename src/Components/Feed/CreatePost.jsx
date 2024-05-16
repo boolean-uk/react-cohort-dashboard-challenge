@@ -59,8 +59,7 @@ export default function CreatePost() {
             value={postForm.title}
             onChange={(e) => handleChange(e)}
             className="post-title-input"
-          />
-        )}
+          />)}
         <input
           type="text"
           name="content"
