@@ -1,0 +1,106 @@
+
+
+*, :root {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "mulish", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+/* .mulish-uniquifier {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+} */
+
+
+body #root {
+    display: grid;
+    min-height: 100svh;
+    grid-template-areas: 
+        'header header'
+        'sidebar main'
+    ;     
+    grid-template-columns: 150px 1fr;
+    grid-auto-rows: 100px 1fr;
+  }
+
+.header-section {
+    padding: 30px 60px;
+    grid-area: header;
+    background-color: #010146;
+    display: flex;
+    justify-content: space-between;
+    color: #010146;
+}
+
+.logo {
+    align-self: center;
+    size: 30px;
+    width: 350px;
+    path:first-child {
+       fill: white; 
+    }
+}
+
+.user-avatar {
+    border: 1px solid black;
+    align-self: center;
+    border-radius: 50%;
+    padding: 10px;
+    background: #64DC78;
+}
+
+section {
+    grid-area: sidebar;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #010146;
+    
+    div:first-child {
+        background-color: #e6ebf7;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    div:nth-child(2) {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: #64648C;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .first-svg {
+        fill: #010146;
+    }
+}
+
+main {
+    grid-area: main;
+    background-color: #f1f4fa;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+
+    .main-header{
+        height: 130px;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
