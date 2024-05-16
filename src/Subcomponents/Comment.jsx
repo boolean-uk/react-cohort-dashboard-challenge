@@ -48,7 +48,7 @@ export default function Comment({ comment, post, getComments }) {
           getComments={getComments}
         />
       ) : (
-        <p className="bg-inputGrey p-2 rounded-md max-w-xl">
+        <p className="bg-inputGrey p-2 rounded-md max-w-3xl">
           {comment.content}
         </p>
       )}
