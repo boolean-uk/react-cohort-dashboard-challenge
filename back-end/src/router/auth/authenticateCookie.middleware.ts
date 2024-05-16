@@ -3,7 +3,7 @@ import auth from "./auth.crypto";
 import { JwtPayload } from "jsonwebtoken";
 import { log } from "console";
 
-export default async function authenticateCookie(
+export default async function authenticateCookieMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
