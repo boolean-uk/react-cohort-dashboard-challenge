@@ -11,20 +11,17 @@ export default async function getFeedPostsMiddleware(
 	res: Response,
 	next: NextFunction
 ) {
-	const filters = req.body.data as POSTS_FILTERS_SCHEMA;
 	//NOTE: This is not the same as GetUserPostsMiddleware! Here we retrieve only the first 50 posts
 	// On the GetUserPostsMiddleware we only get the :user posts
 	try {
 		const data = [];
 		let i = 0;
-		const collection = dbClient.find(DB_COLLECTIONS.POSTS, {
-			filters,
-		});
+		const collection = dbClient.find(DB_COLLECTIONS.POSTS, {});
 		/*IMPROVE: RETURN FIRST 50 POSTS MAX
 			Include start index on req.params to continue retrieving new posts
 		*/
 		do {
-			if (await collection.hasNext()) data.push(collection.next());
+			if (await collection.hasNext()) data.push(await collection.next());
 			else break;
 
 			i++;

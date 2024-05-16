@@ -8,7 +8,7 @@ import postNewPostMiddleware from "./postNewPost.middleware";
 const router = express.Router();
 router.use(authenticateCookieMiddleware);
 
-router.get("/", validatePostFiltersMiddleware, getFeedPostsMiddleware);
+router.get("/",  getFeedPostsMiddleware);
 router.post("/", validatePostDataMiddleware, postNewPostMiddleware);
 
 export default router;
