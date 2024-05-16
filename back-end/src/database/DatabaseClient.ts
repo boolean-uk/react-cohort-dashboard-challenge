@@ -43,7 +43,7 @@ export default class DatabaseClient {
 	}
 	//== INSERT
 	async insert(collection: DB_COLLECTIONS, data: any) {
-		await this.getCollection(collection).insertOne(data);
+		return await this.getCollection(collection).insertOne(data);
 	}
 	async insertUser(user: USER_SCHEMA, password: string) {
 		try {
