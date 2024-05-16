@@ -6,6 +6,9 @@ import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
 import auth from "../router/auth/auth.crypto";
 import { CREDENTIALS_SCHEMA } from "./models/credentials.schema";
 import { POST_SCHEMA } from "./models/post.schema";
+import { DatabaseResponse } from "./database.response.type";
+import { dbClient } from "..";
+import { AuthCookie } from "../router/auth/auth.cookie.type";
 
 /**
  * A wrapper for working with any database
@@ -27,73 +30,164 @@ export default class DatabaseClient {
 	}
 
 	//== CONNECTION
-	async connect() {
+	async connect(): Promise<DatabaseResponse> {
 		this._client.connect();
 		try {
 			await this._client.db(this._database).command({ ping: 1 });
-		} catch (error) {
-			console.log(error); //FIX: This error should be handled
-			return false;
-		}
-		return true;
-	}
-
-	async close() {
-		await this._client.close();
-	}
-	//== INSERT
-	async insert(collection: DB_COLLECTIONS, data: any) {
-		return await this.getCollection(collection).insertOne(data);
-	}
-	async insertUser(user: USER_SCHEMA, password: string) {
-		try {
-			//== Create new user
-			await this.insert(DB_COLLECTIONS.USERS, user);
-
-			//== Create public data
-			const { email: privateEmail, ...publicUserData } =
-				(await this.findOne(DB_COLLECTIONS.USERS, {
-					...user,
-				})) as PUBLIC_USER_DATA_SCHEMA;
-
-			//insert to public data
-			await this.insert(DB_COLLECTIONS.PUBLIC_USER_DATA, publicUserData);
-			//== Create new auth doc
-			const hash = await auth.encryptString(password);
-			const credentials: CREDENTIALS_SCHEMA = { email: user.email, hash };
-			//insert to auth
-			await this.insert(DB_COLLECTIONS.AUTH, credentials);
-			return {
-				message: "Created new user",
-				status: 200,
-			};
+			return { message: "Connected to " + this._database, status: 200 };
 		} catch (error) {
 			return {
-				message: "Error while inserting data to the database",
+				error,
+				message: "Can't connect to " + this._database,
 				status: 502,
 			};
 		}
 	}
 
+	async close() {
+		return await this._client.close();
+	}
+	//== INSERT
+	/**
+	 * Default method for inserting data into a collection.
+	 * @throws -> Database errors are handled here and a DatabaseResponse is returned
+	 * @returns DatabaseResponse
+	 */
+	private async insert(
+		collection: DB_COLLECTIONS,
+		data: any
+	): Promise<DatabaseResponse> {
+		try {
+			const db_response = await this.getCollection(collection).insertOne(
+				data
+			);
+
+			if (!db_response.acknowledged) throw new Error();
+
+			return { message: "Inserted successfuly", status: 200 };
+		} catch (error) {
+			console.log(error);
+			return {
+				error: error,
+				message: `Error while inserting user into ${collection} collection from ${this._database} database`,
+				status: 502,
+			};
+		}
+	}
+	async insertUser(user: USER_SCHEMA, password: string) {
+		let db_response;
+		//== Create new user
+		db_response = await this.insert(DB_COLLECTIONS.USERS, user);
+		if (db_response?.error) return db_response;
+
+		//== Create public data
+		const { email: privateEmail, ...publicUserData } = (await this.findOne(
+			DB_COLLECTIONS.USERS,
+			{
+				...user,
+			}
+		)) as PUBLIC_USER_DATA_SCHEMA;
+
+		//insert to public data
+		db_response = await this.insert(
+			DB_COLLECTIONS.PUBLIC_USER_DATA,
+			publicUserData
+		);
+
+		if (db_response?.error) return db_response;
+
+		//== Create new auth doc
+		const hash = await auth.encryptString(password);
+		const credentials: CREDENTIALS_SCHEMA = { email: user.email, hash };
+		//insert to auth
+		db_response = await this.insert(DB_COLLECTIONS.AUTH, credentials);
+		if (db_response?.error) return db_response;
+
+		//All went well
+		return {
+			message: "Created new user",
+			status: 200,
+		};
+	}
+	async insertBlacklistCookie(cookie: string) {
+		return await this.insert(DB_COLLECTIONS.BLACKLISTED_COOKIES, {
+			cookie,
+		});
+	}
 	async insertPost(post: POST_SCHEMA) {
 		return await this.insert(DB_COLLECTIONS.POSTS, post);
 	}
 
 	//== DELETE
-	async delete(collection: DB_COLLECTIONS, filter: any) {
-		await this.getCollection(collection).findOneAndDelete(filter);
+	/**
+	 * Default method for deleting data from a collection.
+	 * @throws
+	 */
+	private async delete(
+		collection: DB_COLLECTIONS,
+		filters: any
+	): Promise<DatabaseResponse> {
+		try {
+			const db_response = await this.getCollection(collection).deleteOne(
+				filters
+			);
+
+			if (!db_response.acknowledged) {
+				throw new Error();
+			}
+			return { message: "Deleted successfully", status: 200 };
+		} catch (error) {
+			return {
+				error,
+				message: `Could not delete resquested data: ${filters} from ${collection} collection from ${this._database}`,
+				status: 502,
+			};
+		}
 	}
-	async deletePost(post: POST_SCHEMA) {
-		return await this.delete(DB_COLLECTIONS.POSTS, post);
+	async deletePost(filters: any) {
+		return await this.delete(DB_COLLECTIONS.POSTS, filters);
 	}
 	//== UPDATE
-	async update(collection: DB_COLLECTIONS, filter: any, data: any) {
-		await this.getCollection(collection).findOneAndReplace(filter, data);
+	/**
+	 * Default method for updating data from a collection.
+	 * @throws
+	 */
+	private async update(
+		collection: DB_COLLECTIONS,
+		filter: any,
+		data: any
+	): Promise<DatabaseResponse> {
+		try {
+			console.log(await dbClient.findOne(collection, filter));
+			const { _id, ...documentData } = data;
+			const db_response = await this.getCollection(collection).replaceOne(
+				filter,
+				documentData
+			);
+
+			if (!db_response.acknowledged) {
+				throw new Error();
+			}
+			return { message: "Updated successfully", status: 200 };
+		} catch (error) {
+			return {
+				error,
+				message: `Could not update requested data: ${data} from ${collection} collection from ${this._database}`,
+				status: 502,
+			};
+		}
+	}
+
+	async updatePost(filter: any, post: POST_SCHEMA) {
+		return await this.update(DB_COLLECTIONS.POSTS, filter, post);
 	}
 	//== SEARCH
+
+	//= Generic
 	find(collection: string, filters: any) {
 		return this.getCollection(collection).find(filters);
 	}
+
 	async findOne(collection: string, filters: any) {
 		return await this.getCollection(collection).findOne(filters);
 	}
