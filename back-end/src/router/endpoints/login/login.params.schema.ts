@@ -1,4 +1,4 @@
-export type LOGIN_PARAMS = {
+export interface LOGIN_PARAMS {
 	email: string;
 	password: string;
-};
+}

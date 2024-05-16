@@ -1,4 +1,4 @@
-export type GET_POSTS_PARAMS = {
+export interface GET_POSTS_PARAMS {
 	id: string;
 	title: string;
-};
+}
