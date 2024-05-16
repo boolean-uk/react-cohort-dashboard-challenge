@@ -11,8 +11,9 @@ export default async function authenticateCookieMiddleware(
 	const cookie = req.headers?.cookie?.split("=")[1];
 	//== Cookie expired
 	if (!cookie) {
-		res.status(401).json({ message: "Missing or expired access token" });
-		return next();
+		return res
+			.status(401)
+			.json({ message: "Missing or expired access token" });
 	}
 
 	const {
@@ -22,10 +23,9 @@ export default async function authenticateCookieMiddleware(
 	} = auth.verifyAccessToken(cookie as string);
 	//== Cookie is invalid (was hacked?)
 	if (verifyStatus !== 200) {
-		res.status(verifyStatus).json({ message: verifyMessage });
-		return next();
+		return res.status(verifyStatus).json({ message: verifyMessage });
 	}
 	//== Authenticated
 	req.body.jwtPayload = payload;
-	next();
+	return next();
 }
