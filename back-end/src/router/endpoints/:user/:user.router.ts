@@ -1,9 +1,8 @@
 import express from "express";
-import authenticateCookieMiddleware from "../../auth/authenticateCookie.middleware";
+import validatePostFiltersMiddleware from "../common/validators/postsFilters.validator.middleware";
 import userMiddleware from "./:user.middleware";
 import validateUserParamsMiddleware from "./:user.validator.middleware";
-import getPostsMiddleware from "./getPosts.middleware";
-import validatePostFiltersMiddleware from "../common/validators/postsFilters.validator.middleware";
+import getUserPostsMiddleware from "./getUserPosts.middleware";
 
 const BASE_URL = "/:id";
 
@@ -15,7 +14,7 @@ router.get(BASE_URL, userMiddleware);
 router.post(
 	BASE_URL + "/posts",
 	validatePostFiltersMiddleware,
-	getPostsMiddleware
+	getUserPostsMiddleware
 );
 
 export default router;

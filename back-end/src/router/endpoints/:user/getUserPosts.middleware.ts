@@ -4,7 +4,7 @@ import { dbClient } from "../../..";
 import { DB_COLLECTIONS } from "../../../database/collections.enum";
 import { POSTS_FILTERS_SCHEMA } from "../common/models/postsFilters.schema";
 
-export default async function getPostsMiddleware(
+export default async function getUserPostsMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
