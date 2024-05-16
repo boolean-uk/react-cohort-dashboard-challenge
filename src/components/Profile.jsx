@@ -2,8 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { DataContext } from "../App";
 
+// components
 import Avatar from "./Avatar";
 import TextInput from "./TextInput";
+
+// icons
 import editIcon from "../assets/icons/edit.svg";
 
 export default function Profile() {
@@ -15,7 +18,6 @@ export default function Profile() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
-
   const [validation, setValidation] = useState("");
   const [showSaveBtn, setShowSaveBtn] = useState(false);
 
@@ -26,8 +28,6 @@ export default function Profile() {
   const params = useParams();
   const contactId = params.id;
   const url = `https://boolean-api-server.fly.dev/Hamada-AB/contact/${contactId}`;
-
-  console.log({ firstName, validation });
 
   useEffect(() => {
     fetch(url)
@@ -73,13 +73,13 @@ export default function Profile() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        gender: gender,
-        jobTitle: jobTitle,
-        street: street,
-        city: city,
-        email: email,
+        firstName,
+        lastName,
+        gender,
+        jobTitle,
+        street,
+        city,
+        email,
       }),
     })
       .then((response) => response.json())

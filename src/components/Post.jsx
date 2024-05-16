@@ -2,24 +2,30 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../App";
 
+// components
 import AddComment from "./AddComment";
 import Avatar from "./Avatar";
 import Comment from "./Comment";
 import EditPost from "./EditPost";
+
+// icons
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 
 export default function Post(props) {
-  const { contacts, posts, user, setPosts, mode } = useContext(DataContext);
+  const { contacts, posts, setPosts, mode } = useContext(DataContext);
+
   const [comments, setComments] = useState();
   const [contact, setContact] = useState();
+
   const [showEditBox, setShowEditBox] = useState(false);
+  const [prevComments, setPrevComments] = useState(false);
 
   const { post } = props;
-  const baseUrl = "https://boolean-api-server.fly.dev/Hamada-AB/post/";
+  const url = "https://boolean-api-server.fly.dev/Hamada-AB/post/";
 
   useEffect(() => {
-    fetch(`${baseUrl}${post?.id}/comment`)
+    fetch(`${url}${post?.id}/comment`)
       .then((response) => response.json())
       .then((data) => {
         if (data && !data.error) {
@@ -33,7 +39,7 @@ export default function Post(props) {
         setContact(contact);
       }
     });
-  }, [contacts, post, posts, comments]);
+  }, [contact, contacts, post?.contactId, contact?.id, post.id, comments]);
 
   function handleDeleteClick() {
     const isConfirmed = confirm(
@@ -41,12 +47,11 @@ export default function Post(props) {
     );
 
     if (isConfirmed) {
-      fetch(`${baseUrl}${post.id}`, {
+      fetch(`${url}${post.id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setPosts(posts.filter((post) => post.id !== data.id));
         });
     }
@@ -67,9 +72,9 @@ export default function Post(props) {
               </Link>
               <div className="user-data">
                 <h3 className="user-name">
-                  <Link
-                    to={`/profile/${contact?.id}`}
-                  >{`${contact?.firstName} ${contact?.lastName}`}</Link>
+                  <Link to={`/profile/${contact?.id}`}>
+                    {contact && `${contact?.firstName} ${contact?.lastName}`}
+                  </Link>
                 </h3>
                 <p className={`post-title ${mode}`}>
                   <Link to={`/post/${post?.id}`}>{post?.title}</Link>
@@ -107,23 +112,53 @@ export default function Post(props) {
           )}
         </article>
 
-        {/* ------------------------------------------------------------- */}
         <article className="comments">
           {comments &&
-            comments.map((comment) => {
-              return (
-                <Comment
-                  key={comment.id}
-                  comment={comment}
-                  contacts={contacts}
-                  baseUrl={baseUrl}
-                  comments={comments}
-                  setComments={setComments}
-                  post={post}
-                />
-              );
+            comments.map((comment, index) => {
+              if (index <= 2) {
+                return (
+                  <Comment
+                    key={index}
+                    comment={comment}
+                    contacts={contacts}
+                    url={url}
+                    comments={comments}
+                    setComments={setComments}
+                    post={post}
+                  />
+                );
+              }
+            })}
+
+          {prevComments &&
+            comments.map((comment, index) => {
+              if (index > 2) {
+                return (
+                  <Comment
+                    key={index}
+                    comment={comment}
+                    contacts={contacts}
+                    url={url}
+                    comments={comments}
+                    setComments={setComments}
+                    post={post}
+                  />
+                );
+              }
             })}
         </article>
+
+        {comments?.length > 3 && (
+          <Link
+            onClick={() => {
+              setPrevComments(!prevComments);
+            }}
+          >
+            <p className="see-previous-comments">
+              Show / hide previous comments
+            </p>
+          </Link>
+        )}
 
         <article className="">
           <AddComment

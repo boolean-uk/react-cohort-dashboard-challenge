@@ -33,7 +33,6 @@ export default function EditComment({
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setComments([...comments, data]);
       });
 
@@ -45,12 +44,12 @@ export default function EditComment({
       <form className="edit-post-form" onSubmit={handleFormSubmit}>
         <textarea
           name=""
-          id=""
           className="edit-post-filed"
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
+
         <div className="save-btn-div">
           <button
             disabled={content === ""}

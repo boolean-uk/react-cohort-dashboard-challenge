@@ -1,8 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../App";
+
+// components
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 import Loader from "./Loader";
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "../App";
 
 export default function PostFeed() {
   const { posts, isLoading, mode } = useContext(DataContext);
@@ -29,8 +31,8 @@ export default function PostFeed() {
 
         {isLoading && <Loader />}
 
-        {postsDescending.map((post) => (
-          <Post key={post?.id} post={post} />
+        {postsDescending.map((post, index) => (
+          <Post key={index} post={post} />
         ))}
       </div>
     </>

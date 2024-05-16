@@ -1,7 +1,8 @@
 export default function Avatar(props) {
   const { children } = props;
   const initial =
-    children?.firstName[0].toUpperCase() + children?.lastName[0].toUpperCase();
+    children &&
+    `${children.firstName[0].toUpperCase()}${children.lastName[0].toUpperCase()}`;
 
   return (
     <div
@@ -12,3 +13,5 @@ export default function Avatar(props) {
     </div>
   );
 }
+
+//

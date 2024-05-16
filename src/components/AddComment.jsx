@@ -2,7 +2,9 @@ import { useContext, useState } from "react";
 import clsx from "clsx";
 import { DataContext } from "../App";
 
+// components
 import Avatar from "./Avatar";
+// icons
 import sendIcon from "../assets/icons/send.svg";
 
 export default function AddComment(props) {

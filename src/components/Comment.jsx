@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// components
 import Avatar from "./Avatar";
 import EditComment from "./EditComment";
 
+// icons
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 
 export default function Comment(props) {
   const [commenter, setCommenter] = useState();
   const [showEditBox, setShowEditBox] = useState(false);
-  const { comment, contacts, baseUrl, comments, setComments, post } = props;
+
+  const { comment, contacts, url, comments, setComments, post } = props;
 
   useEffect(() => {
     contacts.find((contact) => {
@@ -26,13 +29,16 @@ export default function Comment(props) {
     );
 
     if (isConfirmed) {
-      fetch(`${baseUrl}${post?.id}/comment/${comment.id}`, {
+      fetch(`${url}${post?.id}/comment/${comment?.id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
         .then((data) => {
-          setComments(comments.filter((comment) => comment.id !== data.id));
-        });
+          if (data && !data.error) {
+            setComments(comments.filter((comment) => comment.id !== data.id));
+          }
+        })
+        .catch((error) => console.error(error));
     }
   }
 
