@@ -1,6 +1,10 @@
 import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { DB_COLLECTIONS } from "./collections.enum";
+import { USER_SCHEMA } from "./models/user.schema";
+import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
+import auth from "../router/auth/auth.crypto";
+import { CREDENTIALS_SCHEMA } from "./models/credentials.schema";
 
 /**
  * A wrapper for working with any database
@@ -40,6 +44,44 @@ export default class DatabaseClient {
 	async insert(collection: DB_COLLECTIONS, data: any) {
 		await this.getCollection(collection).insertOne(data);
 	}
+	async insertUser(user: USER_SCHEMA, password: string) {
+		try {
+			//== Create new user
+			await this.insert(DB_COLLECTIONS.USERS, user);
+
+			//== Create public data
+			const { email: privateEmail, ...publicUserData } =
+				(await this.findOne(DB_COLLECTIONS.USERS, {
+					...user,
+				})) as PUBLIC_USER_DATA_SCHEMA;
+
+			//insert to public data
+			await this.insert(DB_COLLECTIONS.PUBLIC_USER_DATA, publicUserData);
+			//== Create new auth doc
+			const hash = await auth.encryptString(password);
+			const credentials: CREDENTIALS_SCHEMA = { email: user.email, hash };
+			//insert to auth
+			await this.insert(DB_COLLECTIONS.AUTH, credentials);
+			return {
+				message: "Created new user",
+				status: 200,
+			};
+		} catch (error) {
+			return {
+				message: "Error while inserting data to the database",
+				status: 502,
+			};
+		}
+	}
+	async updateUser(data: USER_SCHEMA) {
+		//might update only one of the 3 dbs...so...separate methods?
+	}
+	async deleteUser(data: USER_SCHEMA) {
+		//delete from users db
+		//delete from auth
+		//delete from public data
+	}
+
 	//== DELETE
 	async delete(collection: DB_COLLECTIONS, filter: any) {
 		await this.getCollection(collection).findOneAndDelete(filter);
