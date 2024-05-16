@@ -10,7 +10,6 @@ export default async function getUserPostsMiddleware(
 	next: NextFunction
 ) {
 	const filters = req.body as POSTS_FILTERS_SCHEMA;
-	//FIX: Filters should be sanitized first
 
 	try {
 		const data = [];

@@ -3,10 +3,10 @@ import {
 	validateListRegExp,
 	validateOptionalData,
 	validateRegExp,
-} from "../../../../validators/misc.validator";
-import { validateParams } from "../../../../validators/params.validator.middleware";
-import { ValidatorCallback } from "../../../../validators/validator.type";
-import { POSTS_FILTERS_SCHEMA } from "../models/postsFilters.schema";
+} from "../../../../../validators/misc.validator";
+import { validateParams } from "../../../../../validators/params.validator.middleware";
+import { ValidatorCallback } from "../../../../../validators/validator.type";
+import { POSTS_FILTERS_SCHEMA } from "../../models/postsFilters.schema";
 
 export default function validatePostFiltersMiddleware(
 	req: Request,
