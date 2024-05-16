@@ -2,9 +2,18 @@
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #000046;
-    place-content: center;
+    place-items: end;
+    background-color: hsl(240, 100%, 14%);
 }
+
+ #logo{
+    place-self: start;
+ }
+
+ #header-profile {
+    padding-right: 2.5rem;
+    padding-left: 1.3rem;
+ }
 
 #profile-icon-header {
     place-self: end;

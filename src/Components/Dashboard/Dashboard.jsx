@@ -3,13 +3,25 @@ import title from '../../assets/svg/title-header.svg'
 import home from '../../assets/svg/home-icon.svg'
 import '../../Styling/Dashboard.css'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { UsersContext } from '../../App'
 
 export default function Dashboard() {
+
+    const {users} = useContext(UsersContext)
+
+    const loggedInUser = users.find((user) => user.id)
+
+
     return (
         <>
         <header className="header">
-            <img src={title} alt='cohort manager logo' id='logo'/>
-            <img src={profile} alt='profile icon' className='icon' id='profile-icon-header'/>
+            <div className='logo-container'>
+                <img src={title} alt='cohort manager logo' id='logo'/>
+            </div>
+            <div id='header-profile' className='profile-initials' >
+                {/* <p className="initials">{loggedInUser.firstName[0]}{loggedInUser.lastName[0]}</p> */}
+            </div>
         </header>
         <section className="left-side">
             <Link to='/home'>

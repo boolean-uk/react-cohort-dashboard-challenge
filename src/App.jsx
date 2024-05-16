@@ -4,7 +4,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Feed from "./Components/Feed/Feed";
 import loggedInUser from "../src/assets/user";
 import { Route, Routes } from "react-router-dom";
-import Post from "./Components/Feed/Posts/PostCard/Post";
+import Post from './Components/Feed/Posts/PostCard/Post';
 
 export const UsersContext = createContext();
 export const CommentsContext = createContext();
@@ -13,7 +13,7 @@ export const PostsContext = createContext()
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     fetch("https://boolean-uk-api-server.fly.dev/tzoltie/contact")
@@ -28,8 +28,8 @@ function App() {
   }, [setPosts]);
 
   return (
-    <PostsContext.Provider value={{posts, setPosts}}>
-      <CommentsContext.Provider value={{ comments, setComments }}>
+    <CommentsContext.Provider value={{comments, setComments}}>
+      <PostsContext.Provider value={{posts, setPosts}}>
         <UsersContext.Provider value={{ users, loggedInUser }}>
           <section className="app-container">
             <Dashboard />
@@ -40,8 +40,9 @@ function App() {
             </Routes>
           </section>
         </UsersContext.Provider>
-      </CommentsContext.Provider>
-    </PostsContext.Provider>
+      </PostsContext.Provider>
+    </CommentsContext.Provider>
+    
   );
 }
 

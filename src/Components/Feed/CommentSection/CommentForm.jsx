@@ -1,12 +1,15 @@
-import { CommentsContext } from "../../../App";
+import { CommentsContext, UsersContext } from "../../../App";
 import sendBtn from "../../../assets/svg/sendBtn.svg";
 import { useContext, useState } from "react";
 
-export default function CommentForm({ loggedInUser, post}) {
+export default function CommentForm({ post}) {
   const {comments, setComments} = useContext(CommentsContext)
+  const {users} = useContext(UsersContext)
   const [commentForm, setCommentForm] = useState({
     content: "",
   });
+
+  const loggedInUser = users.find((user) => user.id)
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -14,7 +17,7 @@ export default function CommentForm({ loggedInUser, post}) {
     setCommentForm({
       content: value,
       postId: post.id,
-      contactId: post.contactId
+      contactId: loggedInUser.contactId
     });
   };
 
@@ -39,8 +42,8 @@ export default function CommentForm({ loggedInUser, post}) {
 
   return (
     <form className="comment-section-form" onSubmit={(e) => updateAPI(e)}>
-      <div className="profile-initials">
-        <p>
+      <div className="profile-initials" style={{backgroundColor: loggedInUser.favouriteColour}}>
+        <p className="initials">
           {loggedInUser.firstName[0]}
           {loggedInUser.lastName[0]}
         </p>

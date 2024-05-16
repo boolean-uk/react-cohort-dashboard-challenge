@@ -10,27 +10,18 @@ import { PostsContext } from "../../../../App";
 
 function PostCard({ post}) {
   const { users, loggedInUser } = useContext(UsersContext);
-  const {comments, setComments} = useContext(CommentsContext)
-  const {posts, setPosts} = useContext(PostsContext)
-
-  useEffect(() => {
-    fetch(
-      `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
-    )
-      .then((response) => response.json())
-      .then((json) => setComments(json));
-  }, [setComments]);
   
 
   const user = users.find((user) => {
     if (user.id === post.contactId) return user;
   });
 
+
   return (
     <section className="post-container">
       <div className="post-header">
-        <div className="profile-initials">
-          <p>
+        <div className="profile-initials" style={{backgroundColor: user.favouriteColour}}>
+          <p className="initials">
             {user.firstName[0]}
             {user.lastName[0]}
           </p>
@@ -48,8 +39,8 @@ function PostCard({ post}) {
         <p>{post.content}</p>
       </div>
       <div className="comment-section">
-        {comments.map((comment) => <Comment key={comment.id} comment={comment} user={user}/>)}
-       <CommentForm loggedInUser={loggedInUser} post={post} />
+        <Comment user={user} post={post}/>
+       <CommentForm loggedInUser={loggedInUser} post={post}/>
       </div>
     </section>
   );

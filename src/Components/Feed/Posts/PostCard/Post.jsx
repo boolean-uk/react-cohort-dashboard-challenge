@@ -7,7 +7,6 @@ import CommentForm from "../../CommentSection/CommentForm";
 export default function Post() {
   const { users, loggedInUser } = useContext(UsersContext);
   const {posts, setPosts} = useContext(PostsContext)
-  const {comments, setComments} = useContext(CommentsContext)
   const [post, setPost] = useState([]);
 
   const urlParams = useParams();
@@ -19,30 +18,23 @@ export default function Post() {
       .then((json) => setPost(json))
   }, [setPost]);
 
-  useEffect(() => {
-    fetch(`https://boolean-uk-api-server.fly.dev/tzoltie/post/${url}/comment`)
-      .then((response) => response.json())
-      .then((json) => setComments(json));
-  }, [setComments]);
+  
+    const user = users.find((user) => {if(user.id === post.contactId) return user})
+    console.log(user)
 
-
-  const user = users.find((user) => {
-      if (user.id === post.contactId) return user;
-    });
-    console.log(user.firstName)
 
   return (
     <section className="post-container">
       <div className="post-header">
         <div className="profile-initials">
-          <p>
-            {/* {user.firstName[0]}
-            {user.lastName[0]} */}
+          <p className="initials">
+            {user.firstName[0]}
+            {user.lastName[0]}
           </p>
         </div>
         <div className="post-information">
           <p id="profile-name">
-            {/* {user.firstName} {user.lastName} */}
+            {user.firstName} {user.lastName}
           </p>
             <p id="post-title">{post.title}</p>
         </div>
@@ -51,14 +43,10 @@ export default function Post() {
         <p>{post.content}</p>
       </div>
       <div className="comment-section">
-        {comments.map((comment) => (
-          <Comment             
-          key={comment.id}
-          comment={comment}/>
-        ))}
-        <CommentForm 
+          <Comment post={post}/>
+          {/* <CommentForm 
             loggedInUser={loggedInUser}
-            post={post}/>
+            post={post}/> */}
       </div>
     </section>
   );
