@@ -2,11 +2,11 @@ import { NextFunction, Request, Response } from "express";
 import { ObjectId } from "mongodb";
 import { dbClient } from "../../../../..";
 import { AuthCookie } from "../../../../auth/auth.cookie.type";
-import { POST_OWNERSHIP_SCHEMA } from "../../models/postOwnership.schema";
+import { POST_OWNERSHIP_SCHEMA } from "../../models/feedContentOwnership.schema";
 import { validateObjectId } from "../../../../../validators/misc.validator";
 import { USER_ROLES } from "../../../../../database/models/user-roles.enum";
 
-export default async function verifyPostOwnershipMiddleware(
+export default async function verifyFeedContentOwnershipMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
