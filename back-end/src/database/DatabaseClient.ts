@@ -5,6 +5,7 @@ import { USER_SCHEMA } from "./models/user.schema";
 import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
 import auth from "../router/auth/auth.crypto";
 import { CREDENTIALS_SCHEMA } from "./models/credentials.schema";
+import { POST_SCHEMA } from "./models/post.schema";
 
 /**
  * A wrapper for working with any database
@@ -73,18 +74,17 @@ export default class DatabaseClient {
 			};
 		}
 	}
-	async updateUser(data: USER_SCHEMA) {
-		//might update only one of the 3 dbs...so...separate methods?
-	}
-	async deleteUser(data: USER_SCHEMA) {
-		//delete from users db
-		//delete from auth
-		//delete from public data
+
+	async insertPost(post: POST_SCHEMA) {
+		return await this.insert(DB_COLLECTIONS.POSTS, post);
 	}
 
 	//== DELETE
 	async delete(collection: DB_COLLECTIONS, filter: any) {
 		await this.getCollection(collection).findOneAndDelete(filter);
+	}
+	async deletePost(post: POST_SCHEMA) {
+		return await this.delete(DB_COLLECTIONS.POSTS, post);
 	}
 	//== UPDATE
 	async update(collection: DB_COLLECTIONS, filter: any, data: any) {
