@@ -15,17 +15,15 @@ export default async function postNewPostMiddleware(
 	//NOTE: This is not the same as GetUserPostsMiddleware! Here we retrieve only the first 50 posts
 	// On the GetUserPostsMiddleware we only get the :user posts
 	try {
+		//NOTE: This try catch is probably not doing anything since the only function that can throw is insertPost...and it already has a trycatch
 		//Set the timestamp to "now"
 		postData.timestamp = new Date().toJSON();
 
-		if ((await dbClient.insertPost(postData)).acknowledged)
-			return res.status(200).json({ message: "great success" });
-		else throw new Error("Database refused to insert");
+		const { status, ...db_data } = await dbClient.insertPost(postData);
+		return res.status(status).json(db_data);
 	} catch (error) {
 		return res.status(500).json({
-			message:
-				//@ts-ignore
-				error?.message || "Internal server error while inserting post",
+			message: "Internal server error while inserting post",
 			error,
 		});
 	}
