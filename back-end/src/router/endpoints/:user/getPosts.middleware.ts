@@ -1,21 +1,27 @@
 import { NextFunction, Request, Response } from "express";
+import { ObjectId } from "mongodb";
 import { dbClient } from "../../..";
 import { DB_COLLECTIONS } from "../../../database/collections.enum";
-import { PUBLIC_USER_DATA_SCHEMA } from "../../../database/models/public_user_data.schema";
+import { POSTS_FILTERS_SCHEMA } from "../common/models/postsFilters.schema";
 
 export default async function getPostsMiddleware(
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) {
-	const filters = req.body;
+	const filters = req.body as POSTS_FILTERS_SCHEMA;
 	//FIX: Filters should be sanitized first
 
 	try {
 		const data = [];
 		let i = 0;
-		const collection = dbClient.find(DB_COLLECTIONS.POSTS, { filters });
-		// RETURN FIRST 50 POSTS
+		const collection = dbClient.find(DB_COLLECTIONS.POSTS, {
+			_id: new ObjectId(req.params.id),
+			filters,
+		});
+		/*IMPROVE: RETURN FIRST 50 POSTS MAX
+			Include start index on req.params to continue retrieving new posts
+		*/
 		do {
 			if (await collection.hasNext()) data.push(collection.next());
 			else break;
