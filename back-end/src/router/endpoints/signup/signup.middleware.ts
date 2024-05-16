@@ -26,23 +26,8 @@ export default async function signUpMiddleware(
 			username,
 			role: USER_ROLES.BASIC,
 		};
-		await dbClient.insert(DB_COLLECTIONS.USERS, user);
-		//== Create public data
-		const { email: privateEmail, ...publicUserData } =
-			(await dbClient.findOne(DB_COLLECTIONS.USERS, {
-				email,
-				name,
-				username,
-				role: USER_ROLES.BASIC,
-			})) as PUBLIC_USER_DATA_SCHEMA;
+		const db_response = await dbClient.insertUser(user, password);
 
-		dbClient.insert(DB_COLLECTIONS.PUBLIC_USER_DATA, publicUserData);
-
-		//== Create new auth doc
-		const hash = await auth.encryptString(password);
-		const credentials: CREDENTIALS_SCHEMA = { email, hash };
-		await dbClient.insert(DB_COLLECTIONS.AUTH, credentials);
-
-		return res.status(200).json({ message: "Created new user" });
+		return res.status(db_response.status).json(db_response.message);
 	}
 }
