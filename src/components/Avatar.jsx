@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { useState } from "react";
 import useUsers from "../hooks/useUsers";
 
 
@@ -29,5 +28,3 @@ export default function Avatar({ userId = 1, handleAvatarClick }) {
   );
 }
 
-// console.log("in Av-CU", currentUser);
-// console.log("in Av-u", users);
