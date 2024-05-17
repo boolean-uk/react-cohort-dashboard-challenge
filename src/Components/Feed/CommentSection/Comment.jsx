@@ -1,53 +1,31 @@
-import { useContext, useEffect, useState } from "react";
-import { CommentsContext, UsersContext } from "../../../App";
+import { useContext } from "react";
+import { UsersContext } from "../../../App";
 
-export default function Comment({ post }) {
-  const { users } = useContext(UsersContext);
-  const [comment, setComment] = useState([]);
+export default function Comment({comment}) {
 
-  useEffect(() => {
-    fetch(
-      `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
-    )
-      .then((response) => response.json())
-      .then((json) => setComment(json));
-  }, [setComment]);
+    const {users} = useContext(UsersContext)
 
-  const getCommentId = comment.forEach((comment) => {
-    if (comment.contactId)
-      return console.log("forEach-contactId", comment.contactId);
-  });
+    const commentor = users.filter((user) => user.id === comment.contactId);
 
-  const commentor = users.forEach((user) => {
-    if (user.id === getCommentId) return user.id === getCommentId;
-  });
 
   return (
-    <>
-      {comment && (
-        <ul>
-          {comment.map((comment) => (
-            <li className="comment" key={comment.id}>
-              <div className="profile-initials">
-                {commentor && (
-                  <p className="initials">
-                    {commentor.firstName[0]}
-                    {commentor.lastName[0]}
-                  </p>
-                )}
-              </div>
-              <div className="comment-box">
-                {commentor && (
-                  <p id="commentor-name">
-                    {commentor.firstName} {commentor.lastName}
-                  </p>
-                )}
-                <p>{comment.content}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
+    <li className="comment" key={comment.id}>
+        {commentor &&
+        <div className="profile-initials" style={{ backgroundColor: commentor[0].favouriteColour }}>
+          <p className="initials">
+            {commentor[0].firstName[0]}
+            {commentor[0].lastName[0]}
+          </p>
+      </div>
+        }
+      <div className="comment-box">
+        {commentor && (
+          <p id="commentor-name">
+            {commentor[0].firstName} {commentor[0].lastName}
+          </p>
+        )}
+        <p>{comment.content}</p>
+      </div>
+    </li>
   );
 }

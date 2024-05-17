@@ -2,7 +2,7 @@ import { CommentsContext, PostsContext, UsersContext } from "../../../App";
 import sendBtn from "../../../assets/svg/sendBtn.svg";
 import { useContext, useState } from "react";
 
-export default function CommentForm({ post}) {
+export default function CommentForm({ post, comment, setComment}) {
   const {users} = useContext(UsersContext)
   const [commentForm, setCommentForm] = useState({
     content: "",
@@ -31,7 +31,7 @@ export default function CommentForm({ post}) {
       body: JSON.stringify(commentForm)
     })
       .then(response => response.json())
-      .then(json => setComments([...comments, json]))
+      .then(json => setComment([...comment, json]))
 
     setCommentForm({
       content: ''

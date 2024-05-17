@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UsersContext, PostsContext } from "../../../../App";
-import Comment from "../../CommentSection/Comment";
+import Comment from "../../CommentSection/Comments";
 import CommentForm from "../../CommentSection/CommentForm";
+import Comments from "../../CommentSection/Comments";
 
 export default function Post() {
   const { users, loggedInUser } = useContext(UsersContext);
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState(null);
+  const [comment, setComment] = useState([])
   
 
   const urlParams = useParams();
@@ -18,7 +20,9 @@ export default function Post() {
       .then((json) => setPost(json));
   }, [setPost]);
 
-
+  if(!post) {
+    return <p>Loading...</p>
+  }
   const user = users.find((user) => {
     if (user.id === post.contactId) return user;
   });
@@ -51,8 +55,8 @@ export default function Post() {
           <p>{post.content}</p>
         </div>
         <div className="comment-section">
-          <Comment post={post} />
-          <CommentForm loggedInUser={loggedInUser} post={post} />
+          <Comments post={post} comment={comment} setComment={setComment}/>
+          <CommentForm loggedInUser={loggedInUser} post={post} comment={comment} setComment={setComment}/>
         </div>
       </li>
     </ul>

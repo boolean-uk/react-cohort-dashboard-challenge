@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 
-import { useContext} from "react";
-import { CommentsContext, UsersContext } from "../../../../App";
+import { useContext, useState} from "react";
+import { UsersContext } from "../../../../App";
 import { Link } from "react-router-dom";
 
-import Comment from "../../CommentSection/Comment";
+import Comment from "../../CommentSection/Comments";
 import CommentForm from "../../CommentSection/CommentForm";
+import Comments from "../../CommentSection/Comments";
 
 function PostCard({ post }) {
   const { users, loggedInUser } = useContext(UsersContext);
+  const [comment, setComment] = useState([]);
 
   const user = users.find((user) => {
     if (user.id === post.contactId) return user;
@@ -43,8 +45,8 @@ function PostCard({ post }) {
             <p>{post.content}</p>
           </div>
           <div className="comment-section">
-            <Comment post={post} />
-            <CommentForm loggedInUser={loggedInUser} post={post} />
+            <Comments post={post} comment={comment} setComment={setComment}/>
+            <CommentForm loggedInUser={loggedInUser} post={post} comment={comment} setComment={setComment}/>
           </div>
         </li>
       )}
