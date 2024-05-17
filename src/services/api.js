@@ -20,6 +20,11 @@ export const fetchContact = async (id) => {
   return response.json();
 };
 
+export const fetchContacts = async () => {
+  const response = await fetch(`${API_URL}/contact`);
+  return response.json();
+};
+
 export const createPost = async (post) => {
   const response = await fetch(`${API_URL}/post`, {
     method: 'POST',
@@ -32,7 +37,7 @@ export const createPost = async (post) => {
 };
 
 export const createComment = async (comment) => {
-  const response = await fetch(`${API_URL}/comment`, {
+  const response = await fetch(`${API_URL}/post/${comment.postId}/comment`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

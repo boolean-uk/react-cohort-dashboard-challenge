@@ -15,6 +15,9 @@ export default function PostPage() {
 }
 
 useEffect(() => {getPost()}, [])
+if (post.id === undefined) {
+    return <div></div>
+}
     return (
         <div><Post post={post} /> </div>
     )

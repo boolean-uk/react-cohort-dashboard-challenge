@@ -1,19 +1,20 @@
+import Avatar from "../Avatar"
+import TextInput from "../TextInput"
+import Button from "../Button"
+
 export default function NewPost(props) {
     function onPostSubmit(event) {
         event.preventDefault()
-        const title = event.target.elements.title.value
         const content = event.target.elements.content.value
-        console.log("Data:", title, content)
-        props.onPost({title: title, content: content, contactId: 1})
+        props.onPost({title: `Post - ${Math.random().toFixed(3).toString().replace('0.', "")}`, content: content, contactId: 1})
     }
     return (
         <div>
+
+        <Avatar id={1}/>
             <form onSubmit={onPostSubmit}>
-                <input type="text" name="title">
-                    </input>
-                <input type="text" name="content">
-                    </input>
-                    <button type="submit">Send Post</button>
+                <TextInput type="text" placeholder="Enter Post ..." name="content"/>
+                    <Button type="submit">Send Posters to orphans</Button>
             </form>
             </div>
     )

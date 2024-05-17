@@ -1,0 +1,28 @@
+.post-container {
+    background-color: #e6ebf5;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+}
+
+.post-container div {
+    margin-bottom: 15px;
+}
+
+.post-container button {
+    padding: 10px 15px;
+    background-color: #004cff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-container button:hover {
+    background-color: #003bb3;
+}

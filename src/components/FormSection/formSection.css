@@ -1,6 +1,28 @@
 .form-section {
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
-    color: black;
+    background-color: #e6ebf5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.form-section input, 
+.form-section textarea, 
+.form-section select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-section input:focus, 
+.form-section textarea:focus, 
+.form-section select:focus {
+    border-color: #004cff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
