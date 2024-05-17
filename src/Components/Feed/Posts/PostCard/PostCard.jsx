@@ -4,7 +4,6 @@ import { useContext, useState} from "react";
 import { UsersContext } from "../../../../App";
 import { Link } from "react-router-dom";
 
-import Comment from "../../CommentSection/Comments";
 import CommentForm from "../../CommentSection/CommentForm";
 import Comments from "../../CommentSection/Comments";
 

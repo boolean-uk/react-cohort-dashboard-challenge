@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { UsersContext, PostsContext } from "../../../../App";
-import Comment from "../../CommentSection/Comments";
+import { UsersContext } from "../../../../App";
 import CommentForm from "../../CommentSection/CommentForm";
 import Comments from "../../CommentSection/Comments";
 

@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { UsersContext } from "../../../App";
+import { useEffect } from "react";
 import Comment from "./Comment";
 
 export default function Comments({ post, comment, setComment }) {
