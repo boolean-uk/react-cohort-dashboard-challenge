@@ -1,16 +1,16 @@
 import { NextFunction, Request, Response } from "express";
-import { POST_SCHEMA } from "../../../../../database/models/post.schema";
+import { POST_SCHEMA } from "../../../database/models/post.schema";
 import {
 	validateNumber,
 	validateString,
 	validateTimestamp,
-} from "../../../../../validators/form.validator";
+} from "../../../validators/form.validator";
 import {
 	validateListString,
 	validateObjectId,
-} from "../../../../../validators/misc.validator";
-import { validateParamsMiddleware } from "../../../../../validators/params.validator.middleware";
-import { ValidateCondition } from "../../../../../validators/validateCondition.type";
+} from "../../../validators/misc.validator";
+import { validateParamsMiddleware } from "../../../validators/params.validator.middleware";
+import { ValidateCondition } from "../../../validators/validateCondition.type";
 
 export default function validatePostDataMiddleware(
 	req: Request,

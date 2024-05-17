@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ObjectId } from "mongodb";
 import { dbClient } from "../../..";
 import { DB_COLLECTIONS } from "../../../database/collections.enum";
-import { POSTS_FILTERS_SCHEMA } from "../common/models/postsFilters.schema";
+import { POSTS_FILTERS_SCHEMA } from "./postsFilters.schema";
 import { JwtPayload } from "jsonwebtoken";
 import { POST_SCHEMA } from "../../../database/models/post.schema";
 
