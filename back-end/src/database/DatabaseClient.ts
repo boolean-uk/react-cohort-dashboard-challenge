@@ -6,6 +6,7 @@ import { CREDENTIALS_SCHEMA } from "./models/credentials.schema";
 import { POST_SCHEMA } from "./models/post.schema";
 import { PUBLIC_USER_DATA_SCHEMA } from "./models/public_user_data.schema";
 import { USER_SCHEMA } from "./models/user.schema";
+import { COMMENT_SCHEMA } from "./models/comment.schema";
 
 /**
  * A wrapper for working with any database
@@ -113,6 +114,9 @@ export default class DatabaseClient {
 	async insertPost(post: POST_SCHEMA) {
 		return await this.insert(DB_COLLECTIONS.POSTS, post);
 	}
+	async insertComment(data: COMMENT_SCHEMA) {
+		return await this.insert(DB_COLLECTIONS.COMMENTS, data);
+	}
 
 	//== DELETE
 	/**
@@ -146,8 +150,38 @@ export default class DatabaseClient {
 			};
 		}
 	}
+
+	async deleteUser(user: USER_SCHEMA, password: string) {
+		let db_response;
+		//== Create new user
+		db_response = await this.delete(DB_COLLECTIONS.USERS, user);
+		if (db_response?.error) return db_response;
+
+		//insert to public data
+		db_response = await this.insert(DB_COLLECTIONS.PUBLIC_USER_DATA, user);
+
+		if (db_response?.error) return db_response;
+
+		//== Create new auth doc
+		// const credentials: CREDENTIALS_SCHEMA = { email: user.email, hash };
+		//insert to auth
+		db_response = await this.delete(DB_COLLECTIONS.AUTH, {
+			email: user.email,
+		});
+		if (db_response?.error) return db_response;
+
+		//All went well
+		return {
+			message: "Deleted user",
+			status: 200,
+		};
+	}
+
 	async deletePost(filters: any) {
 		return await this.delete(DB_COLLECTIONS.POSTS, filters);
+	}
+	async deleteComment(filters: any) {
+		return await this.delete(DB_COLLECTIONS.COMMENTS, filters);
 	}
 	//== UPDATE
 	/**
@@ -182,6 +216,11 @@ export default class DatabaseClient {
 	async updatePost(filter: any, post: POST_SCHEMA) {
 		return await this.update(DB_COLLECTIONS.POSTS, filter, post);
 	}
+
+	async updateComment(filter: any, comment: COMMENT_SCHEMA) {
+		return await this.update(DB_COLLECTIONS.POSTS, filter, comment);
+	}
+
 	//== SEARCH
 
 	//= Generic
