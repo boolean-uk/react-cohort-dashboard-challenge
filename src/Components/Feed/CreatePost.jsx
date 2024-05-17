@@ -34,7 +34,8 @@ export default function CreatePost() {
       body: JSON.stringify(postForm),
     })
       .then((response) => response.json())
-      .then((json) => setPosts([json, ...posts]));
+      .then((json) => setPosts([...posts, json]))
+
 
     setPostForm({
       content: "",
@@ -59,6 +60,7 @@ export default function CreatePost() {
             value={postForm.title}
             onChange={(e) => handleChange(e)}
             className="post-title-input"
+            required
           />)}
         <input
           type="text"
@@ -66,6 +68,7 @@ export default function CreatePost() {
           placeholder="What's on your mind?"
           value={postForm.content}
           onChange={(e) => handleChange(e)}
+          required
         />
       </div>
       <div className="button-container">

@@ -6,8 +6,8 @@ import CommentForm from "../../CommentSection/CommentForm";
 
 export default function Post() {
   const { users, loggedInUser } = useContext(UsersContext);
-  // const { posts, setPosts } = useContext(PostsContext);
   const [post, setPost] = useState([]);
+  
 
   const urlParams = useParams();
   const url = Number(urlParams.id);
@@ -18,13 +18,6 @@ export default function Post() {
       .then((json) => setPost(json));
   }, [setPost]);
 
-  // useEffect(() => {
-  //     fetch(
-  //       `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
-  //     )
-  //       .then((response) => response.json())
-  //       .then(json => setComments(json));
-  //   }, [setComments]);
 
   const user = users.find((user) => {
     if (user.id === post.contactId) return user;

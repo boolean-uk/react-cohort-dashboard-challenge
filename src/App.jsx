@@ -13,7 +13,6 @@ export const PostsContext = createContext()
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([])
 
   useEffect(() => {
     fetch("https://boolean-uk-api-server.fly.dev/tzoltie/contact")
@@ -28,7 +27,6 @@ function App() {
   }, [setPosts]);
 
   return (
-    <CommentsContext.Provider value={{comments, setComments}}>
       <PostsContext.Provider value={{posts, setPosts}}>
         <UsersContext.Provider value={{ users, loggedInUser }}>
           <section className="app-container">
@@ -40,9 +38,7 @@ function App() {
             </Routes>
           </section>
         </UsersContext.Provider>
-      </PostsContext.Provider>
-    </CommentsContext.Provider>
-    
+      </PostsContext.Provider> 
   );
 }
 

@@ -3,30 +3,30 @@ import { CommentsContext, UsersContext } from "../../../App";
 
 export default function Comment({ post }) {
   const { users } = useContext(UsersContext);
-  const { comments, setComments } = useContext(CommentsContext);
-  console.log('post', post)
+  const [comment, setComment] = useState([]);
 
   useEffect(() => {
-       fetch(
-        `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
-      )
-        .then((response) => response.json())
-        .then(json => console.log('json', json));
-  }, [setComments]);
+    fetch(
+      `https://boolean-uk-api-server.fly.dev/tzoltie/post/${post.id}/comment`
+    )
+      .then((response) => response.json())
+      .then((json) => setComment(json));
+  }, [setComment]);
 
+  const getCommentId = comment.forEach((comment) => {
+    if (comment.contactId)
+      return console.log("forEach-contactId", comment.contactId);
+  });
 
-
-  const getComment = comments.find((commentor) => commentor.contactId);
-
-  const commentor = users.find((commentor) => {
-    if (commentor.id === comments.contactId) return commentor;
+  const commentor = users.forEach((user) => {
+    if (user.id === getCommentId) return user.id === getCommentId;
   });
 
   return (
     <>
-      {comments && (
+      {comment && (
         <ul>
-          {comments.map((comment) => (
+          {comment.map((comment) => (
             <li className="comment" key={comment.id}>
               <div className="profile-initials">
                 {commentor && (

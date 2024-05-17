@@ -3,7 +3,6 @@ import sendBtn from "../../../assets/svg/sendBtn.svg";
 import { useContext, useState } from "react";
 
 export default function CommentForm({ post}) {
-  const {comments, setComments} = useContext(CommentsContext)
   const {users} = useContext(UsersContext)
   const [commentForm, setCommentForm] = useState({
     content: "",
