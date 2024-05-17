@@ -50,7 +50,7 @@ export default function Post() {
         setContact(contact);
       }
     });
-  }, [contacts, posts, post?.contactId, url, id, comments]);
+  });
 
   function handleDeleteClick() {
     const isConfirmed = confirm(

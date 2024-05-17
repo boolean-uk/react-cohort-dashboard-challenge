@@ -39,7 +39,7 @@ export default function Post(props) {
         setContact(contact);
       }
     });
-  }, [contact, contacts, post?.contactId, contact?.id, post.id, comments]);
+  });
 
   function handleDeleteClick() {
     const isConfirmed = confirm(

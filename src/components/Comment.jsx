@@ -21,7 +21,7 @@ export default function Comment(props) {
         setCommenter(contact);
       }
     });
-  }, [comment, contacts]);
+  });
 
   function handleDeleteClick() {
     const isConfirmed = confirm(
