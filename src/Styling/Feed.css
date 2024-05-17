@@ -108,8 +108,9 @@
     border-top: 1px solid #e6ebf5;
     display: grid;
     grid-template-columns: 4.7rem 1fr;
-    gap: 1.6rem;
-    padding: 0.5rem;
+    gap: 1rem;
+    padding-top: 0.9rem;
+    padding-right: 0.4rem;
 }
 
 #profile-name {
@@ -159,6 +160,6 @@
     grid-template-columns: 4.7rem 1fr;
     margin-left: -5%;
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.9rem;
     color: #000046;
 }
