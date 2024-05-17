@@ -1,0 +1,5 @@
+.textInput input {
+    height: 40px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
