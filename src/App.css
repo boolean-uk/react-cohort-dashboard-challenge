@@ -71,6 +71,15 @@ hr{
   height:24px;
 }
 
+.profile{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile input{
+  font-size: 20px;
+}
+
 .comment-form{
   display: flex;
   flex-direction: row;
