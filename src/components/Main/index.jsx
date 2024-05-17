@@ -1,11 +1,17 @@
-import { useContext} from 'react'
+import { useContext, useEffect} from 'react'
 import Card from './Card'
-import { PostsContext } from '../../App'
+import { NavContext, PostsContext } from '../../App'
 
 
 export default function Main() {
 
    const {posts} = useContext(PostsContext)
+
+   const {setNavActive} = useContext(NavContext)
+
+   useEffect(() => {
+    setNavActive("home")
+   })
 
     return (
         <main className="main">

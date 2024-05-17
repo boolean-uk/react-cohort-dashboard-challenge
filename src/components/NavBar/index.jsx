@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar({active}) {
 
-    
+
     return (
         
         <ul className="nav-bar">
@@ -28,6 +28,7 @@ export default function NavBar({active}) {
                 active={active}
             />
             </Link>
+            <Link to={"/profile"}>
             <NavItem
                 svg={
                     <svg
@@ -47,6 +48,7 @@ export default function NavBar({active}) {
 
                 active={active}
             />
+            </Link>
         </ul>
     )
 }

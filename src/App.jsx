@@ -5,9 +5,11 @@ import FullPost from './components/FullPost'
 import Main from './components/Main'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
+import Profile from './components/Profile'
 
 export const UserContext = createContext()
 export const PostsContext = createContext()
+export const NavContext = createContext()
 
 function App() {
     const [user, setUser] = useState(null)
@@ -34,16 +36,20 @@ function App() {
 
     return (
         <UserContext.Provider value={{ user }}>
-            <PostsContext.Provider value={{ posts, setPosts, getPosts }}>
-                <Header />
-                <NavBar active={navActive} />
+            <NavContext.Provider value={{ navActive, setNavActive }}>
+                <PostsContext.Provider value={{ posts, setPosts, getPosts }}>
+                    <Header />
+                    <NavBar active={navActive} />
 
-                <Routes>
-                    <Route path="/" element={<Main />} />
+                    <Routes>
+                        <Route path="/" element={<Main />} />
 
-                    <Route path="/post/:id" element={<FullPost />} />
-                </Routes>
-            </PostsContext.Provider>
+                        <Route path="/post/:id" element={<FullPost />} />
+
+                        <Route path="/profile" element={<Profile />} />
+                    </Routes>
+                </PostsContext.Provider>
+            </NavContext.Provider>
         </UserContext.Provider>
     )
 }
