@@ -29,6 +29,13 @@ button{
   border-radius: 10px;
 }
 
+button svg{
+  width: 24px;
+  height: 24px;
+}
+
+
+
 li{
   text-decoration: none;
 }
@@ -61,6 +68,7 @@ hr{
 .comment-form input{
   background-color: #e6ebf5;
   width: 500px;
+  height:24px;
 }
 
 .comment-form{
