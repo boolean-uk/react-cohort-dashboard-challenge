@@ -78,6 +78,13 @@ hr{
   gap: 20px;
 }
 
+.comment-form form{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+}
+
 
 .header {
     grid-area: header;

@@ -1,6 +1,6 @@
 import './App.css'
 import { createContext, useEffect, useState } from 'react'
-import { Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import FullPost from './components/FullPost'
 import Main from './components/Main'
 import Header from './components/Header'
@@ -14,18 +14,18 @@ function App() {
 
     const [posts, setPosts] = useState([])
 
-    const [navActive, setNavActive] = useState("Home")
+    const [navActive, setNavActive] = useState('Home')
 
     function getPosts() {
-      fetch('https://boolean-uk-api-server.fly.dev/angustownsley/post')
-      .then((response) => response.json())
-      .then((json) => setPosts([...json]))
+        fetch('https://boolean-uk-api-server.fly.dev/angustownsley/post')
+            .then((response) => response.json())
+            .then((json) => setPosts([...json]))
     }
 
     useEffect(() => {
-      getPosts()
+        getPosts()
     }, [])
-    
+
     useEffect(() => {
         fetch('https://boolean-uk-api-server.fly.dev/angustownsley/contact/1/')
             .then((response) => response.json())
@@ -33,21 +33,18 @@ function App() {
     }, [])
 
     return (
-            <UserContext.Provider value={{ user }}>
-                <PostsContext.Provider value={{ posts, setPosts, getPosts }}>
-                    <Header />
-                    <NavBar active={navActive}/>
+        <UserContext.Provider value={{ user }}>
+            <PostsContext.Provider value={{ posts, setPosts, getPosts }}>
+                <Header />
+                <NavBar active={navActive} />
 
-                    <Routes>
-                        <Route path="/" element={<Main />}/>
-                        
-                        <Route path="/post/:id" element={<FullPost />} />
-                        
-                    </Routes>
+                <Routes>
+                    <Route path="/" element={<Main />} />
 
-                </PostsContext.Provider>
-            </UserContext.Provider>
-
+                    <Route path="/post/:id" element={<FullPost />} />
+                </Routes>
+            </PostsContext.Provider>
+        </UserContext.Provider>
     )
 }
 
