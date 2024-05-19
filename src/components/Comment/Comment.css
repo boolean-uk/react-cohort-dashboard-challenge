@@ -1,0 +1,28 @@
+.comment-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto;
+    height: fit-content;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+
+.comment-author-avatar {
+    padding-right: 20px;
+}
+
+.comment-content {
+    padding: 10px;
+    background-color: #e6ebf5;
+    border-radius: 5px;
+}
+
+.comment-content p {
+    background-color: #e6ebf5;
+    font-size: small;
+}
+
+.comment-author-name {
+    font-weight: bold;
+}
