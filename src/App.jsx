@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, createContext } from 'react'
 import './App.css'
 import Header from './components/Header'
@@ -31,7 +32,23 @@ function App() {
   }
   const API_POSTS = "https://boolean-api-server.fly.dev/joannabuuma1/post"
   const API_CONTACTS = "https://boolean-api-server.fly.dev/joannabuuma1/contact"
+  async function fetchAuthor(contactId) {
+    return fetch(`${API_CONTACTS}/${contactId}`, {})
+      .then(async response => {
+        let contact = await response.json()
+        return contact
+      })
+  }
 
+  async function fetchAddNewComment(newComment) {
+    const response = await fetch(`${API_POSTS}/${newComment.postId}/comment`,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }, 
+        body: JSON.stringify(newComment)
+    })
+}
 
 
   return (
@@ -43,7 +60,9 @@ function App() {
         API_POSTS: API_POSTS,
         API_CONTACTS: API_CONTACTS,
         posts: posts,
-        setPosts: setPosts
+        setPosts: setPosts,
+        fetchAuthor: fetchAuthor,
+        handleNewComment: fetchAddNewComment
       }}>
       <div className="app">
         <header className='header'>
