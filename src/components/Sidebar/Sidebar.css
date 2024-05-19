@@ -1,0 +1,14 @@
+nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.nav-item {
+    padding: 50px;
+    justify-content: center;
+
+    &:hover{
+        background-color: lightblue;
+    }
+}

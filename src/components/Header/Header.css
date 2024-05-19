@@ -1,0 +1,22 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px 10px 50px;
+    background-color: transparent;
+}
+
+.logo-wrapper {
+    display: block;
+    background-color: transparent;
+    width: 300px;
+}
+
+img {
+    background-color: transparent;
+}
+
+.avatar-wrapper {
+    display: block;
+    background: none;
+}

@@ -35,6 +35,8 @@ main {
 }
 
 .sidebar-section {
+  margin: auto;
+  padding: 0%;
 }
 
 .main-section {
