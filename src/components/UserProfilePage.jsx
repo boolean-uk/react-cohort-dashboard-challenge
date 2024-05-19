@@ -16,8 +16,8 @@ export default function UserProfilePage() {
 		profileImage: "",
 	})
 	const { id } = useParams()
-	const [user, setUser] =
-		useState()
+	// const [user, setUser] =
+	// 	useState()
 		// {
 		// firstName: "",
 		// lastName: "",
