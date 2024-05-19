@@ -4,9 +4,7 @@ import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
 export default function UserProfilePage() {
-	const { currentUser, setCurrentUser } = useUsers()
-	const { id } = useParams()
-	const [user, setUser] = useState({
+	const { currentUser, setCurrentUser } = useUsers({
 		firstName: "",
 		lastName: "",
 		gender: "",
@@ -17,12 +15,26 @@ export default function UserProfilePage() {
 		favouriteColour: "",
 		profileImage: "",
 	})
+	const { id } = useParams()
+	const [user, setUser] =
+		useState()
+		// {
+		// firstName: "",
+		// lastName: "",
+		// gender: "",
+		// email: "",
+		// jobTitle: "",
+		// street: "",
+		// city: "",
+		// favouriteColour: "",
+		// profileImage: "",
+		// }
 
 	useEffect(() => {
 		fetch(`https://boolean-api-server.fly.dev/PerikK/contact/${id}`)
 			.then((response) => response.json())
 			.then((data) => {
-				setUser(
+				setCurrentUser(
 					data || {
 						firstName: "",
 						lastName: "",
@@ -39,35 +51,36 @@ export default function UserProfilePage() {
 			.catch((error) => {
 				console.error("Error fetching user data:", error)
 			})
-	}, [id])
+	}, [])
 
 	const handleChange = (e) => {
 		const { name, value } = e.target
-		setUser({ ...user, [name]: value })
+		setCurrentUser({ ...currentUser, [name]: value })
 	}
 
-	console.log(user);
+	// console.log(user);
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-			fetch(`https://boolean-api-server.fly.dev/PerikK/contact/2`, {
-				method: "PUT",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(user),
-			})
-				.then((response) => response.json())
-				.then((updatedUser)=>{
+		fetch(`https://boolean-api-server.fly.dev/PerikK/contact/2`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(currentUser),
+		})
+			.then((response) => response.json())
+			.then((updatedUser) => {
 				setCurrentUser(updatedUser)
 				// setUser(updatedUser)
-	})
-	
+			})
 	}
-	
- console.log('CU-PROF', currentUser);
-  console.log('U-PROF',user);
 
+	// if(!currentUser.firstName || currentUser.lastName){return <p>Loading...</p> }
+
+	//  console.log('CU-PROF', currentUser);
+	//   console.log('U-PROF',user);
+	console.log(currentUser.firstName[0], currentUser.lastName)
 	return (
 		<div className='bg-[#F0F5FA]'>
 			<h1 className='text-3xl font-semibold py-5 px-10'>Profile</h1>
@@ -75,8 +88,8 @@ export default function UserProfilePage() {
 				<div className='my-5 flex items-centertext-3xl font-semibold'>
 					<Avatar userId={currentUser.id} />
 					<div>
-						<p className='text-2xl font-semibold'>{`${user.firstName} ${user.lastName} `}</p>
-						{/* <p className='text-2xl font-semibold'>{`${currentUser.firstName} ${currentUser.lastName} `}</p> */}
+						{/* <p className='text-2xl font-semibold'>{`${user.firstName} ${user.lastName} `}</p> */}
+						<p className='text-2xl font-semibold'>{`${currentUser.firstName} ${currentUser.lastName} `}</p>
 					</div>
 				</div>
 				<hr className='h-px text-stone-50 m-5 ' />
@@ -91,7 +104,9 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='firstName'
-										value={user.firstName || ""}
+										// value={user.firstName || ""}
+										// value={currentUser.firstName || ""}
+										value={currentUser.firstName || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -101,7 +116,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='lastName'
-										value={user.lastName || ""}
+										// value={user.lastName || ""}
+										value={currentUser.lastName || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -111,7 +127,12 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='username'
-										value={`${user.firstName[0]}${user.lastName}` || ""}
+										// value={`${currentUser.firstName[0]}${currentUser.lastName}` || ""}
+										value={
+											`${
+												currentUser.firstName ? currentUser.firstName[0] : ""
+											}${currentUser.lastName}` || ""
+										}
 										// value={`${currentUser.firstName[0]}${user.lastName}` || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
@@ -122,7 +143,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='gender'
-										value={user.gender || ""}
+										// value={user.gender || ""}
+										value={currentUser.gender || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full bg-[#e6ebf5] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -139,7 +161,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='street'
-										value={user.street || ""}
+										// value={user.street || ""}
+										value={currentUser.street || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -149,7 +172,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='city'
-										value={user.city || ""}
+										// value={user.city || ""}
+										value={currentUser.city || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -159,7 +183,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='latitude'
-										value={user.latitude || ""}
+										// value={user.latitude || ""}
+										value={currentUser.latitude || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -169,7 +194,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='longitude'
-										value={user.longitude || ""}
+										// value={user.longitude || ""}
+										value={currentUser.longitude || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -186,7 +212,8 @@ export default function UserProfilePage() {
 									<input
 										type='email'
 										name='email'
-										value={user.email || ""}
+										// value={user.email || ""}
+										value={currentUser.email || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -203,7 +230,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='jobTitle'
-										value={user.jobTitle || ""}
+										// value={user.jobTitle || ""}
+										value={currentUser.jobTitle || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>
@@ -213,7 +241,8 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='favouriteColour'
-										value={user.favouriteColour || ""}
+										// value={user.favouriteColour || ""}
+										value={currentUser.favouriteColour || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>

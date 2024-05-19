@@ -25,7 +25,7 @@ function UsersProvider({ children }) {
         const currUser = data.find((user) => user.id === 2);
         setCurrentUser(currUser || {}); 
       });
-  }, []);
+  }, [ ]);
 
   if (!users) {
     return <p>Loading...</p>
