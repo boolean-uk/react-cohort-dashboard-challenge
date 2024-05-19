@@ -50,7 +50,7 @@ export default function UserProfilePage() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-			fetch(`https://boolean-api-server.fly.dev/PerikK/contact/1`, {
+			fetch(`https://boolean-api-server.fly.dev/PerikK/contact/2`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
@@ -59,18 +59,21 @@ export default function UserProfilePage() {
 			})
 				.then((response) => response.json())
 				.then((updatedUser)=>{
-				// setCurrentUser(updatedUser)
-				setUser(updatedUser)
+				setCurrentUser(updatedUser)
+				// setUser(updatedUser)
 	})
 	
-}
+	}
+	
+ console.log('CU-PROF', currentUser);
+  console.log('U-PROF',user);
 
 	return (
 		<div className='bg-[#F0F5FA]'>
 			<h1 className='text-3xl font-semibold py-5 px-10'>Profile</h1>
 			<div className='bg-[#fff] mx-5 py-5 px-5'>
 				<div className='my-5 flex items-centertext-3xl font-semibold'>
-					<Avatar />
+					<Avatar userId={currentUser.id} />
 					<div>
 						<p className='text-2xl font-semibold'>{`${user.firstName} ${user.lastName} `}</p>
 						{/* <p className='text-2xl font-semibold'>{`${currentUser.firstName} ${currentUser.lastName} `}</p> */}
@@ -109,6 +112,7 @@ export default function UserProfilePage() {
 										type='text'
 										name='username'
 										value={`${user.firstName[0]}${user.lastName}` || ""}
+										// value={`${currentUser.firstName[0]}${user.lastName}` || ""}
 										onChange={handleChange}
 										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 									/>

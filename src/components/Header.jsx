@@ -7,7 +7,7 @@ import useUsers from "../hooks/useUsers";
 export default function Header() {
   // const currentUser = useContext(CurrentUser);
   const { currentUser, users } = useUsers()
-  const userId=1
+  const userId=2
 
   return (
     <div className="flex items-center justify-between px-6 bg-[#000046] h-20 ">

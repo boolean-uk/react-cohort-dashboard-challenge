@@ -14,7 +14,8 @@ export default function Avatar({ userId, handleAvatarClick }) {
   if (!currentUser) {
     return <p>User not found</p>; 
   }
-  
+  //   console.log('from-Ava', currentUser);
+  // console.log('from-Ava',users);
   
   return (
     <Link to={`/user/${currentUser.id}`}onClick={handleAvatarClick}>
