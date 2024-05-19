@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 
@@ -38,16 +40,16 @@ export default function Post({ post }) {
                         </Link>
                         <Link to="/post" state={{ post: post }} >
                             <div className="post-title">
-                                <p>post title{/*post.title*/}</p>
+                                <p>{post.title}</p>
                             </div>
                         </Link>
                     </div>
                 </div>
                 <div className="post-content">
-                    <p>{/*post.content*/}post content</p>
+                    <p>{post.content}</p>
                 </div>
                 <hr></hr>
             </div>
         </>
     );
-};
+}

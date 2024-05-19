@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect, useContext } from "react";
 
-import { MyContext } from "../../App.jsx";
-
+import { MyContext } from "../../App";
 import Comments from "../Comments";
 import Post from "../Post";
 import PostForm from "../PostForm";
@@ -21,36 +21,60 @@ export default function Home() {
     fetchPosts();
   }, []);
 
+  async function handleNewPost(newPost) {
+    let title = newPost.substring(0, 10);
+    const response = await fetch(API_POSTS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: newPost,
+        title: title,
+        contactId: user.id,
+      }),
+    });
+    const createdPost = await response.json();
+    setPosts([createdPost, ...posts]);
+  }
+
+  async function handleNewComment(newComment) {
+    const response = await fetch(`${API_POSTS}/${newComment.postId}/comment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    });
+  }
+
   return (
     <>
       <div className="home-container">
         <div className="new-post-form-wrapper">
-          <PostForm />
+          <PostForm onSubmit={handleNewPost} />
         </div>
-        <div className="posts-wrapper">
-          {posts.length < 1 ? (
-            <p>Loading...</p>
-          ) : (
-            <div className="posts-wrapper">
-                {console.log(posts)}
-              {posts.map((post) => (
-                <div className="post-wrapper" key={post.id}>
-                  <Post post={post} />
-                </div>
-              ))}
-            </div>
-          )}
 
-          <div className="post-wrapper">
-            <Post />
-            <div className="comments">
-              <Comments />
-            </div>
-            <div className="comment-form-wrapper">
-              <CommentForm />
-            </div>
+        {posts.length < 1 ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="posts-wrapper">
+            {posts.map((post) => (
+              <div className="post-wrapper" key={post.id}>
+                <Post post={post} />
+                <div className="comments">
+                  <Comments postId={post.id} limit={3} />
+                </div>
+                <div className="comment-form-wrapper">
+                  <CommentForm
+                    postId={post.id}
+                    onSubmitNewComment={handleNewComment}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </>
   );
