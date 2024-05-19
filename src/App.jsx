@@ -9,18 +9,17 @@ import { PostsProvider } from "./context/PostsContext"
 // export const CurrentUser = createContext();
 
 function App() {
-	
 	return (
 		<>
 			<PostsProvider>
 				<UsersProvider>
-					<header>
+					<header className=''>
 						<Header />
 					</header>
 					<div className='grid grid-cols-[180px,_1fr] '>
-						<nav className="flex size-full flex-col justify-start items-center mr-3 border-2 h-full ">
+						{/* <nav className='flex size-full flex-col justify-start items-center mr-3 border-2 '> */}
 							<SideBar />
-						</nav>
+						{/* </nav> */}
 						<main className=''>
 							<Routes>
 								<Route path='/' element={<Main />} />
