@@ -1,65 +1,70 @@
-import { useState } from "react";
-import useUsers from "../hooks/useUsers";
-import usePosts from "../hooks/usePosts";
-import Avatar from "./Avatar";
-
+import { useState } from "react"
+import useUsers from "../hooks/useUsers"
+import usePosts from "../hooks/usePosts"
+import Avatar from "./Avatar"
 
 export default function NewPost() {
-    const { user, currentUser } = useUsers
-    const {posts, setPosts} = usePosts()
-    
-    const [newPost, setNewPost] = useState({
-        title: '',
-        content: '',
-        contactId: 0
-    })
+	const { user, currentUser } = useUsers
+	const { posts, setPosts } = usePosts()
 
-    function handleChange(e) {
-        const {name, value} = e.target
-        const title = value.split(' ').slice(0, 5).join(' ')
+	const [newPost, setNewPost] = useState({
+		title: "",
+		content: "",
+		contactId: 0,
+	})
 
-        setNewPost({
-            ...newPost,
-            [name] : value,
-            title: title,
-            contactId: currentUser.id
-        })
-    }
+	function handleChange(e) {
+		const { name, value } = e.target
+		const title = value.split(" ").slice(0, 5).join(" ")
 
-    function handleSubmit(e) {
-        e.preventDefault()
+		setNewPost({
+			...newPost,
+			[name]: value,
+			title: title,
+			contactId: currentUser.id,
+		})
+	}
 
-        async function addNewPost() {
-            const options = {
-                method: 'POST',
-                body: JSON.stringify(newPost),
-                headers: {
-                    'Content-type': 'application/json',
-                },
-            }
+	function handleSubmit(e) {
+		e.preventDefault()
 
-            const response = await fetch('https://boolean-api-server.fly.dev/PerikK/post', options)
-            const data = await response.json()
+		async function addNewPost() {
+			const options = {
+				method: "POST",
+				body: JSON.stringify(newPost),
+				headers: {
+					"Content-type": "application/json",
+				},
+			}
 
-            setPostData([
-                ...postData,
-                data
-            ])
-        }
+			const response = await fetch(
+				"https://boolean-api-server.fly.dev/PerikK/post",
+				options
+			)
+			const data = await response.json()
 
-        addNewPost()
-        
-        setNewPost({
-            title: '',
-            content: '',
-            contactId: 0
-        })
-    }
+			setPostData([...postData, data])
+		}
 
-    return (
-        <form className="new-post-form" onSubmit={handleSubmit} >
-            <input type="text" placeholder="What's on your mind?" name="content" onChange={handleChange} value={newPost.content}/>
-            <button className="post-button">Post</button>
-        </form>
-    )
+		addNewPost()
+
+		setNewPost({
+			title: "",
+			content: "",
+			contactId: 0,
+		})
+	}
+
+	return (
+		<form className='new-post-form' onSubmit={handleSubmit}>
+			<input
+				type='text'
+				placeholder="What's on your mind?"
+				name='content'
+				onChange={handleChange}
+				value={newPost.content}
+			/>
+			<button className='post-button'>Post</button>
+		</form>
+	)
 }
