@@ -2,20 +2,26 @@ import { Link } from "react-router-dom";
 import useUsers from "../hooks/useUsers";
 
 
-export default function Avatar({ userId, handleAvatarClick }) {
+export default function Avatar({ userId =2, handleAvatarClick }) {
   const {users} = useUsers()
   
   if (!users) {
     return <p>Loading</p>;
   }
+
+  console.log('aaaa', users);
+    if (!Array.isArray(users)) {
+    console.error("Users data is not an array:", users);
+    return <p>Error: Users data is not available</p>;
+  }
   
   const currentUser = users.find(user => user.id === userId);
   
+
   if (!currentUser) {
     return <p>User not found</p>; 
   }
-  //   console.log('from-Ava', currentUser);
-  // console.log('from-Ava',users);
+
   
   return (
     <Link to={`/user/${currentUser.id}`}onClick={handleAvatarClick}>

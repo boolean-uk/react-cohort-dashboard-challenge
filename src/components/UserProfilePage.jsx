@@ -4,7 +4,7 @@ import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
 export default function UserProfilePage() {
-	const { currentUser, setCurrentUser } = useUsers({
+	const { currentUser, setCurrentUser, setUsers } = useUsers({
 		firstName: "",
 		lastName: "",
 		gender: "",
@@ -72,7 +72,14 @@ export default function UserProfilePage() {
 			.then((response) => response.json())
 			.then((updatedUser) => {
 				setCurrentUser(updatedUser)
-				// setUser(updatedUser)
+				setUsers((prevUsers) => {
+					return prevUsers.map(user => {
+						if (user.id === updatedUser.id) {
+							return updatedUser
+						}
+						return user
+					})
+				})
 			})
 	}
 
