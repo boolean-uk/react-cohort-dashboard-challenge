@@ -10,7 +10,7 @@ export default function NewPost() {
 	const [newPost, setNewPost] = useState({
 		title: "",
 		content: "",
-		contactId: 0,
+		contactId: 2,
 	})
 
 	function handleChange(e) {
@@ -21,7 +21,7 @@ export default function NewPost() {
 			...newPost,
 			[name]: value,
 			title: title,
-			contactId: currentUser.id,
+			contactId: 2,
 		})
 	}
 
@@ -43,7 +43,7 @@ export default function NewPost() {
 			)
 			const data = await response.json()
 
-			setPostData([...postData, data])
+			setPosts([...posts, data])
 		}
 
 		addNewPost()
@@ -51,7 +51,7 @@ export default function NewPost() {
 		setNewPost({
 			title: "",
 			content: "",
-			contactId: 0,
+			contactId: 2,
 		})
 	}
 
