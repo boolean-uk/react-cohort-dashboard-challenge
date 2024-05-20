@@ -4,24 +4,23 @@ import usePosts from "../hooks/usePosts"
 import Avatar from "./Avatar"
 
 export default function NewPost() {
-	const { user, currentUser } = useUsers
 	const { posts, setPosts } = usePosts()
 
 	const [newPost, setNewPost] = useState({
 		title: "",
 		content: "",
-		contactId: 2,
+		contactId: 1,
 	})
 
 	function handleChange(e) {
 		const { name, value } = e.target
-		const title = value.split(" ").slice(0, 5).join(" ")
+		const title = value.split(" ").slice(0, 4).join(" ")
 
 		setNewPost({
 			...newPost,
 			[name]: value,
 			title: title,
-			contactId: 2,
+			contactId: 1,
 		})
 	}
 
@@ -51,7 +50,7 @@ export default function NewPost() {
 		setNewPost({
 			title: "",
 			content: "",
-			contactId: 2,
+			contactId: 1,
 		})
 	}
 

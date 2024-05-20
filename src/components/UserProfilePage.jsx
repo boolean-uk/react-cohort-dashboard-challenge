@@ -47,7 +47,7 @@ export default function UserProfilePage() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		fetch(`https://boolean-api-server.fly.dev/PerikK/contact/2`, {
+		fetch(`https://boolean-api-server.fly.dev/PerikK/contact/${id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
@@ -99,11 +99,11 @@ export default function UserProfilePage() {
 										value={currentUser.firstName || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -114,11 +114,11 @@ export default function UserProfilePage() {
 										value={currentUser.lastName || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -135,11 +135,11 @@ export default function UserProfilePage() {
 										}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -150,11 +150,11 @@ export default function UserProfilePage() {
 										value={currentUser.gender || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 							</div>
@@ -172,11 +172,11 @@ export default function UserProfilePage() {
 										value={currentUser.street || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -187,11 +187,11 @@ export default function UserProfilePage() {
 										value={currentUser.city || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -202,11 +202,11 @@ export default function UserProfilePage() {
 										value={currentUser.latitude || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -217,11 +217,11 @@ export default function UserProfilePage() {
 										value={currentUser.longitude || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 							</div>
@@ -241,11 +241,11 @@ export default function UserProfilePage() {
 										value={currentUser.email || ""}
 										onChange={handleChange}
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 							</div>
@@ -265,11 +265,11 @@ export default function UserProfilePage() {
 										value={currentUser.jobTitle || ""}
 										onChange={handleChange}										
 										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
-											currentUser.id !== 2
+											currentUser.id !== 1
 												? "cursor-not-allowed opacity-50"
 												: ""
 										}`}
-										disabled={currentUser.id !== 2}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 								<label>
@@ -277,9 +277,14 @@ export default function UserProfilePage() {
 									<input
 										type='text'
 										name='favouriteColour'
-										value={currentUser.favouriteColour || ""}
+										value={currentUser.favouriteColour || ""}									
 										onChange={handleChange}
-										className='mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm '
+										className={`mt-1 block w-full px-3 py-2 bg-[#e6ebf5] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#000046] focus:border-indigo-500 sm:text-sm ${
+											currentUser.id !== 1
+												? "cursor-not-allowed opacity-50"
+												: ""
+										}`}
+										disabled={currentUser.id !== 1}
 									/>
 								</label>
 							</div>
@@ -289,11 +294,11 @@ export default function UserProfilePage() {
 							<button
 								type='submit'
 								className={`inline-flex justify-center py-3 px-14 border border-transparent shadow-sm text-lg font-medium rounded-md ${
-									currentUser.id !== 2
+									currentUser.id !== 1
 										? "bg-gray-200 text-gray-500 cursor-not-allowed"
 										: "text-white bg-[#000046] hover:bg-[#64dc78]"
 								} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#64dc78]'`}
-								disabled={currentUser.id !== 2}
+								disabled={currentUser.id !== 1}
 							>
 								Save
 							</button>

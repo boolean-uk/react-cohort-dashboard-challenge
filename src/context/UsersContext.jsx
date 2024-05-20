@@ -22,7 +22,7 @@ function UsersProvider({ children }) {
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
-        const currUser = data.find((user) => user.id === 2);
+        const currUser = data.find((user) => user.id === 1);
         setCurrentUser(currUser || {}); 
       });
   }, [ ]);
@@ -31,8 +31,8 @@ function UsersProvider({ children }) {
     return <p>Loading...</p>
   }
 
-  console.log('from-cntxt', currentUser);
-  console.log('from-cntxt',users);
+  // console.log('from-cntxt', currentUser);
+  // console.log('from-cntxt',users);
 
 	const value = {
 		users,

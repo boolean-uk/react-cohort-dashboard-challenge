@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import useUsers from "../hooks/useUsers"
 
-export default function Avatar({ userId = 2, handleAvatarClick }) {
+export default function Avatar({ userId, handleAvatarClick }) {
 	const { users } = useUsers()
 
 	if (!users) {

@@ -1,7 +1,7 @@
 import Avatar from "./Avatar";
 
 export default function AddComment() {
-  const userId=2
+  const userId=1
   return (
     <div className="flex items-center">
       
