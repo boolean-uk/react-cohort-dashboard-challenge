@@ -31,7 +31,7 @@ function UsersProvider({ children }) {
     return <p>Loading...</p>
   }
 
-  // console.log('from-cntxt', currentUser);
+  console.log('from-cntxt', currentUser);
   // console.log('from-cntxt',users);
 
 	const value = {

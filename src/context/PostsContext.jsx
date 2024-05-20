@@ -15,7 +15,7 @@ function PostsProvider({ children }) {
     posts,
     setPosts,
   };
-  // console.log('in-p-cntxt',posts);
+
 
   return (
     <PostsContext.Provider value={value}>{children}</PostsContext.Provider>

@@ -13,7 +13,7 @@ export default function Comment({ comment }) {
 			)
 			setUser(foundUser)
 		}
-	}, [users, comment.contactId])
+	}, [ ])
 
 	if (!user || !user.firstName) return null
 

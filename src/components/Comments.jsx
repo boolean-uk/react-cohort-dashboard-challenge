@@ -30,7 +30,7 @@ export default function Comments({ post }) {
 					)
 				})}
 			</ul>
-			<AddComment />
+			<AddComment post={post} comments={comments} setComments={setComments} />
 		</>
 	)
 }

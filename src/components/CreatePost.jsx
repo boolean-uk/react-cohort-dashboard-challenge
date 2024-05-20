@@ -1,14 +1,16 @@
 import { useState } from "react"
 import usePosts from "../hooks/usePosts"
+import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
 
 export default function CreatePost() {
+	const {currentUser} = useUsers()
 	const { posts, setPosts } = usePosts()
 	const [newPost, setNewPost] = useState({
 		title: "",
 		content: "",
-		contactId: 1,
+		contactId: currentUser.id,
 	})
 
 	if (!posts) {
@@ -24,7 +26,7 @@ export default function CreatePost() {
 			...newPost,
 			content: value,
 			title: title,
-			contactId: 1,
+			contactId: currentUser.id,
 		})
 	}
 
