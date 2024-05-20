@@ -4,6 +4,7 @@ import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
 export default function UserProfilePage() {
+	const { id } = useParams()
 	const { currentUser, setCurrentUser, setUsers } = useUsers({
 		firstName: "",
 		lastName: "",
@@ -15,7 +16,7 @@ export default function UserProfilePage() {
 		favouriteColour: "",
 		profileImage: "",
 	})
-	const { id } = useParams()
+	
 
 	useEffect(() => {
 		fetch(`https://boolean-api-server.fly.dev/PerikK/contact/${id}`)

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Avatar from "./Avatar"
 import Comments from "./Comments"
 
@@ -23,7 +24,9 @@ export default function Post({ post, posterId }) {
 				<Avatar userId={posterId} />
 				<div>
 					<p>{`${poster.firstName} ${poster.lastName} `}</p>
-					<p className=' text-sm text-[#000046] '>{post.title}</p>
+					<Link to={`/post/${post.id}`}>
+					<p className=' text-sm text-[#000046] hover:text-slate-400 '>{post.title}</p>
+					</Link>
 				</div>
 			</div>
 			<p>{post.content}</p>

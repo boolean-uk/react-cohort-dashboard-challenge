@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom"
+import { UsersProvider } from "./context/UsersContext"
+import { PostsProvider } from "./context/PostsContext"
 import Header from "./components/Header"
 import SideBar from "./components/SideBar"
 import Main from "./components/Main"
 import UserProfilePage from "./components/UserProfilePage"
-import { UsersProvider } from "./context/UsersContext"
-import { PostsProvider } from "./context/PostsContext"
+import SinglePostPage from "./components/SinglePostPage"
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 									path='/user/:id'
 									element={<UserProfilePage />}
 								/>
+								<Route path="/post/:id" element={<SinglePostPage/>}/>
 							</Routes>
 						</main>
 					</div>
