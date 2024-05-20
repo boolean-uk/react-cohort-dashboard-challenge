@@ -118,7 +118,7 @@ main {
             border: 1px solid black;
             border-radius: var(--avatar-radius);
             padding: var(--avatar-padding);
-            background: yellow;
+            background: #64DC78;
         }
         #post-input{
             width: 100%;
@@ -201,7 +201,7 @@ main {
             border: 1px solid black;
             border-radius: var(--avatar-radius);
             padding: var(--avatar-padding);
-            background: yellow; 
+            background: #64DC78;; 
         }
         .comment-input{
             width: 100%;

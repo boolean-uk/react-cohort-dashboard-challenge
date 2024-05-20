@@ -1,15 +1,19 @@
 import Header from "./Header"
-import { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { MyContext } from "./MyContext"
 
-export default function loginForm({ handleSubmit }) {
+// import { Link } from 'react-router-dom'
 
-    const { loginDetails, setLoginDetail } =useContext(MyContext)
+
+export default function loginForm({ handleLogin }) {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+
+    const [loginDetails, setLoginDetails] = useState('')
+
     const handleChange = (e) => {
         const { name, value } = e.target
+        console.log(name)
 
-        setLoginDetail({
+        setLoginDetails({
             ...loginDetails,
             [name]: value
         })
@@ -28,7 +32,7 @@ export default function loginForm({ handleSubmit }) {
                 <input 
                     onChange={handleChange} id="lastName-input" type="text" required="true" name='lastName' placeholder="Enter your last name" value=''
                 />
-                <button type='submit' onSubmit={handleSubmit}>Submit</button>
+                <button type='submit' onSubmit={handleLogin}>Submit</button>
             </form>
         </>
 
