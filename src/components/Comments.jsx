@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react"
 import Comment from "./Comment"
-import Avatar from "./Avatar"
-import useUsers from "../hooks/useUsers"
 import AddComment from "./AddComment"
 
 export default function Comments({ post }) {
-	const { currentUser, users } = useUsers()
 	const [comments, setComments] = useState([])
 
 	useEffect(() => {
@@ -20,17 +17,14 @@ export default function Comments({ post }) {
 		<>
 			<ul className='flex flex-col gap-2 m-1'>
 				{comments.map((comment) => {
-					return (
-						<Comment
-							key={comment.id}
-							comment={comment}
-							post={post}
-							setComments={setComments}
-						/>
-					)
+					return <Comment key={comment.id} comment={comment} />
 				})}
 			</ul>
-			<AddComment post={post} comments={comments} setComments={setComments} />
+			<AddComment
+				post={post}
+				comments={comments}
+				setComments={setComments}
+			/>
 		</>
 	)
 }

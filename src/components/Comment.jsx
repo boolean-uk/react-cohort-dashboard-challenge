@@ -4,7 +4,7 @@ import useUsers from "../hooks/useUsers"
 
 export default function Comment({ comment }) {
 	const [user, setUser] = useState()
-	const { currentUser, users } = useUsers()
+	const {users} = useUsers()
 
 	useEffect(() => {
 		if (users) {
@@ -13,7 +13,7 @@ export default function Comment({ comment }) {
 			)
 			setUser(foundUser)
 		}
-	}, [ ])
+	}, [users, comment.contactId])
 
 	if (!user || !user.firstName) return null
 

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Avatar from "./Avatar"
 import useUsers from "../hooks/useUsers"
+import Avatar from "./Avatar"
 
 export default function AddComment({ post, comments, setComments }) {
 	const { currentUser } = useUsers()
@@ -20,8 +20,6 @@ export default function AddComment({ post, comments, setComments }) {
 			content: value,
 		})
 	}
-
-	console.log("com", currentUser.id, post.id)
 
 	async function handleSubmit(e) {
 		e.preventDefault()
@@ -45,28 +43,30 @@ export default function AddComment({ post, comments, setComments }) {
 
 			setNewComment({
 				title: "",
-				content: "",
 				contactId: 1,
+				content: "",
 			})
 		} catch (error) {
-			console.error("Error adding post:", error)
+			console.error("Errort:", error)
 		}
 	}
 
 	return (
 		<div className='flex items-center'>
-      <Avatar userId={currentUser.id} />
-      <form onSubmit={handleSubmit} className='flex flex-row flex-nowrap bg-[#fff] rounded-md my-6 size-full hover:border-[#000046]'>
-
-			<input
-				type='text'
-				name='content'
-				onChange={handleChange}
-				value={newComment.content}
-				placeholder='Add a comment...'
-				className='border-2 rounded-md bg-[#e6ebf5] w-full h-16 my-5 px-5'
-        />
-        </form>
+			<Avatar userId={currentUser.id} />
+			<form
+				onSubmit={handleSubmit}
+				className='flex flex-row flex-nowrap bg-[#fff] rounded-md my-6 size-full hover:border-[#000046]'
+			>
+				<input
+					type='text'
+					name='content'
+					onChange={handleChange}
+					value={newComment.content}
+					placeholder='Add a comment...'
+					className='border-2 rounded-md bg-[#e6ebf5] w-full h-16 my-5 px-5'
+				/>
+			</form>
 		</div>
 	)
 }

@@ -15,8 +15,7 @@ export default function SinglePostPage() {
     
     const postToDisplay = posts.find((post) => post.id === Number(id))
     const poster = users.find((user)=> user.id === postToDisplay.contactId )
-    console.log(postToDisplay);
-    console.log(typeof(postToDisplay.contactId));
+
 
 	return (
         <div className="flex flex-col mx-16 my-10 p-10 bg-white">

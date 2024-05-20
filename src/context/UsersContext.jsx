@@ -11,11 +11,6 @@ function UsersProvider({ children }) {
   const [users, setUsers] = useState(null)
   const [currentUser, setCurrentUser] = useState(null)
 
-	// useEffect(() => {
-	// 	fetch("https://boolean-api-server.fly.dev/PerikK/contact/")
-	// 		.then((response) => response.json())
-  //     .then(setUsers)
-  // }, [])
   
     useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/PerikK/contact/")
@@ -31,8 +26,6 @@ function UsersProvider({ children }) {
     return <p>Loading...</p>
   }
 
-  console.log('from-cntxt', currentUser);
-  // console.log('from-cntxt',users);
 
 	const value = {
 		users,

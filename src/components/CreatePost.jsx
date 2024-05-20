@@ -16,7 +16,7 @@ export default function CreatePost() {
 	if (!posts) {
 		return <p>Loading</p>
 	}
-	const userId = 1
+
 
 	function handleChange(e) {
 		const { value } = e.target
@@ -50,10 +50,10 @@ export default function CreatePost() {
       setNewPost({
         title: "",
         content: "",
-        contactId: 1,
+        contactId: currentUser.id,
       });
     } catch (error) {
-      console.error("Error adding post:", error);
+      console.error("Error:", error);
     }
   }
 
@@ -61,7 +61,7 @@ export default function CreatePost() {
 		<div className='flex flex-row flex-nowrap bg-[#fff] border border-stone-400 rounded-md my-6 py-4 size-full px-6   '>
 
 			<div className="m-2">
-			<Avatar userId={userId}/>
+			<Avatar userId={currentUser.id}/>
 			</div>
 
 

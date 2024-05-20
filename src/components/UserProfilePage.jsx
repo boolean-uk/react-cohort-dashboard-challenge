@@ -39,7 +39,7 @@ export default function UserProfilePage() {
 			.catch((error) => {
 				console.error("Error fetching user data:", error)
 			})
-	}, [])
+	}, [id, setCurrentUser])
 
 	const handleChange = (e) => {
 		const { name, value } = e.target
@@ -69,7 +69,7 @@ export default function UserProfilePage() {
 			})
 	}
 
-	console.log(currentUser.firstName[0], currentUser.lastName)
+
 	return (
 		<div className='bg-[#F0F5FA]'>
 			<h1 className='text-3xl font-semibold py-5 px-10'>Profile</h1>
