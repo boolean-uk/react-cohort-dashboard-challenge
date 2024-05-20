@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom"
 import { useState } from "react"
 import usePosts from "../hooks/usePosts"
 import Avatar from "./Avatar"
-import useUsers from "../hooks/useUsers"
+
 
 export default function CreatePost() {
-	const { currentUser } = useUsers()
 	const { posts, setPosts } = usePosts()
 	const [newPost, setNewPost] = useState({
 		title: "",
@@ -19,54 +17,55 @@ export default function CreatePost() {
 	const userId = 1
 
 	function handleChange(e) {
-		const { name, value } = e.target
-		const title = value.split(" ").slice(0, 4).join(" ")
+		const { value } = e.target
+		const title = value.split(" ").slice(0, 6).join(" ")
 
 		setNewPost({
 			...newPost,
-			[name]: value,
+			content: value,
 			title: title,
 			contactId: 1,
 		})
 	}
 
-	function handleSubmit(e) {
-		e.preventDefault()
+	async function handleSubmit(e) {
+    e.preventDefault();
 
-		async function addNewPost() {
-			const options = {
-				method: "POST",
-				body: JSON.stringify(newPost),
-				headers: {
-					"Content-type": "application/json",
-				},
-			}
+    const options = {
+      method: "POST",
+      body: JSON.stringify(newPost),
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
 
-			const response = await fetch(
-				"https://boolean-api-server.fly.dev/PerikK/post",
-				options
-			)
-			const data = await response.json()
+    try {
+      const response = await fetch("https://boolean-api-server.fly.dev/PerikK/post", options);
+      const data = await response.json();
 
-			setPosts([...posts, data])
-		}
+      setPosts([...posts, data]);
 
-		addNewPost()
-
-		setNewPost({
-			title: "",
-			content: "",
-			contactId: 1,
-		})
-	}
+      setNewPost({
+        title: "",
+        content: "",
+        contactId: 1,
+      });
+    } catch (error) {
+      console.error("Error adding post:", error);
+    }
+  }
 
 	return (
-		<div className='flex flex-row flex-nowrap border border-stone-400 rounded-md my-2 py-4 size-full px-6 items-center  '>
-			<Avatar userId={userId} />
+		<div className='flex flex-row flex-nowrap bg-[#fff] border border-stone-400 rounded-md my-6 py-4 size-full px-6   '>
+
+			<div className="m-2">
+			<Avatar userId={userId}/>
+			</div>
+
 
 			<form
 				onSubmit={handleSubmit}
-				className='flex flex-grow justify-between ml-5 '
+				className='flex flex-grow  '
 			>
 				<input
 					type='text'
@@ -74,10 +73,10 @@ export default function CreatePost() {
 					name='content'
 					onChange={handleChange}
 					value={newPost.content}
-					className='border-2 bg-[#e6ebf5] w-4/5 p-3 h-full hover:border-[#000046]'
+					className='border-2 basis-4/4 bg-[#e6ebf5] w-10/12 p-3 h-full hover:border-[#000046]'
 				/>
 
-				<button className='inline-flex justify-center py-3 px-14 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#000046] hover:bg-[#64dc78]'>
+				<button className='inline-flex justify-center py-3 px-14 ml-20 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#000046] hover:bg-[#64dc78]'>
 					Post
 				</button>
 			</form>

@@ -4,16 +4,16 @@ import Profile_icon from "../assets/Profile_icon.svg"
 export default function SideBar() {
 	return (
 		// <nav className='flex flex-col w-28 h-full'>
-		<nav className='flex size-full flex-col justify-start items-center border-2 '>
-			<Link to={"/"}>
-				<button className='p-7 grid place-items-center w-max pr-18 focus:bg-[#e6ebf5]'>
-					<img src={Home_icon} className='h-6 mb-2' />
+		<nav className='flex size-full flex-col items-center gap-2 pt-6 bg-[#fff] border-2 '>
+			<Link to={"/"} className="w-full"  >
+				<button className=' grid place-items-center w-full mt-4 p-8 hover:bg-[#e6ebf5] focus:bg-[#e6ebf5]'>
+					<img src={Home_icon} className='h-10' />
 					<p className='text-cohortBlue font-medium'>Home</p>
 				</button>
 			</Link>
-			<Link to={"/profile/1"}>
-				<button className='p-7 grid place-items-center w-max focus:bg-[#e6ebf5]'>
-					<img src={Profile_icon} className='h-6 mb-2' />
+			<Link to={"/user/1"} className="w-full" >
+				<button className='p-7 grid place-items-center w-full hover:bg-[#e6ebf5] focus:bg-[#e6ebf5]'>
+					<img src={Profile_icon} className='h-10 mb-2' />
 					<p className='text-cohortBlue font-medium'>Profile</p>
 				</button>
 			</Link>

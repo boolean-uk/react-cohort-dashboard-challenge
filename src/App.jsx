@@ -6,7 +6,7 @@ import Main from "./components/Main"
 import UserProfilePage from "./components/UserProfilePage"
 import { UsersProvider } from "./context/UsersContext"
 import { PostsProvider } from "./context/PostsContext"
-import NewPost from "./components/NewPost"
+// import NewPost from "./components/NewPost"
 
 function App() {
 	return (
@@ -25,7 +25,7 @@ function App() {
 									path='/user/:id'
 									element={<UserProfilePage />}
 								/>
-								<Route path='/newPost' element={<NewPost />} />
+								{/* <Route path='/newPost' element={<NewPost />} /> */}
 							</Routes>
 						</main>
 					</div>

@@ -18,7 +18,7 @@ export default function Post({ post, posterId }) {
 	if (!poster || !poster.firstName) return null
 
 	return (
-		<li className='rounded-md border border-stone-400 px-4 py-2'>
+		<li className='rounded-md bg-[#fff] border border-stone-400 px-4 py-2'>
 			<div className='flex items-center justify-start px-6  h-20 '>
 				<Avatar userId={posterId} />
 				<div>
