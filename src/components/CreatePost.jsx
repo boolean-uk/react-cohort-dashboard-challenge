@@ -3,9 +3,8 @@ import usePosts from "../hooks/usePosts"
 import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
-
 export default function CreatePost() {
-	const {currentUser} = useUsers()
+	const { currentUser } = useUsers()
 	const { posts, setPosts } = usePosts()
 	const [newPost, setNewPost] = useState({
 		title: "",
@@ -16,7 +15,6 @@ export default function CreatePost() {
 	if (!posts) {
 		return <p>Loading</p>
 	}
-
 
 	function handleChange(e) {
 		const { value } = e.target
@@ -30,45 +28,37 @@ export default function CreatePost() {
 		})
 	}
 
-	async function handleSubmit(e) {
-    e.preventDefault();
+	function handleSubmit(e) {
+		e.preventDefault()
+		if(!newPost.content){return}
 
-    const options = {
-      method: "POST",
-      body: JSON.stringify(newPost),
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+		fetch("https://boolean-api-server.fly.dev/PerikK/post", {
+			method: "POST",
+			body: JSON.stringify(newPost),
+			headers: {
+				"Content-type": "application/json",
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setPosts([...posts, data])
 
-    try {
-      const response = await fetch("https://boolean-api-server.fly.dev/PerikK/post", options);
-      const data = await response.json();
-
-      setPosts([...posts, data]);
-
-      setNewPost({
-        title: "",
-        content: "",
-        contactId: currentUser.id,
-      });
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
+				setNewPost({
+					title: "",
+					content: "",
+					contactId: currentUser.id,
+				})
+			})
+			.catch((error) => console.error("Error:", error))
+	}
 
 	return (
 		<div className='flex flex-row flex-nowrap bg-[#fff] border border-stone-400 rounded-md my-6 py-4 size-full px-6   '>
-
-			<div className="m-2">
-			<Avatar userId={currentUser.id}/>
+			<div className='m-2'>
+				<Avatar userId={currentUser.id} />
 			</div>
 
-
-			<form
-				onSubmit={handleSubmit}
-				className='flex flex-grow  '
-			>
+			<form onSubmit={handleSubmit} className='flex flex-grow  '>
 				<input
 					type='text'
 					placeholder="What's on your mind?"

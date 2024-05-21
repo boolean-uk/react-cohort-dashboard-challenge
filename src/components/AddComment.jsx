@@ -2,7 +2,7 @@ import { useState } from "react"
 import useUsers from "../hooks/useUsers"
 import Avatar from "./Avatar"
 
-export default function AddComment({ post, comments, setComments }) {
+export default function AddComment({ post, setComments }) {
 	const { currentUser } = useUsers()
 	const [newComment, setNewComment] = useState({
 		postId: post.id,
@@ -21,34 +21,38 @@ export default function AddComment({ post, comments, setComments }) {
 		})
 	}
 
-	async function handleSubmit(e) {
+	function handleSubmit(e) {
 		e.preventDefault()
+		if(!newComment.content){return}
+		fetch(
+			`https://boolean-api-server.fly.dev/PerikK/post/${post.id}/comment`,
+			{
+				method: "POST",
+				body: JSON.stringify(newComment),
+				headers: {
+					"Content-type": "application/json",
+				},
+			}
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				setComments((prevComments) => [...prevComments, data])
 
-		const options = {
-			method: "POST",
-			body: JSON.stringify(newComment),
-			headers: {
-				"Content-type": "application/json",
-			},
-		}
+				const storedComments =
+					JSON.parse(localStorage.getItem(`comments_${post.id}`)) ||
+					[]
+				localStorage.setItem(
+					`comments_${post.id}`,
+					JSON.stringify([...storedComments, data])
+				)
 
-		try {
-			const response = await fetch(
-				`https://boolean-api-server.fly.dev/PerikK/post/${post.id}/comment`,
-				options
-			)
-			const data = await response.json()
-
-			setComments([...comments, data])
-
-			setNewComment({
-				title: "",
-				contactId: 1,
-				content: "",
+				setNewComment({
+					postId: post.id,
+					contactId: currentUser.id,
+					content: "",
+				})
 			})
-		} catch (error) {
-			console.error("Errort:", error)
-		}
+			.catch((error) => console.error("Error:", error))
 	}
 
 	return (
