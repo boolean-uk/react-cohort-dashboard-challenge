@@ -1,0 +1,12 @@
+- App
+  - Header
+  - PostList
+    - Post
+      - AuthorInfo
+      - PostContent
+      - CommentList
+        - Comment
+          - AuthorInfo
+          - CommentContent
+      - CreateComment
+  - CreatePost
