@@ -9,7 +9,7 @@
     font-style: normal;
     --avatar-radius: 50%;
     --avatar-padding: 10px;
-    --radius: 0.5em
+    --radius: 0.5em;
 }
 /* .mulish-uniquifier {
     font-family: "Mulish", sans-serif;
@@ -21,7 +21,7 @@
 
 body #root {
     display: grid;
-    min-height: 100svh;
+    min-height: 100vh;
     grid-template-areas: 
         'header header'
         'sidebar main'
@@ -64,6 +64,10 @@ section {
     flex-direction: column;
     align-items: flex-start;
     color: #010146;
+
+    div p{
+        text-decoration: none;
+    }
     
     div:first-child {
         background-color: #e8edf8;
@@ -236,4 +240,47 @@ main {
 }
 input:hover {
     opacity: 70%;
+}
+
+.container{
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+}
+.header-profile{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 25px;
+}
+.profile-form div{
+    display: grid;
+    flex: 450px;
+    padding-bottom: 30px;
+    align-items: start;
+}
+.container input{
+    height: 35px;
+    background: #e6ebf5;
+    border-radius: 5px;
+    border: none;
+}
+.container label{
+    margin: 30px 0px 0px 10px;
+    opacity: 85%;
+}
+form h2{
+    margin-top: 15px;
+}
+hr{
+    opacity: 20%;
 }

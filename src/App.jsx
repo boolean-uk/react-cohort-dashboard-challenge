@@ -5,6 +5,7 @@ import AllPost from '../components/AllPost.jsx'
 // import LoginForm from '../components/LoginForm.jsx'
 import { MyContext } from '../components/MyContext.jsx'
 import { Routes, Route } from 'react-router-dom'
+import Profile from '../components/Profile.jsx'
 import './App.css'
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
                 {/* <Route path='/' element={<LoginForm handleSubmit={handleSubmit} />} /> */}
 
                 <Route path='/' element={<AllPost />} />
+                <Route path='/profile' element={<Profile />} />
 
             </ Routes>
             <Sidebar />
