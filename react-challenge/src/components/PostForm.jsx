@@ -1,6 +1,3 @@
-
-import './PostForm.css'
-
 function PostForm() {
   return (
     <div className="post-form">

@@ -1,5 +1,4 @@
 import React from 'react';
-import './Comment.css';
 
 function Comment({ user, content }) {
   return (
@@ -13,4 +12,5 @@ function Comment({ user, content }) {
   );
 }
 
-export default Comment;
+export default Comment
+

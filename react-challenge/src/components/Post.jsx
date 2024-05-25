@@ -1,5 +1,6 @@
+// Post.jsx
+
 import React from 'react';
-import './Post.css';
 import CommentSection from './CommentSection';
 
 function Post({ user, content, children }) {

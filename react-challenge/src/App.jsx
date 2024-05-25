@@ -1,5 +1,8 @@
+// App.jsx
+
 import './App.css';
-import { BrowserRouter } from "react-router-dom"
+import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 import PostForm from './components/PostForm';
 import Post from './components/Post';
 import CommentSection from './components/CommentSection';
@@ -33,7 +36,7 @@ function App() {
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
