@@ -57,7 +57,7 @@ export default function AddComment({ post, setComments }) {
 
 	return (
 		<div className='flex items-center'>
-			<Avatar userId={currentUser.id} />
+			<Avatar userId={1} />
 			<form
 				onSubmit={handleSubmit}
 				className='flex flex-row flex-nowrap bg-[#fff] rounded-md my-6 size-full hover:border-[#000046]'

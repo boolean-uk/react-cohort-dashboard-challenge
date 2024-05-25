@@ -26,7 +26,7 @@ function UsersProvider({ children }) {
     return <p>Loading...</p>
   }
 
-
+console.log(currentUser);
 	const value = {
 		users,
     setUsers,

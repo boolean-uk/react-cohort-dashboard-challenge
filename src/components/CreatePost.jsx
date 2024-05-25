@@ -18,7 +18,7 @@ export default function CreatePost() {
 
 	function handleChange(e) {
 		const { value } = e.target
-		const title = value.split(" ").slice(0, 6).join(" ")
+		const title = value.split(" ").slice(0, 5).join(" ")
 
 		setNewPost({
 			...newPost,
@@ -55,7 +55,7 @@ export default function CreatePost() {
 	return (
 		<div className='flex flex-row flex-nowrap bg-[#fff] border border-stone-400 rounded-md my-6 py-4 size-full px-6   '>
 			<div className='m-2'>
-				<Avatar userId={currentUser.id} />
+				<Avatar userId={1} />
 			</div>
 
 			<form onSubmit={handleSubmit} className='flex flex-grow  '>

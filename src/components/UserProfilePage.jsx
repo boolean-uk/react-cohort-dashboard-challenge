@@ -43,7 +43,7 @@ export default function UserProfilePage() {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target
-		setCurrentUser({ ...currentUser, [name]: value })
+		// setCurrentUser({ ...currentUser, [name]: value })
 	}
 
 	const handleSubmit = (e) => {
