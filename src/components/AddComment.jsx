@@ -48,7 +48,7 @@ export default function AddComment({ post, setComments }) {
 
 				setNewComment({
 					postId: post.id,
-					contactId: currentUser.id,
+					contactId: currentUser,
 					content: "",
 				})
 			})
