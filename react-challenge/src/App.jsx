@@ -1,12 +1,8 @@
-// App.jsx
-
-import './App.css';
-import React from 'react';
-import { BrowserRouter } from "react-router-dom";
-import PostForm from './components/PostForm';
-import Post from './components/Post';
-import CommentSection from './components/CommentSection';
-import Comment from './components/Comment';
+import './App.css'
+import PostForm from './components/PostForm'
+import Post from './components/Post'
+import CommentSection from './components/CommentSection'
+import Comment from './components/Comment'
 
 function App() {
   return (
