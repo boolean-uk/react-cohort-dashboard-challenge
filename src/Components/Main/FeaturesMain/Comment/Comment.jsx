@@ -65,7 +65,7 @@ export default function Comment(props) {
             <div className='comment-form'>
                 <ProfilePicture />
                 <form onSubmit={handleSubmit}>
-                    <input type ="text" placeholder='Comment Here!' name='comment' value={formState.comment} onChange={handleChange}/>
+                    <input type ="text" placeholder='Add a comment!' name='comment' value={formState.comment} onChange={handleChange}/>
                     <button type="submit">
                         {'>'}
                     </button>

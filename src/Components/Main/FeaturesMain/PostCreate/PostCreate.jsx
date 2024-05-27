@@ -57,11 +57,9 @@ export default function PostCreate() {
 
             {/* Rendering the form for creating a new post */}
             <form onSubmit={handleSubmit}>
-                {/* Input field for entering post title */}
-                <input type="text" name="title" placeholder="Title" value={formState.title} onChange={handleChange}/>
                 
                 {/* Textarea for entering post content */}
-                <textarea placeholder="Create your post!" name="content" value={formState.content} onChange={handleChange}/>
+                <textarea placeholder="Whats on your mind?" name="content" value={formState.content} onChange={handleChange}/>
                 
                 {/* Submit button */}
                 <button type="submit">Post</button>
