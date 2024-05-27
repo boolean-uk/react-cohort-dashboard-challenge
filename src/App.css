@@ -1,0 +1,219 @@
+* {
+  margin: 0px;
+  color: #000046;
+}
+
+#root {
+  background-color: white;
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "sideBar page";
+  height: 100vh;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 100px 1fr;
+}
+
+svg {
+  height: 30px;
+}
+
+header {
+  /* height: 80px; */
+  background-color: #000046;
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  align-items: center;
+  padding-left: 40px;
+  grid-area: header;
+}
+
+#cManager {
+  height: 45px;
+}
+
+.profileCircle {
+  background-color: lightgreen;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  /* color: rgb(0,; */
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+
+#sideBar {
+  background-color: white;
+  grid-area: sideBar;
+}
+
+#sideBar > div {
+  height: 100px;
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+#hIcon {
+  padding-left: 33px;
+  margin-bottom: 5px;
+}
+
+#pIcon {
+  padding-left: 29px;
+  margin-bottom: 5px;
+}
+
+main {
+  background-color: #F0F5FA;
+  grid-area: page;
+  padding: 15px;
+  overflow: scroll;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+#createPostContainer {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+#postForm {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 10px;
+}
+
+.pContainer, #createPostFormContainer {
+  display: inline-block;
+  /* width: 100%; */
+}
+
+input {
+  padding: 10px;
+  background-color: #e6ebf5;
+  border: none;
+  border-radius: 5px;
+  min-height: 25px;
+}
+
+#postSubmitButton {
+  background-color: #000046;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  /* width: 100px */
+}
+
+.postTitleContainer {
+  display: inline-block;
+  padding: 0px 10px 0px;
+  grid-area: user;
+}
+
+a {
+  text-decoration: none;
+  color: #64648c;
+}
+
+h4 {
+  margin-top: 5px;
+  /* padding-top: ; */
+}
+
+.postContentContainer {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-areas: 
+  "icon user"
+  "content content";
+}
+
+.icon {
+  grid-area: icon;
+}
+
+.postText {
+  grid-area: content;
+  padding: 10px 0px;
+}
+
+.addCommentContainer {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.addForm {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  background-color: #e6ebf5;
+  border-radius: 5px;
+
+}
+
+.planeButton {
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  border-radius: 50%;
+  padding-left: 8px;
+  background-color: lightblue;
+  border: none;
+}
+
+.plane {
+  height: 25px;
+}
+
+button:hover {
+  background-color: #64dc78; 
+}
+
+/* .addCommentInput:focus {
+  border: none;
+  background-color: yellow;
+} */
+
+.addCommentInput {
+  margin-right: 5px;
+}
+
+hr {
+  /* border: grey solid 1px */
+  background-color: lightgrey;
+  border: none;
+  height: 1px;
+  margin-bottom: 10px;
+}
+
+.commentContainer {
+  display: grid;
+  grid-template-columns: 50px auto auto;
+  margin: 10px 0px;
+}
+
+.commentContent {
+  /* display: inline-block; */
+  background-color: #e6ebf5;
+  border-radius: 5px;
+  padding: 10px;
+  /* min-width: 50px; */
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.currentPage {
+  background-color: #e6ebf5;
+}
