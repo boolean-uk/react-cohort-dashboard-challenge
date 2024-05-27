@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export default function Commenting({ authorId, body }) {
     const [author , setAuthor] = useState({})
-
+   
    // Using useEffect hook to perform side effects (like data fetching) in function comps
    useEffect(() => {
     // Fetching author data from an API using the provided authorId
@@ -15,7 +15,7 @@ export default function Commenting({ authorId, body }) {
 
     return (
         <li className='comment'>
-            <ProfilePicture author={author} />
+            {author && <ProfilePicture author={author} />}
             <article>
                 <h5>{author.fistName + ' ' + author.lastname}</h5>
                 <p>{body}</p>
@@ -26,5 +26,5 @@ export default function Commenting({ authorId, body }) {
 
 Commenting.propTypes = {
     authorId: PropTypes.number.isRequired,
-    body: PropTypes.string.isRequired
+    body: PropTypes.string
 }

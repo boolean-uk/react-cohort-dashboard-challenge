@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 export default function ProfilePicture({ author }) {
     
     const { user } = useContext(UserContext) //accessing user context and extracting the user object
+    
 
     //render profile picture initials, checking if user object exists and display the initals based from author or user.
     if (user) {
