@@ -6,7 +6,6 @@ import { MyContext } from "../../App";
 import Comments from "../Comments";
 import Post from "../Post";
 import PostForm from "../PostForm";
-import CommentForm from "../CommentForm";
 import "./Home.css";
 
 export default function Home() {
@@ -39,16 +38,6 @@ export default function Home() {
     setPosts([createdPost, ...posts]);
   }
 
-  async function handleNewComment(newComment) {
-    const response = await fetch(`${API_POSTS}/${newComment.postId}/comment`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComment),
-    });
-  }
-
   return (
     <>
       <div className="home-container">
@@ -65,12 +54,6 @@ export default function Home() {
                 <Post post={post} />
                 <div className="comments">
                   <Comments postId={post.id} limit={3} />
-                </div>
-                <div className="comment-form-wrapper">
-                  <CommentForm
-                    postId={post.id}
-                    onSubmitNewComment={handleNewComment}
-                  />
                 </div>
               </div>
             ))}
