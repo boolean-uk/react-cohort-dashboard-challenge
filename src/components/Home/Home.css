@@ -1,0 +1,27 @@
+.home-container {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.9fr;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.new-post-form-wrapper {
+    background-color: none;
+    height: fit-content;
+}
+
+.posts-wrapper {
+    background: none;
+}
+
+.post-wrapper {
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.comment-form-wrapper {
+     padding: 0px;    
+}

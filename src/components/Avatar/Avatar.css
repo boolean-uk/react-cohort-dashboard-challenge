@@ -1,0 +1,11 @@
+.avatar {
+    font-weight: bold;
+    background: none;
+    border-radius: 50%;
+    background-color: aqua;
+    height: 50px;
+    width: 50px;
+    align-content: space-around;
+    text-decoration: none;
+    color: #000;
+}

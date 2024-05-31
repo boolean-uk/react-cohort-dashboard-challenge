@@ -1,0 +1,9 @@
+.comment-wrapper p span {
+    font-size: smaller;
+    color: black;
+    padding-left: 20px;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}

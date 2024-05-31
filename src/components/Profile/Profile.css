@@ -1,0 +1,38 @@
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+
+.profile-form section {
+    padding: 20px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    background-color: #e6ebf5;
+    border: 0px solid #000046;
+    padding: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    outline: none;
+}
+
+form button {
+    background-color: #000046;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #64dc78;
+}
