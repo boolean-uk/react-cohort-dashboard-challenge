@@ -31,7 +31,7 @@ export default function CreatePost ({users, setPosts, posts}) {
                 //     .then(res => res.json())
                 //     .then(data => setPosts(data)))
         
-        setPosts([...posts, {contactId: 1, title: "Added post title", content: newPostValue, id: idNumber}])
+        setPosts([{contactId: 1, title: "Added post title", content: newPostValue, id: idNumber}, ...posts])
         
         setNewPostValue("")
     }

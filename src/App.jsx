@@ -14,7 +14,13 @@ function App() {
   useEffect(() => {
     fetch('https://boolean-uk-api-server.fly.dev/Alistair1080/post')
       .then(res => res.json())
-      .then(data => setPosts(data))
+      .then((data) => {
+        const reversedArray = []
+        data.forEach((post) => {
+          reversedArray.unshift(post)
+        })
+        setPosts(reversedArray)
+      })
   }, [])
 
   useEffect(() => {
