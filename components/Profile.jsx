@@ -3,7 +3,7 @@ export default function profile() {
     return (
 
         <main className="main-profile">
-            <h2>Profile</h2>
+            <h2 className='head'>Profile</h2>
             <div className="container">
                 <div className="header-profile">
                     <div className="user-avatar">ML</div>
@@ -24,7 +24,7 @@ export default function profile() {
                         <label htmlFor="username">
                             Username*
                         </label>
-                        <input id="username" type="text" required='true' name="userName" value='' placeholder="" />
+                        <input id="username" type="text" required='true' name="userName" value='' placeholder="N/A" />
                         <label htmlFor="email">
                             Email*
                         </label>
@@ -34,31 +34,31 @@ export default function profile() {
                         <hr />
                         <h2>Address</h2>
                         <label htmlFor="street">
-                            Street*
+                            Street
                         </label>
                         <input id="street" type="text" name="street" value='' placeholder="" />
                         <label htmlFor="suite">
-                            Suite*
+                            Suite
                         </label>
-                        <input id="suite" type="text" name="suite" value='' placeholder="" />
+                        <input id="suite" type="text" name="suite" value='' placeholder="N/A" />
                         <label htmlFor="city">
-                            City*
+                            City
                         </label>
                         <input id="city" type="text" name="city" value='' placeholder="" />
                         <label htmlFor="zipcode">
-                            Zipcode*
+                            Zipcode
                         </label>
-                        <input id='zip-code' type="number" name="zipCode" value='' placeholder="" />
+                        <input id='zip-code' type="number" name="zipCode" value='' placeholder="N/A" />
                     </div>
                     <div>
-                        <hr />
+                         <hr />
                         <h2>Contact info</h2>
                         <label htmlFor="phone">
                             Phone*
                         </label>
                         <input id="phone" required='true' type="tel" name="phone" value='' placeholder="" />
                         <label htmlFor="website">
-                            Website*
+                            Website
                         </label>
                         <input id="website" type="url" name="website" value='' placeholder="" />
                         <p>*Required</p>
@@ -67,17 +67,17 @@ export default function profile() {
                         <hr />
                         <h2>Company info</h2>
                         <label htmlFor="name">
-                            Name*
+                            Name
                         </label>
-                        <input id="name" type="text" name="name" value='' placeholder="" />
+                        <input id="name" type="text" name="name" value='' placeholder="N/A" />
                         <label htmlFor="catch-phrase">
-                            Catch Phrase*
+                            Catch Phrase
                         </label>
-                        <input id="catch-phrase" type="text" name="catch-phrase" value='' placeholder="" />
+                        <input id="catch-phrase" type="text" name="catch-phrase" value='' placeholder="N/A" />
                         <label htmlFor="business-statement">
-                            Business Statement*
+                            Business Statement
                         </label>
-                        <input id="business-statement" type="text" name="business-statement" value='' placeholder="" />
+                        <input id="business-statement" type="text" name="business-statement" value='' placeholder="N/A" />
                     </div>
                 </form>
             </div>

@@ -156,9 +156,10 @@ main {
         grid-template-areas: 
             'publisher'
             'content'
+            'all-comments'
             'comment'
         ;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: auto;
     }
 
     .post-publisher{
@@ -176,7 +177,7 @@ main {
         div:nth-child(2){
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
 
             p:first-child{
                 font-weight: 750;
@@ -190,12 +191,12 @@ main {
 
     .post-content{
         grid-area: content;
-        margin-top: 5px;
+        margin-top: 20px;
     }
 
     .comment-section{
         grid-area: comment;
-        margin-top: 25px;
+        margin-top: 20px;
         display: flex;
         /* justify-content: space-between; */
         align-items: center;
@@ -210,7 +211,7 @@ main {
         .comment-input{
             width: 100%;
             display: flex;
-            flex-wrap: nowrap;
+            /* flex-wrap: nowrap; */
             justify-content: space-between;
             height: 2.5rem;
             background-color: #e6ebf5;
@@ -231,6 +232,39 @@ main {
             margin: 3px;
         }
         
+    }
+}
+
+.all-comments {
+    margin-top: 35px;
+    grid-area: all-comments;
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    .see-previous {
+        opacity: 70%;
+    }
+}
+
+.all-comments li {
+    display: flex;
+    gap: 10px;
+    .user {
+        align-self: center;
+        border: 1px solid black;
+        border-radius: var(--avatar-radius);
+        padding: var(--avatar-padding);
+        background: yellow;
+    }
+    .comm-content {
+        display: grid;
+        width: auto;
+        background-color: #e6ebf5;
+        border: none;
+        border-radius: var(--radius);
+        padding-left: 10px;
+        align-items: center;
+        padding: 10px;
     }
 }
 
@@ -261,6 +295,10 @@ input:hover {
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 25px;
+    p{
+        margin-top: 20px;
+        opacity: 60%;
+    }
 }
 .profile-form div{
     display: grid;
@@ -280,7 +318,12 @@ input:hover {
 }
 form h2{
     margin-top: 15px;
+    font-weight: 800;
 }
 hr{
     opacity: 20%;
+}
+.main-profile .head{
+    font-weight: 900;
+    font-size: 30px;
 }

@@ -12,7 +12,6 @@ export default function posts() {
     const [myPost, setMyPost] = useState({
         id: '',
         contactId: '',
-        tite: '',
         content: ''
     })
 
@@ -27,6 +26,28 @@ export default function posts() {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        fetch('https://boolean-api-server.fly.dev/homonoviscoding/post', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(myPost),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Form submitted successfully", data);
+        })
+
+        setMyPost({
+            id: '',
+            contactId: '',
+            content: ''
+        })
+    }
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
 
     return (
@@ -34,7 +55,7 @@ export default function posts() {
             <div className="main-header">
                 <p className="logged-user" onChange={generateRandomColor}>ML</p>
                 <input id="post-input" name='content' type="text" placeholder="What's on your mind" onChange={handleChange}/>
-                <button className="post-btn">Post</button>
+                <button className="post-btn" onSubmit={handleSubmit}>Post</button>
             </div>
         )
 
