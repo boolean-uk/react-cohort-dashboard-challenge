@@ -31,7 +31,6 @@ export default function allPost({ allComments, setAllComments }) {
     
       const backgroundColor = generateRandomColor()
       
-      console.log(allComments)
         
     return (
         <main>
@@ -47,7 +46,7 @@ export default function allPost({ allComments, setAllComments }) {
                             <div className="post-publisher">
                                 <div className="user" style={{ backgroundColor }}>{contact.firstName.charAt(0)}{contact.lastName.charAt(0)}</div>
                                 <div>
-                                    <p>{ contact.firstName } { contact.lastName }</p><p className="post-title">{ post.title }
+                                    <p>{contact.firstName} {contact.lastName}</p><p className="post-title">{ post.title }
                                     </p>
                                 </div>
                             </div>
@@ -55,6 +54,7 @@ export default function allPost({ allComments, setAllComments }) {
                             <div className="all-comments">
                                 <div className="see-previous">see previous comments</div>
                             {comments.map(comment => (
+                                
                                 <li key={comment.id}>
                                     <div className="user" style={{ backgroundColor }}>{contact.firstName.charAt(0)}{contact.lastName.charAt(0)}</div>
                                     <div className="comm-content"><strong></strong><p> { comment.content } </p></div>
@@ -62,7 +62,7 @@ export default function allPost({ allComments, setAllComments }) {
                             ))}
                             </div>
                             <div className="comment-section">
-                                <p className="logged-user">ML</p>
+                                <p className="logged-user">{contactDetail[0].firstName.charAt(0)}{contactDetail[0].lastName.charAt(0)}</p>
                                 <Comments />
                             </div>
                         </li>             

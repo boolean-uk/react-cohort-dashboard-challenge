@@ -1,6 +1,10 @@
-
+import { useContext } from "react"
+import { MyContext } from "./MyContext"
 
 export default function header() {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { contactDetail } = useContext(MyContext)
 
     return (
 
@@ -23,7 +27,7 @@ export default function header() {
                 </svg>
             </div>
             <div className="user-avatar">
-                ML
+                {contactDetail[0].firstName.charAt(0)}{contactDetail[0].lastName.charAt(0)}
             </div>
 
         </header>

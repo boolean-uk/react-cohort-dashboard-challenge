@@ -34,8 +34,7 @@ function App() {
             .then(response => response.json())
             .then(setPosts)          
 
-        // console.log(posts)
-        // console.log(contactDetail)
+        console.log(posts)
 
     }, [])
     
