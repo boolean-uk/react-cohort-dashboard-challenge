@@ -15,7 +15,7 @@ function DetailedPostView() {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/posts/${id}`)
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/posts/${id}`)
       if (!response.ok) throw new Error('Error fetching post');
       const data = await response.json()
       setPost(data);
@@ -28,7 +28,7 @@ function DetailedPostView() {
 
   const addComment = async (postId, user, content) => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/posts/${postId}/comments`, {
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/posts/${postId}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user, content })

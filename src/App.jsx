@@ -17,7 +17,7 @@ function App() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/posts');
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post');
       if (!response.ok) throw new Error('Error fetching posts')
       const data = await response.json();
       setPosts(data);
@@ -30,7 +30,7 @@ function App() {
 
   const addPost = async (user, content) => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/posts', {
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user, content, comments: [] })
@@ -45,7 +45,7 @@ function App() {
 
   const addComment = async (postId, user, content) => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/posts/${postId}/comments`, {
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/post/${postId}/comment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user, content })
