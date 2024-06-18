@@ -1,5 +1,5 @@
-import './App.css'
-import React, { useState, useEffect } from 'react'
+import './App.css';
+import React, { useState, useEffect } from 'react';
 import PostForm from './components/PostForm'
 import Post from './components/Post'
 import CommentSection from './components/CommentSection'
@@ -12,19 +12,21 @@ function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post');
-      if (!response.ok) throw new Error('Error fetching posts')
-      const data = await response.json();
-      setPosts(data);
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post')
+      if (!response.ok) {
+        throw new Error('Error fetching posts')
+      }
+      const data = await response.json()
+      setPosts(data)
     } catch (error) {
-      setError('Error fetching posts');
+      setError('Error fetching posts')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 
@@ -35,7 +37,9 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user, content, comments: [] })
       });
-      if (!response.ok) throw new Error('Error adding post')
+      if (!response.ok) {
+        throw new Error('Error adding post')
+      }
       const newPost = await response.json()
       setPosts([newPost, ...posts])
     } catch (error) {
@@ -50,7 +54,9 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user, content })
       });
-      if (!response.ok) throw new Error('Error adding comment');
+      if (!response.ok) {
+        throw new Error('Error adding comment')
+      }
       const newComment = await response.json()
       const updatedPosts = posts.map(post =>
         post.id === postId
@@ -59,7 +65,7 @@ function App() {
       );
       setPosts(updatedPosts);
     } catch (error) {
-      console.error('Error adding comment', error);
+      console.error('Error adding comment', error)
     }
   };
 
@@ -85,7 +91,7 @@ function App() {
             <Route
               exact
               path="/post/:id"
-              element={<DetailedPostView posts={posts} />}
+              element={<DetailedPostView />}
             />
           </Routes>
           <div className="posts">
@@ -93,7 +99,7 @@ function App() {
               <Post
                 key={post.id}
                 postId={post.id}
-                user={post.user}
+                user={post.user || 'User'} 
                 content={post.content}
                 comments={post.comments}
                 addComment={addComment}
@@ -103,7 +109,7 @@ function App() {
         </div>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App
