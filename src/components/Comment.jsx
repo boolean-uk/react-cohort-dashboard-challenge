@@ -12,5 +12,4 @@ function Comment({ user, content }) {
   );
 }
 
-export default Comment
-
+export default Comment;

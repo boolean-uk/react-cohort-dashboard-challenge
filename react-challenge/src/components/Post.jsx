@@ -1,4 +1,7 @@
-import CommentSection from './CommentSection'
+// Post.jsx
+
+import React from 'react';
+import CommentSection from './CommentSection';
 
 function Post({ user, content, children }) {
   return (
@@ -14,7 +17,7 @@ function Post({ user, content, children }) {
         <button>Send</button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Post;
