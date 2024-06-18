@@ -1,15 +1,14 @@
-
-import { useState } from 'react'
+import { useState } from 'react';
 
 function PostForm({ addPost }) {
-  const [content, setContent] = useState('')
+  const [content, setContent] = useState('');
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    if (!content) return
-    addPost('New User', content) 
-    setContent('')
-  }
+    event.preventDefault();
+    if (!content) return;
+    addPost('New Title', content); // Assuming 'New Title' is the title of the post
+    setContent('');
+  };
 
   return (
     <div className="post-form">
@@ -23,7 +22,7 @@ function PostForm({ addPost }) {
         <button type="submit">Post</button>
       </form>
     </div>
-  )
+  );
 }
 
-export default PostForm
+export default PostForm;

@@ -1,5 +1,5 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
+import './App.css'
+import React, { useState, useEffect } from 'react'
 import PostForm from './components/PostForm'
 import Post from './components/Post'
 import CommentSection from './components/CommentSection'
@@ -17,12 +17,10 @@ function App() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post')
-      if (!response.ok) {
-        throw new Error('Error fetching posts')
-      }
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post');
+      if (!response.ok) throw new Error('Error fetching posts')
       const data = await response.json()
-      setPosts(data)
+      setPosts(data);
     } catch (error) {
       setError('Error fetching posts')
     } finally {
@@ -30,34 +28,50 @@ function App() {
     }
   };
 
-  const addPost = async (user, content) => {
+  const fetchContactId = async () => {
     try {
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/contact');
+      if (!response.ok) throw new Error('Error fetching contact');
+      const contacts = await response.json()
+      if (contacts.length === 0) {
+        throw new Error('No contacts found')
+      }
+      return contacts[0].id; // Assuming there's only one contact
+    } catch (error) {
+      console.error('Error fetching contactId', error)
+      throw error;
+    }
+  };
+
+  const addPost = async (title, content) => {
+    try {
+      const contactId = await fetchContactId()
       const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user, content, comments: [] })
-      });
-      if (!response.ok) {
-        throw new Error('Error adding post')
-      }
+        body: JSON.stringify({ title, content, contactId, comments: [] })
+      })
+
+      if (!response.ok) throw new Error('Error adding post')
       const newPost = await response.json()
-      setPosts([newPost, ...posts])
+      setPosts(prevPosts => [newPost, ...prevPosts]) // Update state using the previous state
     } catch (error) {
       console.error('Error adding post', error)
+      setError('Error adding post')
     }
   };
 
   const addComment = async (postId, user, content) => {
     try {
+      const contactId = await fetchContactId();
       const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/post/${postId}/comment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user, content })
+        body: JSON.stringify({ postId, contactId, user, content })
       });
-      if (!response.ok) {
-        throw new Error('Error adding comment')
-      }
-      const newComment = await response.json()
+
+      if (!response.ok) throw new Error('Error adding comment');
+      const newComment = await response.json();
       const updatedPosts = posts.map(post =>
         post.id === postId
           ? { ...post, comments: [...post.comments, newComment] }
@@ -69,8 +83,8 @@ function App() {
     }
   };
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>{error}</div>
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <Router>
@@ -90,7 +104,7 @@ function App() {
             ))}
             <Route
               exact
-              path="/post/:id"
+              path="/post/:postId"
               element={<DetailedPostView />}
             />
           </Routes>
@@ -99,7 +113,7 @@ function App() {
               <Post
                 key={post.id}
                 postId={post.id}
-                user={post.user || 'User'} 
+                user={post.user || 'User'}
                 content={post.content}
                 comments={post.comments}
                 addComment={addComment}
@@ -109,7 +123,7 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App
+export default App;
