@@ -10,7 +10,7 @@ In this challenge, you'll create a social media style post feed. There is no boi
 ## Setting up React with Vite
 - Fork and clone the repository
 
-\-------------------------------------------------------------------------------------------------------
+\---------------------- ---------------------------------------------------------------------------------
 
 MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS
 
@@ -24,7 +24,8 @@ MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS
   - This will completely replace this existing repo on your machine with the Vite React project scaffold - this is expected
   - To reference the original documentation/images provided in this repo, just go to the original online repo on the Boolean UK GitHub account
 - Run `npm install`
-- `npm run dev` to run the application
+- `npm run dev` to run the app
+- lication
 
 The steps above will create a fresh React app using Vite. From this point on, it's up to you to decide how you want to structure your code. Try to stay organised :)
 
