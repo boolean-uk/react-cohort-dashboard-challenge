@@ -3,6 +3,7 @@ import { StateContext } from "../App"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import trashIcon from '../assets/images/trash-icon.svg'
 import editIcon from '../assets/images/edit-icon.svg'
+import AddComment from "./AddComment"
 
 export default function Comment(props) {
     const [comments, setComments] = useState([])
@@ -30,7 +31,7 @@ export default function Comment(props) {
         setShowPreviousComments(true)
     }
 
-    const visibleComments = showPreviousComments ? comments : comments.slice(0, 3)
+    const visibleComments = showPreviousComments ? comments : comments.slice(-3)
 
     const visibleCommentsRoute = location.pathname.length > 1 ? comments : visibleComments
 
@@ -86,6 +87,10 @@ export default function Comment(props) {
                     )   
                 }
             })}
+            <AddComment 
+                post={post} 
+                onCommentAdded={loadedComments} 
+            />
         </>
     )   
 }

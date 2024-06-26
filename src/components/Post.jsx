@@ -1,5 +1,4 @@
 import { useLocation, useParams } from "react-router-dom";
-import AddComment from "./AddComment";
 import Author from "./Author";
 import Comment from "./Comment";
 import { useContext } from "react";
@@ -27,8 +26,6 @@ export default function Post() {
                     <div id="separator"></div>
 
                     <Comment post={postFound} />
-                
-                    <AddComment post={postFound} />
                 </article>
             </main>
         )
@@ -52,8 +49,6 @@ export default function Post() {
                         <div id="separator"></div>
     
                         <Comment post={post} />
-    
-                        <AddComment post={post} />
                     </article>
                 )}
             </>

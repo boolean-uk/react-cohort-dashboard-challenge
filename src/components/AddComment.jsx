@@ -3,7 +3,7 @@ import { StateContext } from "../App"
 
 export default function AddComment(props) {
     const [newComment, setNewComment] = useState({ content: '' })
-    const { post } = props
+    const { post, onCommentAdded } = props
     const { randomAuthor } = useContext(StateContext)
 
     const handleSubmit = (e) => {
@@ -19,6 +19,7 @@ export default function AddComment(props) {
             })
         }).then(() => {
             setNewComment({ content: '' })
+            onCommentAdded()
         })
     }
 
