@@ -1,28 +1,28 @@
 // components/DetailedPostView.jsx
 
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 function DetailedPostView({ postId }) {
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [newComment, setNewComment] = useState('');
+  const [post, setPost] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [newComment, setNewComment] = useState('')
 
   useEffect(() => {
-    fetchPostDetails(postId);
+    fetchPostDetails(postId)
   }, [postId]);
 
   const fetchPostDetails = async (postId) => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/post/${postId}`);
-      if (!response.ok) throw new Error('Error fetching post details');
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/post/${postId}`)
+      if (!response.ok) throw new Error('Error fetching post details')
       const postData = await response.json();
-      setPost(postData);
+      setPost(postData)
     } catch (error) {
-      setError('Error fetching post details');
+      setError('Error fetching post details')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 
@@ -33,20 +33,20 @@ function DetailedPostView({ postId }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user: 'New User', content: newComment })
       });
-      if (!response.ok) throw new Error('Error adding comment');
-      const newCommentData = await response.json();
+      if (!response.ok) throw new Error('Error adding comment')
+      const newCommentData = await response.json()
       setPost(prevPost => ({
         ...prevPost,
         comments: [...prevPost.comments, newCommentData]
-      }));
-      setNewComment('');
+      }))
+      setNewComment('')
     } catch (error) {
-      console.error('Error adding comment', error);
+      console.error('Error adding comment', error)
     }
-  };
+  }
 
-  if (loading) return <div>Loading post details...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <div>Loading post details...</div>
+  if (error) return <div>{error}</div>
 
   return (
     <div>
@@ -75,11 +75,11 @@ function DetailedPostView({ postId }) {
         </div>
       )}
     </div>
-  );
+  )
 }
 
 DetailedPostView.propTypes = {
   postId: PropTypes.string.isRequired,
-};
+}
 
 export default DetailedPostView;

@@ -1,10 +1,11 @@
-import './App.css'
+
 import React, { useState, useEffect } from 'react'
 import PostForm from './components/PostForm'
 import Post from './components/Post'
 import CommentSection from './components/CommentSection'
 import DetailedPostView from './components/DetailedPostView'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
 
 function App() {
   const [posts, setPosts] = useState([])

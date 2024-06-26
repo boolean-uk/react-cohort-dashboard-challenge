@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Comment from './Comment';
+import React, { useState } from 'react'
+import Comment from './Comment'
 
 function Post({ postId, user, content, comments = [], addComment }) {
-  const [newCommentContent, setNewCommentContent] = useState('');
+  const [newCommentContent, setNewCommentContent] = useState('')
 
   const handleAddComment = () => {
     if (!newCommentContent.trim()) return;
-    addComment(postId, 'New User', newCommentContent);
+    addComment(postId, 'New User', newCommentContent)
     setNewCommentContent('');
   };
 

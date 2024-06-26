@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 function PostForm({ addPost }) {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState('')
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!content) return;
-    addPost('New Title', content); // Assuming 'New Title' is the title of the post
-    setContent('');
+    event.preventDefault()
+    if (!content) return
+    addPost('New Title', content) // Assuming 'New Title' is the title of the post
+    setContent('')
   };
 
   return (
