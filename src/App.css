@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F4F4F4;
+  color: #333333;
+  font-size: 16px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
