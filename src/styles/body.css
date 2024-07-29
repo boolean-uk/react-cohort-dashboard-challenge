@@ -1,0 +1,89 @@
+.container {
+    background-color: #F0F5FA;
+    display: grid;
+    grid-template-columns: 0.5fr 9fr;
+    height: 100vh;
+    justify-content: center;
+}
+
+.side-left {
+    display: grid;
+    padding: 10px;
+    background-color: white;
+    grid-template-rows: 1fr 1fr 8fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-icon {
+    width: 100%;
+    align-items: center;
+    grid-row: 1/2;
+    padding: 10px;
+}
+
+.profile-icon {
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+}
+
+.side-left .home-icon a :hover {
+    background-color: #e6ebf5;
+    /* width: 100%; */
+}
+a  {
+    text-decoration: none;
+
+}
+.main-page {
+    margin: 20px;
+}
+
+.post-div {
+    background-color: white;
+    display: grid;
+    height: 70px;
+    grid-template-columns: 0.5fr 12fr;
+    align-content: center;
+    border-radius: 7px;
+    padding: 10px 20px;
+}
+
+.profile-pic-1 {
+    width: 60px;
+    align-self: center;
+}
+
+.post {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.post form {
+    width: 100%;
+    align-self: center;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 40px;
+    background-color: #e6ebf5;
+    border-radius: 7px;
+    padding: 10px;
+    align-content: center;
+    border: none;
+}
+
+button {
+    height: 60px;
+    background-color: #000046;
+    margin-left: 30px;
+    color: white;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+
+}

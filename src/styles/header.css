@@ -1,0 +1,17 @@
+header  {
+    background-color: #000046;
+    height: 50px;
+    margin: 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.profile-pic {
+    grid-column: 4;
+    align-self: center;
+}
+
+.logo {
+    align-self: center;
+}

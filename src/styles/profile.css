@@ -1,0 +1,21 @@
+.profile {
+    background-color: #F0F5FA;
+}
+.form-container{
+    display: grid;
+    grid-template-rows: 1fr  9fr;
+
+}
+.profile-header {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 8fr;
+}
+.pro-img {
+    width: 100px;
+    margin-left: 10px;
+}
+.form-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
