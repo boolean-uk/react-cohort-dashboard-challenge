@@ -1,0 +1,299 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.homePage {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  max-width: 1280px;
+  width: 800px;
+}
+
+header {
+  background-color: #000046;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+header div {
+  margin: 20px 0px 5px 35px;
+  padding-right: 20px;
+}
+header div svg {
+  height: 40px;
+  margin-right: 35px;
+}
+
+
+main {
+  color: #000046;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  margin: 0;
+}
+aside {
+  background-color: white;
+}
+
+aside div {
+  margin-top: 20px;
+}
+aside div svg{
+  height: 25px;
+  width: 25px;
+}
+aside div p {
+  margin: 0px;
+}
+
+
+form {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+  margin: 10px 10px 0px 10px;
+  padding: 15px 10px 15px 10px;
+  border-radius: 10px;
+}
+
+#userInitials {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin:0;
+  padding: 0;
+  font-size: 20px;
+  background-color: #64dc78;
+  color: #000046;
+}
+
+form div {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 10px;
+}
+form div input {
+  border: none;
+  border-radius: 10px;
+  background-color: #e6ebf5;
+  padding: 0px 10px 0px 10px;
+  height: 35px;
+}
+form button {
+  background-color: #000046;
+  color: white;
+  height: 35px;
+  padding: 0;
+}
+form button:hover {
+  background-color: #64dc78;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column; 
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e6ebf5;
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  z-index: 1001;
+  justify-content: space-between; 
+}
+.modal div {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+
+.title {
+  padding: 10px;
+  margin-top: 2px;
+
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modal .caption{
+  padding: 10px;
+  flex-grow: 1;
+  margin-bottom: 10px; 
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  vertical-align: top;
+  text-align: left;
+  resize: none;
+}
+
+.modal div button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center; 
+  margin-top: auto; 
+  background-color: #000046;
+  color: white;
+  height: 35px;
+  padding: 0;
+  width: 100%;
+}
+
+.modal .form-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal textarea {
+  vertical-align: top;
+  text-align: left;
+}
+
+.feed {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(200px, 400px));
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  padding-left: 25px;
+  text-align: start;
+}
+
+.feed li {
+  list-style-type: none;
+}
+
+section {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+
+}
+.section-title div {
+  margin-left: 10px;
+}
+
+.section-title svg {
+  height: 25px;
+  width: 25px;
+  padding-right: 15px;
+}
+
+.section-title p {
+  font-size: 10px;
+  margin: 0;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+section p {
+  text-align: start;
+  margin: 0 15px 15px 0px;
+
+}
+
+.comments {
+  padding-left: 0px;
+}
+.comments li {
+  display: flex;
+  margin: 10px 10px 10px 0;
+}
+
+.comments li svg {
+  height: 25px;
+  width: 25px;
+  margin:5px 10px 0px 0px;
+}
+
+.comments li div {
+  padding: 5px 10px 10px 10px;
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.comments li p {
+  margin: 0;
+  font-size: 13px;
+}
+.comments li p span {
+  font-weight: bold;
+}
+
+#previous {
+  font-size: 10px;
+  margin: 5px 0px 5px 0px ;
+  color: gray;
+}
+
+
+.comments-input {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 15px;
+  align-items: center;
+  margin: 10px 10px 10px 0;
+}
+
+.text-comment-input {
+  display: grid;
+  background-color: #e6ebf5;
+  grid-template-columns: 1fr 35px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.text-comment-input input {
+  background-color: #e6ebf5;
+  border: none;
+  height: 30px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.text-comment-input button {
+  background-color: #e6ebf5;
+  position: relative;
+  padding: 0;
+}
+
+#send-comment-svg {
+  position: relative;
+  padding: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+.postPage {
+  background-color: #e6ebf5;
+}
+
+.ulComments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.ulComments li {
+display: flex;
+gap: 10px;
+align-items: center;
+}
