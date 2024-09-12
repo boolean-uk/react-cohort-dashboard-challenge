@@ -50,8 +50,8 @@ The steps above will create a fresh React app using Vite. From this point on, it
 
 ## Extension Requirements
 
-- Use the Context API to reduce prop drilling of state
-- Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
+done - Use the Context API to reduce prop drilling of state
+cone - Only 3 comments should be visible on a post; if a post has more than 3 comments, the `See previous comments` link should expand the list of comments to display all of them.
 - Clicking on a post / comment authors name or initials, the user initials in the top right of the app, or the `Profile` link in the left navigation menu should take the user to [this Profile screen](./_assets/profile.png).
     - Use the contact with an ID of 1 to emulate the currently logged in user. This is the user you should use when clicking the top right initials or the Profile menu item directly.
     - The fields should be automatically populated with the correct data when loading any user profile.
