@@ -1,0 +1,96 @@
+.pageitem{
+    
+    /* height: calc(100vh - 190px); */
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+}
+
+.accountForm{
+    display: grid;
+    grid-template: repeat(2, 2fr) / repeat(2, 2fr);
+    grid-auto-flow: row;
+    .post-btn{
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        width: 20%;
+        height: 10%;
+        color: #e6ebf5;
+        background-color:#000046;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+}
+
+.profileSection{
+    border-top: solid 2px #e6ebf5;
+    margin: 2%;
+    padding: 2%;
+    
+}
+
+.profileSection label, input{
+    /* display: block;text-align: left; */
+
+    display:block;
+    margin: 1%;
+}
+
+.profileSection label{
+    /* display: block;text-align: left; */
+
+    display:block;
+    margin-top: 10%;
+    p{
+        color: #64648c;
+        margin-left: 5%;
+    }
+}
+
+input {
+        background-color: #e6ebf5;
+        border-radius: 10px;
+        width: 100%;
+        font-size: 1.4rem;
+        line-height: 1;
+        padding: 5px;
+        border: none;
+        resize: none;
+}
+
+h1{
+    margin: 2%;
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+h2{
+    margin-top: 3%;
+}
+/* input:focus {outline:none!important;} */
+
+.actionSection{
+    display: grid;
+    align-items:center;
+    justify-items: right;
+}
+
+.nameSection{
+    margin-left: 1%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    h1{
+        margin: 2%;
+        margin-left: 1%;
+    }
+
+    .profileIcon{
+        width: 72px;
+        height: 72px;
+        font-size: 30px;
+    }
+}
