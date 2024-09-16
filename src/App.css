@@ -1,0 +1,284 @@
+body {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f5fa;
+}
+
+.postInput {
+  width: 90%;
+  
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.header {
+  height: 60px;
+  width: 100vw;
+  background-color: #000046;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-right: 10px;
+  color: white;
+  background-color: #000046;
+}
+
+.skada {
+  color: #000046;
+}
+
+.sidebar {
+  width: 100px; 
+  height: 100%;
+  max-height: calc(100vh - 60px);
+  background-color: #e6ebf5;
+  color: #ffffff;
+  padding-top: 10px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.main {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+}
+
+
+.nav-button {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  background-color: #e6ebf5;
+  color: #000046;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.rounded-box {
+  background-color: #e6ebf5;
+  margin: 10px;
+  height: 200px;
+  width: 80%;
+  border-radius: 10px; 
+  padding: 20px; 
+}
+
+.rounded-post {
+  background-color: #e6ebf5;
+  margin: 10px;
+  height: 200px;
+  width: 80%;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  overflow-y: scroll;
+  
+}
+
+
+
+
+.rounded-box textarea {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form{
+  background-color: #e6ebf5;
+  border-radius: 10px;
+  display: inline-block;
+  width: 80%; 
+  height: 100%;
+}
+.form textarea {
+  height: 20px;
+
+}
+.form input {
+  height: 30px;
+  width: 50%;
+}
+
+.form button {
+  height: 40%;
+  width: 10%;
+
+}
+
+.rounded-box button {
+  background-color: gainsboro;
+  margin-bottom: auto;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.postButton {
+  background-color: gainsboro;
+  margin-bottom: auto;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profile-circle {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; 
+  font-weight: bold;
+  margin-right: 10px; 
+}
+
+.profile-icon-container {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000046; 
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 1000px; 
+}
+
+.commentcard {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto; 
+  margin: 0 auto; 
+  overflow: auto; 
+}
+
+.rounded-box button:hover {
+  background-color: #000046;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+.postcard {
+  margin-top: 10px;
+  background-color: whitesmoke;
+  border-style: solid;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  bottom: 0;
+  width: 90%;
+  max-width: 600px; 
+  margin: 5px auto; 
+}
+
+.comment {
+  background-color: darkcyan;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  
+  bottom: 0; 
+  width: 80%; 
+}
+
+
+.comment p {
+  color: black;
+}
+
+.rounded-post + .rounded-post {
+  margin-top: 20px;
+}
+
+
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #3498db; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; 
+  font-weight: bold;
+}
+
+.rounded-form {
+  background-color: #e6ebf5;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  width: 80%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000046;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #000046;
+}
+
+.postButton {
+  background-color: gainsboro;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.postButton:hover {
+  background-color: #000046;
+}
