@@ -1,0 +1,8 @@
+.user-name {
+    font-weight: bold; 
+    color: #000046;
+}
+
+.user-name:hover {
+    color: #64dc78;
+}

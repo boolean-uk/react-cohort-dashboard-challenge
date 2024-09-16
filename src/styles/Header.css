@@ -1,0 +1,28 @@
+/* Header.css */
+.header {
+  z-index: 9999;
+  background-color: #000046;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+}
+
+.header-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-logo {
+  margin-left: calc(0.5% + 1.5rem);
+  cursor: pointer;
+  width: 290px;
+}
+
+.header-profile {
+  margin-right: calc(1.5% + 2rem);
+}
