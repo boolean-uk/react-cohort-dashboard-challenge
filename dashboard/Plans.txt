@@ -1,0 +1,55 @@
+#State Model
+
+Author object:
+{
+    id: unique int
+    firstName: string
+    lastName: string
+}
+
+Post object:{
+    id: unique int
+    content: string
+    authorid:int		
+}
+
+Comment object:{
+    id: unique int
+    content: string
+    postId: int
+    authorId: int
+}
+
+#Component Tree
+
+App{
+    state authors: Array of author objects.
+    state posts: Array of post objects.
+    state comments: Array of comment objects.
+    Navbar for links to different parts of the app.
+    run a fetch on authors, posts and comments when we visit this page.
+
+    PostList{ for route /posts
+        <ul> with PostListItem as elements in list
+        PostListItem{
+            layout for displaying a Post with author initials and CommentList attached to it.
+	    CommentList{
+	        <ul> with CommentListItem as elements in list
+		CommentListItem{
+			latout for displaying a comment on a post with author initials on the comment
+		}
+	    }
+        }
+    }
+    DetailedPost{ for route /contacts/:id
+        state Contact: stores currently viewed Contact by id
+        runs fetch to get right contact info upon loading page
+        use params to get id
+    }
+    CreatePost{ for route /create
+        state Form: Object that stores info to create a new contact.
+        submit: attemps to create a contact with the current information in Form.
+                On success: navigate to ContactList.
+                On fail: Display errors
+    }
+}
