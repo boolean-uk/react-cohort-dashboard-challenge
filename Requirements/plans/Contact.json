@@ -1,0 +1,20 @@
+/*{
+    firstName*	string
+    example: Rick
+    lastName*	string
+    example: Sanchez
+    street*	string
+    example: Morty Lane
+    city*	string
+    example: Jerryville
+    gender	string
+    example: Male
+    email	string
+    example: rick@sanchez.com
+    jobTitle	string
+    example: Scientist
+    "latitude":"42",
+    "longitude": "629",
+    "favouriteColour":"#0d7f26",
+    "profileImage": "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
+    }*/
