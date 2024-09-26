@@ -1,0 +1,37 @@
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center items horizontally */
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center items horizontally */
+  text-decoration: none;
+  /* Remove hyperlink decoration */
+  color: #000;
+  /* Set text color */
+  cursor: pointer;
+  /* Change cursor on hover */
+  margin-bottom: 10px;
+  /* Add margin between buttons */
+  margin-top: 30px;
+}
+
+.button svg {
+  margin-bottom: 5px;
+  /* Add space between SVG and text */
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+  /* Light grey color on hover */
+}
+
+.button.selected {
+  background-color: #d0d0d0;
+  /* Slightly darker grey for selected button */
+}
