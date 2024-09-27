@@ -1,0 +1,19 @@
+.post-header {
+  grid-template-areas:
+    "icon user"
+    "icon title";
+
+  grid-template-columns: auto 1fr;
+}
+
+.post-header .user-icon {
+  grid-area: icon;
+}
+
+.post-header .user-name {
+  grid-area: user;
+}
+
+.post-header .post-title {
+  grid-area: title;
+}

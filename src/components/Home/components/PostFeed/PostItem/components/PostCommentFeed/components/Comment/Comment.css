@@ -1,0 +1,11 @@
+/* .post-comment-item {
+  grid-template-areas:
+    "icon name"
+    "icon content";
+}
+
+.post-comment-item .user-icon {
+  grid-area: icon;
+}
+
+.post-comment-item . */

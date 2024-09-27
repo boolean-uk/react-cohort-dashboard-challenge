@@ -1,0 +1,20 @@
+.new-post-form {
+  grid-template-areas:
+    "content submit"
+    "title .";
+
+  grid-template-rows: 56px;
+  grid-template-columns: 1fr auto;
+}
+
+#new-post-content {
+  grid-area: content;
+}
+
+#new-post-title {
+  grid-area: title;
+}
+
+#new-post-submit {
+  grid-area: submit;
+}
