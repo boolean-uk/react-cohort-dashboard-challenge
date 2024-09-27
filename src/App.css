@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", Helvetica, sans-serif;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.header {
+  background-color: #000046;
+  color: #ffffff; /* Font color */
+  width: 100%; /* width to 100% of viewport width */
+  position: fixed;
+  top: 0;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+.header svg {
+  width: 400px;
+  height: 60px;
+}
+
+.header-profile{
+  position:absolute;
+  right: 0px;
+}
+
+.navmenu {
+  width: 50px;
+  height: 100%;
+  max-height: calc(100vh - 90px);
+  padding-top: 8em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.navmenu svg {
+  width: 40px;
+  padding-left: 4px;
+}
+
+.main {
+  width: 50px;
+  flex-grow: 1;
+  padding-top: 6em;
+  overflow-y: auto;
+  max-height: calc(100vh - 90px);
+  background-color:  #F0F5FA;
+}
+
+.comment-profile{
+  float: left;
+  padding-top: 1em;
+}
+
+.comment-content{
+  background-color: #e6ebf5;
+  margin-left: 64px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 1em;
+  width: 75%;
+}
+
+.post {
+  width: 50px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 90px);
+  background-color:  #F0F5FA;
+  padding-left: 1em;
+  padding-top: 7em;
+}
+
+.post-profile{
+  float: left;
+  padding-top: 0.7em;
+}
+
+.post h1 {
+  color: #64648c;
+}
+
+a {
+  color: #64648c;
+  text-decoration:none;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  background-color: #e6ebf5;
+}
+
+.submit-profile{
+  float: left;
+}
+
+input#content {
+  height: auto;
+  width: 70%;
+}
+
+input#title {
+  width: 20%;
+}
+
+.profile {
+  display: flex;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info input{
+  width: 60%
+}
+
+.profile-image{
+  float: left;
+  padding-top: 0.7em;
+}
+
+header {
+  background-color: #000046;
+}
+
+.card {
+  background-color: #FFFFFF;
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  margin-bottom: 1em;
+}
+
+button {
+  background-color: #000046;
+  color: #FFFFFF
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+p, h2, h4, li {
+  color: #000046
+}
