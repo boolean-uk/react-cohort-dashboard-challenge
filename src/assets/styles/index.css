@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #000046;
+    background-color: #F0F5FA;
+}
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#root {
+    display: grid;
+    height: 100vh;
+    grid-template: 
+        'header header' 5rem
+        'nav main' / 8rem minmax(8rem, 1fr);
+}
