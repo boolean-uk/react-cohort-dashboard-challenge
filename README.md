@@ -15,7 +15,7 @@ In this challenge, you'll create a social media style post feed. There is no boi
 MAKE SURE YOU HAVE READ THE ENTIRE README BEFORE RUNNING THESE COMMANDS
 
 \-------------------------------------------------------------------------------------------------------
-
+<!-- asdf -->
 - In the project root directory, run `npm create vite@latest . -- --template react`
   - Be 100% sure that your current directory is this repo project root directory, as the command will HARD DELETE all existing files and folders in the current directory. This cannot be undone or restored easily.
 - When it asks you: `? Current directory is not empty. Remove existing files and continue? » (y/N)`

@@ -1,0 +1,54 @@
+.user-profile {
+  position: absolute;
+  right: 50px;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.user-dropdown .profile-image {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.user-dropdown-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: #000 solid 1px;
+  margin: 5px;
+}
+
+.user-dropdown-text {
+  font-size: 16px;
+  color: #000046;
+  text-align: left;
+}
+
+.logo {
+  padding: 10px 0 0 10px;
+  width: 25vw;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000046;
+  color: white;
+  padding: 10px 20px;
+  height: 12vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
