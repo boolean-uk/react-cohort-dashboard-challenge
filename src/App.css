@@ -1,0 +1,490 @@
+/* Base Information */
+body {
+  background-color: #F0F5FA;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #000046;
+}
+
+.CohortManager {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Top Part of Website */
+.CohortManagerTop {
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000046;
+  z-index: 1000;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+/* Header */
+.Header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.Logo {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.UserIcon-Header {
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  color: #000046;
+  margin-right: 2rem;
+}
+
+/* Bottom Part of Website */
+.CohortManagerBottom {
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+/* Side Bar */
+.CohortSideBar {
+  width: 10%;
+  height: 100%;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  color: #000046;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.SideBarLink {
+  width: 100%;
+  text-decoration: none;
+  color: #64648c;
+}
+
+.SideBarLinkActive {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  padding-top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #e6ebf5;
+}
+
+.SideBarLinkInactive {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  padding-top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.Sidebar-Icon {
+  width: 75%;
+  height: auto;
+}
+
+/* Main Content */
+.CohortContent {
+  margin-left: 10%;
+  width: 90%;
+  height: 100%;
+  overflow-y: auto;
+  padding-left: 2rem;
+  background-color: #F0F5FA;
+}
+
+/* Home Page */
+.HomePageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.UserPost {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.UserIcon-Home {
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  color: #000046;
+  margin-right: 1rem;
+}
+
+textarea {
+  flex-grow: 1;
+  margin-right: 1rem;
+  background-color: #e6ebf5;
+  border: 1px solid #ccc;
+  padding: 0.8rem 0 0 0.5rem;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #000046;
+}
+
+.UserPostButton {
+  background-color: #000046;
+  color: white;
+  border: none;
+  padding: 0.9rem 3.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.UserPostButton:hover {
+  background-color: #64dc78;
+}
+
+
+/* Post */
+.PostContent {
+  width: 90%;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.PosterAndTitle {
+  display: flex;
+  align-items: center;
+}
+
+.PosterIcon {
+  margin-bottom: 1.4rem;
+}
+
+.PosterNameAndTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+}
+
+.PosterNameAndTitle h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #000046;
+}
+
+.PosterTitle * {
+  margin: 0;
+  margin-top: 0.4rem;
+}
+
+.PoterNameAndTitle p {
+  margin: 0;
+  font-size: 1rem;
+  color: #64648c;
+}
+
+.PostText {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.PostText p {
+  margin: 0;
+  color: #000046
+}
+
+.PostAddComment {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.PostAddComment textarea {
+  position: relative;
+}
+
+.UserPostCommentButton {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 7px;
+  padding: 0.3rem;
+  background-color: #b3b3eb;
+  color: #000046;
+  border: none;
+  border-radius: 50% 50%;
+  cursor: pointer;
+  z-index: 100;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserPostCommentButtonImage {
+  width: 1.7rem;
+  height: auto;
+  position: relative;
+  left: 0.2rem;
+}
+
+.UserPostCommentButton:hover {
+  background-color: #64dc78;
+}
+
+.ExpandComments {
+  border: none;
+  color: #64648c;
+  background-color: white;
+  display: flex;
+  flex-direction: flex-start;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.PostEditAndDelete {
+  display: flex;
+  flex-direction: flex-end;
+  flex-grow: 1;
+  justify-content: right;
+  padding-bottom: 3rem;
+}
+
+.TrashOrEditIcon {
+  width: 1.5rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* Comments */
+.PostComments {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.Comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.CommentBody {
+  background-color: #F0F5FA;
+  padding: 1rem 0 1rem 1rem;
+  border-radius: 8px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CommentText h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #000046;
+}
+
+.CommentText p {
+  margin: 0;
+  font-size: 1rem;
+  color: #000046;
+}
+
+.CommentEditAndDelete {
+  display: flex;
+  flex-direction: flex-end;
+  flex-grow: 1;
+  justify-content: right;
+  padding-bottom: 1.25rem;
+}
+
+.TrashOrEditIconComment {
+  width: 1.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+
+/* Profile Page */
+.ProfileTop {
+  display: flex;
+}
+
+.ProfileText {
+  font-size: 3rem;
+}
+
+.ProfileBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.ProfileUser {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.UserIcon-Profile {
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  color: #000046;
+  margin-right: 1rem;
+}
+
+.ProfileName {
+  font-size: 2rem;
+}
+
+.ProfileSurvey {
+  width: 90%;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.FormSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.AccountInfo, .Address {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.AccountInfo {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.Address {
+  flex: 1
+}
+
+.AccountInfo h2, .Address h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #64648c;
+}
+
+input[type="text"] {
+  background-color: #e6ebf5;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #000046;
+}
+
+input[type="text"]:required {
+  border-left: 4px solid red;
+}
+
+.SubmitButton {
+  display: flex;
+  justify-content: right;
+}
+
+.SubmitForm {
+  background-color: #000046;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.SubmitForm:hover {
+  background-color: #64dc78;
+}
+
+/* Link No Underline */
+.LinkNoUnderline {
+  text-decoration: none;
+  color: #000046;
+}
