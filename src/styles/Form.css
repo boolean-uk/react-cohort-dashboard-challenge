@@ -1,0 +1,76 @@
+/* FORM */
+.post-card.form-input {
+  display: flex;
+  flex-direction: column; /* Aligns content vertically */
+  align-items: center; /* Centers items horizontally */
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex; /* Flex container for the form */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Group for Input and Button */
+.form__input-group {
+  display: flex; /* Flex container for input and button */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 10px; /* Space between the input and the button */
+}
+
+.form__submit {
+  margin-top: 10px;
+}
+
+.form label {
+  font-weight: bold; /* Bold label text */
+  color: #1e293b; /* Darker color for labels */
+}
+
+/* Input Field */
+.form label input {
+  background-color: #e6ebf5; /* Background color for the input */
+  border: 1px solid #cbd5e1; /* Optional border color */
+  padding: 10px; /* Padding for input */
+  border-radius: 5px; /* Rounded corners */
+  width: 250px; /* Fixed width for the input field */
+  color: #1e293b; /* Text color for input */
+}
+
+.form input[type="text"]:focus {
+  border-color: #2563eb; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Submit Button */
+.form__submit {
+  background-color: #000046; /* Button background color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for top/bottom and left/right */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+  outline: none; /* Remove outline on focus */
+  max-width: 75px; /* Fixed max width for the button */
+}
+
+/* Hover effect */
+.form__submit:hover {
+  background-color: #1e40af; /* Darker shade on hover */
+}
+
+/* Active effect */
+.form__submit:active {
+  transform: scale(0.95); /* Slightly shrink the button when clicked */
+}

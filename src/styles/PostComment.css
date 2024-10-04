@@ -1,0 +1,42 @@
+/* Comment card styling */
+.comment-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.comment-avatar span {
+  font-weight: bold;
+  color: rgb(6, 38, 75);
+  font-size: 14px;
+}
+
+.comment-body {
+  flex-grow: 1;
+}
+
+.comment-body h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.comment-body p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #334155;
+}
