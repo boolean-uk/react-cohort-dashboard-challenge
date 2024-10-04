@@ -1,0 +1,190 @@
+/* Global */
+* {
+  color: #000046;
+  font-weight: bold;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e6ebf5;
+  padding: 5px;
+}
+
+/* universal */
+
+.under-container {
+  display: flex;
+}
+
+.left-menu {
+  height: 100vh;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: 'center'
+}
+
+/* Header */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100%;
+  height: 15vh;
+  background-color: #000046;
+}
+
+.header-img {
+  justify-self: start;
+  width: 60%;
+  padding-left: 40px;
+}
+
+.header-circle {
+  justify-self: end;
+  padding-right: 40px;
+}
+
+
+/* LeftMenu */
+
+.left-menu-item {
+  width: 60px;
+  height: 100px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: 'center';
+  text-align: 'center';
+}
+
+.left-menu-item:hover {
+  background-color: #64dc78;
+}
+
+.left-menu-item.selected {
+  background-color: #e6ebf5;  
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.left-menu-text {
+  text-align: center;
+}
+
+/* Dashboard */
+
+.create-post {
+  margin: 3%;
+  padding: 10%;
+  background-color: white;
+}
+
+.create-post-form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.post-input {
+  width: 100%;
+  height: fit-content;
+}
+
+.create-post-button {
+  background-color: #000046;
+  color: white;
+}
+
+.create-post-button:hover {
+  background-color: #64dc78;
+}
+
+.posts-container {
+  background-color: #F0F5FA;
+  width: auto;
+}
+
+.post-item {
+  margin: 3%;
+  padding: 10%;
+  background-color: white;
+}
+
+.comment-input {
+  width: 100%;
+  margin: 5px;
+}
+
+.comment-content {
+  background-color: #e6ebf5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.create-comment-button {
+  background-color: #000046;
+  color: white;
+}
+
+.create-comment-button:hover {
+  background-color: #64dc78;
+}
+
+
+/* PostDetails */
+
+
+
+/* Profile */
+
+.profile-container {
+  padding: 20px;
+  flex: 1; 
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.save-button {
+  background-color: #000046;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #57c466;
+}

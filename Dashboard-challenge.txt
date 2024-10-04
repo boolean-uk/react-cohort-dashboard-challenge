@@ -1,0 +1,25 @@
+App
+|__Dashboard
+|  |__Header
+|  |__LeftMenu
+|  |__CreatePost
+|  |__PostList
+|     |__PostItem
+|        |__CreateComment
+|        |__CommentList
+|           |__Comment
+|
+|__PostDetails
+|  |__Header
+|  |__LeftMenu
+|  |__PostItem
+|     |__CreateComment
+|     |__CommentList
+|        |__Comment
+|
+|__Profile
+   |__Header
+   |__LeftMenu
+
+I changed a few things while creating the App. If i had more time or if i were to do it again i would have divided it slightly different so that for example a appropriately named container held Header, LeftMenu and PostDetails (only containing PostItem etc).
+But i dont really have the time for that right now.
