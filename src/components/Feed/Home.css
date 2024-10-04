@@ -1,0 +1,9 @@
+.feed-container {
+    display: flex;
+    flex-grow: 1;
+    width: 70%;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    padding: 20px;
+  }

@@ -1,0 +1,28 @@
+.left-menu {
+    width: 15%; /* Left menu takes 30% of the width */
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.home-icon, .profile-icon {
+    padding: 20px;
+    background-color: white;
+    border: none;
+    width: 79%;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+}
+
+.home-icon:hover, .profile-icon:hover {
+    background-color: lightgray;
+}
