@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000046;
+  }
+  
+  #root {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+  }
+  
+  header {
+    grid-column: 1 / span 2;
+    background-color: #000046;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .cohort-svg {
+    height: 90px;
+    padding: 20px;
+  }
+  
+  aside {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home-icon,
+  .profile-icon {
+    width: 100%;
+    padding: 30px 50px;
+  }
+  
+  .home-icon:hover,
+  .profile-icon:hover {
+    background-color: #e6ebf5;
+  }
+  
+  .home-icon img,
+  .profile-icon img {
+    width: 35px;
+    height: 35px;
+  }
+  .posts-section,
+  .display-post,
+  .view-profile {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: scroll;
+    scrollbar-gutter: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    background-color: #f0f5fa;
+  }
+  
+  .post {
+    display: grid;
+    grid-auto-rows: max-content;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px 30px 20px 30px;
+    border-radius: 10px;
+    gap: 10px;
+  }
+  
+  .post-user,
+  .comment-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  
+  .comment-item {
+    display: grid;
+    grid-template-rows: 50px;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .user-img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    align-content: center;
+  }
+  
+  .user-info {
+    padding-left: 10px;
+    align-content: center;
+  }
+  
+  .create-post {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .post-form {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  .add-comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+  
+  .comment-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-left: 10px;
+    background-color: #e6ebf5;
+    border-radius: 10px;
+  }
+  
+  #post-input,
+  #comment-input,
+  #title-input {
+    width: 100%;
+    height: 55px;
+    font-size: 1.1rem;
+  }
+  
+  #post-input {
+    grid-row: 2 / span 1;
+    margin-top: 5px;
+  }
+  
+  .post-form {
+    margin-left: 10px;
+  }
+  
+  .comment-form button {
+    background-color: #e6ebf5;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  
+  #comment-input:focus {
+    outline: none;
+  }
+  
+  .comment-form button img {
+    height: 100%;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  
+  .comment-form button img:hover {
+    background-color: darkgray;
+    opacity: 80%;
+    cursor: pointer;
+  }
+  
+  .create-post button,
+  .profile-button {
+    background-color: #000046;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 140px;
+    border-radius: 10px;
+    margin-left: 10px;
+    border: none;
+  }
+  
+  .profile-button {
+    height: 55px;
+  }
+  
+  .create-post button {
+    grid-row: 2 / span 1;
+  }
+  
+  .create-post button:hover {
+    background-color: #64dc78;
+  }
+  
+  input {
+    background-color: #e6ebf5;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .comment-content {
+    background-color: #dfe5ea;
+    border-radius: 20px;
+    padding: 15px;
+    width: fit-content;
+    margin-left: 10px;
+  }
+  
+  .post-content {
+    font-size: 1.1rem;
+    padding: 15px 0px 15px 0px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .user-info h3 a {
+    color: #64648c;
+  }
+  
+  .previous-comments {
+    text-decoration: underline;
+  }
+  
+  .user-img a {
+    padding: 15px;
+  }
+  
+  .user-img:hover {
+    border: 2px solid #000046;
+  }
+  
+  .profile-title {
+    font-size: 1.7rem;
+    margin-left: 10px;
+  }
+  
+  .view-profile {
+    grid-template-columns: max-content;
+  }
+  
+  .profile-card {
+    background-color: white;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .user-name {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .profile-card h2 {
+    margin-left: 10px;
+    font-size: 1.9rem;
+  }
+  
+  .profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+  }
+  
+  .account-info,
+  .address-info {
+    display: grid;
+    grid-template-rows: repeat(4, max-content);
+  }
+  
+  .account-info h2,
+  .address-info h2 {
+    margin-bottom: 10px;
+  }
+  
+  .profile-form input {
+    width: 500px;
+    height: 55px;
+    font-size: 1.1rem;
+    display: grid;
+    margin-top: 10px;
+  }
+  
+  .profile-form label {
+    margin: 10px;
+  }
+  
+  .profile-submit {
+    display: grid;
+    justify-content: end;
+    padding: 10px;
+  }
