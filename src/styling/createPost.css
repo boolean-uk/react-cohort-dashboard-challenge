@@ -1,0 +1,54 @@
+/* Container that holds all input elements */
+.post-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Avatar styling */
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #64dc78; /* Green background for avatar */
+    color: #000046; /* Dark blue text color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  /* Input styling */
+  .post-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e9edf5; /* Light gray-blue background */
+    color: #333;
+    font-size: 16px;
+    outline: none; /* Remove the default outline */
+  }
+  
+  /* Button styling */
+  .post-button {
+    padding: 10px 20px;
+    background-color: #000046; /* Dark blue background */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  /* Add button hover effect */
+  .post-button:hover {
+    background-color: #1b1b54; /* Slightly lighter dark blue */
+  }
+  
