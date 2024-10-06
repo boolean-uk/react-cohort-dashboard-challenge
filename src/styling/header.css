@@ -1,0 +1,12 @@
+.header-container {
+    width: 100%;
+    height: auto;
+    background: rgb(0, 0, 71);
+}
+
+.header-logo-section {
+    padding: 0.8rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

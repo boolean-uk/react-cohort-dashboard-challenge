@@ -1,0 +1,20 @@
+.avatar-container {
+    color: #fff;
+    font-family: sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-background {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: rgb(0, 0, 71);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

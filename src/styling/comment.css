@@ -1,0 +1,56 @@
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.comment-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 1rem;
+
+    margin-left: 1rem;
+}
+
+.comment-content {
+    background: rgba(1, 1, 255, 0.062); 
+    min-width: 300px;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-bottom: 0.8rem;
+    border-radius: 0.35rem;
+}
+
+.comment-content h4 {
+    margin: 0.3rem 0;
+    font-size: 0.85rem;
+}
+
+.comment-content p {
+    padding-right: 8rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #242431;
+}
+
+.see-previous-comments-button {
+    background: none;
+    width: fit-content;
+    color: rgb(44, 44, 78);
+    border: none;
+    font-size: 0.9rem;
+    font-weight: semi-bold;
+    cursor: pointer;
+
+    padding: 0.3rem 1rem;
+    display: flex;
+    justify-content: start;
+    transition: color 0.3s ease;
+}
+
+.see-previous-comments-button:hover {
+    color: rgb(1, 1, 255);
+}
