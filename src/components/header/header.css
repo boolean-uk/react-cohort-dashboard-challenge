@@ -1,0 +1,32 @@
+.header-wrapper {
+    background-color: #000046;
+
+    grid-area: B;
+}
+
+.header-content {
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px 0px 50px;
+}
+
+.header-logo {
+    height: 75%;
+}
+
+.header-profilepicture {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}

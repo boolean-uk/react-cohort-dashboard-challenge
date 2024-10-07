@@ -1,0 +1,266 @@
+.feed-wrapper {
+    grid-area: C;
+    height: 100%;
+    padding: 15px;
+}
+
+/* Post form */
+.postform-wrapper {
+    background-color: #FFF;
+    /*height: 90px;*/
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.postform-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 25px 0px 25px;
+    gap: 10px;
+}
+
+.postform-profilepicture {
+    background-color: #64dc78;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    
+
+}
+.postform-form-wrapper {
+    flex: 1;
+}
+.postform-form {
+    display: flex;
+    gap: 10px;
+}
+
+.postform-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-around;
+}
+
+.postform-input {
+    background-color: #e6ebf5;
+    height: 50px;
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+
+input:focus {
+    outline: none;
+    border:none;
+}
+
+.postform-button {
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    background-color: #000046;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Post list */
+.postlist-wrapper {
+    width: 100%;
+    overflow-y: scroll;
+    height: 1000px;
+    scrollbar-color: #000046 #e6ebf5 ;
+    scrollbar-width: thick;
+  
+}
+
+.postlist-empty {
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.postlist-empty > p {
+    color: #000046;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.postitem-wrapper {
+    background-color: #FFF;
+    height: auto;
+    color: black;
+    padding: 20px 25px 20px 25px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.postbody-wrapper {
+    height: auto;
+}
+
+.postbody-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.postbody-headercontent {
+    letter-spacing: 0px;
+}
+.postbody-headercontent p {
+    margin: 0; 
+    margin-bottom: 5px; 
+}
+
+.postbody-headercontent p:nth-of-type(1) {
+    font-weight: 700;
+    /* Styles for the second <p> tag */
+    color: #05054a;
+}
+
+.postbody-headercontent p:nth-of-type(2) {
+    font-weight: 600;
+    /* Styles for the second <p> tag */
+    color: #05054a;
+
+}
+
+
+.postbody-profilepicture {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+
+    margin-right: 15px;
+    
+}
+
+.postbody-content {
+    color: black;
+    width: 100%;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+/* Comment */
+
+
+.commentitem-wrapper {
+    margin-top: 15px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.commentitem-showprevious {
+    font-weight: 600;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.commentitem-profilepicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+
+    margin-right: 15px;
+}
+
+.commentitem-content {
+    background-color: #e6ebf5;
+    border-radius: 5px;
+    padding: 5px 25px 5px 25px;
+}
+
+.commentitem-content p:nth-of-type(1) {
+    font-weight: 700;
+}
+
+
+.commentitem-content p:nth-of-type(2) {
+    font-weight: 500;
+}   
+
+
+/* Comment form */
+.commentform-input-wrapper {
+    background-color: #e6ebf5;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.commentform-form {
+    display: flex;
+}
+.commentform-input {
+
+    background-color: #e6ebf5;
+    height: 45px;
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+.commentform-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 7px 7px 7px 7px;
+    border-radius: 50px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .1s;
+
+    &:hover {
+        background-color: #ced8eb;
+    }
+}
