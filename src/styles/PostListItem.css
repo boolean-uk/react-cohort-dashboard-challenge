@@ -1,0 +1,52 @@
+.postListItem {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    gap: 20px;
+    border: 1px solid #eaeaea;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    
+    height: 100%;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    color: #000046;
+    gap: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+.post-title {
+    color: #64648c;
+    font-weight: 500;
+}
+
+.post-content {
+    color: #000046;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 20px;
+}

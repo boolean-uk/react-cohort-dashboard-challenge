@@ -1,0 +1,48 @@
+form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 0px;
+    gap: 10px;
+
+}
+
+.form-content {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    gap: 20px;
+    border: 1px solid #eaeaea;
+ 
+}
+
+button {
+    color: #ffffff;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+}
+
+#content, #title {
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background-color:#e6ebf5;
+    color: #64648c;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+    width: 100px;
+}
+
+#content {
+    width: 400px;
+}

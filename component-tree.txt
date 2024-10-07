@@ -1,0 +1,21 @@
+App
+├── Header
+|
+├── Navbar
+|
+├── Home
+│   ├── PostForm
+│   └── PostList
+│       └── Post
+│           └── PostItem
+│           └── PostCommentList
+|           |   └── PostCommentItem
+│           └── PostCommentForm
+│
+└── Profile
+    └── ProfileForm
+        ├── AddressSection
+        ├── ContactInfoSection
+        ├── CompanyInfoSection
+        └── AccountInfoSection
+

@@ -1,0 +1,25 @@
+.form-content-profile {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group-profile {
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background-color:#e6ebf5;
+    color: #000046;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-size: 14px;
+}

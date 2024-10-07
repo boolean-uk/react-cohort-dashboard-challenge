@@ -1,0 +1,41 @@
+.forms {
+    display: flex;
+    flex-direction:row;
+}
+
+.profile-layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 30px;
+}
+
+.right-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap:25px;
+}
+
+.profile-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    gap: 20px;
+    border: 1px solid #eaeaea;
+    height: 400px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+}
+
+

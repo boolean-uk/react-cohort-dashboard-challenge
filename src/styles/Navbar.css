@@ -1,0 +1,45 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+    
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.navbar-item {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.profile-item, .home-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.profile-item:hover, .home-item:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+img {
+    cursor: pointer;
+}

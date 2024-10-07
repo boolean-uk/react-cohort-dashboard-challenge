@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000046;
+   width: 100%;
+    height: 10vh;
+ 
+  }
+
+  .cohort-svg {
+    width: 80%;
+    height: auto; 
+    padding-left: 80px;
+  }
+
+  .userAvatar {
+    padding-right: 80px;
+  }
+  
+  div {
+    font-size: 18px;
+
+  }
