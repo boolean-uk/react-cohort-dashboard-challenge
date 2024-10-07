@@ -1,0 +1,22 @@
+App
+├── Header
+│   └── UserProfileIcon
+├── PostFeed
+│   ├── PostForm 
+│   └── PostList
+│       └── Post
+│           ├── AuthorInitials
+│           ├── PostTitle
+│           ├── PostContent
+│           └── CommentSection
+│               ├── Comment 
+│               └── CommentForm
+└── Routes
+    └── Header
+    └── Post
+        ├── PostHeader
+        ├── PostTitle
+        ├── PostContent
+        └── CommentSection
+            ├── Comment
+            └── CommentForm
