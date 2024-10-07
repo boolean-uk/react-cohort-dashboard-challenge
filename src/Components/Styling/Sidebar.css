@@ -1,0 +1,32 @@
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .sidebar-icon {
+    margin-right: 0.5rem;
+  }
+  
+  .sidebar-text {
+    font-size: 1rem;
+  }
