@@ -1,0 +1,12 @@
+*{
+  margin:0;
+  padding: 0;
+
+}
+
+.mainBody {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #F0F5FA;
+}

@@ -1,0 +1,151 @@
+.createPostParent {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.postBody {
+  width: 100%;
+}
+
+.createPost {
+  background-color: #ffff;
+  width: 95%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  margin-left: 1rem;
+}
+
+.profileIconDiv {
+  display: flex;
+  align-items: center;
+  background-color: #ffff;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.actionDiv {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  align-items: center;
+}
+
+.createButton {
+    margin-left: 1rem;
+    height: 50%;
+    width: 10%;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+    height: auto;
+}
+
+.postItemParent {
+    background-color: #ffff;
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.postOwner {
+    display: flex;
+    flex-direction: row;
+}
+
+.line {
+    align-self: center;
+    width: 95%;
+    opacity: 50%;
+}
+
+.postName {
+    padding-top: 1rem;
+}
+
+.ownerIcon {
+    padding: 1rem;
+}
+
+.title {
+    color: #64648c;
+}
+
+.postContent {
+    margin-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-width: 50%;
+    max-width: 80%;
+}
+
+.addCommentSection {
+    height: 80px;
+    width: 98%;
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.commentHeader{
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.commentHeader p {
+    font-weight: 600;
+    opacity: 50%;
+}
+
+.commentProfileIcon {
+    margin-right: 1rem;
+}
+
+.commentBody {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.commentContent {
+    min-width: 40%;
+    max-width: 80%;
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    padding: 0.5rem;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.createPostForm {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.noComments {
+    padding-left: 2rem;
+    opacity: 0.5;
+}

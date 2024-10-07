@@ -1,0 +1,16 @@
+.textFieldParent {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.inputField {
+    height: 50%;
+    width: 98%;
+    padding-left: 0.5rem;
+    background-color: #e6ebf5;
+    border: 0px;
+    border-radius: 10px;
+}

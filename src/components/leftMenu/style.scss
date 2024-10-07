@@ -1,0 +1,52 @@
+.leftMenuParent {
+    display: flex;
+    flex-direction: column;
+    width: 8%;
+    height: auto;
+    background-color: #ffff;
+    align-items: center;
+}
+
+.iconDiv {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffff;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top:0px;
+}
+
+.profile {
+    position:sticky;
+    top: 200px;
+}
+
+.homeIcon {
+    width: 50%;
+    padding: 1rem;
+    background-color: transparent;
+}
+
+.iconDiv p {
+    background-color: transparent;
+    font-weight: 500;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.profileIcon {
+    width: 50%;
+    padding: 1rem;
+    background-color: transparent;
+}
+
+.iconDiv:hover {
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+.targeted {
+    background-color: #f1f1f1;
+}
