@@ -1,0 +1,13 @@
+App.jsx
+|
+|-- Components
+    |
+    |-- PostComponents
+    |   |-- CommentPostComponent.jsx
+    |   |-- CreatePostComponent.jsx
+    |   |-- PostComponent.jsx
+    |
+    |-- HeaderComponent.jsx
+    |-- HomeComponent.jsx
+    |-- LeftMenueComponent.jsx
+    |-- ProfileComponent.jsx
