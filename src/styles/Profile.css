@@ -1,0 +1,18 @@
+h2 {
+    margin-left: 20px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 250vh;
+    padding: 30px 120px; 
+}
+  
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0 20px 10px 10px;
+    width: 250vh;
+}

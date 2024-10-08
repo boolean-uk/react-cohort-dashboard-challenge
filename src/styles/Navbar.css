@@ -1,0 +1,35 @@
+.nav-layout {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;   
+}
+
+.navbar {
+  width: 110px;
+  background-color: #F0F5FA;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.navbar-icon {
+  margin: 20px 0;
+}
+
+.navbar-icon:first-child img {
+  margin-left: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.navbar a {
+  color:#64648c;
+}
+
+
