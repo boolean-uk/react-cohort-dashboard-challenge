@@ -1,0 +1,53 @@
+.profile-form {
+    border: none;
+    background-color: #e6ebf5;
+    height: 3rem; 
+    padding-left: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem; 
+    font-weight: bold;
+  }
+
+  .post-separator {
+    border-bottom: 1px solid #d4d4d4;
+    padding: 0;
+    margin-bottom: 1.5em;
+  }
+
+  .profile-name {
+    font-size: 1rem; 
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem; 
+    font-weight: bold;
+  }
+  .profile-name-title {
+   font-size: 1rem; 
+   font-family: 'Trebuchet MS', sans-serif;
+   font-size: 1.7rem; 
+   padding-left: 0.5em;
+   font-weight: bold;
+   margin: 1em;
+   
+ }
+
+ .container {
+  margin-bottom: 4em;
+ }
+
+ .custom-post-button {
+  height: 3rem;
+  width: 15rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  background-color: #000046;
+  color: #fff; 
+  border: none; 
+  cursor: pointer;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem; 
+  font-weight: bold;  
+}
+ 

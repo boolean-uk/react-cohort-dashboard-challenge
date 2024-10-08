@@ -1,0 +1,21 @@
+.bg-header {
+    background-color: #000046; 
+    height: 125px;
+}
+
+.logo-style {
+    height: 60px;
+    padding-left: 4rem;
+}
+
+.profile-initials-circle {
+    width: 3rem; 
+    height: 3rem; 
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #000046;
+}
+
+.profile-link {
+    text-decoration: none;
+}

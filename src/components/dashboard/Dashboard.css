@@ -1,0 +1,220 @@
+.ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-card {
+    padding: 2em;
+    margin-top: 1em;
+    border: 1px solid #e6e6e6;
+}
+
+.post-card-single {
+  margin: 3em;
+  margin-bottom: 6em;
+  margin-top: 2.5em;
+}
+
+  
+  .post-separator {
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+
+  .post-author-name {
+    font-family: 'Trebuchet MS', sans-serif; 
+    font-size: 1.4rem; 
+    font-weight: 700;   
+    color: #26265e;   
+  }
+  
+  .post-author-title {
+    font-family: 'Trebuchet MS', sans-serif; 
+    font-size: 0.9rem;   
+    font-weight: 600;  
+    color: #666;      
+  }
+
+  .post-content {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    color: #343468ef;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-profile-icon {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+  }
+
+  .comment-author-name {
+    font-family: 'Trebuchet MS', sans-serif; 
+    font-size: 1.15rem; 
+    font-weight: bolder;   
+    color: #26265e;    
+  }
+
+  .comment-item {
+    margin-top: 1em;
+  }
+
+  .comment-card {
+    padding: 1.3em;
+    background-color: #e6ebf5;
+    border: 0;
+
+  }
+
+  .post-form-card {
+    padding: 1.4em;
+    border: 1px solid #e6e6e6;
+  }
+
+  .post-form {
+    border: none;
+    background-color: #e6ebf5;
+    height: 3rem; 
+    font-size: 1rem; 
+    padding-left: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold;
+      
+  }
+
+  .post-form::placeholder {
+    color: #0000007a;
+    opacity: 1;  
+}
+  
+  .custom-post-button {
+    height: 3rem;
+    width: 15rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color: #000046;
+    color: #fff; 
+    border: none; 
+    cursor: pointer;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold;  
+}
+
+.custom-post-button:hover {
+  background-color: #000046; 
+  color: #fff; 
+  border: 1px solid #e6e6e6;
+}
+ 
+
+.submit-button-comment {
+  right: 0;
+  top : 5px;
+  background-color: #e6ebf5;
+  color: #fff;
+  border-top-left-radius: 0; 
+  border-bottom-left-radius: 0;
+}
+
+.submit-button-comment:hover {
+  background-color: #e6ebf5;
+  color: #ffff;
+}
+
+
+.comment-form-margin {
+  margin-top: 1em;
+}
+
+.comment-form {
+  border: none;
+    background-color: #e6ebf5;
+    height: 3rem; 
+    font-size: 1rem; 
+    padding-left: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold;
+    border-top-right-radius: 0; 
+  border-bottom-right-radius: 0;
+}
+.comment-form-edit {
+  border: none;
+    background-color: #e6ebf5;
+    height: 3rem; 
+    font-size: 1rem; 
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 40rem;
+    margin-right: 0.2em;
+    
+}
+
+.post-form-edit {
+  border: none;
+    background-color: #e6ebf5;
+    height: 3rem; 
+    font-size: 1rem; 
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem; 
+    font-weight: bold;
+    padding: 1;
+    margin: 0;
+    width: 59.9rem;
+    margin-right: 0.2em;
+    
+}
+
+
+.send-button-style {
+  height: 30px;
+  
+}
+
+.profile-post-link {
+  text-decoration: none;
+  cursor: default;
+}
+
+
+.post-content-comment {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem; 
+  font-weight: bold; 
+  color: #343468ef;
+  padding: 0;
+  margin: 0;
+  margin-left: 0.7em;
+  column-width: auto;
+
+}
+
+.comment-width {
+  max-width: 70cap;
+}
+
+.edit-icons {
+  height: 20px;
+
+}
+
+.bottommargin {
+  margin-bottom: 1rem;
+  margin-left: 0.1em;
+}
+
+
+
+
+

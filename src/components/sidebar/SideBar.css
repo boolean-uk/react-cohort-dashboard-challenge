@@ -1,0 +1,28 @@
+.styling-sidebar {
+    background-color: #ffff; 
+    padding: 0;
+    margin: 0;
+}
+
+.styling-icon {
+    height: 30px;
+    margin-top: 17%;
+    margin-bottom: 6%;
+}
+
+
+.sidebar-button {
+    height: 117px;
+    color: #64648c !important;
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 3%;
+}
+
+
+
+
+.sidebar-button:hover {
+    background-color: #e6ebf5; 
+    color: #64648c;
+}
