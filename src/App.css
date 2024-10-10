@@ -1,0 +1,253 @@
+/*
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+  */
+
+.cohort_manager_title {
+  width: 350px;
+  padding: 10px 0px 10px 100px;
+}
+
+.cohort_manager_header {
+  background-color: #000046;
+  /*
+  display:grid;
+  grid-template-columns: 40fr 5fr ;
+  */
+  
+}
+
+.profile_icon {
+  padding: 10px 0px 15px 700px;
+}
+
+.left_menu{
+  background-color: #ffffff;
+  width: 100px;
+  height: 1000px;
+}
+
+.main_page{
+  background-color: #F0F5FA;
+  height: 1000px;
+  
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr;
+  
+}
+
+.home_button{
+  padding: 10px 0px 10px 30px;
+  /*background-color: #07a348;*/
+}
+
+.profile_button{
+  padding: 10px 29px 10px 30px;
+  /*background-color: #a32b07;*/
+}
+
+.home{
+  /*background-color: #a30774;*/
+  padding: 10px 40px 10px 30px;
+  
+  
+  
+}
+
+.poster{
+  background-color: #ffffff;
+  padding: 10px 40px 10px 30px;
+  border-style: solid;
+  border-color:#bbbaba;
+  display: flex;
+  align-items: center; 
+  border-radius: 10px;
+}
+
+.post{
+  background-color: #ffffff;
+  padding: 10px 40px 10px 30px;
+  border-style: solid;
+  border-color:#bbbaba;
+  border-radius: 10px;
+}
+
+.post_text{
+  margin-left: 20px;
+}
+
+
+
+.post_list{
+  display: grid;
+  row-gap: 10px;
+  
+}
+
+.profile_info{
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-style: solid;
+  border-color:#bbbaba;
+
+}
+
+.personal_data{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px; 
+  background-color: #ffffff;
+}
+
+
+
+.circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  background: #e60a0a;
+  
+  
+}
+
+.up_right{
+  float: right;
+  margin-right:60px;
+  margin-top: 15px
+
+}
+
+.name_title {
+  margin-left: 10px; /* Add some spacing between the profile icon and the name */
+}
+
+.post_header {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+}
+
+.comment {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+  margin-bottom: 16px;
+  
+}
+
+.comment_text {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+  margin-bottom: 16px;
+  
+}
+
+.comment_input {
+  /* This ensures both items are aligned vertically */
+  margin-left: 20px;
+  
+}
+
+.commenter {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+}
+
+.post_submitter {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+  margin-left: 500px;
+  
+
+
+  
+}
+
+.post_submit {
+  
+  background-color: #002368;
+  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  
+}
+
+
+.profile_header {
+  display: flex;
+  align-items: center; /* This ensures both items are aligned vertically */
+  margin-left: 20px
+}
+
+.personal_data {
+  margin-left: 150px
+}
+
+.comment_message {
+  background-color: #e6ebf5;
+}
+
+input {
+  background-color: #e6ebf5;
+}
+
+.name_title {
+  color: #64648c;
+}
+
+.profile_button:hover{
+  background-color: #64dc78;
+}
+
+.home_button:hover{
+  background-color: #64dc78;
+}
+
+
