@@ -1,0 +1,162 @@
+/* General Layout */
+body {
+  background-color: #F0F5FA;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column; 
+  height: 100vh;
+}
+
+.sidebar {
+  width: 40px;
+  background-color: white;
+  color: #000046;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+
+.header {
+  background-color: #000046;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title img {
+  margin-left: 30px; 
+  height: 50px;
+}
+
+.profile-initials-logo {
+  background-color: #64dc78;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 41px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.content {
+  padding: 20px;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  
+}
+
+.post-container {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px; 
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-initials {
+  background-color: #64dc78;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 15px;
+}
+
+.post-title {
+  color: #64648c;
+}
+
+textarea, input {
+  background-color: #e6ebf5;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #000046;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #64dc78;
+}
+
+.comment-item {
+  background-color: #e6ebf5;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-initials {
+  background-color: #64dc78; /* This is the correct color for initials */
+  color: white;
+  font-weight: bold;
+  border-radius: 50%; /* Ensures it stays circular */
+  padding: 10px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  font-size: 16px; /* Adjust font size */
+}
