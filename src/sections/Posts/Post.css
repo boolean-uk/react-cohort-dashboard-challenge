@@ -1,0 +1,54 @@
+/* Post.css */
+
+.post-container {
+  background-color: white; /* Body background colour */
+  border: 1px solid #ccc; /* Optional: Add a border for visibility */
+  border-radius: 8px; /* Rounded corners */
+  margin: 10px 0; /* Margin for spacing between posts */
+  padding: 15px; /* Padding inside the post */
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add margin to create space between username and title */
+}
+
+.avatar {
+  background-color: #000046; /* Header background colour */
+  color: #ffffff; /* Text colour */
+  border-radius: 50%; /* Circular avatar */
+  width: 40px; /* Width of the avatar */
+  height: 40px; /* Height of the avatar */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin-right: 10px; /* Space between avatar and username */
+}
+
+.username {
+  font-weight: bold; /* Bold text for username */
+  color: #000046; /* Username colour */
+  margin: 0; /* Remove default margin */
+}
+
+.post-title {
+  color: #64648c; /* Post title colour */
+  font-size: 1.2rem; /* Font size for post title */
+  cursor: pointer; /* Pointer cursor for clickable title */
+  margin-top: 0; /* Ensure no margin above title */
+  margin-bottom: 10px; /* Add space below the title */
+}
+
+.post-content {
+  margin-top: 10px; /* Margin for post content */
+}
+
+.comments-section {
+  margin-top: 15px; /* Space before comments section */
+}
+
+.divider {
+  border: 1px solid #ccc; /* Style for the horizontal divider */
+  margin: 10px 0; /* Spacing around the divider */
+}
