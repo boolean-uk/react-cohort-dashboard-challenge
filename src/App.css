@@ -1,0 +1,290 @@
+.header {
+  background-color:  #000046;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 60%;
+  padding: 10px 0px 10px 20px;
+}
+
+body {
+  /* Make the body fill all the size of viewport */
+  width: 100%;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex: 1;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 120px;
+  background-color: #ffffff;
+  border-right: 1px solid #dddfe2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f2f5;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 120px);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: #e6ebf5;
+}
+
+.yellow {
+  background-color: yellow;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+.sidebar-icon {
+  cursor: pointer;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.sidebar-icon:hover svg path {
+  fill: #000046;
+  
+}
+
+/* Existing styles... */
+
+.post-feed {
+  margin-top: 20px;
+}
+
+.post-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.post-item h3 {
+  margin-top: 0;
+  color: #1877f2;
+}
+
+.post-item p {
+  margin-bottom: 0;
+}
+
+.post-item form {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 10px;
+}
+
+.post-input {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6ebf5;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.post-input::placeholder {
+  color: #64648c;
+}
+
+.post-button {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  background-color: #000046;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.post-button:hover {
+  background-color: #64dc78;
+}
+
+.avatar {
+
+  color: white;
+  background-color: #64dc78;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.avatar-name {
+  color: black;
+  font-weight: bold;
+}
+
+.active {
+  background: #2c31b830;
+  width: 100%;
+  font-weight: bold;
+}
+
+.post-container {
+
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-title, .post-subtitle {
+  margin: 0;
+}
+
+.post-content {
+  padding: 0.5rem 0;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  background: rgba(6, 33, 121, 0.151);
+  width: 100%;
+}
+
+.postcomment-container {
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.postcomment-input {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6ebf5;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.postcomment-button {
+
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  background-color: #000046;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.commentform {
+
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.post-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Styles for the comments section */
+.post-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.comment-item p {
+  margin: 0;
+}
+
+/* Avatar styles for both posts and comments */
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Set a fixed size for avatar */
+  height: 40px;
+  color: white;
+  background-color: #64dc78; /* Default color */
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.avatar-name {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
