@@ -1,0 +1,25 @@
+.comment{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.comment_content {
+    background-color: #e6ebf5;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment_content p {
+    margin: 10px;
+}
+
+.comment_delete {
+    flex: 1;
+    text-align: right;
+    font-size: 12px;
+    margin-right: 20px;
+    cursor: pointer;
+}

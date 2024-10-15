@@ -1,0 +1,28 @@
+.comment_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.comment_input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #e6ebf5;
+}
+
+.comment_button {
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .comment_button:hover {
+    background-color:#64dc78;
+  }

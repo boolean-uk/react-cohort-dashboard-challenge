@@ -1,0 +1,35 @@
+.postInput {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .postInput__container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .postInput__container input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    background-color: #e6ebf5;
+  }
+  
+  .postInput__button {
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  .postInput__button:hover {
+    background-color:#64dc78;
+  }

@@ -1,0 +1,14 @@
+.coloredCircle{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.coloredCircle p {
+    margin: 0;
+    padding-top: 30%;
+}

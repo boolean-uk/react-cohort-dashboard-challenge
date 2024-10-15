@@ -1,0 +1,70 @@
+.profile_container {
+    padding: 20px;
+    width: 80%;
+}
+
+.profile_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+  }
+
+.profile_header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form_section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    border-top: 1px solid#ddd;
+    width: 48%;
+}
+
+.form_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_item label {
+    font-size: 14px;
+    color: #666;
+    margin: 5px;
+}
+
+.form_item input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #e6ebf5;
+    margin-bottom: 30px;
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.save_button {
+    font-size: 16px;
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save_button:hover {
+    background-color:#64dc78;
+  }
