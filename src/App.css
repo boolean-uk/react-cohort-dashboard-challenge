@@ -1,0 +1,33 @@
+/* App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* Sidebar takes 200px, rest is flexible */
+  grid-template-rows: auto 1fr; /* Header takes auto height, rest fills available space */
+  height: 100vh;
+  grid-template-areas: 
+    "header header"
+    "sidebar content";
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content-area {
+  grid-area: content;
+  padding: 20px;
+}

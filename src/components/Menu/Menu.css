@@ -1,0 +1,24 @@
+/* Menu.css */
+.menu-container {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar content";
+  grid-template-columns: 200px 1fr; /* Sidebar 200px wide, rest flexible */
+  grid-template-rows: auto 1fr; /* Header auto height, content fills remaining */
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #f4f4f4;
+}
+
+.content-area {
+  grid-area: content;
+  padding: 20px;
+}

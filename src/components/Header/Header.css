@@ -1,0 +1,28 @@
+.header {
+  background-color: #000046;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+.header-logo {
+  background-color: #000046;
+  width: 60%;
+  height: 80%;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+}
+
+.header .active-icon {
+  border: 5px solid #000;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #ddd;
+}
+
