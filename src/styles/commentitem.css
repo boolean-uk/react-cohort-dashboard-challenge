@@ -1,0 +1,10 @@
+.author-initials {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+.comment-content {
+    background-color: #F0F5FA;
+    
+}

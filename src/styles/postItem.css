@@ -1,0 +1,28 @@
+.post-content {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.post-content-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+    height: 100px;
+}
+
+.post-content-header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.post-content-header-inner h3, h4 {
+    margin: 0;
+}

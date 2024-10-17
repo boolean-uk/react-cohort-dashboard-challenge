@@ -1,0 +1,25 @@
+/*
+
+Header background, button & font colour: #000046
+Form input background colour: #e6ebf5
+Button hover colour: #64dc78
+Post title colour: #64648c
+Body background colour: #F0F5FA
+Header logo SVG
+Home icon SVG
+Profile icon SVG
+
+
+*/
+
+.main-content {
+    display: flex;
+    width: 100%;
+}
+
+.post-feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
