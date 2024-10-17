@@ -1,0 +1,238 @@
+/*Main definitions*/
+* {
+  font-family: sans-serif;
+}
+
+:root {
+  --colour1: #000046;
+  --colour2: #e6ebf5;
+  --colour3: #64dc78;
+  --colour4: #64648c;
+  --colour5: #F0F5FA;
+}
+
+/* Styling header*/
+
+.headerdiv {
+  width: auto;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: [first] 85% [second] auto;
+  background-color: var(--colour1);
+}
+
+.logoCircle {
+  background-color: #8484c6;
+}
+
+.centeringLogo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 30vmax;
+  margin-left: 5vmax;
+}
+
+.centeringProfileCicle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundInitials {
+
+  width: 10vmin;
+  height: 10vmin;
+  background-color: rgb(152, 202, 234);
+  color:#fbfcfc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(var(30vw));
+  margin-left: 10px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: [first] 15% [second] 85%;
+}
+
+.sidebar {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  grid-column: 1;
+  height: 120vh;
+  padding: 0 0 0 0;
+}
+
+
+
+/* Links in sidebar */
+.links {
+  list-style: none;
+  padding: 0; 
+}
+
+.links li {                    
+  align-items: center;  
+  text-align: center; 
+
+}
+
+.homeIcon{
+  width: 4em; 
+  height: 4em; 
+}
+
+.profileIcon{
+  width: 4em; 
+  height: 4em; 
+}
+
+.links a {
+  text-decoration: none;
+}
+.links a p {
+  text-decoration: none;
+}
+
+/*Content*/
+
+.contentclass {
+  grid-column: 2;
+  background-color: #79bad4;
+  height:100%;
+  width: 100%;
+}
+
+.createTopic{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colour2);
+  padding:0 0 0 0;
+}
+
+
+.fillinform{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.helpme{
+  display:flex;
+  align-items: center;
+}
+
+
+.fillinform textarea {
+  flex-grow: 1;              
+  height: 100%;
+  width: 50vw;               
+  padding: 2vw;              
+  border-radius: 5px;         
+  border: 1px solid #ccc;     
+  resize: none;              
+}
+
+.fillinform input[type="submit"]{
+  margin-bottom: 10px;
+  margin-left: 2%;
+  height: 100%;
+  width: 100%;
+  padding: 2.3vw;
+  border: 1px solid #ccc;
+  color:var(--colour2);
+  background-color: var(--colour1);
+  border-radius: 11px; 
+  font-size:1em;
+}
+
+.postList{
+  list-style-type: none;
+}
+.single-post{
+  transform: scale(0.7);
+}
+
+.listelemnt{
+  border-radius: 5px;
+  background-color: #e6ebf5;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+.listelemnt div{
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  
+}
+
+.listelemnt p{
+  margin-left: 10px;
+}
+
+.listelemnt h3{
+  margin-left:10px;
+}
+
+.listelemnt ul{
+  list-style-type: none;
+} 
+
+.comment{
+  display:flex;
+  height: 100px;
+  justify-content:left;
+  align-items: center;
+  background-color: #ccdbea;
+  margin-right: 30px;
+  margin-bottom: 10px ;
+  padding: 5px;
+  border-radius: 11px; 
+}
+
+.commentcontent{
+  margin-left:10px;
+}
+
+.commentcircle{
+  transform: scale(0.75);
+}
+
+.sumbitcommentbutton textarea {
+  flex-grow: 1;              
+  height: 100%;
+  width: 30vw;               
+  padding: 1vw;              
+  border-radius: 5px;         
+  border: 1px solid #ccc;     
+  resize: none;              
+}
+
+.sumbitcommentbutton input[type="submit"]{
+  margin-bottom: 10px;
+  margin-left: 2%;
+  height: 100%;
+  width: 100%;
+  padding: 1vw;
+  border: 1px solid #ccc;
+  color:var(--colour2);
+  background-color: var(--colour1);
+  border-radius: 11px; 
+  font-size:1em;
+}
+.horizontal{
+  display:flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
