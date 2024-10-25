@@ -1,0 +1,89 @@
+/* Header background, button & font colour */
+header {
+  background-color: #000046;
+  color: #000046;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  color: #000046;
+}
+
+/* Button hover colour */
+button:hover {
+  background-color: #64dc78;
+}
+
+.initials-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #24539e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Form input background colour */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
+  background-color: #e6ebf5;
+}
+
+/* Post title colour */
+.post-title {
+  color: #64648c;
+}
+
+/* Body background colour */
+body {
+  background-color: #F0F5FA;
+}
