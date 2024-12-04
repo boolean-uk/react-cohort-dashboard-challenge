@@ -1,0 +1,55 @@
+
+
+.comment {
+    display: flex;
+    position: relative;
+}
+
+.comment-profile-content {
+    position: relative;
+
+}
+
+.comment-profile-logo {
+    border-radius: 100px;
+    background-color: #64dc78;
+    height: 2.5rem;
+    text-align: center;
+    width: 2.5rem;
+    font-weight: bold;
+    margin-left: 3px;
+    margin-right: 9px;
+    position: relative;
+}
+
+.initial-comment {
+    
+    margin-top: 7px;
+}
+
+.comment-content {
+    background-color: #e6ebf5;
+    border-radius: 8px; 
+    padding: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.comment-username {
+    color: #000046;
+    font-size: 0.9rem; 
+    font-weight: bold;
+}
+
+.comment-text {
+    color: #000046;
+    font-size: 0.8rem; 
+    font-weight: normal;
+    word-wrap: break-word; 
+    line-height: 1.4;
+}

@@ -1,0 +1,121 @@
+
+
+.post {
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-bottom: 20px; /* Space below the create post section */
+    width: calc(100% - 40px); /* Full width minus some padding/margin */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px;
+}
+
+
+.post-profile-logo {
+    border-radius: 100px;
+    background-color: #64dc78;
+    height: 3rem;
+    text-align: center;
+    width: 3rem;
+    font-weight: bold;
+    margin-left: 3px;
+    margin-right: 9px;
+}
+
+.initial-post {
+    margin-top: 11px;
+}
+
+.post-top-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.post-username {
+    display: flex;
+    position: relative;
+    color: #000046;
+    font-weight: bold; 
+    font-size: 1rem; 
+}
+
+
+.post-title {
+    display: flex;
+    position: relative;
+    color: #64648c;
+    margin-top: 2px; 
+    font-size: 0.9rem; 
+    font-weight: normal;
+}
+
+
+.post-content {
+    display: flex;
+    position: relative;
+    color: #000046;
+
+}
+
+.post-divider {
+    border: none; /* Remove default border */
+    height: 1px; /* Height of the line */
+    background-color: #e6e6e6; /* Color of the line */
+    margin: 10px 0; /* Space above and below the line */
+}
+
+.your-comment-profile-logo{
+    border-radius: 100px;
+    background-color: #64dc78;
+    height: 2.5rem;
+    text-align: center;
+    width: 2.5rem;
+    font-weight: bold;
+    margin-left: 3px;
+    margin-right: 9px;
+    position: relative;
+}
+
+.initial-your-comment {
+    margin-top: 7px;
+}
+
+.your-comment{
+    display: flex;
+    position: relative;
+}
+
+.comment-input {
+    position: relative;
+    width: 80%;
+    resize: none;
+    background-color: #e6ebf5;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.comment-button {
+    background-color: #000046;
+    color: white;
+    
+    border-radius: 4px;
+    padding-inline: 10px;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.comment-button:hover {
+    background-color: #64dc78;
+}

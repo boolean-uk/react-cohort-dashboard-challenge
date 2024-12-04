@@ -1,0 +1,29 @@
+
+
+.left-menu {
+    background-color: white;
+    position: relative;
+    z-index: 1000;
+    width: 115px; /* Width of the left menu */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    height: calc(100vh - 60px); /* Full height minus header */
+    padding-top: 20px; /* Optional padding at the top */
+}
+
+.home-logo, .profile-logo {
+    width: 100%; 
+    padding: 20px 0; 
+    border: none; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    transition: background-color 0.3s, transform 0.3s;
+    background-color: white;
+}
+
+.home-logo:hover, .profile-logo:hover {
+    background-color: #64dc78;
+}
+
