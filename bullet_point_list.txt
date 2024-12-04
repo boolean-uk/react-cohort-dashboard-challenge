@@ -1,0 +1,19 @@
+Header is it's own component to keep the logo and a compact version of the Certificate
+
+SideMenu mostly keeps the buttons that links to various routes in body
+SideMenu directly changes the content presented
+
+Body has multiple states. Posts and Profile for now.
+
+Posts will have the CreatePost component at the top of it. Below it will list all posts in a Post component
+
+Post is composed of a Certificate of who posted, and what they posted, and lists maxium three Comment components
+You can also Comment on this Post.
+
+Comment is composed of a Certificate of who commented, and what they wrote.
+
+Certificate is mostly just a profile picture, with a username and status.
+It has two states, a compact state and a expanded state
+
+Profile is info about the current profile used. They may change any related info to that profile.
+This is hooked to the /contact endpoint, and will generate PUT requests
