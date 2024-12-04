@@ -1,0 +1,13 @@
+.Comment-main{
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    padding: 20px;
+}
+
+.Comment-author-text-container{
+    border-radius: 7px;
+    background-color: lightgray;
+    padding: 20px;
+    margin-left: 20px;
+}

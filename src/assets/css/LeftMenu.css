@@ -1,0 +1,24 @@
+.LeftMenu-main{
+    width: 150px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.LeftMenu-main div {
+    background-color: white;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.LeftMenu-main div:hover {
+    background-color: aliceblue;
+}
+
+.LeftMenu-main div img{
+    width: 50px;
+}

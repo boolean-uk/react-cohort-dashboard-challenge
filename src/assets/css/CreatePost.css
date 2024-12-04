@@ -1,0 +1,37 @@
+.CreatePost-main{
+    background-color: white;
+    margin: 30px;
+    border-radius: 7px;
+}
+
+.CreatePost-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.CreatePost-container *{
+    margin: 10px;
+}
+
+.CreatePost-container input[type=text]{
+    border-radius: 7px;
+    width: 65%;
+    padding: 18px;
+    padding-left: 20px;
+    font-size: 20px;
+    border: none;
+    background-color: #e6ebf5;
+    height: 23px;
+}
+
+.CreatePost-container input[type=submit]{
+    width: 19%;
+    border-radius: 7px;
+    border: none;
+    background-color: #000046;
+    color: #fff !important;
+    font-size: 20px;
+    padding: 18px;
+}

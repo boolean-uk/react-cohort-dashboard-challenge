@@ -1,0 +1,17 @@
+.PostComment-main{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.PostComment-main input[type=text]{
+    margin-left: 20px;
+    border-radius: 7px;
+    width: 90%;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    height: 20px;
+    background-color: #e6ebf5;
+    border: none;
+}

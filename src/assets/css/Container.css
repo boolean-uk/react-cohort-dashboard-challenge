@@ -1,0 +1,4 @@
+.LeftMenu-Dashboard-container{
+    display: flex;
+    flex-direction: row;
+}
