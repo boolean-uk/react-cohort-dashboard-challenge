@@ -1,0 +1,41 @@
+.add-comment {
+  margin-top: 2rem;
+  grid-column: 1 / span2;
+  display: grid;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 56px;
+}
+
+.add-comment input {
+  width: calc(100% - 16px);
+  height: 56px;
+  margin: 0 0 0 16px;
+}
+
+.comment-field {
+  display: flex;
+  align-items: center;
+}
+
+.comment-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -48px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #c8d2e6;
+  padding: 0;
+  border: 0;
+}
+
+.comment-button {
+  margin: 0 0 0 5px;
+  padding: 0;
+  height: 28px;
+  opacity: 85%;
+}

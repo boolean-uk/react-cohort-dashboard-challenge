@@ -1,0 +1,10 @@
+.profile-picture {
+  background-color: #64dc78;
+  color: #000046;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+}

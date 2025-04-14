@@ -1,0 +1,28 @@
+header {
+  grid-column: 1 / span 2;
+  width: 100%;
+  color: white;
+  background-color: #000046;
+  display: grid;
+  align-items: center;
+  height: 96px;
+  padding: 20px 64px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+header img {
+  display: inline;
+  height: 56px;
+}

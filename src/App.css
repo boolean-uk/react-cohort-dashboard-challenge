@@ -1,0 +1,27 @@
+@font-face {
+  font-display: swap;
+  font-family: Gilroy-Medium;
+  src: url(src/assets/gilroy-medium.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Gilroy-Medium;
+}
+
+body,
+#root {
+  display: grid;
+  background-color: #f0f5fa;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 152px 1fr;
+  grid-template-rows: 96px 1fr;
+  overflow: hidden;
+}
+
+main {
+  overflow: auto;
+}

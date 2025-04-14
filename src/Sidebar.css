@@ -1,0 +1,28 @@
+nav {
+  background-color: white;
+  grid-row: 2;
+  grid-column: auto;
+  border: 1px;
+  border-color: #e6ebf5;
+  border-style: solid;
+}
+
+.nav-button {
+  display: grid;
+  height: 136px;
+  justify-content: center;
+  align-content: space-around;
+  padding: 32px;
+  color: #64648c;
+}
+
+.nav-button img {
+  display: flex;
+  height: 36px;
+  margin: auto;
+}
+
+.selected {
+  background-color: #e6ebf5;
+  color: #000046;
+}
