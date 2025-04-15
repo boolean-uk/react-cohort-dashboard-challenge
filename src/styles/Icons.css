@@ -1,0 +1,15 @@
+.icon {
+  display: block;
+  width: 2rem;
+  height: auto;
+  fill: var(--secondary);
+}
+
+.icon-label {
+  text-decoration: none !important;
+  color: var(--secondary);
+}
+
+.send-icon {
+  fill: var(--text-color);
+}

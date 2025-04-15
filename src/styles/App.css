@@ -1,0 +1,45 @@
+.style {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: row; /* Sidebar and content are side by side */
+  height: calc(100vh - 4rem); /* Ensures it fills the rest of the viewport */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Takes up remaining space */
+  padding: 2rem;
+  gap: 1rem;
+  overflow: scroll;
+  /* max-height: calc(100vh - 5rem); */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}

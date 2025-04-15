@@ -1,0 +1,21 @@
+:root {
+  --primary: #000046;
+  --secondary: #64648c;
+  --btn-hover: #64dc78;
+  --btn-active: #4ebd61;
+  --input-bg: #e6ebf5;
+  --body-bg: #f0f5fa;
+  --element-bg: white;
+
+  --text-color: white;
+
+  color: var(--primary);
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: medium;
+}
+
+body {
+  background-color: var(--body-bg);
+  margin: 0;
+}

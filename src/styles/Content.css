@@ -1,0 +1,50 @@
+.post-title {
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.post-title:hover {
+  color: var(--secondary);
+  box-shadow: 0 2px 1px -1px gray;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.post-title-container h4,
+h5 {
+  margin: 0;
+}
+
+.post-content {
+  color: var(--primary);
+}
+
+hr {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.comment {
+  background-color: var(--input-bg);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.7rem;
+  gap: 0;
+}
+
+.comment h4,
+h5 {
+  margin: 0;
+}
